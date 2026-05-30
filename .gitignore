@@ -1,0 +1,13 @@
+# Dependencies
+node_modules/
+
+# ANTLR local cache/output
+.antlr/
+grammar/.antlr/
+
+# Local/reference grammar notes
+Grammar.md
+Grammer.md
+
+# Build output
+dist/
