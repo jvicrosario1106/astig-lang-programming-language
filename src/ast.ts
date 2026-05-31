@@ -137,7 +137,9 @@ function buildStatement(ctx: StatementContext): StatementNode {
   throw new Error(`Unsupported statement: ${ctx.text}`);
 }
 
-function buildVariableDeclaration(ctx: VariableDeclarationContext): VariableDeclarationNode {
+function buildVariableDeclaration(
+  ctx: VariableDeclarationContext,
+): VariableDeclarationNode {
   return {
     type: 'VariableDeclaration',
     name: ctx.IDENTIFIER().text,
@@ -153,7 +155,9 @@ function buildPrintStatement(ctx: PrintStatementContext): PrintStatementNode {
   };
 }
 
-function buildFunctionDeclaration(ctx: FunctionDeclarationContext): FunctionDeclarationNode {
+function buildFunctionDeclaration(
+  ctx: FunctionDeclarationContext,
+): FunctionDeclarationNode {
   return {
     type: 'FunctionDeclaration',
     name: ctx.IDENTIFIER().text,
@@ -171,7 +175,9 @@ function buildParameter(ctx: ParameterContext): ParameterNode {
   };
 }
 
-function buildReturnStatement(ctx: ReturnStatementContext): ReturnStatementNode {
+function buildReturnStatement(
+  ctx: ReturnStatementContext,
+): ReturnStatementNode {
   const expression = ctx.expression();
 
   return {
@@ -218,7 +224,8 @@ function buildExpression(ctx: ExpressionContext): ExpressionNode {
   }
 
   const expressions = ctx.getRuleContexts(ExpressionContext);
-  const operatorToken = (ctx as any)._op ?? ctx.ADD() ?? ctx.SUB() ?? ctx.MUL() ?? ctx.DIV();
+  const operatorToken =
+    (ctx as any)._op ?? ctx.ADD() ?? ctx.SUB() ?? ctx.MUL() ?? ctx.DIV();
 
   if (expressions.length === 2 && operatorToken) {
     return {

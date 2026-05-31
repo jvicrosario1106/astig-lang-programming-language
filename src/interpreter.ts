@@ -20,7 +20,10 @@ function executeStatement(
 ): void {
   switch (statement.type) {
     case 'VariableDeclaration':
-      environment.set(statement.name, evaluateExpression(statement.value, environment));
+      environment.set(
+        statement.name,
+        evaluateExpression(statement.value, environment),
+      );
       return;
 
     case 'PrintStatement':
@@ -89,6 +92,8 @@ function evaluateExpression(
     }
 
     case 'FunctionCall':
-      throw new Error(`Function calls are not implemented yet: ${expression.name}`);
+      throw new Error(
+        `Function calls are not implemented yet: ${expression.name}`,
+      );
   }
 }
