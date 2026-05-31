@@ -10,96 +10,22 @@ import {
   StatementContext,
   VariableDeclarationContext,
 } from '../generated/grammar/AstigLangParser';
-
-export type ProgramNode = {
-  type: 'Program';
-  body: StatementNode[];
-};
-
-export type StatementNode =
-  | VariableDeclarationNode
-  | PrintStatementNode
-  | FunctionDeclarationNode
-  | ReturnStatementNode
-  | BlockStatementNode;
-
-export type VariableDeclarationNode = {
-  type: 'VariableDeclaration';
-  name: string;
-  declaredType?: string;
-  value: ExpressionNode;
-};
-
-export type PrintStatementNode = {
-  type: 'PrintStatement';
-  value: ExpressionNode;
-};
-
-export type FunctionDeclarationNode = {
-  type: 'FunctionDeclaration';
-  name: string;
-  parameters: ParameterNode[];
-  returnType?: string;
-  body: StatementNode[];
-};
-
-export type ParameterNode = {
-  type: 'Parameter';
-  name: string;
-  declaredType?: string;
-};
-
-export type ReturnStatementNode = {
-  type: 'ReturnStatement';
-  value?: ExpressionNode;
-};
-
-export type BlockStatementNode = {
-  type: 'BlockStatement';
-  body: StatementNode[];
-};
-
-export type ExpressionNode =
-  | NumberLiteralNode
-  | StringLiteralNode
-  | IdentifierNode
-  | FunctionCallNode
-  | BinaryExpressionNode
-  | UnaryExpressionNode;
-
-export type NumberLiteralNode = {
-  type: 'NumberLiteral';
-  value: number;
-};
-
-export type StringLiteralNode = {
-  type: 'StringLiteral';
-  value: string;
-};
-
-export type IdentifierNode = {
-  type: 'Identifier';
-  name: string;
-};
-
-export type FunctionCallNode = {
-  type: 'FunctionCall';
-  name: string;
-  arguments: ExpressionNode[];
-};
-
-export type BinaryExpressionNode = {
-  type: 'BinaryExpression';
-  operator: '+' | '-' | '*' | '/';
-  left: ExpressionNode;
-  right: ExpressionNode;
-};
-
-export type UnaryExpressionNode = {
-  type: 'UnaryExpression';
-  operator: '-';
-  argument: ExpressionNode;
-};
+import { ProgramNode } from './models/ProgramNode';
+import {
+  StatementNode,
+  VariableDeclarationNode,
+  StatementNodeType,
+  PrintStatementNode,
+  FunctionDeclarationNode,
+  ReturnStatementNode,
+  BlockStatementNode,
+} from './models/StatementNode';
+import { ParameterNode } from './models/ParameterNode';
+import {
+  FunctionCallNode,
+  ExpressionNodeType,
+  ExpressionNode,
+} from './models/ExpressionNode';
 
 export function buildAst(ctx: ProgramContext): ProgramNode {
   return {
@@ -141,7 +67,7 @@ function buildVariableDeclaration(
   ctx: VariableDeclarationContext,
 ): VariableDeclarationNode {
   return {
-    type: 'VariableDeclaration',
+    type: StatementNodeType.VariableDeclaration,
     name: ctx.IDENTIFIER().text,
     declaredType: ctx.typeAnnotation()?.dataType().text,
     value: buildExpression(ctx.expression()),
@@ -150,7 +76,7 @@ function buildVariableDeclaration(
 
 function buildPrintStatement(ctx: PrintStatementContext): PrintStatementNode {
   return {
-    type: 'PrintStatement',
+    type: StatementNodeType.PrintStatement,
     value: buildExpression(ctx.expression()),
   };
 }
@@ -159,7 +85,7 @@ function buildFunctionDeclaration(
   ctx: FunctionDeclarationContext,
 ): FunctionDeclarationNode {
   return {
-    type: 'FunctionDeclaration',
+    type: StatementNodeType.FunctionDeclaration,
     name: ctx.IDENTIFIER().text,
     parameters: ctx.parameterList()?.parameter().map(buildParameter) ?? [],
     returnType: ctx.returnTypeAnnotation()?.returnDataType().text,
@@ -181,14 +107,14 @@ function buildReturnStatement(
   const expression = ctx.expression();
 
   return {
-    type: 'ReturnStatement',
+    type: StatementNodeType.ReturnStatement,
     value: expression ? buildExpression(expression) : undefined,
   };
 }
 
 function buildBlockStatement(ctx: BlockContext): BlockStatementNode {
   return {
-    type: 'BlockStatement',
+    type: StatementNodeType.BlockStatement,
     body: ctx.statement().map(buildStatement),
   };
 }
@@ -202,7 +128,7 @@ function buildExpression(ctx: ExpressionContext): ExpressionNode {
   const numberToken = ctx.NUMBER();
   if (numberToken) {
     return {
-      type: 'NumberLiteral',
+      type: ExpressionNodeType.NumberLiteral,
       value: Number(numberToken.text),
     };
   }
@@ -210,7 +136,7 @@ function buildExpression(ctx: ExpressionContext): ExpressionNode {
   const stringToken = ctx.STRING();
   if (stringToken) {
     return {
-      type: 'StringLiteral',
+      type: ExpressionNodeType.StringLiteral,
       value: JSON.parse(stringToken.text) as string,
     };
   }
@@ -218,7 +144,7 @@ function buildExpression(ctx: ExpressionContext): ExpressionNode {
   const identifierToken = ctx.IDENTIFIER();
   if (identifierToken) {
     return {
-      type: 'Identifier',
+      type: ExpressionNodeType.Identifier,
       name: identifierToken.text,
     };
   }
@@ -229,7 +155,7 @@ function buildExpression(ctx: ExpressionContext): ExpressionNode {
 
   if (expressions.length === 2 && operatorToken) {
     return {
-      type: 'BinaryExpression',
+      type: ExpressionNodeType.BinaryExpression,
       operator: operatorToken.text as '+' | '-' | '*' | '/',
       left: buildExpression(expressions[0]),
       right: buildExpression(expressions[1]),
@@ -238,7 +164,7 @@ function buildExpression(ctx: ExpressionContext): ExpressionNode {
 
   if (expressions.length === 1 && ctx.SUB()) {
     return {
-      type: 'UnaryExpression',
+      type: ExpressionNodeType.UnaryExpression,
       operator: '-',
       argument: buildExpression(expressions[0]),
     };
@@ -253,7 +179,7 @@ function buildExpression(ctx: ExpressionContext): ExpressionNode {
 
 function buildFunctionCall(ctx: FunctionCallContext): FunctionCallNode {
   return {
-    type: 'FunctionCall',
+    type: ExpressionNodeType.FunctionCall,
     name: ctx.IDENTIFIER().text,
     arguments: ctx.argumentList()?.expression().map(buildExpression) ?? [],
   };

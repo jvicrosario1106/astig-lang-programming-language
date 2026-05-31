@@ -1,4 +1,6 @@
-import { ExpressionNode, ProgramNode, StatementNode } from './ast';
+import { ExpressionNode, ExpressionNodeType } from './models/ExpressionNode';
+import { ProgramNode } from './models/ProgramNode';
+import { StatementNode, StatementNodeType } from './models/StatementNode';
 
 type RuntimeValue = number | string;
 
@@ -19,24 +21,24 @@ function executeStatement(
   output: string[],
 ): void {
   switch (statement.type) {
-    case 'VariableDeclaration':
+    case StatementNodeType.VariableDeclaration:
       environment.set(
         statement.name,
         evaluateExpression(statement.value, environment),
       );
       return;
 
-    case 'PrintStatement':
+    case StatementNodeType.PrintStatement:
       output.push(String(evaluateExpression(statement.value, environment)));
       return;
 
-    case 'FunctionDeclaration':
+    case StatementNodeType.FunctionDeclaration:
       return;
 
-    case 'ReturnStatement':
+    case StatementNodeType.ReturnStatement:
       throw new Error('Return statements are only valid inside function calls');
 
-    case 'BlockStatement':
+    case StatementNodeType.BlockStatement:
       for (const nestedStatement of statement.body) {
         executeStatement(nestedStatement, environment, output);
       }
@@ -49,11 +51,11 @@ function evaluateExpression(
   environment: Map<string, RuntimeValue>,
 ): RuntimeValue {
   switch (expression.type) {
-    case 'NumberLiteral':
-    case 'StringLiteral':
+    case ExpressionNodeType.NumberLiteral:
+    case ExpressionNodeType.StringLiteral:
       return expression.value;
 
-    case 'Identifier': {
+    case ExpressionNodeType.Identifier: {
       const value = environment.get(expression.name);
       if (value === undefined) {
         throw new Error(`Undefined variable "${expression.name}"`);
@@ -62,7 +64,7 @@ function evaluateExpression(
       return value;
     }
 
-    case 'BinaryExpression': {
+    case ExpressionNodeType.BinaryExpression: {
       const left = evaluateExpression(expression.left, environment);
       const right = evaluateExpression(expression.right, environment);
 
@@ -83,7 +85,7 @@ function evaluateExpression(
       }
     }
 
-    case 'UnaryExpression': {
+    case ExpressionNodeType.UnaryExpression: {
       const value = evaluateExpression(expression.argument, environment);
       if (typeof value !== 'number') {
         throw new Error('Unary minus can only be applied to numbers');
@@ -91,7 +93,7 @@ function evaluateExpression(
       return -value;
     }
 
-    case 'FunctionCall':
+    case ExpressionNodeType.FunctionCall:
       throw new Error(
         `Function calls are not implemented yet: ${expression.name}`,
       );
