@@ -7,7 +7,13 @@ import { runProgram } from './interpreter';
 
 const defaultCode = `
 v4r x4 = 10;
-pr1nt(x4)
+v4r y4 = 3;
+
+pr1nt(x4 + y4);
+
+pr1nt((x4 - y4) * 2);
+
+pr1nt(x4 / y4);
 `;
 
 const inputArg = process.argv.slice(2).join(' ');
@@ -31,6 +37,7 @@ if (parser.numberOfSyntaxErrors > 0) {
   process.exitCode = 1;
 } else {
   const ast = buildAst(tree);
+
   const output = runProgram(ast);
 
   console.log('Parse Tree:');

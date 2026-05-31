@@ -7,12 +7,12 @@ program: statement* EOF;
 // All valid top-level or block-level statements.
 // Add new language features here when they should behave like statements.
 statement
-    : variableDeclaration
-    | printStatement
+    : variableDeclaration ';'?
+    | printStatement ';'?
     | ifStatement
     | whileStatement
     | functionDeclaration
-    | returnStatement
+    | returnStatement ';'?
     | block
     ;
 
@@ -118,9 +118,12 @@ returnDataType
     ;
 
 // Expressions are values or computations.
-// This is still simple: calls, numbers, strings, and identifiers.
 expression
-    : functionCall
+    : expression op=(MUL|DIV) expression
+    | expression op=(ADD|SUB) expression
+    | SUB expression
+    | '(' expression ')'
+    | functionCall
     | NUMBER
     | STRING
     | IDENTIFIER
@@ -256,6 +259,13 @@ IDENTIFIER
     | [@!] [a-zA-Z0-9_@!]*
     | [4021] [a-zA-Z_@!] [a-zA-Z0-9_@!]*
     ;
+
+// Arithmetic operators.
+ADD: '+';
+SUB: '-';
+MUL: '*';
+DIV: '/';
+SEMICOLON: ';';
 
 // Basic literals.
 NUMBER: [0-9]+;

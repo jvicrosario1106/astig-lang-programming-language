@@ -63,7 +63,9 @@ export type ExpressionNode =
   | NumberLiteralNode
   | StringLiteralNode
   | IdentifierNode
-  | FunctionCallNode;
+  | FunctionCallNode
+  | BinaryExpressionNode
+  | UnaryExpressionNode;
 
 export type NumberLiteralNode = {
   type: 'NumberLiteral';
@@ -84,6 +86,19 @@ export type FunctionCallNode = {
   type: 'FunctionCall';
   name: string;
   arguments: ExpressionNode[];
+};
+
+export type BinaryExpressionNode = {
+  type: 'BinaryExpression';
+  operator: '+' | '-' | '*' | '/';
+  left: ExpressionNode;
+  right: ExpressionNode;
+};
+
+export type UnaryExpressionNode = {
+  type: 'UnaryExpression';
+  operator: '-';
+  argument: ExpressionNode;
 };
 
 export function buildAst(ctx: ProgramContext): ProgramNode {
@@ -200,6 +215,30 @@ function buildExpression(ctx: ExpressionContext): ExpressionNode {
       type: 'Identifier',
       name: identifierToken.text,
     };
+  }
+
+  const expressions = ctx.getRuleContexts(ExpressionContext);
+  const operatorToken = (ctx as any)._op ?? ctx.ADD() ?? ctx.SUB() ?? ctx.MUL() ?? ctx.DIV();
+
+  if (expressions.length === 2 && operatorToken) {
+    return {
+      type: 'BinaryExpression',
+      operator: operatorToken.text as '+' | '-' | '*' | '/',
+      left: buildExpression(expressions[0]),
+      right: buildExpression(expressions[1]),
+    };
+  }
+
+  if (expressions.length === 1 && ctx.SUB()) {
+    return {
+      type: 'UnaryExpression',
+      operator: '-',
+      argument: buildExpression(expressions[0]),
+    };
+  }
+
+  if (expressions.length === 1) {
+    return buildExpression(expressions[0]);
   }
 
   throw new Error(`Unsupported expression: ${ctx.text}`);

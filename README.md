@@ -10,14 +10,18 @@
 - [ ] Add `while`, `for`, `do-while`, `repeat-until`, and `foreach` syntax
 - [ ] Add `break` and `continue` keywords for loop control
 - [ ] Add full expression grammar for:
-  - arithmetic operators (`+`, `-`, `*`, `/`, `%`)
-  - relational operators (`==`, `!=`, `<`, `>`, `<=`, `>=`)
-  - logical operators (`&&`, `||`, `!`)
-  - unary operators and parenthesized expressions
-  - boolean literals and comparisons
+  - [x] arithmetic operators (`+`, `-`, `*`, `/`)
+  - [ ] modulus operator (`%`)
+  - [ ] relational operators (`==`, `!=`, `<`, `>`, `<=`, `>=`)
+  - [ ] logical operators (`&&`, `||`, `!`)
+  - [x] unary operators and parenthesized expressions
+  - [ ] boolean literals and comparisons
 - [ ] Add array literals, indexing, and record access syntax
 - [ ] Add user-defined type declarations and type aliasing support
 - [ ] Add token rules for all jejemonized keywords and identifiers
+- [ ] Define keywords and reserved words consistently (`print`, `if`, `else`, `while`, `for`, `do`, `repeat`, `until`, `function`, `return`, `const`, `var`, `let`)
+- [ ] Design operator precedence and associativity in grammar
+- [ ] Support parenthesized expressions and unary operators cleanly in the parser
 
 ### AST / Semantic model
 
@@ -26,11 +30,15 @@
   - `WhileStatement`, `ForStatement`, `DoWhileStatement`, `RepeatUntilStatement`, `ForeachStatement`
   - `AssignmentStatement`, `ConstDeclaration`, `VariableDeclaration`
   - `BreakStatement`, `ContinueStatement`
-  - `BinaryExpression`, `UnaryExpression`, `BooleanLiteral`, `ArrayExpression`, `RecordExpression`
+  - [x] `BinaryExpression`
+  - [x] `UnaryExpression`
+  - `BooleanLiteral`, `ArrayExpression`, `RecordExpression`
 - [ ] Build type annotation nodes for variables, parameters, and function return types
 - [ ] Build function call AST nodes with argument lists
 - [ ] Build symbol table / scope model for declarations and lookups
 - [ ] Build AST for `main` program structure and module imports
+- [ ] Represent block scope and nested statements explicitly in the AST
+- [ ] Keep AST node kinds minimal, composable, and easy to evaluate
 
 ### Interpreter / Runtime
 
@@ -39,7 +47,8 @@
 - [ ] Implement assignment semantics separate from declaration
 - [ ] Execute `if / else if / else` chains correctly
 - [ ] Execute all loop forms and support `break` / `continue`
-- [ ] Evaluate arithmetic, relational, and logical expressions
+- [x] Evaluate arithmetic expressions
+- [ ] Evaluate relational and logical expressions
 - [ ] Evaluate boolean expressions and truthiness rules safely
 - [ ] Implement function definition, call, return, and parameter passing
 - [ ] Execute `print` and add input/read support if required by spec
@@ -47,6 +56,9 @@
 - [ ] Implement type checking for declarations, operations, and function return types
 - [ ] Add runtime error reporting for undefined names, type mismatches, and illegal operations
 - [ ] Add parser/AST error recovery or user-friendly error messages
+- [ ] Keep the interpreter layered: parser → AST → evaluator → output
+- [ ] Keep `print` as a statement-level runtime feature, not an expression side effect
+- [ ] Plan runtime semantics for `const`, `var`, and `let` before adding functions and control flow
 
 ### Project / specification coverage
 

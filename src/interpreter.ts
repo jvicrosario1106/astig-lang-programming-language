@@ -59,6 +59,35 @@ function evaluateExpression(
       return value;
     }
 
+    case 'BinaryExpression': {
+      const left = evaluateExpression(expression.left, environment);
+      const right = evaluateExpression(expression.right, environment);
+
+      switch (expression.operator) {
+        case '+':
+          if (typeof left === 'string' || typeof right === 'string') {
+            return String(left) + String(right);
+          }
+          return (left as number) + (right as number);
+        case '-':
+          return (left as number) - (right as number);
+        case '*':
+          return (left as number) * (right as number);
+        case '/':
+          return (left as number) / (right as number);
+        default:
+          throw new Error('Unsupported binary operator');
+      }
+    }
+
+    case 'UnaryExpression': {
+      const value = evaluateExpression(expression.argument, environment);
+      if (typeof value !== 'number') {
+        throw new Error('Unary minus can only be applied to numbers');
+      }
+      return -value;
+    }
+
     case 'FunctionCall':
       throw new Error(`Function calls are not implemented yet: ${expression.name}`);
   }
