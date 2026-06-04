@@ -38,7 +38,7 @@ export type FunctionCallNode = {
 
 export type BinaryExpressionNode = {
   type: ExpressionNodeType.BinaryExpression;
-  operator: '+' | '-' | '*' | '/';
+  operator: '+' | '-' | '*' | '/' | '==' | '!=' | '<' | '>' | '<=' | '>=';
   left: ExpressionNode;
   right: ExpressionNode;
 };

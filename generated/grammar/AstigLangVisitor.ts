@@ -9,7 +9,18 @@ import { VariableDeclarationContext } from "./AstigLangParser";
 import { DeclarationKeywordContext } from "./AstigLangParser";
 import { PrintStatementContext } from "./AstigLangParser";
 import { IfStatementContext } from "./AstigLangParser";
+import { ElseIfPartContext } from "./AstigLangParser";
+import { ElsePartContext } from "./AstigLangParser";
 import { WhileStatementContext } from "./AstigLangParser";
+import { DoWhileStatementContext } from "./AstigLangParser";
+import { ForStatementContext } from "./AstigLangParser";
+import { ForInitContext } from "./AstigLangParser";
+import { ForUpdateContext } from "./AstigLangParser";
+import { AssignmentContext } from "./AstigLangParser";
+import { AssignmentOperatorContext } from "./AstigLangParser";
+import { ForeachStatementContext } from "./AstigLangParser";
+import { BreakStatementContext } from "./AstigLangParser";
+import { ContinueStatementContext } from "./AstigLangParser";
 import { FunctionDeclarationContext } from "./AstigLangParser";
 import { ParameterListContext } from "./AstigLangParser";
 import { ParameterContext } from "./AstigLangParser";
@@ -75,11 +86,88 @@ export interface AstigLangVisitor<Result> extends ParseTreeVisitor<Result> {
 	visitIfStatement?: (ctx: IfStatementContext) => Result;
 
 	/**
+	 * Visit a parse tree produced by `AstigLangParser.elseIfPart`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitElseIfPart?: (ctx: ElseIfPartContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `AstigLangParser.elsePart`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitElsePart?: (ctx: ElsePartContext) => Result;
+
+	/**
 	 * Visit a parse tree produced by `AstigLangParser.whileStatement`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	visitWhileStatement?: (ctx: WhileStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `AstigLangParser.doWhileStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitDoWhileStatement?: (ctx: DoWhileStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `AstigLangParser.forStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitForStatement?: (ctx: ForStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `AstigLangParser.forInit`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitForInit?: (ctx: ForInitContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `AstigLangParser.forUpdate`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitForUpdate?: (ctx: ForUpdateContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `AstigLangParser.assignment`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitAssignment?: (ctx: AssignmentContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `AstigLangParser.assignmentOperator`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitAssignmentOperator?: (ctx: AssignmentOperatorContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `AstigLangParser.foreachStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitForeachStatement?: (ctx: ForeachStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `AstigLangParser.breakStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitBreakStatement?: (ctx: BreakStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `AstigLangParser.continueStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitContinueStatement?: (ctx: ContinueStatementContext) => Result;
 
 	/**
 	 * Visit a parse tree produced by `AstigLangParser.functionDeclaration`.

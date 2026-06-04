@@ -8,11 +8,17 @@ program: statement* EOF;
 // Add new language features here when they should behave like statements.
 statement
     : variableDeclaration ';'?
+    | assignment ';'?
     | printStatement ';'?
     | ifStatement
     | whileStatement
+    | doWhileStatement
+    | forStatement
+    | foreachStatement
     | functionDeclaration
     | returnStatement ';'?
+    | breakStatement ';'?
+    | continueStatement ';'?
     | block
     ;
 
@@ -21,7 +27,7 @@ statement
 // Type annotations are optional for now, inspired by TypeScript.
 // Examples: v4r x4 = 10, v4r x4: iHNtSZ = 10
 variableDeclaration
-    : declarationKeyword IDENTIFIER typeAnnotation? '=' expression
+    : declarationKeyword IDENTIFIER typeAnnotation '=' expression
     ;
 
 // Groups all declaration keywords that can introduce a variable.
@@ -38,16 +44,79 @@ printStatement
     : PRINT_KW '(' expression ')'
     ;
 
-// If statement with an optional else block.
+// If statement with optional else if and else blocks.
 // IF_KW and ELSE_KW are jejemonized "if" and "else".
+// Supports chains: if (...) { } else if (...) { } else if (...) { } else { }
 ifStatement
-    : IF_KW '(' expression ')' block (ELSE_KW block)?
+    : IF_KW '(' expression ')' block elseIfPart* elsePart?
+    ;
+
+// Else if branch in an if chain.
+elseIfPart
+    : ELSE_KW IF_KW '(' expression ')' block
+    ;
+
+// Final else branch (no condition).
+elsePart
+    : ELSE_KW block
     ;
 
 // While loop.
 // WHILE_KW is a jejemonized form of "while".
 whileStatement
     : WHILE_KW '(' expression ')' block
+    ;
+
+// Do-while loop.
+// DO_KW and WHILE_KW form a do-while construct.
+// Example: d0 { pr1nt(x4) } wh1le(x4 > 0)
+doWhileStatement
+    : DO_KW block WHILE_KW '(' expression ')' ';'?
+    ;
+
+// For loop with init, condition, and update.
+// Example: f0r(v4r i = 0; i < 10; i = i + 1) { pr1nt(i) }
+forStatement
+    : FOR_KW '(' forInit? ';' expression? ';' forUpdate? ')' block
+    ;
+
+// For loop initialization (usually a variable declaration or assignment).
+forInit
+    : variableDeclaration
+    | assignment
+    ;
+
+// For loop update (usually an assignment or function call).
+forUpdate
+    : assignment
+    | functionCall
+    ;
+
+// Assignment statement for use in for loops and elsewhere.
+assignment
+    : IDENTIFIER assignmentOperator expression
+    ;
+
+assignmentOperator
+    : '='
+    | ADD_ASSIGN
+    | SUB_ASSIGN
+    ;
+
+// Foreach loop over an iterable (currently just expressions).
+// Example: f0r34ch(v4l 1n c0ll3ct10n) { pr1nt(v4l) }
+foreachStatement
+    : FOREACH_KW '(' IDENTIFIER IN_KW expression ')' block
+    ;
+
+// Break statement for exiting loops.
+breakStatement
+    : BREAK_KW
+    ;
+
+// Continue statement for skipping to next loop iteration.
+continueStatement
+    : CONTINUE_KW
     ;
 
 // Function declaration.
@@ -117,10 +186,12 @@ returnDataType
     | VOID_KW
     ;
 
-// Expressions are values or computations.
+// Expressions are values or computations with proper operator precedence.
+// Precedence (highest to lowest): unary minus, MUL/DIV, ADD/SUB, comparison
 expression
     : expression op=(MUL|DIV) expression
     | expression op=(ADD|SUB) expression
+    | expression op=(EQ|NEQ|LT|GT|LTE|GTE) expression
     | SUB expression
     | '(' expression ')'
     | functionCall
@@ -203,6 +274,58 @@ RETURN_KW
     | R H? E_ANY T U R N PLURAL_J
     ;
 
+// Jejemonized "do".
+// Examples: d0, d0z
+DO_KW
+    : D O_J PLURAL?
+    | D O_ANY PLURAL_J
+    ;
+
+// Jejemonized "for".
+// H may be inserted after the first letter.
+// Examples: f0r, fHor, forZ
+FOR_KW
+    : F H? O_J R PLURAL?
+    | F H? O_ANY R PLURAL_J
+    ;
+
+// Jejemonized "foreach".
+// H may be inserted after the first letter.
+// Examples: f0r34ch, fHor34ch, foreachZ
+FOREACH_KW
+    : F H? O_J R E_J A_ANY C H PLURAL?
+    | F H? O_J R E_ANY A_J C H PLURAL?
+    | F H? O_ANY R E_J A_ANY C H PLURAL?
+    | F H? O_ANY R E_ANY A_J C H PLURAL?
+    | F H? O_ANY R E_ANY A_ANY C H PLURAL_J
+    ;
+
+// Jejemonized "in".
+// Examples: 1n, !n, inZ
+IN_KW
+    : I_J H? N PLURAL?
+    | I_ANY H? N PLURAL_J
+    ;
+
+// Jejemonized "break".
+// H may be inserted after the first letter.
+// Examples: br34k, brh3ak, breakZ
+BREAK_KW
+    : B H? R E_J A_ANY K PLURAL?
+    | B H? R E_ANY A_J K PLURAL?
+    | B H? R E_ANY A_ANY K PLURAL_J
+    ;
+
+// Jejemonized "continue".
+// H may be inserted after the first letter.
+// Examples: c0nt1nu3, cHont1nu3, continueZ
+CONTINUE_KW
+    : C H? O_J N T I_ANY N U E_ANY PLURAL?
+    | C H? O_ANY N T I_J N U E_ANY PLURAL?
+    | C H? O_ANY N T I_ANY N U E_J PLURAL?
+    | C H? O_ANY N T I_ANY N U E_ANY PLURAL_J
+    ;
+
 // Jejemonized primitive type "int".
 // Examples: iHNtSZ, IhnTsz, 1nt
 INT_KW
@@ -261,10 +384,21 @@ IDENTIFIER
     ;
 
 // Arithmetic operators.
+ADD_ASSIGN: '+=';
+SUB_ASSIGN: '-=';
 ADD: '+';
 SUB: '-';
 MUL: '*';
 DIV: '/';
+
+// Comparison operators.
+EQ: '==';
+NEQ: '!=';
+LT: '<';
+GT: '>';
+LTE: '<=';
+GTE: '>=';
+
 SEMICOLON: ';';
 
 // Basic literals.
@@ -275,7 +409,7 @@ STRING: '"' .*? '"';
 WS: [ \t\r\n]+ -> skip;
 
 // Any character that marks a word as jejemonized.
-fragment JEJE_MARK: [4@01!2];
+fragment JEJE_MARK: [4@013!2];
 
 // Letter fragments ending with _ANY accept normal or jejemon forms.
 // Letter fragments ending with _J require the jejemon form.

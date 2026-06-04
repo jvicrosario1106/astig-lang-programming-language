@@ -9,7 +9,18 @@ import { VariableDeclarationContext } from "./AstigLangParser";
 import { DeclarationKeywordContext } from "./AstigLangParser";
 import { PrintStatementContext } from "./AstigLangParser";
 import { IfStatementContext } from "./AstigLangParser";
+import { ElseIfPartContext } from "./AstigLangParser";
+import { ElsePartContext } from "./AstigLangParser";
 import { WhileStatementContext } from "./AstigLangParser";
+import { DoWhileStatementContext } from "./AstigLangParser";
+import { ForStatementContext } from "./AstigLangParser";
+import { ForInitContext } from "./AstigLangParser";
+import { ForUpdateContext } from "./AstigLangParser";
+import { AssignmentContext } from "./AstigLangParser";
+import { AssignmentOperatorContext } from "./AstigLangParser";
+import { ForeachStatementContext } from "./AstigLangParser";
+import { BreakStatementContext } from "./AstigLangParser";
+import { ContinueStatementContext } from "./AstigLangParser";
 import { FunctionDeclarationContext } from "./AstigLangParser";
 import { ParameterListContext } from "./AstigLangParser";
 import { ParameterContext } from "./AstigLangParser";
@@ -96,6 +107,28 @@ export interface AstigLangListener extends ParseTreeListener {
 	exitIfStatement?: (ctx: IfStatementContext) => void;
 
 	/**
+	 * Enter a parse tree produced by `AstigLangParser.elseIfPart`.
+	 * @param ctx the parse tree
+	 */
+	enterElseIfPart?: (ctx: ElseIfPartContext) => void;
+	/**
+	 * Exit a parse tree produced by `AstigLangParser.elseIfPart`.
+	 * @param ctx the parse tree
+	 */
+	exitElseIfPart?: (ctx: ElseIfPartContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `AstigLangParser.elsePart`.
+	 * @param ctx the parse tree
+	 */
+	enterElsePart?: (ctx: ElsePartContext) => void;
+	/**
+	 * Exit a parse tree produced by `AstigLangParser.elsePart`.
+	 * @param ctx the parse tree
+	 */
+	exitElsePart?: (ctx: ElsePartContext) => void;
+
+	/**
 	 * Enter a parse tree produced by `AstigLangParser.whileStatement`.
 	 * @param ctx the parse tree
 	 */
@@ -105,6 +138,105 @@ export interface AstigLangListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitWhileStatement?: (ctx: WhileStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `AstigLangParser.doWhileStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterDoWhileStatement?: (ctx: DoWhileStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `AstigLangParser.doWhileStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitDoWhileStatement?: (ctx: DoWhileStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `AstigLangParser.forStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterForStatement?: (ctx: ForStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `AstigLangParser.forStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitForStatement?: (ctx: ForStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `AstigLangParser.forInit`.
+	 * @param ctx the parse tree
+	 */
+	enterForInit?: (ctx: ForInitContext) => void;
+	/**
+	 * Exit a parse tree produced by `AstigLangParser.forInit`.
+	 * @param ctx the parse tree
+	 */
+	exitForInit?: (ctx: ForInitContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `AstigLangParser.forUpdate`.
+	 * @param ctx the parse tree
+	 */
+	enterForUpdate?: (ctx: ForUpdateContext) => void;
+	/**
+	 * Exit a parse tree produced by `AstigLangParser.forUpdate`.
+	 * @param ctx the parse tree
+	 */
+	exitForUpdate?: (ctx: ForUpdateContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `AstigLangParser.assignment`.
+	 * @param ctx the parse tree
+	 */
+	enterAssignment?: (ctx: AssignmentContext) => void;
+	/**
+	 * Exit a parse tree produced by `AstigLangParser.assignment`.
+	 * @param ctx the parse tree
+	 */
+	exitAssignment?: (ctx: AssignmentContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `AstigLangParser.assignmentOperator`.
+	 * @param ctx the parse tree
+	 */
+	enterAssignmentOperator?: (ctx: AssignmentOperatorContext) => void;
+	/**
+	 * Exit a parse tree produced by `AstigLangParser.assignmentOperator`.
+	 * @param ctx the parse tree
+	 */
+	exitAssignmentOperator?: (ctx: AssignmentOperatorContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `AstigLangParser.foreachStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterForeachStatement?: (ctx: ForeachStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `AstigLangParser.foreachStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitForeachStatement?: (ctx: ForeachStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `AstigLangParser.breakStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterBreakStatement?: (ctx: BreakStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `AstigLangParser.breakStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitBreakStatement?: (ctx: BreakStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `AstigLangParser.continueStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterContinueStatement?: (ctx: ContinueStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `AstigLangParser.continueStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitContinueStatement?: (ctx: ContinueStatementContext) => void;
 
 	/**
 	 * Enter a parse tree produced by `AstigLangParser.functionDeclaration`.

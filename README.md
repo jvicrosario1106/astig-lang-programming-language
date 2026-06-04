@@ -4,15 +4,15 @@
 
 - [ ] Support `include` directives and file-level program structure
 - [ ] Support `main` function structure and program entry point syntax
-- [ ] Add `const` declaration syntax separate from variable declarations
-- [ ] Add assignment statements independent of declarations
-- [ ] Add `if`, `else if`, and `else` chain syntax
-- [ ] Add `while`, `for`, `do-while`, `repeat-until`, and `foreach` syntax
-- [ ] Add `break` and `continue` keywords for loop control
+- [x] Add `const` declaration syntax separate from variable declarations
+- [x] Add assignment statements independent of declarations
+- [x] Add `if`, `else if`, and `else` chain syntax
+- [x] Add `while`, `for`, `do-while`, `repeat-until`, and `foreach` syntax
+- [x] Add `break` and `continue` keywords for loop control
 - [ ] Add full expression grammar for:
   - [x] arithmetic operators (`+`, `-`, `*`, `/`)
   - [ ] modulus operator (`%`)
-  - [ ] relational operators (`==`, `!=`, `<`, `>`, `<=`, `>=`)
+  - [x] relational operators (`==`, `!=`, `<`, `>`, `<=`, `>=`)
   - [ ] logical operators (`&&`, `||`, `!`)
   - [x] unary operators and parenthesized expressions
   - [ ] boolean literals and comparisons
@@ -20,37 +20,44 @@
 - [ ] Add user-defined type declarations and type aliasing support
 - [ ] Add token rules for all jejemonized keywords and identifiers
 - [ ] Define keywords and reserved words consistently (`print`, `if`, `else`, `while`, `for`, `do`, `repeat`, `until`, `function`, `return`, `const`, `var`, `let`)
-- [ ] Design operator precedence and associativity in grammar
-- [ ] Support parenthesized expressions and unary operators cleanly in the parser
+- [x] Design operator precedence and associativity in grammar
+- [x] Support parenthesized expressions and unary operators cleanly in the parser
+- [ ] Finalize Grammar
+- [ ] Add comments
+- [ ] Function Call multilple times
 
 ### AST / Semantic model
 
 - [ ] Build AST nodes for:
-  - `IfStatement`, `ElseIfStatement`, `ElseStatement`
+  - [x] `IfStatement` (with `elseIfChains` and `elseBranch` support)
   - `WhileStatement`, `ForStatement`, `DoWhileStatement`, `RepeatUntilStatement`, `ForeachStatement`
-  - `AssignmentStatement`, `ConstDeclaration`, `VariableDeclaration`
-  - `BreakStatement`, `ContinueStatement`
+  - [x] `AssignmentStatement`, `ConstDeclaration`, `VariableDeclaration`
+  - [x] `BreakStatement`, `ContinueStatement`
   - [x] `BinaryExpression`
   - [x] `UnaryExpression`
   - `BooleanLiteral`, `ArrayExpression`, `RecordExpression`
-- [ ] Build type annotation nodes for variables, parameters, and function return types
-- [ ] Build function call AST nodes with argument lists
-- [ ] Build symbol table / scope model for declarations and lookups
+- [x] Build type annotation nodes for variables, parameters, and function return types
+- [x] Build function call AST nodes with argument lists
+- [x] Build symbol table / scope model for declarations and lookups
 - [ ] Build AST for `main` program structure and module imports
-- [ ] Represent block scope and nested statements explicitly in the AST
+- [x] Represent block scope and nested statements explicitly in the AST
 - [ ] Keep AST node kinds minimal, composable, and easy to evaluate
+- [ ] var block scope
+- [ ] type mismatch
+- [ ]
 
 ### Interpreter / Runtime
 
-- [ ] Implement runtime scopes for global, function, and block-level variables
-- [ ] Implement `const` immutability and `var`/`let` semantics
-- [ ] Implement assignment semantics separate from declaration
-- [ ] Execute `if / else if / else` chains correctly
+- [x] Implement runtime scopes for global, function, and block-level variables
+- [x] Implement `const` immutability and `var`/`let` semantics
+- [x] Implement assignment semantics separate from declaration
+- [x] Execute `if / else if / else` chains correctly
 - [ ] Execute all loop forms and support `break` / `continue`
 - [x] Evaluate arithmetic expressions
-- [ ] Evaluate relational and logical expressions
-- [ ] Evaluate boolean expressions and truthiness rules safely
-- [ ] Implement function definition, call, return, and parameter passing
+- [x] Evaluate relational expressions (`==`, `!=`, `<`, `>`, `<=`, `>=`)
+- [ ] Evaluate logical expressions and compound conditions
+- [x] Evaluate boolean expressions and truthiness rules safely
+- [x] Implement function definition, call, return, and parameter passing
 - [ ] Execute `print` and add input/read support if required by spec
 - [ ] Implement arrays, records, and basic structured data runtime support
 - [ ] Implement type checking for declarations, operations, and function return types
@@ -58,11 +65,14 @@
 - [ ] Add parser/AST error recovery or user-friendly error messages
 - [ ] Keep the interpreter layered: parser → AST → evaluator → output
 - [ ] Keep `print` as a statement-level runtime feature, not an expression side effect
-- [ ] Plan runtime semantics for `const`, `var`, and `let` before adding functions and control flow
+- [x] Plan runtime semantics for `const`, `var`, and `let` before adding functions and control flow
+- [ ] var block scope
+- [ ] .stg separate file for code
+- [ ] Input / Output
 
 ### Project / specification coverage
 
-- [ ] Add sample programs covering all statement types and expressions
+- [x] Add sample programs covering all statement types and expressions
 - [ ] Add test cases for conditionals, loops, functions, and type behavior
 - [ ] Add documentation of language syntax and examples
 - [ ] Add intermediate code generation or IR if required by the final submission
