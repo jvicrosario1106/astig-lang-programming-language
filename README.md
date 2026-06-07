@@ -44,7 +44,11 @@
 - [ ] Keep AST node kinds minimal, composable, and easy to evaluate
 - [ ] var block scope
 - [ ] type mismatch
-- [ ]
+- [ ] Error Catching for misspelling
+  - [ ] No plural for a keyword
+  - [ ] No plural for an identifier
+  - [ ] No upper or lower H for a keyword
+  - [ ] No upper or lower H for an identifier
 
 ### Interpreter / Runtime
 

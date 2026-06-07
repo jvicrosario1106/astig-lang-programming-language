@@ -6,10 +6,9 @@ import { buildAst } from './ast';
 import { runProgram } from './interpreter';
 
 const defaultCode = `
-v4r x2:sTRh1Ngz = "Hello";
-v4r x4:1nt = 10;
-
-`;
+lH3tsz xHs:sTRh1Ngz = "Hello";
+LheTS yHs:iHNtSZ = 1;`
+// v4r x4:1nt = 10;
 
 // pHr1nt(x4 + y4);
 // pr1nt((x4 - y4) * 2);
@@ -118,6 +117,9 @@ v4r x4:1nt = 10;
 const input = CharStreams.fromString(defaultCode);
 
 const lexer = new AstigLangLexer(input);
+// for(const token of lexer.getAllTokens()){
+//   console.log(`Text: ${token.text} -> Token Type ID: ${token.type}`);
+// }
 
 const tokens = new CommonTokenStream(lexer);
 

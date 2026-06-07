@@ -57,22 +57,27 @@ export class AstigLangParser extends Parser {
 	public static readonly BOOLEAN_KW = 27;
 	public static readonly VOID_KW = 28;
 	public static readonly IDENTIFIER = 29;
-	public static readonly ADD_ASSIGN = 30;
-	public static readonly SUB_ASSIGN = 31;
-	public static readonly ADD = 32;
-	public static readonly SUB = 33;
-	public static readonly MUL = 34;
-	public static readonly DIV = 35;
-	public static readonly EQ = 36;
-	public static readonly NEQ = 37;
-	public static readonly LT = 38;
-	public static readonly GT = 39;
-	public static readonly LTE = 40;
-	public static readonly GTE = 41;
-	public static readonly SEMICOLON = 42;
-	public static readonly NUMBER = 43;
-	public static readonly STRING = 44;
-	public static readonly WS = 45;
+	public static readonly SUBSCRIPT = 30;
+	public static readonly ADD_ASSIGN = 31;
+	public static readonly SUB_ASSIGN = 32;
+	public static readonly ADD = 33;
+	public static readonly SUB = 34;
+	public static readonly MUL = 35;
+	public static readonly DIV = 36;
+	public static readonly EQ = 37;
+	public static readonly NEQ = 38;
+	public static readonly LT = 39;
+	public static readonly GT = 40;
+	public static readonly LTE = 41;
+	public static readonly GTE = 42;
+	public static readonly SEMICOLON = 43;
+	public static readonly NUMBER = 44;
+	public static readonly STRING = 45;
+	public static readonly WS = 46;
+	public static readonly WORD = 47;
+	public static readonly SYLLABLE_LOWCASE = 48;
+	public static readonly SYLLABLE_UPCASE = 49;
+	public static readonly LETTER = 50;
 	public static readonly RULE_program = 0;
 	public static readonly RULE_statement = 1;
 	public static readonly RULE_variableDeclaration = 2;
@@ -119,17 +124,18 @@ export class AstigLangParser extends Parser {
 		undefined, undefined, undefined, undefined, undefined, undefined, undefined, 
 		undefined, undefined, undefined, undefined, undefined, undefined, undefined, 
 		undefined, undefined, undefined, undefined, undefined, undefined, undefined, 
-		"'+='", "'-='", "'+'", "'-'", "'*'", "'/'", "'=='", "'!='", "'<'", "'>'", 
-		"'<='", "'>='", "';'",
+		undefined, "'+='", "'-='", "'+'", "'-'", "'*'", "'/'", "'=='", "'!='", 
+		"'<'", "'>'", "'<='", "'>='", "';'",
 	];
 	private static readonly _SYMBOLIC_NAMES: Array<string | undefined> = [
 		undefined, undefined, undefined, undefined, undefined, undefined, undefined, 
 		undefined, "CONST_KW", "VAR_KW", "LET_KW", "PRINT_KW", "IF_KW", "ELSE_KW", 
 		"WHILE_KW", "FUNCTION_KW", "RETURN_KW", "DO_KW", "FOR_KW", "FOREACH_KW", 
 		"IN_KW", "BREAK_KW", "CONTINUE_KW", "INT_KW", "FLOAT_KW", "STRING_KW", 
-		"CHAR_KW", "BOOLEAN_KW", "VOID_KW", "IDENTIFIER", "ADD_ASSIGN", "SUB_ASSIGN", 
-		"ADD", "SUB", "MUL", "DIV", "EQ", "NEQ", "LT", "GT", "LTE", "GTE", "SEMICOLON", 
-		"NUMBER", "STRING", "WS",
+		"CHAR_KW", "BOOLEAN_KW", "VOID_KW", "IDENTIFIER", "SUBSCRIPT", "ADD_ASSIGN", 
+		"SUB_ASSIGN", "ADD", "SUB", "MUL", "DIV", "EQ", "NEQ", "LT", "GT", "LTE", 
+		"GTE", "SEMICOLON", "NUMBER", "STRING", "WS", "WORD", "SYLLABLE_LOWCASE", 
+		"SYLLABLE_UPCASE", "LETTER",
 	];
 	public static readonly VOCABULARY: Vocabulary = new VocabularyImpl(AstigLangParser._LITERAL_NAMES, AstigLangParser._SYMBOLIC_NAMES, []);
 
@@ -706,7 +712,7 @@ export class AstigLangParser extends Parser {
 			this.state = 160;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			if (_la === AstigLangParser.T__1 || _la === AstigLangParser.IDENTIFIER || ((((_la - 33)) & ~0x1F) === 0 && ((1 << (_la - 33)) & ((1 << (AstigLangParser.SUB - 33)) | (1 << (AstigLangParser.NUMBER - 33)) | (1 << (AstigLangParser.STRING - 33)))) !== 0)) {
+			if (_la === AstigLangParser.T__1 || _la === AstigLangParser.IDENTIFIER || ((((_la - 34)) & ~0x1F) === 0 && ((1 << (_la - 34)) & ((1 << (AstigLangParser.SUB - 34)) | (1 << (AstigLangParser.NUMBER - 34)) | (1 << (AstigLangParser.STRING - 34)))) !== 0)) {
 				{
 				this.state = 159;
 				this.expression(0);
@@ -865,7 +871,7 @@ export class AstigLangParser extends Parser {
 			{
 			this.state = 181;
 			_la = this._input.LA(1);
-			if (!((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << AstigLangParser.T__0) | (1 << AstigLangParser.ADD_ASSIGN) | (1 << AstigLangParser.SUB_ASSIGN))) !== 0))) {
+			if (!(((((_la - 1)) & ~0x1F) === 0 && ((1 << (_la - 1)) & ((1 << (AstigLangParser.T__0 - 1)) | (1 << (AstigLangParser.ADD_ASSIGN - 1)) | (1 << (AstigLangParser.SUB_ASSIGN - 1)))) !== 0))) {
 			this._errHandler.recoverInline(this);
 			} else {
 				if (this._input.LA(1) === Token.EOF) {
@@ -1244,7 +1250,7 @@ export class AstigLangParser extends Parser {
 			this.state = 243;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			if (_la === AstigLangParser.T__1 || _la === AstigLangParser.IDENTIFIER || ((((_la - 33)) & ~0x1F) === 0 && ((1 << (_la - 33)) & ((1 << (AstigLangParser.SUB - 33)) | (1 << (AstigLangParser.NUMBER - 33)) | (1 << (AstigLangParser.STRING - 33)))) !== 0)) {
+			if (_la === AstigLangParser.T__1 || _la === AstigLangParser.IDENTIFIER || ((((_la - 34)) & ~0x1F) === 0 && ((1 << (_la - 34)) & ((1 << (AstigLangParser.SUB - 34)) | (1 << (AstigLangParser.NUMBER - 34)) | (1 << (AstigLangParser.STRING - 34)))) !== 0)) {
 				{
 				this.state = 242;
 				this.argumentList();
@@ -1552,7 +1558,7 @@ export class AstigLangParser extends Parser {
 						this.state = 279;
 						_localctx._op = this._input.LT(1);
 						_la = this._input.LA(1);
-						if (!(((((_la - 36)) & ~0x1F) === 0 && ((1 << (_la - 36)) & ((1 << (AstigLangParser.EQ - 36)) | (1 << (AstigLangParser.NEQ - 36)) | (1 << (AstigLangParser.LT - 36)) | (1 << (AstigLangParser.GT - 36)) | (1 << (AstigLangParser.LTE - 36)) | (1 << (AstigLangParser.GTE - 36)))) !== 0))) {
+						if (!(((((_la - 37)) & ~0x1F) === 0 && ((1 << (_la - 37)) & ((1 << (AstigLangParser.EQ - 37)) | (1 << (AstigLangParser.NEQ - 37)) | (1 << (AstigLangParser.LT - 37)) | (1 << (AstigLangParser.GT - 37)) | (1 << (AstigLangParser.LTE - 37)) | (1 << (AstigLangParser.GTE - 37)))) !== 0))) {
 							_localctx._op = this._errHandler.recoverInline(this);
 						} else {
 							if (this._input.LA(1) === Token.EOF) {
@@ -1612,7 +1618,7 @@ export class AstigLangParser extends Parser {
 	}
 
 	public static readonly _serializedATN: string =
-		"\x03\uC91D\uCABA\u058D\uAFBA\u4F53\u0607\uEA8B\uC241\x03/\u0121\x04\x02" +
+		"\x03\uC91D\uCABA\u058D\uAFBA\u4F53\u0607\uEA8B\uC241\x034\u0121\x04\x02" +
 		"\t\x02\x04\x03\t\x03\x04\x04\t\x04\x04\x05\t\x05\x04\x06\t\x06\x04\x07" +
 		"\t\x07\x04\b\t\b\x04\t\t\t\x04\n\t\n\x04\v\t\v\x04\f\t\f\x04\r\t\r\x04" +
 		"\x0E\t\x0E\x04\x0F\t\x0F\x04\x10\t\x10\x04\x11\t\x11\x04\x12\t\x12\x04" +
@@ -1646,8 +1652,8 @@ export class AstigLangParser extends Parser {
 		"\x0E\x1F\u011F\v\x1F\x03\x1F\x02\x02\x03< \x02\x02\x04\x02\x06\x02\b\x02" +
 		"\n\x02\f\x02\x0E\x02\x10\x02\x12\x02\x14\x02\x16\x02\x18\x02\x1A\x02\x1C" +
 		"\x02\x1E\x02 \x02\"\x02$\x02&\x02(\x02*\x02,\x02.\x020\x022\x024\x026" +
-		"\x028\x02:\x02<\x02\x02\b\x03\x02\n\f\x04\x02\x03\x03 !\x04\x02\x19\x1D" +
-		"\x1F\x1F\x03\x02$%\x03\x02\"#\x03\x02&+\x02\u012E\x02A\x03\x02\x02\x02" +
+		"\x028\x02:\x02<\x02\x02\b\x03\x02\n\f\x04\x02\x03\x03!\"\x04\x02\x19\x1D" +
+		"\x1F\x1F\x03\x02%&\x03\x02#$\x03\x02\',\x02\u012E\x02A\x03\x02\x02\x02" +
 		"\x04e\x03\x02\x02\x02\x06g\x03\x02\x02\x02\bm\x03\x02\x02\x02\no\x03\x02" +
 		"\x02\x02\ft\x03\x02\x02\x02\x0E\x82\x03\x02\x02\x02\x10\x89\x03\x02\x02" +
 		"\x02\x12\x8C\x03\x02\x02\x02\x14\x92\x03\x02\x02\x02\x16\x9B\x03\x02\x02" +
@@ -1659,15 +1665,15 @@ export class AstigLangParser extends Parser {
 		"\x03\x02\x02\x02:\u0103\x03\x02\x02\x02<\u0110\x03\x02\x02\x02>@\x05\x04" +
 		"\x03\x02?>\x03\x02\x02\x02@C\x03\x02\x02\x02A?\x03\x02\x02\x02AB\x03\x02" +
 		"\x02\x02BD\x03\x02\x02\x02CA\x03\x02\x02\x02DE\x07\x02\x02\x03E\x03\x03" +
-		"\x02\x02\x02FH\x05\x06\x04\x02GI\x07,\x02\x02HG\x03\x02\x02\x02HI\x03" +
-		"\x02\x02\x02If\x03\x02\x02\x02JL\x05\x1C\x0F\x02KM\x07,\x02\x02LK\x03" +
+		"\x02\x02\x02FH\x05\x06\x04\x02GI\x07-\x02\x02HG\x03\x02\x02\x02HI\x03" +
+		"\x02\x02\x02If\x03\x02\x02\x02JL\x05\x1C\x0F\x02KM\x07-\x02\x02LK\x03" +
 		"\x02\x02\x02LM\x03\x02\x02\x02Mf\x03\x02\x02\x02NP\x05\n\x06\x02OQ\x07" +
-		",\x02\x02PO\x03\x02\x02\x02PQ\x03\x02\x02\x02Qf\x03\x02\x02\x02Rf\x05" +
+		"-\x02\x02PO\x03\x02\x02\x02PQ\x03\x02\x02\x02Qf\x03\x02\x02\x02Rf\x05" +
 		"\f\x07\x02Sf\x05\x12\n\x02Tf\x05\x14\v\x02Uf\x05\x16\f\x02Vf\x05 \x11" +
-		"\x02Wf\x05&\x14\x02XZ\x05,\x17\x02Y[\x07,\x02\x02ZY\x03\x02\x02\x02Z[" +
-		"\x03\x02\x02\x02[f\x03\x02\x02\x02\\^\x05\"\x12\x02]_\x07,\x02\x02^]\x03" +
+		"\x02Wf\x05&\x14\x02XZ\x05,\x17\x02Y[\x07-\x02\x02ZY\x03\x02\x02\x02Z[" +
+		"\x03\x02\x02\x02[f\x03\x02\x02\x02\\^\x05\"\x12\x02]_\x07-\x02\x02^]\x03" +
 		"\x02\x02\x02^_\x03\x02\x02\x02_f\x03\x02\x02\x02`b\x05$\x13\x02ac\x07" +
-		",\x02\x02ba\x03\x02\x02\x02bc\x03\x02\x02\x02cf\x03\x02\x02\x02df\x05" +
+		"-\x02\x02ba\x03\x02\x02\x02bc\x03\x02\x02\x02cf\x03\x02\x02\x02df\x05" +
 		".\x18\x02eF\x03\x02\x02\x02eJ\x03\x02\x02\x02eN\x03\x02\x02\x02eR\x03" +
 		"\x02\x02\x02eS\x03\x02\x02\x02eT\x03\x02\x02\x02eU\x03\x02\x02\x02eV\x03" +
 		"\x02\x02\x02eW\x03\x02\x02\x02eX\x03\x02\x02\x02e\\\x03\x02\x02\x02e`" +
@@ -1686,12 +1692,12 @@ export class AstigLangParser extends Parser {
 		"\x8D\x8E\x07\x04\x02\x02\x8E\x8F\x05<\x1F\x02\x8F\x90\x07\x05\x02\x02" +
 		"\x90\x91\x05.\x18\x02\x91\x13\x03\x02\x02\x02\x92\x93\x07\x13\x02\x02" +
 		"\x93\x94\x05.\x18\x02\x94\x95\x07\x10\x02\x02\x95\x96\x07\x04\x02\x02" +
-		"\x96\x97\x05<\x1F\x02\x97\x99\x07\x05\x02\x02\x98\x9A\x07,\x02\x02\x99" +
+		"\x96\x97\x05<\x1F\x02\x97\x99\x07\x05\x02\x02\x98\x9A\x07-\x02\x02\x99" +
 		"\x98\x03\x02\x02\x02\x99\x9A\x03\x02\x02\x02\x9A\x15\x03\x02\x02\x02\x9B" +
 		"\x9C\x07\x14\x02\x02\x9C\x9E\x07\x04\x02\x02\x9D\x9F\x05\x18\r\x02\x9E" +
 		"\x9D\x03\x02\x02\x02\x9E\x9F\x03\x02\x02\x02\x9F\xA0\x03\x02\x02\x02\xA0" +
-		"\xA2\x07,\x02\x02\xA1\xA3\x05<\x1F\x02\xA2\xA1\x03\x02\x02\x02\xA2\xA3" +
-		"\x03\x02\x02\x02\xA3\xA4\x03\x02\x02\x02\xA4\xA6\x07,\x02\x02\xA5\xA7" +
+		"\xA2\x07-\x02\x02\xA1\xA3\x05<\x1F\x02\xA2\xA1\x03\x02\x02\x02\xA2\xA3" +
+		"\x03\x02\x02\x02\xA3\xA4\x03\x02\x02\x02\xA4\xA6\x07-\x02\x02\xA5\xA7" +
 		"\x05\x1A\x0E\x02\xA6\xA5\x03\x02\x02\x02\xA6\xA7\x03\x02\x02\x02\xA7\xA8" +
 		"\x03\x02\x02\x02\xA8\xA9\x07\x05\x02\x02\xA9\xAA\x05.\x18\x02\xAA\x17" +
 		"\x03\x02\x02\x02\xAB\xAE\x05\x06\x04\x02\xAC\xAE\x05\x1C\x0F\x02\xAD\xAB" +
@@ -1728,10 +1734,10 @@ export class AstigLangParser extends Parser {
 		"\xFF\u0100\t\x04\x02\x02\u01009\x03\x02\x02\x02\u0101\u0104\x058\x1D\x02" +
 		"\u0102\u0104\x07\x1E\x02\x02\u0103\u0101\x03\x02\x02\x02\u0103\u0102\x03" +
 		"\x02\x02\x02\u0104;\x03\x02\x02\x02\u0105\u0106\b\x1F\x01\x02\u0106\u0107" +
-		"\x07#\x02\x02\u0107\u0111\x05<\x1F\b\u0108\u0109\x07\x04\x02\x02\u0109" +
+		"\x07$\x02\x02\u0107\u0111\x05<\x1F\b\u0108\u0109\x07\x04\x02\x02\u0109" +
 		"\u010A\x05<\x1F\x02\u010A\u010B\x07\x05\x02\x02\u010B\u0111\x03\x02\x02" +
-		"\x02\u010C\u0111\x052\x1A\x02\u010D\u0111\x07-\x02\x02\u010E\u0111\x07" +
-		".\x02\x02\u010F\u0111\x07\x1F\x02\x02\u0110\u0105\x03\x02\x02\x02\u0110" +
+		"\x02\u010C\u0111\x052\x1A\x02\u010D\u0111\x07.\x02\x02\u010E\u0111\x07" +
+		"/\x02\x02\u010F\u0111\x07\x1F\x02\x02\u0110\u0105\x03\x02\x02\x02\u0110" +
 		"\u0108\x03\x02\x02\x02\u0110\u010C\x03\x02\x02\x02\u0110\u010D\x03\x02" +
 		"\x02\x02\u0110\u010E\x03\x02\x02\x02\u0110\u010F\x03\x02\x02\x02\u0111" +
 		"\u011D\x03\x02\x02\x02\u0112\u0113\f\v\x02\x02\u0113\u0114\t\x05\x02\x02" +
