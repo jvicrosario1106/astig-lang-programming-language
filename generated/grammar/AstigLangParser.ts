@@ -35,100 +35,128 @@ export class AstigLangParser extends Parser {
 	public static readonly T__4 = 5;
 	public static readonly T__5 = 6;
 	public static readonly T__6 = 7;
-	public static readonly CONST_KW = 8;
-	public static readonly VAR_KW = 9;
-	public static readonly LET_KW = 10;
-	public static readonly PRINT_KW = 11;
-	public static readonly IF_KW = 12;
-	public static readonly ELSE_KW = 13;
-	public static readonly WHILE_KW = 14;
-	public static readonly FUNCTION_KW = 15;
-	public static readonly RETURN_KW = 16;
-	public static readonly DO_KW = 17;
-	public static readonly FOR_KW = 18;
-	public static readonly FOREACH_KW = 19;
-	public static readonly IN_KW = 20;
-	public static readonly BREAK_KW = 21;
-	public static readonly CONTINUE_KW = 22;
-	public static readonly INT_KW = 23;
-	public static readonly FLOAT_KW = 24;
-	public static readonly STRING_KW = 25;
-	public static readonly CHAR_KW = 26;
-	public static readonly BOOLEAN_KW = 27;
-	public static readonly VOID_KW = 28;
-	public static readonly IDENTIFIER = 29;
-	public static readonly ADD_ASSIGN = 30;
-	public static readonly SUB_ASSIGN = 31;
-	public static readonly ADD = 32;
-	public static readonly SUB = 33;
-	public static readonly MUL = 34;
-	public static readonly DIV = 35;
-	public static readonly EQ = 36;
-	public static readonly NEQ = 37;
-	public static readonly LT = 38;
-	public static readonly GT = 39;
-	public static readonly LTE = 40;
-	public static readonly GTE = 41;
-	public static readonly SEMICOLON = 42;
-	public static readonly NUMBER = 43;
-	public static readonly STRING = 44;
-	public static readonly WS = 45;
+	public static readonly T__7 = 8;
+	public static readonly INCLUDE_KW = 9;
+	public static readonly CONST_KW = 10;
+	public static readonly VAR_KW = 11;
+	public static readonly LET_KW = 12;
+	public static readonly PRINT_KW = 13;
+	public static readonly IF_KW = 14;
+	public static readonly ELSE_KW = 15;
+	public static readonly WHILE_KW = 16;
+	public static readonly FUNCTION_KW = 17;
+	public static readonly RETURN_KW = 18;
+	public static readonly DO_KW = 19;
+	public static readonly FOR_KW = 20;
+	public static readonly FOREACH_KW = 21;
+	public static readonly IN_KW = 22;
+	public static readonly BREAK_KW = 23;
+	public static readonly CONTINUE_KW = 24;
+	public static readonly INT_KW = 25;
+	public static readonly FLOAT_KW = 26;
+	public static readonly STRING_KW = 27;
+	public static readonly CHAR_KW = 28;
+	public static readonly BOOLEAN_KW = 29;
+	public static readonly TRUE_KW = 30;
+	public static readonly FALSE_KW = 31;
+	public static readonly VOID_KW = 32;
+	public static readonly MAIN_KW = 33;
+	public static readonly RECORD_KW = 34;
+	public static readonly NEW_KW = 35;
+	public static readonly EXPORT_KW = 36;
+	public static readonly IDENTIFIER = 37;
+	public static readonly FILENAME = 38;
+	public static readonly FILE_EXTENSION = 39;
+	public static readonly SUBSCRIPT = 40;
+	public static readonly ADD_ASSIGN = 41;
+	public static readonly SUB_ASSIGN = 42;
+	public static readonly ADD = 43;
+	public static readonly SUB = 44;
+	public static readonly MUL = 45;
+	public static readonly DIV = 46;
+	public static readonly EQ = 47;
+	public static readonly NEQ = 48;
+	public static readonly LT = 49;
+	public static readonly GT = 50;
+	public static readonly LTE = 51;
+	public static readonly GTE = 52;
+	public static readonly SEMICOLON = 53;
+	public static readonly FLOAT = 54;
+	public static readonly NUMBER = 55;
+	public static readonly STRING = 56;
+	public static readonly WS = 57;
 	public static readonly RULE_program = 0;
-	public static readonly RULE_statement = 1;
-	public static readonly RULE_variableDeclaration = 2;
-	public static readonly RULE_declarationKeyword = 3;
-	public static readonly RULE_printStatement = 4;
-	public static readonly RULE_ifStatement = 5;
-	public static readonly RULE_elseIfPart = 6;
-	public static readonly RULE_elsePart = 7;
-	public static readonly RULE_whileStatement = 8;
-	public static readonly RULE_doWhileStatement = 9;
-	public static readonly RULE_forStatement = 10;
-	public static readonly RULE_forInit = 11;
-	public static readonly RULE_forUpdate = 12;
-	public static readonly RULE_assignment = 13;
-	public static readonly RULE_assignmentOperator = 14;
-	public static readonly RULE_foreachStatement = 15;
-	public static readonly RULE_breakStatement = 16;
-	public static readonly RULE_continueStatement = 17;
-	public static readonly RULE_functionDeclaration = 18;
-	public static readonly RULE_parameterList = 19;
-	public static readonly RULE_parameter = 20;
-	public static readonly RULE_returnStatement = 21;
-	public static readonly RULE_block = 22;
-	public static readonly RULE_argumentList = 23;
-	public static readonly RULE_functionCall = 24;
-	public static readonly RULE_typeAnnotation = 25;
-	public static readonly RULE_returnTypeAnnotation = 26;
-	public static readonly RULE_dataType = 27;
-	public static readonly RULE_returnDataType = 28;
-	public static readonly RULE_expression = 29;
+	public static readonly RULE_includeList = 1;
+	public static readonly RULE_includeStatement = 2;
+	public static readonly RULE_statement = 3;
+	public static readonly RULE_variableDeclaration = 4;
+	public static readonly RULE_recordDeclaration = 5;
+	public static readonly RULE_recordFieldList = 6;
+	public static readonly RULE_recordField = 7;
+	public static readonly RULE_recordLiteral = 8;
+	public static readonly RULE_recordLiteralFieldList = 9;
+	public static readonly RULE_recordLiteralField = 10;
+	public static readonly RULE_declarationKeyword = 11;
+	public static readonly RULE_printStatement = 12;
+	public static readonly RULE_ifStatement = 13;
+	public static readonly RULE_elseIfPart = 14;
+	public static readonly RULE_elsePart = 15;
+	public static readonly RULE_whileStatement = 16;
+	public static readonly RULE_doWhileStatement = 17;
+	public static readonly RULE_forStatement = 18;
+	public static readonly RULE_forInit = 19;
+	public static readonly RULE_forUpdate = 20;
+	public static readonly RULE_assignment = 21;
+	public static readonly RULE_recordFieldAccess = 22;
+	public static readonly RULE_assignmentOperator = 23;
+	public static readonly RULE_foreachStatement = 24;
+	public static readonly RULE_breakStatement = 25;
+	public static readonly RULE_continueStatement = 26;
+	public static readonly RULE_functionDeclaration = 27;
+	public static readonly RULE_functionMainDeclaration = 28;
+	public static readonly RULE_parameterList = 29;
+	public static readonly RULE_parameter = 30;
+	public static readonly RULE_returnStatement = 31;
+	public static readonly RULE_block = 32;
+	public static readonly RULE_argumentList = 33;
+	public static readonly RULE_functionCall = 34;
+	public static readonly RULE_typeAnnotation = 35;
+	public static readonly RULE_returnTypeAnnotation = 36;
+	public static readonly RULE_dataType = 37;
+	public static readonly RULE_returnDataType = 38;
+	public static readonly RULE_expression = 39;
 	// tslint:disable:no-trailing-whitespace
 	public static readonly ruleNames: string[] = [
-		"program", "statement", "variableDeclaration", "declarationKeyword", "printStatement", 
-		"ifStatement", "elseIfPart", "elsePart", "whileStatement", "doWhileStatement", 
-		"forStatement", "forInit", "forUpdate", "assignment", "assignmentOperator", 
-		"foreachStatement", "breakStatement", "continueStatement", "functionDeclaration", 
+		"program", "includeList", "includeStatement", "statement", "variableDeclaration", 
+		"recordDeclaration", "recordFieldList", "recordField", "recordLiteral", 
+		"recordLiteralFieldList", "recordLiteralField", "declarationKeyword", 
+		"printStatement", "ifStatement", "elseIfPart", "elsePart", "whileStatement", 
+		"doWhileStatement", "forStatement", "forInit", "forUpdate", "assignment", 
+		"recordFieldAccess", "assignmentOperator", "foreachStatement", "breakStatement", 
+		"continueStatement", "functionDeclaration", "functionMainDeclaration", 
 		"parameterList", "parameter", "returnStatement", "block", "argumentList", 
 		"functionCall", "typeAnnotation", "returnTypeAnnotation", "dataType", 
 		"returnDataType", "expression",
 	];
 
 	private static readonly _LITERAL_NAMES: Array<string | undefined> = [
-		undefined, "'='", "'('", "')'", "','", "'{'", "'}'", "':'", undefined, 
+		undefined, "'='", "'{'", "'}'", "','", "'('", "')'", "'.'", "':'", undefined, 
 		undefined, undefined, undefined, undefined, undefined, undefined, undefined, 
 		undefined, undefined, undefined, undefined, undefined, undefined, undefined, 
 		undefined, undefined, undefined, undefined, undefined, undefined, undefined, 
-		"'+='", "'-='", "'+'", "'-'", "'*'", "'/'", "'=='", "'!='", "'<'", "'>'", 
-		"'<='", "'>='", "';'",
+		undefined, undefined, undefined, undefined, undefined, undefined, undefined, 
+		undefined, "'stg'", undefined, "'+='", "'-='", "'+'", "'-'", "'*'", "'/'", 
+		"'=='", "'!='", "'<'", "'>'", "'<='", "'>='", "';'",
 	];
 	private static readonly _SYMBOLIC_NAMES: Array<string | undefined> = [
 		undefined, undefined, undefined, undefined, undefined, undefined, undefined, 
-		undefined, "CONST_KW", "VAR_KW", "LET_KW", "PRINT_KW", "IF_KW", "ELSE_KW", 
-		"WHILE_KW", "FUNCTION_KW", "RETURN_KW", "DO_KW", "FOR_KW", "FOREACH_KW", 
-		"IN_KW", "BREAK_KW", "CONTINUE_KW", "INT_KW", "FLOAT_KW", "STRING_KW", 
-		"CHAR_KW", "BOOLEAN_KW", "VOID_KW", "IDENTIFIER", "ADD_ASSIGN", "SUB_ASSIGN", 
-		"ADD", "SUB", "MUL", "DIV", "EQ", "NEQ", "LT", "GT", "LTE", "GTE", "SEMICOLON", 
+		undefined, undefined, "INCLUDE_KW", "CONST_KW", "VAR_KW", "LET_KW", "PRINT_KW", 
+		"IF_KW", "ELSE_KW", "WHILE_KW", "FUNCTION_KW", "RETURN_KW", "DO_KW", "FOR_KW", 
+		"FOREACH_KW", "IN_KW", "BREAK_KW", "CONTINUE_KW", "INT_KW", "FLOAT_KW", 
+		"STRING_KW", "CHAR_KW", "BOOLEAN_KW", "TRUE_KW", "FALSE_KW", "VOID_KW", 
+		"MAIN_KW", "RECORD_KW", "NEW_KW", "EXPORT_KW", "IDENTIFIER", "FILENAME", 
+		"FILE_EXTENSION", "SUBSCRIPT", "ADD_ASSIGN", "SUB_ASSIGN", "ADD", "SUB", 
+		"MUL", "DIV", "EQ", "NEQ", "LT", "GT", "LTE", "GTE", "SEMICOLON", "FLOAT", 
 		"NUMBER", "STRING", "WS",
 	];
 	public static readonly VOCABULARY: Vocabulary = new VocabularyImpl(AstigLangParser._LITERAL_NAMES, AstigLangParser._SYMBOLIC_NAMES, []);
@@ -163,24 +191,165 @@ export class AstigLangParser extends Parser {
 		this.enterRule(_localctx, 0, AstigLangParser.RULE_program);
 		let _la: number;
 		try {
+			let _alt: number;
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 63;
+			this.state = 83;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			while ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << AstigLangParser.T__4) | (1 << AstigLangParser.CONST_KW) | (1 << AstigLangParser.VAR_KW) | (1 << AstigLangParser.LET_KW) | (1 << AstigLangParser.PRINT_KW) | (1 << AstigLangParser.IF_KW) | (1 << AstigLangParser.WHILE_KW) | (1 << AstigLangParser.FUNCTION_KW) | (1 << AstigLangParser.RETURN_KW) | (1 << AstigLangParser.DO_KW) | (1 << AstigLangParser.FOR_KW) | (1 << AstigLangParser.FOREACH_KW) | (1 << AstigLangParser.BREAK_KW) | (1 << AstigLangParser.CONTINUE_KW) | (1 << AstigLangParser.IDENTIFIER))) !== 0)) {
+			while (_la === AstigLangParser.INCLUDE_KW) {
 				{
 				{
-				this.state = 60;
-				this.statement();
+				this.state = 80;
+				this.includeList();
 				}
 				}
-				this.state = 65;
+				this.state = 85;
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
 			}
-			this.state = 66;
+			this.state = 89;
+			this._errHandler.sync(this);
+			_la = this._input.LA(1);
+			while (_la === AstigLangParser.RECORD_KW) {
+				{
+				{
+				this.state = 86;
+				this.recordDeclaration();
+				}
+				}
+				this.state = 91;
+				this._errHandler.sync(this);
+				_la = this._input.LA(1);
+			}
+			this.state = 95;
+			this._errHandler.sync(this);
+			_alt = this.interpreter.adaptivePredict(this._input, 2, this._ctx);
+			while (_alt !== 2 && _alt !== ATN.INVALID_ALT_NUMBER) {
+				if (_alt === 1) {
+					{
+					{
+					this.state = 92;
+					this.statement();
+					}
+					}
+				}
+				this.state = 97;
+				this._errHandler.sync(this);
+				_alt = this.interpreter.adaptivePredict(this._input, 2, this._ctx);
+			}
+			this.state = 101;
+			this._errHandler.sync(this);
+			_alt = this.interpreter.adaptivePredict(this._input, 3, this._ctx);
+			while (_alt !== 2 && _alt !== ATN.INVALID_ALT_NUMBER) {
+				if (_alt === 1) {
+					{
+					{
+					this.state = 98;
+					this.functionDeclaration();
+					}
+					}
+				}
+				this.state = 103;
+				this._errHandler.sync(this);
+				_alt = this.interpreter.adaptivePredict(this._input, 3, this._ctx);
+			}
+			this.state = 107;
+			this._errHandler.sync(this);
+			_la = this._input.LA(1);
+			while (_la === AstigLangParser.FUNCTION_KW) {
+				{
+				{
+				this.state = 104;
+				this.functionMainDeclaration();
+				}
+				}
+				this.state = 109;
+				this._errHandler.sync(this);
+				_la = this._input.LA(1);
+			}
+			this.state = 110;
 			this.match(AstigLangParser.EOF);
+			}
+		}
+		catch (re) {
+			if (re instanceof RecognitionException) {
+				_localctx.exception = re;
+				this._errHandler.reportError(this, re);
+				this._errHandler.recover(this, re);
+			} else {
+				throw re;
+			}
+		}
+		finally {
+			this.exitRule();
+		}
+		return _localctx;
+	}
+	// @RuleVersion(0)
+	public includeList(): IncludeListContext {
+		let _localctx: IncludeListContext = new IncludeListContext(this._ctx, this.state);
+		this.enterRule(_localctx, 2, AstigLangParser.RULE_includeList);
+		try {
+			let _alt: number;
+			this.enterOuterAlt(_localctx, 1);
+			{
+			this.state = 112;
+			this.includeStatement();
+			this.state = 116;
+			this._errHandler.sync(this);
+			_alt = this.interpreter.adaptivePredict(this._input, 5, this._ctx);
+			while (_alt !== 2 && _alt !== ATN.INVALID_ALT_NUMBER) {
+				if (_alt === 1) {
+					{
+					{
+					this.state = 113;
+					this.includeList();
+					}
+					}
+				}
+				this.state = 118;
+				this._errHandler.sync(this);
+				_alt = this.interpreter.adaptivePredict(this._input, 5, this._ctx);
+			}
+			}
+		}
+		catch (re) {
+			if (re instanceof RecognitionException) {
+				_localctx.exception = re;
+				this._errHandler.reportError(this, re);
+				this._errHandler.recover(this, re);
+			} else {
+				throw re;
+			}
+		}
+		finally {
+			this.exitRule();
+		}
+		return _localctx;
+	}
+	// @RuleVersion(0)
+	public includeStatement(): IncludeStatementContext {
+		let _localctx: IncludeStatementContext = new IncludeStatementContext(this._ctx, this.state);
+		this.enterRule(_localctx, 4, AstigLangParser.RULE_includeStatement);
+		let _la: number;
+		try {
+			this.enterOuterAlt(_localctx, 1);
+			{
+			this.state = 119;
+			this.match(AstigLangParser.INCLUDE_KW);
+			this.state = 120;
+			this.match(AstigLangParser.FILENAME);
+			this.state = 122;
+			this._errHandler.sync(this);
+			_la = this._input.LA(1);
+			if (_la === AstigLangParser.SEMICOLON) {
+				{
+				this.state = 121;
+				this.match(AstigLangParser.SEMICOLON);
+				}
+			}
+
 			}
 		}
 		catch (re) {
@@ -200,10 +369,10 @@ export class AstigLangParser extends Parser {
 	// @RuleVersion(0)
 	public statement(): StatementContext {
 		let _localctx: StatementContext = new StatementContext(this._ctx, this.state);
-		this.enterRule(_localctx, 2, AstigLangParser.RULE_statement);
+		this.enterRule(_localctx, 6, AstigLangParser.RULE_statement);
 		let _la: number;
 		try {
-			this.state = 99;
+			this.state = 155;
 			this._errHandler.sync(this);
 			switch (this._input.LA(1)) {
 			case AstigLangParser.CONST_KW:
@@ -211,14 +380,14 @@ export class AstigLangParser extends Parser {
 			case AstigLangParser.LET_KW:
 				this.enterOuterAlt(_localctx, 1);
 				{
-				this.state = 68;
+				this.state = 124;
 				this.variableDeclaration();
-				this.state = 70;
+				this.state = 126;
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
 				if (_la === AstigLangParser.SEMICOLON) {
 					{
-					this.state = 69;
+					this.state = 125;
 					this.match(AstigLangParser.SEMICOLON);
 					}
 				}
@@ -228,14 +397,14 @@ export class AstigLangParser extends Parser {
 			case AstigLangParser.IDENTIFIER:
 				this.enterOuterAlt(_localctx, 2);
 				{
-				this.state = 72;
+				this.state = 128;
 				this.assignment();
-				this.state = 74;
+				this.state = 130;
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
 				if (_la === AstigLangParser.SEMICOLON) {
 					{
-					this.state = 73;
+					this.state = 129;
 					this.match(AstigLangParser.SEMICOLON);
 					}
 				}
@@ -245,14 +414,14 @@ export class AstigLangParser extends Parser {
 			case AstigLangParser.PRINT_KW:
 				this.enterOuterAlt(_localctx, 3);
 				{
-				this.state = 76;
+				this.state = 132;
 				this.printStatement();
-				this.state = 78;
+				this.state = 134;
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
 				if (_la === AstigLangParser.SEMICOLON) {
 					{
-					this.state = 77;
+					this.state = 133;
 					this.match(AstigLangParser.SEMICOLON);
 					}
 				}
@@ -262,56 +431,57 @@ export class AstigLangParser extends Parser {
 			case AstigLangParser.IF_KW:
 				this.enterOuterAlt(_localctx, 4);
 				{
-				this.state = 80;
+				this.state = 136;
 				this.ifStatement();
 				}
 				break;
 			case AstigLangParser.WHILE_KW:
 				this.enterOuterAlt(_localctx, 5);
 				{
-				this.state = 81;
+				this.state = 137;
 				this.whileStatement();
 				}
 				break;
 			case AstigLangParser.DO_KW:
 				this.enterOuterAlt(_localctx, 6);
 				{
-				this.state = 82;
+				this.state = 138;
 				this.doWhileStatement();
 				}
 				break;
 			case AstigLangParser.FOR_KW:
 				this.enterOuterAlt(_localctx, 7);
 				{
-				this.state = 83;
+				this.state = 139;
 				this.forStatement();
 				}
 				break;
 			case AstigLangParser.FOREACH_KW:
 				this.enterOuterAlt(_localctx, 8);
 				{
-				this.state = 84;
+				this.state = 140;
 				this.foreachStatement();
 				}
 				break;
 			case AstigLangParser.FUNCTION_KW:
+			case AstigLangParser.EXPORT_KW:
 				this.enterOuterAlt(_localctx, 9);
 				{
-				this.state = 85;
+				this.state = 141;
 				this.functionDeclaration();
 				}
 				break;
 			case AstigLangParser.RETURN_KW:
 				this.enterOuterAlt(_localctx, 10);
 				{
-				this.state = 86;
+				this.state = 142;
 				this.returnStatement();
-				this.state = 88;
+				this.state = 144;
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
 				if (_la === AstigLangParser.SEMICOLON) {
 					{
-					this.state = 87;
+					this.state = 143;
 					this.match(AstigLangParser.SEMICOLON);
 					}
 				}
@@ -321,14 +491,14 @@ export class AstigLangParser extends Parser {
 			case AstigLangParser.BREAK_KW:
 				this.enterOuterAlt(_localctx, 11);
 				{
-				this.state = 90;
+				this.state = 146;
 				this.breakStatement();
-				this.state = 92;
+				this.state = 148;
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
 				if (_la === AstigLangParser.SEMICOLON) {
 					{
-					this.state = 91;
+					this.state = 147;
 					this.match(AstigLangParser.SEMICOLON);
 					}
 				}
@@ -338,24 +508,24 @@ export class AstigLangParser extends Parser {
 			case AstigLangParser.CONTINUE_KW:
 				this.enterOuterAlt(_localctx, 12);
 				{
-				this.state = 94;
+				this.state = 150;
 				this.continueStatement();
-				this.state = 96;
+				this.state = 152;
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
 				if (_la === AstigLangParser.SEMICOLON) {
 					{
-					this.state = 95;
+					this.state = 151;
 					this.match(AstigLangParser.SEMICOLON);
 					}
 				}
 
 				}
 				break;
-			case AstigLangParser.T__4:
+			case AstigLangParser.T__1:
 				this.enterOuterAlt(_localctx, 13);
 				{
-				this.state = 98;
+				this.state = 154;
 				this.block();
 				}
 				break;
@@ -380,20 +550,260 @@ export class AstigLangParser extends Parser {
 	// @RuleVersion(0)
 	public variableDeclaration(): VariableDeclarationContext {
 		let _localctx: VariableDeclarationContext = new VariableDeclarationContext(this._ctx, this.state);
-		this.enterRule(_localctx, 4, AstigLangParser.RULE_variableDeclaration);
+		this.enterRule(_localctx, 8, AstigLangParser.RULE_variableDeclaration);
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 101;
+			this.state = 157;
 			this.declarationKeyword();
-			this.state = 102;
+			this.state = 158;
 			this.match(AstigLangParser.IDENTIFIER);
-			this.state = 103;
+			this.state = 159;
 			this.typeAnnotation();
-			this.state = 104;
+			this.state = 160;
 			this.match(AstigLangParser.T__0);
-			this.state = 105;
+			this.state = 161;
 			this.expression(0);
+			}
+		}
+		catch (re) {
+			if (re instanceof RecognitionException) {
+				_localctx.exception = re;
+				this._errHandler.reportError(this, re);
+				this._errHandler.recover(this, re);
+			} else {
+				throw re;
+			}
+		}
+		finally {
+			this.exitRule();
+		}
+		return _localctx;
+	}
+	// @RuleVersion(0)
+	public recordDeclaration(): RecordDeclarationContext {
+		let _localctx: RecordDeclarationContext = new RecordDeclarationContext(this._ctx, this.state);
+		this.enterRule(_localctx, 10, AstigLangParser.RULE_recordDeclaration);
+		let _la: number;
+		try {
+			this.enterOuterAlt(_localctx, 1);
+			{
+			this.state = 163;
+			this.match(AstigLangParser.RECORD_KW);
+			this.state = 164;
+			this.match(AstigLangParser.IDENTIFIER);
+			this.state = 165;
+			this.match(AstigLangParser.T__1);
+			this.state = 167;
+			this._errHandler.sync(this);
+			_la = this._input.LA(1);
+			if (_la === AstigLangParser.IDENTIFIER) {
+				{
+				this.state = 166;
+				this.recordFieldList();
+				}
+			}
+
+			this.state = 169;
+			this.match(AstigLangParser.T__2);
+			this.state = 171;
+			this._errHandler.sync(this);
+			_la = this._input.LA(1);
+			if (_la === AstigLangParser.SEMICOLON) {
+				{
+				this.state = 170;
+				this.match(AstigLangParser.SEMICOLON);
+				}
+			}
+
+			}
+		}
+		catch (re) {
+			if (re instanceof RecognitionException) {
+				_localctx.exception = re;
+				this._errHandler.reportError(this, re);
+				this._errHandler.recover(this, re);
+			} else {
+				throw re;
+			}
+		}
+		finally {
+			this.exitRule();
+		}
+		return _localctx;
+	}
+	// @RuleVersion(0)
+	public recordFieldList(): RecordFieldListContext {
+		let _localctx: RecordFieldListContext = new RecordFieldListContext(this._ctx, this.state);
+		this.enterRule(_localctx, 12, AstigLangParser.RULE_recordFieldList);
+		let _la: number;
+		try {
+			this.enterOuterAlt(_localctx, 1);
+			{
+			this.state = 173;
+			this.recordField();
+			this.state = 178;
+			this._errHandler.sync(this);
+			_la = this._input.LA(1);
+			while (_la === AstigLangParser.T__3) {
+				{
+				{
+				this.state = 174;
+				this.match(AstigLangParser.T__3);
+				this.state = 175;
+				this.recordField();
+				}
+				}
+				this.state = 180;
+				this._errHandler.sync(this);
+				_la = this._input.LA(1);
+			}
+			}
+		}
+		catch (re) {
+			if (re instanceof RecognitionException) {
+				_localctx.exception = re;
+				this._errHandler.reportError(this, re);
+				this._errHandler.recover(this, re);
+			} else {
+				throw re;
+			}
+		}
+		finally {
+			this.exitRule();
+		}
+		return _localctx;
+	}
+	// @RuleVersion(0)
+	public recordField(): RecordFieldContext {
+		let _localctx: RecordFieldContext = new RecordFieldContext(this._ctx, this.state);
+		this.enterRule(_localctx, 14, AstigLangParser.RULE_recordField);
+		try {
+			this.enterOuterAlt(_localctx, 1);
+			{
+			this.state = 181;
+			this.match(AstigLangParser.IDENTIFIER);
+			this.state = 182;
+			this.typeAnnotation();
+			}
+		}
+		catch (re) {
+			if (re instanceof RecognitionException) {
+				_localctx.exception = re;
+				this._errHandler.reportError(this, re);
+				this._errHandler.recover(this, re);
+			} else {
+				throw re;
+			}
+		}
+		finally {
+			this.exitRule();
+		}
+		return _localctx;
+	}
+	// @RuleVersion(0)
+	public recordLiteral(): RecordLiteralContext {
+		let _localctx: RecordLiteralContext = new RecordLiteralContext(this._ctx, this.state);
+		this.enterRule(_localctx, 16, AstigLangParser.RULE_recordLiteral);
+		let _la: number;
+		try {
+			this.enterOuterAlt(_localctx, 1);
+			{
+			this.state = 184;
+			this.match(AstigLangParser.NEW_KW);
+			this.state = 185;
+			this.match(AstigLangParser.IDENTIFIER);
+			this.state = 186;
+			this.match(AstigLangParser.T__1);
+			this.state = 188;
+			this._errHandler.sync(this);
+			_la = this._input.LA(1);
+			if (_la === AstigLangParser.IDENTIFIER) {
+				{
+				this.state = 187;
+				this.recordLiteralFieldList();
+				}
+			}
+
+			this.state = 190;
+			this.match(AstigLangParser.T__2);
+			this.state = 192;
+			this._errHandler.sync(this);
+			switch ( this.interpreter.adaptivePredict(this._input, 18, this._ctx) ) {
+			case 1:
+				{
+				this.state = 191;
+				this.match(AstigLangParser.SEMICOLON);
+				}
+				break;
+			}
+			}
+		}
+		catch (re) {
+			if (re instanceof RecognitionException) {
+				_localctx.exception = re;
+				this._errHandler.reportError(this, re);
+				this._errHandler.recover(this, re);
+			} else {
+				throw re;
+			}
+		}
+		finally {
+			this.exitRule();
+		}
+		return _localctx;
+	}
+	// @RuleVersion(0)
+	public recordLiteralFieldList(): RecordLiteralFieldListContext {
+		let _localctx: RecordLiteralFieldListContext = new RecordLiteralFieldListContext(this._ctx, this.state);
+		this.enterRule(_localctx, 18, AstigLangParser.RULE_recordLiteralFieldList);
+		let _la: number;
+		try {
+			this.enterOuterAlt(_localctx, 1);
+			{
+			this.state = 194;
+			this.recordLiteralField();
+			this.state = 199;
+			this._errHandler.sync(this);
+			_la = this._input.LA(1);
+			while (_la === AstigLangParser.T__3) {
+				{
+				{
+				this.state = 195;
+				this.match(AstigLangParser.T__3);
+				this.state = 196;
+				this.recordLiteralField();
+				}
+				}
+				this.state = 201;
+				this._errHandler.sync(this);
+				_la = this._input.LA(1);
+			}
+			}
+		}
+		catch (re) {
+			if (re instanceof RecognitionException) {
+				_localctx.exception = re;
+				this._errHandler.reportError(this, re);
+				this._errHandler.recover(this, re);
+			} else {
+				throw re;
+			}
+		}
+		finally {
+			this.exitRule();
+		}
+		return _localctx;
+	}
+	// @RuleVersion(0)
+	public recordLiteralField(): RecordLiteralFieldContext {
+		let _localctx: RecordLiteralFieldContext = new RecordLiteralFieldContext(this._ctx, this.state);
+		this.enterRule(_localctx, 20, AstigLangParser.RULE_recordLiteralField);
+		try {
+			this.enterOuterAlt(_localctx, 1);
+			{
+			this.state = 202;
+			this.assignment();
 			}
 		}
 		catch (re) {
@@ -413,12 +823,12 @@ export class AstigLangParser extends Parser {
 	// @RuleVersion(0)
 	public declarationKeyword(): DeclarationKeywordContext {
 		let _localctx: DeclarationKeywordContext = new DeclarationKeywordContext(this._ctx, this.state);
-		this.enterRule(_localctx, 6, AstigLangParser.RULE_declarationKeyword);
+		this.enterRule(_localctx, 22, AstigLangParser.RULE_declarationKeyword);
 		let _la: number;
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 107;
+			this.state = 204;
 			_la = this._input.LA(1);
 			if (!((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << AstigLangParser.CONST_KW) | (1 << AstigLangParser.VAR_KW) | (1 << AstigLangParser.LET_KW))) !== 0))) {
 			this._errHandler.recoverInline(this);
@@ -449,18 +859,18 @@ export class AstigLangParser extends Parser {
 	// @RuleVersion(0)
 	public printStatement(): PrintStatementContext {
 		let _localctx: PrintStatementContext = new PrintStatementContext(this._ctx, this.state);
-		this.enterRule(_localctx, 8, AstigLangParser.RULE_printStatement);
+		this.enterRule(_localctx, 24, AstigLangParser.RULE_printStatement);
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 109;
+			this.state = 206;
 			this.match(AstigLangParser.PRINT_KW);
-			this.state = 110;
-			this.match(AstigLangParser.T__1);
-			this.state = 111;
+			this.state = 207;
+			this.match(AstigLangParser.T__4);
+			this.state = 208;
 			this.expression(0);
-			this.state = 112;
-			this.match(AstigLangParser.T__2);
+			this.state = 209;
+			this.match(AstigLangParser.T__5);
 			}
 		}
 		catch (re) {
@@ -480,44 +890,44 @@ export class AstigLangParser extends Parser {
 	// @RuleVersion(0)
 	public ifStatement(): IfStatementContext {
 		let _localctx: IfStatementContext = new IfStatementContext(this._ctx, this.state);
-		this.enterRule(_localctx, 10, AstigLangParser.RULE_ifStatement);
+		this.enterRule(_localctx, 26, AstigLangParser.RULE_ifStatement);
 		let _la: number;
 		try {
 			let _alt: number;
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 114;
+			this.state = 211;
 			this.match(AstigLangParser.IF_KW);
-			this.state = 115;
-			this.match(AstigLangParser.T__1);
-			this.state = 116;
+			this.state = 212;
+			this.match(AstigLangParser.T__4);
+			this.state = 213;
 			this.expression(0);
-			this.state = 117;
-			this.match(AstigLangParser.T__2);
-			this.state = 118;
+			this.state = 214;
+			this.match(AstigLangParser.T__5);
+			this.state = 215;
 			this.block();
-			this.state = 122;
+			this.state = 219;
 			this._errHandler.sync(this);
-			_alt = this.interpreter.adaptivePredict(this._input, 8, this._ctx);
+			_alt = this.interpreter.adaptivePredict(this._input, 20, this._ctx);
 			while (_alt !== 2 && _alt !== ATN.INVALID_ALT_NUMBER) {
 				if (_alt === 1) {
 					{
 					{
-					this.state = 119;
+					this.state = 216;
 					this.elseIfPart();
 					}
 					}
 				}
-				this.state = 124;
+				this.state = 221;
 				this._errHandler.sync(this);
-				_alt = this.interpreter.adaptivePredict(this._input, 8, this._ctx);
+				_alt = this.interpreter.adaptivePredict(this._input, 20, this._ctx);
 			}
-			this.state = 126;
+			this.state = 223;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
 			if (_la === AstigLangParser.ELSE_KW) {
 				{
-				this.state = 125;
+				this.state = 222;
 				this.elsePart();
 				}
 			}
@@ -541,21 +951,21 @@ export class AstigLangParser extends Parser {
 	// @RuleVersion(0)
 	public elseIfPart(): ElseIfPartContext {
 		let _localctx: ElseIfPartContext = new ElseIfPartContext(this._ctx, this.state);
-		this.enterRule(_localctx, 12, AstigLangParser.RULE_elseIfPart);
+		this.enterRule(_localctx, 28, AstigLangParser.RULE_elseIfPart);
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 128;
+			this.state = 225;
 			this.match(AstigLangParser.ELSE_KW);
-			this.state = 129;
+			this.state = 226;
 			this.match(AstigLangParser.IF_KW);
-			this.state = 130;
-			this.match(AstigLangParser.T__1);
-			this.state = 131;
+			this.state = 227;
+			this.match(AstigLangParser.T__4);
+			this.state = 228;
 			this.expression(0);
-			this.state = 132;
-			this.match(AstigLangParser.T__2);
-			this.state = 133;
+			this.state = 229;
+			this.match(AstigLangParser.T__5);
+			this.state = 230;
 			this.block();
 			}
 		}
@@ -576,13 +986,13 @@ export class AstigLangParser extends Parser {
 	// @RuleVersion(0)
 	public elsePart(): ElsePartContext {
 		let _localctx: ElsePartContext = new ElsePartContext(this._ctx, this.state);
-		this.enterRule(_localctx, 14, AstigLangParser.RULE_elsePart);
+		this.enterRule(_localctx, 30, AstigLangParser.RULE_elsePart);
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 135;
+			this.state = 232;
 			this.match(AstigLangParser.ELSE_KW);
-			this.state = 136;
+			this.state = 233;
 			this.block();
 			}
 		}
@@ -603,19 +1013,19 @@ export class AstigLangParser extends Parser {
 	// @RuleVersion(0)
 	public whileStatement(): WhileStatementContext {
 		let _localctx: WhileStatementContext = new WhileStatementContext(this._ctx, this.state);
-		this.enterRule(_localctx, 16, AstigLangParser.RULE_whileStatement);
+		this.enterRule(_localctx, 32, AstigLangParser.RULE_whileStatement);
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 138;
+			this.state = 235;
 			this.match(AstigLangParser.WHILE_KW);
-			this.state = 139;
-			this.match(AstigLangParser.T__1);
-			this.state = 140;
+			this.state = 236;
+			this.match(AstigLangParser.T__4);
+			this.state = 237;
 			this.expression(0);
-			this.state = 141;
-			this.match(AstigLangParser.T__2);
-			this.state = 142;
+			this.state = 238;
+			this.match(AstigLangParser.T__5);
+			this.state = 239;
 			this.block();
 			}
 		}
@@ -636,29 +1046,29 @@ export class AstigLangParser extends Parser {
 	// @RuleVersion(0)
 	public doWhileStatement(): DoWhileStatementContext {
 		let _localctx: DoWhileStatementContext = new DoWhileStatementContext(this._ctx, this.state);
-		this.enterRule(_localctx, 18, AstigLangParser.RULE_doWhileStatement);
+		this.enterRule(_localctx, 34, AstigLangParser.RULE_doWhileStatement);
 		let _la: number;
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 144;
+			this.state = 241;
 			this.match(AstigLangParser.DO_KW);
-			this.state = 145;
+			this.state = 242;
 			this.block();
-			this.state = 146;
+			this.state = 243;
 			this.match(AstigLangParser.WHILE_KW);
-			this.state = 147;
-			this.match(AstigLangParser.T__1);
-			this.state = 148;
+			this.state = 244;
+			this.match(AstigLangParser.T__4);
+			this.state = 245;
 			this.expression(0);
-			this.state = 149;
-			this.match(AstigLangParser.T__2);
-			this.state = 151;
+			this.state = 246;
+			this.match(AstigLangParser.T__5);
+			this.state = 248;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
 			if (_la === AstigLangParser.SEMICOLON) {
 				{
-				this.state = 150;
+				this.state = 247;
 				this.match(AstigLangParser.SEMICOLON);
 				}
 			}
@@ -682,52 +1092,52 @@ export class AstigLangParser extends Parser {
 	// @RuleVersion(0)
 	public forStatement(): ForStatementContext {
 		let _localctx: ForStatementContext = new ForStatementContext(this._ctx, this.state);
-		this.enterRule(_localctx, 20, AstigLangParser.RULE_forStatement);
+		this.enterRule(_localctx, 36, AstigLangParser.RULE_forStatement);
 		let _la: number;
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 153;
+			this.state = 250;
 			this.match(AstigLangParser.FOR_KW);
-			this.state = 154;
-			this.match(AstigLangParser.T__1);
-			this.state = 156;
+			this.state = 251;
+			this.match(AstigLangParser.T__4);
+			this.state = 253;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			if ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << AstigLangParser.CONST_KW) | (1 << AstigLangParser.VAR_KW) | (1 << AstigLangParser.LET_KW) | (1 << AstigLangParser.IDENTIFIER))) !== 0)) {
+			if (((((_la - 10)) & ~0x1F) === 0 && ((1 << (_la - 10)) & ((1 << (AstigLangParser.CONST_KW - 10)) | (1 << (AstigLangParser.VAR_KW - 10)) | (1 << (AstigLangParser.LET_KW - 10)) | (1 << (AstigLangParser.IDENTIFIER - 10)))) !== 0)) {
 				{
-				this.state = 155;
+				this.state = 252;
 				this.forInit();
 				}
 			}
 
-			this.state = 158;
+			this.state = 255;
 			this.match(AstigLangParser.SEMICOLON);
-			this.state = 160;
+			this.state = 257;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			if (_la === AstigLangParser.T__1 || _la === AstigLangParser.IDENTIFIER || ((((_la - 33)) & ~0x1F) === 0 && ((1 << (_la - 33)) & ((1 << (AstigLangParser.SUB - 33)) | (1 << (AstigLangParser.NUMBER - 33)) | (1 << (AstigLangParser.STRING - 33)))) !== 0)) {
+			if (_la === AstigLangParser.T__4 || ((((_la - 35)) & ~0x1F) === 0 && ((1 << (_la - 35)) & ((1 << (AstigLangParser.NEW_KW - 35)) | (1 << (AstigLangParser.IDENTIFIER - 35)) | (1 << (AstigLangParser.SUB - 35)) | (1 << (AstigLangParser.FLOAT - 35)) | (1 << (AstigLangParser.NUMBER - 35)) | (1 << (AstigLangParser.STRING - 35)))) !== 0)) {
 				{
-				this.state = 159;
+				this.state = 256;
 				this.expression(0);
 				}
 			}
 
-			this.state = 162;
+			this.state = 259;
 			this.match(AstigLangParser.SEMICOLON);
-			this.state = 164;
+			this.state = 261;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
 			if (_la === AstigLangParser.IDENTIFIER) {
 				{
-				this.state = 163;
+				this.state = 260;
 				this.forUpdate();
 				}
 			}
 
-			this.state = 166;
-			this.match(AstigLangParser.T__2);
-			this.state = 167;
+			this.state = 263;
+			this.match(AstigLangParser.T__5);
+			this.state = 264;
 			this.block();
 			}
 		}
@@ -748,9 +1158,9 @@ export class AstigLangParser extends Parser {
 	// @RuleVersion(0)
 	public forInit(): ForInitContext {
 		let _localctx: ForInitContext = new ForInitContext(this._ctx, this.state);
-		this.enterRule(_localctx, 22, AstigLangParser.RULE_forInit);
+		this.enterRule(_localctx, 38, AstigLangParser.RULE_forInit);
 		try {
-			this.state = 171;
+			this.state = 268;
 			this._errHandler.sync(this);
 			switch (this._input.LA(1)) {
 			case AstigLangParser.CONST_KW:
@@ -758,14 +1168,14 @@ export class AstigLangParser extends Parser {
 			case AstigLangParser.LET_KW:
 				this.enterOuterAlt(_localctx, 1);
 				{
-				this.state = 169;
+				this.state = 266;
 				this.variableDeclaration();
 				}
 				break;
 			case AstigLangParser.IDENTIFIER:
 				this.enterOuterAlt(_localctx, 2);
 				{
-				this.state = 170;
+				this.state = 267;
 				this.assignment();
 				}
 				break;
@@ -790,15 +1200,15 @@ export class AstigLangParser extends Parser {
 	// @RuleVersion(0)
 	public forUpdate(): ForUpdateContext {
 		let _localctx: ForUpdateContext = new ForUpdateContext(this._ctx, this.state);
-		this.enterRule(_localctx, 24, AstigLangParser.RULE_forUpdate);
+		this.enterRule(_localctx, 40, AstigLangParser.RULE_forUpdate);
 		try {
-			this.state = 175;
+			this.state = 272;
 			this._errHandler.sync(this);
-			switch ( this.interpreter.adaptivePredict(this._input, 15, this._ctx) ) {
+			switch ( this.interpreter.adaptivePredict(this._input, 27, this._ctx) ) {
 			case 1:
 				this.enterOuterAlt(_localctx, 1);
 				{
-				this.state = 173;
+				this.state = 270;
 				this.assignment();
 				}
 				break;
@@ -806,7 +1216,7 @@ export class AstigLangParser extends Parser {
 			case 2:
 				this.enterOuterAlt(_localctx, 2);
 				{
-				this.state = 174;
+				this.state = 271;
 				this.functionCall();
 				}
 				break;
@@ -829,16 +1239,58 @@ export class AstigLangParser extends Parser {
 	// @RuleVersion(0)
 	public assignment(): AssignmentContext {
 		let _localctx: AssignmentContext = new AssignmentContext(this._ctx, this.state);
-		this.enterRule(_localctx, 26, AstigLangParser.RULE_assignment);
+		this.enterRule(_localctx, 42, AstigLangParser.RULE_assignment);
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 177;
+			this.state = 274;
 			this.match(AstigLangParser.IDENTIFIER);
-			this.state = 178;
+			this.state = 275;
 			this.assignmentOperator();
-			this.state = 179;
+			this.state = 276;
 			this.expression(0);
+			}
+		}
+		catch (re) {
+			if (re instanceof RecognitionException) {
+				_localctx.exception = re;
+				this._errHandler.reportError(this, re);
+				this._errHandler.recover(this, re);
+			} else {
+				throw re;
+			}
+		}
+		finally {
+			this.exitRule();
+		}
+		return _localctx;
+	}
+	// @RuleVersion(0)
+	public recordFieldAccess(): RecordFieldAccessContext {
+		let _localctx: RecordFieldAccessContext = new RecordFieldAccessContext(this._ctx, this.state);
+		this.enterRule(_localctx, 44, AstigLangParser.RULE_recordFieldAccess);
+		let _la: number;
+		try {
+			this.enterOuterAlt(_localctx, 1);
+			{
+			this.state = 278;
+			this.match(AstigLangParser.IDENTIFIER);
+			this.state = 281;
+			this._errHandler.sync(this);
+			_la = this._input.LA(1);
+			do {
+				{
+				{
+				this.state = 279;
+				this.match(AstigLangParser.T__6);
+				this.state = 280;
+				this.match(AstigLangParser.IDENTIFIER);
+				}
+				}
+				this.state = 283;
+				this._errHandler.sync(this);
+				_la = this._input.LA(1);
+			} while (_la === AstigLangParser.T__6);
 			}
 		}
 		catch (re) {
@@ -858,14 +1310,14 @@ export class AstigLangParser extends Parser {
 	// @RuleVersion(0)
 	public assignmentOperator(): AssignmentOperatorContext {
 		let _localctx: AssignmentOperatorContext = new AssignmentOperatorContext(this._ctx, this.state);
-		this.enterRule(_localctx, 28, AstigLangParser.RULE_assignmentOperator);
+		this.enterRule(_localctx, 46, AstigLangParser.RULE_assignmentOperator);
 		let _la: number;
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 181;
+			this.state = 285;
 			_la = this._input.LA(1);
-			if (!((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << AstigLangParser.T__0) | (1 << AstigLangParser.ADD_ASSIGN) | (1 << AstigLangParser.SUB_ASSIGN))) !== 0))) {
+			if (!(_la === AstigLangParser.T__0 || _la === AstigLangParser.ADD_ASSIGN || _la === AstigLangParser.SUB_ASSIGN)) {
 			this._errHandler.recoverInline(this);
 			} else {
 				if (this._input.LA(1) === Token.EOF) {
@@ -894,23 +1346,23 @@ export class AstigLangParser extends Parser {
 	// @RuleVersion(0)
 	public foreachStatement(): ForeachStatementContext {
 		let _localctx: ForeachStatementContext = new ForeachStatementContext(this._ctx, this.state);
-		this.enterRule(_localctx, 30, AstigLangParser.RULE_foreachStatement);
+		this.enterRule(_localctx, 48, AstigLangParser.RULE_foreachStatement);
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 183;
+			this.state = 287;
 			this.match(AstigLangParser.FOREACH_KW);
-			this.state = 184;
-			this.match(AstigLangParser.T__1);
-			this.state = 185;
+			this.state = 288;
+			this.match(AstigLangParser.T__4);
+			this.state = 289;
 			this.match(AstigLangParser.IDENTIFIER);
-			this.state = 186;
+			this.state = 290;
 			this.match(AstigLangParser.IN_KW);
-			this.state = 187;
+			this.state = 291;
 			this.expression(0);
-			this.state = 188;
-			this.match(AstigLangParser.T__2);
-			this.state = 189;
+			this.state = 292;
+			this.match(AstigLangParser.T__5);
+			this.state = 293;
 			this.block();
 			}
 		}
@@ -931,11 +1383,11 @@ export class AstigLangParser extends Parser {
 	// @RuleVersion(0)
 	public breakStatement(): BreakStatementContext {
 		let _localctx: BreakStatementContext = new BreakStatementContext(this._ctx, this.state);
-		this.enterRule(_localctx, 32, AstigLangParser.RULE_breakStatement);
+		this.enterRule(_localctx, 50, AstigLangParser.RULE_breakStatement);
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 191;
+			this.state = 295;
 			this.match(AstigLangParser.BREAK_KW);
 			}
 		}
@@ -956,11 +1408,11 @@ export class AstigLangParser extends Parser {
 	// @RuleVersion(0)
 	public continueStatement(): ContinueStatementContext {
 		let _localctx: ContinueStatementContext = new ContinueStatementContext(this._ctx, this.state);
-		this.enterRule(_localctx, 34, AstigLangParser.RULE_continueStatement);
+		this.enterRule(_localctx, 52, AstigLangParser.RULE_continueStatement);
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 193;
+			this.state = 297;
 			this.match(AstigLangParser.CONTINUE_KW);
 			}
 		}
@@ -981,40 +1433,83 @@ export class AstigLangParser extends Parser {
 	// @RuleVersion(0)
 	public functionDeclaration(): FunctionDeclarationContext {
 		let _localctx: FunctionDeclarationContext = new FunctionDeclarationContext(this._ctx, this.state);
-		this.enterRule(_localctx, 36, AstigLangParser.RULE_functionDeclaration);
+		this.enterRule(_localctx, 54, AstigLangParser.RULE_functionDeclaration);
 		let _la: number;
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 195;
+			this.state = 300;
+			this._errHandler.sync(this);
+			_la = this._input.LA(1);
+			if (_la === AstigLangParser.EXPORT_KW) {
+				{
+				this.state = 299;
+				this.match(AstigLangParser.EXPORT_KW);
+				}
+			}
+
+			this.state = 302;
 			this.match(AstigLangParser.FUNCTION_KW);
-			this.state = 196;
+			this.state = 303;
 			this.match(AstigLangParser.IDENTIFIER);
-			this.state = 197;
-			this.match(AstigLangParser.T__1);
-			this.state = 199;
+			this.state = 304;
+			this.match(AstigLangParser.T__4);
+			this.state = 306;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
 			if (_la === AstigLangParser.IDENTIFIER) {
 				{
-				this.state = 198;
+				this.state = 305;
 				this.parameterList();
 				}
 			}
 
-			this.state = 201;
-			this.match(AstigLangParser.T__2);
-			this.state = 203;
+			this.state = 308;
+			this.match(AstigLangParser.T__5);
+			this.state = 310;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			if (_la === AstigLangParser.T__6) {
+			if (_la === AstigLangParser.T__7) {
 				{
-				this.state = 202;
+				this.state = 309;
 				this.returnTypeAnnotation();
 				}
 			}
 
-			this.state = 205;
+			this.state = 312;
+			this.block();
+			}
+		}
+		catch (re) {
+			if (re instanceof RecognitionException) {
+				_localctx.exception = re;
+				this._errHandler.reportError(this, re);
+				this._errHandler.recover(this, re);
+			} else {
+				throw re;
+			}
+		}
+		finally {
+			this.exitRule();
+		}
+		return _localctx;
+	}
+	// @RuleVersion(0)
+	public functionMainDeclaration(): FunctionMainDeclarationContext {
+		let _localctx: FunctionMainDeclarationContext = new FunctionMainDeclarationContext(this._ctx, this.state);
+		this.enterRule(_localctx, 56, AstigLangParser.RULE_functionMainDeclaration);
+		try {
+			this.enterOuterAlt(_localctx, 1);
+			{
+			this.state = 314;
+			this.match(AstigLangParser.FUNCTION_KW);
+			this.state = 315;
+			this.match(AstigLangParser.MAIN_KW);
+			this.state = 316;
+			this.match(AstigLangParser.T__4);
+			this.state = 317;
+			this.match(AstigLangParser.T__5);
+			this.state = 318;
 			this.block();
 			}
 		}
@@ -1035,26 +1530,26 @@ export class AstigLangParser extends Parser {
 	// @RuleVersion(0)
 	public parameterList(): ParameterListContext {
 		let _localctx: ParameterListContext = new ParameterListContext(this._ctx, this.state);
-		this.enterRule(_localctx, 38, AstigLangParser.RULE_parameterList);
+		this.enterRule(_localctx, 58, AstigLangParser.RULE_parameterList);
 		let _la: number;
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 207;
+			this.state = 320;
 			this.parameter();
-			this.state = 212;
+			this.state = 325;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
 			while (_la === AstigLangParser.T__3) {
 				{
 				{
-				this.state = 208;
+				this.state = 321;
 				this.match(AstigLangParser.T__3);
-				this.state = 209;
+				this.state = 322;
 				this.parameter();
 				}
 				}
-				this.state = 214;
+				this.state = 327;
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
 			}
@@ -1077,19 +1572,19 @@ export class AstigLangParser extends Parser {
 	// @RuleVersion(0)
 	public parameter(): ParameterContext {
 		let _localctx: ParameterContext = new ParameterContext(this._ctx, this.state);
-		this.enterRule(_localctx, 40, AstigLangParser.RULE_parameter);
+		this.enterRule(_localctx, 60, AstigLangParser.RULE_parameter);
 		let _la: number;
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 215;
+			this.state = 328;
 			this.match(AstigLangParser.IDENTIFIER);
-			this.state = 217;
+			this.state = 330;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			if (_la === AstigLangParser.T__6) {
+			if (_la === AstigLangParser.T__7) {
 				{
-				this.state = 216;
+				this.state = 329;
 				this.typeAnnotation();
 				}
 			}
@@ -1113,18 +1608,18 @@ export class AstigLangParser extends Parser {
 	// @RuleVersion(0)
 	public returnStatement(): ReturnStatementContext {
 		let _localctx: ReturnStatementContext = new ReturnStatementContext(this._ctx, this.state);
-		this.enterRule(_localctx, 42, AstigLangParser.RULE_returnStatement);
+		this.enterRule(_localctx, 62, AstigLangParser.RULE_returnStatement);
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 219;
+			this.state = 332;
 			this.match(AstigLangParser.RETURN_KW);
-			this.state = 221;
+			this.state = 334;
 			this._errHandler.sync(this);
-			switch ( this.interpreter.adaptivePredict(this._input, 20, this._ctx) ) {
+			switch ( this.interpreter.adaptivePredict(this._input, 34, this._ctx) ) {
 			case 1:
 				{
-				this.state = 220;
+				this.state = 333;
 				this.expression(0);
 				}
 				break;
@@ -1148,29 +1643,29 @@ export class AstigLangParser extends Parser {
 	// @RuleVersion(0)
 	public block(): BlockContext {
 		let _localctx: BlockContext = new BlockContext(this._ctx, this.state);
-		this.enterRule(_localctx, 44, AstigLangParser.RULE_block);
+		this.enterRule(_localctx, 64, AstigLangParser.RULE_block);
 		let _la: number;
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 223;
-			this.match(AstigLangParser.T__4);
-			this.state = 227;
+			this.state = 336;
+			this.match(AstigLangParser.T__1);
+			this.state = 340;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			while ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << AstigLangParser.T__4) | (1 << AstigLangParser.CONST_KW) | (1 << AstigLangParser.VAR_KW) | (1 << AstigLangParser.LET_KW) | (1 << AstigLangParser.PRINT_KW) | (1 << AstigLangParser.IF_KW) | (1 << AstigLangParser.WHILE_KW) | (1 << AstigLangParser.FUNCTION_KW) | (1 << AstigLangParser.RETURN_KW) | (1 << AstigLangParser.DO_KW) | (1 << AstigLangParser.FOR_KW) | (1 << AstigLangParser.FOREACH_KW) | (1 << AstigLangParser.BREAK_KW) | (1 << AstigLangParser.CONTINUE_KW) | (1 << AstigLangParser.IDENTIFIER))) !== 0)) {
+			while ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << AstigLangParser.T__1) | (1 << AstigLangParser.CONST_KW) | (1 << AstigLangParser.VAR_KW) | (1 << AstigLangParser.LET_KW) | (1 << AstigLangParser.PRINT_KW) | (1 << AstigLangParser.IF_KW) | (1 << AstigLangParser.WHILE_KW) | (1 << AstigLangParser.FUNCTION_KW) | (1 << AstigLangParser.RETURN_KW) | (1 << AstigLangParser.DO_KW) | (1 << AstigLangParser.FOR_KW) | (1 << AstigLangParser.FOREACH_KW) | (1 << AstigLangParser.BREAK_KW) | (1 << AstigLangParser.CONTINUE_KW))) !== 0) || _la === AstigLangParser.EXPORT_KW || _la === AstigLangParser.IDENTIFIER) {
 				{
 				{
-				this.state = 224;
+				this.state = 337;
 				this.statement();
 				}
 				}
-				this.state = 229;
+				this.state = 342;
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
 			}
-			this.state = 230;
-			this.match(AstigLangParser.T__5);
+			this.state = 343;
+			this.match(AstigLangParser.T__2);
 			}
 		}
 		catch (re) {
@@ -1190,26 +1685,26 @@ export class AstigLangParser extends Parser {
 	// @RuleVersion(0)
 	public argumentList(): ArgumentListContext {
 		let _localctx: ArgumentListContext = new ArgumentListContext(this._ctx, this.state);
-		this.enterRule(_localctx, 46, AstigLangParser.RULE_argumentList);
+		this.enterRule(_localctx, 66, AstigLangParser.RULE_argumentList);
 		let _la: number;
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 232;
+			this.state = 345;
 			this.expression(0);
-			this.state = 237;
+			this.state = 350;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
 			while (_la === AstigLangParser.T__3) {
 				{
 				{
-				this.state = 233;
+				this.state = 346;
 				this.match(AstigLangParser.T__3);
-				this.state = 234;
+				this.state = 347;
 				this.expression(0);
 				}
 				}
-				this.state = 239;
+				this.state = 352;
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
 			}
@@ -1232,27 +1727,27 @@ export class AstigLangParser extends Parser {
 	// @RuleVersion(0)
 	public functionCall(): FunctionCallContext {
 		let _localctx: FunctionCallContext = new FunctionCallContext(this._ctx, this.state);
-		this.enterRule(_localctx, 48, AstigLangParser.RULE_functionCall);
+		this.enterRule(_localctx, 68, AstigLangParser.RULE_functionCall);
 		let _la: number;
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 240;
+			this.state = 353;
 			this.match(AstigLangParser.IDENTIFIER);
-			this.state = 241;
-			this.match(AstigLangParser.T__1);
-			this.state = 243;
+			this.state = 354;
+			this.match(AstigLangParser.T__4);
+			this.state = 356;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			if (_la === AstigLangParser.T__1 || _la === AstigLangParser.IDENTIFIER || ((((_la - 33)) & ~0x1F) === 0 && ((1 << (_la - 33)) & ((1 << (AstigLangParser.SUB - 33)) | (1 << (AstigLangParser.NUMBER - 33)) | (1 << (AstigLangParser.STRING - 33)))) !== 0)) {
+			if (_la === AstigLangParser.T__4 || ((((_la - 35)) & ~0x1F) === 0 && ((1 << (_la - 35)) & ((1 << (AstigLangParser.NEW_KW - 35)) | (1 << (AstigLangParser.IDENTIFIER - 35)) | (1 << (AstigLangParser.SUB - 35)) | (1 << (AstigLangParser.FLOAT - 35)) | (1 << (AstigLangParser.NUMBER - 35)) | (1 << (AstigLangParser.STRING - 35)))) !== 0)) {
 				{
-				this.state = 242;
+				this.state = 355;
 				this.argumentList();
 				}
 			}
 
-			this.state = 245;
-			this.match(AstigLangParser.T__2);
+			this.state = 358;
+			this.match(AstigLangParser.T__5);
 			}
 		}
 		catch (re) {
@@ -1272,13 +1767,13 @@ export class AstigLangParser extends Parser {
 	// @RuleVersion(0)
 	public typeAnnotation(): TypeAnnotationContext {
 		let _localctx: TypeAnnotationContext = new TypeAnnotationContext(this._ctx, this.state);
-		this.enterRule(_localctx, 50, AstigLangParser.RULE_typeAnnotation);
+		this.enterRule(_localctx, 70, AstigLangParser.RULE_typeAnnotation);
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 247;
-			this.match(AstigLangParser.T__6);
-			this.state = 248;
+			this.state = 360;
+			this.match(AstigLangParser.T__7);
+			this.state = 361;
 			this.dataType();
 			}
 		}
@@ -1299,13 +1794,13 @@ export class AstigLangParser extends Parser {
 	// @RuleVersion(0)
 	public returnTypeAnnotation(): ReturnTypeAnnotationContext {
 		let _localctx: ReturnTypeAnnotationContext = new ReturnTypeAnnotationContext(this._ctx, this.state);
-		this.enterRule(_localctx, 52, AstigLangParser.RULE_returnTypeAnnotation);
+		this.enterRule(_localctx, 72, AstigLangParser.RULE_returnTypeAnnotation);
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 250;
-			this.match(AstigLangParser.T__6);
-			this.state = 251;
+			this.state = 363;
+			this.match(AstigLangParser.T__7);
+			this.state = 364;
 			this.returnDataType();
 			}
 		}
@@ -1326,14 +1821,14 @@ export class AstigLangParser extends Parser {
 	// @RuleVersion(0)
 	public dataType(): DataTypeContext {
 		let _localctx: DataTypeContext = new DataTypeContext(this._ctx, this.state);
-		this.enterRule(_localctx, 54, AstigLangParser.RULE_dataType);
+		this.enterRule(_localctx, 74, AstigLangParser.RULE_dataType);
 		let _la: number;
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 253;
+			this.state = 366;
 			_la = this._input.LA(1);
-			if (!((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << AstigLangParser.INT_KW) | (1 << AstigLangParser.FLOAT_KW) | (1 << AstigLangParser.STRING_KW) | (1 << AstigLangParser.CHAR_KW) | (1 << AstigLangParser.BOOLEAN_KW) | (1 << AstigLangParser.IDENTIFIER))) !== 0))) {
+			if (!(((((_la - 25)) & ~0x1F) === 0 && ((1 << (_la - 25)) & ((1 << (AstigLangParser.INT_KW - 25)) | (1 << (AstigLangParser.FLOAT_KW - 25)) | (1 << (AstigLangParser.STRING_KW - 25)) | (1 << (AstigLangParser.CHAR_KW - 25)) | (1 << (AstigLangParser.BOOLEAN_KW - 25)) | (1 << (AstigLangParser.IDENTIFIER - 25)))) !== 0))) {
 			this._errHandler.recoverInline(this);
 			} else {
 				if (this._input.LA(1) === Token.EOF) {
@@ -1362,9 +1857,9 @@ export class AstigLangParser extends Parser {
 	// @RuleVersion(0)
 	public returnDataType(): ReturnDataTypeContext {
 		let _localctx: ReturnDataTypeContext = new ReturnDataTypeContext(this._ctx, this.state);
-		this.enterRule(_localctx, 56, AstigLangParser.RULE_returnDataType);
+		this.enterRule(_localctx, 76, AstigLangParser.RULE_returnDataType);
 		try {
-			this.state = 257;
+			this.state = 370;
 			this._errHandler.sync(this);
 			switch (this._input.LA(1)) {
 			case AstigLangParser.INT_KW:
@@ -1375,14 +1870,14 @@ export class AstigLangParser extends Parser {
 			case AstigLangParser.IDENTIFIER:
 				this.enterOuterAlt(_localctx, 1);
 				{
-				this.state = 255;
+				this.state = 368;
 				this.dataType();
 				}
 				break;
 			case AstigLangParser.VOID_KW:
 				this.enterOuterAlt(_localctx, 2);
 				{
-				this.state = 256;
+				this.state = 369;
 				this.match(AstigLangParser.VOID_KW);
 				}
 				break;
@@ -1417,68 +1912,82 @@ export class AstigLangParser extends Parser {
 		let _parentState: number = this.state;
 		let _localctx: ExpressionContext = new ExpressionContext(this._ctx, _parentState);
 		let _prevctx: ExpressionContext = _localctx;
-		let _startState: number = 58;
-		this.enterRecursionRule(_localctx, 58, AstigLangParser.RULE_expression, _p);
+		let _startState: number = 78;
+		this.enterRecursionRule(_localctx, 78, AstigLangParser.RULE_expression, _p);
 		let _la: number;
 		try {
 			let _alt: number;
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 270;
+			this.state = 385;
 			this._errHandler.sync(this);
-			switch ( this.interpreter.adaptivePredict(this._input, 25, this._ctx) ) {
+			switch ( this.interpreter.adaptivePredict(this._input, 39, this._ctx) ) {
 			case 1:
 				{
-				this.state = 260;
+				this.state = 373;
 				this.match(AstigLangParser.SUB);
-				this.state = 261;
-				this.expression(6);
+				this.state = 374;
+				this.expression(9);
 				}
 				break;
 
 			case 2:
 				{
-				this.state = 262;
-				this.match(AstigLangParser.T__1);
-				this.state = 263;
+				this.state = 375;
+				this.match(AstigLangParser.T__4);
+				this.state = 376;
 				this.expression(0);
-				this.state = 264;
-				this.match(AstigLangParser.T__2);
+				this.state = 377;
+				this.match(AstigLangParser.T__5);
 				}
 				break;
 
 			case 3:
 				{
-				this.state = 266;
+				this.state = 379;
 				this.functionCall();
 				}
 				break;
 
 			case 4:
 				{
-				this.state = 267;
-				this.match(AstigLangParser.NUMBER);
+				this.state = 380;
+				this.recordLiteral();
 				}
 				break;
 
 			case 5:
 				{
-				this.state = 268;
-				this.match(AstigLangParser.STRING);
+				this.state = 381;
+				this.match(AstigLangParser.NUMBER);
 				}
 				break;
 
 			case 6:
 				{
-				this.state = 269;
+				this.state = 382;
+				this.match(AstigLangParser.FLOAT);
+				}
+				break;
+
+			case 7:
+				{
+				this.state = 383;
+				this.match(AstigLangParser.STRING);
+				}
+				break;
+
+			case 8:
+				{
+				this.state = 384;
 				this.match(AstigLangParser.IDENTIFIER);
 				}
 				break;
 			}
 			this._ctx._stop = this._input.tryLT(-1);
-			this.state = 283;
+			this.state = 401;
 			this._errHandler.sync(this);
-			_alt = this.interpreter.adaptivePredict(this._input, 27, this._ctx);
+			_alt = this.interpreter.adaptivePredict(this._input, 41, this._ctx);
 			while (_alt !== 2 && _alt !== ATN.INVALID_ALT_NUMBER) {
 				if (_alt === 1) {
 					if (this._parseListeners != null) {
@@ -1486,18 +1995,18 @@ export class AstigLangParser extends Parser {
 					}
 					_prevctx = _localctx;
 					{
-					this.state = 281;
+					this.state = 399;
 					this._errHandler.sync(this);
-					switch ( this.interpreter.adaptivePredict(this._input, 26, this._ctx) ) {
+					switch ( this.interpreter.adaptivePredict(this._input, 40, this._ctx) ) {
 					case 1:
 						{
 						_localctx = new ExpressionContext(_parentctx, _parentState);
 						this.pushNewRecursionContext(_localctx, _startState, AstigLangParser.RULE_expression);
-						this.state = 272;
-						if (!(this.precpred(this._ctx, 9))) {
-							throw this.createFailedPredicateException("this.precpred(this._ctx, 9)");
+						this.state = 387;
+						if (!(this.precpred(this._ctx, 12))) {
+							throw this.createFailedPredicateException("this.precpred(this._ctx, 12)");
 						}
-						this.state = 273;
+						this.state = 388;
 						_localctx._op = this._input.LT(1);
 						_la = this._input.LA(1);
 						if (!(_la === AstigLangParser.MUL || _la === AstigLangParser.DIV)) {
@@ -1510,8 +2019,8 @@ export class AstigLangParser extends Parser {
 							this._errHandler.reportMatch(this);
 							this.consume();
 						}
-						this.state = 274;
-						this.expression(10);
+						this.state = 389;
+						this.expression(13);
 						}
 						break;
 
@@ -1519,11 +2028,11 @@ export class AstigLangParser extends Parser {
 						{
 						_localctx = new ExpressionContext(_parentctx, _parentState);
 						this.pushNewRecursionContext(_localctx, _startState, AstigLangParser.RULE_expression);
-						this.state = 275;
-						if (!(this.precpred(this._ctx, 8))) {
-							throw this.createFailedPredicateException("this.precpred(this._ctx, 8)");
+						this.state = 390;
+						if (!(this.precpred(this._ctx, 11))) {
+							throw this.createFailedPredicateException("this.precpred(this._ctx, 11)");
 						}
-						this.state = 276;
+						this.state = 391;
 						_localctx._op = this._input.LT(1);
 						_la = this._input.LA(1);
 						if (!(_la === AstigLangParser.ADD || _la === AstigLangParser.SUB)) {
@@ -1536,8 +2045,8 @@ export class AstigLangParser extends Parser {
 							this._errHandler.reportMatch(this);
 							this.consume();
 						}
-						this.state = 277;
-						this.expression(9);
+						this.state = 392;
+						this.expression(12);
 						}
 						break;
 
@@ -1545,14 +2054,14 @@ export class AstigLangParser extends Parser {
 						{
 						_localctx = new ExpressionContext(_parentctx, _parentState);
 						this.pushNewRecursionContext(_localctx, _startState, AstigLangParser.RULE_expression);
-						this.state = 278;
-						if (!(this.precpred(this._ctx, 7))) {
-							throw this.createFailedPredicateException("this.precpred(this._ctx, 7)");
+						this.state = 393;
+						if (!(this.precpred(this._ctx, 10))) {
+							throw this.createFailedPredicateException("this.precpred(this._ctx, 10)");
 						}
-						this.state = 279;
+						this.state = 394;
 						_localctx._op = this._input.LT(1);
 						_la = this._input.LA(1);
-						if (!(((((_la - 36)) & ~0x1F) === 0 && ((1 << (_la - 36)) & ((1 << (AstigLangParser.EQ - 36)) | (1 << (AstigLangParser.NEQ - 36)) | (1 << (AstigLangParser.LT - 36)) | (1 << (AstigLangParser.GT - 36)) | (1 << (AstigLangParser.LTE - 36)) | (1 << (AstigLangParser.GTE - 36)))) !== 0))) {
+						if (!(((((_la - 47)) & ~0x1F) === 0 && ((1 << (_la - 47)) & ((1 << (AstigLangParser.EQ - 47)) | (1 << (AstigLangParser.NEQ - 47)) | (1 << (AstigLangParser.LT - 47)) | (1 << (AstigLangParser.GT - 47)) | (1 << (AstigLangParser.LTE - 47)) | (1 << (AstigLangParser.GTE - 47)))) !== 0))) {
 							_localctx._op = this._errHandler.recoverInline(this);
 						} else {
 							if (this._input.LA(1) === Token.EOF) {
@@ -1562,16 +2071,31 @@ export class AstigLangParser extends Parser {
 							this._errHandler.reportMatch(this);
 							this.consume();
 						}
-						this.state = 280;
-						this.expression(8);
+						this.state = 395;
+						this.expression(11);
+						}
+						break;
+
+					case 4:
+						{
+						_localctx = new ExpressionContext(_parentctx, _parentState);
+						this.pushNewRecursionContext(_localctx, _startState, AstigLangParser.RULE_expression);
+						this.state = 396;
+						if (!(this.precpred(this._ctx, 5))) {
+							throw this.createFailedPredicateException("this.precpred(this._ctx, 5)");
+						}
+						this.state = 397;
+						this.match(AstigLangParser.T__6);
+						this.state = 398;
+						this.match(AstigLangParser.IDENTIFIER);
 						}
 						break;
 					}
 					}
 				}
-				this.state = 285;
+				this.state = 403;
 				this._errHandler.sync(this);
-				_alt = this.interpreter.adaptivePredict(this._input, 27, this._ctx);
+				_alt = this.interpreter.adaptivePredict(this._input, 41, this._ctx);
 			}
 			}
 		}
@@ -1592,7 +2116,7 @@ export class AstigLangParser extends Parser {
 
 	public sempred(_localctx: RuleContext, ruleIndex: number, predIndex: number): boolean {
 		switch (ruleIndex) {
-		case 29:
+		case 39:
 			return this.expression_sempred(_localctx as ExpressionContext, predIndex);
 		}
 		return true;
@@ -1600,148 +2124,212 @@ export class AstigLangParser extends Parser {
 	private expression_sempred(_localctx: ExpressionContext, predIndex: number): boolean {
 		switch (predIndex) {
 		case 0:
-			return this.precpred(this._ctx, 9);
+			return this.precpred(this._ctx, 12);
 
 		case 1:
-			return this.precpred(this._ctx, 8);
+			return this.precpred(this._ctx, 11);
 
 		case 2:
-			return this.precpred(this._ctx, 7);
+			return this.precpred(this._ctx, 10);
+
+		case 3:
+			return this.precpred(this._ctx, 5);
 		}
 		return true;
 	}
 
 	public static readonly _serializedATN: string =
-		"\x03\uC91D\uCABA\u058D\uAFBA\u4F53\u0607\uEA8B\uC241\x03/\u0121\x04\x02" +
+		"\x03\uC91D\uCABA\u058D\uAFBA\u4F53\u0607\uEA8B\uC241\x03;\u0197\x04\x02" +
 		"\t\x02\x04\x03\t\x03\x04\x04\t\x04\x04\x05\t\x05\x04\x06\t\x06\x04\x07" +
 		"\t\x07\x04\b\t\b\x04\t\t\t\x04\n\t\n\x04\v\t\v\x04\f\t\f\x04\r\t\r\x04" +
 		"\x0E\t\x0E\x04\x0F\t\x0F\x04\x10\t\x10\x04\x11\t\x11\x04\x12\t\x12\x04" +
 		"\x13\t\x13\x04\x14\t\x14\x04\x15\t\x15\x04\x16\t\x16\x04\x17\t\x17\x04" +
 		"\x18\t\x18\x04\x19\t\x19\x04\x1A\t\x1A\x04\x1B\t\x1B\x04\x1C\t\x1C\x04" +
-		"\x1D\t\x1D\x04\x1E\t\x1E\x04\x1F\t\x1F\x03\x02\x07\x02@\n\x02\f\x02\x0E" +
-		"\x02C\v\x02\x03\x02\x03\x02\x03\x03\x03\x03\x05\x03I\n\x03\x03\x03\x03" +
-		"\x03\x05\x03M\n\x03\x03\x03\x03\x03\x05\x03Q\n\x03\x03\x03\x03\x03\x03" +
-		"\x03\x03\x03\x03\x03\x03\x03\x03\x03\x03\x03\x05\x03[\n\x03\x03\x03\x03" +
-		"\x03\x05\x03_\n\x03\x03\x03\x03\x03\x05\x03c\n\x03\x03\x03\x05\x03f\n" +
-		"\x03\x03\x04\x03\x04\x03\x04\x03\x04\x03\x04\x03\x04\x03\x05\x03\x05\x03" +
-		"\x06\x03\x06\x03\x06\x03\x06\x03\x06\x03\x07\x03\x07\x03\x07\x03\x07\x03" +
-		"\x07\x03\x07\x07\x07{\n\x07\f\x07\x0E\x07~\v\x07\x03\x07\x05\x07\x81\n" +
-		"\x07\x03\b\x03\b\x03\b\x03\b\x03\b\x03\b\x03\b\x03\t\x03\t\x03\t\x03\n" +
-		"\x03\n\x03\n\x03\n\x03\n\x03\n\x03\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03" +
-		"\v\x05\v\x9A\n\v\x03\f\x03\f\x03\f\x05\f\x9F\n\f\x03\f\x03\f\x05\f\xA3" +
-		"\n\f\x03\f\x03\f\x05\f\xA7\n\f\x03\f\x03\f\x03\f\x03\r\x03\r\x05\r\xAE" +
-		"\n\r\x03\x0E\x03\x0E\x05\x0E\xB2\n\x0E\x03\x0F\x03\x0F\x03\x0F\x03\x0F" +
-		"\x03\x10\x03\x10\x03\x11\x03\x11\x03\x11\x03\x11\x03\x11\x03\x11\x03\x11" +
-		"\x03\x11\x03\x12\x03\x12\x03\x13\x03\x13\x03\x14\x03\x14\x03\x14\x03\x14" +
-		"\x05\x14\xCA\n\x14\x03\x14\x03\x14\x05\x14\xCE\n\x14\x03\x14\x03\x14\x03" +
-		"\x15\x03\x15\x03\x15\x07\x15\xD5\n\x15\f\x15\x0E\x15\xD8\v\x15\x03\x16" +
-		"\x03\x16\x05\x16\xDC\n\x16\x03\x17\x03\x17\x05\x17\xE0\n\x17\x03\x18\x03" +
-		"\x18\x07\x18\xE4\n\x18\f\x18\x0E\x18\xE7\v\x18\x03\x18\x03\x18\x03\x19" +
-		"\x03\x19\x03\x19\x07\x19\xEE\n\x19\f\x19\x0E\x19\xF1\v\x19\x03\x1A\x03" +
-		"\x1A\x03\x1A\x05\x1A\xF6\n\x1A\x03\x1A\x03\x1A\x03\x1B\x03\x1B\x03\x1B" +
-		"\x03\x1C\x03\x1C\x03\x1C\x03\x1D\x03\x1D\x03\x1E\x03\x1E\x05\x1E\u0104" +
-		"\n\x1E\x03\x1F\x03\x1F\x03\x1F\x03\x1F\x03\x1F\x03\x1F\x03\x1F\x03\x1F" +
-		"\x03\x1F\x03\x1F\x03\x1F\x05\x1F\u0111\n\x1F\x03\x1F\x03\x1F\x03\x1F\x03" +
-		"\x1F\x03\x1F\x03\x1F\x03\x1F\x03\x1F\x03\x1F\x07\x1F\u011C\n\x1F\f\x1F" +
-		"\x0E\x1F\u011F\v\x1F\x03\x1F\x02\x02\x03< \x02\x02\x04\x02\x06\x02\b\x02" +
-		"\n\x02\f\x02\x0E\x02\x10\x02\x12\x02\x14\x02\x16\x02\x18\x02\x1A\x02\x1C" +
-		"\x02\x1E\x02 \x02\"\x02$\x02&\x02(\x02*\x02,\x02.\x020\x022\x024\x026" +
-		"\x028\x02:\x02<\x02\x02\b\x03\x02\n\f\x04\x02\x03\x03 !\x04\x02\x19\x1D" +
-		"\x1F\x1F\x03\x02$%\x03\x02\"#\x03\x02&+\x02\u012E\x02A\x03\x02\x02\x02" +
-		"\x04e\x03\x02\x02\x02\x06g\x03\x02\x02\x02\bm\x03\x02\x02\x02\no\x03\x02" +
-		"\x02\x02\ft\x03\x02\x02\x02\x0E\x82\x03\x02\x02\x02\x10\x89\x03\x02\x02" +
-		"\x02\x12\x8C\x03\x02\x02\x02\x14\x92\x03\x02\x02\x02\x16\x9B\x03\x02\x02" +
-		"\x02\x18\xAD\x03\x02\x02\x02\x1A\xB1\x03\x02\x02\x02\x1C\xB3\x03\x02\x02" +
-		"\x02\x1E\xB7\x03\x02\x02\x02 \xB9\x03\x02\x02\x02\"\xC1\x03\x02\x02\x02" +
-		"$\xC3\x03\x02\x02\x02&\xC5\x03\x02\x02\x02(\xD1\x03\x02\x02\x02*\xD9\x03" +
-		"\x02\x02\x02,\xDD\x03\x02\x02\x02.\xE1\x03\x02\x02\x020\xEA\x03\x02\x02" +
-		"\x022\xF2\x03\x02\x02\x024\xF9\x03\x02\x02\x026\xFC\x03\x02\x02\x028\xFF" +
-		"\x03\x02\x02\x02:\u0103\x03\x02\x02\x02<\u0110\x03\x02\x02\x02>@\x05\x04" +
-		"\x03\x02?>\x03\x02\x02\x02@C\x03\x02\x02\x02A?\x03\x02\x02\x02AB\x03\x02" +
-		"\x02\x02BD\x03\x02\x02\x02CA\x03\x02\x02\x02DE\x07\x02\x02\x03E\x03\x03" +
-		"\x02\x02\x02FH\x05\x06\x04\x02GI\x07,\x02\x02HG\x03\x02\x02\x02HI\x03" +
-		"\x02\x02\x02If\x03\x02\x02\x02JL\x05\x1C\x0F\x02KM\x07,\x02\x02LK\x03" +
-		"\x02\x02\x02LM\x03\x02\x02\x02Mf\x03\x02\x02\x02NP\x05\n\x06\x02OQ\x07" +
-		",\x02\x02PO\x03\x02\x02\x02PQ\x03\x02\x02\x02Qf\x03\x02\x02\x02Rf\x05" +
-		"\f\x07\x02Sf\x05\x12\n\x02Tf\x05\x14\v\x02Uf\x05\x16\f\x02Vf\x05 \x11" +
-		"\x02Wf\x05&\x14\x02XZ\x05,\x17\x02Y[\x07,\x02\x02ZY\x03\x02\x02\x02Z[" +
-		"\x03\x02\x02\x02[f\x03\x02\x02\x02\\^\x05\"\x12\x02]_\x07,\x02\x02^]\x03" +
-		"\x02\x02\x02^_\x03\x02\x02\x02_f\x03\x02\x02\x02`b\x05$\x13\x02ac\x07" +
-		",\x02\x02ba\x03\x02\x02\x02bc\x03\x02\x02\x02cf\x03\x02\x02\x02df\x05" +
-		".\x18\x02eF\x03\x02\x02\x02eJ\x03\x02\x02\x02eN\x03\x02\x02\x02eR\x03" +
-		"\x02\x02\x02eS\x03\x02\x02\x02eT\x03\x02\x02\x02eU\x03\x02\x02\x02eV\x03" +
-		"\x02\x02\x02eW\x03\x02\x02\x02eX\x03\x02\x02\x02e\\\x03\x02\x02\x02e`" +
-		"\x03\x02\x02\x02ed\x03\x02\x02\x02f\x05\x03\x02\x02\x02gh\x05\b\x05\x02" +
-		"hi\x07\x1F\x02\x02ij\x054\x1B\x02jk\x07\x03\x02\x02kl\x05<\x1F\x02l\x07" +
-		"\x03\x02\x02\x02mn\t\x02\x02\x02n\t\x03\x02\x02\x02op\x07\r\x02\x02pq" +
-		"\x07\x04\x02\x02qr\x05<\x1F\x02rs\x07\x05\x02\x02s\v\x03\x02\x02\x02t" +
-		"u\x07\x0E\x02\x02uv\x07\x04\x02\x02vw\x05<\x1F\x02wx\x07\x05\x02\x02x" +
-		"|\x05.\x18\x02y{\x05\x0E\b\x02zy\x03\x02\x02\x02{~\x03\x02\x02\x02|z\x03" +
-		"\x02\x02\x02|}\x03\x02\x02\x02}\x80\x03\x02\x02\x02~|\x03\x02\x02\x02" +
-		"\x7F\x81\x05\x10\t\x02\x80\x7F\x03\x02\x02\x02\x80\x81\x03\x02\x02\x02" +
-		"\x81\r\x03\x02\x02\x02\x82\x83\x07\x0F\x02\x02\x83\x84\x07\x0E\x02\x02" +
-		"\x84\x85\x07\x04\x02\x02\x85\x86\x05<\x1F\x02\x86\x87\x07\x05\x02\x02" +
-		"\x87\x88\x05.\x18\x02\x88\x0F\x03\x02\x02\x02\x89\x8A\x07\x0F\x02\x02" +
-		"\x8A\x8B\x05.\x18\x02\x8B\x11\x03\x02\x02\x02\x8C\x8D\x07\x10\x02\x02" +
-		"\x8D\x8E\x07\x04\x02\x02\x8E\x8F\x05<\x1F\x02\x8F\x90\x07\x05\x02\x02" +
-		"\x90\x91\x05.\x18\x02\x91\x13\x03\x02\x02\x02\x92\x93\x07\x13\x02\x02" +
-		"\x93\x94\x05.\x18\x02\x94\x95\x07\x10\x02\x02\x95\x96\x07\x04\x02\x02" +
-		"\x96\x97\x05<\x1F\x02\x97\x99\x07\x05\x02\x02\x98\x9A\x07,\x02\x02\x99" +
-		"\x98\x03\x02\x02\x02\x99\x9A\x03\x02\x02\x02\x9A\x15\x03\x02\x02\x02\x9B" +
-		"\x9C\x07\x14\x02\x02\x9C\x9E\x07\x04\x02\x02\x9D\x9F\x05\x18\r\x02\x9E" +
-		"\x9D\x03\x02\x02\x02\x9E\x9F\x03\x02\x02\x02\x9F\xA0\x03\x02\x02\x02\xA0" +
-		"\xA2\x07,\x02\x02\xA1\xA3\x05<\x1F\x02\xA2\xA1\x03\x02\x02\x02\xA2\xA3" +
-		"\x03\x02\x02\x02\xA3\xA4\x03\x02\x02\x02\xA4\xA6\x07,\x02\x02\xA5\xA7" +
-		"\x05\x1A\x0E\x02\xA6\xA5\x03\x02\x02\x02\xA6\xA7\x03\x02\x02\x02\xA7\xA8" +
-		"\x03\x02\x02\x02\xA8\xA9\x07\x05\x02\x02\xA9\xAA\x05.\x18\x02\xAA\x17" +
-		"\x03\x02\x02\x02\xAB\xAE\x05\x06\x04\x02\xAC\xAE\x05\x1C\x0F\x02\xAD\xAB" +
-		"\x03\x02\x02\x02\xAD\xAC\x03\x02\x02\x02\xAE\x19\x03\x02\x02\x02\xAF\xB2" +
-		"\x05\x1C\x0F\x02\xB0\xB2\x052\x1A\x02\xB1\xAF\x03\x02\x02\x02\xB1\xB0" +
-		"\x03\x02\x02\x02\xB2\x1B\x03\x02\x02\x02\xB3\xB4\x07\x1F\x02\x02\xB4\xB5" +
-		"\x05\x1E\x10\x02\xB5\xB6\x05<\x1F\x02\xB6\x1D\x03\x02\x02\x02\xB7\xB8" +
-		"\t\x03\x02\x02\xB8\x1F\x03\x02\x02\x02\xB9\xBA\x07\x15\x02\x02\xBA\xBB" +
-		"\x07\x04\x02\x02\xBB\xBC\x07\x1F\x02\x02\xBC\xBD\x07\x16\x02\x02\xBD\xBE" +
-		"\x05<\x1F\x02\xBE\xBF\x07\x05\x02\x02\xBF\xC0\x05.\x18\x02\xC0!\x03\x02" +
-		"\x02\x02\xC1\xC2\x07\x17\x02\x02\xC2#\x03\x02\x02\x02\xC3\xC4\x07\x18" +
-		"\x02\x02\xC4%\x03\x02\x02\x02\xC5\xC6\x07\x11\x02\x02\xC6\xC7\x07\x1F" +
-		"\x02\x02\xC7\xC9\x07\x04\x02\x02\xC8\xCA\x05(\x15\x02\xC9\xC8\x03\x02" +
-		"\x02\x02\xC9\xCA\x03\x02\x02\x02\xCA\xCB\x03\x02\x02\x02\xCB\xCD\x07\x05" +
-		"\x02\x02\xCC\xCE\x056\x1C\x02\xCD\xCC\x03\x02\x02\x02\xCD\xCE\x03\x02" +
-		"\x02\x02\xCE\xCF\x03\x02\x02\x02\xCF\xD0\x05.\x18\x02\xD0\'\x03\x02\x02" +
-		"\x02\xD1\xD6\x05*\x16\x02\xD2\xD3\x07\x06\x02\x02\xD3\xD5\x05*\x16\x02" +
-		"\xD4\xD2\x03\x02\x02\x02\xD5\xD8\x03\x02\x02\x02\xD6\xD4\x03\x02\x02\x02" +
-		"\xD6\xD7\x03\x02\x02\x02\xD7)\x03\x02\x02\x02\xD8\xD6\x03\x02\x02\x02" +
-		"\xD9\xDB\x07\x1F\x02\x02\xDA\xDC\x054\x1B\x02\xDB\xDA\x03\x02\x02\x02" +
-		"\xDB\xDC\x03\x02\x02\x02\xDC+\x03\x02\x02\x02\xDD\xDF\x07\x12\x02\x02" +
-		"\xDE\xE0\x05<\x1F\x02\xDF\xDE\x03\x02\x02\x02\xDF\xE0\x03\x02\x02\x02" +
-		"\xE0-\x03\x02\x02\x02\xE1\xE5\x07\x07\x02\x02\xE2\xE4\x05\x04\x03\x02" +
-		"\xE3\xE2\x03\x02\x02\x02\xE4\xE7\x03\x02\x02\x02\xE5\xE3\x03\x02\x02\x02" +
-		"\xE5\xE6\x03\x02\x02\x02\xE6\xE8\x03\x02\x02\x02\xE7\xE5\x03\x02\x02\x02" +
-		"\xE8\xE9\x07\b\x02\x02\xE9/\x03\x02\x02\x02\xEA\xEF\x05<\x1F\x02\xEB\xEC" +
-		"\x07\x06\x02\x02\xEC\xEE\x05<\x1F\x02\xED\xEB\x03\x02\x02\x02\xEE\xF1" +
-		"\x03\x02\x02\x02\xEF\xED\x03\x02\x02\x02\xEF\xF0\x03\x02\x02\x02\xF01" +
-		"\x03\x02\x02\x02\xF1\xEF\x03\x02\x02\x02\xF2\xF3\x07\x1F\x02\x02\xF3\xF5" +
-		"\x07\x04\x02\x02\xF4\xF6\x050\x19\x02\xF5\xF4\x03\x02\x02\x02\xF5\xF6" +
-		"\x03\x02\x02\x02\xF6\xF7\x03\x02\x02\x02\xF7\xF8\x07\x05\x02\x02\xF83" +
-		"\x03\x02\x02\x02\xF9\xFA\x07\t\x02\x02\xFA\xFB\x058\x1D\x02\xFB5\x03\x02" +
-		"\x02\x02\xFC\xFD\x07\t\x02\x02\xFD\xFE\x05:\x1E\x02\xFE7\x03\x02\x02\x02" +
-		"\xFF\u0100\t\x04\x02\x02\u01009\x03\x02\x02\x02\u0101\u0104\x058\x1D\x02" +
-		"\u0102\u0104\x07\x1E\x02\x02\u0103\u0101\x03\x02\x02\x02\u0103\u0102\x03" +
-		"\x02\x02\x02\u0104;\x03\x02\x02\x02\u0105\u0106\b\x1F\x01\x02\u0106\u0107" +
-		"\x07#\x02\x02\u0107\u0111\x05<\x1F\b\u0108\u0109\x07\x04\x02\x02\u0109" +
-		"\u010A\x05<\x1F\x02\u010A\u010B\x07\x05\x02\x02\u010B\u0111\x03\x02\x02" +
-		"\x02\u010C\u0111\x052\x1A\x02\u010D\u0111\x07-\x02\x02\u010E\u0111\x07" +
-		".\x02\x02\u010F\u0111\x07\x1F\x02\x02\u0110\u0105\x03\x02\x02\x02\u0110" +
-		"\u0108\x03\x02\x02\x02\u0110\u010C\x03\x02\x02\x02\u0110\u010D\x03\x02" +
-		"\x02\x02\u0110\u010E\x03\x02\x02\x02\u0110\u010F\x03\x02\x02\x02\u0111" +
-		"\u011D\x03\x02\x02\x02\u0112\u0113\f\v\x02\x02\u0113\u0114\t\x05\x02\x02" +
-		"\u0114\u011C\x05<\x1F\f\u0115\u0116\f\n\x02\x02\u0116\u0117\t\x06\x02" +
-		"\x02\u0117\u011C\x05<\x1F\v\u0118\u0119\f\t\x02\x02\u0119\u011A\t\x07" +
-		"\x02\x02\u011A\u011C\x05<\x1F\n\u011B\u0112\x03\x02\x02\x02\u011B\u0115" +
-		"\x03\x02\x02\x02\u011B\u0118\x03\x02\x02\x02\u011C\u011F\x03\x02\x02\x02" +
-		"\u011D\u011B\x03\x02\x02\x02\u011D\u011E\x03\x02\x02\x02\u011E=\x03\x02" +
-		"\x02\x02\u011F\u011D\x03\x02\x02\x02\x1EAHLPZ^be|\x80\x99\x9E\xA2\xA6" +
-		"\xAD\xB1\xC9\xCD\xD6\xDB\xDF\xE5\xEF\xF5\u0103\u0110\u011B\u011D";
+		"\x1D\t\x1D\x04\x1E\t\x1E\x04\x1F\t\x1F\x04 \t \x04!\t!\x04\"\t\"\x04#" +
+		"\t#\x04$\t$\x04%\t%\x04&\t&\x04\'\t\'\x04(\t(\x04)\t)\x03\x02\x07\x02" +
+		"T\n\x02\f\x02\x0E\x02W\v\x02\x03\x02\x07\x02Z\n\x02\f\x02\x0E\x02]\v\x02" +
+		"\x03\x02\x07\x02`\n\x02\f\x02\x0E\x02c\v\x02\x03\x02\x07\x02f\n\x02\f" +
+		"\x02\x0E\x02i\v\x02\x03\x02\x07\x02l\n\x02\f\x02\x0E\x02o\v\x02\x03\x02" +
+		"\x03\x02\x03\x03\x03\x03\x07\x03u\n\x03\f\x03\x0E\x03x\v\x03\x03\x04\x03" +
+		"\x04\x03\x04\x05\x04}\n\x04\x03\x05\x03\x05\x05\x05\x81\n\x05\x03\x05" +
+		"\x03\x05\x05\x05\x85\n\x05\x03\x05\x03\x05\x05\x05\x89\n\x05\x03\x05\x03" +
+		"\x05\x03\x05\x03\x05\x03\x05\x03\x05\x03\x05\x03\x05\x05\x05\x93\n\x05" +
+		"\x03\x05\x03\x05\x05\x05\x97\n\x05\x03\x05\x03\x05\x05\x05\x9B\n\x05\x03" +
+		"\x05\x05\x05\x9E\n\x05\x03\x06\x03\x06\x03\x06\x03\x06\x03\x06\x03\x06" +
+		"\x03\x07\x03\x07\x03\x07\x03\x07\x05\x07\xAA\n\x07\x03\x07\x03\x07\x05" +
+		"\x07\xAE\n\x07\x03\b\x03\b\x03\b\x07\b\xB3\n\b\f\b\x0E\b\xB6\v\b\x03\t" +
+		"\x03\t\x03\t\x03\n\x03\n\x03\n\x03\n\x05\n\xBF\n\n\x03\n\x03\n\x05\n\xC3" +
+		"\n\n\x03\v\x03\v\x03\v\x07\v\xC8\n\v\f\v\x0E\v\xCB\v\v\x03\f\x03\f\x03" +
+		"\r\x03\r\x03\x0E\x03\x0E\x03\x0E\x03\x0E\x03\x0E\x03\x0F\x03\x0F\x03\x0F" +
+		"\x03\x0F\x03\x0F\x03\x0F\x07\x0F\xDC\n\x0F\f\x0F\x0E\x0F\xDF\v\x0F\x03" +
+		"\x0F\x05\x0F\xE2\n\x0F\x03\x10\x03\x10\x03\x10\x03\x10\x03\x10\x03\x10" +
+		"\x03\x10\x03\x11\x03\x11\x03\x11\x03\x12\x03\x12\x03\x12\x03\x12\x03\x12" +
+		"\x03\x12\x03\x13\x03\x13\x03\x13\x03\x13\x03\x13\x03\x13\x03\x13\x05\x13" +
+		"\xFB\n\x13\x03\x14\x03\x14\x03\x14\x05\x14\u0100\n\x14\x03\x14\x03\x14" +
+		"\x05\x14\u0104\n\x14\x03\x14\x03\x14\x05\x14\u0108\n\x14\x03\x14\x03\x14" +
+		"\x03\x14\x03\x15\x03\x15\x05\x15\u010F\n\x15\x03\x16\x03\x16\x05\x16\u0113" +
+		"\n\x16\x03\x17\x03\x17\x03\x17\x03\x17\x03\x18\x03\x18\x03\x18\x06\x18" +
+		"\u011C\n\x18\r\x18\x0E\x18\u011D\x03\x19\x03\x19\x03\x1A\x03\x1A\x03\x1A" +
+		"\x03\x1A\x03\x1A\x03\x1A\x03\x1A\x03\x1A\x03\x1B\x03\x1B\x03\x1C\x03\x1C" +
+		"\x03\x1D\x05\x1D\u012F\n\x1D\x03\x1D\x03\x1D\x03\x1D\x03\x1D\x05\x1D\u0135" +
+		"\n\x1D\x03\x1D\x03\x1D\x05\x1D\u0139\n\x1D\x03\x1D\x03\x1D\x03\x1E\x03" +
+		"\x1E\x03\x1E\x03\x1E\x03\x1E\x03\x1E\x03\x1F\x03\x1F\x03\x1F\x07\x1F\u0146" +
+		"\n\x1F\f\x1F\x0E\x1F\u0149\v\x1F\x03 \x03 \x05 \u014D\n \x03!\x03!\x05" +
+		"!\u0151\n!\x03\"\x03\"\x07\"\u0155\n\"\f\"\x0E\"\u0158\v\"\x03\"\x03\"" +
+		"\x03#\x03#\x03#\x07#\u015F\n#\f#\x0E#\u0162\v#\x03$\x03$\x03$\x05$\u0167" +
+		"\n$\x03$\x03$\x03%\x03%\x03%\x03&\x03&\x03&\x03\'\x03\'\x03(\x03(\x05" +
+		"(\u0175\n(\x03)\x03)\x03)\x03)\x03)\x03)\x03)\x03)\x03)\x03)\x03)\x03" +
+		")\x03)\x05)\u0184\n)\x03)\x03)\x03)\x03)\x03)\x03)\x03)\x03)\x03)\x03" +
+		")\x03)\x03)\x07)\u0192\n)\f)\x0E)\u0195\v)\x03)\x02\x02\x03P*\x02\x02" +
+		"\x04\x02\x06\x02\b\x02\n\x02\f\x02\x0E\x02\x10\x02\x12\x02\x14\x02\x16" +
+		"\x02\x18\x02\x1A\x02\x1C\x02\x1E\x02 \x02\"\x02$\x02&\x02(\x02*\x02,\x02" +
+		".\x020\x022\x024\x026\x028\x02:\x02<\x02>\x02@\x02B\x02D\x02F\x02H\x02" +
+		"J\x02L\x02N\x02P\x02\x02\b\x03\x02\f\x0E\x04\x02\x03\x03+,\x04\x02\x1B" +
+		"\x1F\'\'\x03\x02/0\x03\x02-.\x03\x0216\x02\u01AB\x02U\x03\x02\x02\x02" +
+		"\x04r\x03\x02\x02\x02\x06y\x03\x02\x02\x02\b\x9D\x03\x02\x02\x02\n\x9F" +
+		"\x03\x02\x02\x02\f\xA5\x03\x02\x02\x02\x0E\xAF\x03\x02\x02\x02\x10\xB7" +
+		"\x03\x02\x02\x02\x12\xBA\x03\x02\x02\x02\x14\xC4\x03\x02\x02\x02\x16\xCC" +
+		"\x03\x02\x02\x02\x18\xCE\x03\x02\x02\x02\x1A\xD0\x03\x02\x02\x02\x1C\xD5" +
+		"\x03\x02\x02\x02\x1E\xE3\x03\x02\x02\x02 \xEA\x03\x02\x02\x02\"\xED\x03" +
+		"\x02\x02\x02$\xF3\x03\x02\x02\x02&\xFC\x03\x02\x02\x02(\u010E\x03\x02" +
+		"\x02\x02*\u0112\x03\x02\x02\x02,\u0114\x03\x02\x02\x02.\u0118\x03\x02" +
+		"\x02\x020\u011F\x03\x02\x02\x022\u0121\x03\x02\x02\x024\u0129\x03\x02" +
+		"\x02\x026\u012B\x03\x02\x02\x028\u012E\x03\x02\x02\x02:\u013C\x03\x02" +
+		"\x02\x02<\u0142\x03\x02\x02\x02>\u014A\x03\x02\x02\x02@\u014E\x03\x02" +
+		"\x02\x02B\u0152\x03\x02\x02\x02D\u015B\x03\x02\x02\x02F\u0163\x03\x02" +
+		"\x02\x02H\u016A\x03\x02\x02\x02J\u016D\x03\x02\x02\x02L\u0170\x03\x02" +
+		"\x02\x02N\u0174\x03\x02\x02\x02P\u0183\x03\x02\x02\x02RT\x05\x04\x03\x02" +
+		"SR\x03\x02\x02\x02TW\x03\x02\x02\x02US\x03\x02\x02\x02UV\x03\x02\x02\x02" +
+		"V[\x03\x02\x02\x02WU\x03\x02\x02\x02XZ\x05\f\x07\x02YX\x03\x02\x02\x02" +
+		"Z]\x03\x02\x02\x02[Y\x03\x02\x02\x02[\\\x03\x02\x02\x02\\a\x03\x02\x02" +
+		"\x02][\x03\x02\x02\x02^`\x05\b\x05\x02_^\x03\x02\x02\x02`c\x03\x02\x02" +
+		"\x02a_\x03\x02\x02\x02ab\x03\x02\x02\x02bg\x03\x02\x02\x02ca\x03\x02\x02" +
+		"\x02df\x058\x1D\x02ed\x03\x02\x02\x02fi\x03\x02\x02\x02ge\x03\x02\x02" +
+		"\x02gh\x03\x02\x02\x02hm\x03\x02\x02\x02ig\x03\x02\x02\x02jl\x05:\x1E" +
+		"\x02kj\x03\x02\x02\x02lo\x03\x02\x02\x02mk\x03\x02\x02\x02mn\x03\x02\x02" +
+		"\x02np\x03\x02\x02\x02om\x03\x02\x02\x02pq\x07\x02\x02\x03q\x03\x03\x02" +
+		"\x02\x02rv\x05\x06\x04\x02su\x05\x04\x03\x02ts\x03\x02\x02\x02ux\x03\x02" +
+		"\x02\x02vt\x03\x02\x02\x02vw\x03\x02\x02\x02w\x05\x03\x02\x02\x02xv\x03" +
+		"\x02\x02\x02yz\x07\v\x02\x02z|\x07(\x02\x02{}\x077\x02\x02|{\x03\x02\x02" +
+		"\x02|}\x03\x02\x02\x02}\x07\x03\x02\x02\x02~\x80\x05\n\x06\x02\x7F\x81" +
+		"\x077\x02\x02\x80\x7F\x03\x02\x02\x02\x80\x81\x03\x02\x02\x02\x81\x9E" +
+		"\x03\x02\x02\x02\x82\x84\x05,\x17\x02\x83\x85\x077\x02\x02\x84\x83\x03" +
+		"\x02\x02\x02\x84\x85\x03\x02\x02\x02\x85\x9E\x03\x02\x02\x02\x86\x88\x05" +
+		"\x1A\x0E\x02\x87\x89\x077\x02\x02\x88\x87\x03\x02\x02\x02\x88\x89\x03" +
+		"\x02\x02\x02\x89\x9E\x03\x02\x02\x02\x8A\x9E\x05\x1C\x0F\x02\x8B\x9E\x05" +
+		"\"\x12\x02\x8C\x9E\x05$\x13\x02\x8D\x9E\x05&\x14\x02\x8E\x9E\x052\x1A" +
+		"\x02\x8F\x9E\x058\x1D\x02\x90\x92\x05@!\x02\x91\x93\x077\x02\x02\x92\x91" +
+		"\x03\x02\x02\x02\x92\x93\x03\x02\x02\x02\x93\x9E\x03\x02\x02\x02\x94\x96" +
+		"\x054\x1B\x02\x95\x97\x077\x02\x02\x96\x95\x03\x02\x02\x02\x96\x97\x03" +
+		"\x02\x02\x02\x97\x9E\x03\x02\x02\x02\x98\x9A\x056\x1C\x02\x99\x9B\x07" +
+		"7\x02\x02\x9A\x99\x03\x02\x02\x02\x9A\x9B\x03\x02\x02\x02\x9B\x9E\x03" +
+		"\x02\x02\x02\x9C\x9E\x05B\"\x02\x9D~\x03\x02\x02\x02\x9D\x82\x03\x02\x02" +
+		"\x02\x9D\x86\x03\x02\x02\x02\x9D\x8A\x03\x02\x02\x02\x9D\x8B\x03\x02\x02" +
+		"\x02\x9D\x8C\x03\x02\x02\x02\x9D\x8D\x03\x02\x02\x02\x9D\x8E\x03\x02\x02" +
+		"\x02\x9D\x8F\x03\x02\x02\x02\x9D\x90\x03\x02\x02\x02\x9D\x94\x03\x02\x02" +
+		"\x02\x9D\x98\x03\x02\x02\x02\x9D\x9C\x03\x02\x02\x02\x9E\t\x03\x02\x02" +
+		"\x02\x9F\xA0\x05\x18\r\x02\xA0\xA1\x07\'\x02\x02\xA1\xA2\x05H%\x02\xA2" +
+		"\xA3\x07\x03\x02\x02\xA3\xA4\x05P)\x02\xA4\v\x03\x02\x02\x02\xA5\xA6\x07" +
+		"$\x02\x02\xA6\xA7\x07\'\x02\x02\xA7\xA9\x07\x04\x02\x02\xA8\xAA\x05\x0E" +
+		"\b\x02\xA9\xA8\x03\x02\x02\x02\xA9\xAA\x03\x02\x02\x02\xAA\xAB\x03\x02" +
+		"\x02\x02\xAB\xAD\x07\x05\x02\x02\xAC\xAE\x077\x02\x02\xAD\xAC\x03\x02" +
+		"\x02\x02\xAD\xAE\x03\x02\x02\x02\xAE\r\x03\x02\x02\x02\xAF\xB4\x05\x10" +
+		"\t\x02\xB0\xB1\x07\x06\x02\x02\xB1\xB3\x05\x10\t\x02\xB2\xB0\x03\x02\x02" +
+		"\x02\xB3\xB6\x03\x02\x02\x02\xB4\xB2\x03\x02\x02\x02\xB4\xB5\x03\x02\x02" +
+		"\x02\xB5\x0F\x03\x02\x02\x02\xB6\xB4\x03\x02\x02\x02\xB7\xB8\x07\'\x02" +
+		"\x02\xB8\xB9\x05H%\x02\xB9\x11\x03\x02\x02\x02\xBA\xBB\x07%\x02\x02\xBB" +
+		"\xBC\x07\'\x02\x02\xBC\xBE\x07\x04\x02\x02\xBD\xBF\x05\x14\v\x02\xBE\xBD" +
+		"\x03\x02\x02\x02\xBE\xBF\x03\x02\x02\x02\xBF\xC0\x03\x02\x02\x02\xC0\xC2" +
+		"\x07\x05\x02\x02\xC1\xC3\x077\x02\x02\xC2\xC1\x03\x02\x02\x02\xC2\xC3" +
+		"\x03\x02\x02\x02\xC3\x13\x03\x02\x02\x02\xC4\xC9\x05\x16\f\x02\xC5\xC6" +
+		"\x07\x06\x02\x02\xC6\xC8\x05\x16\f\x02\xC7\xC5\x03\x02\x02\x02\xC8\xCB" +
+		"\x03\x02\x02\x02\xC9\xC7\x03\x02\x02\x02\xC9\xCA\x03\x02\x02\x02\xCA\x15" +
+		"\x03\x02\x02\x02\xCB\xC9\x03\x02\x02\x02\xCC\xCD\x05,\x17\x02\xCD\x17" +
+		"\x03\x02\x02\x02\xCE\xCF\t\x02\x02\x02\xCF\x19\x03\x02\x02\x02\xD0\xD1" +
+		"\x07\x0F\x02\x02\xD1\xD2\x07\x07\x02\x02\xD2\xD3\x05P)\x02\xD3\xD4\x07" +
+		"\b\x02\x02\xD4\x1B\x03\x02\x02\x02\xD5\xD6\x07\x10\x02\x02\xD6\xD7\x07" +
+		"\x07\x02\x02\xD7\xD8\x05P)\x02\xD8\xD9\x07\b\x02\x02\xD9\xDD\x05B\"\x02" +
+		"\xDA\xDC\x05\x1E\x10\x02\xDB\xDA\x03\x02\x02\x02\xDC\xDF\x03\x02\x02\x02" +
+		"\xDD\xDB\x03\x02\x02\x02\xDD\xDE\x03\x02\x02\x02\xDE\xE1\x03\x02\x02\x02" +
+		"\xDF\xDD\x03\x02\x02\x02\xE0\xE2\x05 \x11\x02\xE1\xE0\x03\x02\x02\x02" +
+		"\xE1\xE2\x03\x02\x02\x02\xE2\x1D\x03\x02\x02\x02\xE3\xE4\x07\x11\x02\x02" +
+		"\xE4\xE5\x07\x10\x02\x02\xE5\xE6\x07\x07\x02\x02\xE6\xE7\x05P)\x02\xE7" +
+		"\xE8\x07\b\x02\x02\xE8\xE9\x05B\"\x02\xE9\x1F\x03\x02\x02\x02\xEA\xEB" +
+		"\x07\x11\x02\x02\xEB\xEC\x05B\"\x02\xEC!\x03\x02\x02\x02\xED\xEE\x07\x12" +
+		"\x02\x02\xEE\xEF\x07\x07\x02\x02\xEF\xF0\x05P)\x02\xF0\xF1\x07\b\x02\x02" +
+		"\xF1\xF2\x05B\"\x02\xF2#\x03\x02\x02\x02\xF3\xF4\x07\x15\x02\x02\xF4\xF5" +
+		"\x05B\"\x02\xF5\xF6\x07\x12\x02\x02\xF6\xF7\x07\x07\x02\x02\xF7\xF8\x05" +
+		"P)\x02\xF8\xFA\x07\b\x02\x02\xF9\xFB\x077\x02\x02\xFA\xF9\x03\x02\x02" +
+		"\x02\xFA\xFB\x03\x02\x02\x02\xFB%\x03\x02\x02\x02\xFC\xFD\x07\x16\x02" +
+		"\x02\xFD\xFF\x07\x07\x02\x02\xFE\u0100\x05(\x15\x02\xFF\xFE\x03\x02\x02" +
+		"\x02\xFF\u0100\x03\x02\x02\x02\u0100\u0101\x03\x02\x02\x02\u0101\u0103" +
+		"\x077\x02\x02\u0102\u0104\x05P)\x02\u0103\u0102\x03\x02\x02\x02\u0103" +
+		"\u0104\x03\x02\x02\x02\u0104\u0105\x03\x02\x02\x02\u0105\u0107\x077\x02" +
+		"\x02\u0106\u0108\x05*\x16\x02\u0107\u0106\x03\x02\x02\x02\u0107\u0108" +
+		"\x03\x02\x02\x02\u0108\u0109\x03\x02\x02\x02\u0109\u010A\x07\b\x02\x02" +
+		"\u010A\u010B\x05B\"\x02\u010B\'\x03\x02\x02\x02\u010C\u010F\x05\n\x06" +
+		"\x02\u010D\u010F\x05,\x17\x02\u010E\u010C\x03\x02\x02\x02\u010E\u010D" +
+		"\x03\x02\x02\x02\u010F)\x03\x02\x02\x02\u0110\u0113\x05,\x17\x02\u0111" +
+		"\u0113\x05F$\x02\u0112\u0110\x03\x02\x02\x02\u0112\u0111\x03\x02\x02\x02" +
+		"\u0113+\x03\x02\x02\x02\u0114\u0115\x07\'\x02\x02\u0115\u0116\x050\x19" +
+		"\x02\u0116\u0117\x05P)\x02\u0117-\x03\x02\x02\x02\u0118\u011B\x07\'\x02" +
+		"\x02\u0119\u011A\x07\t\x02\x02\u011A\u011C\x07\'\x02\x02\u011B\u0119\x03" +
+		"\x02\x02\x02\u011C\u011D\x03\x02\x02\x02\u011D\u011B\x03\x02\x02\x02\u011D" +
+		"\u011E\x03\x02\x02\x02\u011E/\x03\x02\x02\x02\u011F\u0120\t\x03\x02\x02" +
+		"\u01201\x03\x02\x02\x02\u0121\u0122\x07\x17\x02\x02\u0122\u0123\x07\x07" +
+		"\x02\x02\u0123\u0124\x07\'\x02\x02\u0124\u0125\x07\x18\x02\x02\u0125\u0126" +
+		"\x05P)\x02\u0126\u0127\x07\b\x02\x02\u0127\u0128\x05B\"\x02\u01283\x03" +
+		"\x02\x02\x02\u0129\u012A\x07\x19\x02\x02\u012A5\x03\x02\x02\x02\u012B" +
+		"\u012C\x07\x1A\x02\x02\u012C7\x03\x02\x02\x02\u012D\u012F\x07&\x02\x02" +
+		"\u012E\u012D\x03\x02\x02\x02\u012E\u012F\x03\x02\x02\x02\u012F\u0130\x03" +
+		"\x02\x02\x02\u0130\u0131\x07\x13\x02\x02\u0131\u0132\x07\'\x02\x02\u0132" +
+		"\u0134\x07\x07\x02\x02\u0133\u0135\x05<\x1F\x02\u0134\u0133\x03\x02\x02" +
+		"\x02\u0134\u0135\x03\x02\x02\x02\u0135\u0136\x03\x02\x02\x02\u0136\u0138" +
+		"\x07\b\x02\x02\u0137\u0139\x05J&\x02\u0138\u0137\x03\x02\x02\x02\u0138" +
+		"\u0139\x03\x02\x02\x02\u0139\u013A\x03\x02\x02\x02\u013A\u013B\x05B\"" +
+		"\x02\u013B9\x03\x02\x02\x02\u013C\u013D\x07\x13\x02\x02\u013D\u013E\x07" +
+		"#\x02\x02\u013E\u013F\x07\x07\x02\x02\u013F\u0140\x07\b\x02\x02\u0140" +
+		"\u0141\x05B\"\x02\u0141;\x03\x02\x02\x02\u0142\u0147\x05> \x02\u0143\u0144" +
+		"\x07\x06\x02\x02\u0144\u0146\x05> \x02\u0145\u0143\x03\x02\x02\x02\u0146" +
+		"\u0149\x03\x02\x02\x02\u0147\u0145\x03\x02\x02\x02\u0147\u0148\x03\x02" +
+		"\x02\x02\u0148=\x03\x02\x02\x02\u0149\u0147\x03\x02\x02\x02\u014A\u014C" +
+		"\x07\'\x02\x02\u014B\u014D\x05H%\x02\u014C\u014B\x03\x02\x02\x02\u014C" +
+		"\u014D\x03\x02\x02\x02\u014D?\x03\x02\x02\x02\u014E\u0150\x07\x14\x02" +
+		"\x02\u014F\u0151\x05P)\x02\u0150\u014F\x03\x02\x02\x02\u0150\u0151\x03" +
+		"\x02\x02\x02\u0151A\x03\x02\x02\x02\u0152\u0156\x07\x04\x02\x02\u0153" +
+		"\u0155\x05\b\x05\x02\u0154\u0153\x03\x02\x02\x02\u0155\u0158\x03\x02\x02" +
+		"\x02\u0156\u0154\x03\x02\x02\x02\u0156\u0157\x03\x02\x02\x02\u0157\u0159" +
+		"\x03\x02\x02\x02\u0158\u0156\x03\x02\x02\x02\u0159\u015A\x07\x05\x02\x02" +
+		"\u015AC\x03\x02\x02\x02\u015B\u0160\x05P)\x02\u015C\u015D\x07\x06\x02" +
+		"\x02\u015D\u015F\x05P)\x02\u015E\u015C\x03\x02\x02\x02\u015F\u0162\x03" +
+		"\x02\x02\x02\u0160\u015E\x03\x02\x02\x02\u0160\u0161\x03\x02\x02\x02\u0161" +
+		"E\x03\x02\x02\x02\u0162\u0160\x03\x02\x02\x02\u0163\u0164\x07\'\x02\x02" +
+		"\u0164\u0166\x07\x07\x02\x02\u0165\u0167\x05D#\x02\u0166\u0165\x03\x02" +
+		"\x02\x02\u0166\u0167\x03\x02\x02\x02\u0167\u0168\x03\x02\x02\x02\u0168" +
+		"\u0169\x07\b\x02\x02\u0169G\x03\x02\x02\x02\u016A\u016B\x07\n\x02\x02" +
+		"\u016B\u016C\x05L\'\x02\u016CI\x03\x02\x02\x02\u016D\u016E\x07\n\x02\x02" +
+		"\u016E\u016F\x05N(\x02\u016FK\x03\x02\x02\x02\u0170\u0171\t\x04\x02\x02" +
+		"\u0171M\x03\x02\x02\x02\u0172\u0175\x05L\'\x02\u0173\u0175\x07\"\x02\x02" +
+		"\u0174\u0172\x03\x02\x02\x02\u0174\u0173\x03\x02\x02\x02\u0175O\x03\x02" +
+		"\x02\x02\u0176\u0177\b)\x01\x02\u0177\u0178\x07.\x02\x02\u0178\u0184\x05" +
+		"P)\v\u0179\u017A\x07\x07\x02\x02\u017A\u017B\x05P)\x02\u017B\u017C\x07" +
+		"\b\x02\x02\u017C\u0184\x03\x02\x02\x02\u017D\u0184\x05F$\x02\u017E\u0184" +
+		"\x05\x12\n\x02\u017F\u0184\x079\x02\x02\u0180\u0184\x078\x02\x02\u0181" +
+		"\u0184\x07:\x02\x02\u0182\u0184\x07\'\x02\x02\u0183\u0176\x03\x02\x02" +
+		"\x02\u0183\u0179\x03\x02\x02\x02\u0183\u017D\x03\x02\x02\x02\u0183\u017E" +
+		"\x03\x02\x02\x02\u0183\u017F\x03\x02\x02\x02\u0183\u0180\x03\x02\x02\x02" +
+		"\u0183\u0181\x03\x02\x02\x02\u0183\u0182\x03\x02\x02\x02\u0184\u0193\x03" +
+		"\x02\x02\x02\u0185\u0186\f\x0E\x02\x02\u0186\u0187\t\x05\x02\x02\u0187" +
+		"\u0192\x05P)\x0F\u0188\u0189\f\r\x02\x02\u0189\u018A\t\x06\x02\x02\u018A" +
+		"\u0192\x05P)\x0E\u018B\u018C\f\f\x02\x02\u018C\u018D\t\x07\x02\x02\u018D" +
+		"\u0192\x05P)\r\u018E\u018F\f\x07\x02\x02\u018F\u0190\x07\t\x02\x02\u0190" +
+		"\u0192\x07\'\x02\x02\u0191\u0185\x03\x02\x02\x02\u0191\u0188\x03\x02\x02" +
+		"\x02\u0191\u018B\x03\x02\x02\x02\u0191\u018E\x03\x02\x02\x02\u0192\u0195" +
+		"\x03\x02\x02\x02\u0193\u0191\x03\x02\x02\x02\u0193\u0194\x03\x02\x02\x02" +
+		"\u0194Q\x03\x02\x02\x02\u0195\u0193\x03\x02\x02\x02,U[agmv|\x80\x84\x88" +
+		"\x92\x96\x9A\x9D\xA9\xAD\xB4\xBE\xC2\xC9\xDD\xE1\xFA\xFF\u0103\u0107\u010E" +
+		"\u0112\u011D\u012E\u0134\u0138\u0147\u014C\u0150\u0156\u0160\u0166\u0174" +
+		"\u0183\u0191\u0193";
 	public static __ATN: ATN;
 	public static get _ATN(): ATN {
 		if (!AstigLangParser.__ATN) {
@@ -1755,6 +2343,24 @@ export class AstigLangParser extends Parser {
 
 export class ProgramContext extends ParserRuleContext {
 	public EOF(): TerminalNode { return this.getToken(AstigLangParser.EOF, 0); }
+	public includeList(): IncludeListContext[];
+	public includeList(i: number): IncludeListContext;
+	public includeList(i?: number): IncludeListContext | IncludeListContext[] {
+		if (i === undefined) {
+			return this.getRuleContexts(IncludeListContext);
+		} else {
+			return this.getRuleContext(i, IncludeListContext);
+		}
+	}
+	public recordDeclaration(): RecordDeclarationContext[];
+	public recordDeclaration(i: number): RecordDeclarationContext;
+	public recordDeclaration(i?: number): RecordDeclarationContext | RecordDeclarationContext[] {
+		if (i === undefined) {
+			return this.getRuleContexts(RecordDeclarationContext);
+		} else {
+			return this.getRuleContext(i, RecordDeclarationContext);
+		}
+	}
 	public statement(): StatementContext[];
 	public statement(i: number): StatementContext;
 	public statement(i?: number): StatementContext | StatementContext[] {
@@ -1762,6 +2368,24 @@ export class ProgramContext extends ParserRuleContext {
 			return this.getRuleContexts(StatementContext);
 		} else {
 			return this.getRuleContext(i, StatementContext);
+		}
+	}
+	public functionDeclaration(): FunctionDeclarationContext[];
+	public functionDeclaration(i: number): FunctionDeclarationContext;
+	public functionDeclaration(i?: number): FunctionDeclarationContext | FunctionDeclarationContext[] {
+		if (i === undefined) {
+			return this.getRuleContexts(FunctionDeclarationContext);
+		} else {
+			return this.getRuleContext(i, FunctionDeclarationContext);
+		}
+	}
+	public functionMainDeclaration(): FunctionMainDeclarationContext[];
+	public functionMainDeclaration(i: number): FunctionMainDeclarationContext;
+	public functionMainDeclaration(i?: number): FunctionMainDeclarationContext | FunctionMainDeclarationContext[] {
+		if (i === undefined) {
+			return this.getRuleContexts(FunctionMainDeclarationContext);
+		} else {
+			return this.getRuleContext(i, FunctionMainDeclarationContext);
 		}
 	}
 	constructor(parent: ParserRuleContext | undefined, invokingState: number) {
@@ -1785,6 +2409,79 @@ export class ProgramContext extends ParserRuleContext {
 	public accept<Result>(visitor: AstigLangVisitor<Result>): Result {
 		if (visitor.visitProgram) {
 			return visitor.visitProgram(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
+}
+
+
+export class IncludeListContext extends ParserRuleContext {
+	public includeStatement(): IncludeStatementContext {
+		return this.getRuleContext(0, IncludeStatementContext);
+	}
+	public includeList(): IncludeListContext[];
+	public includeList(i: number): IncludeListContext;
+	public includeList(i?: number): IncludeListContext | IncludeListContext[] {
+		if (i === undefined) {
+			return this.getRuleContexts(IncludeListContext);
+		} else {
+			return this.getRuleContext(i, IncludeListContext);
+		}
+	}
+	constructor(parent: ParserRuleContext | undefined, invokingState: number) {
+		super(parent, invokingState);
+	}
+	// @Override
+	public get ruleIndex(): number { return AstigLangParser.RULE_includeList; }
+	// @Override
+	public enterRule(listener: AstigLangListener): void {
+		if (listener.enterIncludeList) {
+			listener.enterIncludeList(this);
+		}
+	}
+	// @Override
+	public exitRule(listener: AstigLangListener): void {
+		if (listener.exitIncludeList) {
+			listener.exitIncludeList(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: AstigLangVisitor<Result>): Result {
+		if (visitor.visitIncludeList) {
+			return visitor.visitIncludeList(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
+}
+
+
+export class IncludeStatementContext extends ParserRuleContext {
+	public INCLUDE_KW(): TerminalNode { return this.getToken(AstigLangParser.INCLUDE_KW, 0); }
+	public FILENAME(): TerminalNode { return this.getToken(AstigLangParser.FILENAME, 0); }
+	public SEMICOLON(): TerminalNode | undefined { return this.tryGetToken(AstigLangParser.SEMICOLON, 0); }
+	constructor(parent: ParserRuleContext | undefined, invokingState: number) {
+		super(parent, invokingState);
+	}
+	// @Override
+	public get ruleIndex(): number { return AstigLangParser.RULE_includeStatement; }
+	// @Override
+	public enterRule(listener: AstigLangListener): void {
+		if (listener.enterIncludeStatement) {
+			listener.enterIncludeStatement(this);
+		}
+	}
+	// @Override
+	public exitRule(listener: AstigLangListener): void {
+		if (listener.exitIncludeStatement) {
+			listener.exitIncludeStatement(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: AstigLangVisitor<Result>): Result {
+		if (visitor.visitIncludeStatement) {
+			return visitor.visitIncludeStatement(this);
 		} else {
 			return visitor.visitChildren(this);
 		}
@@ -1893,6 +2590,217 @@ export class VariableDeclarationContext extends ParserRuleContext {
 	public accept<Result>(visitor: AstigLangVisitor<Result>): Result {
 		if (visitor.visitVariableDeclaration) {
 			return visitor.visitVariableDeclaration(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
+}
+
+
+export class RecordDeclarationContext extends ParserRuleContext {
+	public RECORD_KW(): TerminalNode { return this.getToken(AstigLangParser.RECORD_KW, 0); }
+	public IDENTIFIER(): TerminalNode { return this.getToken(AstigLangParser.IDENTIFIER, 0); }
+	public recordFieldList(): RecordFieldListContext | undefined {
+		return this.tryGetRuleContext(0, RecordFieldListContext);
+	}
+	public SEMICOLON(): TerminalNode | undefined { return this.tryGetToken(AstigLangParser.SEMICOLON, 0); }
+	constructor(parent: ParserRuleContext | undefined, invokingState: number) {
+		super(parent, invokingState);
+	}
+	// @Override
+	public get ruleIndex(): number { return AstigLangParser.RULE_recordDeclaration; }
+	// @Override
+	public enterRule(listener: AstigLangListener): void {
+		if (listener.enterRecordDeclaration) {
+			listener.enterRecordDeclaration(this);
+		}
+	}
+	// @Override
+	public exitRule(listener: AstigLangListener): void {
+		if (listener.exitRecordDeclaration) {
+			listener.exitRecordDeclaration(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: AstigLangVisitor<Result>): Result {
+		if (visitor.visitRecordDeclaration) {
+			return visitor.visitRecordDeclaration(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
+}
+
+
+export class RecordFieldListContext extends ParserRuleContext {
+	public recordField(): RecordFieldContext[];
+	public recordField(i: number): RecordFieldContext;
+	public recordField(i?: number): RecordFieldContext | RecordFieldContext[] {
+		if (i === undefined) {
+			return this.getRuleContexts(RecordFieldContext);
+		} else {
+			return this.getRuleContext(i, RecordFieldContext);
+		}
+	}
+	constructor(parent: ParserRuleContext | undefined, invokingState: number) {
+		super(parent, invokingState);
+	}
+	// @Override
+	public get ruleIndex(): number { return AstigLangParser.RULE_recordFieldList; }
+	// @Override
+	public enterRule(listener: AstigLangListener): void {
+		if (listener.enterRecordFieldList) {
+			listener.enterRecordFieldList(this);
+		}
+	}
+	// @Override
+	public exitRule(listener: AstigLangListener): void {
+		if (listener.exitRecordFieldList) {
+			listener.exitRecordFieldList(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: AstigLangVisitor<Result>): Result {
+		if (visitor.visitRecordFieldList) {
+			return visitor.visitRecordFieldList(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
+}
+
+
+export class RecordFieldContext extends ParserRuleContext {
+	public IDENTIFIER(): TerminalNode { return this.getToken(AstigLangParser.IDENTIFIER, 0); }
+	public typeAnnotation(): TypeAnnotationContext {
+		return this.getRuleContext(0, TypeAnnotationContext);
+	}
+	constructor(parent: ParserRuleContext | undefined, invokingState: number) {
+		super(parent, invokingState);
+	}
+	// @Override
+	public get ruleIndex(): number { return AstigLangParser.RULE_recordField; }
+	// @Override
+	public enterRule(listener: AstigLangListener): void {
+		if (listener.enterRecordField) {
+			listener.enterRecordField(this);
+		}
+	}
+	// @Override
+	public exitRule(listener: AstigLangListener): void {
+		if (listener.exitRecordField) {
+			listener.exitRecordField(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: AstigLangVisitor<Result>): Result {
+		if (visitor.visitRecordField) {
+			return visitor.visitRecordField(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
+}
+
+
+export class RecordLiteralContext extends ParserRuleContext {
+	public NEW_KW(): TerminalNode { return this.getToken(AstigLangParser.NEW_KW, 0); }
+	public IDENTIFIER(): TerminalNode { return this.getToken(AstigLangParser.IDENTIFIER, 0); }
+	public recordLiteralFieldList(): RecordLiteralFieldListContext | undefined {
+		return this.tryGetRuleContext(0, RecordLiteralFieldListContext);
+	}
+	public SEMICOLON(): TerminalNode | undefined { return this.tryGetToken(AstigLangParser.SEMICOLON, 0); }
+	constructor(parent: ParserRuleContext | undefined, invokingState: number) {
+		super(parent, invokingState);
+	}
+	// @Override
+	public get ruleIndex(): number { return AstigLangParser.RULE_recordLiteral; }
+	// @Override
+	public enterRule(listener: AstigLangListener): void {
+		if (listener.enterRecordLiteral) {
+			listener.enterRecordLiteral(this);
+		}
+	}
+	// @Override
+	public exitRule(listener: AstigLangListener): void {
+		if (listener.exitRecordLiteral) {
+			listener.exitRecordLiteral(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: AstigLangVisitor<Result>): Result {
+		if (visitor.visitRecordLiteral) {
+			return visitor.visitRecordLiteral(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
+}
+
+
+export class RecordLiteralFieldListContext extends ParserRuleContext {
+	public recordLiteralField(): RecordLiteralFieldContext[];
+	public recordLiteralField(i: number): RecordLiteralFieldContext;
+	public recordLiteralField(i?: number): RecordLiteralFieldContext | RecordLiteralFieldContext[] {
+		if (i === undefined) {
+			return this.getRuleContexts(RecordLiteralFieldContext);
+		} else {
+			return this.getRuleContext(i, RecordLiteralFieldContext);
+		}
+	}
+	constructor(parent: ParserRuleContext | undefined, invokingState: number) {
+		super(parent, invokingState);
+	}
+	// @Override
+	public get ruleIndex(): number { return AstigLangParser.RULE_recordLiteralFieldList; }
+	// @Override
+	public enterRule(listener: AstigLangListener): void {
+		if (listener.enterRecordLiteralFieldList) {
+			listener.enterRecordLiteralFieldList(this);
+		}
+	}
+	// @Override
+	public exitRule(listener: AstigLangListener): void {
+		if (listener.exitRecordLiteralFieldList) {
+			listener.exitRecordLiteralFieldList(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: AstigLangVisitor<Result>): Result {
+		if (visitor.visitRecordLiteralFieldList) {
+			return visitor.visitRecordLiteralFieldList(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
+}
+
+
+export class RecordLiteralFieldContext extends ParserRuleContext {
+	public assignment(): AssignmentContext {
+		return this.getRuleContext(0, AssignmentContext);
+	}
+	constructor(parent: ParserRuleContext | undefined, invokingState: number) {
+		super(parent, invokingState);
+	}
+	// @Override
+	public get ruleIndex(): number { return AstigLangParser.RULE_recordLiteralField; }
+	// @Override
+	public enterRule(listener: AstigLangListener): void {
+		if (listener.enterRecordLiteralField) {
+			listener.enterRecordLiteralField(this);
+		}
+	}
+	// @Override
+	public exitRule(listener: AstigLangListener): void {
+		if (listener.exitRecordLiteralField) {
+			listener.exitRecordLiteralField(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: AstigLangVisitor<Result>): Result {
+		if (visitor.visitRecordLiteralField) {
+			return visitor.visitRecordLiteralField(this);
 		} else {
 			return visitor.visitChildren(this);
 		}
@@ -2314,6 +3222,44 @@ export class AssignmentContext extends ParserRuleContext {
 }
 
 
+export class RecordFieldAccessContext extends ParserRuleContext {
+	public IDENTIFIER(): TerminalNode[];
+	public IDENTIFIER(i: number): TerminalNode;
+	public IDENTIFIER(i?: number): TerminalNode | TerminalNode[] {
+		if (i === undefined) {
+			return this.getTokens(AstigLangParser.IDENTIFIER);
+		} else {
+			return this.getToken(AstigLangParser.IDENTIFIER, i);
+		}
+	}
+	constructor(parent: ParserRuleContext | undefined, invokingState: number) {
+		super(parent, invokingState);
+	}
+	// @Override
+	public get ruleIndex(): number { return AstigLangParser.RULE_recordFieldAccess; }
+	// @Override
+	public enterRule(listener: AstigLangListener): void {
+		if (listener.enterRecordFieldAccess) {
+			listener.enterRecordFieldAccess(this);
+		}
+	}
+	// @Override
+	public exitRule(listener: AstigLangListener): void {
+		if (listener.exitRecordFieldAccess) {
+			listener.exitRecordFieldAccess(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: AstigLangVisitor<Result>): Result {
+		if (visitor.visitRecordFieldAccess) {
+			return visitor.visitRecordFieldAccess(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
+}
+
+
 export class AssignmentOperatorContext extends ParserRuleContext {
 	public ADD_ASSIGN(): TerminalNode | undefined { return this.tryGetToken(AstigLangParser.ADD_ASSIGN, 0); }
 	public SUB_ASSIGN(): TerminalNode | undefined { return this.tryGetToken(AstigLangParser.SUB_ASSIGN, 0); }
@@ -2449,6 +3395,7 @@ export class FunctionDeclarationContext extends ParserRuleContext {
 	public block(): BlockContext {
 		return this.getRuleContext(0, BlockContext);
 	}
+	public EXPORT_KW(): TerminalNode | undefined { return this.tryGetToken(AstigLangParser.EXPORT_KW, 0); }
 	public parameterList(): ParameterListContext | undefined {
 		return this.tryGetRuleContext(0, ParameterListContext);
 	}
@@ -2476,6 +3423,40 @@ export class FunctionDeclarationContext extends ParserRuleContext {
 	public accept<Result>(visitor: AstigLangVisitor<Result>): Result {
 		if (visitor.visitFunctionDeclaration) {
 			return visitor.visitFunctionDeclaration(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
+}
+
+
+export class FunctionMainDeclarationContext extends ParserRuleContext {
+	public FUNCTION_KW(): TerminalNode { return this.getToken(AstigLangParser.FUNCTION_KW, 0); }
+	public MAIN_KW(): TerminalNode { return this.getToken(AstigLangParser.MAIN_KW, 0); }
+	public block(): BlockContext {
+		return this.getRuleContext(0, BlockContext);
+	}
+	constructor(parent: ParserRuleContext | undefined, invokingState: number) {
+		super(parent, invokingState);
+	}
+	// @Override
+	public get ruleIndex(): number { return AstigLangParser.RULE_functionMainDeclaration; }
+	// @Override
+	public enterRule(listener: AstigLangListener): void {
+		if (listener.enterFunctionMainDeclaration) {
+			listener.enterFunctionMainDeclaration(this);
+		}
+	}
+	// @Override
+	public exitRule(listener: AstigLangListener): void {
+		if (listener.exitFunctionMainDeclaration) {
+			listener.exitFunctionMainDeclaration(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: AstigLangVisitor<Result>): Result {
+		if (visitor.visitFunctionMainDeclaration) {
+			return visitor.visitFunctionMainDeclaration(this);
 		} else {
 			return visitor.visitChildren(this);
 		}
@@ -2852,9 +3833,13 @@ export class ExpressionContext extends ParserRuleContext {
 	public functionCall(): FunctionCallContext | undefined {
 		return this.tryGetRuleContext(0, FunctionCallContext);
 	}
-	public NUMBER(): TerminalNode | undefined { return this.tryGetToken(AstigLangParser.NUMBER, 0); }
-	public STRING(): TerminalNode | undefined { return this.tryGetToken(AstigLangParser.STRING, 0); }
+	public recordLiteral(): RecordLiteralContext | undefined {
+		return this.tryGetRuleContext(0, RecordLiteralContext);
+	}
 	public IDENTIFIER(): TerminalNode | undefined { return this.tryGetToken(AstigLangParser.IDENTIFIER, 0); }
+	public NUMBER(): TerminalNode | undefined { return this.tryGetToken(AstigLangParser.NUMBER, 0); }
+	public FLOAT(): TerminalNode | undefined { return this.tryGetToken(AstigLangParser.FLOAT, 0); }
+	public STRING(): TerminalNode | undefined { return this.tryGetToken(AstigLangParser.STRING, 0); }
 	constructor(parent: ParserRuleContext | undefined, invokingState: number) {
 		super(parent, invokingState);
 	}

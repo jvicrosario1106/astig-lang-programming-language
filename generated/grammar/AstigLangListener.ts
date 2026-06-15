@@ -4,8 +4,16 @@
 import { ParseTreeListener } from "antlr4ts/tree/ParseTreeListener";
 
 import { ProgramContext } from "./AstigLangParser";
+import { IncludeListContext } from "./AstigLangParser";
+import { IncludeStatementContext } from "./AstigLangParser";
 import { StatementContext } from "./AstigLangParser";
 import { VariableDeclarationContext } from "./AstigLangParser";
+import { RecordDeclarationContext } from "./AstigLangParser";
+import { RecordFieldListContext } from "./AstigLangParser";
+import { RecordFieldContext } from "./AstigLangParser";
+import { RecordLiteralContext } from "./AstigLangParser";
+import { RecordLiteralFieldListContext } from "./AstigLangParser";
+import { RecordLiteralFieldContext } from "./AstigLangParser";
 import { DeclarationKeywordContext } from "./AstigLangParser";
 import { PrintStatementContext } from "./AstigLangParser";
 import { IfStatementContext } from "./AstigLangParser";
@@ -17,11 +25,13 @@ import { ForStatementContext } from "./AstigLangParser";
 import { ForInitContext } from "./AstigLangParser";
 import { ForUpdateContext } from "./AstigLangParser";
 import { AssignmentContext } from "./AstigLangParser";
+import { RecordFieldAccessContext } from "./AstigLangParser";
 import { AssignmentOperatorContext } from "./AstigLangParser";
 import { ForeachStatementContext } from "./AstigLangParser";
 import { BreakStatementContext } from "./AstigLangParser";
 import { ContinueStatementContext } from "./AstigLangParser";
 import { FunctionDeclarationContext } from "./AstigLangParser";
+import { FunctionMainDeclarationContext } from "./AstigLangParser";
 import { ParameterListContext } from "./AstigLangParser";
 import { ParameterContext } from "./AstigLangParser";
 import { ReturnStatementContext } from "./AstigLangParser";
@@ -52,6 +62,28 @@ export interface AstigLangListener extends ParseTreeListener {
 	exitProgram?: (ctx: ProgramContext) => void;
 
 	/**
+	 * Enter a parse tree produced by `AstigLangParser.includeList`.
+	 * @param ctx the parse tree
+	 */
+	enterIncludeList?: (ctx: IncludeListContext) => void;
+	/**
+	 * Exit a parse tree produced by `AstigLangParser.includeList`.
+	 * @param ctx the parse tree
+	 */
+	exitIncludeList?: (ctx: IncludeListContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `AstigLangParser.includeStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterIncludeStatement?: (ctx: IncludeStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `AstigLangParser.includeStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitIncludeStatement?: (ctx: IncludeStatementContext) => void;
+
+	/**
 	 * Enter a parse tree produced by `AstigLangParser.statement`.
 	 * @param ctx the parse tree
 	 */
@@ -72,6 +104,72 @@ export interface AstigLangListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitVariableDeclaration?: (ctx: VariableDeclarationContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `AstigLangParser.recordDeclaration`.
+	 * @param ctx the parse tree
+	 */
+	enterRecordDeclaration?: (ctx: RecordDeclarationContext) => void;
+	/**
+	 * Exit a parse tree produced by `AstigLangParser.recordDeclaration`.
+	 * @param ctx the parse tree
+	 */
+	exitRecordDeclaration?: (ctx: RecordDeclarationContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `AstigLangParser.recordFieldList`.
+	 * @param ctx the parse tree
+	 */
+	enterRecordFieldList?: (ctx: RecordFieldListContext) => void;
+	/**
+	 * Exit a parse tree produced by `AstigLangParser.recordFieldList`.
+	 * @param ctx the parse tree
+	 */
+	exitRecordFieldList?: (ctx: RecordFieldListContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `AstigLangParser.recordField`.
+	 * @param ctx the parse tree
+	 */
+	enterRecordField?: (ctx: RecordFieldContext) => void;
+	/**
+	 * Exit a parse tree produced by `AstigLangParser.recordField`.
+	 * @param ctx the parse tree
+	 */
+	exitRecordField?: (ctx: RecordFieldContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `AstigLangParser.recordLiteral`.
+	 * @param ctx the parse tree
+	 */
+	enterRecordLiteral?: (ctx: RecordLiteralContext) => void;
+	/**
+	 * Exit a parse tree produced by `AstigLangParser.recordLiteral`.
+	 * @param ctx the parse tree
+	 */
+	exitRecordLiteral?: (ctx: RecordLiteralContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `AstigLangParser.recordLiteralFieldList`.
+	 * @param ctx the parse tree
+	 */
+	enterRecordLiteralFieldList?: (ctx: RecordLiteralFieldListContext) => void;
+	/**
+	 * Exit a parse tree produced by `AstigLangParser.recordLiteralFieldList`.
+	 * @param ctx the parse tree
+	 */
+	exitRecordLiteralFieldList?: (ctx: RecordLiteralFieldListContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `AstigLangParser.recordLiteralField`.
+	 * @param ctx the parse tree
+	 */
+	enterRecordLiteralField?: (ctx: RecordLiteralFieldContext) => void;
+	/**
+	 * Exit a parse tree produced by `AstigLangParser.recordLiteralField`.
+	 * @param ctx the parse tree
+	 */
+	exitRecordLiteralField?: (ctx: RecordLiteralFieldContext) => void;
 
 	/**
 	 * Enter a parse tree produced by `AstigLangParser.declarationKeyword`.
@@ -195,6 +293,17 @@ export interface AstigLangListener extends ParseTreeListener {
 	exitAssignment?: (ctx: AssignmentContext) => void;
 
 	/**
+	 * Enter a parse tree produced by `AstigLangParser.recordFieldAccess`.
+	 * @param ctx the parse tree
+	 */
+	enterRecordFieldAccess?: (ctx: RecordFieldAccessContext) => void;
+	/**
+	 * Exit a parse tree produced by `AstigLangParser.recordFieldAccess`.
+	 * @param ctx the parse tree
+	 */
+	exitRecordFieldAccess?: (ctx: RecordFieldAccessContext) => void;
+
+	/**
 	 * Enter a parse tree produced by `AstigLangParser.assignmentOperator`.
 	 * @param ctx the parse tree
 	 */
@@ -248,6 +357,17 @@ export interface AstigLangListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitFunctionDeclaration?: (ctx: FunctionDeclarationContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `AstigLangParser.functionMainDeclaration`.
+	 * @param ctx the parse tree
+	 */
+	enterFunctionMainDeclaration?: (ctx: FunctionMainDeclarationContext) => void;
+	/**
+	 * Exit a parse tree produced by `AstigLangParser.functionMainDeclaration`.
+	 * @param ctx the parse tree
+	 */
+	exitFunctionMainDeclaration?: (ctx: FunctionMainDeclarationContext) => void;
 
 	/**
 	 * Enter a parse tree produced by `AstigLangParser.parameterList`.
