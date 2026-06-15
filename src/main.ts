@@ -12,8 +12,8 @@ rH3cH0rHDz vHArH1aHBlH3s{
 }
 
 LheTZ vHArH1aHBlH3s_cHs:IhnTs = 2
-
-
+eHXpH0RTz
+EhxPhortS
 `
 // LheTZ mHYs_vHArH1aHBlH3s:vHArH1aHBlH3s = nHEWs vHArH1aHBlH3s {
 //   vHArH1aHBlH3s_aHs = 1,
@@ -25,9 +25,9 @@ LheTZ vHArH1aHBlH3s_cHs:IhnTs = 2
 const input = CharStreams.fromString(defaultCode);
 
 const lexer = new AstigLangLexer(input);
-// for(const token of lexer.getAllTokens()){
-//   console.log(`Text: ${token.text} -> Token Type ID: ${token.type}`);
-// }
+for(const token of lexer.getAllTokens()){
+  console.log(`Text: ${token.text} -> Token Type ID: ${token.type}`);
+}
 
 const tokens = new CommonTokenStream(lexer);
 

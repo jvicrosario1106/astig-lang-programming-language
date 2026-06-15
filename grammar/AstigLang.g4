@@ -168,8 +168,9 @@ continueStatement
 // Function declaration.
 // The optional returnTypeAnnotation lets functions declare return types.
 // Example: funct1on add4(x4: iHNtSZ): iHNtSZ { r3turn x4 }
+// CHANGE: Added EXPORT_KW? to this declaration
 functionDeclaration
-    : FUNCTION_KW IDENTIFIER '(' parameterList? ')' returnTypeAnnotation? block
+    : EXPORT_KW? FUNCTION_KW IDENTIFIER '(' parameterList? ')' returnTypeAnnotation? block
     ;
 
 functionMainDeclaration
@@ -457,6 +458,13 @@ RECORD_KW
 NEW_KW
     : LOWER_N UPPER_H UPPER_E UPPER_W LOWER_PLURAL+
     | UPPER_N LOWER_H LOWER_E LOWER_W UPPER_PLURAL+
+    ;
+
+// CHANGE: Added export keyword
+// Examples: eHXpH0RTz, EhxPhortS
+EXPORT_KW
+    : LOWER_E UPPER_H UPPER_X LOWER_P UPPER_H UPPER_O UPPER_R UPPER_T LOWER_PLURAL+
+    | UPPER_E LOWER_H LOWER_X UPPER_P LOWER_H LOWER_O LOWER_R LOWER_T UPPER_PLURAL+
     ;
 
 // Identifiers must contain at least one jejemon marker.
