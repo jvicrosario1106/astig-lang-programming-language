@@ -2,7 +2,20 @@ grammar AstigLang;
 
 // Entry point of the language.
 // A program is currently any number of statements until the end of file.
-program: statement* EOF;
+// CHANGE: Added the full list of program statement according to document. 
+// TODO: Remove * from main function declaration here. This will throw an error if we remove the *. Need to update .ts files for this.
+// TODO: Remove statement in this program, statements should be inside the functions or main function
+// TODO: Add constant declaration section before the record
+program: includeList* recordDeclaration* statement* functionDeclaration* functionMainDeclaration* EOF;
+
+// CHANGE: Added include list and include statement
+includeList
+    : includeStatement includeList*
+    ;
+
+includeStatement
+    : INCLUDE_KW FILENAME ';'?
+    ;
 
 // All valid top-level or block-level statements.
 // Add new language features here when they should behave like statements.
@@ -28,6 +41,31 @@ statement
 // Examples: v4r x4 = 10, v4r x4: iHNtSZ = 10
 variableDeclaration
     : declarationKeyword IDENTIFIER typeAnnotation '=' expression
+    ;
+
+// CHANGE: Added record declaration and literal rules
+recordDeclaration
+    : RECORD_KW IDENTIFIER '{' recordFieldList? '}' ';'?
+    ;
+
+recordFieldList
+    : recordField (',' recordField)*
+    ;
+
+recordField
+    : IDENTIFIER typeAnnotation
+    ;
+
+recordLiteral
+    : NEW_KW IDENTIFIER '{' recordLiteralFieldList? '}' ';'?
+    ;
+
+recordLiteralFieldList
+    : recordLiteralField (',' recordLiteralField)*
+    ;
+
+recordLiteralField
+    : assignment
     ;
 
 // Groups all declaration keywords that can introduce a variable.
@@ -93,8 +131,16 @@ forUpdate
     ;
 
 // Assignment statement for use in for loops and elsewhere.
+// CHANGE: Added record field access
+// TODO: Need to add recordFieldAccess in the ast with buildAssignmentStatement Context then add this
 assignment
-    : IDENTIFIER assignmentOperator expression
+    : IDENTIFIER assignmentOperator expression;
+    //| recordFieldAccess assignmentOperator expression
+    //;
+
+// For 'player.score' or 'player.weapon.damage'
+recordFieldAccess
+    : IDENTIFIER ('.' IDENTIFIER)+
     ;
 
 assignmentOperator
@@ -124,6 +170,10 @@ continueStatement
 // Example: funct1on add4(x4: iHNtSZ): iHNtSZ { r3turn x4 }
 functionDeclaration
     : FUNCTION_KW IDENTIFIER '(' parameterList? ')' returnTypeAnnotation? block
+    ;
+
+functionMainDeclaration
+    : FUNCTION_KW MAIN_KW '(' ')' block
     ;
 
 // Comma-separated function parameters.
@@ -188,6 +238,7 @@ returnDataType
 
 // Expressions are values or computations with proper operator precedence.
 // Precedence (highest to lowest): unary minus, MUL/DIV, ADD/SUB, comparison
+// CHANGE: Added float, recordLiteral and expression.identifier (to chain record member calling)
 expression
     : expression op=(MUL|DIV) expression
     | expression op=(ADD|SUB) expression
@@ -195,9 +246,20 @@ expression
     | SUB expression
     | '(' expression ')'
     | functionCall
+    | recordLiteral
+    | expression '.' IDENTIFIER
     | NUMBER
+    | FLOAT
     | STRING
     | IDENTIFIER
+    ;
+
+// CHANGE: Added include keyword
+// Jejemonized "include".
+// Examples: iHNcHLuHD3s, IhnChlUhdeZ
+INCLUDE_KW
+    : LOWER_I UPPER_H UPPER_N LOWER_C UPPER_H UPPER_L LOWER_U UPPER_H UPPER_D UPPER_E LOWER_PLURAL+
+    | UPPER_I LOWER_H LOWER_N UPPER_C LOWER_H LOWER_L UPPER_U LOWER_H LOWER_D LOWER_E UPPER_PLURAL+
     ;
 
 // Jejemonized "const".
@@ -218,10 +280,10 @@ VAR_KW
     ;
 
 // Jejemonized "let".
-// Examples: l3t, lhEtZ
+// Examples: lH3ts, LheTZ
 LET_KW
-    : ( LOWER_L UPPER_H UPPER_E LOWER_T LOWER_PLURAL+ )
-    | ( UPPER_L LOWER_H LOWER_E UPPER_T UPPER_PLURAL+ )
+    : LOWER_L UPPER_H UPPER_E LOWER_T LOWER_PLURAL+ 
+    | UPPER_L LOWER_H LOWER_E UPPER_T UPPER_PLURAL+
     ;
 
 // Jejemonized "print".
@@ -333,7 +395,7 @@ FLOAT_KW
 
 // Jejemonized primitive type "string".
 // H may be inserted after the first letter.
-// Examples: sTRh1Ngz, sHtr1ng, StrHinGS
+// Examples: sTRh1Ngz, StrHinGS
 STRING_KW
     : LOWER_S UPPER_T UPPER_R LOWER_H UPPER_I UPPER_N LOWER_G LOWER_PLURAL+
     | UPPER_S LOWER_T LOWER_R UPPER_H LOWER_I LOWER_N UPPER_G UPPER_PLURAL+
@@ -347,11 +409,25 @@ CHAR_KW
     ;
 
 // Jejemonized primitive type "boolean".
-// H may be inserted after the first letter.
 // Examples: b0olean, bH0olean, boole@n, booleanZ
 BOOLEAN_KW
     : LOWER_B UPPER_H UPPER_O LOWER_O UPPER_H UPPER_L LOWER_E LOWER_A UPPER_N LOWER_PLURAL+
     | UPPER_B LOWER_H LOWER_O UPPER_O LOWER_H LOWER_L UPPER_E UPPER_A LOWER_N UPPER_PLURAL+
+    ;
+
+// CHANGE: Added True and False keywords
+// Jejemonized keyword "true".
+// Examples: tRueHz, TrU3hs
+TRUE_KW
+    : LOWER_T UPPER_R LOWER_U LOWER_E UPPER_H LOWER_PLURAL+
+    | UPPER_T LOWER_R UPPER_U UPPER_E LOWER_H UPPER_PLURAL+
+    ;
+
+// Jejemonized keyword "false".
+// Examples: fHAls3z, FhaLSeS
+FALSE_KW
+    : LOWER_F UPPER_H UPPER_A LOWER_L LOWER_S UPPER_E LOWER_PLURAL+
+    | UPPER_F LOWER_H LOWER_A UPPER_L UPPER_S LOWER_E UPPER_PLURAL+
     ;
 
 // Jejemonized primitive return type "void".
@@ -361,10 +437,41 @@ VOID_KW
     | UPPER_V LOWER_H LOWER_O UPPER_I LOWER_D UPPER_PLURAL+
     ;
 
+// CHANGE: Added Main Keyword
+// Jejemonized primitive return type "void".
+// Examples: mHA1Ns, MhainZ
+MAIN_KW
+    : LOWER_M UPPER_H UPPER_A UPPER_I UPPER_N LOWER_PLURAL+
+    | UPPER_M LOWER_H LOWER_A LOWER_I LOWER_N UPPER_PLURAL+
+    ;
+
+// CHANGE: Added Record and New Keyword
+// Jejemonized primitive type "record"
+// Examples: rH3cH0rHDz, RheChoRhds
+RECORD_KW
+    : LOWER_R UPPER_H UPPER_E LOWER_C UPPER_H UPPER_O LOWER_R UPPER_H UPPER_D LOWER_PLURAL+
+    | UPPER_R LOWER_H LOWER_E UPPER_C LOWER_H LOWER_O UPPER_R LOWER_H LOWER_D UPPER_PLURAL+
+    ;
+
+// Examples: nHEWs, NhewZ
+NEW_KW
+    : LOWER_N UPPER_H UPPER_E UPPER_W LOWER_PLURAL+
+    | UPPER_N LOWER_H LOWER_E LOWER_W UPPER_PLURAL+
+    ;
+
 // Identifiers must contain at least one jejemon marker.
 // This prevents plain variable names like "count" and accepts names like "c0unt".
 IDENTIFIER
     : WORD SUBSCRIPT*
+    ;
+
+// CHANGE: Added filename and file extension
+FILENAME
+    : LETTER+ '.' FILE_EXTENSION
+    ;
+
+FILE_EXTENSION
+    : 'stg'
     ;
 
 SUBSCRIPT
@@ -390,37 +497,32 @@ GTE: '>=';
 SEMICOLON: ';';
 
 // Basic literals.
+// CHANGE: Added float literal
+FLOAT: NUMBER+ '.' 
+    | '.' NUMBER+
+    | NUMBER+ '.' NUMBER
+    ;
 NUMBER: [0-9]+;
 STRING: '"' .*? '"';
 
 // Whitespace is ignored by the parser.
 WS: [ \t\r\n]+ -> skip;
 
-// Any character that marks a word as jejemonized.
-//fragment JEJE_MARK: [4@013!2];
+// CHANGE: Change this to fragment since it's building the tokens
+fragment WORD: WORD_BLOCK+;
+    
+fragment WORD_BLOCK
+    : SYLLABLE_LOWCASE+ LOWER_PLURAL+ UNDERSCORE* 
+    | SYLLABLE_UPCASE+ UPPER_PLURAL+ UNDERSCORE*
+    ;
 
-// Letter fragments ending with _ANY accept normal or jejemon forms.
-// Letter fragments ending with _J require the jejemon form.
-// CHANGE: Commented previous jejemon forms of letters
-//fragment A_ANY: [aA4@];
-//fragment A_J: [4@];
-//fragment E_ANY: [eE3];
-//fragment E_J: [3];
-//fragment I_ANY: [iI1!];
-//fragment I_J: [1!];
+fragment SYLLABLE_LOWCASE: LOWER_CASE UPPER_H UPPER_CASE*;
+fragment SYLLABLE_UPCASE: UPPER_CASE LOWER_H LOWER_CASE*;
 
-// CHANGE: Added word breakdown
-WORD
-    : SYLLABLE_LOWCASE+ LOWER_PLURAL+ WORD*
-    | SYLLABLE_UPCASE+ UPPER_PLURAL+ WORD*;
-
-SYLLABLE_LOWCASE: LOWER_CASE UPPER_H UPPER_CASE*;
-SYLLABLE_UPCASE: UPPER_CASE LOWER_H LOWER_CASE*;
-
-LETTER: LOWER_CASE | UPPER_CASE;
+fragment LETTER: LOWER_CASE | UPPER_CASE;
 
 // Plain letter fragments used to compose keyword tokens.
-// CHANGE: Added all letter variations
+fragment UNDERSCORE: '_';
 fragment LOWER_A: [a@];
 fragment UPPER_A: [A4];
 fragment LOWER_B: [b];
@@ -475,15 +577,9 @@ fragment LOWER_Z: [z];
 fragment UPPER_Z: [Z2];
 
 // Plural suffixes create the classic trailing s/z/S/Z/2/$/5 style.
-// PLURAL accepts any suffix; PLURAL_J requires a jejemon-looking suffix.
-// CHANGE: Plurals for lower and upper
+// PLURAL accepts any suffix.
 fragment LOWER_PLURAL: LOWER_S | LOWER_Z;
 fragment UPPER_PLURAL: UPPER_S | UPPER_Z;
 
-// CHANGE: Added lower and upper cases for all letters
 fragment LOWER_CASE: [a-z] | LOWER_A | LOWER_G | LOWER_I;
 fragment UPPER_CASE: [A-Z] | UPPER_A | UPPER_B | UPPER_E | UPPER_I | UPPER_O | UPPER_S | UPPER_Z;
-
-// CHANGE: Commented previous plurals
-//fragment PLURAL: [sSzZ2$5]+;
-//fragment PLURAL_J: [sS]* [zZ2$5] [sSzZ2$5]*;
