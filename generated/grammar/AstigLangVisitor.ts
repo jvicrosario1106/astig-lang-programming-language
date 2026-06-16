@@ -4,8 +4,16 @@
 import { ParseTreeVisitor } from "antlr4ts/tree/ParseTreeVisitor";
 
 import { ProgramContext } from "./AstigLangParser";
+import { IncludeListContext } from "./AstigLangParser";
+import { IncludeStatementContext } from "./AstigLangParser";
 import { StatementContext } from "./AstigLangParser";
 import { VariableDeclarationContext } from "./AstigLangParser";
+import { RecordDeclarationContext } from "./AstigLangParser";
+import { RecordFieldListContext } from "./AstigLangParser";
+import { RecordFieldContext } from "./AstigLangParser";
+import { RecordLiteralContext } from "./AstigLangParser";
+import { RecordLiteralFieldListContext } from "./AstigLangParser";
+import { RecordLiteralFieldContext } from "./AstigLangParser";
 import { DeclarationKeywordContext } from "./AstigLangParser";
 import { PrintStatementContext } from "./AstigLangParser";
 import { IfStatementContext } from "./AstigLangParser";
@@ -17,11 +25,13 @@ import { ForStatementContext } from "./AstigLangParser";
 import { ForInitContext } from "./AstigLangParser";
 import { ForUpdateContext } from "./AstigLangParser";
 import { AssignmentContext } from "./AstigLangParser";
+import { RecordFieldAccessContext } from "./AstigLangParser";
 import { AssignmentOperatorContext } from "./AstigLangParser";
 import { ForeachStatementContext } from "./AstigLangParser";
 import { BreakStatementContext } from "./AstigLangParser";
 import { ContinueStatementContext } from "./AstigLangParser";
 import { FunctionDeclarationContext } from "./AstigLangParser";
+import { FunctionMainDeclarationContext } from "./AstigLangParser";
 import { ParameterListContext } from "./AstigLangParser";
 import { ParameterContext } from "./AstigLangParser";
 import { ReturnStatementContext } from "./AstigLangParser";
@@ -51,6 +61,20 @@ export interface AstigLangVisitor<Result> extends ParseTreeVisitor<Result> {
 	visitProgram?: (ctx: ProgramContext) => Result;
 
 	/**
+	 * Visit a parse tree produced by `AstigLangParser.includeList`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitIncludeList?: (ctx: IncludeListContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `AstigLangParser.includeStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitIncludeStatement?: (ctx: IncludeStatementContext) => Result;
+
+	/**
 	 * Visit a parse tree produced by `AstigLangParser.statement`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -63,6 +87,48 @@ export interface AstigLangVisitor<Result> extends ParseTreeVisitor<Result> {
 	 * @return the visitor result
 	 */
 	visitVariableDeclaration?: (ctx: VariableDeclarationContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `AstigLangParser.recordDeclaration`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitRecordDeclaration?: (ctx: RecordDeclarationContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `AstigLangParser.recordFieldList`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitRecordFieldList?: (ctx: RecordFieldListContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `AstigLangParser.recordField`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitRecordField?: (ctx: RecordFieldContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `AstigLangParser.recordLiteral`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitRecordLiteral?: (ctx: RecordLiteralContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `AstigLangParser.recordLiteralFieldList`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitRecordLiteralFieldList?: (ctx: RecordLiteralFieldListContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `AstigLangParser.recordLiteralField`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitRecordLiteralField?: (ctx: RecordLiteralFieldContext) => Result;
 
 	/**
 	 * Visit a parse tree produced by `AstigLangParser.declarationKeyword`.
@@ -142,6 +208,13 @@ export interface AstigLangVisitor<Result> extends ParseTreeVisitor<Result> {
 	visitAssignment?: (ctx: AssignmentContext) => Result;
 
 	/**
+	 * Visit a parse tree produced by `AstigLangParser.recordFieldAccess`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitRecordFieldAccess?: (ctx: RecordFieldAccessContext) => Result;
+
+	/**
 	 * Visit a parse tree produced by `AstigLangParser.assignmentOperator`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -175,6 +248,13 @@ export interface AstigLangVisitor<Result> extends ParseTreeVisitor<Result> {
 	 * @return the visitor result
 	 */
 	visitFunctionDeclaration?: (ctx: FunctionDeclarationContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `AstigLangParser.functionMainDeclaration`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitFunctionMainDeclaration?: (ctx: FunctionMainDeclarationContext) => Result;
 
 	/**
 	 * Visit a parse tree produced by `AstigLangParser.parameterList`.
