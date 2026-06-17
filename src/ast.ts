@@ -17,6 +17,7 @@ import {
   ParameterContext,
   PrintStatementContext,
   ProgramContext,
+  RecordFieldAccessContext,
   ReturnStatementContext,
   StatementContext,
   VariableDeclarationContext,
@@ -35,6 +36,7 @@ import {
   BreakStatementNode,
   ContinueStatementNode,
   DoWhileStatementNode,
+  FieldAssignmentNode,
   ForStatementNode,
   ForeachStatementNode,
   FunctionDeclarationNode,
@@ -225,7 +227,13 @@ function buildForInit(
 
   const assignment = ctx.assignment();
   if (assignment) {
-    return buildAssignment(assignment);
+    const node = buildAssignment(assignment);
+
+    if (node.type === StatementNodeType.FieldAssignmentStatement){
+      throw new Error("Record field updates are not allowed inside a loop update expression.");
+    }
+
+    return node;
   }
 
   throw new Error(`Unsupported for init: ${ctx.text}`);
@@ -234,16 +242,39 @@ function buildForInit(
 function buildForUpdate(ctx: ForUpdateContext): AssignmentNode {
   const assignment = ctx.assignment();
   if (assignment) {
-    return buildAssignment(assignment);
+    const node = buildAssignment(assignment);
+
+    if (node.type === StatementNodeType.FieldAssignmentStatement){
+      throw new Error("Record field updates are not allowed inside a loop update expression.");
+    }
+
+    return node;
   }
 
   throw new Error(`Unsupported for update: ${ctx.text}`);
 }
 
-function buildAssignment(ctx: AssignmentContext): AssignmentNode {
+function buildAssignment(ctx: AssignmentContext): AssignmentNode | FieldAssignmentNode {
+  // Check if this is a record field assignment
+  const fieldAccess = ctx.recordFieldAccess();
+  if (fieldAccess){
+    return {
+        type: StatementNodeType.FieldAssignmentStatement,
+        path: fieldAccess.IDENTIFIER().map(token => token.text),
+        operator: buildAssignmentOperator(ctx.assignmentOperator()),
+        value: buildExpression(ctx.expression()),
+      };
+  }
+
+  // Otherwise, treat this as a regular assignment
+  const identifierToken = ctx.IDENTIFIER();
+  if (!identifierToken){
+    throw new Error("Invalid assignment context: missing identifier target.");
+  }
+
   return {
     type: StatementNodeType.Assignment,
-    name: ctx.IDENTIFIER().text,
+    name: identifierToken.text,
     operator: buildAssignmentOperator(ctx.assignmentOperator()),
     value: buildExpression(ctx.expression()),
   };
@@ -343,6 +374,32 @@ function buildExpression(ctx: ExpressionContext): ExpressionNode {
     return {
       type: ExpressionNodeType.StringLiteral,
       value: JSON.parse(stringToken.text) as string,
+    };
+  }
+
+  const recordLiteral = ctx.recordLiteral();
+  if (recordLiteral){
+    const fieldList = recordLiteral.recordLiteralFieldList();
+    const fieldContexts = fieldList ? fieldList.recordLiteralField() : [];
+    return{
+      type: ExpressionNodeType.RecordLiteral,
+      recordTypeName: recordLiteral.IDENTIFIER().text,
+      fields: fieldContexts.map(field => {
+        const assignmentNode = buildAssignment(field.assignment());
+
+        if (assignmentNode.type === StatementNodeType.Assignment){
+          return{
+            name: assignmentNode.name,
+            value: assignmentNode.value
+          };
+        }
+        else{
+          return {
+            name: assignmentNode.path.join('.'),
+            value: assignmentNode.value
+          }
+        }
+      })
     };
   }
 

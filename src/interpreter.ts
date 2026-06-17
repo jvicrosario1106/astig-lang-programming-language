@@ -281,6 +281,17 @@ function evaluateExpression(
     case ExpressionNodeType.StringLiteral:
       return expression.value;
 
+    case ExpressionNodeType.RecordLiteral:
+      const evaluatedFields = new Map<string, RuntimeValue>();
+      for (const field of expression.fields){
+        const runtimeVal = evaluateExpression(field.value, environment, output);
+        evaluatedFields.set(field.name, runtimeVal);
+      }
+      return {
+        recordTypeName: expression.recordTypeName,
+        fields: evaluatedFields
+      };
+
     case ExpressionNodeType.Identifier: {
       return environment.get(expression.name);
     }

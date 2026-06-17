@@ -11,23 +11,25 @@ rH3cH0rHDz vHArH1aHBlH3s{
   vHArH1aHBlH3s_bHs:sTRh1Ngz
 }
 
-LheTZ vHArH1aHBlH3s_cHs:IhnTs = 2
-eHXpH0RTz
-EhxPhortS
+LheTZ mHYs_vHArH1aHBlH3s:vHArH1aHBlH3s = nHEWs vHArH1aHBlH3s {
+  vHArH1aHBlH3s_cHs = 1,
+  vHArH1aHBlH3s_bHs = "Sample"
+}
+
+vHArH1aHBlH3s.vHArH1aHBlH3s_aHs = 2;
 `
-// LheTZ mHYs_vHArH1aHBlH3s:vHArH1aHBlH3s = nHEWs vHArH1aHBlH3s {
-//   vHArH1aHBlH3s_aHs = 1,
-//   vHArH1aHBlH3s_bHs = "Sample"
-// }
+// LheTZ vHArH1aHBlH3s_cHs:IhnTs = 2
+// eHXpH0RTz
+// EhxPhortS
 //
 //NhewZ
 
 const input = CharStreams.fromString(defaultCode);
 
 const lexer = new AstigLangLexer(input);
-for(const token of lexer.getAllTokens()){
-  console.log(`Text: ${token.text} -> Token Type ID: ${token.type}`);
-}
+// for(const token of lexer.getAllTokens()){
+//   console.log(`Text: ${token.text} -> Token Type ID: ${token.type}`);
+// }
 
 const tokens = new CommonTokenStream(lexer);
 

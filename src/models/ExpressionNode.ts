@@ -1,6 +1,7 @@
 export enum ExpressionNodeType {
   NumberLiteral = 'NumberLiteral',
   StringLiteral = 'StringLiteral',
+  RecordLiteral = 'RecordLiteral',
   Identifier = 'Identifier',
   FunctionCall = 'FunctionCall',
   BinaryExpression = 'BinaryExpression',
@@ -10,6 +11,7 @@ export enum ExpressionNodeType {
 export type ExpressionNode =
   | NumberLiteralNode
   | StringLiteralNode
+  | RecordLiteralNode
   | IdentifierNode
   | FunctionCallNode
   | BinaryExpressionNode
@@ -24,6 +26,12 @@ export type StringLiteralNode = {
   type: ExpressionNodeType.StringLiteral;
   value: string;
 };
+
+export type RecordLiteralNode = {
+  type: ExpressionNodeType.RecordLiteral; 
+  recordTypeName: string;                 // e.g., "vHArH1aHBlH3s"
+  fields: { name: string; value: ExpressionNode }[];
+}
 
 export type IdentifierNode = {
   type: ExpressionNodeType.Identifier;

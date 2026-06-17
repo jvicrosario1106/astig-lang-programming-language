@@ -15,6 +15,7 @@ export enum StatementNodeType {
   FunctionDeclaration = 'FunctionDeclaration',
   ReturnStatement = 'ReturnStatement',
   BlockStatement = 'BlockStatement',
+  FieldAssignmentStatement = 'FieldAssignmentStatement'
 }
 
 export type StatementNode =
@@ -30,7 +31,8 @@ export type StatementNode =
   | ContinueStatementNode
   | FunctionDeclarationNode
   | ReturnStatementNode
-  | BlockStatementNode;
+  | BlockStatementNode
+  | FieldAssignmentNode;
 
 export type VariableDeclarationNode = {
   type: StatementNodeType.VariableDeclaration;
@@ -117,3 +119,12 @@ export type BlockStatementNode = {
   type: StatementNodeType.BlockStatement;
   body: StatementNode[];
 };
+
+export type FieldAssignmentNode = {
+  type: StatementNodeType.FieldAssignmentStatement; // Node type enum
+  path: string[];                                   // Store identifiers from chaining (['Player', 'Health'])
+  operator: '=' | '+=' | '-=' | '-+';
+  value: ExpressionNode;
+};
+
+//export type RecordLiteralNode =

@@ -134,9 +134,9 @@ forUpdate
 // CHANGE: Added record field access
 // TODO: Need to add recordFieldAccess in the ast with buildAssignmentStatement Context then add this
 assignment
-    : IDENTIFIER assignmentOperator expression;
-    //| recordFieldAccess assignmentOperator expression
-    //;
+    : IDENTIFIER assignmentOperator expression
+    | recordFieldAccess assignmentOperator expression
+    ;
 
 // For 'player.score' or 'player.weapon.damage'
 recordFieldAccess
