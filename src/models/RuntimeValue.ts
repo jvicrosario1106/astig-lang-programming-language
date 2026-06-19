@@ -1,4 +1,4 @@
-export type RuntimeValue = number | string | boolean | RuntimeRecord | null;
+export type RuntimeValue = number | string | boolean | RuntimeRecord | null | RuntimeValue[];
 
 export interface RuntimeRecord {
     recordTypeName: string;

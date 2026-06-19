@@ -44,6 +44,17 @@ function executeStatement(
       // Update an existing variable.
       executeAssignment(statement, environment, output);
       return;
+    
+    case StatementNodeType.ArrayIndexAssignment:
+      const targetArray = environment.lookup(statement.arrayName);
+
+      if (!Array.isArray(targetArray)){
+        throw new Error(`Runtime Error: Variable "${statement.arrayName}" is not an array.`);
+      }
+
+      const incomingValue = evaluateExpression(statement.value, environment, output);
+      targetArray[statement.index] = incomingValue;
+      return;
 
     case StatementNodeType.PrintStatement:
       // Evaluate then append to program output.
@@ -291,10 +302,19 @@ function evaluateExpression(
         recordTypeName: expression.recordTypeName,
         fields: evaluatedFields
       };
+    
+    case ExpressionNodeType.ArrayLiteral:
+      return expression.elements.map(elementNode => (evaluateExpression(elementNode, environment, output)));
 
-    case ExpressionNodeType.Identifier: {
+    case ExpressionNodeType.Identifier: 
       return environment.get(expression.name);
-    }
+
+    case ExpressionNodeType.ArrayIndexAccess:
+      const targetArray = environment.lookup(expression.arrayName);
+      if (!Array.isArray(targetArray)){
+        throw new Error(`Runtime Error: "${expression.arrayName}" is not an array.`);
+      }
+      return targetArray[expression.index];
 
     case ExpressionNodeType.BinaryExpression: {
       const left = evaluateExpression(expression.left, environment, output);

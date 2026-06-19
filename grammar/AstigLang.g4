@@ -19,10 +19,12 @@ includeStatement
 
 // All valid top-level or block-level statements.
 // Add new language features here when they should behave like statements.
+// CHANGE: Added scan statement
 statement
     : variableDeclaration ';'?
     | assignment ';'?
     | printStatement ';'?
+    | scanStatement ';'?
     | ifStatement
     | whileStatement
     | doWhileStatement
@@ -68,6 +70,15 @@ recordLiteralField
     : assignment
     ;
 
+// CHANGE: Added array literal
+arrayLiteral
+    : '[' arrayElementList? ']' 
+    ;
+
+arrayElementList
+    : expression (',' expression)*
+    ;
+
 // Groups all declaration keywords that can introduce a variable.
 declarationKeyword
     : CONST_KW
@@ -80,6 +91,14 @@ declarationKeyword
 // Example: pr1nt(x4)
 printStatement
     : PRINT_KW '(' expression ')'
+    ;
+
+// CHANGE: Added Scan keyword
+// Scan statement
+// SCAN_KW is a jejemonized form of the programming keyword "scan".
+// Example: scan("Enter text here:")
+scanStatement
+    : SCAN_KW '(' expression ')'
     ;
 
 // If statement with optional else if and else blocks.
@@ -240,6 +259,7 @@ returnDataType
 // Expressions are values or computations with proper operator precedence.
 // Precedence (highest to lowest): unary minus, MUL/DIV, ADD/SUB, comparison
 // CHANGE: Added float, recordLiteral and expression.identifier (to chain record member calling)
+// CHANGE: Added array literal
 expression
     : expression op=(MUL|DIV) expression
     | expression op=(ADD|SUB) expression
@@ -248,6 +268,7 @@ expression
     | '(' expression ')'
     | functionCall
     | recordLiteral
+    | arrayLiteral
     | expression '.' IDENTIFIER
     | NUMBER
     | FLOAT
@@ -293,6 +314,13 @@ LET_KW
 PRINT_KW
     : LOWER_P UPPER_H UPPER_R LOWER_I UPPER_H UPPER_N UPPER_T LOWER_PLURAL+
     | UPPER_P LOWER_H LOWER_R UPPER_I LOWER_H LOWER_N LOWER_T UPPER_PLURAL+
+    ;
+
+// Jejemonized "scan".
+// Examples: scH4nz, SCh@NS
+SCAN_KW
+    : LOWER_S LOWER_C UPPER_H UPPER_A LOWER_N LOWER_PLURAL+
+    | UPPER_S UPPER_C LOWER_H LOWER_A UPPER_N UPPER_PLURAL+
     ;
 
 // Jejemonized "if".
@@ -484,6 +512,15 @@ FILE_EXTENSION
 
 SUBSCRIPT
     : '[' NUMBER ']'
+    ;
+
+// CHANGE: Added comment handling
+LINE_COMMENT
+    : '//' ~[\r\n]* -> channel(HIDDEN)
+    ;
+
+BLOCK_COMMENT
+    : '/*' .*? '*/' -> channel(HIDDEN)
     ;
 
 // Arithmetic operators.

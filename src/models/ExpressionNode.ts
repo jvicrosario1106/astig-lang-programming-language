@@ -2,6 +2,8 @@ export enum ExpressionNodeType {
   NumberLiteral = 'NumberLiteral',
   StringLiteral = 'StringLiteral',
   RecordLiteral = 'RecordLiteral',
+  ArrayLiteral = 'ArrayLiteral',
+  ArrayIndexAccess = 'ArrayIndexAccess',
   Identifier = 'Identifier',
   FunctionCall = 'FunctionCall',
   BinaryExpression = 'BinaryExpression',
@@ -12,6 +14,8 @@ export type ExpressionNode =
   | NumberLiteralNode
   | StringLiteralNode
   | RecordLiteralNode
+  | ArrayLiteralNode
+  | ArrayIndexAccessNode
   | IdentifierNode
   | FunctionCallNode
   | BinaryExpressionNode
@@ -32,6 +36,17 @@ export type RecordLiteralNode = {
   recordTypeName: string;                 // e.g., "vHArH1aHBlH3s"
   fields: { name: string; value: ExpressionNode }[];
 }
+
+export type ArrayLiteralNode = {
+    type: ExpressionNodeType.ArrayLiteral;
+    elements: ExpressionNode[];
+};
+
+export type ArrayIndexAccessNode = {
+  type: ExpressionNodeType.ArrayIndexAccess
+  arrayName: string;
+  index: number;
+};
 
 export type IdentifierNode = {
   type: ExpressionNodeType.Identifier;

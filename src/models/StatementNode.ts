@@ -15,7 +15,8 @@ export enum StatementNodeType {
   FunctionDeclaration = 'FunctionDeclaration',
   ReturnStatement = 'ReturnStatement',
   BlockStatement = 'BlockStatement',
-  FieldAssignmentStatement = 'FieldAssignmentStatement'
+  FieldAssignmentStatement = 'FieldAssignmentStatement',
+  ArrayIndexAssignment = 'ArrayIndexAssignment',
 }
 
 export type StatementNode =
@@ -32,7 +33,8 @@ export type StatementNode =
   | FunctionDeclarationNode
   | ReturnStatementNode
   | BlockStatementNode
-  | FieldAssignmentNode;
+  | FieldAssignmentNode
+  | ArrayIndexAssignmentNode;
 
 export type VariableDeclarationNode = {
   type: StatementNodeType.VariableDeclaration;
@@ -127,4 +129,10 @@ export type FieldAssignmentNode = {
   value: ExpressionNode;
 };
 
-//export type RecordLiteralNode =
+export interface ArrayIndexAssignmentNode {
+    type: StatementNodeType.ArrayIndexAssignment; // Make sure to add this enum/string value if needed
+    arrayName: string;                            // e.g., "aHs"
+    index: number;                                // e.g., 0
+    operator: string;                             // Tracks the assignment operator like '='
+    value: ExpressionNode;                        // The new value expression being assigned
+};

@@ -31,6 +31,7 @@ import {
 import { ParameterNode } from './models/ParameterNode';
 import { ProgramNode } from './models/ProgramNode';
 import {
+  ArrayIndexAssignmentNode,
   AssignmentNode,
   BlockStatementNode,
   BreakStatementNode,
@@ -229,7 +230,7 @@ function buildForInit(
   if (assignment) {
     const node = buildAssignment(assignment);
 
-    if (node.type === StatementNodeType.FieldAssignmentStatement){
+    if (node.type === StatementNodeType.FieldAssignmentStatement || node.type === StatementNodeType.ArrayIndexAssignment){
       throw new Error("Record field updates are not allowed inside a loop update expression.");
     }
 
@@ -244,7 +245,7 @@ function buildForUpdate(ctx: ForUpdateContext): AssignmentNode {
   if (assignment) {
     const node = buildAssignment(assignment);
 
-    if (node.type === StatementNodeType.FieldAssignmentStatement){
+    if (node.type === StatementNodeType.FieldAssignmentStatement || node.type === StatementNodeType.ArrayIndexAssignment){
       throw new Error("Record field updates are not allowed inside a loop update expression.");
     }
 
@@ -254,7 +255,7 @@ function buildForUpdate(ctx: ForUpdateContext): AssignmentNode {
   throw new Error(`Unsupported for update: ${ctx.text}`);
 }
 
-function buildAssignment(ctx: AssignmentContext): AssignmentNode | FieldAssignmentNode {
+function buildAssignment(ctx: AssignmentContext): AssignmentNode | FieldAssignmentNode | ArrayIndexAssignmentNode {
   // Check if this is a record field assignment
   const fieldAccess = ctx.recordFieldAccess();
   if (fieldAccess){
@@ -270,6 +271,20 @@ function buildAssignment(ctx: AssignmentContext): AssignmentNode | FieldAssignme
   const identifierToken = ctx.IDENTIFIER();
   if (!identifierToken){
     throw new Error("Invalid assignment context: missing identifier target.");
+  }
+
+  const rawText = identifierToken.text;
+  if (rawText.includes("[")){
+    const [arrayName, bracketPart] = rawText.split("[");
+    const index = parseInt(bracketPart.replace("]", ""), 10);
+    
+    return {
+      type: StatementNodeType.ArrayIndexAssignment,
+      arrayName: arrayName,
+      index: index,
+      operator: buildAssignmentOperator(ctx.assignmentOperator()),
+      value: buildExpression(ctx.expression()),
+    };
   }
 
   return {
@@ -393,18 +408,47 @@ function buildExpression(ctx: ExpressionContext): ExpressionNode {
             value: assignmentNode.value
           };
         }
+        else if (assignmentNode.type === StatementNodeType.ArrayIndexAssignment){
+          return {
+            name: `${assignmentNode.arrayName}[${assignmentNode.index}]`,
+            value: assignmentNode.value
+          };
+        }
         else{
           return {
             name: assignmentNode.path.join('.'),
             value: assignmentNode.value
-          }
+          };
         }
       })
     };
   }
 
+  const arrayLiteral = ctx.arrayLiteral();
+  if (arrayLiteral){
+    const elementList = arrayLiteral.arrayElementList();
+    const elements = elementList ? elementList.expression().map(exprCtx => buildExpression(exprCtx)) : [];
+
+    return {
+      type:ExpressionNodeType.ArrayLiteral,
+      elements: elements
+    };
+  }
+
   const identifierToken = ctx.IDENTIFIER();
   if (identifierToken) {
+    const rawText = identifierToken.text;
+    if (rawText.includes("[")){
+      const [arrayName, bracketPart] = rawText.split("[");
+      const index = parseInt(bracketPart.replace("]", ""), 10);
+
+      return {
+        type: ExpressionNodeType.ArrayIndexAccess,
+        arrayName: arrayName,
+        index: index
+      };
+    }
+
     return {
       type: ExpressionNodeType.Identifier,
       name: identifierToken.text,

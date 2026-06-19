@@ -11,12 +11,26 @@ rH3cH0rHDz vHArH1aHBlH3s{
   vHArH1aHBlH3s_bHs:sTRh1Ngz
 }
 
+/*
+ignore this
+and this
+and this
+*/
+
 LheTZ mHYs_vHArH1aHBlH3s:vHArH1aHBlH3s = nHEWs vHArH1aHBlH3s {
-  vHArH1aHBlH3s_cHs = 1,
-  vHArH1aHBlH3s_bHs = "Sample"
+  vHArH1aHBlH3s_cHs = 1
+  //vHArH1aHBlH3s_bHs = "Sample"
 }
 
+// HELLOOOO
+
 vHArH1aHBlH3s.vHArH1aHBlH3s_aHs = 2;
+
+LheTZ aHs:IhnTs = [1, 2, 3, "Hello"];
+/* this too */
+aHs[10] = 6;
+LheTZ bHs:IhnTs = 3;
+bHs[4] = 2;
 `
 // LheTZ vHArH1aHBlH3s_cHs:IhnTs = 2
 // eHXpH0RTz

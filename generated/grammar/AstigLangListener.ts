@@ -14,8 +14,11 @@ import { RecordFieldContext } from "./AstigLangParser";
 import { RecordLiteralContext } from "./AstigLangParser";
 import { RecordLiteralFieldListContext } from "./AstigLangParser";
 import { RecordLiteralFieldContext } from "./AstigLangParser";
+import { ArrayLiteralContext } from "./AstigLangParser";
+import { ArrayElementListContext } from "./AstigLangParser";
 import { DeclarationKeywordContext } from "./AstigLangParser";
 import { PrintStatementContext } from "./AstigLangParser";
+import { ScanStatementContext } from "./AstigLangParser";
 import { IfStatementContext } from "./AstigLangParser";
 import { ElseIfPartContext } from "./AstigLangParser";
 import { ElsePartContext } from "./AstigLangParser";
@@ -172,6 +175,28 @@ export interface AstigLangListener extends ParseTreeListener {
 	exitRecordLiteralField?: (ctx: RecordLiteralFieldContext) => void;
 
 	/**
+	 * Enter a parse tree produced by `AstigLangParser.arrayLiteral`.
+	 * @param ctx the parse tree
+	 */
+	enterArrayLiteral?: (ctx: ArrayLiteralContext) => void;
+	/**
+	 * Exit a parse tree produced by `AstigLangParser.arrayLiteral`.
+	 * @param ctx the parse tree
+	 */
+	exitArrayLiteral?: (ctx: ArrayLiteralContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `AstigLangParser.arrayElementList`.
+	 * @param ctx the parse tree
+	 */
+	enterArrayElementList?: (ctx: ArrayElementListContext) => void;
+	/**
+	 * Exit a parse tree produced by `AstigLangParser.arrayElementList`.
+	 * @param ctx the parse tree
+	 */
+	exitArrayElementList?: (ctx: ArrayElementListContext) => void;
+
+	/**
 	 * Enter a parse tree produced by `AstigLangParser.declarationKeyword`.
 	 * @param ctx the parse tree
 	 */
@@ -192,6 +217,17 @@ export interface AstigLangListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitPrintStatement?: (ctx: PrintStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `AstigLangParser.scanStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterScanStatement?: (ctx: ScanStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `AstigLangParser.scanStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitScanStatement?: (ctx: ScanStatementContext) => void;
 
 	/**
 	 * Enter a parse tree produced by `AstigLangParser.ifStatement`.
