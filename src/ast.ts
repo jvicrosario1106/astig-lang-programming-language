@@ -1,3 +1,10 @@
+/**
+ * Converts an ANTLR parse tree into AstigLang AST nodes.
+ *
+ * Entry point: `buildAst(programContext)` returns a `ProgramNode` with includes,
+ * records, statements, functions, and optional `main` (required on entry file only).
+ * map each grammar rule (statements, expressions, assignments, etc.) to typed nodes.
+ */
 import {
   AssignmentContext,
   AssignmentOperatorContext,
@@ -13,15 +20,25 @@ import {
   ForeachStatementContext,
   FunctionCallContext,
   FunctionDeclarationContext,
+  FunctionMainDeclarationContext,
   IfStatementContext,
+  IncludeListContext,
+  IncludeStatementContext,
   ParameterContext,
   PrintStatementContext,
   ProgramContext,
+  RecordDeclarationContext,
+  RecordFieldAccessContext,
+  RecordFieldContext,
+  RecordLiteralContext,
+  RecordLiteralFieldContext,
   ReturnStatementContext,
   StatementContext,
   VariableDeclarationContext,
   WhileStatementContext,
 } from '../generated/grammar/AstigLangParser';
+import { IncludeNode } from './models/IncludeNode';
+import { MainFunctionNode } from './models/MainFunctionNode';
 import {
   ExpressionNode,
   ExpressionNodeType,
@@ -29,8 +46,10 @@ import {
 } from './models/ExpressionNode';
 import { ParameterNode } from './models/ParameterNode';
 import { ProgramNode } from './models/ProgramNode';
+import { RecordDeclarationNode } from './models/RecordNode';
 import {
   AssignmentNode,
+  AssignmentTarget,
   BlockStatementNode,
   BreakStatementNode,
   ContinueStatementNode,
@@ -47,10 +66,74 @@ import {
   WhileStatementNode,
 } from './models/StatementNode';
 
+/** Builds the root program AST from the parser's `program` rule. */
 export function buildAst(ctx: ProgramContext): ProgramNode {
+  const mainDeclaration = ctx.functionMainDeclaration();
+
   return {
     type: 'Program',
-    body: ctx.statement().map(buildStatement),
+    includes: collectIncludes(ctx.includeList()),
+    recordDeclarations: ctx.recordDeclaration().map(buildRecordDeclaration),
+    functions: ctx.functionDeclaration().map(buildFunctionDeclaration),
+    moduleFunctions: {},
+    mainFunction: mainDeclaration ? buildMainFunction(mainDeclaration) : undefined,
+  };
+}
+
+function collectIncludes(includeLists: IncludeListContext[]): IncludeNode[] {
+  const includes: IncludeNode[] = [];
+
+  for (const includeList of includeLists) {
+    collectIncludesFromList(includeList, includes);
+  }
+
+  return includes;
+}
+
+function collectIncludesFromList(
+  includeList: IncludeListContext,
+  includes: IncludeNode[],
+): void {
+  includes.push(buildInclude(includeList.includeStatement()));
+
+  for (const nestedIncludeList of includeList.includeList()) {
+    collectIncludesFromList(nestedIncludeList, includes);
+  }
+}
+
+/** Builds an include node from `include filename.stg`. */
+function buildInclude(ctx: IncludeStatementContext): IncludeNode {
+  return {
+    type: 'Include',
+    filename: ctx.FILENAME().text,
+  };
+}
+
+/** Builds a record type declaration node from the `record` grammar rule. */
+function buildRecordDeclaration(ctx: RecordDeclarationContext): RecordDeclarationNode {
+  return {
+    type: 'RecordDeclaration',
+    name: ctx.IDENTIFIER().text,
+    fields:
+      ctx
+        .recordFieldList()
+        ?.recordField()
+        .map(buildRecordField) ?? [],
+  };
+}
+
+function buildRecordField(ctx: RecordFieldContext) {
+  return {
+    name: ctx.IDENTIFIER().text,
+    declaredType: ctx.typeAnnotation().dataType().text,
+  };
+}
+
+/** Builds the optional `function main() { ... }` entry point node. */
+function buildMainFunction(ctx: FunctionMainDeclarationContext): MainFunctionNode {
+  return {
+    type: 'MainFunction',
+    body: ctx.block().statement().map(buildStatement),
   };
 }
 
@@ -160,7 +243,6 @@ function buildIfStatement(ctx: IfStatementContext): IfStatementNode {
   const condition = buildExpression(ctx.expression());
   const thenBranch = ctx.block().statement().map(buildStatement);
 
-  // Build else if chains
   const elseIfChains = (ctx.elseIfPart() || []).map(
     (elseIfCtx: ElseIfPartContext) => ({
       condition: buildExpression(elseIfCtx.expression()),
@@ -168,7 +250,6 @@ function buildIfStatement(ctx: IfStatementContext): IfStatementNode {
     }),
   );
 
-  // Build else branch if present
   const elsePartCtx = ctx.elsePart();
   const elseBranch = elsePartCtx
     ? elsePartCtx.block().statement().map(buildStatement)
@@ -204,8 +285,8 @@ function buildDoWhileStatement(
 function buildForStatement(ctx: ForStatementContext): ForStatementNode {
   const forInit = ctx.forInit();
   const forUpdate = ctx.forUpdate();
-
   const expression = ctx.expression();
+
   return {
     type: StatementNodeType.ForStatement,
     init: forInit ? buildForInit(forInit) : undefined,
@@ -240,10 +321,39 @@ function buildForUpdate(ctx: ForUpdateContext): AssignmentNode {
   throw new Error(`Unsupported for update: ${ctx.text}`);
 }
 
+/** Resolves the left-hand side of an assignment to a variable or record field path. */
+function buildAssignmentTarget(ctx: AssignmentContext): AssignmentTarget {
+  const recordFieldAccess = ctx.recordFieldAccess();
+  if (recordFieldAccess) {
+    return buildRecordFieldTarget(recordFieldAccess);
+  }
+
+  const identifier = ctx.IDENTIFIER();
+  if (!identifier) {
+    throw new Error(`Unsupported assignment target: ${ctx.text}`);
+  }
+
+  return {
+    kind: 'variable',
+    name: identifier.text,
+  };
+}
+
+/** Converts `root.field.subfield` syntax into a record field assignment target. */
+function buildRecordFieldTarget(ctx: RecordFieldAccessContext): AssignmentTarget {
+  const identifiers = ctx.IDENTIFIER().map((token) => token.text);
+
+  return {
+    kind: 'recordField',
+    rootVariable: identifiers[0],
+    fieldPath: identifiers.slice(1),
+  };
+}
+
 function buildAssignment(ctx: AssignmentContext): AssignmentNode {
   return {
     type: StatementNodeType.Assignment,
-    name: ctx.IDENTIFIER().text,
+    target: buildAssignmentTarget(ctx),
     operator: buildAssignmentOperator(ctx.assignmentOperator()),
     value: buildExpression(ctx.expression()),
   };
@@ -292,6 +402,8 @@ function buildFunctionDeclaration(
   return {
     type: StatementNodeType.FunctionDeclaration,
     name: ctx.IDENTIFIER().text,
+    // Set by parser when `eHXpH0RTz` is present; used by programLoader for cross-file visibility.
+    isExported: Boolean(ctx.EXPORT_KW()),
     parameters: ctx.parameterList()?.parameter().map(buildParameter) ?? [],
     returnType: ctx.returnTypeAnnotation()?.returnDataType().text,
     body: ctx.block().statement().map(buildStatement),
@@ -324,10 +436,24 @@ function buildBlockStatement(ctx: BlockContext): BlockStatementNode {
   };
 }
 
+/** Dispatches expression parse nodes to the correct AST shape (literals, calls, operators, etc.). */
 function buildExpression(ctx: ExpressionContext): ExpressionNode {
   const functionCall = ctx.functionCall();
   if (functionCall) {
     return buildFunctionCall(functionCall);
+  }
+
+  const recordLiteral = ctx.recordLiteral();
+  if (recordLiteral) {
+    return buildRecordLiteral(recordLiteral);
+  }
+
+  const floatToken = ctx.FLOAT();
+  if (floatToken) {
+    return {
+      type: ExpressionNodeType.FloatLiteral,
+      value: Number(floatToken.text),
+    };
   }
 
   const numberToken = ctx.NUMBER();
@@ -346,17 +472,41 @@ function buildExpression(ctx: ExpressionContext): ExpressionNode {
     };
   }
 
-  const identifierToken = ctx.IDENTIFIER();
-  if (identifierToken) {
+  if (ctx.TRUE_KW()) {
     return {
-      type: ExpressionNodeType.Identifier,
-      name: identifierToken.text,
+      type: ExpressionNodeType.BooleanLiteral,
+      value: true,
+    };
+  }
+
+  if (ctx.FALSE_KW()) {
+    return {
+      type: ExpressionNodeType.BooleanLiteral,
+      value: false,
     };
   }
 
   const expressions = ctx.getRuleContexts(ExpressionContext);
+  const memberField = ctx.IDENTIFIER();
+
+  if (expressions.length === 1 && memberField && isMemberAccessExpression(ctx)) {
+    return {
+      type: ExpressionNodeType.MemberAccess,
+      object: buildExpression(expressions[0]),
+      field: memberField.text,
+    };
+  }
+
+  if (expressions.length === 1 && ctx.SUB() && !memberField) {
+    return {
+      type: ExpressionNodeType.UnaryExpression,
+      operator: '-',
+      argument: buildExpression(expressions[0]),
+    };
+  }
+
   const operatorToken =
-    (ctx as any)._op ??
+    (ctx as ExpressionContext & { _op?: { text: string } })._op ??
     ctx.ADD() ??
     ctx.SUB() ??
     ctx.MUL() ??
@@ -371,27 +521,16 @@ function buildExpression(ctx: ExpressionContext): ExpressionNode {
   if (expressions.length === 2 && operatorToken) {
     return {
       type: ExpressionNodeType.BinaryExpression,
-      operator: operatorToken.text as
-        | '+'
-        | '-'
-        | '*'
-        | '/'
-        | '=='
-        | '!='
-        | '<'
-        | '>'
-        | '<='
-        | '>=',
+      operator: operatorToken.text as BinaryExpressionOperator,
       left: buildExpression(expressions[0]),
       right: buildExpression(expressions[1]),
     };
   }
 
-  if (expressions.length === 1 && ctx.SUB()) {
+  if (memberField && expressions.length === 0) {
     return {
-      type: ExpressionNodeType.UnaryExpression,
-      operator: '-',
-      argument: buildExpression(expressions[0]),
+      type: ExpressionNodeType.Identifier,
+      name: memberField.text,
     };
   }
 
@@ -400,6 +539,61 @@ function buildExpression(ctx: ExpressionContext): ExpressionNode {
   }
 
   throw new Error(`Unsupported expression: ${ctx.text}`);
+}
+
+type BinaryExpressionOperator =
+  | '+'
+  | '-'
+  | '*'
+  | '/'
+  | '=='
+  | '!='
+  | '<'
+  | '>'
+  | '<='
+  | '>=';
+
+function isMemberAccessExpression(ctx: ExpressionContext): boolean {
+  return (
+    !ctx.ADD() &&
+    !ctx.SUB() &&
+    !ctx.MUL() &&
+    !ctx.DIV() &&
+    !ctx.EQ() &&
+    !ctx.NEQ() &&
+    !ctx.LT() &&
+    !ctx.GT() &&
+    !ctx.LTE() &&
+    !ctx.GTE() &&
+    ctx.text.includes('.')
+  );
+}
+
+/** Builds a `new TypeName { field = expr, ... }` record literal expression. */
+function buildRecordLiteral(ctx: RecordLiteralContext): ExpressionNode {
+  return {
+    type: ExpressionNodeType.RecordLiteral,
+    recordTypeName: ctx.IDENTIFIER().text,
+    fields:
+      ctx
+        .recordLiteralFieldList()
+        ?.recordLiteralField()
+        .map(buildRecordLiteralField) ?? [],
+  };
+}
+
+function buildRecordLiteralField(ctx: RecordLiteralFieldContext) {
+  const assignment = ctx.assignment();
+  const target = buildAssignmentTarget(assignment);
+
+  if (target.kind !== 'variable') {
+    throw new Error(`Record literal fields must use simple names: ${assignment.text}`);
+  }
+
+  return {
+    name: target.name,
+    value: buildExpression(assignment.expression()),
+  };
 }
 
 function buildFunctionCall(ctx: FunctionCallContext): FunctionCallNode {

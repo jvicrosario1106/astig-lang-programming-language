@@ -1,5 +1,6 @@
 import { RuntimeValue } from '../models/RuntimeValue';
 
+/** Returns whether a runtime value should be treated as true in conditions and loops. */
 export const isTruthy = (value: RuntimeValue): boolean => {
   if (typeof value === 'boolean') {
     return value;

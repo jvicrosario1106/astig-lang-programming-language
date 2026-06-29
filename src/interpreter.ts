@@ -1,192 +1,216 @@
+/**
+ * Tree-walking interpreter for AstigLang.
+ *
+ * Executes a type-checked entry program: registers record types and functions,
+ * then runs only the entry file's `main`. Include modules never execute directly.
+ *
+ * Export visibility matches the type checker: global env holds exported functions;
+ * same-file private helpers are added via `withModuleFunctions` when a function runs.
+ */
 import { BreakException } from './classes/BreakException';
 import { ContinueException } from './classes/ContinueException';
 import { ReturnException } from './classes/ReturnException';
+import { buildRecordRegistry, RecordRegistry } from './classes/RecordRegistry';
 import { RuntimeEnvironment } from './classes/RuntimeEnvironment';
 import { ExpressionNode, ExpressionNodeType } from './models/ExpressionNode';
 import { ProgramNode } from './models/ProgramNode';
-import { RuntimeValue } from './models/RuntimeValue';
+import {
+  isRecordRuntimeValue,
+  RecordRuntimeValue,
+  RuntimeValue,
+} from './models/RuntimeValue';
 import {
   AssignmentNode,
+  AssignmentTarget,
   FunctionDeclarationNode,
   StatementNode,
   StatementNodeType,
 } from './models/StatementNode';
 import { isTruthy } from './utils/isTruthy';
+import { withModuleFunctions } from './utils/moduleScope';
+import {
+  getRecordFieldValue,
+  setRecordFieldValue,
+} from './utils/recordRuntimeUtils';
 
-// Runs each top-level statement and collects printed output.
+type ExecutionContext = {
+  environment: RuntimeEnvironment;
+  recordRegistry: RecordRegistry;
+  output: string[];
+  moduleFunctions: Record<string, FunctionDeclarationNode[]>;
+};
+
+/** Runs the full program and returns all printed lines in order. */
 export function runProgram(program: ProgramNode): string[] {
+  const recordRegistry = buildRecordRegistry(program.recordDeclarations);
   const environment = new RuntimeEnvironment(undefined, true);
   const output: string[] = [];
-  for (const statement of program.body) {
-    executeStatement(statement, environment, output);
+  const context: ExecutionContext = {
+    environment,
+    recordRegistry,
+    output,
+    moduleFunctions: program.moduleFunctions,
+  };
+
+  for (const functionNode of program.functions) {
+    environment.declareFunction(functionNode);
   }
+
+  if (!program.mainFunction) {
+    throw new Error('Entry program file must define function main()');
+  }
+
+  // Entry file scope: exported functions + local entry-file helpers.
+  const mainEnvironment = withModuleFunctions(
+    environment,
+    program.entryModule,
+    program.moduleFunctions,
+  );
+
+  executeBlock(program.mainFunction.body, {
+    ...context,
+    environment: mainEnvironment,
+  });
 
   return output;
 }
 
-// Executes one statement based on its AST node type.
-function executeStatement(
-  statement: StatementNode,
-  environment: RuntimeEnvironment,
-  output: string[],
-): void {
+/** Dispatches a single statement to the appropriate runtime handler. */
+function executeStatement(statement: StatementNode, context: ExecutionContext): void {
+  const { environment, output } = context;
+
   switch (statement.type) {
     case StatementNodeType.VariableDeclaration:
-      // Store const/let/var with the correct runtime behavior.
       environment.declare(
         statement.declarationKind,
         statement.name,
-        evaluateExpression(statement.value, environment, output),
+        evaluateExpression(statement.value, context),
       );
       return;
 
     case StatementNodeType.Assignment:
-      // Update an existing variable.
-      executeAssignment(statement, environment, output);
+      executeAssignment(statement, context);
       return;
 
     case StatementNodeType.PrintStatement:
-      // Evaluate then append to program output.
-      output.push(
-        String(evaluateExpression(statement.value, environment, output)),
-      );
+      output.push(String(evaluateExpression(statement.value, context)));
       return;
 
     case StatementNodeType.IfStatement: {
-      // Run the first matching if/else-if/else block.
-      const condition = evaluateExpression(
-        statement.condition,
-        environment,
-        output,
-      );
+      const condition = evaluateExpression(statement.condition, context);
 
       if (isTruthy(condition)) {
-        executeBlock(statement.thenBranch, environment, output);
+        executeBlock(statement.thenBranch, context);
       } else {
-        // Check else if chains
         let executed = false;
         for (const elseIfChain of statement.elseIfChains) {
-          const elseIfCondition = evaluateExpression(
-            elseIfChain.condition,
-            environment,
-            output,
-          );
+          const elseIfCondition = evaluateExpression(elseIfChain.condition, context);
           if (isTruthy(elseIfCondition)) {
-            executeBlock(elseIfChain.body, environment, output);
+            executeBlock(elseIfChain.body, context);
             executed = true;
             break;
           }
         }
-        // Execute else branch if no else if matched
         if (!executed && statement.elseBranch) {
-          executeBlock(statement.elseBranch, environment, output);
+          executeBlock(statement.elseBranch, context);
         }
       }
       return;
     }
 
     case StatementNodeType.WhileStatement: {
-      // Keep running while the condition is truthy.
-      while (
-        isTruthy(evaluateExpression(statement.condition, environment, output))
-      ) {
+      while (isTruthy(evaluateExpression(statement.condition, context))) {
         try {
-          executeBlock(statement.body, environment, output);
-        } catch (e) {
-          if (e instanceof BreakException) {
+          executeBlock(statement.body, context);
+        } catch (error) {
+          if (error instanceof BreakException) {
             break;
-          } else if (e instanceof ContinueException) {
+          }
+          if (error instanceof ContinueException) {
             continue;
           }
-          throw e;
+          throw error;
         }
       }
       return;
     }
 
     case StatementNodeType.DoWhileStatement: {
-      // Run once first, then check the condition.
       do {
         try {
-          executeBlock(statement.body, environment, output);
-        } catch (e) {
-          if (e instanceof BreakException) {
+          executeBlock(statement.body, context);
+        } catch (error) {
+          if (error instanceof BreakException) {
             break;
-          } else if (e instanceof ContinueException) {
+          }
+          if (error instanceof ContinueException) {
             // Continue to condition check
           } else {
-            throw e;
+            throw error;
           }
         }
-      } while (
-        isTruthy(evaluateExpression(statement.condition, environment, output))
-      );
+      } while (isTruthy(evaluateExpression(statement.condition, context)));
       return;
     }
 
     case StatementNodeType.ForStatement: {
-      // Let/const loop variables get their own loop scope.
       const loopEnvironment =
-        statement.init?.type === StatementNodeType.VariableDeclaration &&
-        statement.init.declarationKind !== 'var'
+        statement.init?.type === StatementNodeType.VariableDeclaration
           ? environment.createBlockScope()
           : environment;
+      const loopContext: ExecutionContext = { ...context, environment: loopEnvironment };
 
-      // Execute initialization
       if (statement.init) {
-        executeStatement(statement.init, loopEnvironment, output);
+        executeStatement(statement.init, loopContext);
       }
 
-      // Loop with condition and update
       while (
         !statement.condition ||
-        isTruthy(
-          evaluateExpression(statement.condition, loopEnvironment, output),
-        )
+        isTruthy(evaluateExpression(statement.condition, loopContext))
       ) {
         try {
-          executeBlock(statement.body, loopEnvironment, output);
-        } catch (e) {
-          if (e instanceof BreakException) {
+          executeBlock(statement.body, loopContext);
+        } catch (error) {
+          if (error instanceof BreakException) {
             break;
-          } else if (e instanceof ContinueException) {
+          }
+          if (error instanceof ContinueException) {
             // Continue to update
           } else {
-            throw e;
+            throw error;
           }
         }
 
-        // Execute update
         if (statement.update) {
-          executeAssignment(statement.update, loopEnvironment, output);
+          executeAssignment(statement.update, loopContext);
         }
       }
       return;
     }
 
     case StatementNodeType.ForeachStatement: {
-      // Iterate through each character in a string.
-      const iterable = evaluateExpression(
-        statement.iterable,
-        environment,
-        output,
-      );
+      const iterable = evaluateExpression(statement.iterable, context);
 
-      // Handle string iteration
       if (typeof iterable === 'string') {
         const foreachEnvironment = environment.createBlockScope();
+        const foreachContext: ExecutionContext = {
+          ...context,
+          environment: foreachEnvironment,
+        };
         foreachEnvironment.declare('let', statement.variable, '');
+
         for (const char of iterable) {
           foreachEnvironment.assign(statement.variable, char);
           try {
-            executeBlock(statement.body, foreachEnvironment, output);
-          } catch (e) {
-            if (e instanceof BreakException) {
+            executeBlock(statement.body, foreachContext);
+          } catch (error) {
+            if (error instanceof BreakException) {
               break;
-            } else if (e instanceof ContinueException) {
+            }
+            if (error instanceof ContinueException) {
               continue;
             }
-            throw e;
+            throw error;
           }
         }
       } else {
@@ -204,46 +228,60 @@ function executeStatement(
       throw new ContinueException();
 
     case StatementNodeType.FunctionDeclaration:
-      // Save the function so calls can find it later.
       environment.declareFunction(statement);
       return;
 
     case StatementNodeType.ReturnStatement:
-      // Exit the current function with an optional value.
       throw new ReturnException(
-        statement.value
-          ? evaluateExpression(statement.value, environment, output)
-          : null,
+        statement.value ? evaluateExpression(statement.value, context) : null,
       );
 
     case StatementNodeType.BlockStatement:
-      executeBlock(statement.body, environment, output);
+      executeBlock(statement.body, context);
       return;
   }
 }
 
-// Evaluates the right side and assigns it to a variable.
-function executeAssignment(
-  assignment: AssignmentNode,
-  environment: RuntimeEnvironment,
-  output: string[],
-): void {
-  const rightValue = evaluateExpression(assignment.value, environment, output);
-  const value = evaluateAssignmentValue(assignment, rightValue, environment);
-  environment.assign(assignment.name, value);
+/** Evaluates the right-hand side and writes to a variable or record field target. */
+function executeAssignment(assignment: AssignmentNode, context: ExecutionContext): void {
+  const rightValue = evaluateExpression(assignment.value, context);
+  const resultValue = evaluateAssignmentValue(assignment, rightValue, context);
+
+  if (assignment.target.kind === 'variable') {
+    context.environment.assign(assignment.target.name, resultValue);
+    return;
+  }
+
+  assignRecordField(assignment.target, resultValue, context);
 }
 
-// Applies =, +=, -=, and -+ assignment behavior.
+/** Writes through a dotted record field path on a variable in the environment. */
+function assignRecordField(
+  target: Extract<AssignmentTarget, { kind: 'recordField' }>,
+  value: RuntimeValue,
+  context: ExecutionContext,
+): void {
+  const recordValue = context.environment.get(target.rootVariable);
+
+  if (!isRecordRuntimeValue(recordValue)) {
+    throw new Error(`Variable "${target.rootVariable}" is not a record`);
+  }
+
+  setRecordFieldValue(recordValue, target.fieldPath, value);
+}
+
+/** Computes the stored value for `=`, `+=`, or `-=` assignments. */
 function evaluateAssignmentValue(
   assignment: AssignmentNode,
   rightValue: RuntimeValue,
-  environment: RuntimeEnvironment,
+  context: ExecutionContext,
 ): RuntimeValue {
   if (assignment.operator === '=') {
     return rightValue;
   }
 
-  const leftValue = environment.get(assignment.name);
+  const leftValue = readAssignmentTargetValue(assignment.target, context);
+
   if (assignment.operator === '+=') {
     if (typeof leftValue === 'string' || typeof rightValue === 'string') {
       return String(leftValue) + String(rightValue);
@@ -258,36 +296,69 @@ function evaluateAssignmentValue(
   throw new Error(`Unsupported assignment operator ${assignment.operator}`);
 }
 
-// Runs statements inside a new block scope.
-function executeBlock(
-  statements: StatementNode[],
-  environment: RuntimeEnvironment,
-  output: string[],
-): void {
-  const blockEnvironment = environment.createBlockScope();
+/** Reads the current value of an assignment target (variable or record field). */
+function readAssignmentTargetValue(
+  target: AssignmentTarget,
+  context: ExecutionContext,
+): RuntimeValue {
+  if (target.kind === 'variable') {
+    return context.environment.get(target.name);
+  }
+
+  const recordValue = context.environment.get(target.rootVariable);
+  if (!isRecordRuntimeValue(recordValue)) {
+    throw new Error(`Variable "${target.rootVariable}" is not a record`);
+  }
+
+  return getRecordFieldValue(recordValue, target.fieldPath);
+}
+
+/** Runs statements in a new block scope. */
+function executeBlock(statements: StatementNode[], context: ExecutionContext): void {
+  const blockEnvironment = context.environment.createBlockScope();
+  const blockContext: ExecutionContext = {
+    ...context,
+    environment: blockEnvironment,
+  };
+
   for (const statement of statements) {
-    executeStatement(statement, blockEnvironment, output);
+    executeStatement(statement, blockContext);
   }
 }
 
-// Evaluates an expression into a runtime value.
+/** Recursively evaluates an expression and returns its runtime value. */
 function evaluateExpression(
   expression: ExpressionNode,
-  environment: RuntimeEnvironment,
-  output: string[],
+  context: ExecutionContext,
 ): RuntimeValue {
   switch (expression.type) {
     case ExpressionNodeType.NumberLiteral:
+    case ExpressionNodeType.FloatLiteral:
     case ExpressionNodeType.StringLiteral:
       return expression.value;
 
-    case ExpressionNodeType.Identifier: {
-      return environment.get(expression.name);
+    case ExpressionNodeType.BooleanLiteral:
+      return expression.value;
+
+    case ExpressionNodeType.Identifier:
+      return context.environment.get(expression.name);
+
+    case ExpressionNodeType.MemberAccess: {
+      const objectValue = evaluateExpression(expression.object, context);
+
+      if (!isRecordRuntimeValue(objectValue)) {
+        throw new Error(`Cannot access member "${expression.field}" on non-record value`);
+      }
+
+      return getRecordFieldValue(objectValue, [expression.field]);
     }
 
+    case ExpressionNodeType.RecordLiteral:
+      return evaluateRecordLiteral(expression, context);
+
     case ExpressionNodeType.BinaryExpression: {
-      const left = evaluateExpression(expression.left, environment, output);
-      const right = evaluateExpression(expression.right, environment, output);
+      const left = evaluateExpression(expression.left, context);
+      const right = evaluateExpression(expression.right, context);
 
       switch (expression.operator) {
         case '+':
@@ -319,11 +390,7 @@ function evaluateExpression(
     }
 
     case ExpressionNodeType.UnaryExpression: {
-      const value = evaluateExpression(
-        expression.argument,
-        environment,
-        output,
-      );
+      const value = evaluateExpression(expression.argument, context);
       if (typeof value !== 'number') {
         throw new Error('Unary minus can only be applied to numbers');
       }
@@ -334,33 +401,59 @@ function evaluateExpression(
       return executeFunctionCall(
         expression.name,
         expression.arguments,
-        environment,
-        output,
+        context,
       );
   }
 }
 
-// Calls a function with evaluated arguments.
+/** Builds a record instance from `new TypeName { ... }`, validating required fields. */
+function evaluateRecordLiteral(
+  expression: Extract<ExpressionNode, { type: ExpressionNodeType.RecordLiteral }>,
+  context: ExecutionContext,
+): RecordRuntimeValue {
+  const recordFields = context.recordRegistry.getFields(expression.recordTypeName);
+  const fieldValues = new Map<string, RuntimeValue>();
+
+  for (const fieldDefinition of recordFields) {
+    const literalField = expression.fields.find(
+      (field) => field.name === fieldDefinition.name,
+    );
+
+    if (!literalField) {
+      throw new Error(
+        `Missing field "${fieldDefinition.name}" in record literal for "${expression.recordTypeName}"`,
+      );
+    }
+
+    fieldValues.set(
+      fieldDefinition.name,
+      evaluateExpression(literalField.value, context),
+    );
+  }
+
+  return {
+    recordTypeName: expression.recordTypeName,
+    fields: fieldValues,
+  };
+}
+
+/** Looks up and invokes a user-defined function by name. */
 function executeFunctionCall(
   name: string,
   args: ExpressionNode[],
-  environment: RuntimeEnvironment,
-  output: string[],
+  context: ExecutionContext,
 ): RuntimeValue {
-  const functionNode = environment.getFunction(name);
-  const argValues = args.map((arg) =>
-    evaluateExpression(arg, environment, output),
-  );
+  const functionNode = context.environment.getFunction(name);
+  const argValues = args.map((arg) => evaluateExpression(arg, context));
 
-  return executeUserFunction(functionNode, argValues, environment, output);
+  return executeUserFunction(functionNode, argValues, context);
 }
 
-// Binds parameters, runs the body, and returns the result.
+/** Runs a function body in a fresh function scope; catches `return` via ReturnException. */
 function executeUserFunction(
   functionNode: FunctionDeclarationNode,
   argValues: RuntimeValue[],
-  callingEnvironment: RuntimeEnvironment,
-  output: string[],
+  context: ExecutionContext,
 ): RuntimeValue {
   if (argValues.length !== functionNode.parameters.length) {
     throw new Error(
@@ -368,18 +461,29 @@ function executeUserFunction(
     );
   }
 
-  const functionEnvironment = callingEnvironment.createFunctionScope();
+  // Same-file private helpers are visible here via the caller's module scope.
+  const callableEnvironment = withModuleFunctions(
+    context.environment,
+    functionNode.sourceModule,
+    context.moduleFunctions,
+  );
+  const functionEnvironment = callableEnvironment.createFunctionScope();
+  const functionContext: ExecutionContext = {
+    ...context,
+    environment: functionEnvironment,
+  };
+
   functionNode.parameters.forEach((parameter, index) => {
     functionEnvironment.declare('let', parameter.name, argValues[index]);
   });
 
   try {
-    executeBlock(functionNode.body, functionEnvironment, output);
-  } catch (e) {
-    if (e instanceof ReturnException) {
-      return e.value;
+    executeBlock(functionNode.body, functionContext);
+  } catch (error) {
+    if (error instanceof ReturnException) {
+      return error.value;
     }
-    throw e;
+    throw error;
   }
 
   return null;

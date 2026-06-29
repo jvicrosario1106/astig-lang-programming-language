@@ -1,12 +1,9 @@
 grammar AstigLang;
 
-// Entry point of the language.
-// A program is currently any number of statements until the end of file.
-// CHANGE: Added the full list of program statement according to document. 
-// TODO: Remove * from main function declaration here. This will throw an error if we remove the *. Need to update .ts files for this.
-// TODO: Remove statement in this program, statements should be inside the functions or main function
+// Entry program file: includes, records, functions, then required main (no top-level statements).
+// Include/library files use the same grammar but omit main; only the entry file may define main.
 // TODO: Add constant declaration section before the record
-program: includeList* recordDeclaration* statement* functionDeclaration* functionMainDeclaration* EOF;
+program: includeList* recordDeclaration* functionDeclaration* functionMainDeclaration? EOF;
 
 // CHANGE: Added include list and include statement
 includeList
@@ -134,9 +131,9 @@ forUpdate
 // CHANGE: Added record field access
 // TODO: Need to add recordFieldAccess in the ast with buildAssignmentStatement Context then add this
 assignment
-    : IDENTIFIER assignmentOperator expression;
-    //| recordFieldAccess assignmentOperator expression
-    //;
+    : IDENTIFIER assignmentOperator expression
+    | recordFieldAccess assignmentOperator expression
+    ;
 
 // For 'player.score' or 'player.weapon.damage'
 recordFieldAccess
@@ -252,6 +249,8 @@ expression
     | NUMBER
     | FLOAT
     | STRING
+    | TRUE_KW
+    | FALSE_KW
     | IDENTIFIER
     ;
 

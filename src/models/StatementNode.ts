@@ -1,6 +1,7 @@
 import { ExpressionNode } from './ExpressionNode';
 import { ParameterNode } from './ParameterNode';
 
+/** Discriminator for every statement node shape in the AST. */
 export enum StatementNodeType {
   VariableDeclaration = 'VariableDeclaration',
   Assignment = 'Assignment',
@@ -17,6 +18,7 @@ export enum StatementNodeType {
   BlockStatement = 'BlockStatement',
 }
 
+/** Union of all statement node types produced by `buildStatement` in `ast.ts`. */
 export type StatementNode =
   | VariableDeclarationNode
   | AssignmentNode
@@ -93,16 +95,25 @@ export type ContinueStatementNode = {
   type: StatementNodeType.ContinueStatement;
 };
 
+/** Left-hand side of an assignment: either a variable or a dotted record field path. */
+export type AssignmentTarget =
+  | { kind: 'variable'; name: string }
+  | { kind: 'recordField'; rootVariable: string; fieldPath: string[] };
+
 export type AssignmentNode = {
   type: StatementNodeType.Assignment;
-  name: string;
+  target: AssignmentTarget;
   operator: '=' | '+=' | '-=' | '-+';
   value: ExpressionNode;
 };
 
+/** User-defined function; `isExported` controls cross-file visibility via `include`. */
 export type FunctionDeclarationNode = {
   type: StatementNodeType.FunctionDeclaration;
   name: string;
+  isExported: boolean;
+  /** Source `.stg` filename; private helpers stay callable within this module. */
+  sourceModule?: string;
   parameters: ParameterNode[];
   returnType?: string;
   body: StatementNode[];

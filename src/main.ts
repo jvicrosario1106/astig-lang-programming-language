@@ -1,51 +1,63 @@
-import { CharStreams, CommonTokenStream } from 'antlr4ts';
+/**
+ * AstigLang compiler driver: parse → AST → type check → interpret.
+ *
+ * Usage:
+ *   npm start                         — runs built-in sample code
+ *   npm start -- path/to/program.stg  — loads file and resolves includes
+ *
+ * For scanner-only demos, use `npm run scan` (`src/scanner.ts`).
+ */
 import { existsSync, readFileSync } from 'fs';
-import { AstigLangLexer } from '../generated/grammar/AstigLangLexer';
-import { AstigLangParser } from '../generated/grammar/AstigLangParser';
+import { basename, dirname, resolve } from 'path';
 import { buildAst } from './ast';
 import { runProgram } from './interpreter';
+import { TypeCheckError } from './classes/TypeCheckError';
+import { loadProgram, parseProgramSource, finalizeStandaloneProgram } from './programLoader';
+import { typeCheckProgram } from './typeChecker';
 
-const defaultCode = `\
-rH3cH0rHDz vHArH1aHBlH3s{
-  vHArH1aHBlH3s_aHs:IhnTs,
-  vHArH1aHBlH3s_bHs:sTRh1Ngz
+const defaultCode = `
+fHUncTH!0Ns mHA1Ns() {
+  vH4rs nH4mH3s:sTRh1Ngz = "Hello";
+  vH4rs cH0uHNtHs:iHNtSZ = 10;
+  pHR!HNTs(nH4mH3s);
 }
+`;
 
-LheTZ vHArH1aHBlH3s_cHs:IhnTs = 2
-eHXpH0RTz
-EhxPhortS
-`
-// LheTZ mHYs_vHArH1aHBlH3s:vHArH1aHBlH3s = nHEWs vHArH1aHBlH3s {
-//   vHArH1aHBlH3s_aHs = 1,
-//   vHArH1aHBlH3s_bHs = "Sample"
-// }
-//
-//NhewZ
+// e.g npm start demo-examples/include-main.stg 
 
-const input = CharStreams.fromString(defaultCode);
+const inputArg = process.argv.slice(2).join(' ');
+const sourcePath = inputArg && existsSync(inputArg) ? resolve(inputArg) : undefined;
+const sourceCode = sourcePath ? readFileSync(sourcePath, 'utf8') : defaultCode;
+const baseDirectory = sourcePath ? dirname(sourcePath) : process.cwd();
 
-const lexer = new AstigLangLexer(input);
-for(const token of lexer.getAllTokens()){
-  console.log(`Text: ${token.text} -> Token Type ID: ${token.type}`);
-}
+const { tree, syntaxErrors } = parseProgramSource(sourceCode);
 
-const tokens = new CommonTokenStream(lexer);
-
-const parser = new AstigLangParser(tokens);
-
-const tree = parser.program();
-
-if (parser.numberOfSyntaxErrors > 0) {
+if (syntaxErrors > 0) {
   process.exitCode = 1;
 } else {
-  const ast = buildAst(tree);
+  const ast = sourcePath
+    ? loadProgram(sourceCode, baseDirectory, basename(sourcePath))
+    : finalizeStandaloneProgram(buildAst(tree));
+
+  try {
+    typeCheckProgram(ast);
+  } catch (error) {
+    if (error instanceof TypeCheckError) {
+      console.error(`Type error: ${error.message}`);
+      process.exitCode = 1;
+    } else if (error instanceof Error) {
+      console.error(error.message);
+      process.exitCode = 1;
+    } else {
+      throw error;
+    }
+  }
+
+  if (process.exitCode === 1) {
+    process.exit(1);
+  }
+
   const output = runProgram(ast);
-
-  console.log('Parse Tree:');
-  console.log(tree.toStringTree(parser));
-
-  console.log('AST:');
-  console.log(JSON.stringify(ast, null, 2));
 
   console.log('Output:');
   console.log(output.join('\n'));

@@ -1,3 +1,11 @@
+/**
+ * Scanner / lexer demo entry point (`npm run scan`).
+ *
+ * Tokenizes sample `.stg` files (or large stress inputs), reports lexical errors
+ * with line/column, measures scan speed, and writes dumps to:
+ *   - scanner-error-dump.txt  (errors only)
+ *   - scanner-output.txt      (full console output)
+ */
 import { ANTLRErrorListener, CharStreams } from 'antlr4ts';
 import { appendFileSync, readFileSync, writeFileSync } from 'fs';
 import { AstigLangLexer } from '../generated/grammar/AstigLangLexer';
@@ -9,6 +17,19 @@ const scannerDemoFiles = [
   'demo-examples/scanner-demo-4.stg',
   'demo-examples/scanner-demo-5.stg',
 ];
+
+const scannerDemoDescriptions: Record<string, string> = {
+  'demo-examples/scanner-demo-1.stg':
+    'Declarations (const/var/let), print, if/else — program layout: functionMainDeclaration only',
+  'demo-examples/scanner-demo-2.stg':
+    'Arithmetic (+, -, *, /), +=, -= — program layout: functionMainDeclaration only',
+  'demo-examples/scanner-demo-3.stg':
+    'Loops (while, do-while, for) — program layout: functionMainDeclaration only',
+  'demo-examples/scanner-demo-4.stg':
+    'Full entry layout: includeList*, recordDeclaration*, functionDeclaration*, functionMainDeclaration (libHs.stg has no main)',
+  'demo-examples/scanner-demo-5.stg':
+    'Lexical error stress test (invalid tokens mixed with valid snippets)',
+};
 
 const maxDisplayedTokens = 80;
 const errorDumpFilePath = 'scanner-error-dump.txt';
@@ -105,6 +126,9 @@ function printScannerResult(filePath: string, exampleNumber: number): void {
   const elapsedMs = Number(endTime - startTime) / 1_000_000;
 
   emitOutput(`\n${exampleNumber}. ${filePath}`);
+  if (scannerDemoDescriptions[filePath]) {
+    emitOutput(scannerDemoDescriptions[filePath]);
+  }
   emitOutput('============');
   emitOutput('Input Preview:');
   emitOutput('============');

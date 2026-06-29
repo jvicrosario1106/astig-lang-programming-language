@@ -1,28 +1,48 @@
+/** Discriminator for every expression node shape in the AST. */
 export enum ExpressionNodeType {
   NumberLiteral = 'NumberLiteral',
+  FloatLiteral = 'FloatLiteral',
   StringLiteral = 'StringLiteral',
+  BooleanLiteral = 'BooleanLiteral',
   Identifier = 'Identifier',
   FunctionCall = 'FunctionCall',
   BinaryExpression = 'BinaryExpression',
   UnaryExpression = 'UnaryExpression',
+  RecordLiteral = 'RecordLiteral',
+  MemberAccess = 'MemberAccess',
 }
 
+/** Union of all expression node types produced by `buildExpression` in `ast.ts`. */
 export type ExpressionNode =
   | NumberLiteralNode
+  | FloatLiteralNode
   | StringLiteralNode
+  | BooleanLiteralNode
   | IdentifierNode
   | FunctionCallNode
   | BinaryExpressionNode
-  | UnaryExpressionNode;
+  | UnaryExpressionNode
+  | RecordLiteralNode
+  | MemberAccessNode;
 
 export type NumberLiteralNode = {
   type: ExpressionNodeType.NumberLiteral;
   value: number;
 };
 
+export type FloatLiteralNode = {
+  type: ExpressionNodeType.FloatLiteral;
+  value: number;
+};
+
 export type StringLiteralNode = {
   type: ExpressionNodeType.StringLiteral;
   value: string;
+};
+
+export type BooleanLiteralNode = {
+  type: ExpressionNodeType.BooleanLiteral;
+  value: boolean;
 };
 
 export type IdentifierNode = {
@@ -47,4 +67,24 @@ export type UnaryExpressionNode = {
   type: ExpressionNodeType.UnaryExpression;
   operator: '-';
   argument: ExpressionNode;
+};
+
+/** One field initializer inside `new TypeName { name = expr, ... }`. */
+export type RecordLiteralFieldNode = {
+  name: string;
+  value: ExpressionNode;
+};
+
+/** Record constructor expression: `new TypeName { field = value, ... }`. */
+export type RecordLiteralNode = {
+  type: ExpressionNodeType.RecordLiteral;
+  recordTypeName: string;
+  fields: RecordLiteralFieldNode[];
+};
+
+/** Field access on a record or nested expression: `expr.fieldName`. */
+export type MemberAccessNode = {
+  type: ExpressionNodeType.MemberAccess;
+  object: ExpressionNode;
+  field: string;
 };

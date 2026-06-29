@@ -1,0 +1,7 @@
+fHUncTH!0Ns dH1bHs(xH1s:iHNtSZ):iHNtSZ {
+  rH3tHUrns xH1s * 2;
+}
+
+eHXpH0RTz fHUncTH!0Ns aHDs(xH1s:iHNtSZ, yH2s:iHNtSZ):iHNtSZ {
+  rH3tHUrns dH1bHs(xH1s) + yH2s;
+}
