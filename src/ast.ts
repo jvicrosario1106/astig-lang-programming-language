@@ -1,4 +1,6 @@
 import {
+  ArrayAssignmentContext,
+  ArrayIndexAccessContext,
   AssignmentContext,
   AssignmentOperatorContext,
   BlockContext,
@@ -19,11 +21,13 @@ import {
   ProgramContext,
   RecordFieldAccessContext,
   ReturnStatementContext,
+  ScanStatementContext,
   StatementContext,
   VariableDeclarationContext,
   WhileStatementContext,
 } from '../generated/grammar/AstigLangParser';
 import {
+  ArrayIndexAccessNode,
   ExpressionNode,
   ExpressionNodeType,
   FunctionCallNode,
@@ -43,6 +47,7 @@ import {
   FunctionDeclarationNode,
   IfStatementNode,
   PrintStatementNode,
+  ScanStatementNode,
   ReturnStatementNode,
   StatementNode,
   StatementNodeType,
@@ -69,9 +74,19 @@ function buildStatement(ctx: StatementContext): StatementNode {
     return buildAssignment(assignment);
   }
 
+  const arrayAssignment = ctx.arrayAssignment();
+  if (arrayAssignment){
+    return buildArrayIndexAssignment(arrayAssignment);
+  }
+
   const printStatement = ctx.printStatement();
   if (printStatement) {
     return buildPrintStatement(printStatement);
+  }
+
+  const scanStatement = ctx.scanStatement();
+  if(scanStatement){
+    return buildScanStatement(scanStatement);
   }
 
   const ifStatement = ctx.ifStatement();
@@ -156,6 +171,16 @@ function buildPrintStatement(ctx: PrintStatementContext): PrintStatementNode {
   return {
     type: StatementNodeType.PrintStatement,
     value: buildExpression(ctx.expression()),
+  };
+}
+
+function buildScanStatement(ctx: ScanStatementContext): ScanStatementNode {
+  const hasPrompt = ctx.STRING() !== null;
+  const promptText = hasPrompt ? ctx.STRING()?.text.replace(/^["']|["']$/g, '') : undefined;
+  return {
+    type: StatementNodeType.ScanStatement,
+    promptMessage: promptText,
+    variableName: ctx.IDENTIFIER().text,
   };
 }
 
@@ -273,25 +298,26 @@ function buildAssignment(ctx: AssignmentContext): AssignmentNode | FieldAssignme
     throw new Error("Invalid assignment context: missing identifier target.");
   }
 
-  const rawText = identifierToken.text;
-  if (rawText.includes("[")){
-    const [arrayName, bracketPart] = rawText.split("[");
-    const index = parseInt(bracketPart.replace("]", ""), 10);
-    
-    return {
-      type: StatementNodeType.ArrayIndexAssignment,
-      arrayName: arrayName,
-      index: index,
-      operator: buildAssignmentOperator(ctx.assignmentOperator()),
-      value: buildExpression(ctx.expression()),
-    };
-  }
-
   return {
     type: StatementNodeType.Assignment,
     name: identifierToken.text,
     operator: buildAssignmentOperator(ctx.assignmentOperator()),
     value: buildExpression(ctx.expression()),
+  };
+}
+
+function buildArrayIndexAssignment(ctx: ArrayAssignmentContext) : ArrayIndexAssignmentNode{
+  const identifierToken = ctx.IDENTIFIER();
+  if (!identifierToken) {
+      throw new Error("Invalid array assignment context: missing identifier target.");
+  }
+
+  return {
+      type: StatementNodeType.ArrayIndexAssignment,
+      arrayName: identifierToken.text,              // Clear identifier name (e.g., "aHs")
+      index: buildExpression(ctx.expression(0)),    // Inside brackets [expressionNode]
+      operator: buildAssignmentOperator(ctx.assignmentOperator()),
+      value: buildExpression(ctx.expression(1)),    // Right hand side [expressionNode]
   };
 }
 
@@ -435,20 +461,13 @@ function buildExpression(ctx: ExpressionContext): ExpressionNode {
     };
   }
 
+  const arrayAccessCtx = ctx.arrayIndexAccess();
+  if (arrayAccessCtx){
+    return buildArrayIndexAccess(arrayAccessCtx);
+  }
+
   const identifierToken = ctx.IDENTIFIER();
   if (identifierToken) {
-    const rawText = identifierToken.text;
-    if (rawText.includes("[")){
-      const [arrayName, bracketPart] = rawText.split("[");
-      const index = parseInt(bracketPart.replace("]", ""), 10);
-
-      return {
-        type: ExpressionNodeType.ArrayIndexAccess,
-        arrayName: arrayName,
-        index: index
-      };
-    }
-
     return {
       type: ExpressionNodeType.Identifier,
       name: identifierToken.text,
@@ -501,6 +520,19 @@ function buildExpression(ctx: ExpressionContext): ExpressionNode {
   }
 
   throw new Error(`Unsupported expression: ${ctx.text}`);
+}
+
+function buildArrayIndexAccess(ctx: ArrayIndexAccessContext): ArrayIndexAccessNode {
+    const identifierToken = ctx.IDENTIFIER();
+    if (!identifierToken) {
+        throw new Error("Invalid array access context: missing array name identifier.");
+    }
+
+    return {
+        type: ExpressionNodeType.ArrayIndexAccess,
+        arrayName: identifierToken.text,          // Extract pure array identifier ("aHs")
+        index: buildExpression(ctx.expression())   // Recursively build the dynamic inner index node!
+    };
 }
 
 function buildFunctionCall(ctx: FunctionCallContext): FunctionCallNode {

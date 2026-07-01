@@ -24,13 +24,16 @@ LheTZ mHYs_vHArH1aHBlH3s:vHArH1aHBlH3s = nHEWs vHArH1aHBlH3s {
 
 // HELLOOOO
 
-vHArH1aHBlH3s.vHArH1aHBlH3s_aHs = 2;
+LheTZ xHs:IhnTs = 2;
+
+mHYs_vHArH1aHBlH3s.vHArH1aHBlH3s_aHs = 2;
 
 LheTZ aHs:IhnTs = [1, 2, 3, "Hello"];
 /* this too */
-aHs[10] = 6;
+aHs[mHYs_vHArH1aHBlH3s.vHArH1aHBlH3s_aHs] = 6;
 LheTZ bHs:IhnTs = 3;
-bHs[4] = 2;
+scH4nz("Text here: ", bHs);
+pHR!HNTs(bHs);
 `
 // LheTZ vHArH1aHBlH3s_cHs:IhnTs = 2
 // eHXpH0RTz

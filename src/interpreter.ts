@@ -12,6 +12,11 @@ import {
   StatementNodeType,
 } from './models/StatementNode';
 import { isTruthy } from './utils/isTruthy';
+// TODO: check if we can do these commands
+// npm install readline-sync
+// npm install --save-dev @types/readline-sync
+// import readlineSync from 'readline-sync';
+import fs from 'fs';
 
 // Runs each top-level statement and collects printed output.
 export function runProgram(program: ProgramNode): string[] {
@@ -48,12 +53,27 @@ function executeStatement(
     case StatementNodeType.ArrayIndexAssignment:
       const targetArray = environment.lookup(statement.arrayName);
 
+      // Check if it is an array first
       if (!Array.isArray(targetArray)){
         throw new Error(`Runtime Error: Variable "${statement.arrayName}" is not an array.`);
       }
 
+      // Evaluate index first
+      const index = evaluateExpression(statement.index, environment, output);
+
+      // Check index is number.
+      if (typeof index !== "number"){
+        // If it is not a number then throw error
+        throw new Error(`Runtime Error: Array index must evaluate to a number. Got type: ${typeof index}`);
+      }
+      
+      // Check if index is within bounds (no negative or beyond bounds of array)
+      if (index < 0 || index >= targetArray.length){
+        throw new Error(`Runtime Error: Cannot assign to index ${index}. Index is out of bounds for array "${statement.arrayName}" of length ${targetArray.length}.`);
+      }
+
       const incomingValue = evaluateExpression(statement.value, environment, output);
-      targetArray[statement.index] = incomingValue;
+      targetArray[index] = incomingValue;
       return;
 
     case StatementNodeType.PrintStatement:
@@ -62,6 +82,20 @@ function executeStatement(
         String(evaluateExpression(statement.value, environment, output)),
       );
       return;
+    
+    case StatementNodeType.ScanStatement:{
+      if (statement.promptMessage){
+        process.stdout.write(statement.promptMessage);
+      }
+
+      const buffer = Buffer.alloc(1024);
+      const bytesRead = fs.readSync(0, buffer, 0, buffer.length, null);
+      const userInput = buffer.toString('utf8', 0, bytesRead).trim();
+
+      environment.assign(statement.variableName, userInput);
+
+      return;
+    }
 
     case StatementNodeType.IfStatement: {
       // Run the first matching if/else-if/else block.
@@ -314,7 +348,21 @@ function evaluateExpression(
       if (!Array.isArray(targetArray)){
         throw new Error(`Runtime Error: "${expression.arrayName}" is not an array.`);
       }
-      return targetArray[expression.index];
+
+      const evaluatedIndex = evaluateExpression(expression.index, environment, output);
+      // Check if expression is a number
+      if (typeof evaluatedIndex !== "number") {
+        throw new Error(`Runtime Error: Array index must evaluate to a number. Got: ${typeof evaluatedIndex}`);
+      }
+
+      // Check if the expression is within bounds
+      if (evaluatedIndex < 0 || evaluatedIndex >= targetArray.length) {
+        throw new Error(
+            `Runtime Error: Index ${evaluatedIndex} is out of bounds for array "${expression.arrayName}" of length ${targetArray.length}.`
+        );
+      }
+
+      return targetArray[evaluatedIndex];
 
     case ExpressionNodeType.BinaryExpression: {
       const left = evaluateExpression(expression.left, environment, output);

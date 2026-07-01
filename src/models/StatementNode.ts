@@ -5,6 +5,7 @@ export enum StatementNodeType {
   VariableDeclaration = 'VariableDeclaration',
   Assignment = 'Assignment',
   PrintStatement = 'PrintStatement',
+  ScanStatement = 'ScanStatement',
   IfStatement = 'IfStatement',
   WhileStatement = 'WhileStatement',
   DoWhileStatement = 'DoWhileStatement',
@@ -23,6 +24,7 @@ export type StatementNode =
   | VariableDeclarationNode
   | AssignmentNode
   | PrintStatementNode
+  | ScanStatementNode
   | IfStatementNode
   | WhileStatementNode
   | DoWhileStatementNode
@@ -130,9 +132,15 @@ export type FieldAssignmentNode = {
 };
 
 export interface ArrayIndexAssignmentNode {
-    type: StatementNodeType.ArrayIndexAssignment; // Make sure to add this enum/string value if needed
-    arrayName: string;                            // e.g., "aHs"
-    index: number;                                // e.g., 0
-    operator: string;                             // Tracks the assignment operator like '='
-    value: ExpressionNode;                        // The new value expression being assigned
+  type: StatementNodeType.ArrayIndexAssignment; // Make sure to add this enum/string value if needed
+  arrayName: string;                            // e.g., "aHs"
+  index: ExpressionNode;                        // e.g., 0
+  operator: string;                             // Tracks the assignment operator like '='
+  value: ExpressionNode;                        // The new value expression being assigned
+};
+
+export interface ScanStatementNode{
+  type: StatementNodeType.ScanStatement;
+  promptMessage?: string;
+  variableName: string;
 };

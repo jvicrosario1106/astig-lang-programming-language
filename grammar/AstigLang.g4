@@ -23,6 +23,7 @@ includeStatement
 statement
     : variableDeclaration ';'?
     | assignment ';'?
+    | arrayAssignment ';'?
     | printStatement ';'?
     | scanStatement ';'?
     | ifStatement
@@ -79,6 +80,14 @@ arrayElementList
     : expression (',' expression)*
     ;
 
+arrayIndexAccess
+    : IDENTIFIER '[' expression ']'
+    ;
+
+arrayAssignment
+    : IDENTIFIER '[' expression ']' assignmentOperator expression ';'
+    ;
+
 // Groups all declaration keywords that can introduce a variable.
 declarationKeyword
     : CONST_KW
@@ -98,7 +107,7 @@ printStatement
 // SCAN_KW is a jejemonized form of the programming keyword "scan".
 // Example: scan("Enter text here:")
 scanStatement
-    : SCAN_KW '(' expression ')'
+    : SCAN_KW '(' (STRING ',')? IDENTIFIER ')' ';'?
     ;
 
 // If statement with optional else if and else blocks.
@@ -269,6 +278,7 @@ expression
     | functionCall
     | recordLiteral
     | arrayLiteral
+    | arrayIndexAccess
     | expression '.' IDENTIFIER
     | NUMBER
     | FLOAT
@@ -310,7 +320,7 @@ LET_KW
 
 // Jejemonized "print".
 // H may be inserted after the first letter.
-// Examples: pr1nt, pHr!nt, printZ
+// Examples: pHR!HNTs, printZ
 PRINT_KW
     : LOWER_P UPPER_H UPPER_R LOWER_I UPPER_H UPPER_N UPPER_T LOWER_PLURAL+
     | UPPER_P LOWER_H LOWER_R UPPER_I LOWER_H LOWER_N LOWER_T UPPER_PLURAL+
@@ -498,7 +508,7 @@ EXPORT_KW
 // Identifiers must contain at least one jejemon marker.
 // This prevents plain variable names like "count" and accepts names like "c0unt".
 IDENTIFIER
-    : WORD SUBSCRIPT*
+    : WORD
     ;
 
 // CHANGE: Added filename and file extension
@@ -508,10 +518,6 @@ FILENAME
 
 FILE_EXTENSION
     : 'stg'
-    ;
-
-SUBSCRIPT
-    : '[' NUMBER ']'
     ;
 
 // CHANGE: Added comment handling

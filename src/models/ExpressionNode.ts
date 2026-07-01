@@ -45,7 +45,7 @@ export type ArrayLiteralNode = {
 export type ArrayIndexAccessNode = {
   type: ExpressionNodeType.ArrayIndexAccess
   arrayName: string;
-  index: number;
+  index: ExpressionNode;
 };
 
 export type IdentifierNode = {

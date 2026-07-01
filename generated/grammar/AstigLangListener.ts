@@ -16,6 +16,8 @@ import { RecordLiteralFieldListContext } from "./AstigLangParser";
 import { RecordLiteralFieldContext } from "./AstigLangParser";
 import { ArrayLiteralContext } from "./AstigLangParser";
 import { ArrayElementListContext } from "./AstigLangParser";
+import { ArrayIndexAccessContext } from "./AstigLangParser";
+import { ArrayAssignmentContext } from "./AstigLangParser";
 import { DeclarationKeywordContext } from "./AstigLangParser";
 import { PrintStatementContext } from "./AstigLangParser";
 import { ScanStatementContext } from "./AstigLangParser";
@@ -195,6 +197,28 @@ export interface AstigLangListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitArrayElementList?: (ctx: ArrayElementListContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `AstigLangParser.arrayIndexAccess`.
+	 * @param ctx the parse tree
+	 */
+	enterArrayIndexAccess?: (ctx: ArrayIndexAccessContext) => void;
+	/**
+	 * Exit a parse tree produced by `AstigLangParser.arrayIndexAccess`.
+	 * @param ctx the parse tree
+	 */
+	exitArrayIndexAccess?: (ctx: ArrayIndexAccessContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `AstigLangParser.arrayAssignment`.
+	 * @param ctx the parse tree
+	 */
+	enterArrayAssignment?: (ctx: ArrayAssignmentContext) => void;
+	/**
+	 * Exit a parse tree produced by `AstigLangParser.arrayAssignment`.
+	 * @param ctx the parse tree
+	 */
+	exitArrayAssignment?: (ctx: ArrayAssignmentContext) => void;
 
 	/**
 	 * Enter a parse tree produced by `AstigLangParser.declarationKeyword`.
