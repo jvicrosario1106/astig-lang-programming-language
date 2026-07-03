@@ -19,7 +19,9 @@ includeStatement
 statement
     : variableDeclaration ';'?
     | assignment ';'?
+    | arrayIndexAssignment ';'?
     | printStatement ';'?
+    | scanStatement ';'?
     | ifStatement
     | whileStatement
     | doWhileStatement
@@ -65,6 +67,14 @@ recordLiteralField
     : assignment
     ;
 
+arrayLiteral
+    : '[' arrayElementList? ']' 
+    ;
+
+arrayElementList
+    : expression (',' expression)*
+    ;
+
 // Groups all declaration keywords that can introduce a variable.
 declarationKeyword
     : CONST_KW
@@ -77,6 +87,10 @@ declarationKeyword
 // Example: pr1nt(x4)
 printStatement
     : PRINT_KW '(' expression ')'
+    ;
+
+scanStatement
+    : SCAN_KW '(' (STRING ',')? IDENTIFIER ')' ';'?
     ;
 
 // If statement with optional else if and else blocks.
@@ -133,6 +147,14 @@ forUpdate
 assignment
     : IDENTIFIER assignmentOperator expression
     | recordFieldAccess assignmentOperator expression
+    ;
+
+arrayIndexAccess
+    : IDENTIFIER '[' expression ']'
+    ;
+
+arrayIndexAssignment
+    : IDENTIFIER '[' expression ']' assignmentOperator expression ';'
     ;
 
 // For 'player.score' or 'player.weapon.damage'
@@ -208,7 +230,7 @@ functionCall
 // TypeScript-inspired type annotation.
 // Used by variables and parameters.
 typeAnnotation
-    : ':' dataType
+    : ':' dataType ('[' ']')?
     ;
 
 // Function return type annotation.
@@ -245,6 +267,8 @@ expression
     | '(' expression ')'
     | functionCall
     | recordLiteral
+    | arrayLiteral
+    | arrayIndexAccess
     | expression '.' IDENTIFIER
     | NUMBER
     | FLOAT
@@ -288,10 +312,17 @@ LET_KW
 
 // Jejemonized "print".
 // H may be inserted after the first letter.
-// Examples: pr1nt, pHr!nt, printZ
+// Examples: pHR!HNTs
 PRINT_KW
     : LOWER_P UPPER_H UPPER_R LOWER_I UPPER_H UPPER_N UPPER_T LOWER_PLURAL+
     | UPPER_P LOWER_H LOWER_R UPPER_I LOWER_H LOWER_N LOWER_T UPPER_PLURAL+
+    ;
+
+// Jejemonized "scan".
+// Examples: scH4nz, SCh@NS
+SCAN_KW
+    : LOWER_S LOWER_C UPPER_H UPPER_A LOWER_N LOWER_PLURAL+
+    | UPPER_S UPPER_C LOWER_H LOWER_A UPPER_N UPPER_PLURAL+
     ;
 
 // Jejemonized "if".
@@ -469,7 +500,7 @@ EXPORT_KW
 // Identifiers must contain at least one jejemon marker.
 // This prevents plain variable names like "count" and accepts names like "c0unt".
 IDENTIFIER
-    : WORD SUBSCRIPT*
+    : WORD
     ;
 
 // CHANGE: Added filename and file extension
@@ -481,8 +512,12 @@ FILE_EXTENSION
     : 'stg'
     ;
 
-SUBSCRIPT
-    : '[' NUMBER ']'
+LINE_COMMENT
+    : '//' ~[\r\n]* -> channel(HIDDEN)
+    ;
+
+BLOCK_COMMENT
+    : '/*' .*? '*/' -> channel(HIDDEN)
     ;
 
 // Arithmetic operators.

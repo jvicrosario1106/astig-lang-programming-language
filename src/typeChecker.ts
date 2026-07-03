@@ -205,11 +205,34 @@ function checkVariableDeclaration(
   program: ProgramNode,
 ): void {
   const valueType = checkExpression(declaration.value, environment, recordRegistry, program);
-  const variableType = declaration.declaredType
-    ? resolveDataType(declaration.declaredType, recordRegistry)
-    : valueType;
+
+  if (valueType.kind === 'array' && !declaration.isArray){
+    throw new Error(`Type error: Cannot assign an array to scalar variable "${declaration.name}". Did you forget '[]' in the type annotation?`);
+  }
+
+  if (valueType.kind !== 'array' && declaration.isArray) {
+    throw new Error(`Type error: Variable "${declaration.name}" expects an array type, but received a scalar value.`);
+  }
+
+  let variableType:ResolvedType = valueType;
 
   if (declaration.declaredType) {
+    const baseResolved = resolveDataType(declaration.declaredType, recordRegistry);
+    
+    if (declaration.isArray){
+      if (baseResolved.kind !== 'primitive'){
+        throw new Error(`Type error: Arrays of complex kinds are currently unsupported.`);
+      }
+      variableType = {
+        kind: 'array',
+        elementType: baseResolved.type
+      };
+    }
+  } else{
+    variableType = valueType;
+  }
+
+  if (declaration.declaredType){
     assertAssignable(
       variableType,
       valueType,
@@ -464,6 +487,57 @@ function checkExpression(
 
     case ExpressionNodeType.Identifier:
       return environment.getVariableType(expression.name);
+    
+    case ExpressionNodeType.ArrayIndexAccess:{
+      // 1. Look up the array variable container type configuration
+      const arrayContainerResolved = environment.getVariableType(expression.arrayName);
+
+      // 2. Type Narrowing! Make sure the variable is structurally an array kind
+      if (arrayContainerResolved.kind !== 'array') {
+        throw new Error(`Type Error: Cannot index into non-array variable "${expression.arrayName}".`);
+      }
+
+      // 3. Type check the index sub-expression itself to ensure it's an integer
+      const indexResolved = checkExpression(expression.index, environment, recordRegistry, program);
+      if (indexResolved.kind !== 'primitive' || indexResolved.type !== AstigType.Int) {
+        throw new Error(`Type Error: Array subscript index must evaluate to an Integer primitive.`);
+      }
+
+      // 4. Return the inner type wrapped by the array container structure
+      return {
+        kind: 'primitive',
+        type: arrayContainerResolved.elementType // 🎉 Safely isolated because we guarded for kind: 'array'!
+      };
+    }
+    
+    
+    
+    case ExpressionNodeType.ArrayLiteral:{
+      let detectedType = AstigType.Any; 
+
+      if (expression.elements.length > 0) {
+        // 1. Get the ResolvedType for the first element
+        const firstElementResolved = checkExpression(expression.elements[0], environment, recordRegistry, program);
+        
+        // 2. Type Narrowing! Check the 'kind' field first
+        if (firstElementResolved.kind === 'primitive') {
+            // Inside this 'if', TypeScript securely allows you to read '.type'!
+            detectedType = firstElementResolved.type; 
+        } else if (firstElementResolved.kind === 'array') {
+            // If it's a nested array (e.g., [[1, 2], [3, 4]]), you'd pull '.elementType'
+            detectedType = firstElementResolved.elementType;
+        } else if (firstElementResolved.kind === 'record') {
+            // Handle record structs if needed via '.name'
+            throw new Error("Type Error: Arrays of records are currently unsupported.");
+        }
+      }
+
+      // 3. Return the array structural shape
+      return { 
+        kind: 'array', 
+        elementType: detectedType 
+      };
+    }
 
     case ExpressionNodeType.MemberAccess: {
       const objectType = checkExpression(expression.object, environment, recordRegistry, program);

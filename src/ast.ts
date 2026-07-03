@@ -6,6 +6,9 @@
  * map each grammar rule (statements, expressions, assignments, etc.) to typed nodes.
  */
 import {
+  ArrayIndexAssignmentContext,
+  ArrayIndexAccessContext,
+  ArrayLiteralContext,
   AssignmentContext,
   AssignmentOperatorContext,
   BlockContext,
@@ -26,6 +29,7 @@ import {
   IncludeStatementContext,
   ParameterContext,
   PrintStatementContext,
+  ScanStatementContext,
   ProgramContext,
   RecordDeclarationContext,
   RecordFieldAccessContext,
@@ -36,6 +40,7 @@ import {
   StatementContext,
   VariableDeclarationContext,
   WhileStatementContext,
+  AstigLangParser,
 } from '../generated/grammar/AstigLangParser';
 import { IncludeNode } from './models/IncludeNode';
 import { MainFunctionNode } from './models/MainFunctionNode';
@@ -48,6 +53,7 @@ import { ParameterNode } from './models/ParameterNode';
 import { ProgramNode } from './models/ProgramNode';
 import { RecordDeclarationNode } from './models/RecordNode';
 import {
+  ArrayIndexAssignmentNode,
   AssignmentNode,
   AssignmentTarget,
   BlockStatementNode,
@@ -60,6 +66,7 @@ import {
   IfStatementNode,
   PrintStatementNode,
   ReturnStatementNode,
+  ScanStatementNode,
   StatementNode,
   StatementNodeType,
   VariableDeclarationNode,
@@ -148,10 +155,20 @@ function buildStatement(ctx: StatementContext): StatementNode {
   if (assignment) {
     return buildAssignment(assignment);
   }
+  
+  const arrayAssignment = ctx.arrayIndexAssignment();
+  if (arrayAssignment){
+    return buildArrayAssignment(arrayAssignment);
+  }
 
   const printStatement = ctx.printStatement();
   if (printStatement) {
     return buildPrintStatement(printStatement);
+  }
+
+  const scanStatement = ctx.scanStatement();
+  if (scanStatement){
+    return buildScanStatement(scanStatement);
   }
 
   const ifStatement = ctx.ifStatement();
@@ -210,12 +227,15 @@ function buildStatement(ctx: StatementContext): StatementNode {
 function buildVariableDeclaration(
   ctx: VariableDeclarationContext,
 ): VariableDeclarationNode {
+  const typeAnnotation = ctx.typeAnnotation();
+  const isArrayType = typeAnnotation ? (typeAnnotation.text.includes("[") && typeAnnotation.text.includes("]")) : false;
   return {
     type: StatementNodeType.VariableDeclaration,
     declarationKind: buildDeclarationKind(ctx),
     name: ctx.IDENTIFIER().text,
     declaredType: ctx.typeAnnotation()?.dataType().text,
     value: buildExpression(ctx.expression()),
+    isArray: isArrayType
   };
 }
 
@@ -236,6 +256,16 @@ function buildPrintStatement(ctx: PrintStatementContext): PrintStatementNode {
   return {
     type: StatementNodeType.PrintStatement,
     value: buildExpression(ctx.expression()),
+  };
+}
+
+function buildScanStatement(ctx: ScanStatementContext): ScanStatementNode{
+  const hasPrompt = ctx.STRING() !== null;
+  const promptText = hasPrompt ? ctx.STRING()?.text.replace(/^["']|["']$/g, '') : undefined;
+  return {
+    type: StatementNodeType.ScanStatement,
+    promptMessage: promptText,
+    variableName: ctx.IDENTIFIER().text,
   };
 }
 
@@ -350,6 +380,16 @@ function buildRecordFieldTarget(ctx: RecordFieldAccessContext): AssignmentTarget
   };
 }
 
+function buildArrayAssignment(ctx: ArrayIndexAssignmentContext): ArrayIndexAssignmentNode {
+  return {
+    type: StatementNodeType.ArrayIndexAssignment,
+    arrayName: ctx.IDENTIFIER().text,
+    index: buildExpression(ctx.expression(0)),
+    operator: buildAssignmentOperator(ctx.assignmentOperator()),
+    value: buildExpression(ctx.expression(1)), 
+  };
+}
+
 function buildAssignment(ctx: AssignmentContext): AssignmentNode {
   return {
     type: StatementNodeType.Assignment,
@@ -440,12 +480,23 @@ function buildBlockStatement(ctx: BlockContext): BlockStatementNode {
 function buildExpression(ctx: ExpressionContext): ExpressionNode {
   const functionCall = ctx.functionCall();
   if (functionCall) {
+
     return buildFunctionCall(functionCall);
   }
 
   const recordLiteral = ctx.recordLiteral();
   if (recordLiteral) {
     return buildRecordLiteral(recordLiteral);
+  }
+
+  const arrayLiteral = ctx.arrayLiteral();
+  if (arrayLiteral){
+    return buildArrayLiteral(arrayLiteral);
+  }
+
+  const arrayIndexAccess = ctx.arrayIndexAccess();
+  if (arrayIndexAccess){
+    return buildArrayIndexAccess(arrayIndexAccess);
   }
 
   const floatToken = ctx.FLOAT();
@@ -593,6 +644,24 @@ function buildRecordLiteralField(ctx: RecordLiteralFieldContext) {
   return {
     name: target.name,
     value: buildExpression(assignment.expression()),
+  };
+}
+
+function buildArrayLiteral(ctx: ArrayLiteralContext): ExpressionNode{
+  const elementList = ctx.arrayElementList();
+  const elements = elementList ? elementList.expression().map(exprCtx => buildExpression(exprCtx)) : [];
+
+  return{
+    type: ExpressionNodeType.ArrayLiteral,
+    elements: elements
+  };
+}
+
+function buildArrayIndexAccess(ctx: ArrayIndexAccessContext): ExpressionNode{
+  return {
+    type: ExpressionNodeType.ArrayIndexAccess,
+    arrayName: ctx.IDENTIFIER().text, 
+    index: buildExpression(ctx.expression()) 
   };
 }
 

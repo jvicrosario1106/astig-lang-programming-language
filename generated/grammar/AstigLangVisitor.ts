@@ -14,8 +14,11 @@ import { RecordFieldContext } from "./AstigLangParser";
 import { RecordLiteralContext } from "./AstigLangParser";
 import { RecordLiteralFieldListContext } from "./AstigLangParser";
 import { RecordLiteralFieldContext } from "./AstigLangParser";
+import { ArrayLiteralContext } from "./AstigLangParser";
+import { ArrayElementListContext } from "./AstigLangParser";
 import { DeclarationKeywordContext } from "./AstigLangParser";
 import { PrintStatementContext } from "./AstigLangParser";
+import { ScanStatementContext } from "./AstigLangParser";
 import { IfStatementContext } from "./AstigLangParser";
 import { ElseIfPartContext } from "./AstigLangParser";
 import { ElsePartContext } from "./AstigLangParser";
@@ -25,6 +28,8 @@ import { ForStatementContext } from "./AstigLangParser";
 import { ForInitContext } from "./AstigLangParser";
 import { ForUpdateContext } from "./AstigLangParser";
 import { AssignmentContext } from "./AstigLangParser";
+import { ArrayIndexAccessContext } from "./AstigLangParser";
+import { ArrayIndexAssignmentContext } from "./AstigLangParser";
 import { RecordFieldAccessContext } from "./AstigLangParser";
 import { AssignmentOperatorContext } from "./AstigLangParser";
 import { ForeachStatementContext } from "./AstigLangParser";
@@ -131,6 +136,20 @@ export interface AstigLangVisitor<Result> extends ParseTreeVisitor<Result> {
 	visitRecordLiteralField?: (ctx: RecordLiteralFieldContext) => Result;
 
 	/**
+	 * Visit a parse tree produced by `AstigLangParser.arrayLiteral`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitArrayLiteral?: (ctx: ArrayLiteralContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `AstigLangParser.arrayElementList`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitArrayElementList?: (ctx: ArrayElementListContext) => Result;
+
+	/**
 	 * Visit a parse tree produced by `AstigLangParser.declarationKeyword`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -143,6 +162,13 @@ export interface AstigLangVisitor<Result> extends ParseTreeVisitor<Result> {
 	 * @return the visitor result
 	 */
 	visitPrintStatement?: (ctx: PrintStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `AstigLangParser.scanStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitScanStatement?: (ctx: ScanStatementContext) => Result;
 
 	/**
 	 * Visit a parse tree produced by `AstigLangParser.ifStatement`.
@@ -206,6 +232,20 @@ export interface AstigLangVisitor<Result> extends ParseTreeVisitor<Result> {
 	 * @return the visitor result
 	 */
 	visitAssignment?: (ctx: AssignmentContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `AstigLangParser.arrayIndexAccess`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitArrayIndexAccess?: (ctx: ArrayIndexAccessContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `AstigLangParser.arrayIndexAssignment`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitArrayIndexAssignment?: (ctx: ArrayIndexAssignmentContext) => Result;
 
 	/**
 	 * Visit a parse tree produced by `AstigLangParser.recordFieldAccess`.
