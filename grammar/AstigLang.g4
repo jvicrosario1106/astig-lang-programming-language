@@ -260,10 +260,12 @@ returnDataType
 // Precedence (highest to lowest): unary minus, MUL/DIV, ADD/SUB, comparison
 // CHANGE: Added float, recordLiteral and expression.identifier (to chain record member calling)
 expression
-    : expression op=(MUL|DIV) expression
+    : NOT_KW expression
+    | SUB expression
+    | expression op=(MUL|DIV|MOD) expression
     | expression op=(ADD|SUB) expression
     | expression op=(EQ|NEQ|LT|GT|LTE|GTE) expression
-    | SUB expression
+    | expression op=(AND_KW|OR_KW) expression
     | '(' expression ')'
     | functionCall
     | recordLiteral
@@ -440,7 +442,7 @@ CHAR_KW
     ;
 
 // Jejemonized primitive type "boolean".
-// Examples: b0olean, bH0olean, boole@n, booleanZ
+// Examples: bH0oHLeaNs, Bho0hl3AnZ
 BOOLEAN_KW
     : LOWER_B UPPER_H UPPER_O LOWER_O UPPER_H UPPER_L LOWER_E LOWER_A UPPER_N LOWER_PLURAL+
     | UPPER_B LOWER_H LOWER_O UPPER_O LOWER_H LOWER_L UPPER_E UPPER_A LOWER_N UPPER_PLURAL+
@@ -448,7 +450,7 @@ BOOLEAN_KW
 
 // CHANGE: Added True and False keywords
 // Jejemonized keyword "true".
-// Examples: tRueHz, TrU3hs
+// Examples: tRueHz, TrU3hS
 TRUE_KW
     : LOWER_T UPPER_R LOWER_U LOWER_E UPPER_H LOWER_PLURAL+
     | UPPER_T LOWER_R UPPER_U UPPER_E LOWER_H UPPER_PLURAL+
@@ -497,6 +499,24 @@ EXPORT_KW
     | UPPER_E LOWER_H LOWER_X UPPER_P LOWER_H LOWER_O LOWER_R LOWER_T UPPER_PLURAL+
     ;
 
+// Examples: nH0ts, NhoTZ
+NOT_KW
+    : LOWER_N UPPER_H UPPER_O LOWER_T LOWER_PLURAL+
+    | UPPER_N LOWER_H LOWER_O UPPER_T UPPER_PLURAL+
+    ;
+
+// Examples: aHNdz, AhnDS
+AND_KW
+    : LOWER_A UPPER_H UPPER_N LOWER_D LOWER_PLURAL+
+    | UPPER_A LOWER_H LOWER_N UPPER_D UPPER_PLURAL+
+    ;
+
+// Examples: oHRz, 0hrS
+OR_KW
+    : LOWER_O UPPER_H UPPER_R LOWER_PLURAL+
+    | UPPER_O LOWER_H LOWER_R UPPER_PLURAL+
+    ;
+
 // Identifiers must contain at least one jejemon marker.
 // This prevents plain variable names like "count" and accepts names like "c0unt".
 IDENTIFIER
@@ -527,6 +547,7 @@ ADD: '+';
 SUB: '-';
 MUL: '*';
 DIV: '/';
+MOD: '%';
 
 // Comparison operators.
 EQ: '==';

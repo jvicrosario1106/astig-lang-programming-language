@@ -32,7 +32,7 @@ export function parseDeclaredType(typeName: string): AstigType {
     return AstigType.Char;
   }
 
-  if (fuzzy.includes('bool')) {
+  if (fuzzy.includes('bol') && fuzzy.includes('n')) {
     return AstigType.Boolean;
   }
 

@@ -556,6 +556,14 @@ function buildExpression(ctx: ExpressionContext): ExpressionNode {
     };
   }
 
+  if (expressions.length === 1 && ctx.NOT_KW() && !memberField){
+    return {
+      type: ExpressionNodeType.UnaryExpression,
+      operator: 'NOT',
+      argument: buildExpression(expressions[0]),
+    };
+  }
+
   const operatorToken =
     (ctx as ExpressionContext & { _op?: { text: string } })._op ??
     ctx.ADD() ??
@@ -567,9 +575,19 @@ function buildExpression(ctx: ExpressionContext): ExpressionNode {
     ctx.LT() ??
     ctx.GT() ??
     ctx.LTE() ??
-    ctx.GTE();
+    ctx.GTE() ??
+    ctx.AND_KW() ??
+    ctx.OR_KW();
 
   if (expressions.length === 2 && operatorToken) {
+    if (ctx.OR_KW()){
+      operatorToken.text = 'OR';
+    }
+    else if (ctx.AND_KW()){
+      operatorToken.text = 'AND';
+    }
+    // TODO: REMOVE THIS
+    //console.log(`DEBUG: building expression op: "${ctx.OR_KW()}"`);
     return {
       type: ExpressionNodeType.BinaryExpression,
       operator: operatorToken.text as BinaryExpressionOperator,
@@ -580,7 +598,7 @@ function buildExpression(ctx: ExpressionContext): ExpressionNode {
 
   if (memberField && expressions.length === 0) {
     return {
-      type: ExpressionNodeType.Identifier,
+      type: ExpressionNodeType.Identifier,  
       name: memberField.text,
     };
   }
@@ -597,12 +615,15 @@ type BinaryExpressionOperator =
   | '-'
   | '*'
   | '/'
+  | '%'
   | '=='
   | '!='
   | '<'
   | '>'
   | '<='
-  | '>=';
+  | '>='
+  | 'AND'
+  | 'OR';
 
 function isMemberAccessExpression(ctx: ExpressionContext): boolean {
   return (
@@ -610,12 +631,15 @@ function isMemberAccessExpression(ctx: ExpressionContext): boolean {
     !ctx.SUB() &&
     !ctx.MUL() &&
     !ctx.DIV() &&
+    !ctx.MOD() &&
     !ctx.EQ() &&
     !ctx.NEQ() &&
     !ctx.LT() &&
     !ctx.GT() &&
     !ctx.LTE() &&
     !ctx.GTE() &&
+    !ctx.AND_KW() &&
+    !ctx.OR_KW() &&
     ctx.text.includes('.')
   );
 }

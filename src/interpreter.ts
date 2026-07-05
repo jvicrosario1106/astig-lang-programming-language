@@ -449,6 +449,8 @@ function evaluateExpression(
           return (left as number) * (right as number);
         case '/':
           return (left as number) / (right as number);
+        case '%':
+          return (left as number) % (right as number);
         case '==':
           return left === right;
         case '!=':
@@ -461,6 +463,10 @@ function evaluateExpression(
           return (left as number) <= (right as number);
         case '>=':
           return (left as number) >= (right as number);
+        case 'AND':
+          return (left as boolean) && (right as boolean);
+        case 'OR':
+          return (left as boolean) || (right as boolean);
         default:
           throw new Error('Unsupported binary operator');
       }
@@ -468,10 +474,15 @@ function evaluateExpression(
 
     case ExpressionNodeType.UnaryExpression: {
       const value = evaluateExpression(expression.argument, context);
-      if (typeof value !== 'number') {
-        throw new Error('Unary minus can only be applied to numbers');
+      if (typeof value === 'number') {
+        return -value;
+        
       }
-      return -value;
+      else if (typeof value === 'boolean'){
+        return !value;
+      }
+      
+      throw new Error('Invalid unary expression.');
     }
 
     case ExpressionNodeType.FunctionCall:

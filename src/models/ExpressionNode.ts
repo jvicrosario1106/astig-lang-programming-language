@@ -73,14 +73,14 @@ export type FunctionCallNode = {
 
 export type BinaryExpressionNode = {
   type: ExpressionNodeType.BinaryExpression;
-  operator: '+' | '-' | '*' | '/' | '==' | '!=' | '<' | '>' | '<=' | '>=';
+  operator: '+' | '-' | '*' | '/' | '%' | '==' | '!=' | '<' | '>' | '<=' | '>=' | 'AND' | 'OR';
   left: ExpressionNode;
   right: ExpressionNode;
 };
 
 export type UnaryExpressionNode = {
   type: ExpressionNodeType.UnaryExpression;
-  operator: '-';
+  operator: '-' | 'NOT';
   argument: ExpressionNode;
 };
 

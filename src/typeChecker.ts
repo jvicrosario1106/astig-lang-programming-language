@@ -587,8 +587,24 @@ function checkExpression(
 
     case ExpressionNodeType.UnaryExpression: {
       const argumentType = checkExpression(expression.argument, environment, recordRegistry, program);
-      assertNumericOperation(argumentType, argumentType, expression.operator);
-      return argumentType;
+      const operator = expression.operator;
+
+      switch(operator){
+        case '-':
+          assertNumericOperation(argumentType, argumentType, expression.operator);
+          return argumentType;
+
+        case 'NOT':
+          if (argumentType.kind !== 'primitive' || argumentType.type !== AstigType.Boolean) {
+            throw new Error(`Type error: Logical NOT operator requires a Boolean, got ${argumentType.kind}`);
+          }
+        
+          // Return a proper boolean type object
+          return { kind: 'primitive', type: AstigType.Boolean };
+        
+        default:
+          throw new TypeCheckError(`Unsupported binary operator "${operator}"`);
+      }      
     }
 
     case ExpressionNodeType.BinaryExpression: {
@@ -596,6 +612,8 @@ function checkExpression(
       const rightType = checkExpression(expression.right, environment, recordRegistry, program);
       const operator = expression.operator;
 
+      // TODO: REMOVE THIS
+      //console.log(`DEBUG: expression evaluating op: "${expression.operator}"`);
       switch (operator) {
         case '+': {
           const leftIsString =
@@ -614,6 +632,7 @@ function checkExpression(
         case '-':
         case '*':
         case '/':
+        case '%':
           assertNumericOperation(leftType, rightType, operator);
           return combineNumericTypes(leftType, rightType);
 
@@ -628,6 +647,16 @@ function checkExpression(
         case '>=':
           assertNumericOperation(leftType, rightType, operator);
           return { kind: 'primitive', type: AstigType.Boolean };
+
+        case 'AND':
+        case 'OR': {
+          //assertComparableTypes(leftType, rightType, operator);
+          if (leftType.kind !== 'primitive' || leftType.type !== AstigType.Boolean ||
+            rightType.kind !== 'primitive' || rightType.type !== AstigType.Boolean) {
+            throw new TypeCheckError(`Type error: Logical operator "${operator}" requires both operands to be Booleans.`);
+          }
+          return { kind: 'primitive', type: AstigType.Boolean };
+        }
 
         default:
           throw new TypeCheckError(`Unsupported binary operator "${operator}"`);
