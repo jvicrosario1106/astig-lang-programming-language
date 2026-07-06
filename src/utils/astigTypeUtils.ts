@@ -32,7 +32,7 @@ export function parseDeclaredType(typeName: string): AstigType {
     return AstigType.Char;
   }
 
-  if (fuzzy.includes('bool')) {
+  if (fuzzy.includes('bol') && fuzzy.includes('n')) {
     return AstigType.Boolean;
   }
 
@@ -84,6 +84,10 @@ export function isAssignableType(
     return expected.name === actual.name;
   }
 
+  if (expected.kind === 'array' && actual.kind === 'array') {
+    return expected.elementType === actual.elementType; //
+  }
+
   if (expected.kind === 'primitive' && actual.kind === 'primitive') {
     if (expected.type === actual.type) {
       return true;
@@ -110,6 +114,9 @@ export function formatAstigType(type: AstigType): string {
 export function formatResolvedType(resolvedType: ResolvedType): string {
   if (resolvedType.kind === 'record') {
     return resolvedType.name;
+  }
+  if (resolvedType.kind === 'array'){
+    return `${formatAstigType(resolvedType.elementType)}[]`;
   }
 
   return formatAstigType(resolvedType.type);

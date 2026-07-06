@@ -93,6 +93,19 @@ export class RuntimeEnvironment {
     return functionNode;
   }
 
+  lookup(name: string): RuntimeValue{
+    // Check if variable is extisting in the current scope block
+    if(this.bindings.has(name)){
+      return this.bindings.get(name)!.value;
+    }
+
+    if (this.parent){
+      return this.parent.lookup(name);
+    }
+
+    throw new Error(`Undefined variable "${name}"`);
+  }
+
   private findEnvironmentWithBinding(
     name: string,
   ): RuntimeEnvironment | undefined {

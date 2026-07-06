@@ -25,7 +25,9 @@ export function parseProgramSource(source: string): {
   syntaxErrors: number;
 } {
   const lexer = new AstigLangLexer(CharStreams.fromString(source));
-  const parser = new AstigLangParser(new CommonTokenStream(lexer));
+  const tokenStream = new CommonTokenStream(lexer);
+  const parser = new AstigLangParser(tokenStream);
+
   const tree = parser.program();
 
   return {

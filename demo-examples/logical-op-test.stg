@@ -1,0 +1,19 @@
+fHUncTH!0Ns mHA1Ns() {
+    // TrU3hS, FhaLSeS, nH0ts
+    LheTZ aHs:bH0oHLeaNs = FhaLSeS;
+    LheTZ bHs:bH0oHLeaNs = nH0ts (1 % 2 == 0);
+    LheTZ cHs:bH0oHLeaNs = TrU3hS;
+    
+    // aHNdz -- 0hrS
+    !HFs((aHs 0hrS bHs) aHNdz nH0ts cHs) {
+        pHR!HNTs("x leads");
+    } eHLSEs {
+        pHR!HNTs("y leads");
+    }
+
+    //pHR!HNTs(aHs);
+    pHR!HNTs(aHs);
+    pHR!HNTs(bHs);
+    pHR!HNTs(cHs);
+    pHR!HNTs(6 % 2);
+}

@@ -5,7 +5,7 @@ export type RecordRuntimeValue = {
 };
 
 /** Any value the interpreter can store in a variable or return from a function. */
-export type RuntimeValue = number | string | boolean | null | RecordRuntimeValue;
+export type RuntimeValue = number | string | boolean | null | RecordRuntimeValue | RuntimeValue[];
 
 /** Type guard for record values (used by member access and field assignment). */
 export function isRecordRuntimeValue(value: RuntimeValue): value is RecordRuntimeValue {

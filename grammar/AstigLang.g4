@@ -19,7 +19,9 @@ includeStatement
 statement
     : variableDeclaration ';'?
     | assignment ';'?
+    | arrayIndexAssignment ';'?
     | printStatement ';'?
+    | scanStatement ';'?
     | ifStatement
     | whileStatement
     | doWhileStatement
@@ -65,6 +67,14 @@ recordLiteralField
     : assignment
     ;
 
+arrayLiteral
+    : '[' arrayElementList? ']' 
+    ;
+
+arrayElementList
+    : expression (',' expression)*
+    ;
+
 // Groups all declaration keywords that can introduce a variable.
 declarationKeyword
     : CONST_KW
@@ -77,6 +87,10 @@ declarationKeyword
 // Example: pr1nt(x4)
 printStatement
     : PRINT_KW '(' expression ')'
+    ;
+
+scanStatement
+    : SCAN_KW '(' (STRING ',')? IDENTIFIER ')' ';'?
     ;
 
 // If statement with optional else if and else blocks.
@@ -133,6 +147,14 @@ forUpdate
 assignment
     : IDENTIFIER assignmentOperator expression
     | recordFieldAccess assignmentOperator expression
+    ;
+
+arrayIndexAccess
+    : IDENTIFIER '[' expression ']'
+    ;
+
+arrayIndexAssignment
+    : IDENTIFIER '[' expression ']' assignmentOperator expression ';'
     ;
 
 // For 'player.score' or 'player.weapon.damage'
@@ -208,7 +230,7 @@ functionCall
 // TypeScript-inspired type annotation.
 // Used by variables and parameters.
 typeAnnotation
-    : ':' dataType
+    : ':' dataType ('[' ']')?
     ;
 
 // Function return type annotation.
@@ -238,13 +260,17 @@ returnDataType
 // Precedence (highest to lowest): unary minus, MUL/DIV, ADD/SUB, comparison
 // CHANGE: Added float, recordLiteral and expression.identifier (to chain record member calling)
 expression
-    : expression op=(MUL|DIV) expression
+    : NOT_KW expression
+    | SUB expression
+    | expression op=(MUL|DIV|MOD) expression
     | expression op=(ADD|SUB) expression
     | expression op=(EQ|NEQ|LT|GT|LTE|GTE) expression
-    | SUB expression
+    | expression op=(AND_KW|OR_KW) expression
     | '(' expression ')'
     | functionCall
     | recordLiteral
+    | arrayLiteral
+    | arrayIndexAccess
     | expression '.' IDENTIFIER
     | NUMBER
     | FLOAT
@@ -288,10 +314,17 @@ LET_KW
 
 // Jejemonized "print".
 // H may be inserted after the first letter.
-// Examples: pr1nt, pHr!nt, printZ
+// Examples: pHR!HNTs
 PRINT_KW
     : LOWER_P UPPER_H UPPER_R LOWER_I UPPER_H UPPER_N UPPER_T LOWER_PLURAL+
     | UPPER_P LOWER_H LOWER_R UPPER_I LOWER_H LOWER_N LOWER_T UPPER_PLURAL+
+    ;
+
+// Jejemonized "scan".
+// Examples: scH4nz, SCh@NS
+SCAN_KW
+    : LOWER_S LOWER_C UPPER_H UPPER_A LOWER_N LOWER_PLURAL+
+    | UPPER_S UPPER_C LOWER_H LOWER_A UPPER_N UPPER_PLURAL+
     ;
 
 // Jejemonized "if".
@@ -409,7 +442,7 @@ CHAR_KW
     ;
 
 // Jejemonized primitive type "boolean".
-// Examples: b0olean, bH0olean, boole@n, booleanZ
+// Examples: bH0oHLeaNs, Bho0hl3AnZ
 BOOLEAN_KW
     : LOWER_B UPPER_H UPPER_O LOWER_O UPPER_H UPPER_L LOWER_E LOWER_A UPPER_N LOWER_PLURAL+
     | UPPER_B LOWER_H LOWER_O UPPER_O LOWER_H LOWER_L UPPER_E UPPER_A LOWER_N UPPER_PLURAL+
@@ -417,7 +450,7 @@ BOOLEAN_KW
 
 // CHANGE: Added True and False keywords
 // Jejemonized keyword "true".
-// Examples: tRueHz, TrU3hs
+// Examples: tRueHz, TrU3hS
 TRUE_KW
     : LOWER_T UPPER_R LOWER_U LOWER_E UPPER_H LOWER_PLURAL+
     | UPPER_T LOWER_R UPPER_U UPPER_E LOWER_H UPPER_PLURAL+
@@ -466,10 +499,28 @@ EXPORT_KW
     | UPPER_E LOWER_H LOWER_X UPPER_P LOWER_H LOWER_O LOWER_R LOWER_T UPPER_PLURAL+
     ;
 
+// Examples: nH0ts, NhoTZ
+NOT_KW
+    : LOWER_N UPPER_H UPPER_O LOWER_T LOWER_PLURAL+
+    | UPPER_N LOWER_H LOWER_O UPPER_T UPPER_PLURAL+
+    ;
+
+// Examples: aHNdz, AhnDS
+AND_KW
+    : LOWER_A UPPER_H UPPER_N LOWER_D LOWER_PLURAL+
+    | UPPER_A LOWER_H LOWER_N UPPER_D UPPER_PLURAL+
+    ;
+
+// Examples: oHRz, 0hrS
+OR_KW
+    : LOWER_O UPPER_H UPPER_R LOWER_PLURAL+
+    | UPPER_O LOWER_H LOWER_R UPPER_PLURAL+
+    ;
+
 // Identifiers must contain at least one jejemon marker.
 // This prevents plain variable names like "count" and accepts names like "c0unt".
 IDENTIFIER
-    : WORD SUBSCRIPT*
+    : WORD
     ;
 
 // CHANGE: Added filename and file extension
@@ -481,8 +532,12 @@ FILE_EXTENSION
     : 'stg'
     ;
 
-SUBSCRIPT
-    : '[' NUMBER ']'
+LINE_COMMENT
+    : '//' ~[\r\n]* -> channel(HIDDEN)
+    ;
+
+BLOCK_COMMENT
+    : '/*' .*? '*/' -> channel(HIDDEN)
     ;
 
 // Arithmetic operators.
@@ -492,6 +547,7 @@ ADD: '+';
 SUB: '-';
 MUL: '*';
 DIV: '/';
+MOD: '%';
 
 // Comparison operators.
 EQ: '==';

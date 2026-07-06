@@ -32,6 +32,8 @@ import {
   getRecordFieldValue,
   setRecordFieldValue,
 } from './utils/recordRuntimeUtils';
+import { expressionTypeToResolved } from './utils/astigTypeUtils';
+import fs from 'fs';
 
 type ExecutionContext = {
   environment: RuntimeEnvironment;
@@ -91,10 +93,57 @@ function executeStatement(statement: StatementNode, context: ExecutionContext): 
     case StatementNodeType.Assignment:
       executeAssignment(statement, context);
       return;
+    
+    case StatementNodeType.ArrayIndexAssignment:
+      const targetArray = environment.lookup(statement.arrayName);
+
+      if (!Array.isArray(targetArray)){
+        throw new Error(`Runtime Error: Variable "${statement.arrayName}" is not an array.`);
+      }
+      const incomingValue = evaluateExpression(statement.value, context);
+      const evaluatedIndex: RuntimeValue = evaluateExpression(statement.index, context);
+      
+      if (typeof evaluatedIndex !== "number"){
+        throw new Error(`Runtime Error: Array index must evaluate to a number. Got value "${evaluatedIndex}" of type: ${typeof evaluatedIndex}`);
+      }
+
+      const index = Math.floor(evaluatedIndex);
+
+      if (index < 0 || index >= targetArray.length){
+        throw new Error(
+          `Runtime Error: Index ${index} is out of bounds for array "${statement.arrayName}" of length ${targetArray.length}.`
+        );
+      }
+
+      targetArray[index] = incomingValue;
+      return;
 
     case StatementNodeType.PrintStatement:
       output.push(String(evaluateExpression(statement.value, context)));
       return;
+    
+    case StatementNodeType.ScanStatement:{
+      if (statement.promptMessage){
+        process.stdout.write(statement.promptMessage);
+      }
+
+      const buffer = Buffer.alloc(1024);
+      const bytesRead = fs.readSync(0, buffer, 0, buffer.length, null);
+      const userInput = buffer.toString('utf8', 0, bytesRead).trim();
+
+      const currentVarValue = environment.get(statement.variableName);
+
+      let finalValue: any = userInput;
+      if (typeof currentVarValue === 'number') {
+        const parsed = parseInt(userInput, 10);
+        finalValue = isNaN(parsed) ? 0 : parsed; // Coerce text to a clean mathematical integer
+      } else if (typeof currentVarValue === 'boolean') {
+        finalValue = userInput.toLowerCase() === 'true';
+      }
+
+      environment.assign(statement.variableName, finalValue);
+      return;
+    }
 
     case StatementNodeType.IfStatement: {
       const condition = evaluateExpression(statement.condition, context);
@@ -353,6 +402,34 @@ function evaluateExpression(
       return getRecordFieldValue(objectValue, [expression.field]);
     }
 
+    case ExpressionNodeType.ArrayLiteral:
+      return expression.elements.map(elementNode => (evaluateExpression(elementNode, context)));
+
+    case ExpressionNodeType.ArrayIndexAccess:
+      const targetArray = context.environment.lookup(expression.arrayName);
+      if (!Array.isArray(targetArray)){
+        throw new Error(`Runtime Error: "${expression.arrayName}" is not an array.`);
+      }
+
+      let evaluatedIndex: RuntimeValue = evaluateExpression(expression.index, context);
+
+      if (typeof evaluatedIndex === 'string' && !isNaN(Number(evaluatedIndex))) {
+        evaluatedIndex = parseInt(evaluatedIndex, 10);
+      }
+      
+      if (typeof evaluatedIndex !== "number"){
+        throw new Error(`Runtime Error: Array index must evaluate to a number. Got value "${evaluatedIndex}" of type: ${typeof evaluatedIndex}`);
+      }
+
+      const index = Math.floor(evaluatedIndex);
+
+      if (index < 0 || index >= targetArray.length){
+        throw new Error(
+          `Runtime Error: Index ${index} is out of bounds for array "${expression.arrayName}" of length ${targetArray.length}.`
+        );
+      }
+      return targetArray[index];
+
     case ExpressionNodeType.RecordLiteral:
       return evaluateRecordLiteral(expression, context);
 
@@ -372,6 +449,8 @@ function evaluateExpression(
           return (left as number) * (right as number);
         case '/':
           return (left as number) / (right as number);
+        case '%':
+          return (left as number) % (right as number);
         case '==':
           return left === right;
         case '!=':
@@ -384,6 +463,10 @@ function evaluateExpression(
           return (left as number) <= (right as number);
         case '>=':
           return (left as number) >= (right as number);
+        case 'AND':
+          return (left as boolean) && (right as boolean);
+        case 'OR':
+          return (left as boolean) || (right as boolean);
         default:
           throw new Error('Unsupported binary operator');
       }
@@ -391,10 +474,15 @@ function evaluateExpression(
 
     case ExpressionNodeType.UnaryExpression: {
       const value = evaluateExpression(expression.argument, context);
-      if (typeof value !== 'number') {
-        throw new Error('Unary minus can only be applied to numbers');
+      if (typeof value === 'number') {
+        return -value;
+        
       }
-      return -value;
+      else if (typeof value === 'boolean'){
+        return !value;
+      }
+      
+      throw new Error('Invalid unary expression.');
     }
 
     case ExpressionNodeType.FunctionCall:

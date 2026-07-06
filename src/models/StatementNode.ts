@@ -6,6 +6,7 @@ export enum StatementNodeType {
   VariableDeclaration = 'VariableDeclaration',
   Assignment = 'Assignment',
   PrintStatement = 'PrintStatement',
+  ScanStatement = 'ScanStatement',
   IfStatement = 'IfStatement',
   WhileStatement = 'WhileStatement',
   DoWhileStatement = 'DoWhileStatement',
@@ -16,6 +17,7 @@ export enum StatementNodeType {
   FunctionDeclaration = 'FunctionDeclaration',
   ReturnStatement = 'ReturnStatement',
   BlockStatement = 'BlockStatement',
+  ArrayIndexAssignment = 'ArrayIndexAssignment',
 }
 
 /** Union of all statement node types produced by `buildStatement` in `ast.ts`. */
@@ -23,6 +25,7 @@ export type StatementNode =
   | VariableDeclarationNode
   | AssignmentNode
   | PrintStatementNode
+  | ScanStatementNode
   | IfStatementNode
   | WhileStatementNode
   | DoWhileStatementNode
@@ -32,7 +35,8 @@ export type StatementNode =
   | ContinueStatementNode
   | FunctionDeclarationNode
   | ReturnStatementNode
-  | BlockStatementNode;
+  | BlockStatementNode
+  | ArrayIndexAssignmentNode;
 
 export type VariableDeclarationNode = {
   type: StatementNodeType.VariableDeclaration;
@@ -40,6 +44,7 @@ export type VariableDeclarationNode = {
   name: string;
   declaredType?: string;
   value: ExpressionNode;
+  isArray: boolean;
 };
 
 export type DeclarationKind = 'const' | 'let' | 'var';
@@ -127,4 +132,18 @@ export type ReturnStatementNode = {
 export type BlockStatementNode = {
   type: StatementNodeType.BlockStatement;
   body: StatementNode[];
+};
+
+export interface ArrayIndexAssignmentNode {
+  type: StatementNodeType.ArrayIndexAssignment; // Make sure to add this enum/string value if needed
+  arrayName: string;                            // e.g., "aHs"
+  index: ExpressionNode;                                // e.g., 0
+  operator: string;                             // Tracks the assignment operator like '='
+  value: ExpressionNode;                        // The new value expression being assigned
+};
+
+export interface ScanStatementNode{
+  type: StatementNodeType.ScanStatement;
+  promptMessage?: string;
+  variableName: string;
 };

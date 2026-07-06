@@ -1,0 +1,36 @@
+rH3cH0rHDz vHArH1aHBlH3s{
+  vHArH1aHBlH3s_aHs:IhnTs,
+  vHArH1aHBlH3s_bHs:sTRh1Ngz
+}
+
+fHUncTH!0Ns mHA1Ns() {
+/*
+ignore this
+and this
+and this
+*/
+
+LheTZ mHYs_vHArH1aHBlH3s:vHArH1aHBlH3s = nHEWs vHArH1aHBlH3s {
+  vHArH1aHBlH3s_aHs = 1,
+  vHArH1aHBlH3s_bHs = "Sample"
+  //vHArH1aHBlH3s_bHs = "Sample"
+}
+
+// HELLOOOO
+
+mHYs_vHArH1aHBlH3s.vHArH1aHBlH3s_aHs = 2;
+
+LheTZ aHs:IhnTs[] = [1, 2, 3, 4, 5, 6];
+/* this too */
+aHs[2] = 6;
+LheTZ bHs:IhnTs = 3;
+bHs = 2;
+
+scH4nz("Text here: ", bHs);
+
+pHR!HNTs(bHs);
+pHR!HNTs(aHs[0]);
+pHR!HNTs(mHYs_vHArH1aHBlH3s.vHArH1aHBlH3s_aHs);
+pHR!HNTs(aHs[mHYs_vHArH1aHBlH3s.vHArH1aHBlH3s_aHs]);
+pHR!HNTs(aHs[0+aHs[0]+bHs]);
+}

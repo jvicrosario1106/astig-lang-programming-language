@@ -6,4 +6,6 @@
  */
 export type ResolvedType =
   | { kind: 'primitive'; type: import('./AstigType').AstigType }
-  | { kind: 'record'; name: string };
+  | { kind: 'record'; name: string }
+  | { kind: 'array'; elementType: import('./AstigType').AstigType };
+

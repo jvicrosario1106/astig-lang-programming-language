@@ -3,6 +3,8 @@ export enum ExpressionNodeType {
   NumberLiteral = 'NumberLiteral',
   FloatLiteral = 'FloatLiteral',
   StringLiteral = 'StringLiteral',
+  ArrayLiteral = 'ArrayLiteral',
+  ArrayIndexAccess = 'ArrayIndexAccess',
   BooleanLiteral = 'BooleanLiteral',
   Identifier = 'Identifier',
   FunctionCall = 'FunctionCall',
@@ -17,6 +19,8 @@ export type ExpressionNode =
   | NumberLiteralNode
   | FloatLiteralNode
   | StringLiteralNode
+  | ArrayLiteralNode
+  | ArrayIndexAccessNode
   | BooleanLiteralNode
   | IdentifierNode
   | FunctionCallNode
@@ -40,6 +44,17 @@ export type StringLiteralNode = {
   value: string;
 };
 
+export type ArrayLiteralNode = {
+    type: ExpressionNodeType.ArrayLiteral;
+    elements: ExpressionNode[];
+};
+
+export type ArrayIndexAccessNode = {
+  type: ExpressionNodeType.ArrayIndexAccess
+  arrayName: string;
+  index: ExpressionNode;
+};
+
 export type BooleanLiteralNode = {
   type: ExpressionNodeType.BooleanLiteral;
   value: boolean;
@@ -58,14 +73,14 @@ export type FunctionCallNode = {
 
 export type BinaryExpressionNode = {
   type: ExpressionNodeType.BinaryExpression;
-  operator: '+' | '-' | '*' | '/' | '==' | '!=' | '<' | '>' | '<=' | '>=';
+  operator: '+' | '-' | '*' | '/' | '%' | '==' | '!=' | '<' | '>' | '<=' | '>=' | 'AND' | 'OR';
   left: ExpressionNode;
   right: ExpressionNode;
 };
 
 export type UnaryExpressionNode = {
   type: ExpressionNodeType.UnaryExpression;
-  operator: '-';
+  operator: '-' | 'NOT';
   argument: ExpressionNode;
 };
 

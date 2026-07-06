@@ -11,4 +11,5 @@ export enum AstigType {
   Void = 'void',
   Any = 'any',
   Record = 'record',
+  Array = 'array',
 }
