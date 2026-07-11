@@ -1,6 +1,16 @@
 import { ExpressionNode } from './ExpressionNode';
 import { ParameterNode } from './ParameterNode';
 
+export type SourceLocation = {
+  line: number;
+  column: number;
+};
+
+/** Optional source span attached during AST construction from ANTLR tokens. */
+export type AstNodeLocation = {
+  location?: SourceLocation;
+};
+
 /** Discriminator for every statement node shape in the AST. */
 export enum StatementNodeType {
   VariableDeclaration = 'VariableDeclaration',
@@ -38,7 +48,7 @@ export type StatementNode =
   | BlockStatementNode
   | ArrayIndexAssignmentNode;
 
-export type VariableDeclarationNode = {
+export type VariableDeclarationNode = AstNodeLocation & {
   type: StatementNodeType.VariableDeclaration;
   declarationKind: DeclarationKind;
   name: string;
@@ -49,12 +59,12 @@ export type VariableDeclarationNode = {
 
 export type DeclarationKind = 'const' | 'let' | 'var';
 
-export type PrintStatementNode = {
+export type PrintStatementNode = AstNodeLocation & {
   type: StatementNodeType.PrintStatement;
   value: ExpressionNode;
 };
 
-export type IfStatementNode = {
+export type IfStatementNode = AstNodeLocation & {
   type: StatementNodeType.IfStatement;
   condition: ExpressionNode;
   thenBranch: StatementNode[];
@@ -65,19 +75,19 @@ export type IfStatementNode = {
   elseBranch?: StatementNode[];
 };
 
-export type WhileStatementNode = {
+export type WhileStatementNode = AstNodeLocation & {
   type: StatementNodeType.WhileStatement;
   condition: ExpressionNode;
   body: StatementNode[];
 };
 
-export type DoWhileStatementNode = {
+export type DoWhileStatementNode = AstNodeLocation & {
   type: StatementNodeType.DoWhileStatement;
   body: StatementNode[];
   condition: ExpressionNode;
 };
 
-export type ForStatementNode = {
+export type ForStatementNode = AstNodeLocation & {
   type: StatementNodeType.ForStatement;
   init?: VariableDeclarationNode | AssignmentNode;
   condition?: ExpressionNode;
@@ -85,18 +95,18 @@ export type ForStatementNode = {
   body: StatementNode[];
 };
 
-export type ForeachStatementNode = {
+export type ForeachStatementNode = AstNodeLocation & {
   type: StatementNodeType.ForeachStatement;
   variable: string;
   iterable: ExpressionNode;
   body: StatementNode[];
 };
 
-export type BreakStatementNode = {
+export type BreakStatementNode = AstNodeLocation & {
   type: StatementNodeType.BreakStatement;
 };
 
-export type ContinueStatementNode = {
+export type ContinueStatementNode = AstNodeLocation & {
   type: StatementNodeType.ContinueStatement;
 };
 
@@ -105,7 +115,7 @@ export type AssignmentTarget =
   | { kind: 'variable'; name: string }
   | { kind: 'recordField'; rootVariable: string; fieldPath: string[] };
 
-export type AssignmentNode = {
+export type AssignmentNode = AstNodeLocation & {
   type: StatementNodeType.Assignment;
   target: AssignmentTarget;
   operator: '=' | '+=' | '-=' | '-+';
@@ -113,7 +123,7 @@ export type AssignmentNode = {
 };
 
 /** User-defined function; `isExported` controls cross-file visibility via `include`. */
-export type FunctionDeclarationNode = {
+export type FunctionDeclarationNode = AstNodeLocation & {
   type: StatementNodeType.FunctionDeclaration;
   name: string;
   isExported: boolean;
@@ -124,17 +134,17 @@ export type FunctionDeclarationNode = {
   body: StatementNode[];
 };
 
-export type ReturnStatementNode = {
+export type ReturnStatementNode = AstNodeLocation & {
   type: StatementNodeType.ReturnStatement;
   value?: ExpressionNode;
 };
 
-export type BlockStatementNode = {
+export type BlockStatementNode = AstNodeLocation & {
   type: StatementNodeType.BlockStatement;
   body: StatementNode[];
 };
 
-export interface ArrayIndexAssignmentNode {
+export interface ArrayIndexAssignmentNode extends AstNodeLocation {
   type: StatementNodeType.ArrayIndexAssignment; // Make sure to add this enum/string value if needed
   arrayName: string;                            // e.g., "aHs"
   index: ExpressionNode;                                // e.g., 0
@@ -142,7 +152,7 @@ export interface ArrayIndexAssignmentNode {
   value: ExpressionNode;                        // The new value expression being assigned
 };
 
-export interface ScanStatementNode{
+export interface ScanStatementNode extends AstNodeLocation {
   type: StatementNodeType.ScanStatement;
   promptMessage?: string;
   variableName: string;

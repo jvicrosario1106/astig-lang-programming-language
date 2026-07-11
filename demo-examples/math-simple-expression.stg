@@ -1,0 +1,48 @@
+// =============================================================================
+// AstigLang — Simple Math Expressions (presentation demo)
+// =============================================================================
+//
+// Criteria: simple_math
+//   x = id + num
+//   x = id * id
+//   x = num / num
+//
+// Pipeline demos:
+// Pipeline demo: npm run pipeline  →  text-files/
+//
+// Full run:
+//   npm start -- demo-examples/math-simple-expression.stg
+// =============================================================================
+
+fHUncTH!0Ns mHA1Ns() {
+  vH4rs xH1s:iHNtSZ = 4;
+  vH4rs yH2s:iHNtSZ = 3;
+
+  // id + num
+  vH4rs aH1s:iHNtSZ = xH1s + 10;
+
+  // id * id
+  vH4rs bH2s:iHNtSZ = xH1s * yH2s;
+
+  // num / num
+  vH4rs cH3s:iHNtSZ = 20 / 4;
+
+  // modulus
+  vH4rs dH4s:iHNtSZ = 17 % 5;
+
+  // string concat (expression +)
+  vH4rs mH3s:sTRh1Ngz = "score: " + aH1s;
+
+  pHR!HNTs(aH1s);
+  pHR!HNTs(bH2s);
+  pHR!HNTs(cH3s);
+  pHR!HNTs(dH4s);
+  pHR!HNTs(mH3s);
+}
+
+// Expected output:
+//   14
+//   12
+//   5
+//   2
+//   score: 14

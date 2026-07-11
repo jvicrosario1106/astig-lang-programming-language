@@ -1,0 +1,19 @@
+// Criteria: Math Expr — Complex (nested ops, function calls, arrays, records)
+// Run: npm start -- test-case/math-complex.stg
+
+rH3cH0rHDz vH3cHs {
+  yH2s:iHNtSZ
+}
+
+fHUncTH!0Ns dH1bHs(xH1s:iHNtSZ):iHNtSZ {
+  rH3tHUrns xH1s * 2;
+}
+
+fHUncTH!0Ns mHA1Ns() {
+  lH3tsz aHs:iHNtSZ[] = [2, 4, 6];
+  vH4rs rH1s:vH3cHs = nHEWs vH3cHs { yH2s = 3 };
+  vH4rs fH1s:iHNtSZ = rH1s.yH2s;
+
+  vH4rs rH3s:iHNtSZ = dH1bHs(5) + 34 / 2 * aHs[1] + fH1s;
+  pHR!HNTs(rH3s);
+}

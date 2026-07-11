@@ -9,9 +9,11 @@
  */
 import { BreakException } from './classes/BreakException';
 import { ContinueException } from './classes/ContinueException';
-import { ReturnException } from './classes/ReturnException';
 import { buildRecordRegistry, RecordRegistry } from './classes/RecordRegistry';
+import { ReturnException } from './classes/ReturnException';
 import { RuntimeEnvironment } from './classes/RuntimeEnvironment';
+import { RuntimeError } from './classes/RuntimeError';
+import { AstigType } from './models/AstigType';
 import { ExpressionNode, ExpressionNodeType } from './models/ExpressionNode';
 import { ProgramNode } from './models/ProgramNode';
 import {
@@ -23,17 +25,18 @@ import {
   AssignmentNode,
   AssignmentTarget,
   FunctionDeclarationNode,
+  SourceLocation,
   StatementNode,
   StatementNodeType,
 } from './models/StatementNode';
+import { resolveParameterType, resolveVariableDeclarationType } from './utils/astigTypeUtils';
 import { isTruthy } from './utils/isTruthy';
 import { withModuleFunctions } from './utils/moduleScope';
 import {
   getRecordFieldValue,
   setRecordFieldValue,
 } from './utils/recordRuntimeUtils';
-import { expressionTypeToResolved } from './utils/astigTypeUtils';
-import fs from 'fs';
+import { coerceScanInput, readScanLine } from './utils/scanUtils';
 
 type ExecutionContext = {
   environment: RuntimeEnvironment;
@@ -41,6 +44,10 @@ type ExecutionContext = {
   output: string[];
   moduleFunctions: Record<string, FunctionDeclarationNode[]>;
 };
+
+function raiseRuntimeError(message: string, location?: SourceLocation): never {
+  throw new RuntimeError(message, location);
+}
 
 /** Runs the full program and returns all printed lines in order. */
 export function runProgram(program: ProgramNode): string[] {
@@ -80,68 +87,86 @@ export function runProgram(program: ProgramNode): string[] {
 /** Dispatches a single statement to the appropriate runtime handler. */
 function executeStatement(statement: StatementNode, context: ExecutionContext): void {
   const { environment, output } = context;
+  const location = statement.location;
+
+  // Helper function to safely execute an action and throw appropriate errors.
+  const runSafely = (action: () => void): void => {
+    try {
+      action();
+    } catch (error) {
+      if (error instanceof RuntimeError || error instanceof BreakException || error instanceof ContinueException || error instanceof ReturnException) {
+        throw error;
+      }
+      if (error instanceof Error) {
+        throw new RuntimeError(error.message, location);
+      }
+      throw error;
+    }
+  };
 
   switch (statement.type) {
     case StatementNodeType.VariableDeclaration:
-      environment.declare(
-        statement.declarationKind,
-        statement.name,
-        evaluateExpression(statement.value, context),
+      runSafely(() =>
+        environment.declare(
+          statement.declarationKind,
+          statement.name,
+          evaluateExpression(statement.value, context),
+          resolveVariableDeclarationType(statement, context.recordRegistry),
+        ),
       );
       return;
 
     case StatementNodeType.Assignment:
-      executeAssignment(statement, context);
+      executeAssignment(statement, context, location);
       return;
     
-    case StatementNodeType.ArrayIndexAssignment:
+    case StatementNodeType.ArrayIndexAssignment: {
       const targetArray = environment.lookup(statement.arrayName);
 
-      if (!Array.isArray(targetArray)){
-        throw new Error(`Runtime Error: Variable "${statement.arrayName}" is not an array.`);
+      if (!Array.isArray(targetArray)) {
+        raiseRuntimeError(
+          `Runtime Error: Variable "${statement.arrayName}" is not an array.`,
+          location,
+        );
       }
       const incomingValue = evaluateExpression(statement.value, context);
       const evaluatedIndex: RuntimeValue = evaluateExpression(statement.index, context);
       
-      if (typeof evaluatedIndex !== "number"){
-        throw new Error(`Runtime Error: Array index must evaluate to a number. Got value "${evaluatedIndex}" of type: ${typeof evaluatedIndex}`);
+      if (typeof evaluatedIndex !== 'number') {
+        raiseRuntimeError(
+          `Runtime Error: Array index must evaluate to a number. Got value "${evaluatedIndex}" of type: ${typeof evaluatedIndex}`,
+          location,
+        );
       }
 
       const index = Math.floor(evaluatedIndex);
 
-      if (index < 0 || index >= targetArray.length){
-        throw new Error(
-          `Runtime Error: Index ${index} is out of bounds for array "${statement.arrayName}" of length ${targetArray.length}.`
+      if (index < 0 || index >= targetArray.length) {
+        raiseRuntimeError(
+          `Runtime Error: Index ${index} is out of bounds for array "${statement.arrayName}" of length ${targetArray.length}.`,
+          location,
         );
       }
 
       targetArray[index] = incomingValue;
       return;
+    }
 
     case StatementNodeType.PrintStatement:
       output.push(String(evaluateExpression(statement.value, context)));
       return;
     
-    case StatementNodeType.ScanStatement:{
-      if (statement.promptMessage){
+    case StatementNodeType.ScanStatement: {
+      if (statement.promptMessage) {
         process.stdout.write(statement.promptMessage);
       }
 
-      const buffer = Buffer.alloc(1024);
-      const bytesRead = fs.readSync(0, buffer, 0, buffer.length, null);
-      const userInput = buffer.toString('utf8', 0, bytesRead).trim();
-
-      const currentVarValue = environment.get(statement.variableName);
-
-      let finalValue: any = userInput;
-      if (typeof currentVarValue === 'number') {
-        const parsed = parseInt(userInput, 10);
-        finalValue = isNaN(parsed) ? 0 : parsed; // Coerce text to a clean mathematical integer
-      } else if (typeof currentVarValue === 'boolean') {
-        finalValue = userInput.toLowerCase() === 'true';
-      }
-
-      environment.assign(statement.variableName, finalValue);
+      const userInput = readScanLine();
+      runSafely(() => {
+        const targetType = environment.getResolvedType(statement.variableName);
+        const finalValue = coerceScanInput(userInput, targetType);
+        environment.assign(statement.variableName, finalValue);
+      });
       return;
     }
 
@@ -231,7 +256,7 @@ function executeStatement(statement: StatementNode, context: ExecutionContext): 
         }
 
         if (statement.update) {
-          executeAssignment(statement.update, loopContext);
+          executeAssignment(statement.update, loopContext, statement.update.location);
         }
       }
       return;
@@ -246,7 +271,12 @@ function executeStatement(statement: StatementNode, context: ExecutionContext): 
           ...context,
           environment: foreachEnvironment,
         };
-        foreachEnvironment.declare('let', statement.variable, '');
+        foreachEnvironment.declare(
+          'let',
+          statement.variable,
+          '',
+          { kind: 'primitive', type: AstigType.Char },
+        );
 
         for (const char of iterable) {
           foreachEnvironment.assign(statement.variable, char);
@@ -263,8 +293,9 @@ function executeStatement(statement: StatementNode, context: ExecutionContext): 
           }
         }
       } else {
-        throw new Error(
+        raiseRuntimeError(
           `Foreach only supports string iteration, got ${typeof iterable}`,
+          location,
         );
       }
       return;
@@ -292,16 +323,27 @@ function executeStatement(statement: StatementNode, context: ExecutionContext): 
 }
 
 /** Evaluates the right-hand side and writes to a variable or record field target. */
-function executeAssignment(assignment: AssignmentNode, context: ExecutionContext): void {
+function executeAssignment(
+  assignment: AssignmentNode,
+  context: ExecutionContext,
+  location?: SourceLocation,
+): void {
   const rightValue = evaluateExpression(assignment.value, context);
   const resultValue = evaluateAssignmentValue(assignment, rightValue, context);
 
   if (assignment.target.kind === 'variable') {
-    context.environment.assign(assignment.target.name, resultValue);
+    try {
+      context.environment.assign(assignment.target.name, resultValue);
+    } catch (error) {
+      if (error instanceof Error) {
+        throw new RuntimeError(error.message, location);
+      }
+      throw error;
+    }
     return;
   }
 
-  assignRecordField(assignment.target, resultValue, context);
+  assignRecordField(assignment.target, resultValue, context, location);
 }
 
 /** Writes through a dotted record field path on a variable in the environment. */
@@ -309,11 +351,12 @@ function assignRecordField(
   target: Extract<AssignmentTarget, { kind: 'recordField' }>,
   value: RuntimeValue,
   context: ExecutionContext,
+  location?: SourceLocation,
 ): void {
   const recordValue = context.environment.get(target.rootVariable);
 
   if (!isRecordRuntimeValue(recordValue)) {
-    throw new Error(`Variable "${target.rootVariable}" is not a record`);
+    throw new RuntimeError(`Variable "${target.rootVariable}" is not a record`, location);
   }
 
   setRecordFieldValue(recordValue, target.fieldPath, value);
@@ -562,7 +605,12 @@ function executeUserFunction(
   };
 
   functionNode.parameters.forEach((parameter, index) => {
-    functionEnvironment.declare('let', parameter.name, argValues[index]);
+    functionEnvironment.declare(
+      'let',
+      parameter.name,
+      argValues[index],
+      resolveParameterType(parameter, context.recordRegistry),
+    );
   });
 
   try {

@@ -1,0 +1,69 @@
+AstigLang Interpreter Demo
+=======================
+
+Source → Lexer → Parser → AST → Type check → Interpreter
+
+Sample files:
+  1. demo-examples/math-simple-expression.stg — Simple math: id + num, id * id, num / num, modulus, string concat
+  2. demo-examples/math-complex-expression.stg — Complex math: nested ops, function calls, arrays, records, comparisons
+  3. demo-examples/logical-op-test.stg — Boolean expressions: jejemon AND, OR, NOT
+  4. demo-examples/array-test.stg — Array literals, index read/write, scan
+
+========================================================================
+Example 1: demo-examples/math-simple-expression.stg
+Simple math: id + num, id * id, num / num, modulus, string concat
+========================================================================
+
+PHASE 4 — TYPE CHECK + INTERPRETER
+----------------------------------
+Type check: passed
+
+Print output:
+  [1] 14
+  [2] 12
+  [3] 5
+  [4] 2
+  [5] score: 14
+
+========================================================================
+Example 2: demo-examples/math-complex-expression.stg
+Complex math: nested ops, function calls, arrays, records, comparisons
+========================================================================
+
+PHASE 4 — TYPE CHECK + INTERPRETER
+----------------------------------
+Type check: passed
+
+Print output:
+  [1] 94
+  [2] 8
+
+========================================================================
+Example 3: demo-examples/logical-op-test.stg
+Boolean expressions: jejemon AND, OR, NOT
+========================================================================
+
+PHASE 4 — TYPE CHECK + INTERPRETER
+----------------------------------
+Type check: passed
+
+Print output:
+  [1] y leads
+  [2] false
+  [3] true
+  [4] true
+  [5] 0
+
+========================================================================
+Example 4: demo-examples/array-test.stg
+Array literals, index read/write, scan
+========================================================================
+
+PHASE 4 — TYPE CHECK + INTERPRETER
+----------------------------------
+Skipped: this demo uses scH4nz (stdin). Run manually:
+  npm start -- demo-examples/array-test.stg
+
+Example input: 42
+
+Written to text-files/interpreter-output.txt

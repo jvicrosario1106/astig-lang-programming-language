@@ -1,0 +1,21 @@
+// =============================================================================
+// SYNTAX ERROR DEMO — human-readable parse diagnostics
+// =============================================================================
+//
+// Run:
+//   npm start -- demo-examples/syntax-error.stg
+//
+// Expected: Syntax error with jejemon keyword hints, source line, and caret (^).
+// Parse tree is NOT built; program does not run.
+//
+// See also:
+//   demo-examples/human-readable-errors.stg  (type error recovery)
+//   demo-examples/lexical-error.stg          (lexer demo via npm run scan)
+// =============================================================================
+
+// INVALID: print at top level (only include / record / function / main allowed).
+pHR!HNTs("this is outside main");
+
+fHUncTH!0Ns mHA1Ns() {
+  pHR!HNTs("never reached — parse failed before this runs");
+}

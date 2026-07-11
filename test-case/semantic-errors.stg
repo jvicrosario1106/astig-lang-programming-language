@@ -1,0 +1,49 @@
+// =============================================================================
+// Criteria.md — Semantic Errors (lines 76–86)
+// =============================================================================
+//
+// Run:
+//   npm start -- test-case/semantic-errors.stg
+//
+// Type-check recovery reports ALL semantic errors in one run:
+//
+//   1. Undeclared variable
+//   2. Type mismatch
+//   3. Multiply-defined variables
+//   4. Constant reassignment (scan + assign)
+//   5. Cardinality / ordinality (function parameters)
+//
+// See also: demo-examples/human-readable-errors.stg
+// =============================================================================
+
+fHUncTH!0Ns pH4rHs(nH1s:iHNtSZ, sH2s:sTRh1Ngz):iHNtSZ {
+  rH3tHUrns nH1s;
+}
+
+fHUncTH!0Ns mHA1Ns() {
+  // 1 — Undeclared variable
+  pHR!HNTs(uH4nHs);
+
+  // 2 — Type mismatch
+  vH4rs yH2s:iHNtSZ = 0;
+  yH2s = "not an int";
+
+  // 3 — Multiply-defined variables (same block)
+  vH4rs zH3s:iHNtSZ = 1;
+  vH4rs zH3s:iHNtSZ = 2;
+
+  // 4 — Constant reassignment
+  c0hNsTz xH1s:iHNtSZ = 10;
+  scH4nz("Enter: ", xH1s);
+  xH1s = 99;
+
+  // 5a — Cardinality (wrong argument count)
+  pHR!HNTs(pH4rHs(1, "a", 3));
+
+  // 5b — Ordinality (wrong types at parameter positions)
+  pHR!HNTs(pH4rHs("a", 1));
+}
+
+// ---------------------------------------------------------------------------
+// Expected: 7 type errors with line/column carets + recovery footer note.
+// ---------------------------------------------------------------------------

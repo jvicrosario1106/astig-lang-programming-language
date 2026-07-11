@@ -1,0 +1,364 @@
+AstigLang Scanner / Lexer Demo
+=======================
+
+Source → Lexer → Parser → AST → Type check → Interpreter
+
+Sample files:
+  1. demo-examples/math-simple-expression.stg — Simple math: id + num, id * id, num / num, modulus, string concat
+  2. demo-examples/math-complex-expression.stg — Complex math: nested ops, function calls, arrays, records, comparisons
+  3. demo-examples/logical-op-test.stg — Boolean expressions: jejemon AND, OR, NOT
+  4. demo-examples/array-test.stg — Array literals, index read/write, scan
+
+========================================================================
+Example 1: demo-examples/math-simple-expression.stg
+Simple math: id + num, id * id, num / num, modulus, string concat
+========================================================================
+
+PHASE 1 — LEXER (Scanner)
+-------------------------
+Source preview:
+  // =============================================================================
+  // AstigLang — Simple Math Expressions (presentation demo)
+  // =============================================================================
+  //
+  // Criteria: simple_math
+  //   x = id + num
+  //   x = id * id
+  //   x = num / num
+  //
+  // Pipeline demos:
+  ...
+
+Tokens (116 total, showing first 60):
+  LINE_COMMENT "// ============================================..." @ line 1 col 1
+  LINE_COMMENT "// AstigLang — Simple Math Expressions (present..." @ line 2 col 1
+  LINE_COMMENT "// ============================================..." @ line 3 col 1
+  LINE_COMMENT "//" @ line 4 col 1
+  LINE_COMMENT "// Criteria: simple_math" @ line 5 col 1
+  LINE_COMMENT "//   x = id + num" @ line 6 col 1
+  LINE_COMMENT "//   x = id * id" @ line 7 col 1
+  LINE_COMMENT "//   x = num / num" @ line 8 col 1
+  LINE_COMMENT "//" @ line 9 col 1
+  LINE_COMMENT "// Pipeline demos:" @ line 10 col 1
+  LINE_COMMENT "// Pipeline demo: npm run pipeline  →  text-files/" @ line 11 col 1
+  LINE_COMMENT "//" @ line 12 col 1
+  LINE_COMMENT "// Full run:" @ line 13 col 1
+  LINE_COMMENT "//   npm start -- demo-examples/math-simple-exp..." @ line 14 col 1
+  LINE_COMMENT "// ============================================..." @ line 15 col 1
+  FUNCTION_KW "fHUncTH!0Ns" @ line 17 col 1
+  MAIN_KW "mHA1Ns" @ line 17 col 13
+  '(' "(" @ line 17 col 19
+  ')' ")" @ line 17 col 20
+  '{' "{" @ line 17 col 22
+  VAR_KW "vH4rs" @ line 18 col 3
+  IDENTIFIER "xH1s" @ line 18 col 9
+  ':' ":" @ line 18 col 13
+  INT_KW "iHNtSZ" @ line 18 col 14
+  '=' "=" @ line 18 col 21
+  NUMBER "4" @ line 18 col 23
+  ';' ";" @ line 18 col 24
+  VAR_KW "vH4rs" @ line 19 col 3
+  IDENTIFIER "yH2s" @ line 19 col 9
+  ':' ":" @ line 19 col 13
+  INT_KW "iHNtSZ" @ line 19 col 14
+  '=' "=" @ line 19 col 21
+  NUMBER "3" @ line 19 col 23
+  ';' ";" @ line 19 col 24
+  LINE_COMMENT "// id + num" @ line 21 col 3
+  VAR_KW "vH4rs" @ line 22 col 3
+  IDENTIFIER "aH1s" @ line 22 col 9
+  ':' ":" @ line 22 col 13
+  INT_KW "iHNtSZ" @ line 22 col 14
+  '=' "=" @ line 22 col 21
+  IDENTIFIER "xH1s" @ line 22 col 23
+  '+' "+" @ line 22 col 28
+  NUMBER "10" @ line 22 col 30
+  ';' ";" @ line 22 col 32
+  LINE_COMMENT "// id * id" @ line 24 col 3
+  VAR_KW "vH4rs" @ line 25 col 3
+  IDENTIFIER "bH2s" @ line 25 col 9
+  ':' ":" @ line 25 col 13
+  INT_KW "iHNtSZ" @ line 25 col 14
+  '=' "=" @ line 25 col 21
+  IDENTIFIER "xH1s" @ line 25 col 23
+  '*' "*" @ line 25 col 28
+  IDENTIFIER "yH2s" @ line 25 col 30
+  ';' ";" @ line 25 col 34
+  LINE_COMMENT "// num / num" @ line 27 col 3
+  VAR_KW "vH4rs" @ line 28 col 3
+  IDENTIFIER "cH3s" @ line 28 col 9
+  ':' ":" @ line 28 col 13
+  INT_KW "iHNtSZ" @ line 28 col 14
+  '=' "=" @ line 28 col 21
+  ... 56 more tokens
+
+Lexical errors: none
+
+Scan time: 12.687 ms
+Characters: 1029
+
+========================================================================
+Example 2: demo-examples/math-complex-expression.stg
+Complex math: nested ops, function calls, arrays, records, comparisons
+========================================================================
+
+PHASE 1 — LEXER (Scanner)
+-------------------------
+Source preview:
+  // =============================================================================
+  // AstigLang — Complex Math Expressions (presentation demo)
+  // =============================================================================
+  //
+  // Criteria: complex_math — nested simple_math, function calls, arrays, records
+  //   x = func1(23,4,5) + 34/234*z32  (adapted to supported constructs)
+  //
+  // Pipeline demo: npm run pipeline → text-files/
+  // Full run: npm start -- demo-examples/math-complex-expression.stg
+  // =============================================================================
+  ...
+
+Tokens (186 total, showing first 60):
+  LINE_COMMENT "// ============================================..." @ line 1 col 1
+  LINE_COMMENT "// AstigLang — Complex Math Expressions (presen..." @ line 2 col 1
+  LINE_COMMENT "// ============================================..." @ line 3 col 1
+  LINE_COMMENT "//" @ line 4 col 1
+  LINE_COMMENT "// Criteria: complex_math — nested simple_math,..." @ line 5 col 1
+  LINE_COMMENT "//   x = func1(23,4,5) + 34/234*z32  (adapted t..." @ line 6 col 1
+  LINE_COMMENT "//" @ line 7 col 1
+  LINE_COMMENT "// Pipeline demo: npm run pipeline → text-files/" @ line 8 col 1
+  LINE_COMMENT "// Full run: npm start -- demo-examples/math-co..." @ line 9 col 1
+  LINE_COMMENT "// ============================================..." @ line 10 col 1
+  RECORD_KW "rH3cH0rHDz" @ line 12 col 1
+  IDENTIFIER "vH3cHs" @ line 12 col 12
+  '{' "{" @ line 12 col 19
+  IDENTIFIER "yH2s" @ line 13 col 3
+  ':' ":" @ line 13 col 7
+  INT_KW "iHNtSZ" @ line 13 col 8
+  '}' "}" @ line 14 col 1
+  FUNCTION_KW "fHUncTH!0Ns" @ line 16 col 1
+  IDENTIFIER "dH1bHs" @ line 16 col 13
+  '(' "(" @ line 16 col 19
+  IDENTIFIER "xH1s" @ line 16 col 20
+  ':' ":" @ line 16 col 24
+  INT_KW "iHNtSZ" @ line 16 col 25
+  ')' ")" @ line 16 col 31
+  ':' ":" @ line 16 col 32
+  INT_KW "iHNtSZ" @ line 16 col 33
+  '{' "{" @ line 16 col 40
+  RETURN_KW "rH3tHUrns" @ line 17 col 3
+  IDENTIFIER "xH1s" @ line 17 col 13
+  '*' "*" @ line 17 col 18
+  NUMBER "2" @ line 17 col 20
+  ';' ";" @ line 17 col 21
+  '}' "}" @ line 18 col 1
+  FUNCTION_KW "fHUncTH!0Ns" @ line 20 col 1
+  IDENTIFIER "aHDs" @ line 20 col 13
+  '(' "(" @ line 20 col 17
+  IDENTIFIER "xH1s" @ line 20 col 18
+  ':' ":" @ line 20 col 22
+  INT_KW "iHNtSZ" @ line 20 col 23
+  ',' "," @ line 20 col 29
+  IDENTIFIER "yH2s" @ line 20 col 31
+  ':' ":" @ line 20 col 35
+  INT_KW "iHNtSZ" @ line 20 col 36
+  ')' ")" @ line 20 col 42
+  ':' ":" @ line 20 col 43
+  INT_KW "iHNtSZ" @ line 20 col 44
+  '{' "{" @ line 20 col 51
+  RETURN_KW "rH3tHUrns" @ line 21 col 3
+  IDENTIFIER "xH1s" @ line 21 col 13
+  '+' "+" @ line 21 col 18
+  IDENTIFIER "yH2s" @ line 21 col 20
+  ';' ";" @ line 21 col 24
+  '}' "}" @ line 22 col 1
+  FUNCTION_KW "fHUncTH!0Ns" @ line 24 col 1
+  MAIN_KW "mHA1Ns" @ line 24 col 13
+  '(' "(" @ line 24 col 19
+  ')' ")" @ line 24 col 20
+  '{' "{" @ line 24 col 22
+  LET_KW "lH3tsz" @ line 25 col 3
+  IDENTIFIER "aHs" @ line 25 col 10
+  ... 126 more tokens
+
+Lexical errors: none
+
+Scan time: 3.959 ms
+Characters: 1382
+
+========================================================================
+Example 3: demo-examples/logical-op-test.stg
+Boolean expressions: jejemon AND, OR, NOT
+========================================================================
+
+PHASE 1 — LEXER (Scanner)
+-------------------------
+Source preview:
+  fHUncTH!0Ns mHA1Ns() {
+      // TrU3hS, FhaLSeS, nH0ts
+      LheTZ aHs:bH0oHLeaNs = FhaLSeS;
+      LheTZ bHs:bH0oHLeaNs = nH0ts (1 % 2 == 0);
+      LheTZ cHs:bH0oHLeaNs = TrU3hS;
+      
+      // aHNdz -- 0hrS
+      !HFs((aHs 0hrS bHs) aHNdz nH0ts cHs) {
+          pHR!HNTs("x leads");
+      } eHLSEs {
+  ...
+
+Tokens (85 total, showing first 60):
+  FUNCTION_KW "fHUncTH!0Ns" @ line 1 col 1
+  MAIN_KW "mHA1Ns" @ line 1 col 13
+  '(' "(" @ line 1 col 19
+  ')' ")" @ line 1 col 20
+  '{' "{" @ line 1 col 22
+  LINE_COMMENT "// TrU3hS, FhaLSeS, nH0ts" @ line 2 col 5
+  LET_KW "LheTZ" @ line 3 col 5
+  IDENTIFIER "aHs" @ line 3 col 11
+  ':' ":" @ line 3 col 14
+  BOOLEAN_KW "bH0oHLeaNs" @ line 3 col 15
+  '=' "=" @ line 3 col 26
+  FALSE_KW "FhaLSeS" @ line 3 col 28
+  ';' ";" @ line 3 col 35
+  LET_KW "LheTZ" @ line 4 col 5
+  IDENTIFIER "bHs" @ line 4 col 11
+  ':' ":" @ line 4 col 14
+  BOOLEAN_KW "bH0oHLeaNs" @ line 4 col 15
+  '=' "=" @ line 4 col 26
+  NOT_KW "nH0ts" @ line 4 col 28
+  '(' "(" @ line 4 col 34
+  NUMBER "1" @ line 4 col 35
+  '%' "%" @ line 4 col 37
+  NUMBER "2" @ line 4 col 39
+  '==' "==" @ line 4 col 41
+  NUMBER "0" @ line 4 col 44
+  ')' ")" @ line 4 col 45
+  ';' ";" @ line 4 col 46
+  LET_KW "LheTZ" @ line 5 col 5
+  IDENTIFIER "cHs" @ line 5 col 11
+  ':' ":" @ line 5 col 14
+  BOOLEAN_KW "bH0oHLeaNs" @ line 5 col 15
+  '=' "=" @ line 5 col 26
+  TRUE_KW "TrU3hS" @ line 5 col 28
+  ';' ";" @ line 5 col 34
+  LINE_COMMENT "// aHNdz -- 0hrS" @ line 7 col 5
+  IF_KW "!HFs" @ line 8 col 5
+  '(' "(" @ line 8 col 9
+  '(' "(" @ line 8 col 10
+  IDENTIFIER "aHs" @ line 8 col 11
+  OR_KW "0hrS" @ line 8 col 15
+  IDENTIFIER "bHs" @ line 8 col 20
+  ')' ")" @ line 8 col 23
+  AND_KW "aHNdz" @ line 8 col 25
+  NOT_KW "nH0ts" @ line 8 col 31
+  IDENTIFIER "cHs" @ line 8 col 37
+  ')' ")" @ line 8 col 40
+  '{' "{" @ line 8 col 42
+  PRINT_KW "pHR!HNTs" @ line 9 col 9
+  '(' "(" @ line 9 col 17
+  STRING ""x leads"" @ line 9 col 18
+  ')' ")" @ line 9 col 27
+  ';' ";" @ line 9 col 28
+  '}' "}" @ line 10 col 5
+  ELSE_KW "eHLSEs" @ line 10 col 7
+  '{' "{" @ line 10 col 14
+  PRINT_KW "pHR!HNTs" @ line 11 col 9
+  '(' "(" @ line 11 col 17
+  STRING ""y leads"" @ line 11 col 18
+  ')' ")" @ line 11 col 27
+  ';' ";" @ line 11 col 28
+  ... 25 more tokens
+
+Lexical errors: none
+
+Scan time: 1.880 ms
+Characters: 420
+
+========================================================================
+Example 4: demo-examples/array-test.stg
+Array literals, index read/write, scan
+========================================================================
+
+PHASE 1 — LEXER (Scanner)
+-------------------------
+Source preview:
+  rH3cH0rHDz vHArH1aHBlH3s{
+    vHArH1aHBlH3s_aHs:IhnTs,
+    vHArH1aHBlH3s_bHs:sTRh1Ngz
+  }
+  
+  fHUncTH!0Ns mHA1Ns() {
+  /*
+  ignore this
+  and this
+  and this
+  ...
+
+Tokens (134 total, showing first 60):
+  RECORD_KW "rH3cH0rHDz" @ line 1 col 1
+  IDENTIFIER "vHArH1aHBlH3s" @ line 1 col 12
+  '{' "{" @ line 1 col 25
+  IDENTIFIER "vHArH1aHBlH3s_aHs" @ line 2 col 3
+  ':' ":" @ line 2 col 20
+  INT_KW "IhnTs" @ line 2 col 21
+  ',' "," @ line 2 col 26
+  IDENTIFIER "vHArH1aHBlH3s_bHs" @ line 3 col 3
+  ':' ":" @ line 3 col 20
+  STRING_KW "sTRh1Ngz" @ line 3 col 21
+  '}' "}" @ line 4 col 1
+  FUNCTION_KW "fHUncTH!0Ns" @ line 6 col 1
+  MAIN_KW "mHA1Ns" @ line 6 col 13
+  '(' "(" @ line 6 col 19
+  ')' ")" @ line 6 col 20
+  '{' "{" @ line 6 col 22
+  BLOCK_COMMENT "/*\nignore this\nand this\nand this\n*/" @ line 7 col 1
+  LET_KW "LheTZ" @ line 13 col 1
+  IDENTIFIER "mHYs_vHArH1aHBlH3s" @ line 13 col 7
+  ':' ":" @ line 13 col 25
+  IDENTIFIER "vHArH1aHBlH3s" @ line 13 col 26
+  '=' "=" @ line 13 col 40
+  NEW_KW "nHEWs" @ line 13 col 42
+  IDENTIFIER "vHArH1aHBlH3s" @ line 13 col 48
+  '{' "{" @ line 13 col 62
+  IDENTIFIER "vHArH1aHBlH3s_aHs" @ line 14 col 3
+  '=' "=" @ line 14 col 21
+  NUMBER "1" @ line 14 col 23
+  ',' "," @ line 14 col 24
+  IDENTIFIER "vHArH1aHBlH3s_bHs" @ line 15 col 3
+  '=' "=" @ line 15 col 21
+  STRING ""Sample"" @ line 15 col 23
+  LINE_COMMENT "//vHArH1aHBlH3s_bHs = "Sample"" @ line 16 col 3
+  '}' "}" @ line 17 col 1
+  LINE_COMMENT "// HELLOOOO" @ line 19 col 1
+  IDENTIFIER "mHYs_vHArH1aHBlH3s" @ line 21 col 1
+  '.' "." @ line 21 col 19
+  IDENTIFIER "vHArH1aHBlH3s_aHs" @ line 21 col 20
+  '=' "=" @ line 21 col 38
+  NUMBER "2" @ line 21 col 40
+  ';' ";" @ line 21 col 41
+  LET_KW "LheTZ" @ line 23 col 1
+  IDENTIFIER "aHs" @ line 23 col 7
+  ':' ":" @ line 23 col 10
+  INT_KW "IhnTs" @ line 23 col 11
+  '[' "[" @ line 23 col 16
+  ']' "]" @ line 23 col 17
+  '=' "=" @ line 23 col 19
+  '[' "[" @ line 23 col 21
+  NUMBER "1" @ line 23 col 22
+  ',' "," @ line 23 col 23
+  NUMBER "2" @ line 23 col 25
+  ',' "," @ line 23 col 26
+  NUMBER "3" @ line 23 col 28
+  ',' "," @ line 23 col 29
+  NUMBER "4" @ line 23 col 31
+  ',' "," @ line 23 col 32
+  NUMBER "5" @ line 23 col 34
+  ',' "," @ line 23 col 35
+  NUMBER "6" @ line 23 col 37
+  ... 74 more tokens
+
+Lexical errors: none
+
+Scan time: 1.385 ms
+Characters: 647
+
+Written to text-files/scanner-output.txt

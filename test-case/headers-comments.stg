@@ -1,0 +1,12 @@
+// =============================================================================
+// Criteria: Headers / Comments (not required)
+// Run: npm start -- test-case/headers-comments.stg
+// =============================================================================
+
+/* Block comment at file level — documents this rubric demo. */
+
+fHUncTH!0Ns mHA1Ns() {
+  // Line comment inside main
+  vH4rs nH4mH3s:sTRh1Ngz = "comments ok";
+  pHR!HNTs(nH4mH3s);
+}

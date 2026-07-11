@@ -9,41 +9,34 @@
  * a library file are visible outside that file. Same-file private helpers remain
  * callable within their module.
  */
-import { CharStreams, CommonTokenStream } from 'antlr4ts';
 import { existsSync, readFileSync } from 'fs';
 import { dirname, resolve } from 'path';
-import { AstigLangLexer } from '../generated/grammar/AstigLangLexer';
-import { AstigLangParser, ProgramContext } from '../generated/grammar/AstigLangParser';
 import { buildAst } from './ast';
+import { ParseError } from './classes/ParseError';
 import { ProgramNode } from './models/ProgramNode';
 import { FunctionDeclarationNode } from './models/StatementNode';
 import { publicModuleFunctions, tagModuleFunctions } from './utils/moduleScope';
+import {
+  parseSourceWithDiagnostics,
+  ParseResult,
+} from './utils/parseWithDiagnostics';
 
-/** Lexes and parses source text, returning the parse tree and syntax error count. */
-export function parseProgramSource(source: string): {
-  tree: ProgramContext;
-  syntaxErrors: number;
-} {
-  const lexer = new AstigLangLexer(CharStreams.fromString(source));
-  const tokenStream = new CommonTokenStream(lexer);
-  const parser = new AstigLangParser(tokenStream);
-
-  const tree = parser.program();
-
-  return {
-    tree,
-    syntaxErrors: parser.numberOfSyntaxErrors,
-  };
+/** Lexes and parses source text, returning the parse tree, diagnostics, and error count. */
+export function parseProgramSource(
+  source: string,
+  filename = '<input>',
+): ParseResult {
+  return parseSourceWithDiagnostics(source, filename);
 }
 
-function parseAndBuildAst(source: string): ProgramNode {
-  const { tree, syntaxErrors } = parseProgramSource(source);
+function parseAndBuildAst(source: string, filename: string): ProgramNode {
+  const result = parseProgramSource(source, filename);
 
-  if (syntaxErrors > 0) {
-    throw new Error('Failed to parse program source');
+  if (result.syntaxErrors > 0) {
+    throw new ParseError(`Failed to parse ${filename}`, result.diagnostics, source);
   }
 
-  return buildAst(tree);
+  return buildAst(result.tree);
 }
 
 /** Prepares a single-file program (no includes) for type check and interpretation. */
@@ -73,7 +66,7 @@ export function loadProgram(
   entryFilename: string,
 ): ProgramNode {
   const visitedFiles = new Set<string>();
-  const program = parseAndBuildAst(source);
+  const program = parseAndBuildAst(source, entryFilename);
   
   const mergedProgram = mergeIncludedModules(
     program,
@@ -102,7 +95,7 @@ function loadModule(
   entryModule: string,
   visitedFiles: Set<string>,
 ): ProgramNode {
-  const program = parseAndBuildAst(source);
+  const program = parseAndBuildAst(source, filename);
 
   if (program.mainFunction) {
     throw new Error(

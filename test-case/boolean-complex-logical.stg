@@ -1,0 +1,17 @@
+// Criteria: Boolean Expr — Complex / Simple Logical (AND, OR, NOT)
+// Run: npm start -- test-case/boolean-complex-logical.stg
+
+fHUncTH!0Ns mHA1Ns() {
+  vH4rs aH1s:iHNtSZ = 4;
+  vH4rs bH2s:iHNtSZ = 7;
+
+  !HFs((aH1s + 1 > 4) aHNdz (bH2s < 10)) {
+    pHR!HNTs("and-true");
+  }
+
+  !HFs((aH1s > 10) 0hrS nH0ts (bH2s < 3)) {
+    pHR!HNTs("or-not-true");
+  } eHLSEs {
+    pHR!HNTs("or-not-false");
+  }
+}

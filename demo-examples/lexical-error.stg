@@ -1,0 +1,21 @@
+// =============================================================================
+// LEXICAL ERROR DEMO — lexer skips invalid input and continues
+// =============================================================================
+//
+// Run:
+//   npm run scan
+//
+// This file is included in the scanner demo. Look for:
+//   - "Unrecognized input" messages (human-readable)
+//   - "Recovery: Skipped invalid input ... and continued scanning"
+//
+// See also:
+//   npm start -- demo-examples/syntax-error.stg
+//   npm start -- demo-examples/human-readable-errors.stg
+// =============================================================================
+
+fHUncTH!0Ns mHA1Ns() {
+  vH4rs xH1s:iHNtSZ = 1;
+  @invalid token here
+  pHR!HNTs(xH1s);
+}

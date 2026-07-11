@@ -1,0 +1,40 @@
+// =============================================================================
+// AstigLang — human-readable errors & error recovery demos
+// =============================================================================
+//
+// Run each command below to see a different error phase:
+//
+//   SYNTAX (parse) — friendly message + source caret:
+//     npm start -- demo-examples/syntax-error.stg
+//
+//   LEXICAL (scanner) — skips bad tokens, continues scanning:
+//     npm run scan
+//     (includes demo-examples/lexical-error.stg)
+//
+//   TYPE (recovery) — reports ALL type errors in one run (this file):
+//     npm start -- demo-examples/human-readable-errors.stg
+//
+//   SINGLE type error:
+//     npm start -- demo-examples/scan-type-error.stg
+//
+// =============================================================================
+
+fHUncTH!0Ns aHDs(xH1s:iHNtSZ):iHNtSZ {
+  rH3tHUrns xH1s;
+}
+
+fHUncTH!0Ns mHA1Ns() {
+  // Error 1: cannot scan into a const variable
+  c0hNsTz xH1s:iHNtSZ = 1;
+  scH4nz("Enter number: ", xH1s);
+
+  // Error 2: string assigned to int variable
+  vH4rs yH2s:iHNtSZ = 0;
+  yH2s = "not an int";
+
+  // Error 3: undefined variable
+  pHR!HNTs(zH3s);
+
+  // Error 4: wrong number of function arguments
+  pHR!HNTs(aHDs(10, 20, 30));
+}

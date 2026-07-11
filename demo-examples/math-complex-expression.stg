@@ -1,0 +1,48 @@
+// =============================================================================
+// AstigLang — Complex Math Expressions (presentation demo)
+// =============================================================================
+//
+// Criteria: complex_math — nested simple_math, function calls, arrays, records
+//   x = func1(23,4,5) + 34/234*z32  (adapted to supported constructs)
+//
+// Pipeline demo: npm run pipeline → text-files/
+// Full run: npm start -- demo-examples/math-complex-expression.stg
+// =============================================================================
+
+rH3cH0rHDz vH3cHs {
+  yH2s:iHNtSZ
+}
+
+fHUncTH!0Ns dH1bHs(xH1s:iHNtSZ):iHNtSZ {
+  rH3tHUrns xH1s * 2;
+}
+
+fHUncTH!0Ns aHDs(xH1s:iHNtSZ, yH2s:iHNtSZ):iHNtSZ {
+  rH3tHUrns xH1s + yH2s;
+}
+
+fHUncTH!0Ns mHA1Ns() {
+  lH3tsz aHs:iHNtSZ[] = [2, 4, 6];
+  vH4rs rH1s:vH3cHs = nHEWs vH3cHs { yH2s = 3 };
+  vH4rs fH1s:iHNtSZ = rH1s.yH2s;
+  vH4rs xH1s:iHNtSZ = 4;
+
+  // nested: (id + num) * num
+  vH4rs pH1s:iHNtSZ = (xH1s + 1) * 2;
+
+  // function call + division + array index + record field
+  vH4rs rH3s:iHNtSZ = dH1bHs(5) + 34 / 2 * aHs[1] + fH1s + aHDs(pH1s, 3);
+
+  // comparison inside expression used by if (complex boolean + math)
+  !HFs(rH3s > 20) {
+    pHR!HNTs(rH3s);
+  } eHLSEs {
+    pHR!HNTs(rH3s + 1);
+  }
+
+  pHR!HNTs(aHs[0] + aHs[2]);
+}
+
+// Expected output (rH3s = 10 + 17*4 + 3 + 13 = 94):
+//   94
+//   8

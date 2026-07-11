@@ -1,3 +1,4 @@
+import { TypeCheckError } from './TypeCheckError';
 import { ResolvedType } from '../models/ResolvedType';
 import { DeclarationKind, FunctionDeclarationNode } from '../models/StatementNode';
 
@@ -34,7 +35,7 @@ export class TypeEnvironment {
     resolvedType: ResolvedType,
   ): void {
     if (this.bindings.has(name)) {
-      throw new Error(`Cannot redeclare variable "${name}"`);
+      throw new TypeCheckError(`Cannot redeclare variable "${name}"`);
     }
 
     this.bindings.set(name, { kind, resolvedType });
@@ -58,9 +59,18 @@ export class TypeEnvironment {
     return binding.resolvedType;
   }
 
+  getVariableKind(name: string): DeclarationKind {
+    const binding = this.findBinding(name);
+    if (!binding) {
+      throw new Error(`Undefined variable "${name}"`);
+    }
+
+    return binding.kind;
+  }
+
   declareFunction(functionNode: FunctionDeclarationNode): void {
     if (this.functions.has(functionNode.name)) {
-      throw new Error(`Cannot redeclare function "${functionNode.name}"`);
+      throw new TypeCheckError(`Cannot redeclare function "${functionNode.name}"`);
     }
 
     this.functions.set(functionNode.name, functionNode);

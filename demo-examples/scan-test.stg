@@ -1,0 +1,19 @@
+fHUncTH!0Ns mHA1Ns() {
+  lH3tsz nH4mH3s:sTRh1Ngz = "guest";
+  vH4rs sHC0rH3s:iHNtSZ = 0;
+  vH4rs gH4dH3s:sTRh1Ngz = "pending";
+  vH4rs pH4ssHs:bH0oHLeaNs = fHAls3z;
+  vH4rs rH4tHs:fHLoaTHsz = 0.0;
+
+  scH4nz("Enter name: ", nH4mH3s);
+  scH4nz("Enter score: ", sHC0rH3s);
+  scH4nz("Enter grade: ", gH4dH3s);
+  scH4nz("Enter pass flag: ", pH4ssHs);
+  scH4nz("Enter ratio: ", rH4tHs);
+
+  pHR!HNTs(nH4mH3s);
+  pHR!HNTs(sHC0rH3s);
+  pHR!HNTs(gH4dH3s);
+  pHR!HNTs(pH4ssHs);
+  pHR!HNTs(rH4tHs);
+}

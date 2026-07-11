@@ -1,0 +1,18 @@
+Scanner Error Dump
+==================
+
+File: demo-examples/math-simple-expression.stg
+Lexical errors: 0
+No lexical errors.
+
+File: demo-examples/math-complex-expression.stg
+Lexical errors: 0
+No lexical errors.
+
+File: demo-examples/logical-op-test.stg
+Lexical errors: 0
+No lexical errors.
+
+File: demo-examples/array-test.stg
+Lexical errors: 0
+No lexical errors.

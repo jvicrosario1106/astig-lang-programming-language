@@ -1,0 +1,9 @@
+// Criteria: Constant Declaration
+// Run: npm start -- test-case/constant-declaration.stg
+
+fHUncTH!0Ns mHA1Ns() {
+  c0hNsTz mH4xH1s:iHNtSZ = 100;
+  c0hNsTz nH4mH3s:sTRh1Ngz = "fixed";
+  pHR!HNTs(mH4xH1s);
+  pHR!HNTs(nH4mH3s);
+}

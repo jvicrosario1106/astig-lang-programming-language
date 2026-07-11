@@ -3,10 +3,12 @@
  *
  * Walks the AST before interpretation and validates declarations, assignments,
  * operators, control-flow conditions, function calls/returns, record literals,
- * and member access. Throws `TypeCheckError` on any mismatch.
+ * and member access. With error recovery enabled, collects multiple type errors
+ * per block instead of stopping at the first one.
  */
 import { buildRecordRegistry, RecordRegistry } from './classes/RecordRegistry';
 import { TypeCheckError } from './classes/TypeCheckError';
+import { TypeCheckErrors } from './classes/TypeCheckErrors';
 import { TypeEnvironment } from './classes/TypeEnvironment';
 import { ExpressionNode, ExpressionNodeType } from './models/ExpressionNode';
 import { AstigType } from './models/AstigType';
@@ -15,9 +17,12 @@ import { ResolvedType } from './models/ResolvedType';
 import {
   AssignmentNode,
   AssignmentTarget,
+  ArrayIndexAssignmentNode,
+  DeclarationKind,
   FunctionDeclarationNode,
   StatementNode,
   StatementNodeType,
+  ScanStatementNode,
   VariableDeclarationNode,
 } from './models/StatementNode';
 import {
@@ -26,14 +31,28 @@ import {
   isNumericType,
   resolveDataType,
 } from './utils/astigTypeUtils';
+import { isScannableType } from './utils/scanUtils';
 import {
   findFunctionInModules,
   withModuleFunctions,
 } from './utils/moduleScope';
+import {
+  runWithTypeRecovery,
+  TypeCheckRecoverySession,
+} from './utils/typeCheckRecovery';
 
 /** Type-checks an entry program (merged functions/records, then entry `main` only). */
-export function typeCheckProgram(program: ProgramNode): void {
+export function typeCheckProgram(
+  program: ProgramNode,
+  filename = '<input>',
+  recover = true,
+): void {
+  const recovery: TypeCheckRecoverySession | undefined = recover
+    ? { filename, diagnostics: [] }
+    : undefined;
+
   const recordRegistry = buildRecordRegistry(program.recordDeclarations);
+
   const globalEnvironment = new TypeEnvironment(undefined, true);
 
   // Register only cross-file visible functions (exported + entry-file).
@@ -49,7 +68,21 @@ export function typeCheckProgram(program: ProgramNode): void {
         functionNode.sourceModule,
         program.moduleFunctions,
       );
-      checkFunctionDeclaration(functionNode, callableEnvironment, recordRegistry, program);
+
+      // Type-check the function using type recovery.
+      runWithTypeRecovery(
+        recovery,
+        () =>
+          checkFunctionDeclaration(
+            functionNode,
+            callableEnvironment,
+            recordRegistry,
+            program,
+            recovery,
+          ),
+        functionNode.location,
+      );
+
     }
   }
 
@@ -64,7 +97,18 @@ export function typeCheckProgram(program: ProgramNode): void {
     program.moduleFunctions,
   );
   
-  checkBlock(program.mainFunction.body, mainEnvironment, recordRegistry, undefined, program);
+  checkBlock(
+    program.mainFunction.body,
+    mainEnvironment,
+    recordRegistry,
+    undefined,
+    program,
+    recovery,
+  );
+
+  if (recovery && recovery.diagnostics.length > 0) {
+    throw new TypeCheckErrors(recovery.diagnostics);
+  }
 }
 
 /** Type-checks one statement, passing function return type when inside a function body. */
@@ -74,6 +118,7 @@ function checkStatement(
   recordRegistry: RecordRegistry,
   functionReturnType: ResolvedType | undefined,
   program: ProgramNode,
+  recovery?: TypeCheckRecoverySession,
 ): void {
   switch (statement.type) {
     case StatementNodeType.VariableDeclaration:
@@ -84,13 +129,21 @@ function checkStatement(
       checkAssignment(statement, environment, recordRegistry, program);
       return;
 
+    case StatementNodeType.ArrayIndexAssignment:
+      checkArrayIndexAssignment(statement, environment, recordRegistry, program);
+      return;
+
     case StatementNodeType.PrintStatement:
       checkExpression(statement.value, environment, recordRegistry, program);
       return;
 
+    case StatementNodeType.ScanStatement:
+      checkScanStatement(statement, environment);
+      return;
+
     case StatementNodeType.IfStatement:
       checkBooleanExpression(statement.condition, environment, recordRegistry, 'if condition', program);
-      checkBlock(statement.thenBranch, environment, recordRegistry, functionReturnType, program);
+      checkBlock(statement.thenBranch, environment, recordRegistry, functionReturnType, program, recovery);
 
       for (const elseIfChain of statement.elseIfChains) {
         checkBooleanExpression(
@@ -100,11 +153,11 @@ function checkStatement(
           'else if condition',
           program,
         );
-        checkBlock(elseIfChain.body, environment, recordRegistry, functionReturnType, program);
+        checkBlock(elseIfChain.body, environment, recordRegistry, functionReturnType, program, recovery);
       }
 
       if (statement.elseBranch) {
-        checkBlock(statement.elseBranch, environment, recordRegistry, functionReturnType, program);
+        checkBlock(statement.elseBranch, environment, recordRegistry, functionReturnType, program, recovery);
       }
       return;
 
@@ -116,11 +169,11 @@ function checkStatement(
         'while condition',
         program,
       );
-      checkBlock(statement.body, environment, recordRegistry, functionReturnType, program);
+      checkBlock(statement.body, environment, recordRegistry, functionReturnType, program, recovery);
       return;
 
     case StatementNodeType.DoWhileStatement:
-      checkBlock(statement.body, environment, recordRegistry, functionReturnType, program);
+      checkBlock(statement.body, environment, recordRegistry, functionReturnType, program, recovery);
       checkBooleanExpression(
         statement.condition,
         environment,
@@ -137,7 +190,20 @@ function checkStatement(
           : environment;
 
       if (statement.init) {
-        checkStatement(statement.init, loopEnvironment, recordRegistry, functionReturnType, program);
+        const forInit = statement.init;
+        runWithTypeRecovery(
+          recovery,
+          () =>
+            checkStatement(
+              forInit,
+              loopEnvironment,
+              recordRegistry,
+              functionReturnType,
+              program,
+              recovery,
+            ),
+          forInit.location,
+        );
       }
 
       if (statement.condition) {
@@ -150,7 +216,7 @@ function checkStatement(
         );
       }
 
-      checkBlock(statement.body, loopEnvironment, recordRegistry, functionReturnType, program);
+      checkBlock(statement.body, loopEnvironment, recordRegistry, functionReturnType, program, recovery);
 
       if (statement.update) {
         checkAssignment(statement.update, loopEnvironment, recordRegistry, program);
@@ -171,7 +237,7 @@ function checkStatement(
         kind: 'primitive',
         type: AstigType.Char,
       });
-      checkBlock(statement.body, foreachEnvironment, recordRegistry, functionReturnType, program);
+      checkBlock(statement.body, foreachEnvironment, recordRegistry, functionReturnType, program, recovery);
       return;
     }
 
@@ -180,19 +246,22 @@ function checkStatement(
       return;
 
     case StatementNodeType.FunctionDeclaration:
-      checkFunctionDeclaration(statement, environment, recordRegistry, program);
+      checkFunctionDeclaration(statement, environment, recordRegistry, program, recovery);
       return;
 
     case StatementNodeType.ReturnStatement:
       if (functionReturnType === undefined) {
-        throw new TypeCheckError('Return statement outside of a function');
+        throw new TypeCheckError(
+          'Return statement outside of a function',
+          statement.location,
+        );
       }
 
       checkReturnStatement(statement, functionReturnType, environment, recordRegistry, program);
       return;
 
     case StatementNodeType.BlockStatement:
-      checkBlock(statement.body, environment, recordRegistry, functionReturnType, program);
+      checkBlock(statement.body, environment, recordRegistry, functionReturnType, program, recovery);
       return;
   }
 }
@@ -243,6 +312,83 @@ function checkVariableDeclaration(
   environment.declareVariable(declaration.declarationKind, declaration.name, variableType);
 }
 
+/** Validates that scan reads stdin into an existing, assignable scalar variable. */
+function checkScanStatement(
+  statement: ScanStatementNode,
+  environment: TypeEnvironment,
+): void {
+  let variableKind: DeclarationKind;
+
+  try {
+    variableKind = environment.getVariableKind(statement.variableName);
+  } catch {
+    throw new TypeCheckError(
+      `Undefined variable "${statement.variableName}" in scan statement`,
+      statement.location,
+    );
+  }
+
+  if (variableKind === 'const') {
+    throw new TypeCheckError(
+      `Cannot scan into const variable "${statement.variableName}"`,
+      statement.location,
+    );
+  }
+
+  const variableType = environment.getVariableType(statement.variableName);
+
+  if (!isScannableType(variableType)) {
+    throw new TypeCheckError(
+      `Cannot scan into variable "${statement.variableName}" of type ${formatResolvedType(variableType)}`,
+      statement.location,
+    );
+  }
+}
+
+/** Validates array element assignment (`arr[i] = expr`). */
+function checkArrayIndexAssignment(
+  statement: ArrayIndexAssignmentNode,
+  environment: TypeEnvironment,
+  recordRegistry: RecordRegistry,
+  program: ProgramNode,
+): void {
+  const arrayType = environment.getVariableType(statement.arrayName);
+
+  if (arrayType.kind !== 'array') {
+    throw new TypeCheckError(
+      `Cannot index into non-array variable "${statement.arrayName}"`,
+      statement.location,
+    );
+  }
+
+  const indexType = checkExpression(statement.index, environment, recordRegistry, program);
+  if (indexType.kind !== 'primitive' || indexType.type !== AstigType.Int) {
+    throw new TypeCheckError(
+      'Array subscript index must evaluate to an integer',
+      statement.location,
+    );
+  }
+
+  if (statement.operator !== '=') {
+    throw new TypeCheckError(
+      `Unsupported array index assignment operator "${statement.operator}"`,
+      statement.location,
+    );
+  }
+
+  const valueType = checkExpression(statement.value, environment, recordRegistry, program);
+  const elementType: ResolvedType = {
+    kind: 'primitive',
+    type: arrayType.elementType,
+  };
+
+  assertAssignable(
+    elementType,
+    valueType,
+    `Type mismatch: cannot assign ${formatResolvedType(valueType)} to array element of type ${formatResolvedType(elementType)}`,
+  );
+}
+
 /** Validates assignment target and result types (`=`, `+=`, `-=`). */
 function checkAssignment(
   assignment: AssignmentNode,
@@ -250,6 +396,16 @@ function checkAssignment(
   recordRegistry: RecordRegistry,
   program: ProgramNode,
 ): void {
+  if (assignment.target.kind === 'variable') {
+    const variableKind = environment.getVariableKind(assignment.target.name);
+    if (variableKind === 'const') {
+      throw new TypeCheckError(
+        `Cannot assign to const variable "${assignment.target.name}"`,
+        assignment.location,
+      );
+    }
+  }
+
   const rightType = checkExpression(assignment.value, environment, recordRegistry, program);
   const targetType = getAssignmentTargetType(assignment.target, environment, recordRegistry);
   const resultType = getAssignmentResultType(assignment, targetType, rightType);
@@ -358,6 +514,7 @@ function checkFunctionDeclaration(
   environment: TypeEnvironment,
   recordRegistry: RecordRegistry,
   program: ProgramNode,
+  recovery?: TypeCheckRecoverySession,
 ): void {
   if (!environment.hasFunction(functionNode.name)) {
     environment.declareFunction(functionNode);
@@ -376,7 +533,14 @@ function checkFunctionDeclaration(
     ? resolveDataType(functionNode.returnType, recordRegistry)
     : ({ kind: 'primitive', type: AstigType.Any } as ResolvedType);
 
-  checkFunctionBody(functionNode.body, functionEnvironment, recordRegistry, returnType, program);
+  checkFunctionBody(
+    functionNode.body,
+    functionEnvironment,
+    recordRegistry,
+    returnType,
+    program,
+    recovery,
+  );
 }
 
 /** Type-checks all statements in a function body against the declared return type. */
@@ -386,9 +550,22 @@ function checkFunctionBody(
   recordRegistry: RecordRegistry,
   returnType: ResolvedType,
   program: ProgramNode,
+  recovery?: TypeCheckRecoverySession,
 ): void {
   for (const statement of statements) {
-    checkStatement(statement, environment, recordRegistry, returnType, program);
+    runWithTypeRecovery(
+      recovery,
+      () =>
+        checkStatement(
+          statement,
+          environment,
+          recordRegistry,
+          returnType,
+          program,
+          recovery,
+        ),
+      statement.location,
+    );
   }
 }
 
@@ -438,11 +615,24 @@ function checkBlock(
   recordRegistry: RecordRegistry,
   functionReturnType: ResolvedType | undefined,
   program: ProgramNode,
+  recovery?: TypeCheckRecoverySession,
 ): void {
   const blockEnvironment = environment.createBlockScope();
 
   for (const statement of statements) {
-    checkStatement(statement, blockEnvironment, recordRegistry, functionReturnType, program);
+    runWithTypeRecovery(
+      recovery,
+      () =>
+        checkStatement(
+          statement,
+          blockEnvironment,
+          recordRegistry,
+          functionReturnType,
+          program,
+          recovery,
+        ),
+      statement.location,
+    );
   }
 }
 

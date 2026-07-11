@@ -42,6 +42,7 @@ import {
   WhileStatementContext,
   AstigLangParser,
 } from '../generated/grammar/AstigLangParser';
+import { ParserRuleContext } from 'antlr4ts/ParserRuleContext';
 import { IncludeNode } from './models/IncludeNode';
 import { MainFunctionNode } from './models/MainFunctionNode';
 import {
@@ -69,9 +70,22 @@ import {
   ScanStatementNode,
   StatementNode,
   StatementNodeType,
+  SourceLocation,
   VariableDeclarationNode,
   WhileStatementNode,
 } from './models/StatementNode';
+
+function sourceLocationFrom(ctx: ParserRuleContext): SourceLocation | undefined {
+  const token = ctx.start;
+  if (!token) {
+    return undefined;
+  }
+
+  return {
+    line: token.line,
+    column: token.charPositionInLine + 1,
+  };
+}
 
 /** Builds the root program AST from the parser's `program` rule. */
 export function buildAst(ctx: ProgramContext): ProgramNode {
@@ -231,6 +245,7 @@ function buildVariableDeclaration(
   const isArrayType = typeAnnotation ? (typeAnnotation.text.includes("[") && typeAnnotation.text.includes("]")) : false;
   return {
     type: StatementNodeType.VariableDeclaration,
+    location: sourceLocationFrom(ctx),
     declarationKind: buildDeclarationKind(ctx),
     name: ctx.IDENTIFIER().text,
     declaredType: ctx.typeAnnotation()?.dataType().text,
@@ -255,6 +270,7 @@ function buildDeclarationKind(
 function buildPrintStatement(ctx: PrintStatementContext): PrintStatementNode {
   return {
     type: StatementNodeType.PrintStatement,
+    location: sourceLocationFrom(ctx),
     value: buildExpression(ctx.expression()),
   };
 }
@@ -264,6 +280,7 @@ function buildScanStatement(ctx: ScanStatementContext): ScanStatementNode{
   const promptText = hasPrompt ? ctx.STRING()?.text.replace(/^["']|["']$/g, '') : undefined;
   return {
     type: StatementNodeType.ScanStatement,
+    location: sourceLocationFrom(ctx),
     promptMessage: promptText,
     variableName: ctx.IDENTIFIER().text,
   };
@@ -287,6 +304,7 @@ function buildIfStatement(ctx: IfStatementContext): IfStatementNode {
 
   return {
     type: StatementNodeType.IfStatement,
+    location: sourceLocationFrom(ctx),
     condition,
     thenBranch,
     elseIfChains,
@@ -297,6 +315,7 @@ function buildIfStatement(ctx: IfStatementContext): IfStatementNode {
 function buildWhileStatement(ctx: WhileStatementContext): WhileStatementNode {
   return {
     type: StatementNodeType.WhileStatement,
+    location: sourceLocationFrom(ctx),
     condition: buildExpression(ctx.expression()),
     body: ctx.block().statement().map(buildStatement),
   };
@@ -307,6 +326,7 @@ function buildDoWhileStatement(
 ): DoWhileStatementNode {
   return {
     type: StatementNodeType.DoWhileStatement,
+    location: sourceLocationFrom(ctx),
     body: ctx.block().statement().map(buildStatement),
     condition: buildExpression(ctx.expression()),
   };
@@ -319,6 +339,7 @@ function buildForStatement(ctx: ForStatementContext): ForStatementNode {
 
   return {
     type: StatementNodeType.ForStatement,
+    location: sourceLocationFrom(ctx),
     init: forInit ? buildForInit(forInit) : undefined,
     condition: expression ? buildExpression(expression) : undefined,
     update: forUpdate ? buildForUpdate(forUpdate) : undefined,
@@ -383,6 +404,7 @@ function buildRecordFieldTarget(ctx: RecordFieldAccessContext): AssignmentTarget
 function buildArrayAssignment(ctx: ArrayIndexAssignmentContext): ArrayIndexAssignmentNode {
   return {
     type: StatementNodeType.ArrayIndexAssignment,
+    location: sourceLocationFrom(ctx),
     arrayName: ctx.IDENTIFIER().text,
     index: buildExpression(ctx.expression(0)),
     operator: buildAssignmentOperator(ctx.assignmentOperator()),
@@ -393,6 +415,7 @@ function buildArrayAssignment(ctx: ArrayIndexAssignmentContext): ArrayIndexAssig
 function buildAssignment(ctx: AssignmentContext): AssignmentNode {
   return {
     type: StatementNodeType.Assignment,
+    location: sourceLocationFrom(ctx),
     target: buildAssignmentTarget(ctx),
     operator: buildAssignmentOperator(ctx.assignmentOperator()),
     value: buildExpression(ctx.expression()),
@@ -416,23 +439,26 @@ function buildForeachStatement(
 ): ForeachStatementNode {
   return {
     type: StatementNodeType.ForeachStatement,
+    location: sourceLocationFrom(ctx),
     variable: ctx.IDENTIFIER().text,
     iterable: buildExpression(ctx.expression()),
     body: ctx.block().statement().map(buildStatement),
   };
 }
 
-function buildBreakStatement(_ctx: BreakStatementContext): BreakStatementNode {
+function buildBreakStatement(ctx: BreakStatementContext): BreakStatementNode {
   return {
     type: StatementNodeType.BreakStatement,
+    location: sourceLocationFrom(ctx),
   };
 }
 
 function buildContinueStatement(
-  _ctx: ContinueStatementContext,
+  ctx: ContinueStatementContext,
 ): ContinueStatementNode {
   return {
     type: StatementNodeType.ContinueStatement,
+    location: sourceLocationFrom(ctx),
   };
 }
 
@@ -441,6 +467,7 @@ function buildFunctionDeclaration(
 ): FunctionDeclarationNode {
   return {
     type: StatementNodeType.FunctionDeclaration,
+    location: sourceLocationFrom(ctx),
     name: ctx.IDENTIFIER().text,
     // Set by parser when `eHXpH0RTz` is present; used by programLoader for cross-file visibility.
     isExported: Boolean(ctx.EXPORT_KW()),
@@ -465,6 +492,7 @@ function buildReturnStatement(
 
   return {
     type: StatementNodeType.ReturnStatement,
+    location: sourceLocationFrom(ctx),
     value: expression ? buildExpression(expression) : undefined,
   };
 }
@@ -472,6 +500,7 @@ function buildReturnStatement(
 function buildBlockStatement(ctx: BlockContext): BlockStatementNode {
   return {
     type: StatementNodeType.BlockStatement,
+    location: sourceLocationFrom(ctx),
     body: ctx.statement().map(buildStatement),
   };
 }

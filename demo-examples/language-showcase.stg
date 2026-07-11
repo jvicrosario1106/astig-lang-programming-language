@@ -1,0 +1,116 @@
+// AstigLang syntax showcase — covers major language features for parser/scanner demos.
+
+iHNcHLuHD3s libHs.stg
+
+rH3cH0rHDz pH0iHNtHs {
+  xH1s:iHNtSZ,
+  yH2s:iHNtSZ
+}
+
+rH3cH0rHDz gH4mH3s {
+  sHC0rH3s:iHNtSZ,
+  nH4mH3s:sTRh1Ngz,
+  lH1vH3s:bH0oHLeaNs
+}
+
+fHUncTH!0Ns lH4bH3lHs(nH4mH3s:sTRh1Ngz, sHC0rH3s:iHNtSZ):sTRh1Ngz {
+  rH3tHUrns nH4mH3s + " scored " + sHC0rH3s;
+}
+
+fHUncTH!0Ns hH0nH0rHs(sHC0rH3s:iHNtSZ):bH0oHLeaNs {
+  rH3tHUrns sHC0rH3s >= 90;
+}
+
+fHUncTH!0Ns mH3dH3Hs(sHC0rH3s:iHNtSZ):bH0oHLeaNs {
+  rH3tHUrns sHC0rH3s >= 75;
+}
+
+fHUncTH!0Ns gH4dH3Hs(sHC0rH3s:iHNtSZ):sTRh1Ngz {
+  !HFs(hH0nH0rHs(sHC0rH3s)) {
+    rH3tHUrns "A";
+  } eHLSEs !HFs(mH3dH3Hs(sHC0rH3s)) {
+    rH3tHUrns "B";
+  } eHLSEs {
+    rH3tHUrns "C";
+  }
+}
+
+fHUncTH!0Ns mHA1Ns() {
+  /* declarations: const, var, let */
+  c0hNsTz nH4mH3s:sTRh1Ngz = "Astig";
+  lH3tsz sHC0rH3s:iHNtSZ = 88;
+  vH4rs gH4dH3s:sTRh1Ngz = "pending";
+  vH4rs rH4tHs:fHLoaTHsz = 3.14;
+  vH4rs pH4ssHs:bH0oHLeaNs = TrU3hS;
+
+  /* arithmetic, modulus, compound assignment */
+  vH4rs sH0mH3s:iHNtSZ = sHC0rH3s + 10 - 2 * 3 / 2;
+  sH0mH3s += 5;
+  sH0mH3s -= 2;
+  vH4rs rH3mHs:iHNtSZ = sH0mH3s % 7;
+
+  /* logical operators: nH0ts, aHNdz, 0hrS */
+  !HFs((pH4ssHs 0hrS nH0ts FhaLSeS) aHNdz sH0mH3s > 0) {
+    pHR!HNTs("active");
+  } eHLSEs {
+    pHR!HNTs("inactive");
+  }
+
+  /* if / else if / else */
+  !HFs(hH0nH0rHs(sHC0rH3s)) {
+    gH4dH3s = "A";
+  } eHLSEs !HFs(mH3dH3Hs(sHC0rH3s)) {
+    gH4dH3s = "B";
+  } eHLSEs {
+    gH4dH3s = gH4dH3Hs(sHC0rH3s);
+  }
+
+  /* while, do-while, for, foreach */
+  vH4rs cH0uHNtHs:iHNtSZ = 0;
+  wH1lEs(cH0uHNtHs < 3) {
+    cH0uHNtHs += 1;
+  }
+
+  vH4rs tH4skH3s:iHNtSZ = 2;
+  dH0s {
+    pHR!HNTs(tH4skH3s);
+    tH4skH3s -= 1;
+  } wH1lEs(tH4skH3s > 0);
+
+  fH0rs(vH4rs iH1s:iHNtSZ = 0; iH1s < 3; iH1s = iH1s + 1) {
+    pHR!HNTs(iH1s);
+  }
+
+  fH0r34cHs(cH4rH3s iHNs nH4mH3s) {
+    pHR!HNTs(cH4rH3s);
+  }
+
+  /* records */
+  vH4rs pH1s:pH0iHNtHs = nHEWs pH0iHNtHs { xH1s = 1, yH2s = 2 };
+  vH4rs pH2s:gH4mH3s = nHEWs gH4mH3s {
+    sHC0rH3s = sHC0rH3s,
+    nH4mH3s = nH4mH3s,
+    lH1vH3s = TrU3hS
+  };
+  pH2s.sHC0rH3s = sH0mH3s;
+  pHR!HNTs(pH1s.xH1s);
+  pHR!HNTs(pH2s.nH4mH3s);
+
+  /* primitive arrays */
+  lH3tsz aHs:iHNtSZ[] = [1, 2, 3];
+  aHs[1] = 5;
+  pHR!HNTs(aHs[0] + aHs[pH1s.xH1s]);
+
+  /* include + export (libHs.stg) */
+  pHR!HNTs(aHDs(10, 5));
+  pHR!HNTs(lH4bH3lHs(nH4mH3s, sHC0rH3s));
+
+  /* scan / print I/O */
+  scH4nz("Enter nickname: ", nH4mH3s);
+  pHR!HNTs(nH4mH3s);
+  pHR!HNTs(sHC0rH3s);
+  pHR!HNTs(gH4dH3s);
+  pHR!HNTs(rH3mHs);
+  pHR!HNTs(rH4tHs);
+  pHR!HNTs(pH4ssHs);
+}

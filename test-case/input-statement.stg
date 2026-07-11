@@ -1,0 +1,8 @@
+// Criteria: Input Statement (scan)
+// Run: echo "42" | npm start -- test-case/input-statement.stg
+
+fHUncTH!0Ns mHA1Ns() {
+  vH4rs vH4lH3s:iHNtSZ = 0;
+  scH4nz("Enter a number: ", vH4lH3s);
+  pHR!HNTs(vH4lH3s);
+}

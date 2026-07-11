@@ -2,6 +2,8 @@ import { TypeCheckError } from '../classes/TypeCheckError';
 import { RecordRegistry } from '../classes/RecordRegistry';
 import { AstigType } from '../models/AstigType';
 import { ResolvedType } from '../models/ResolvedType';
+import { VariableDeclarationNode } from '../models/StatementNode';
+import { ParameterNode } from '../models/ParameterNode';
 
 /**
  * Type-system helpers shared by the type checker.
@@ -120,6 +122,45 @@ export function formatResolvedType(resolvedType: ResolvedType): string {
   }
 
   return formatAstigType(resolvedType.type);
+}
+
+/** Resolves the static type of a variable declaration from its annotation. */
+export function resolveVariableDeclarationType(
+  declaration: VariableDeclarationNode,
+  recordRegistry: RecordRegistry,
+): ResolvedType {
+  if (!declaration.declaredType) {
+    return { kind: 'primitive', type: AstigType.Any };
+  }
+
+  const baseResolved = resolveDataType(declaration.declaredType, recordRegistry);
+
+  if (declaration.isArray) {
+    if (baseResolved.kind !== 'primitive') {
+      throw new TypeCheckError(
+        `Arrays of complex kinds are currently unsupported for "${declaration.name}"`,
+      );
+    }
+
+    return {
+      kind: 'array',
+      elementType: baseResolved.type,
+    };
+  }
+
+  return baseResolved;
+}
+
+/** Resolves the static type of a function parameter from its annotation. */
+export function resolveParameterType(
+  parameter: ParameterNode,
+  recordRegistry: RecordRegistry,
+): ResolvedType {
+  if (!parameter.declaredType) {
+    return { kind: 'primitive', type: AstigType.Any };
+  }
+
+  return resolveDataType(parameter.declaredType, recordRegistry);
 }
 
 /** Converts an `AstigType` enum value into a `ResolvedType` wrapper. */

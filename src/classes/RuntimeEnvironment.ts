@@ -1,13 +1,16 @@
 import { RuntimeValue } from '../models/RuntimeValue';
+import { ResolvedType } from '../models/ResolvedType';
 import {
   DeclarationKind,
   FunctionDeclarationNode,
 } from '../models/StatementNode';
+import { AstigType } from '../models/AstigType';
 
 type RuntimeBinding = {
   kind: DeclarationKind;
   value: RuntimeValue;
   isInitialized: boolean;
+  resolvedType: ResolvedType;
 };
 
 /**
@@ -34,12 +37,17 @@ export class RuntimeEnvironment {
     return new RuntimeEnvironment(this, true);
   }
 
-  declare(kind: DeclarationKind, name: string, value: RuntimeValue): void {
+  declare(
+    kind: DeclarationKind,
+    name: string,
+    value: RuntimeValue,
+    resolvedType: ResolvedType = { kind: 'primitive', type: AstigType.Any },
+  ): void {
     if (this.bindings.has(name)) {
       throw new Error(`Cannot redeclare variable "${name}"`);
     }
 
-    this.bindings.set(name, { kind, value, isInitialized: true });
+    this.bindings.set(name, { kind, value, isInitialized: true, resolvedType });
   }
 
   assign(name: string, value: RuntimeValue): void {
@@ -62,6 +70,18 @@ export class RuntimeEnvironment {
   }
 
   get(name: string): RuntimeValue {
+    return this.getBinding(name).value;
+  }
+
+  getVariableKind(name: string): DeclarationKind {
+    return this.getBinding(name).kind;
+  }
+
+  getResolvedType(name: string): ResolvedType {
+    return this.getBinding(name).resolvedType;
+  }
+
+  private getBinding(name: string): RuntimeBinding {
     const environment = this.findEnvironmentWithBinding(name);
     const binding = environment?.bindings.get(name);
     if (!binding) {
@@ -72,7 +92,7 @@ export class RuntimeEnvironment {
       throw new Error(`Variable '${name}' is used before being assigned.`);
     }
 
-    return binding.value;
+    return binding;
   }
 
   declareFunction(functionNode: FunctionDeclarationNode): void {

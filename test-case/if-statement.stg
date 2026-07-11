@@ -1,0 +1,14 @@
+// Criteria: If Statement (if / else if / else)
+// Run: npm start -- test-case/if-statement.stg
+
+fHUncTH!0Ns mHA1Ns() {
+  vH4rs sHC0rH3s:iHNtSZ = 85;
+
+  !HFs(sHC0rH3s >= 90) {
+    pHR!HNTs("A");
+  } eHLSEs !HFs(sHC0rH3s >= 75) {
+    pHR!HNTs("B");
+  } eHLSEs {
+    pHR!HNTs("C");
+  }
+}

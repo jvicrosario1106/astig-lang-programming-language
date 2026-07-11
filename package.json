@@ -7,8 +7,7 @@
   "scripts": {
     "build": "tsc",
     "start": "npx ts-node src/main.ts",
-    "scan": "npx ts-node src/scanner.ts",
-    "generate-demos": "npx ts-node scripts/generate-scanner-demos.ts",
+    "pipeline": "npx ts-node src/pipelineDemo.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "generate": "npx antlr4ts-cli -visitor -o generated grammar/AstigLang.g4"
   },

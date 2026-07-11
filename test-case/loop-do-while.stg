@@ -1,0 +1,10 @@
+// Criteria: Loops — Repeat-Until / Do-while
+// Run: npm start -- test-case/loop-do-while.stg
+
+fHUncTH!0Ns mHA1Ns() {
+  vH4rs nH1s:iHNtSZ = 3;
+  dH0s {
+    pHR!HNTs(nH1s);
+    nH1s = nH1s - 1;
+  } wH1lEs(nH1s > 0);
+}

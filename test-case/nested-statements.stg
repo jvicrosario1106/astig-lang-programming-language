@@ -1,0 +1,18 @@
+// Criteria: Nested Statements (if inside while inside for, blocks)
+// Run: npm start -- test-case/nested-statements.stg
+
+fHUncTH!0Ns mHA1Ns() {
+  vH4rs cH0uHNtHs:iHNtSZ = 0;
+
+  fH0rs(vH4rs iH1s:iHNtSZ = 1; iH1s <= 2; iH1s = iH1s + 1) {
+    vH4rs jH1s:iHNtSZ = 0;
+    wH1lEs(jH1s < 2) {
+      !HFs((iH1s + jH1s) % 2 == 0) {
+        cH0uHNtHs = cH0uHNtHs + 1;
+      }
+      jH1s = jH1s + 1;
+    }
+  }
+
+  pHR!HNTs(cH0uHNtHs);
+}

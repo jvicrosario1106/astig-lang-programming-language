@@ -1,0 +1,9 @@
+// Multiple type errors — type checker reports all, then exits (error recovery).
+
+fHUncTH!0Ns mHA1Ns() {
+  c0hNsTz xH1s:iHNtSZ = 1;
+  scH4nz("value: ", xH1s);
+  vH4rs yH2s:iHNtSZ = 0;
+  yH2s = "not an int";
+  pHR!HNTs(zH3s);
+}
