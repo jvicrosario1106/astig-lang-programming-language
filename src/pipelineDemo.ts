@@ -1,5 +1,5 @@
 /**
- * Unified pipeline demo — Lexer → Parser → AST → Interpreter
+ * Unified pipeline demo — Lexer (scanner ) → Parser (parser) → AST (buildAst) → Interpreter (runProgram)
  *
  * Run: npm run pipeline
  *

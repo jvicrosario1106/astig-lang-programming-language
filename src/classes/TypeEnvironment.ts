@@ -13,6 +13,7 @@ type TypeBinding = {
  * `const`, `var`, and `let` are all block-scoped, matching RuntimeEnvironment.
  */
 export class TypeEnvironment {
+  // Symbol Table
   private readonly bindings = new Map<string, TypeBinding>();
   private readonly functions = new Map<string, FunctionDeclarationNode>();
 

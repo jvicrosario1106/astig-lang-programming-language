@@ -94,7 +94,7 @@ Tokens (116 total, showing first 60):
 
 Lexical errors: none
 
-Scan time: 12.687 ms
+Scan time: 15.187 ms
 Characters: 1029
 
 ========================================================================
@@ -182,7 +182,7 @@ Tokens (186 total, showing first 60):
 
 Lexical errors: none
 
-Scan time: 3.959 ms
+Scan time: 4.352 ms
 Characters: 1382
 
 ========================================================================
@@ -270,7 +270,7 @@ Tokens (85 total, showing first 60):
 
 Lexical errors: none
 
-Scan time: 1.880 ms
+Scan time: 4.127 ms
 Characters: 420
 
 ========================================================================
@@ -358,7 +358,7 @@ Tokens (134 total, showing first 60):
 
 Lexical errors: none
 
-Scan time: 1.385 ms
+Scan time: 1.585 ms
 Characters: 647
 
 Written to text-files/scanner-output.txt

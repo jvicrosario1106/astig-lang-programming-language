@@ -25,7 +25,7 @@ fHUncTH!0Ns mHA1Ns() {
   pHR!HNTs(uH4nHs);
 
   // 2 — Type mismatch
-  vH4rs yH2s:iHNtSZ = 0;
+  vH4rs yH2s:iHNtSZ = 0; 
   yH2s = "not an int";
 
   // 3 — Multiply-defined variables (same block)

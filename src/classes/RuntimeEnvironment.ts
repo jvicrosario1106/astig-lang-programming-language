@@ -21,6 +21,7 @@ type RuntimeBinding = {
  * reached only by walking the parent chain during lookup.
  */
 export class RuntimeEnvironment {
+  // Symbol Table
   private readonly bindings = new Map<string, RuntimeBinding>();
   private readonly functions = new Map<string, FunctionDeclarationNode>();
 
