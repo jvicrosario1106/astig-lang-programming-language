@@ -6,7 +6,10 @@ Jejemon-styled programming language (`.stg` files). Pipeline: **lexer → parser
 npm run generate          # regenerate ANTLR lexer/parser from grammar/AstigLang.g4
 npm start -- program.stg  # run a program
 npm run pipeline          # pipeline demo → text-files/
+npm run compile           # build standalone interpreter binary → binaries/
 ```
+
+**Submission binary:** run `npm run compile`, then use `./binaries/astiglang program.stg`. See `binaries/README.md`.
 
 Docs: `LANGUAGE.md` (manual), `SYNTAX-RULES.md` (do / don't reference), `Pipeline.md` (compiler pipeline).  
 Demos: `demo-examples/`.
