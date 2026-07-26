@@ -1,17 +1,14 @@
 AstigLang AST Demo
 =======================
 
-Source → Lexer → Parser → AST → Type check → Interpreter
+Source → Lexer → Parser → AST → Type check → Optimizer → Interpreter
 
 Sample files:
-  1. demo-examples/math-simple-expression.stg — Simple math: id + num, id * id, num / num, modulus, string concat
-  2. demo-examples/math-complex-expression.stg — Complex math: nested ops, function calls, arrays, records, comparisons
-  3. demo-examples/logical-op-test.stg — Boolean expressions: jejemon AND, OR, NOT
-  4. demo-examples/array-test.stg — Array literals, index read/write, scan
+  1. demo-examples/optimizer-dce-test.stg — DCE: Eliminates unused variables.
 
 ========================================================================
-Example 1: demo-examples/math-simple-expression.stg
-Simple math: id + num, id * id, num / num, modulus, string concat
+Example 1: demo-examples/optimizer-dce-test.stg
+DCE: Eliminates unused variables.
 ========================================================================
 
 PHASE 3 — AST (buildAst)
@@ -20,41 +17,58 @@ Syntax errors: 0
 
 ProgramNode (ASCII tree):
 Program
-  MainFunction(mHA1Ns)
-    VariableDeclaration(var xH1s: iHNtSZ) @ 18:3
-      NumberLiteral(4)
-    VariableDeclaration(var yH2s: iHNtSZ) @ 19:3
-      NumberLiteral(3)
-    VariableDeclaration(var aH1s: iHNtSZ) @ 22:3
-      BinaryExpression(+)
-        Identifier(xH1s)
-        NumberLiteral(10)
-    VariableDeclaration(var bH2s: iHNtSZ) @ 25:3
+  FunctionDeclaration(dH1bHs: iHNtSZ) @ 2:1
+    param xH1s: iHNtSZ
+    ReturnStatement @ 3:3
       BinaryExpression(*)
         Identifier(xH1s)
+        NumberLiteral(2)
+    VariableDeclaration(var dHs: iHNtSZ) @ 5:3
+      NumberLiteral(4)
+    PrintStatement @ 6:3
+      Identifier(dHs)
+  MainFunction(mHA1Ns)
+    VariableDeclaration(var xH1s: iHNtSZ) @ 11:3
+      NumberLiteral(4)
+    VariableDeclaration(var yH2s: iHNtSZ) @ 12:3
+      NumberLiteral(3)
+    VariableDeclaration(var aH1s: iHNtSZ) @ 15:3
+      BinaryExpression(+)
         Identifier(yH2s)
-    VariableDeclaration(var cH3s: iHNtSZ) @ 28:3
+        NumberLiteral(10)
+    VariableDeclaration(var bH2s: iHNtSZ) @ 18:3
+      BinaryExpression(*)
+        Identifier(aH1s)
+        Identifier(yH2s)
+    VariableDeclaration(var yHs: iHNtSZ) @ 21:3
+      BinaryExpression(+)
+        NumberLiteral(2)
+        NumberLiteral(0)
+    VariableDeclaration(var zHs: bH0oHLeaNs) @ 23:3
+      BinaryExpression(>)
+        Identifier(yHs)
+        NumberLiteral(1)
+    VariableDeclaration(var cH3s: iHNtSZ) @ 27:3
       BinaryExpression(/)
         NumberLiteral(20)
         NumberLiteral(4)
-    VariableDeclaration(var dH4s: iHNtSZ) @ 31:3
-      BinaryExpression(%)
-        NumberLiteral(17)
-        NumberLiteral(5)
-    VariableDeclaration(var mH3s: sTRh1Ngz) @ 34:3
-      BinaryExpression(+)
-        StringLiteral("score: ")
-        Identifier(aH1s)
-    PrintStatement @ 36:3
-      Identifier(aH1s)
-    PrintStatement @ 37:3
-      Identifier(bH2s)
+    IfStatement @ 31:3
+      condition
+        Identifier(zHs)
+      then
+        PrintStatement @ 32:5
+          Identifier(bH2s)
+      else
+        VariableDeclaration(var dHs: iHNtSZ) @ 34:5
+          BinaryExpression(/)
+            NumberLiteral(20)
+            NumberLiteral(4)
+        PrintStatement @ 35:5
+          BinaryExpression(+)
+            Identifier(dHs)
+            NumberLiteral(1)
     PrintStatement @ 38:3
-      Identifier(cH3s)
-    PrintStatement @ 39:3
-      Identifier(dH4s)
-    PrintStatement @ 40:3
-      Identifier(mH3s)
+      Identifier(bH2s)
 
 ProgramNode (JSON):
 {
@@ -62,14 +76,79 @@ ProgramNode (JSON):
   "entryModule": "main",
   "includes": [],
   "recordDeclarations": [],
-  "functions": [],
+  "functions": [
+    {
+      "type": "FunctionDeclaration",
+      "location": {
+        "line": 2,
+        "column": 1
+      },
+      "name": "dH1bHs",
+      "isExported": false,
+      "sourceModule": "main",
+      "parameters": [
+        {
+          "name": "xH1s",
+          "declaredType": "iHNtSZ"
+        }
+      ],
+      "returnType": "iHNtSZ",
+      "body": [
+        {
+          "type": "ReturnStatement",
+          "location": {
+            "line": 3,
+            "column": 3
+          },
+          "value": {
+            "type": "BinaryExpression",
+            "operator": "*",
+            "left": {
+              "type": "Identifier",
+              "name": "xH1s"
+            },
+            "right": {
+              "type": "NumberLiteral",
+              "value": 2
+            }
+          }
+        },
+        {
+          "type": "VariableDeclaration",
+          "location": {
+            "line": 5,
+            "column": 3
+          },
+          "declarationKind": "var",
+          "name": "dHs",
+          "declaredType": "iHNtSZ",
+          "isArray": false,
+          "value": {
+            "type": "NumberLiteral",
+            "value": 4
+          }
+        },
+        {
+          "type": "PrintStatement",
+          "location": {
+            "line": 6,
+            "column": 3
+          },
+          "value": {
+            "type": "Identifier",
+            "name": "dHs"
+          }
+        }
+      ]
+    }
+  ],
   "mainFunction": {
     "type": "MainFunction",
     "body": [
       {
         "type": "VariableDeclaration",
         "location": {
-          "line": 18,
+          "line": 11,
           "column": 3
         },
         "declarationKind": "var",
@@ -84,7 +163,7 @@ ProgramNode (JSON):
       {
         "type": "VariableDeclaration",
         "location": {
-          "line": 19,
+          "line": 12,
           "column": 3
         },
         "declarationKind": "var",
@@ -99,7 +178,7 @@ ProgramNode (JSON):
       {
         "type": "VariableDeclaration",
         "location": {
-          "line": 22,
+          "line": 15,
           "column": 3
         },
         "declarationKind": "var",
@@ -111,7 +190,7 @@ ProgramNode (JSON):
           "operator": "+",
           "left": {
             "type": "Identifier",
-            "name": "xH1s"
+            "name": "yH2s"
           },
           "right": {
             "type": "NumberLiteral",
@@ -122,7 +201,7 @@ ProgramNode (JSON):
       {
         "type": "VariableDeclaration",
         "location": {
-          "line": 25,
+          "line": 18,
           "column": 3
         },
         "declarationKind": "var",
@@ -134,7 +213,7 @@ ProgramNode (JSON):
           "operator": "*",
           "left": {
             "type": "Identifier",
-            "name": "xH1s"
+            "name": "aH1s"
           },
           "right": {
             "type": "Identifier",
@@ -145,7 +224,53 @@ ProgramNode (JSON):
       {
         "type": "VariableDeclaration",
         "location": {
-          "line": 28,
+          "line": 21,
+          "column": 3
+        },
+        "declarationKind": "var",
+        "name": "yHs",
+        "declaredType": "iHNtSZ",
+        "isArray": false,
+        "value": {
+          "type": "BinaryExpression",
+          "operator": "+",
+          "left": {
+            "type": "NumberLiteral",
+            "value": 2
+          },
+          "right": {
+            "type": "NumberLiteral",
+            "value": 0
+          }
+        }
+      },
+      {
+        "type": "VariableDeclaration",
+        "location": {
+          "line": 23,
+          "column": 3
+        },
+        "declarationKind": "var",
+        "name": "zHs",
+        "declaredType": "bH0oHLeaNs",
+        "isArray": false,
+        "value": {
+          "type": "BinaryExpression",
+          "operator": ">",
+          "left": {
+            "type": "Identifier",
+            "name": "yHs"
+          },
+          "right": {
+            "type": "NumberLiteral",
+            "value": 1
+          }
+        }
+      },
+      {
+        "type": "VariableDeclaration",
+        "location": {
+          "line": 27,
           "column": 3
         },
         "declarationKind": "var",
@@ -166,72 +291,73 @@ ProgramNode (JSON):
         }
       },
       {
-        "type": "VariableDeclaration",
+        "type": "IfStatement",
         "location": {
           "line": 31,
           "column": 3
         },
-        "declarationKind": "var",
-        "name": "dH4s",
-        "declaredType": "iHNtSZ",
-        "isArray": false,
-        "value": {
-          "type": "BinaryExpression",
-          "operator": "%",
-          "left": {
-            "type": "NumberLiteral",
-            "value": 17
-          },
-          "right": {
-            "type": "NumberLiteral",
-            "value": 5
-          }
-        }
-      },
-      {
-        "type": "VariableDeclaration",
-        "location": {
-          "line": 34,
-          "column": 3
-        },
-        "declarationKind": "var",
-        "name": "mH3s",
-        "declaredType": "sTRh1Ngz",
-        "isArray": false,
-        "value": {
-          "type": "BinaryExpression",
-          "operator": "+",
-          "left": {
-            "type": "StringLiteral",
-            "value": "score: "
-          },
-          "right": {
-            "type": "Identifier",
-            "name": "aH1s"
-          }
-        }
-      },
-      {
-        "type": "PrintStatement",
-        "location": {
-          "line": 36,
-          "column": 3
-        },
-        "value": {
+        "condition": {
           "type": "Identifier",
-          "name": "aH1s"
-        }
-      },
-      {
-        "type": "PrintStatement",
-        "location": {
-          "line": 37,
-          "column": 3
+          "name": "zHs"
         },
-        "value": {
-          "type": "Identifier",
-          "name": "bH2s"
-        }
+        "thenBranch": [
+          {
+            "type": "PrintStatement",
+            "location": {
+              "line": 32,
+              "column": 5
+            },
+            "value": {
+              "type": "Identifier",
+              "name": "bH2s"
+            }
+          }
+        ],
+        "elseIfChains": [],
+        "elseBranch": [
+          {
+            "type": "VariableDeclaration",
+            "location": {
+              "line": 34,
+              "column": 5
+            },
+            "declarationKind": "var",
+            "name": "dHs",
+            "declaredType": "iHNtSZ",
+            "isArray": false,
+            "value": {
+              "type": "BinaryExpression",
+              "operator": "/",
+              "left": {
+                "type": "NumberLiteral",
+                "value": 20
+              },
+              "right": {
+                "type": "NumberLiteral",
+                "value": 4
+              }
+            }
+          },
+          {
+            "type": "PrintStatement",
+            "location": {
+              "line": 35,
+              "column": 5
+            },
+            "value": {
+              "type": "BinaryExpression",
+              "operator": "+",
+              "left": {
+                "type": "Identifier",
+                "name": "dHs"
+              },
+              "right": {
+                "type": "NumberLiteral",
+                "value": 1
+              }
+            }
+          }
+        ]
       },
       {
         "type": "PrintStatement",
@@ -241,1061 +367,7 @@ ProgramNode (JSON):
         },
         "value": {
           "type": "Identifier",
-          "name": "cH3s"
-        }
-      },
-      {
-        "type": "PrintStatement",
-        "location": {
-          "line": 39,
-          "column": 3
-        },
-        "value": {
-          "type": "Identifier",
-          "name": "dH4s"
-        }
-      },
-      {
-        "type": "PrintStatement",
-        "location": {
-          "line": 40,
-          "column": 3
-        },
-        "value": {
-          "type": "Identifier",
-          "name": "mH3s"
-        }
-      }
-    ]
-  }
-}
-
-========================================================================
-Example 2: demo-examples/math-complex-expression.stg
-Complex math: nested ops, function calls, arrays, records, comparisons
-========================================================================
-
-PHASE 3 — AST (buildAst)
-------------------------
-Syntax errors: 0
-
-ProgramNode (ASCII tree):
-Program
-  RecordDeclaration(vH3cHs)
-    field yH2s: iHNtSZ
-  FunctionDeclaration(dH1bHs: iHNtSZ) @ 16:1
-    param xH1s: iHNtSZ
-    ReturnStatement @ 17:3
-      BinaryExpression(*)
-        Identifier(xH1s)
-        NumberLiteral(2)
-  FunctionDeclaration(aHDs: iHNtSZ) @ 20:1
-    param xH1s: iHNtSZ
-    param yH2s: iHNtSZ
-    ReturnStatement @ 21:3
-      BinaryExpression(+)
-        Identifier(xH1s)
-        Identifier(yH2s)
-  MainFunction(mHA1Ns)
-    VariableDeclaration(let aHs: iHNtSZ[]) @ 25:3
-      ArrayLiteral
-        NumberLiteral(2)
-        NumberLiteral(4)
-        NumberLiteral(6)
-    VariableDeclaration(var rH1s: vH3cHs) @ 26:3
-      RecordLiteral(vH3cHs)
-        field yH2s
-          NumberLiteral(3)
-    VariableDeclaration(var fH1s: iHNtSZ) @ 27:3
-      MemberAccess(.yH2s)
-        Identifier(rH1s)
-    VariableDeclaration(var xH1s: iHNtSZ) @ 28:3
-      NumberLiteral(4)
-    VariableDeclaration(var pH1s: iHNtSZ) @ 31:3
-      BinaryExpression(*)
-        BinaryExpression(+)
-          Identifier(xH1s)
-          NumberLiteral(1)
-        NumberLiteral(2)
-    VariableDeclaration(var rH3s: iHNtSZ) @ 34:3
-      BinaryExpression(+)
-        BinaryExpression(+)
-          BinaryExpression(+)
-            FunctionCall(dH1bHs)
-              NumberLiteral(5)
-            BinaryExpression(*)
-              BinaryExpression(/)
-                NumberLiteral(34)
-                NumberLiteral(2)
-              ArrayIndexAccess(aHs)
-                NumberLiteral(1)
-          Identifier(fH1s)
-        FunctionCall(aHDs)
-          Identifier(pH1s)
-          NumberLiteral(3)
-    IfStatement @ 37:3
-      condition
-        BinaryExpression(>)
-          Identifier(rH3s)
-          NumberLiteral(20)
-      then
-        PrintStatement @ 38:5
-          Identifier(rH3s)
-      else
-        PrintStatement @ 40:5
-          BinaryExpression(+)
-            Identifier(rH3s)
-            NumberLiteral(1)
-    PrintStatement @ 43:3
-      BinaryExpression(+)
-        ArrayIndexAccess(aHs)
-          NumberLiteral(0)
-        ArrayIndexAccess(aHs)
-          NumberLiteral(2)
-
-ProgramNode (JSON):
-{
-  "type": "Program",
-  "entryModule": "main",
-  "includes": [],
-  "recordDeclarations": [
-    {
-      "type": "RecordDeclaration",
-      "name": "vH3cHs",
-      "fields": [
-        {
-          "name": "yH2s",
-          "declaredType": "iHNtSZ"
-        }
-      ]
-    }
-  ],
-  "functions": [
-    {
-      "type": "FunctionDeclaration",
-      "location": {
-        "line": 16,
-        "column": 1
-      },
-      "name": "dH1bHs",
-      "isExported": false,
-      "sourceModule": "main",
-      "parameters": [
-        {
-          "name": "xH1s",
-          "declaredType": "iHNtSZ"
-        }
-      ],
-      "returnType": "iHNtSZ",
-      "body": [
-        {
-          "type": "ReturnStatement",
-          "location": {
-            "line": 17,
-            "column": 3
-          },
-          "value": {
-            "type": "BinaryExpression",
-            "operator": "*",
-            "left": {
-              "type": "Identifier",
-              "name": "xH1s"
-            },
-            "right": {
-              "type": "NumberLiteral",
-              "value": 2
-            }
-          }
-        }
-      ]
-    },
-    {
-      "type": "FunctionDeclaration",
-      "location": {
-        "line": 20,
-        "column": 1
-      },
-      "name": "aHDs",
-      "isExported": false,
-      "sourceModule": "main",
-      "parameters": [
-        {
-          "name": "xH1s",
-          "declaredType": "iHNtSZ"
-        },
-        {
-          "name": "yH2s",
-          "declaredType": "iHNtSZ"
-        }
-      ],
-      "returnType": "iHNtSZ",
-      "body": [
-        {
-          "type": "ReturnStatement",
-          "location": {
-            "line": 21,
-            "column": 3
-          },
-          "value": {
-            "type": "BinaryExpression",
-            "operator": "+",
-            "left": {
-              "type": "Identifier",
-              "name": "xH1s"
-            },
-            "right": {
-              "type": "Identifier",
-              "name": "yH2s"
-            }
-          }
-        }
-      ]
-    }
-  ],
-  "mainFunction": {
-    "type": "MainFunction",
-    "body": [
-      {
-        "type": "VariableDeclaration",
-        "location": {
-          "line": 25,
-          "column": 3
-        },
-        "declarationKind": "let",
-        "name": "aHs",
-        "declaredType": "iHNtSZ",
-        "isArray": true,
-        "value": {
-          "type": "ArrayLiteral",
-          "elements": [
-            {
-              "type": "NumberLiteral",
-              "value": 2
-            },
-            {
-              "type": "NumberLiteral",
-              "value": 4
-            },
-            {
-              "type": "NumberLiteral",
-              "value": 6
-            }
-          ]
-        }
-      },
-      {
-        "type": "VariableDeclaration",
-        "location": {
-          "line": 26,
-          "column": 3
-        },
-        "declarationKind": "var",
-        "name": "rH1s",
-        "declaredType": "vH3cHs",
-        "isArray": false,
-        "value": {
-          "type": "RecordLiteral",
-          "recordTypeName": "vH3cHs",
-          "fields": [
-            {
-              "name": "yH2s",
-              "value": {
-                "type": "NumberLiteral",
-                "value": 3
-              }
-            }
-          ]
-        }
-      },
-      {
-        "type": "VariableDeclaration",
-        "location": {
-          "line": 27,
-          "column": 3
-        },
-        "declarationKind": "var",
-        "name": "fH1s",
-        "declaredType": "iHNtSZ",
-        "isArray": false,
-        "value": {
-          "type": "MemberAccess",
-          "field": "yH2s",
-          "object": {
-            "type": "Identifier",
-            "name": "rH1s"
-          }
-        }
-      },
-      {
-        "type": "VariableDeclaration",
-        "location": {
-          "line": 28,
-          "column": 3
-        },
-        "declarationKind": "var",
-        "name": "xH1s",
-        "declaredType": "iHNtSZ",
-        "isArray": false,
-        "value": {
-          "type": "NumberLiteral",
-          "value": 4
-        }
-      },
-      {
-        "type": "VariableDeclaration",
-        "location": {
-          "line": 31,
-          "column": 3
-        },
-        "declarationKind": "var",
-        "name": "pH1s",
-        "declaredType": "iHNtSZ",
-        "isArray": false,
-        "value": {
-          "type": "BinaryExpression",
-          "operator": "*",
-          "left": {
-            "type": "BinaryExpression",
-            "operator": "+",
-            "left": {
-              "type": "Identifier",
-              "name": "xH1s"
-            },
-            "right": {
-              "type": "NumberLiteral",
-              "value": 1
-            }
-          },
-          "right": {
-            "type": "NumberLiteral",
-            "value": 2
-          }
-        }
-      },
-      {
-        "type": "VariableDeclaration",
-        "location": {
-          "line": 34,
-          "column": 3
-        },
-        "declarationKind": "var",
-        "name": "rH3s",
-        "declaredType": "iHNtSZ",
-        "isArray": false,
-        "value": {
-          "type": "BinaryExpression",
-          "operator": "+",
-          "left": {
-            "type": "BinaryExpression",
-            "operator": "+",
-            "left": {
-              "type": "BinaryExpression",
-              "operator": "+",
-              "left": {
-                "type": "FunctionCall",
-                "name": "dH1bHs",
-                "arguments": [
-                  {
-                    "type": "NumberLiteral",
-                    "value": 5
-                  }
-                ]
-              },
-              "right": {
-                "type": "BinaryExpression",
-                "operator": "*",
-                "left": {
-                  "type": "BinaryExpression",
-                  "operator": "/",
-                  "left": {
-                    "type": "NumberLiteral",
-                    "value": 34
-                  },
-                  "right": {
-                    "type": "NumberLiteral",
-                    "value": 2
-                  }
-                },
-                "right": {
-                  "type": "ArrayIndexAccess",
-                  "arrayName": "aHs",
-                  "index": {
-                    "type": "NumberLiteral",
-                    "value": 1
-                  }
-                }
-              }
-            },
-            "right": {
-              "type": "Identifier",
-              "name": "fH1s"
-            }
-          },
-          "right": {
-            "type": "FunctionCall",
-            "name": "aHDs",
-            "arguments": [
-              {
-                "type": "Identifier",
-                "name": "pH1s"
-              },
-              {
-                "type": "NumberLiteral",
-                "value": 3
-              }
-            ]
-          }
-        }
-      },
-      {
-        "type": "IfStatement",
-        "location": {
-          "line": 37,
-          "column": 3
-        },
-        "condition": {
-          "type": "BinaryExpression",
-          "operator": ">",
-          "left": {
-            "type": "Identifier",
-            "name": "rH3s"
-          },
-          "right": {
-            "type": "NumberLiteral",
-            "value": 20
-          }
-        },
-        "thenBranch": [
-          {
-            "type": "PrintStatement",
-            "location": {
-              "line": 38,
-              "column": 5
-            },
-            "value": {
-              "type": "Identifier",
-              "name": "rH3s"
-            }
-          }
-        ],
-        "elseIfChains": [],
-        "elseBranch": [
-          {
-            "type": "PrintStatement",
-            "location": {
-              "line": 40,
-              "column": 5
-            },
-            "value": {
-              "type": "BinaryExpression",
-              "operator": "+",
-              "left": {
-                "type": "Identifier",
-                "name": "rH3s"
-              },
-              "right": {
-                "type": "NumberLiteral",
-                "value": 1
-              }
-            }
-          }
-        ]
-      },
-      {
-        "type": "PrintStatement",
-        "location": {
-          "line": 43,
-          "column": 3
-        },
-        "value": {
-          "type": "BinaryExpression",
-          "operator": "+",
-          "left": {
-            "type": "ArrayIndexAccess",
-            "arrayName": "aHs",
-            "index": {
-              "type": "NumberLiteral",
-              "value": 0
-            }
-          },
-          "right": {
-            "type": "ArrayIndexAccess",
-            "arrayName": "aHs",
-            "index": {
-              "type": "NumberLiteral",
-              "value": 2
-            }
-          }
-        }
-      }
-    ]
-  }
-}
-
-========================================================================
-Example 3: demo-examples/logical-op-test.stg
-Boolean expressions: jejemon AND, OR, NOT
-========================================================================
-
-PHASE 3 — AST (buildAst)
-------------------------
-Syntax errors: 0
-
-ProgramNode (ASCII tree):
-Program
-  MainFunction(mHA1Ns)
-    VariableDeclaration(let aHs: bH0oHLeaNs) @ 3:5
-      BooleanLiteral(false)
-    VariableDeclaration(let bHs: bH0oHLeaNs) @ 4:5
-      UnaryExpression(NOT)
-        BinaryExpression(==)
-          BinaryExpression(%)
-            NumberLiteral(1)
-            NumberLiteral(2)
-          NumberLiteral(0)
-    VariableDeclaration(let cHs: bH0oHLeaNs) @ 5:5
-      BooleanLiteral(true)
-    IfStatement @ 8:5
-      condition
-        BinaryExpression(AND)
-          BinaryExpression(OR)
-            Identifier(aHs)
-            Identifier(bHs)
-          UnaryExpression(NOT)
-            Identifier(cHs)
-      then
-        PrintStatement @ 9:9
-          StringLiteral("x leads")
-      else
-        PrintStatement @ 11:9
-          StringLiteral("y leads")
-    PrintStatement @ 15:5
-      Identifier(aHs)
-    PrintStatement @ 16:5
-      Identifier(bHs)
-    PrintStatement @ 17:5
-      Identifier(cHs)
-    PrintStatement @ 18:5
-      BinaryExpression(%)
-        NumberLiteral(6)
-        NumberLiteral(2)
-
-ProgramNode (JSON):
-{
-  "type": "Program",
-  "entryModule": "main",
-  "includes": [],
-  "recordDeclarations": [],
-  "functions": [],
-  "mainFunction": {
-    "type": "MainFunction",
-    "body": [
-      {
-        "type": "VariableDeclaration",
-        "location": {
-          "line": 3,
-          "column": 5
-        },
-        "declarationKind": "let",
-        "name": "aHs",
-        "declaredType": "bH0oHLeaNs",
-        "isArray": false,
-        "value": {
-          "type": "BooleanLiteral",
-          "value": false
-        }
-      },
-      {
-        "type": "VariableDeclaration",
-        "location": {
-          "line": 4,
-          "column": 5
-        },
-        "declarationKind": "let",
-        "name": "bHs",
-        "declaredType": "bH0oHLeaNs",
-        "isArray": false,
-        "value": {
-          "type": "UnaryExpression",
-          "operator": "NOT",
-          "argument": {
-            "type": "BinaryExpression",
-            "operator": "==",
-            "left": {
-              "type": "BinaryExpression",
-              "operator": "%",
-              "left": {
-                "type": "NumberLiteral",
-                "value": 1
-              },
-              "right": {
-                "type": "NumberLiteral",
-                "value": 2
-              }
-            },
-            "right": {
-              "type": "NumberLiteral",
-              "value": 0
-            }
-          }
-        }
-      },
-      {
-        "type": "VariableDeclaration",
-        "location": {
-          "line": 5,
-          "column": 5
-        },
-        "declarationKind": "let",
-        "name": "cHs",
-        "declaredType": "bH0oHLeaNs",
-        "isArray": false,
-        "value": {
-          "type": "BooleanLiteral",
-          "value": true
-        }
-      },
-      {
-        "type": "IfStatement",
-        "location": {
-          "line": 8,
-          "column": 5
-        },
-        "condition": {
-          "type": "BinaryExpression",
-          "operator": "AND",
-          "left": {
-            "type": "BinaryExpression",
-            "operator": "OR",
-            "left": {
-              "type": "Identifier",
-              "name": "aHs"
-            },
-            "right": {
-              "type": "Identifier",
-              "name": "bHs"
-            }
-          },
-          "right": {
-            "type": "UnaryExpression",
-            "operator": "NOT",
-            "argument": {
-              "type": "Identifier",
-              "name": "cHs"
-            }
-          }
-        },
-        "thenBranch": [
-          {
-            "type": "PrintStatement",
-            "location": {
-              "line": 9,
-              "column": 9
-            },
-            "value": {
-              "type": "StringLiteral",
-              "value": "x leads"
-            }
-          }
-        ],
-        "elseIfChains": [],
-        "elseBranch": [
-          {
-            "type": "PrintStatement",
-            "location": {
-              "line": 11,
-              "column": 9
-            },
-            "value": {
-              "type": "StringLiteral",
-              "value": "y leads"
-            }
-          }
-        ]
-      },
-      {
-        "type": "PrintStatement",
-        "location": {
-          "line": 15,
-          "column": 5
-        },
-        "value": {
-          "type": "Identifier",
-          "name": "aHs"
-        }
-      },
-      {
-        "type": "PrintStatement",
-        "location": {
-          "line": 16,
-          "column": 5
-        },
-        "value": {
-          "type": "Identifier",
-          "name": "bHs"
-        }
-      },
-      {
-        "type": "PrintStatement",
-        "location": {
-          "line": 17,
-          "column": 5
-        },
-        "value": {
-          "type": "Identifier",
-          "name": "cHs"
-        }
-      },
-      {
-        "type": "PrintStatement",
-        "location": {
-          "line": 18,
-          "column": 5
-        },
-        "value": {
-          "type": "BinaryExpression",
-          "operator": "%",
-          "left": {
-            "type": "NumberLiteral",
-            "value": 6
-          },
-          "right": {
-            "type": "NumberLiteral",
-            "value": 2
-          }
-        }
-      }
-    ]
-  }
-}
-
-========================================================================
-Example 4: demo-examples/array-test.stg
-Array literals, index read/write, scan
-========================================================================
-
-PHASE 3 — AST (buildAst)
-------------------------
-Syntax errors: 0
-
-ProgramNode (ASCII tree):
-Program
-  RecordDeclaration(vHArH1aHBlH3s)
-    field vHArH1aHBlH3s_aHs: IhnTs
-    field vHArH1aHBlH3s_bHs: sTRh1Ngz
-  MainFunction(mHA1Ns)
-    VariableDeclaration(let mHYs_vHArH1aHBlH3s: vHArH1aHBlH3s) @ 13:1
-      RecordLiteral(vHArH1aHBlH3s)
-        field vHArH1aHBlH3s_aHs
-          NumberLiteral(1)
-        field vHArH1aHBlH3s_bHs
-          StringLiteral("Sample")
-    Assignment(=) @ 21:1
-      target recordField(mHYs_vHArH1aHBlH3s.vHArH1aHBlH3s_aHs)
-      NumberLiteral(2)
-    VariableDeclaration(let aHs: IhnTs[]) @ 23:1
-      ArrayLiteral
-        NumberLiteral(1)
-        NumberLiteral(2)
-        NumberLiteral(3)
-        NumberLiteral(4)
-        NumberLiteral(5)
-        NumberLiteral(6)
-    ArrayIndexAssignment(aHs =) @ 25:1
-      NumberLiteral(2)
-      NumberLiteral(6)
-    VariableDeclaration(let bHs: IhnTs) @ 26:1
-      NumberLiteral(3)
-    Assignment(=) @ 27:1
-      target variable(bHs)
-      NumberLiteral(2)
-    ScanStatement(Text here:  → bHs) @ 29:1
-    PrintStatement @ 31:1
-      Identifier(bHs)
-    PrintStatement @ 32:1
-      ArrayIndexAccess(aHs)
-        NumberLiteral(0)
-    PrintStatement @ 33:1
-      MemberAccess(.vHArH1aHBlH3s_aHs)
-        Identifier(mHYs_vHArH1aHBlH3s)
-    PrintStatement @ 34:1
-      ArrayIndexAccess(aHs)
-        MemberAccess(.vHArH1aHBlH3s_aHs)
-          Identifier(mHYs_vHArH1aHBlH3s)
-    PrintStatement @ 35:1
-      ArrayIndexAccess(aHs)
-        BinaryExpression(+)
-          BinaryExpression(+)
-            NumberLiteral(0)
-            ArrayIndexAccess(aHs)
-              NumberLiteral(0)
-          Identifier(bHs)
-
-ProgramNode (JSON):
-{
-  "type": "Program",
-  "entryModule": "main",
-  "includes": [],
-  "recordDeclarations": [
-    {
-      "type": "RecordDeclaration",
-      "name": "vHArH1aHBlH3s",
-      "fields": [
-        {
-          "name": "vHArH1aHBlH3s_aHs",
-          "declaredType": "IhnTs"
-        },
-        {
-          "name": "vHArH1aHBlH3s_bHs",
-          "declaredType": "sTRh1Ngz"
-        }
-      ]
-    }
-  ],
-  "functions": [],
-  "mainFunction": {
-    "type": "MainFunction",
-    "body": [
-      {
-        "type": "VariableDeclaration",
-        "location": {
-          "line": 13,
-          "column": 1
-        },
-        "declarationKind": "let",
-        "name": "mHYs_vHArH1aHBlH3s",
-        "declaredType": "vHArH1aHBlH3s",
-        "isArray": false,
-        "value": {
-          "type": "RecordLiteral",
-          "recordTypeName": "vHArH1aHBlH3s",
-          "fields": [
-            {
-              "name": "vHArH1aHBlH3s_aHs",
-              "value": {
-                "type": "NumberLiteral",
-                "value": 1
-              }
-            },
-            {
-              "name": "vHArH1aHBlH3s_bHs",
-              "value": {
-                "type": "StringLiteral",
-                "value": "Sample"
-              }
-            }
-          ]
-        }
-      },
-      {
-        "type": "Assignment",
-        "location": {
-          "line": 21,
-          "column": 1
-        },
-        "operator": "=",
-        "target": {
-          "kind": "recordField",
-          "rootVariable": "mHYs_vHArH1aHBlH3s",
-          "fieldPath": [
-            "vHArH1aHBlH3s_aHs"
-          ]
-        },
-        "value": {
-          "type": "NumberLiteral",
-          "value": 2
-        }
-      },
-      {
-        "type": "VariableDeclaration",
-        "location": {
-          "line": 23,
-          "column": 1
-        },
-        "declarationKind": "let",
-        "name": "aHs",
-        "declaredType": "IhnTs",
-        "isArray": true,
-        "value": {
-          "type": "ArrayLiteral",
-          "elements": [
-            {
-              "type": "NumberLiteral",
-              "value": 1
-            },
-            {
-              "type": "NumberLiteral",
-              "value": 2
-            },
-            {
-              "type": "NumberLiteral",
-              "value": 3
-            },
-            {
-              "type": "NumberLiteral",
-              "value": 4
-            },
-            {
-              "type": "NumberLiteral",
-              "value": 5
-            },
-            {
-              "type": "NumberLiteral",
-              "value": 6
-            }
-          ]
-        }
-      },
-      {
-        "type": "ArrayIndexAssignment",
-        "location": {
-          "line": 25,
-          "column": 1
-        },
-        "arrayName": "aHs",
-        "index": {
-          "type": "NumberLiteral",
-          "value": 2
-        },
-        "operator": "=",
-        "value": {
-          "type": "NumberLiteral",
-          "value": 6
-        }
-      },
-      {
-        "type": "VariableDeclaration",
-        "location": {
-          "line": 26,
-          "column": 1
-        },
-        "declarationKind": "let",
-        "name": "bHs",
-        "declaredType": "IhnTs",
-        "isArray": false,
-        "value": {
-          "type": "NumberLiteral",
-          "value": 3
-        }
-      },
-      {
-        "type": "Assignment",
-        "location": {
-          "line": 27,
-          "column": 1
-        },
-        "operator": "=",
-        "target": {
-          "kind": "variable",
-          "name": "bHs"
-        },
-        "value": {
-          "type": "NumberLiteral",
-          "value": 2
-        }
-      },
-      {
-        "type": "ScanStatement",
-        "location": {
-          "line": 29,
-          "column": 1
-        },
-        "promptMessage": "Text here: ",
-        "variableName": "bHs"
-      },
-      {
-        "type": "PrintStatement",
-        "location": {
-          "line": 31,
-          "column": 1
-        },
-        "value": {
-          "type": "Identifier",
-          "name": "bHs"
-        }
-      },
-      {
-        "type": "PrintStatement",
-        "location": {
-          "line": 32,
-          "column": 1
-        },
-        "value": {
-          "type": "ArrayIndexAccess",
-          "arrayName": "aHs",
-          "index": {
-            "type": "NumberLiteral",
-            "value": 0
-          }
-        }
-      },
-      {
-        "type": "PrintStatement",
-        "location": {
-          "line": 33,
-          "column": 1
-        },
-        "value": {
-          "type": "MemberAccess",
-          "field": "vHArH1aHBlH3s_aHs",
-          "object": {
-            "type": "Identifier",
-            "name": "mHYs_vHArH1aHBlH3s"
-          }
-        }
-      },
-      {
-        "type": "PrintStatement",
-        "location": {
-          "line": 34,
-          "column": 1
-        },
-        "value": {
-          "type": "ArrayIndexAccess",
-          "arrayName": "aHs",
-          "index": {
-            "type": "MemberAccess",
-            "field": "vHArH1aHBlH3s_aHs",
-            "object": {
-              "type": "Identifier",
-              "name": "mHYs_vHArH1aHBlH3s"
-            }
-          }
-        }
-      },
-      {
-        "type": "PrintStatement",
-        "location": {
-          "line": 35,
-          "column": 1
-        },
-        "value": {
-          "type": "ArrayIndexAccess",
-          "arrayName": "aHs",
-          "index": {
-            "type": "BinaryExpression",
-            "operator": "+",
-            "left": {
-              "type": "BinaryExpression",
-              "operator": "+",
-              "left": {
-                "type": "NumberLiteral",
-                "value": 0
-              },
-              "right": {
-                "type": "ArrayIndexAccess",
-                "arrayName": "aHs",
-                "index": {
-                  "type": "NumberLiteral",
-                  "value": 0
-                }
-              }
-            },
-            "right": {
-              "type": "Identifier",
-              "name": "bHs"
-            }
-          }
+          "name": "bH2s"
         }
       }
     ]

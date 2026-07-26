@@ -10,22 +10,9 @@ export type PipelineDemoFile = {
 
 export const pipelineDemoFiles: PipelineDemoFile[] = [
   {
-    path: 'demo-examples/math-simple-expression.stg',
+    path: 'demo-examples/optimizer-dce-test.stg',
     description:
-      'Simple math: id + num, id * id, num / num, modulus, string concat',
-  },
-  {
-    path: 'demo-examples/math-complex-expression.stg',
-    description:
-      'Complex math: nested ops, function calls, arrays, records, comparisons',
-  },
-  {
-    path: 'demo-examples/logical-op-test.stg',
-    description: 'Boolean expressions: jejemon AND, OR, NOT',
-  },
-  {
-    path: 'demo-examples/array-test.stg',
-    description: 'Array literals, index read/write, scan',
+      'DCE: Eliminates unused variables.',
   },
 ];
 

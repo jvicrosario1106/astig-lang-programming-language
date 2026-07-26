@@ -12,7 +12,7 @@
  *   pipeline-output.txt   (all phases combined, per file)
  */
 import { ANTLRErrorListener, CharStreams } from 'antlr4ts';
-import { mkdirSync, readFileSync, writeFileSync } from 'fs';
+import { mkdirSync, readFileSync, writeFile, writeFileSync } from 'fs';
 import { dirname, join } from 'path';
 import { AstigLangLexer } from '../generated/grammar/AstigLangLexer';
 import { buildAst } from './ast';
@@ -31,6 +31,7 @@ import { formatDiagnostic, humanizeAntlrMessage } from './utils/diagnostics';
 import { formatProgramAst, formatProgramAstJson } from './utils/formatAst';
 import { formatParseTree } from './utils/formatParseTree';
 import { parseSourceWithDiagnostics } from './utils/parseWithDiagnostics';
+import { optimizeProgram } from './optimizer';
 
 const TEXT_FILES_DIR = 'text-files';
 
@@ -39,6 +40,7 @@ const OUTPUT_FILES = {
   scannerErrors: 'scanner-error-dump.txt',
   parse: 'parse.txt',
   ast: 'ast.txt',
+  optimizedAST: 'optimizedAST.txt',
   interpret: 'interpreter-output.txt',
   pipeline: 'pipeline-output.txt',
 } as const;
@@ -68,6 +70,7 @@ type FilePipelineResult = {
   scanSection: string;
   parseSection: string;
   astSection: string;
+  optimizedASTSection: string;
   interpretSection: string;
   combinedSection: string;
   lexerErrors: LexerError[];
@@ -222,6 +225,31 @@ function buildAstSection(source: string, filePath: string): string {
   return lines.join('\n');
 }
 
+function buildOptimizedAstSection(source: string, filePath: string): string {
+  const result = parseSourceWithDiagnostics(source, filePath);
+  const lines: string[] = [
+    'PHASE 4 — Optimized AST (buildOptimizedAst)',
+    '------------------------',
+    `Syntax errors: ${result.syntaxErrors}`,
+  ];
+
+  if (result.syntaxErrors > 0) {
+    lines.push('', 'AST:', '(skipped — fix syntax errors first)');
+    return lines.join('\n');
+  }
+
+  const program = optimizeProgram(buildAst(result.tree));
+  lines.push(
+    '',
+    'ProgramNode (ASCII tree):',
+    formatProgramAst(program),
+    '',
+    'ProgramNode (JSON):',
+    formatProgramAstJson(program),
+  );
+  return lines.join('\n');
+}
+
 function loadDemoProgram(filePath: string, source: string) {
   if (source.includes('iHNcHLuHD3s')) {
     return loadProgram(source, dirname(filePath), filePath);
@@ -240,7 +268,7 @@ function buildInterpretSection(
   filePath: string,
 ): string {
   const lines: string[] = [
-    'PHASE 4 — TYPE CHECK + INTERPRETER',
+    'PHASE 5 — TYPE CHECK + INTERPRETER',
     '----------------------------------',
   ];
 
@@ -297,6 +325,7 @@ function processFile(
   );
   const parseSection = buildParseSection(source, filePath);
   const astSection = buildAstSection(source, filePath);
+  const optimizedASTSection = buildOptimizedAstSection(source, filePath);
   const interpretSection = buildInterpretSection(source, filePath);
 
   const combinedSection = [
@@ -306,6 +335,8 @@ function processFile(
     parseSection,
     '',
     astSection,
+    '',
+    optimizedASTSection,
     '',
     interpretSection,
     '',
@@ -317,6 +348,7 @@ function processFile(
     scanSection: [header, scanSection, ''].join('\n'),
     parseSection: [header, parseSection, ''].join('\n'),
     astSection: [header, astSection, ''].join('\n'),
+    optimizedASTSection: [header, optimizedASTSection, ""].join('\n'),
     interpretSection: [header, interpretSection, ''].join('\n'),
     combinedSection,
     lexerErrors,
@@ -364,7 +396,7 @@ export function runPipelineDemo(): void {
     'AstigLang Pipeline Demo',
     '=======================',
     '',
-    'Source → Lexer → Parser → AST → Type check → Interpreter',
+    'Source → Lexer → Parser → AST → Type check → Optimizer → Interpreter',
     '',
     'Sample files:',
     ...pipelineDemoFiles.map(
@@ -391,6 +423,12 @@ export function runPipelineDemo(): void {
     `Written to text-files/${OUTPUT_FILES.ast}`,
   ].join('\n');
 
+  const optimizedASTReport = [
+    intro.replace('Pipeline Demo', 'Optimizer Demo'),
+    ...results.map((result) => result.optimizedASTSection),
+    `Written to text-files/${OUTPUT_FILES.optimizedAST}`,
+  ].join('\n');
+
   const interpretReport = [
     intro.replace('Pipeline Demo', 'Interpreter Demo'),
     ...results.map((result) => result.interpretSection),
@@ -409,6 +447,7 @@ export function runPipelineDemo(): void {
   writeLexerErrorDump(results);
   writeFileSync(textFilePath(OUTPUT_FILES.parse), parseReport, 'utf8');
   writeFileSync(textFilePath(OUTPUT_FILES.ast), astReport, 'utf8');
+  writeFileSync(textFilePath(OUTPUT_FILES.optimizedAST), optimizedASTReport, 'utf8');
   writeFileSync(textFilePath(OUTPUT_FILES.interpret), interpretReport, 'utf8');
   writeFileSync(textFilePath(OUTPUT_FILES.pipeline), combinedReport, 'utf8');
 
@@ -418,6 +457,7 @@ export function runPipelineDemo(): void {
   console.log(`  ${OUTPUT_FILES.scanner}`);
   console.log(`  ${OUTPUT_FILES.parse}`);
   console.log(`  ${OUTPUT_FILES.ast}`);
+  console.log(`  ${OUTPUT_FILES.optimizedAST}`);
   console.log(`  ${OUTPUT_FILES.interpret}`);
   console.log(`  ${OUTPUT_FILES.scannerErrors}`);
 }

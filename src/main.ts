@@ -18,6 +18,7 @@ import {
   formatDiagnostic,
   reportDiagnostics,
 } from './utils/diagnostics';
+import { optimizeProgram } from './optimizer';
 
 const defaultCode = `
 fHUncTH!0Ns mHA1Ns() {
@@ -50,8 +51,11 @@ try {
   // Type check the program.
   typeCheckProgram(ast, programFilename);
 
-  // Run the program.
-  const output = runProgram(ast);
+  // Optimize after type checking
+  const optimizedAst = optimizeProgram(ast);
+
+  // Run the program with the optimized AST.
+  const output = runProgram(optimizedAst);
 
   console.log('Output:');
   console.log(output.join('\n'));

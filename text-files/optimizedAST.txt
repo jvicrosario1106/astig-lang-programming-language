@@ -1,0 +1,146 @@
+AstigLang Optimizer Demo
+=======================
+
+Source → Lexer → Parser → AST → Type check → Optimizer → Interpreter
+
+Sample files:
+  1. demo-examples/optimizer-dce-test.stg — DCE: Eliminates unused variables.
+
+========================================================================
+Example 1: demo-examples/optimizer-dce-test.stg
+DCE: Eliminates unused variables.
+========================================================================
+
+PHASE 4 — Optimized AST (buildOptimizedAst)
+------------------------
+Syntax errors: 0
+
+ProgramNode (ASCII tree):
+Program
+  MainFunction(mHA1Ns)
+    VariableDeclaration(var yH2s: iHNtSZ) @ 12:3
+      NumberLiteral(3)
+    VariableDeclaration(var aH1s: iHNtSZ) @ 15:3
+      NumberLiteral(13)
+    VariableDeclaration(var bH2s: iHNtSZ) @ 18:3
+      NumberLiteral(39)
+    VariableDeclaration(var yHs: iHNtSZ) @ 21:3
+      NumberLiteral(2)
+    VariableDeclaration(var zHs: bH0oHLeaNs) @ 23:3
+      BooleanLiteral(true)
+    PrintStatement @ 32:5
+      Identifier(bH2s)
+    PrintStatement @ 38:3
+      Identifier(bH2s)
+
+ProgramNode (JSON):
+{
+  "type": "Program",
+  "includes": [],
+  "recordDeclarations": [],
+  "functions": [],
+  "mainFunction": {
+    "type": "MainFunction",
+    "body": [
+      {
+        "type": "VariableDeclaration",
+        "location": {
+          "line": 12,
+          "column": 3
+        },
+        "declarationKind": "var",
+        "name": "yH2s",
+        "declaredType": "iHNtSZ",
+        "isArray": false,
+        "value": {
+          "type": "NumberLiteral",
+          "value": 3
+        }
+      },
+      {
+        "type": "VariableDeclaration",
+        "location": {
+          "line": 15,
+          "column": 3
+        },
+        "declarationKind": "var",
+        "name": "aH1s",
+        "declaredType": "iHNtSZ",
+        "isArray": false,
+        "value": {
+          "type": "NumberLiteral",
+          "value": 13
+        }
+      },
+      {
+        "type": "VariableDeclaration",
+        "location": {
+          "line": 18,
+          "column": 3
+        },
+        "declarationKind": "var",
+        "name": "bH2s",
+        "declaredType": "iHNtSZ",
+        "isArray": false,
+        "value": {
+          "type": "NumberLiteral",
+          "value": 39
+        }
+      },
+      {
+        "type": "VariableDeclaration",
+        "location": {
+          "line": 21,
+          "column": 3
+        },
+        "declarationKind": "var",
+        "name": "yHs",
+        "declaredType": "iHNtSZ",
+        "isArray": false,
+        "value": {
+          "type": "NumberLiteral",
+          "value": 2
+        }
+      },
+      {
+        "type": "VariableDeclaration",
+        "location": {
+          "line": 23,
+          "column": 3
+        },
+        "declarationKind": "var",
+        "name": "zHs",
+        "declaredType": "bH0oHLeaNs",
+        "isArray": false,
+        "value": {
+          "type": "BooleanLiteral",
+          "value": true
+        }
+      },
+      {
+        "type": "PrintStatement",
+        "location": {
+          "line": 32,
+          "column": 5
+        },
+        "value": {
+          "type": "Identifier",
+          "name": "bH2s"
+        }
+      },
+      {
+        "type": "PrintStatement",
+        "location": {
+          "line": 38,
+          "column": 3
+        },
+        "value": {
+          "type": "Identifier",
+          "name": "bH2s"
+        }
+      }
+    ]
+  }
+}
+
+Written to text-files/optimizedAST.txt
