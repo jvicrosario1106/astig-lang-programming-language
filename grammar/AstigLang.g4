@@ -258,13 +258,15 @@ returnDataType
 
 // Expressions are values or computations with proper operator precedence.
 // Precedence (highest to lowest): unary minus, MUL/DIV, ADD/SUB, comparison
-// CHANGE: Added float, recordLiteral and expression.identifier (to chain record member calling)
+// CHANGE: SHL, SHR, BWA, BWO
 expression
     : NOT_KW expression
     | SUB expression
     | expression op=(MUL|DIV|MOD) expression
     | expression op=(ADD|SUB) expression
+    | expression op=(SHL|SHR) expression
     | expression op=(EQ|NEQ|LT|GT|LTE|GTE) expression
+    | expression op=(BWA|BWO) expression
     | expression op=(AND_KW|OR_KW) expression
     | '(' expression ')'
     | functionCall
@@ -556,6 +558,10 @@ LT: '<';
 GT: '>';
 LTE: '<=';
 GTE: '>=';
+SHL: '<<';
+SHR: '>>';
+BWA: '&';
+BWO: '|';
 
 SEMICOLON: ';';
 

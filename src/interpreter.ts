@@ -506,7 +506,15 @@ function evaluateExpression(
           return (left as number) <= (right as number);
         case '>=':
           return (left as number) >= (right as number);
-        case 'AND':
+        case '<<':
+          return (left as number) << (right as number);
+        case '>>':
+          return (left as number) >> (right as number);
+        case '&':
+          return (left as number) & (right as number);
+        case '|':
+          return (left as number) | (right as number);
+        case 'AND': 
           return (left as boolean) && (right as boolean);
         case 'OR':
           return (left as boolean) || (right as boolean);

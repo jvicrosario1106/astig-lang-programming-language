@@ -5,6 +5,7 @@ Source → Lexer → Parser → AST → Type check → Optimizer → Interpreter
 
 Sample files:
   1. demo-examples/optimizer-dce-test.stg — DCE: Eliminates unused variables.
+  2. demo-examples/bitwise-op-test.stg — Test for bitwise operators (<<, >>, &, |).
 
 ========================================================================
 Example 1: demo-examples/optimizer-dce-test.stg
@@ -34,7 +35,8 @@ Program
       NumberLiteral(3)
     VariableDeclaration(var aH1s: iHNtSZ) @ 15:3
       BinaryExpression(+)
-        Identifier(yH2s)
+        FunctionCall(dH1bHs)
+          Identifier(yH2s)
         NumberLiteral(10)
     VariableDeclaration(var bH2s: iHNtSZ) @ 18:3
       BinaryExpression(*)
@@ -189,8 +191,14 @@ ProgramNode (JSON):
           "type": "BinaryExpression",
           "operator": "+",
           "left": {
-            "type": "Identifier",
-            "name": "yH2s"
+            "type": "FunctionCall",
+            "name": "dH1bHs",
+            "arguments": [
+              {
+                "type": "Identifier",
+                "name": "yH2s"
+              }
+            ]
           },
           "right": {
             "type": "NumberLiteral",
@@ -368,6 +376,273 @@ ProgramNode (JSON):
         "value": {
           "type": "Identifier",
           "name": "bH2s"
+        }
+      }
+    ]
+  }
+}
+
+========================================================================
+Example 2: demo-examples/bitwise-op-test.stg
+Test for bitwise operators (<<, >>, &, |).
+========================================================================
+
+PHASE 3 — AST (buildAst)
+------------------------
+Syntax errors: 0
+
+ProgramNode (ASCII tree):
+Program
+  MainFunction(mHA1Ns)
+    VariableDeclaration(var xH1s: iHNtSZ) @ 3:5
+      NumberLiteral(16)
+    VariableDeclaration(var yH2s: iHNtSZ) @ 4:5
+      NumberLiteral(3)
+    VariableDeclaration(var zHs: iHNtSZ) @ 6:5
+      BinaryExpression(<<)
+        Identifier(xH1s)
+        Identifier(yH2s)
+    VariableDeclaration(var xHs: iHNtSZ) @ 7:5
+      BinaryExpression(>>)
+        Identifier(xH1s)
+        Identifier(yH2s)
+    VariableDeclaration(var aHs: iHNtSZ) @ 9:5
+      BinaryExpression(&)
+        Identifier(xH1s)
+        Identifier(yH2s)
+    VariableDeclaration(var bHs: iHNtSZ) @ 10:5
+      BinaryExpression(|)
+        Identifier(xH1s)
+        Identifier(xHs)
+    PrintStatement @ 12:5
+      Identifier(zHs)
+    PrintStatement @ 13:5
+      Identifier(xHs)
+    PrintStatement @ 14:5
+      BinaryExpression(+)
+        Identifier(zHs)
+        Identifier(xHs)
+    PrintStatement @ 15:5
+      Identifier(aHs)
+    PrintStatement @ 16:5
+      Identifier(bHs)
+    PrintStatement @ 17:5
+      BinaryExpression(+)
+        Identifier(aHs)
+        Identifier(bHs)
+
+ProgramNode (JSON):
+{
+  "type": "Program",
+  "entryModule": "main",
+  "includes": [],
+  "recordDeclarations": [],
+  "functions": [],
+  "mainFunction": {
+    "type": "MainFunction",
+    "body": [
+      {
+        "type": "VariableDeclaration",
+        "location": {
+          "line": 3,
+          "column": 5
+        },
+        "declarationKind": "var",
+        "name": "xH1s",
+        "declaredType": "iHNtSZ",
+        "isArray": false,
+        "value": {
+          "type": "NumberLiteral",
+          "value": 16
+        }
+      },
+      {
+        "type": "VariableDeclaration",
+        "location": {
+          "line": 4,
+          "column": 5
+        },
+        "declarationKind": "var",
+        "name": "yH2s",
+        "declaredType": "iHNtSZ",
+        "isArray": false,
+        "value": {
+          "type": "NumberLiteral",
+          "value": 3
+        }
+      },
+      {
+        "type": "VariableDeclaration",
+        "location": {
+          "line": 6,
+          "column": 5
+        },
+        "declarationKind": "var",
+        "name": "zHs",
+        "declaredType": "iHNtSZ",
+        "isArray": false,
+        "value": {
+          "type": "BinaryExpression",
+          "operator": "<<",
+          "left": {
+            "type": "Identifier",
+            "name": "xH1s"
+          },
+          "right": {
+            "type": "Identifier",
+            "name": "yH2s"
+          }
+        }
+      },
+      {
+        "type": "VariableDeclaration",
+        "location": {
+          "line": 7,
+          "column": 5
+        },
+        "declarationKind": "var",
+        "name": "xHs",
+        "declaredType": "iHNtSZ",
+        "isArray": false,
+        "value": {
+          "type": "BinaryExpression",
+          "operator": ">>",
+          "left": {
+            "type": "Identifier",
+            "name": "xH1s"
+          },
+          "right": {
+            "type": "Identifier",
+            "name": "yH2s"
+          }
+        }
+      },
+      {
+        "type": "VariableDeclaration",
+        "location": {
+          "line": 9,
+          "column": 5
+        },
+        "declarationKind": "var",
+        "name": "aHs",
+        "declaredType": "iHNtSZ",
+        "isArray": false,
+        "value": {
+          "type": "BinaryExpression",
+          "operator": "&",
+          "left": {
+            "type": "Identifier",
+            "name": "xH1s"
+          },
+          "right": {
+            "type": "Identifier",
+            "name": "yH2s"
+          }
+        }
+      },
+      {
+        "type": "VariableDeclaration",
+        "location": {
+          "line": 10,
+          "column": 5
+        },
+        "declarationKind": "var",
+        "name": "bHs",
+        "declaredType": "iHNtSZ",
+        "isArray": false,
+        "value": {
+          "type": "BinaryExpression",
+          "operator": "|",
+          "left": {
+            "type": "Identifier",
+            "name": "xH1s"
+          },
+          "right": {
+            "type": "Identifier",
+            "name": "xHs"
+          }
+        }
+      },
+      {
+        "type": "PrintStatement",
+        "location": {
+          "line": 12,
+          "column": 5
+        },
+        "value": {
+          "type": "Identifier",
+          "name": "zHs"
+        }
+      },
+      {
+        "type": "PrintStatement",
+        "location": {
+          "line": 13,
+          "column": 5
+        },
+        "value": {
+          "type": "Identifier",
+          "name": "xHs"
+        }
+      },
+      {
+        "type": "PrintStatement",
+        "location": {
+          "line": 14,
+          "column": 5
+        },
+        "value": {
+          "type": "BinaryExpression",
+          "operator": "+",
+          "left": {
+            "type": "Identifier",
+            "name": "zHs"
+          },
+          "right": {
+            "type": "Identifier",
+            "name": "xHs"
+          }
+        }
+      },
+      {
+        "type": "PrintStatement",
+        "location": {
+          "line": 15,
+          "column": 5
+        },
+        "value": {
+          "type": "Identifier",
+          "name": "aHs"
+        }
+      },
+      {
+        "type": "PrintStatement",
+        "location": {
+          "line": 16,
+          "column": 5
+        },
+        "value": {
+          "type": "Identifier",
+          "name": "bHs"
+        }
+      },
+      {
+        "type": "PrintStatement",
+        "location": {
+          "line": 17,
+          "column": 5
+        },
+        "value": {
+          "type": "BinaryExpression",
+          "operator": "+",
+          "left": {
+            "type": "Identifier",
+            "name": "aHs"
+          },
+          "right": {
+            "type": "Identifier",
+            "name": "bHs"
+          }
         }
       }
     ]

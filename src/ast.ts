@@ -605,6 +605,10 @@ function buildExpression(ctx: ExpressionContext): ExpressionNode {
     ctx.GT() ??
     ctx.LTE() ??
     ctx.GTE() ??
+    ctx.SHL() ??
+    ctx.SHR() ??
+    ctx.BWA() ??
+    ctx.BWO() ??
     ctx.AND_KW() ??
     ctx.OR_KW();
 
@@ -651,6 +655,10 @@ type BinaryExpressionOperator =
   | '>'
   | '<='
   | '>='
+  | '<<'
+  | '>>'
+  | '&'
+  | '|'
   | 'AND'
   | 'OR';
 
@@ -667,6 +675,10 @@ function isMemberAccessExpression(ctx: ExpressionContext): boolean {
     !ctx.GT() &&
     !ctx.LTE() &&
     !ctx.GTE() &&
+    !ctx.SHL() &&
+    !ctx.SHR() &&
+    !ctx.BWA() &&
+    !ctx.BWO() &&
     !ctx.AND_KW() &&
     !ctx.OR_KW() &&
     ctx.text.includes('.')

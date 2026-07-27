@@ -12,7 +12,7 @@ fHUncTH!0Ns mHA1Ns() {
   vH4rs yH2s:iHNtSZ = 3;
 
   // id + num
-  vH4rs aH1s:iHNtSZ = yH2s + 10;
+  vH4rs aH1s:iHNtSZ = dH1bHs(yH2s) + 10;
 
   // id * id
   vH4rs bH2s:iHNtSZ = aH1s * yH2s;

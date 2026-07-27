@@ -5,6 +5,7 @@ Source → Lexer → Parser → AST → Type check → Optimizer → Interpreter
 
 Sample files:
   1. demo-examples/optimizer-dce-test.stg — DCE: Eliminates unused variables.
+  2. demo-examples/bitwise-op-test.stg — Test for bitwise operators (<<, >>, &, |).
 
 ========================================================================
 Example 1: demo-examples/optimizer-dce-test.stg
@@ -26,7 +27,7 @@ Source preview:
     // RULE: Unused so it should be ignored
   ...
 
-Tokens (139 total, showing first 60):
+Tokens (142 total, showing first 60):
   LINE_COMMENT "// RULE: Unused so it should be ignored" @ line 1 col 1
   FUNCTION_KW "fHUncTH!0Ns" @ line 2 col 1
   IDENTIFIER "dH1bHs" @ line 2 col 13
@@ -83,15 +84,103 @@ Tokens (139 total, showing first 60):
   ':' ":" @ line 15 col 13
   INT_KW "iHNtSZ" @ line 15 col 14
   '=' "=" @ line 15 col 21
-  IDENTIFIER "yH2s" @ line 15 col 23
-  '+' "+" @ line 15 col 28
-  NUMBER "10" @ line 15 col 30
-  ';' ";" @ line 15 col 32
-  ... 79 more tokens
+  IDENTIFIER "dH1bHs" @ line 15 col 23
+  '(' "(" @ line 15 col 29
+  IDENTIFIER "yH2s" @ line 15 col 30
+  ')' ")" @ line 15 col 34
+  ... 82 more tokens
 
 Lexical errors: none
 
-Scan time: 16.945 ms
-Characters: 896
+Scan time: 33.273 ms
+Characters: 904
+
+========================================================================
+Example 2: demo-examples/bitwise-op-test.stg
+Test for bitwise operators (<<, >>, &, |).
+========================================================================
+
+PHASE 1 — LEXER (Scanner)
+-------------------------
+Source preview:
+  fHUncTH!0Ns mHA1Ns() {
+      // TrU3hS, FhaLSeS, nH0ts
+      vH4rs xH1s:iHNtSZ = 16;
+      vH4rs yH2s:iHNtSZ = 3;
+  
+      vHArs zHs:iHNtSZ = xH1s << yH2s;
+      vHArs xHs:iHNtSZ = xH1s >> yH2s;
+  
+      vHArs aHs:iHNtSZ = xH1s & yH2s;
+      vHArs bHs:iHNtSZ = xH1s | xHs;
+  ...
+
+Tokens (91 total, showing first 60):
+  FUNCTION_KW "fHUncTH!0Ns" @ line 1 col 1
+  MAIN_KW "mHA1Ns" @ line 1 col 13
+  '(' "(" @ line 1 col 19
+  ')' ")" @ line 1 col 20
+  '{' "{" @ line 1 col 22
+  LINE_COMMENT "// TrU3hS, FhaLSeS, nH0ts" @ line 2 col 5
+  VAR_KW "vH4rs" @ line 3 col 5
+  IDENTIFIER "xH1s" @ line 3 col 11
+  ':' ":" @ line 3 col 15
+  INT_KW "iHNtSZ" @ line 3 col 16
+  '=' "=" @ line 3 col 23
+  NUMBER "16" @ line 3 col 25
+  ';' ";" @ line 3 col 27
+  VAR_KW "vH4rs" @ line 4 col 5
+  IDENTIFIER "yH2s" @ line 4 col 11
+  ':' ":" @ line 4 col 15
+  INT_KW "iHNtSZ" @ line 4 col 16
+  '=' "=" @ line 4 col 23
+  NUMBER "3" @ line 4 col 25
+  ';' ";" @ line 4 col 26
+  VAR_KW "vHArs" @ line 6 col 5
+  IDENTIFIER "zHs" @ line 6 col 11
+  ':' ":" @ line 6 col 14
+  INT_KW "iHNtSZ" @ line 6 col 15
+  '=' "=" @ line 6 col 22
+  IDENTIFIER "xH1s" @ line 6 col 24
+  '<<' "<<" @ line 6 col 29
+  IDENTIFIER "yH2s" @ line 6 col 32
+  ';' ";" @ line 6 col 36
+  VAR_KW "vHArs" @ line 7 col 5
+  IDENTIFIER "xHs" @ line 7 col 11
+  ':' ":" @ line 7 col 14
+  INT_KW "iHNtSZ" @ line 7 col 15
+  '=' "=" @ line 7 col 22
+  IDENTIFIER "xH1s" @ line 7 col 24
+  '>>' ">>" @ line 7 col 29
+  IDENTIFIER "yH2s" @ line 7 col 32
+  ';' ";" @ line 7 col 36
+  VAR_KW "vHArs" @ line 9 col 5
+  IDENTIFIER "aHs" @ line 9 col 11
+  ':' ":" @ line 9 col 14
+  INT_KW "iHNtSZ" @ line 9 col 15
+  '=' "=" @ line 9 col 22
+  IDENTIFIER "xH1s" @ line 9 col 24
+  '&' "&" @ line 9 col 29
+  IDENTIFIER "yH2s" @ line 9 col 31
+  ';' ";" @ line 9 col 35
+  VAR_KW "vHArs" @ line 10 col 5
+  IDENTIFIER "bHs" @ line 10 col 11
+  ':' ":" @ line 10 col 14
+  INT_KW "iHNtSZ" @ line 10 col 15
+  '=' "=" @ line 10 col 22
+  IDENTIFIER "xH1s" @ line 10 col 24
+  '|' "|" @ line 10 col 29
+  IDENTIFIER "xHs" @ line 10 col 31
+  ';' ";" @ line 10 col 34
+  PRINT_KW "pHR!HNTs" @ line 12 col 5
+  '(' "(" @ line 12 col 13
+  IDENTIFIER "zHs" @ line 12 col 14
+  ')' ")" @ line 12 col 17
+  ... 31 more tokens
+
+Lexical errors: none
+
+Scan time: 0.889 ms
+Characters: 400
 
 Written to text-files/scanner-output.txt

@@ -823,6 +823,10 @@ function checkExpression(
         case '*':
         case '/':
         case '%':
+        case '<<':
+        case '>>':
+        case '&':
+        case '|':
           assertNumericOperation(leftType, rightType, operator);
           return combineNumericTypes(leftType, rightType);
 
