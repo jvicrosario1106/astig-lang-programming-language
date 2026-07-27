@@ -14,11 +14,6 @@ export const pipelineDemoFiles: PipelineDemoFile[] = [
     description:
       'DCE: Eliminates unused variables.',
   },
-  {
-    path: 'demo-examples/bitwise-op-test.stg',
-    description:
-      'Test for bitwise operators (<<, >>, &, |).',
-  },
 ];
 
 export const pipelineDemoPaths = pipelineDemoFiles.map((file) => file.path);

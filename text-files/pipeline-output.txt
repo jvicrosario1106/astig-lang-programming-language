@@ -5,7 +5,6 @@ Source → Lexer → Parser → AST → Type check → Optimizer → Interpreter
 
 Sample files:
   1. demo-examples/optimizer-dce-test.stg — DCE: Eliminates unused variables.
-  2. demo-examples/bitwise-op-test.stg — Test for bitwise operators (<<, >>, &, |).
 
 ========================================================================
 Example 1: demo-examples/optimizer-dce-test.stg
@@ -27,7 +26,7 @@ Source preview:
     // RULE: Unused so it should be ignored
   ...
 
-Tokens (142 total, showing first 60):
+Tokens (155 total, showing first 60):
   LINE_COMMENT "// RULE: Unused so it should be ignored" @ line 1 col 1
   FUNCTION_KW "fHUncTH!0Ns" @ line 2 col 1
   IDENTIFIER "dH1bHs" @ line 2 col 13
@@ -76,24 +75,24 @@ Tokens (142 total, showing first 60):
   ':' ":" @ line 12 col 13
   INT_KW "iHNtSZ" @ line 12 col 14
   '=' "=" @ line 12 col 21
-  NUMBER "3" @ line 12 col 23
+  NUMBER "8" @ line 12 col 23
   ';' ";" @ line 12 col 24
-  LINE_COMMENT "// id + num" @ line 14 col 3
-  VAR_KW "vH4rs" @ line 15 col 3
-  IDENTIFIER "aH1s" @ line 15 col 9
-  ':' ":" @ line 15 col 13
-  INT_KW "iHNtSZ" @ line 15 col 14
-  '=' "=" @ line 15 col 21
-  IDENTIFIER "dH1bHs" @ line 15 col 23
-  '(' "(" @ line 15 col 29
-  IDENTIFIER "yH2s" @ line 15 col 30
-  ')' ")" @ line 15 col 34
-  ... 82 more tokens
+  VAR_KW "vH4rs" @ line 13 col 3
+  IDENTIFIER "wHs" @ line 13 col 9
+  ':' ":" @ line 13 col 12
+  INT_KW "iHNtSZ" @ line 13 col 13
+  '=' "=" @ line 13 col 20
+  IDENTIFIER "yH2s" @ line 13 col 22
+  ';' ";" @ line 13 col 26
+  LINE_COMMENT "// id + num" @ line 15 col 3
+  VAR_KW "vH4rs" @ line 16 col 3
+  IDENTIFIER "aH1s" @ line 16 col 9
+  ... 95 more tokens
 
 Lexical errors: none
 
-Scan time: 33.273 ms
-Characters: 904
+Scan time: 39.069 ms
+Characters: 943
 
 PHASE 2 — PARSER
 ----------------
@@ -253,7 +252,32 @@ Parse tree:
           =
           (
             expression
-            3
+            8
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          variableDeclaration
+          (
+            declarationKeyword
+            vH4rs
+          )
+          wHs
+          (
+            typeAnnotation
+            :
+            (
+              dataType
+              iHNtSZ
+            )
+          )
+          =
+          (
+            expression
+            yH2s
           )
         )
         ;
@@ -288,7 +312,15 @@ Parse tree:
                     argumentList
                     (
                       expression
-                      yH2s
+                      (
+                        expression
+                        wHs
+                      )
+                      +
+                      (
+                        expression
+                        1
+                      )
                     )
                   )
                 )
@@ -358,7 +390,7 @@ Parse tree:
             expression
             (
               expression
-              2
+              26
             )
             +
             (
@@ -391,7 +423,20 @@ Parse tree:
             expression
             (
               expression
-              yHs
+              (
+                (
+                  expression
+                  (
+                    expression
+                    yHs
+                  )
+                  %
+                  (
+                    expression
+                    4
+                  )
+                )
+              )
             )
             >
             (
@@ -571,44 +616,50 @@ Program
     VariableDeclaration(var xH1s: iHNtSZ) @ 11:3
       NumberLiteral(4)
     VariableDeclaration(var yH2s: iHNtSZ) @ 12:3
-      NumberLiteral(3)
-    VariableDeclaration(var aH1s: iHNtSZ) @ 15:3
+      NumberLiteral(8)
+    VariableDeclaration(var wHs: iHNtSZ) @ 13:3
+      Identifier(yH2s)
+    VariableDeclaration(var aH1s: iHNtSZ) @ 16:3
       BinaryExpression(+)
         FunctionCall(dH1bHs)
-          Identifier(yH2s)
+          BinaryExpression(+)
+            Identifier(wHs)
+            NumberLiteral(1)
         NumberLiteral(10)
-    VariableDeclaration(var bH2s: iHNtSZ) @ 18:3
+    VariableDeclaration(var bH2s: iHNtSZ) @ 19:3
       BinaryExpression(*)
         Identifier(aH1s)
         Identifier(yH2s)
-    VariableDeclaration(var yHs: iHNtSZ) @ 21:3
+    VariableDeclaration(var yHs: iHNtSZ) @ 22:3
       BinaryExpression(+)
-        NumberLiteral(2)
+        NumberLiteral(26)
         NumberLiteral(0)
-    VariableDeclaration(var zHs: bH0oHLeaNs) @ 23:3
+    VariableDeclaration(var zHs: bH0oHLeaNs) @ 24:3
       BinaryExpression(>)
-        Identifier(yHs)
+        BinaryExpression(%)
+          Identifier(yHs)
+          NumberLiteral(4)
         NumberLiteral(1)
-    VariableDeclaration(var cH3s: iHNtSZ) @ 27:3
+    VariableDeclaration(var cH3s: iHNtSZ) @ 28:3
       BinaryExpression(/)
         NumberLiteral(20)
         NumberLiteral(4)
-    IfStatement @ 31:3
+    IfStatement @ 32:3
       condition
         Identifier(zHs)
       then
-        PrintStatement @ 32:5
+        PrintStatement @ 33:5
           Identifier(bH2s)
       else
-        VariableDeclaration(var dHs: iHNtSZ) @ 34:5
+        VariableDeclaration(var dHs: iHNtSZ) @ 35:5
           BinaryExpression(/)
             NumberLiteral(20)
             NumberLiteral(4)
-        PrintStatement @ 35:5
+        PrintStatement @ 36:5
           BinaryExpression(+)
             Identifier(dHs)
             NumberLiteral(1)
-    PrintStatement @ 38:3
+    PrintStatement @ 39:3
       Identifier(bH2s)
 
 ProgramNode (JSON):
@@ -713,13 +764,28 @@ ProgramNode (JSON):
         "isArray": false,
         "value": {
           "type": "NumberLiteral",
-          "value": 3
+          "value": 8
         }
       },
       {
         "type": "VariableDeclaration",
         "location": {
-          "line": 15,
+          "line": 13,
+          "column": 3
+        },
+        "declarationKind": "var",
+        "name": "wHs",
+        "declaredType": "iHNtSZ",
+        "isArray": false,
+        "value": {
+          "type": "Identifier",
+          "name": "yH2s"
+        }
+      },
+      {
+        "type": "VariableDeclaration",
+        "location": {
+          "line": 16,
           "column": 3
         },
         "declarationKind": "var",
@@ -734,8 +800,16 @@ ProgramNode (JSON):
             "name": "dH1bHs",
             "arguments": [
               {
-                "type": "Identifier",
-                "name": "yH2s"
+                "type": "BinaryExpression",
+                "operator": "+",
+                "left": {
+                  "type": "Identifier",
+                  "name": "wHs"
+                },
+                "right": {
+                  "type": "NumberLiteral",
+                  "value": 1
+                }
               }
             ]
           },
@@ -748,7 +822,7 @@ ProgramNode (JSON):
       {
         "type": "VariableDeclaration",
         "location": {
-          "line": 18,
+          "line": 19,
           "column": 3
         },
         "declarationKind": "var",
@@ -771,7 +845,7 @@ ProgramNode (JSON):
       {
         "type": "VariableDeclaration",
         "location": {
-          "line": 21,
+          "line": 22,
           "column": 3
         },
         "declarationKind": "var",
@@ -783,7 +857,7 @@ ProgramNode (JSON):
           "operator": "+",
           "left": {
             "type": "NumberLiteral",
-            "value": 2
+            "value": 26
           },
           "right": {
             "type": "NumberLiteral",
@@ -794,7 +868,7 @@ ProgramNode (JSON):
       {
         "type": "VariableDeclaration",
         "location": {
-          "line": 23,
+          "line": 24,
           "column": 3
         },
         "declarationKind": "var",
@@ -805,8 +879,16 @@ ProgramNode (JSON):
           "type": "BinaryExpression",
           "operator": ">",
           "left": {
-            "type": "Identifier",
-            "name": "yHs"
+            "type": "BinaryExpression",
+            "operator": "%",
+            "left": {
+              "type": "Identifier",
+              "name": "yHs"
+            },
+            "right": {
+              "type": "NumberLiteral",
+              "value": 4
+            }
           },
           "right": {
             "type": "NumberLiteral",
@@ -817,7 +899,7 @@ ProgramNode (JSON):
       {
         "type": "VariableDeclaration",
         "location": {
-          "line": 27,
+          "line": 28,
           "column": 3
         },
         "declarationKind": "var",
@@ -840,7 +922,7 @@ ProgramNode (JSON):
       {
         "type": "IfStatement",
         "location": {
-          "line": 31,
+          "line": 32,
           "column": 3
         },
         "condition": {
@@ -851,7 +933,7 @@ ProgramNode (JSON):
           {
             "type": "PrintStatement",
             "location": {
-              "line": 32,
+              "line": 33,
               "column": 5
             },
             "value": {
@@ -865,7 +947,7 @@ ProgramNode (JSON):
           {
             "type": "VariableDeclaration",
             "location": {
-              "line": 34,
+              "line": 35,
               "column": 5
             },
             "declarationKind": "var",
@@ -888,7 +970,7 @@ ProgramNode (JSON):
           {
             "type": "PrintStatement",
             "location": {
-              "line": 35,
+              "line": 36,
               "column": 5
             },
             "value": {
@@ -909,7 +991,7 @@ ProgramNode (JSON):
       {
         "type": "PrintStatement",
         "location": {
-          "line": 38,
+          "line": 39,
           "column": 3
         },
         "value": {
@@ -928,24 +1010,18 @@ Syntax errors: 0
 ProgramNode (ASCII tree):
 Program
   MainFunction(mHA1Ns)
-    VariableDeclaration(var yH2s: iHNtSZ) @ 12:3
-      NumberLiteral(3)
-    VariableDeclaration(var aH1s: iHNtSZ) @ 15:3
+    VariableDeclaration(var aH1s: iHNtSZ) @ 16:3
       BinaryExpression(+)
         FunctionCall(dH1bHs)
-          Identifier(yH2s)
+          NumberLiteral(9)
         NumberLiteral(10)
-    VariableDeclaration(var bH2s: iHNtSZ) @ 18:3
-      BinaryExpression(*)
+    VariableDeclaration(var bH2s: iHNtSZ) @ 19:3
+      BinaryExpression(<<)
         Identifier(aH1s)
-        Identifier(yH2s)
-    VariableDeclaration(var yHs: iHNtSZ) @ 21:3
-      NumberLiteral(2)
-    VariableDeclaration(var zHs: bH0oHLeaNs) @ 23:3
-      BooleanLiteral(true)
-    PrintStatement @ 32:5
+        NumberLiteral(3)
+    PrintStatement @ 33:5
       Identifier(bH2s)
-    PrintStatement @ 38:3
+    PrintStatement @ 39:3
       Identifier(bH2s)
 
 ProgramNode (JSON):
@@ -960,22 +1036,7 @@ ProgramNode (JSON):
       {
         "type": "VariableDeclaration",
         "location": {
-          "line": 12,
-          "column": 3
-        },
-        "declarationKind": "var",
-        "name": "yH2s",
-        "declaredType": "iHNtSZ",
-        "isArray": false,
-        "value": {
-          "type": "NumberLiteral",
-          "value": 3
-        }
-      },
-      {
-        "type": "VariableDeclaration",
-        "location": {
-          "line": 15,
+          "line": 16,
           "column": 3
         },
         "declarationKind": "var",
@@ -990,8 +1051,8 @@ ProgramNode (JSON):
             "name": "dH1bHs",
             "arguments": [
               {
-                "type": "Identifier",
-                "name": "yH2s"
+                "type": "NumberLiteral",
+                "value": 9
               }
             ]
           },
@@ -1004,7 +1065,7 @@ ProgramNode (JSON):
       {
         "type": "VariableDeclaration",
         "location": {
-          "line": 18,
+          "line": 19,
           "column": 3
         },
         "declarationKind": "var",
@@ -1013,51 +1074,21 @@ ProgramNode (JSON):
         "isArray": false,
         "value": {
           "type": "BinaryExpression",
-          "operator": "*",
+          "operator": "<<",
           "left": {
             "type": "Identifier",
             "name": "aH1s"
           },
           "right": {
-            "type": "Identifier",
-            "name": "yH2s"
+            "type": "NumberLiteral",
+            "value": 3
           }
-        }
-      },
-      {
-        "type": "VariableDeclaration",
-        "location": {
-          "line": 21,
-          "column": 3
-        },
-        "declarationKind": "var",
-        "name": "yHs",
-        "declaredType": "iHNtSZ",
-        "isArray": false,
-        "value": {
-          "type": "NumberLiteral",
-          "value": 2
-        }
-      },
-      {
-        "type": "VariableDeclaration",
-        "location": {
-          "line": 23,
-          "column": 3
-        },
-        "declarationKind": "var",
-        "name": "zHs",
-        "declaredType": "bH0oHLeaNs",
-        "isArray": false,
-        "value": {
-          "type": "BooleanLiteral",
-          "value": true
         }
       },
       {
         "type": "PrintStatement",
         "location": {
-          "line": 32,
+          "line": 33,
           "column": 5
         },
         "value": {
@@ -1068,7 +1099,7 @@ ProgramNode (JSON):
       {
         "type": "PrintStatement",
         "location": {
-          "line": 38,
+          "line": 39,
           "column": 3
         },
         "value": {
@@ -1085,935 +1116,8 @@ PHASE 5 — TYPE CHECK + INTERPRETER
 Type check: passed
 
 Print output:
-  [1] 48
-  [2] 48
-
-========================================================================
-Example 2: demo-examples/bitwise-op-test.stg
-Test for bitwise operators (<<, >>, &, |).
-========================================================================
-
-PHASE 1 — LEXER (Scanner)
--------------------------
-Source preview:
-  fHUncTH!0Ns mHA1Ns() {
-      // TrU3hS, FhaLSeS, nH0ts
-      vH4rs xH1s:iHNtSZ = 16;
-      vH4rs yH2s:iHNtSZ = 3;
-  
-      vHArs zHs:iHNtSZ = xH1s << yH2s;
-      vHArs xHs:iHNtSZ = xH1s >> yH2s;
-  
-      vHArs aHs:iHNtSZ = xH1s & yH2s;
-      vHArs bHs:iHNtSZ = xH1s | xHs;
-  ...
-
-Tokens (91 total, showing first 60):
-  FUNCTION_KW "fHUncTH!0Ns" @ line 1 col 1
-  MAIN_KW "mHA1Ns" @ line 1 col 13
-  '(' "(" @ line 1 col 19
-  ')' ")" @ line 1 col 20
-  '{' "{" @ line 1 col 22
-  LINE_COMMENT "// TrU3hS, FhaLSeS, nH0ts" @ line 2 col 5
-  VAR_KW "vH4rs" @ line 3 col 5
-  IDENTIFIER "xH1s" @ line 3 col 11
-  ':' ":" @ line 3 col 15
-  INT_KW "iHNtSZ" @ line 3 col 16
-  '=' "=" @ line 3 col 23
-  NUMBER "16" @ line 3 col 25
-  ';' ";" @ line 3 col 27
-  VAR_KW "vH4rs" @ line 4 col 5
-  IDENTIFIER "yH2s" @ line 4 col 11
-  ':' ":" @ line 4 col 15
-  INT_KW "iHNtSZ" @ line 4 col 16
-  '=' "=" @ line 4 col 23
-  NUMBER "3" @ line 4 col 25
-  ';' ";" @ line 4 col 26
-  VAR_KW "vHArs" @ line 6 col 5
-  IDENTIFIER "zHs" @ line 6 col 11
-  ':' ":" @ line 6 col 14
-  INT_KW "iHNtSZ" @ line 6 col 15
-  '=' "=" @ line 6 col 22
-  IDENTIFIER "xH1s" @ line 6 col 24
-  '<<' "<<" @ line 6 col 29
-  IDENTIFIER "yH2s" @ line 6 col 32
-  ';' ";" @ line 6 col 36
-  VAR_KW "vHArs" @ line 7 col 5
-  IDENTIFIER "xHs" @ line 7 col 11
-  ':' ":" @ line 7 col 14
-  INT_KW "iHNtSZ" @ line 7 col 15
-  '=' "=" @ line 7 col 22
-  IDENTIFIER "xH1s" @ line 7 col 24
-  '>>' ">>" @ line 7 col 29
-  IDENTIFIER "yH2s" @ line 7 col 32
-  ';' ";" @ line 7 col 36
-  VAR_KW "vHArs" @ line 9 col 5
-  IDENTIFIER "aHs" @ line 9 col 11
-  ':' ":" @ line 9 col 14
-  INT_KW "iHNtSZ" @ line 9 col 15
-  '=' "=" @ line 9 col 22
-  IDENTIFIER "xH1s" @ line 9 col 24
-  '&' "&" @ line 9 col 29
-  IDENTIFIER "yH2s" @ line 9 col 31
-  ';' ";" @ line 9 col 35
-  VAR_KW "vHArs" @ line 10 col 5
-  IDENTIFIER "bHs" @ line 10 col 11
-  ':' ":" @ line 10 col 14
-  INT_KW "iHNtSZ" @ line 10 col 15
-  '=' "=" @ line 10 col 22
-  IDENTIFIER "xH1s" @ line 10 col 24
-  '|' "|" @ line 10 col 29
-  IDENTIFIER "xHs" @ line 10 col 31
-  ';' ";" @ line 10 col 34
-  PRINT_KW "pHR!HNTs" @ line 12 col 5
-  '(' "(" @ line 12 col 13
-  IDENTIFIER "zHs" @ line 12 col 14
-  ')' ")" @ line 12 col 17
-  ... 31 more tokens
-
-Lexical errors: none
-
-Scan time: 0.889 ms
-Characters: 400
-
-PHASE 2 — PARSER
-----------------
-Syntax errors: 0
-
-Parse tree:
-(
-  program
-  (
-    functionMainDeclaration
-    fHUncTH!0Ns
-    mHA1Ns
-    (
-    )
-    (
-      block
-      {
-      (
-        statement
-        (
-          variableDeclaration
-          (
-            declarationKeyword
-            vH4rs
-          )
-          xH1s
-          (
-            typeAnnotation
-            :
-            (
-              dataType
-              iHNtSZ
-            )
-          )
-          =
-          (
-            expression
-            16
-          )
-        )
-        ;
-      )
-      (
-        statement
-        (
-          variableDeclaration
-          (
-            declarationKeyword
-            vH4rs
-          )
-          yH2s
-          (
-            typeAnnotation
-            :
-            (
-              dataType
-              iHNtSZ
-            )
-          )
-          =
-          (
-            expression
-            3
-          )
-        )
-        ;
-      )
-      (
-        statement
-        (
-          variableDeclaration
-          (
-            declarationKeyword
-            vHArs
-          )
-          zHs
-          (
-            typeAnnotation
-            :
-            (
-              dataType
-              iHNtSZ
-            )
-          )
-          =
-          (
-            expression
-            (
-              expression
-              xH1s
-            )
-            <<
-            (
-              expression
-              yH2s
-            )
-          )
-        )
-        ;
-      )
-      (
-        statement
-        (
-          variableDeclaration
-          (
-            declarationKeyword
-            vHArs
-          )
-          xHs
-          (
-            typeAnnotation
-            :
-            (
-              dataType
-              iHNtSZ
-            )
-          )
-          =
-          (
-            expression
-            (
-              expression
-              xH1s
-            )
-            >>
-            (
-              expression
-              yH2s
-            )
-          )
-        )
-        ;
-      )
-      (
-        statement
-        (
-          variableDeclaration
-          (
-            declarationKeyword
-            vHArs
-          )
-          aHs
-          (
-            typeAnnotation
-            :
-            (
-              dataType
-              iHNtSZ
-            )
-          )
-          =
-          (
-            expression
-            (
-              expression
-              xH1s
-            )
-            &
-            (
-              expression
-              yH2s
-            )
-          )
-        )
-        ;
-      )
-      (
-        statement
-        (
-          variableDeclaration
-          (
-            declarationKeyword
-            vHArs
-          )
-          bHs
-          (
-            typeAnnotation
-            :
-            (
-              dataType
-              iHNtSZ
-            )
-          )
-          =
-          (
-            expression
-            (
-              expression
-              xH1s
-            )
-            |
-            (
-              expression
-              xHs
-            )
-          )
-        )
-        ;
-      )
-      (
-        statement
-        (
-          printStatement
-          pHR!HNTs
-          (
-            (
-              expression
-              zHs
-            )
-          )
-        )
-        ;
-      )
-      (
-        statement
-        (
-          printStatement
-          pHR!HNTs
-          (
-            (
-              expression
-              xHs
-            )
-          )
-        )
-        ;
-      )
-      (
-        statement
-        (
-          printStatement
-          pHR!HNTs
-          (
-            (
-              expression
-              (
-                expression
-                zHs
-              )
-              +
-              (
-                expression
-                xHs
-              )
-            )
-          )
-        )
-        ;
-      )
-      (
-        statement
-        (
-          printStatement
-          pHR!HNTs
-          (
-            (
-              expression
-              aHs
-            )
-          )
-        )
-        ;
-      )
-      (
-        statement
-        (
-          printStatement
-          pHR!HNTs
-          (
-            (
-              expression
-              bHs
-            )
-          )
-        )
-        ;
-      )
-      (
-        statement
-        (
-          printStatement
-          pHR!HNTs
-          (
-            (
-              expression
-              (
-                expression
-                aHs
-              )
-              +
-              (
-                expression
-                bHs
-              )
-            )
-          )
-        )
-        ;
-      )
-      }
-    )
-  )
-  <EOF>
-)
-
-PHASE 3 — AST (buildAst)
-------------------------
-Syntax errors: 0
-
-ProgramNode (ASCII tree):
-Program
-  MainFunction(mHA1Ns)
-    VariableDeclaration(var xH1s: iHNtSZ) @ 3:5
-      NumberLiteral(16)
-    VariableDeclaration(var yH2s: iHNtSZ) @ 4:5
-      NumberLiteral(3)
-    VariableDeclaration(var zHs: iHNtSZ) @ 6:5
-      BinaryExpression(<<)
-        Identifier(xH1s)
-        Identifier(yH2s)
-    VariableDeclaration(var xHs: iHNtSZ) @ 7:5
-      BinaryExpression(>>)
-        Identifier(xH1s)
-        Identifier(yH2s)
-    VariableDeclaration(var aHs: iHNtSZ) @ 9:5
-      BinaryExpression(&)
-        Identifier(xH1s)
-        Identifier(yH2s)
-    VariableDeclaration(var bHs: iHNtSZ) @ 10:5
-      BinaryExpression(|)
-        Identifier(xH1s)
-        Identifier(xHs)
-    PrintStatement @ 12:5
-      Identifier(zHs)
-    PrintStatement @ 13:5
-      Identifier(xHs)
-    PrintStatement @ 14:5
-      BinaryExpression(+)
-        Identifier(zHs)
-        Identifier(xHs)
-    PrintStatement @ 15:5
-      Identifier(aHs)
-    PrintStatement @ 16:5
-      Identifier(bHs)
-    PrintStatement @ 17:5
-      BinaryExpression(+)
-        Identifier(aHs)
-        Identifier(bHs)
-
-ProgramNode (JSON):
-{
-  "type": "Program",
-  "entryModule": "main",
-  "includes": [],
-  "recordDeclarations": [],
-  "functions": [],
-  "mainFunction": {
-    "type": "MainFunction",
-    "body": [
-      {
-        "type": "VariableDeclaration",
-        "location": {
-          "line": 3,
-          "column": 5
-        },
-        "declarationKind": "var",
-        "name": "xH1s",
-        "declaredType": "iHNtSZ",
-        "isArray": false,
-        "value": {
-          "type": "NumberLiteral",
-          "value": 16
-        }
-      },
-      {
-        "type": "VariableDeclaration",
-        "location": {
-          "line": 4,
-          "column": 5
-        },
-        "declarationKind": "var",
-        "name": "yH2s",
-        "declaredType": "iHNtSZ",
-        "isArray": false,
-        "value": {
-          "type": "NumberLiteral",
-          "value": 3
-        }
-      },
-      {
-        "type": "VariableDeclaration",
-        "location": {
-          "line": 6,
-          "column": 5
-        },
-        "declarationKind": "var",
-        "name": "zHs",
-        "declaredType": "iHNtSZ",
-        "isArray": false,
-        "value": {
-          "type": "BinaryExpression",
-          "operator": "<<",
-          "left": {
-            "type": "Identifier",
-            "name": "xH1s"
-          },
-          "right": {
-            "type": "Identifier",
-            "name": "yH2s"
-          }
-        }
-      },
-      {
-        "type": "VariableDeclaration",
-        "location": {
-          "line": 7,
-          "column": 5
-        },
-        "declarationKind": "var",
-        "name": "xHs",
-        "declaredType": "iHNtSZ",
-        "isArray": false,
-        "value": {
-          "type": "BinaryExpression",
-          "operator": ">>",
-          "left": {
-            "type": "Identifier",
-            "name": "xH1s"
-          },
-          "right": {
-            "type": "Identifier",
-            "name": "yH2s"
-          }
-        }
-      },
-      {
-        "type": "VariableDeclaration",
-        "location": {
-          "line": 9,
-          "column": 5
-        },
-        "declarationKind": "var",
-        "name": "aHs",
-        "declaredType": "iHNtSZ",
-        "isArray": false,
-        "value": {
-          "type": "BinaryExpression",
-          "operator": "&",
-          "left": {
-            "type": "Identifier",
-            "name": "xH1s"
-          },
-          "right": {
-            "type": "Identifier",
-            "name": "yH2s"
-          }
-        }
-      },
-      {
-        "type": "VariableDeclaration",
-        "location": {
-          "line": 10,
-          "column": 5
-        },
-        "declarationKind": "var",
-        "name": "bHs",
-        "declaredType": "iHNtSZ",
-        "isArray": false,
-        "value": {
-          "type": "BinaryExpression",
-          "operator": "|",
-          "left": {
-            "type": "Identifier",
-            "name": "xH1s"
-          },
-          "right": {
-            "type": "Identifier",
-            "name": "xHs"
-          }
-        }
-      },
-      {
-        "type": "PrintStatement",
-        "location": {
-          "line": 12,
-          "column": 5
-        },
-        "value": {
-          "type": "Identifier",
-          "name": "zHs"
-        }
-      },
-      {
-        "type": "PrintStatement",
-        "location": {
-          "line": 13,
-          "column": 5
-        },
-        "value": {
-          "type": "Identifier",
-          "name": "xHs"
-        }
-      },
-      {
-        "type": "PrintStatement",
-        "location": {
-          "line": 14,
-          "column": 5
-        },
-        "value": {
-          "type": "BinaryExpression",
-          "operator": "+",
-          "left": {
-            "type": "Identifier",
-            "name": "zHs"
-          },
-          "right": {
-            "type": "Identifier",
-            "name": "xHs"
-          }
-        }
-      },
-      {
-        "type": "PrintStatement",
-        "location": {
-          "line": 15,
-          "column": 5
-        },
-        "value": {
-          "type": "Identifier",
-          "name": "aHs"
-        }
-      },
-      {
-        "type": "PrintStatement",
-        "location": {
-          "line": 16,
-          "column": 5
-        },
-        "value": {
-          "type": "Identifier",
-          "name": "bHs"
-        }
-      },
-      {
-        "type": "PrintStatement",
-        "location": {
-          "line": 17,
-          "column": 5
-        },
-        "value": {
-          "type": "BinaryExpression",
-          "operator": "+",
-          "left": {
-            "type": "Identifier",
-            "name": "aHs"
-          },
-          "right": {
-            "type": "Identifier",
-            "name": "bHs"
-          }
-        }
-      }
-    ]
-  }
-}
-
-PHASE 4 — Optimized AST (buildOptimizedAst)
-------------------------
-Syntax errors: 0
-
-ProgramNode (ASCII tree):
-Program
-  MainFunction(mHA1Ns)
-    VariableDeclaration(var xH1s: iHNtSZ) @ 3:5
-      NumberLiteral(16)
-    VariableDeclaration(var yH2s: iHNtSZ) @ 4:5
-      NumberLiteral(3)
-    VariableDeclaration(var zHs: iHNtSZ) @ 6:5
-      BinaryExpression(<<)
-        NumberLiteral(16)
-        NumberLiteral(3)
-    VariableDeclaration(var xHs: iHNtSZ) @ 7:5
-      BinaryExpression(>>)
-        NumberLiteral(16)
-        NumberLiteral(3)
-    VariableDeclaration(var aHs: iHNtSZ) @ 9:5
-      BinaryExpression(&)
-        NumberLiteral(16)
-        NumberLiteral(3)
-    VariableDeclaration(var bHs: iHNtSZ) @ 10:5
-      BinaryExpression(|)
-        Identifier(xH1s)
-        Identifier(xHs)
-    PrintStatement @ 12:5
-      Identifier(zHs)
-    PrintStatement @ 13:5
-      Identifier(xHs)
-    PrintStatement @ 14:5
-      BinaryExpression(+)
-        Identifier(zHs)
-        Identifier(xHs)
-    PrintStatement @ 15:5
-      Identifier(aHs)
-    PrintStatement @ 16:5
-      Identifier(bHs)
-    PrintStatement @ 17:5
-      BinaryExpression(+)
-        Identifier(aHs)
-        Identifier(bHs)
-
-ProgramNode (JSON):
-{
-  "type": "Program",
-  "includes": [],
-  "recordDeclarations": [],
-  "functions": [],
-  "mainFunction": {
-    "type": "MainFunction",
-    "body": [
-      {
-        "type": "VariableDeclaration",
-        "location": {
-          "line": 3,
-          "column": 5
-        },
-        "declarationKind": "var",
-        "name": "xH1s",
-        "declaredType": "iHNtSZ",
-        "isArray": false,
-        "value": {
-          "type": "NumberLiteral",
-          "value": 16
-        }
-      },
-      {
-        "type": "VariableDeclaration",
-        "location": {
-          "line": 4,
-          "column": 5
-        },
-        "declarationKind": "var",
-        "name": "yH2s",
-        "declaredType": "iHNtSZ",
-        "isArray": false,
-        "value": {
-          "type": "NumberLiteral",
-          "value": 3
-        }
-      },
-      {
-        "type": "VariableDeclaration",
-        "location": {
-          "line": 6,
-          "column": 5
-        },
-        "declarationKind": "var",
-        "name": "zHs",
-        "declaredType": "iHNtSZ",
-        "isArray": false,
-        "value": {
-          "type": "BinaryExpression",
-          "operator": "<<",
-          "left": {
-            "type": "NumberLiteral",
-            "value": 16
-          },
-          "right": {
-            "type": "NumberLiteral",
-            "value": 3
-          }
-        }
-      },
-      {
-        "type": "VariableDeclaration",
-        "location": {
-          "line": 7,
-          "column": 5
-        },
-        "declarationKind": "var",
-        "name": "xHs",
-        "declaredType": "iHNtSZ",
-        "isArray": false,
-        "value": {
-          "type": "BinaryExpression",
-          "operator": ">>",
-          "left": {
-            "type": "NumberLiteral",
-            "value": 16
-          },
-          "right": {
-            "type": "NumberLiteral",
-            "value": 3
-          }
-        }
-      },
-      {
-        "type": "VariableDeclaration",
-        "location": {
-          "line": 9,
-          "column": 5
-        },
-        "declarationKind": "var",
-        "name": "aHs",
-        "declaredType": "iHNtSZ",
-        "isArray": false,
-        "value": {
-          "type": "BinaryExpression",
-          "operator": "&",
-          "left": {
-            "type": "NumberLiteral",
-            "value": 16
-          },
-          "right": {
-            "type": "NumberLiteral",
-            "value": 3
-          }
-        }
-      },
-      {
-        "type": "VariableDeclaration",
-        "location": {
-          "line": 10,
-          "column": 5
-        },
-        "declarationKind": "var",
-        "name": "bHs",
-        "declaredType": "iHNtSZ",
-        "isArray": false,
-        "value": {
-          "type": "BinaryExpression",
-          "operator": "|",
-          "left": {
-            "type": "Identifier",
-            "name": "xH1s"
-          },
-          "right": {
-            "type": "Identifier",
-            "name": "xHs"
-          }
-        }
-      },
-      {
-        "type": "PrintStatement",
-        "location": {
-          "line": 12,
-          "column": 5
-        },
-        "value": {
-          "type": "Identifier",
-          "name": "zHs"
-        }
-      },
-      {
-        "type": "PrintStatement",
-        "location": {
-          "line": 13,
-          "column": 5
-        },
-        "value": {
-          "type": "Identifier",
-          "name": "xHs"
-        }
-      },
-      {
-        "type": "PrintStatement",
-        "location": {
-          "line": 14,
-          "column": 5
-        },
-        "value": {
-          "type": "BinaryExpression",
-          "operator": "+",
-          "left": {
-            "type": "Identifier",
-            "name": "zHs"
-          },
-          "right": {
-            "type": "Identifier",
-            "name": "xHs"
-          }
-        }
-      },
-      {
-        "type": "PrintStatement",
-        "location": {
-          "line": 15,
-          "column": 5
-        },
-        "value": {
-          "type": "Identifier",
-          "name": "aHs"
-        }
-      },
-      {
-        "type": "PrintStatement",
-        "location": {
-          "line": 16,
-          "column": 5
-        },
-        "value": {
-          "type": "Identifier",
-          "name": "bHs"
-        }
-      },
-      {
-        "type": "PrintStatement",
-        "location": {
-          "line": 17,
-          "column": 5
-        },
-        "value": {
-          "type": "BinaryExpression",
-          "operator": "+",
-          "left": {
-            "type": "Identifier",
-            "name": "aHs"
-          },
-          "right": {
-            "type": "Identifier",
-            "name": "bHs"
-          }
-        }
-      }
-    ]
-  }
-}
-
-PHASE 5 — TYPE CHECK + INTERPRETER
-----------------------------------
-Type check: passed
-
-Print output:
-  [1] 128
-  [2] 2
-  [3] 130
-  [4] 0
-  [5] 18
-  [6] 18
+  [1] 224
+  [2] 224
 
 Output files:
   text-files/scanner-output.txt

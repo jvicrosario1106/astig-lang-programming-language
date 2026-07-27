@@ -4,7 +4,3 @@ Scanner Error Dump
 File: demo-examples/optimizer-dce-test.stg
 Lexical errors: 0
 No lexical errors.
-
-File: demo-examples/bitwise-op-test.stg
-Lexical errors: 0
-No lexical errors.

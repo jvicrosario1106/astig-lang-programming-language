@@ -123,65 +123,38 @@ function optimizeElseIfChains(
     }));
 }
 
-function getPowerOfTwoExponent(num: number): number | null {
-    if (num <= 0 || !Number.isInteger(num)) return null;
-    // Bitwise check: a power of 2 ANDed with its predecessor is always 0
-    if ((num & (num - 1)) !== 0) return null;
-    return Math.log2(num);
+function isPowerOfTwo(val: number): boolean {
+    return val > 0 && (val & (val - 1)) === 0;
 }
 
-function optimizeExpression(expr: ExpressionNode, constants: Map<string, ExpressionNode>) : ExpressionNode {
+function getPowerOfTwoExponent(val: number): number {
+    return Math.log2(val);
+}
+
+function optimizeExpression(expr: ExpressionNode, constants: Map<string, ExpressionNode>, usedSymbols: Set<string>) : ExpressionNode {
     switch(expr.type){
-        // RULE: Constant folding
+        // RULE: Constant folding and Copy propagation
         case ExpressionNodeType.Identifier:{
-            if (constants.has(expr.name)){
-                return constants.get(expr.name)!;
+            let currentKey = expr.name;
+            let resolvedNode: ExpressionNode = expr;
+            let propagated = false;
+
+            // Deeply resolve propagation chains (e.g., if a -> b and b -> 26, resolve 'a' to 26)
+            while (constants.has(currentKey)) {
+                resolvedNode = constants.get(currentKey)!;
+                if (resolvedNode.type === ExpressionNodeType.Identifier) {
+                    currentKey = resolvedNode.name;
+                } else {
+                    break; 
+                }
             }
 
-            return expr;
+            return resolvedNode;
         }
 
         case ExpressionNodeType.BinaryExpression:{
-            const left = optimizeExpression(expr.left, constants);
-            const right = optimizeExpression(expr.right, constants);
-
-            // RULE: Algebraic simplification - Identity Additions / Subtractions (x + 0, x - 0, 0 + x)
-            if (expr.operator === "+" || expr.operator === "-") {
-                if (right.type === ExpressionNodeType.NumberLiteral && right.value === 0) {
-                    return left; // x + 0 => x
-                }
-                if (left.type === ExpressionNodeType.NumberLiteral && left.value === 0 && expr.operator === "+") {
-                    return right; // 0 + x => x
-                }
-            }
-
-            // RULE: Algebraic simplification - Identity Multiplications / Divisions (x * 1, 1 * x, x / 1)
-            if (expr.operator === "*") {
-                if (right.type === ExpressionNodeType.NumberLiteral && right.value === 1) {
-                    return left; // x * 1 => x
-                }
-                if (left.type === ExpressionNodeType.NumberLiteral && left.value === 1) {
-                    return right; // 1 * x => x
-                }
-                // FOR strength reduction later
-                // if (right.type === ExpressionNodeType.NumberLiteral){
-                //     const exponent = getPowerOfTwoExponent(right.value);
-
-                //     if (exponent !== null){
-                //         return {
-                //             type: ExpressionNodeType.BinaryExpression,
-                //             operator: "<<",
-                //             left: left,
-                //             right: { type: ExpressionNodeType.NumberLiteral, value: exponent }
-                //         };
-                //     }
-                // }
-            }
-            if (expr.operator === "/") {
-                if (right.type === ExpressionNodeType.NumberLiteral && right.value === 1) {
-                    return left; // x / 1 => x
-                }
-            }
+            const left = optimizeExpression(expr.left, constants, usedSymbols);
+            const right = optimizeExpression(expr.right, constants, usedSymbols);
 
             // RULE: Constant folding by preevaluating the values
             if (left.type === ExpressionNodeType.NumberLiteral && right.type === ExpressionNodeType.NumberLiteral){
@@ -204,10 +177,96 @@ function optimizeExpression(expr: ExpressionNode, constants: Map<string, Express
                     case "+" : return { type: ExpressionNodeType.NumberLiteral, value: v1 + v2 };
                     case "-" : return { type: ExpressionNodeType.NumberLiteral, value: v1 - v2 };
                 }
-
-                return { ...expr, left, right };
             }
+
+            // RULE: Algebraic simplification - Identity Additions / Subtractions (x + 0, x - 0, 0 + x)
+            if (expr.operator === "+" || expr.operator === "-") {
+                if (right.type === ExpressionNodeType.NumberLiteral && right.value === 0) {
+                    return left; // x + 0 => x
+                }
+                if (left.type === ExpressionNodeType.NumberLiteral && left.value === 0 && expr.operator === "+") {
+                    return right; // 0 + x => x
+                }
+            }
+
+            // RULE: Algebraic simplification - Identity Multiplications / Divisions (x * 1, 1 * x)
+            if (expr.operator === "*") {
+                if (right.type === ExpressionNodeType.NumberLiteral && right.value === 1) {
+                    return left; // x * 1 => x
+                }
+                if (left.type === ExpressionNodeType.NumberLiteral && left.value === 1) {
+                    return right; // 1 * x => x
+                }
+
+                // RULE: Strength reduction - multiplication by power of 2
+                const rightNumNode = right.type === ExpressionNodeType.NumberLiteral ? right : null;
+                const leftNumNode = left.type === ExpressionNodeType.NumberLiteral ? left : null;
+
+                // Handle x * 4 => x << 2
+                if (rightNumNode !== null && isPowerOfTwo(rightNumNode.value)) {
+                    return {
+                        type: ExpressionNodeType.BinaryExpression,
+                        operator: "<<",
+                        left: left,
+                        right: { 
+                            type: ExpressionNodeType.NumberLiteral, 
+                            value: getPowerOfTwoExponent(rightNumNode.value) 
+                        }
+                    };
+                }
+
+                // Handle 4 * x => x << 2 (Commutative property)
+                if (leftNumNode !== null && isPowerOfTwo(leftNumNode.value)) {
+                    return {
+                        type: ExpressionNodeType.BinaryExpression,
+                        operator: "<<",
+                        left: right, 
+                        right: { 
+                            type: ExpressionNodeType.NumberLiteral, 
+                            value: getPowerOfTwoExponent(leftNumNode.value) 
+                        }
+                    };
+                }
+            }
+
+            // RULE: Algebraic simplification - Identity Divisions (x / 1)
+            if (expr.operator === "/") {
+                if (right.type === ExpressionNodeType.NumberLiteral && right.value === 1) {
+                    return left; // x / 1 => x
+                }
+
+                // RULE: Strength reduction - division by power of 2 (x / 4 => x >> 2)
+                if (right.type === ExpressionNodeType.NumberLiteral && isPowerOfTwo(right.value)) {
+                    return {
+                        type: ExpressionNodeType.BinaryExpression,
+                        operator: ">>",
+                        left: left,
+                        right: { type: ExpressionNodeType.NumberLiteral, value: getPowerOfTwoExponent(right.value) }
+                    };
+                }
+            }
+
+            // RULE: Strength reduction - modulo by power of 2 (x % 4 => x & 3)
+            if (expr.operator === "%") {
+                if (right.type === ExpressionNodeType.NumberLiteral && isPowerOfTwo(right.value)) {
+                    return {
+                        type: ExpressionNodeType.BinaryExpression,
+                        operator: "&",
+                        left: left,
+                        right: { type: ExpressionNodeType.NumberLiteral, value: right.value - 1 }
+                    };
+                }
+            }
+
+            return { ...expr, left, right };
         }
+        
+        case ExpressionNodeType.FunctionCall: {
+        return {
+            ...expr,
+            arguments: expr.arguments.map(arg => optimizeExpression(arg, constants, usedSymbols))
+        };
+}
             
         default:
             return expr;
@@ -224,11 +283,12 @@ function optimizeStatement(
         case StatementNodeType.VariableDeclaration:{
             // RULE: FOld in values aby 
             // 1. Optimize the right-hand side using .value instead of .initializer
-            const foldedValue = optimizeExpression(stmt.value, constants);
+            const foldedValue = optimizeExpression(stmt.value, constants, usedSymbols);
 
-            // 2. Populate the constants map if it folds down to a literal
+            // 2. Populate the constants map if it folds down to a literal or identifier for copy propagation
             if (foldedValue.type === ExpressionNodeType.BooleanLiteral || 
-                foldedValue.type === ExpressionNodeType.NumberLiteral) {
+                foldedValue.type === ExpressionNodeType.NumberLiteral ||
+                foldedValue.type === ExpressionNodeType.Identifier) {
                 constants.set(stmt.name, foldedValue);
             } else {
                 // Keep the map safe by clearing old definitions if it's dynamic
@@ -250,9 +310,24 @@ function optimizeStatement(
             };
         }
 
+        // HANDLE: Reassignments and 
+        case StatementNodeType.Assignment: {
+            const optimizedValue = optimizeExpression(stmt.value, constants, usedSymbols);
+            
+            // Invalidate any active propagation since the variable's value is modified
+            if (stmt.target.kind == "variable"){
+                constants.delete(stmt.target.name); 
+            }
+
+            return {
+                ...stmt,
+                value: optimizedValue
+            };
+        }
+
         // RULE: Dead branch elimination
         case StatementNodeType.IfStatement:{
-            const cond = optimizeExpression(stmt.condition, constants);
+            const cond = optimizeExpression(stmt.condition, constants, usedSymbols);
 
             if (cond.type === ExpressionNodeType.BooleanLiteral){
                 if (cond.value === true){
@@ -268,7 +343,7 @@ function optimizeStatement(
                     for (const chain of stmt.elseIfChains){
                         // If we encounter a dynamic condition (not a static boolean), 
                         // we have to rebuild the IfStatement starting from THIS chain link.
-                        const chainCond = optimizeExpression(chain.condition, constants);
+                        const chainCond = optimizeExpression(chain.condition, constants, usedSymbols);
 
                         if (chainCond.type === ExpressionNodeType.BooleanLiteral){
                             // If the else-if condition is statically true, return its optimized block immediately
@@ -311,52 +386,64 @@ function optimizeStatement(
 }
 
 export function optimizeProgram(program: ProgramNode) : ProgramNode {
-    const usedSymbols = collectUsedSymbols(program);
+    // Multipass optimization
+    let currentProgram = program;
+    let prevStringify = "";
+    let currentStringify = JSON.stringify(program);
 
-    //usedSymbols.add()
+    // Loop until the AST reaches a stable point and no more dead variables drop out
+    while (currentStringify !== prevStringify) {
+        prevStringify = currentStringify;
+        // 1. Collect the symbols in the program
+        const usedSymbols = collectUsedSymbols(currentProgram);
 
-    // 2. Clone and optimize the main entry point if it exists
-    let optimizedMain: MainFunctionNode | undefined = undefined;
-    if (program.mainFunction) {
-        const mainConstants = new Map<string, ExpressionNode>();
+        // 2. Clone and optimize the main entry point if it exists
+        let optimizedMain: MainFunctionNode | undefined = undefined;
+        if (currentProgram.mainFunction) {
+            const mainConstants = new Map<string, ExpressionNode>();
 
-        optimizedMain = {
-            ...program.mainFunction,
-            body: optimizeBlock(program.mainFunction.body, usedSymbols, mainConstants)
-        };
-    }
-
-    // 3. Clone and optimize top-level functions
-    const optimizedFunctions = program.functions.filter(fn => {
-        // If the function name is never targeted by a call expression, drop it!
-        return usedSymbols.has(fn.name);
-    });
-
-    // RULE: Dead function elimination - removed unused functions
-    const fullyOptimizedFunctions = optimizedFunctions.map(fn => {
-        const functionConstants = new Map<string, ExpressionNode>();
-        return {
-            ...fn,
-            body: optimizeBlock(fn.body, usedSymbols, functionConstants)
+            optimizedMain = {
+                ...currentProgram.mainFunction,
+                body: optimizeBlock(currentProgram.mainFunction.body, usedSymbols, mainConstants)
+            };
         }
-    });
 
-    // 4. Clone and optimize module-level functions
-    const optimizedModuleFunctions: Record<string, FunctionDeclarationNode[]> = {};
-    for (const [modName, funcArray] of Object.entries(program.moduleFunctions)) {
-        const functionConstants = new Map<string, ExpressionNode>();
+        // 3. Clone and optimize top-level functions
+        const optimizedFunctions = currentProgram.functions.filter(fn => {
+            // If the function name is never targeted by a call expression, drop it!
+            return usedSymbols.has(fn.name);
+        });
 
-        optimizedModuleFunctions[modName] = funcArray.map(func => ({
-            ...func,
-            body: optimizeBlock(func.body, usedSymbols, functionConstants)
-        }));
+        // RULE: Dead function elimination - removed unused functions
+        const fullyOptimizedFunctions = optimizedFunctions.map(fn => {
+            const functionConstants = new Map<string, ExpressionNode>();
+            return {
+                ...fn,
+                body: optimizeBlock(fn.body, usedSymbols, functionConstants)
+            }
+        });
+
+        // 4. Clone and optimize module-level functions
+        const optimizedModuleFunctions: Record<string, FunctionDeclarationNode[]> = {};
+        for (const [modName, funcArray] of Object.entries(currentProgram.moduleFunctions)) {
+            const functionConstants = new Map<string, ExpressionNode>();
+
+            optimizedModuleFunctions[modName] = funcArray.map(func => ({
+                ...func,
+                body: optimizeBlock(func.body, usedSymbols, functionConstants)
+            }));
+        }
+
+        // Return the brand-new pruned AST
+        currentProgram = {
+            ...currentProgram,
+            mainFunction: optimizedMain,
+            functions: fullyOptimizedFunctions,
+            moduleFunctions: optimizedModuleFunctions
+        };
+
+        currentStringify = JSON.stringify(currentProgram);
     }
-
-    // Return the brand-new pruned AST
-    return {
-        ...program,
-        mainFunction: optimizedMain,
-        functions: fullyOptimizedFunctions,
-        moduleFunctions: optimizedModuleFunctions
-    };
+    
+    return currentProgram;
 }

@@ -9,18 +9,19 @@ fHUncTH!0Ns dH1bHs(xH1s:iHNtSZ):iHNtSZ {
 fHUncTH!0Ns mHA1Ns() {
   // RULE: Unused so it should be ignored
   vH4rs xH1s:iHNtSZ = 4; 
-  vH4rs yH2s:iHNtSZ = 3;
+  vH4rs yH2s:iHNtSZ = 8;
+  vH4rs wHs:iHNtSZ = yH2s;
 
   // id + num
-  vH4rs aH1s:iHNtSZ = dH1bHs(yH2s) + 10;
+  vH4rs aH1s:iHNtSZ = dH1bHs(wHs + 1) + 10;
 
   // id * id
   vH4rs bH2s:iHNtSZ = aH1s * yH2s;
   
-  // RULE: Should be folded into 2
-  vH4rs yHs:iHNtSZ = 2 + 0;
+  // RULE: Should be folded into 26
+  vH4rs yHs:iHNtSZ = 26 + 0;
   // RULE: Should be folded into true
-  vH4rs zHs:bH0oHLeaNs = yHs > 1;
+  vH4rs zHs:bH0oHLeaNs = (yHs % 4) > 1;
 
   // num / num
   // RULE: should be ignored since it is unused
