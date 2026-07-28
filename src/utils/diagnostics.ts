@@ -320,6 +320,10 @@ export function diagnosticFromError(
     line: resolvedLocation?.line ?? 1,
     column: resolvedLocation?.column ?? 1,
     message: error.message,
+    hint:
+      phase === 'runtime' && error.name !== 'Error'
+        ? `Exception: ${error.name}`
+        : undefined,
   };
 }
 

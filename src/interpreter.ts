@@ -12,6 +12,14 @@ import { ContinueException } from './classes/ContinueException';
 import { buildRecordRegistry, RecordRegistry } from './classes/RecordRegistry';
 import { ReturnException } from './classes/ReturnException';
 import { RuntimeEnvironment } from './classes/RuntimeEnvironment';
+import {
+  ArrayBoundsError,
+  ArrayTypeError,
+  InvalidOperationError,
+  PrintError,
+  ScanError,
+  toRuntimeError,
+} from './classes/RuntimeExceptions';
 import { RuntimeError } from './classes/RuntimeError';
 import { AstigType } from './models/AstigType';
 import { ExpressionNode, ExpressionNodeType } from './models/ExpressionNode';
@@ -45,8 +53,65 @@ type ExecutionContext = {
   moduleFunctions: Record<string, FunctionDeclarationNode[]>;
 };
 
-function raiseRuntimeError(message: string, location?: SourceLocation): never {
-  throw new RuntimeError(message, location);
+function raiseArrayBoundsError(message: string, location?: SourceLocation): never {
+  throw new ArrayBoundsError(message, location);
+}
+
+function raiseArrayTypeError(message: string, location?: SourceLocation): never {
+  throw new ArrayTypeError(message, location);
+}
+
+function raiseInvalidOperation(message: string, location?: SourceLocation): never {
+  throw new InvalidOperationError(message, location);
+}
+
+/** Runs print with try-catch so I/O failures become PrintError. */
+function executePrintStatement(
+  statement: Extract<StatementNode, { type: StatementNodeType.PrintStatement }>,
+  context: ExecutionContext,
+): void {
+  const location = statement.location;
+
+  try {
+    const value = evaluateExpression(statement.value, context);
+    context.output.push(String(value));
+  } catch (error) {
+    if (error instanceof RuntimeError) {
+      throw error;
+    }
+
+    const message =
+      error instanceof Error ? error.message : 'Print statement failed';
+    throw new PrintError(message, location);
+  }
+}
+
+/** Runs scan with try-catch so I/O failures become ScanError. */
+function executeScanStatement(
+  statement: Extract<StatementNode, { type: StatementNodeType.ScanStatement }>,
+  context: ExecutionContext,
+): void {
+  const location = statement.location;
+  const { environment } = context;
+
+  try {
+    if (statement.promptMessage) {
+      process.stdout.write(statement.promptMessage);
+    }
+
+    const userInput = readScanLine();
+    const targetType = environment.getResolvedType(statement.variableName);
+    const finalValue = coerceScanInput(userInput, targetType);
+    environment.assign(statement.variableName, finalValue);
+  } catch (error) {
+    if (error instanceof RuntimeError) {
+      throw error;
+    }
+
+    const message =
+      error instanceof Error ? error.message : 'Scan statement failed';
+    throw new ScanError(message, location);
+  }
 }
 
 /** Runs the full program and returns all printed lines in order. */
@@ -94,13 +159,16 @@ function executeStatement(statement: StatementNode, context: ExecutionContext): 
     try {
       action();
     } catch (error) {
-      if (error instanceof RuntimeError || error instanceof BreakException || error instanceof ContinueException || error instanceof ReturnException) {
+      if (
+        error instanceof RuntimeError ||
+        error instanceof BreakException ||
+        error instanceof ContinueException ||
+        error instanceof ReturnException
+      ) {
         throw error;
       }
-      if (error instanceof Error) {
-        throw new RuntimeError(error.message, location);
-      }
-      throw error;
+
+      throw toRuntimeError(error, location);
     }
   };
 
@@ -124,8 +192,8 @@ function executeStatement(statement: StatementNode, context: ExecutionContext): 
       const targetArray = environment.lookup(statement.arrayName);
 
       if (!Array.isArray(targetArray)) {
-        raiseRuntimeError(
-          `Runtime Error: Variable "${statement.arrayName}" is not an array.`,
+        raiseArrayTypeError(
+          `Variable "${statement.arrayName}" is not an array.`,
           location,
         );
       }
@@ -133,8 +201,8 @@ function executeStatement(statement: StatementNode, context: ExecutionContext): 
       const evaluatedIndex: RuntimeValue = evaluateExpression(statement.index, context);
       
       if (typeof evaluatedIndex !== 'number') {
-        raiseRuntimeError(
-          `Runtime Error: Array index must evaluate to a number. Got value "${evaluatedIndex}" of type: ${typeof evaluatedIndex}`,
+        raiseInvalidOperation(
+          `Array index must evaluate to a number. Got value "${evaluatedIndex}" of type: ${typeof evaluatedIndex}`,
           location,
         );
       }
@@ -142,8 +210,8 @@ function executeStatement(statement: StatementNode, context: ExecutionContext): 
       const index = Math.floor(evaluatedIndex);
 
       if (index < 0 || index >= targetArray.length) {
-        raiseRuntimeError(
-          `Runtime Error: Index ${index} is out of bounds for array "${statement.arrayName}" of length ${targetArray.length}.`,
+        raiseArrayBoundsError(
+          `Index ${index} is out of bounds for array "${statement.arrayName}" of length ${targetArray.length}.`,
           location,
         );
       }
@@ -153,22 +221,12 @@ function executeStatement(statement: StatementNode, context: ExecutionContext): 
     }
 
     case StatementNodeType.PrintStatement:
-      output.push(String(evaluateExpression(statement.value, context)));
+      executePrintStatement(statement, context);
       return;
-    
-    case StatementNodeType.ScanStatement: {
-      if (statement.promptMessage) {
-        process.stdout.write(statement.promptMessage);
-      }
 
-      const userInput = readScanLine();
-      runSafely(() => {
-        const targetType = environment.getResolvedType(statement.variableName);
-        const finalValue = coerceScanInput(userInput, targetType);
-        environment.assign(statement.variableName, finalValue);
-      });
+    case StatementNodeType.ScanStatement:
+      executeScanStatement(statement, context);
       return;
-    }
 
     case StatementNodeType.IfStatement: {
       const condition = evaluateExpression(statement.condition, context);
@@ -293,7 +351,7 @@ function executeStatement(statement: StatementNode, context: ExecutionContext): 
           }
         }
       } else {
-        raiseRuntimeError(
+        raiseInvalidOperation(
           `Foreach only supports string iteration, got ${typeof iterable}`,
           location,
         );
@@ -335,10 +393,7 @@ function executeAssignment(
     try {
       context.environment.assign(assignment.target.name, resultValue);
     } catch (error) {
-      if (error instanceof Error) {
-        throw new RuntimeError(error.message, location);
-      }
-      throw error;
+      throw toRuntimeError(error, location);
     }
     return;
   }
@@ -356,7 +411,10 @@ function assignRecordField(
   const recordValue = context.environment.get(target.rootVariable);
 
   if (!isRecordRuntimeValue(recordValue)) {
-    throw new RuntimeError(`Variable "${target.rootVariable}" is not a record`, location);
+    throw new InvalidOperationError(
+      `Variable "${target.rootVariable}" is not a record`,
+      location,
+    );
   }
 
   setRecordFieldValue(recordValue, target.fieldPath, value);
@@ -439,7 +497,9 @@ function evaluateExpression(
       const objectValue = evaluateExpression(expression.object, context);
 
       if (!isRecordRuntimeValue(objectValue)) {
-        throw new Error(`Cannot access member "${expression.field}" on non-record value`);
+        throw new InvalidOperationError(
+          `Cannot access member "${expression.field}" on non-record value`,
+        );
       }
 
       return getRecordFieldValue(objectValue, [expression.field]);
@@ -451,7 +511,7 @@ function evaluateExpression(
     case ExpressionNodeType.ArrayIndexAccess:
       const targetArray = context.environment.lookup(expression.arrayName);
       if (!Array.isArray(targetArray)){
-        throw new Error(`Runtime Error: "${expression.arrayName}" is not an array.`);
+        throw new ArrayTypeError(`"${expression.arrayName}" is not an array.`);
       }
 
       let evaluatedIndex: RuntimeValue = evaluateExpression(expression.index, context);
@@ -461,14 +521,16 @@ function evaluateExpression(
       }
       
       if (typeof evaluatedIndex !== "number"){
-        throw new Error(`Runtime Error: Array index must evaluate to a number. Got value "${evaluatedIndex}" of type: ${typeof evaluatedIndex}`);
+        throw new InvalidOperationError(
+          `Array index must evaluate to a number. Got value "${evaluatedIndex}" of type: ${typeof evaluatedIndex}`,
+        );
       }
 
       const index = Math.floor(evaluatedIndex);
 
       if (index < 0 || index >= targetArray.length){
-        throw new Error(
-          `Runtime Error: Index ${index} is out of bounds for array "${expression.arrayName}" of length ${targetArray.length}.`
+        throw new ArrayBoundsError(
+          `Index ${index} is out of bounds for array "${expression.arrayName}" of length ${targetArray.length}.`,
         );
       }
       return targetArray[index];
@@ -551,7 +613,7 @@ function evaluateRecordLiteral(
     );
 
     if (!literalField) {
-      throw new Error(
+      throw new InvalidOperationError(
         `Missing field "${fieldDefinition.name}" in record literal for "${expression.recordTypeName}"`,
       );
     }

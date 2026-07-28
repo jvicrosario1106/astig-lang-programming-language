@@ -1,3 +1,10 @@
+import { RuntimeError } from './RuntimeError';
+import {
+  ConstAssignmentError,
+  UndefinedFunctionError,
+  UndefinedVariableError,
+  UninitializedVariableError,
+} from './RuntimeExceptions';
 import { RuntimeValue } from '../models/RuntimeValue';
 import { ResolvedType } from '../models/ResolvedType';
 import {
@@ -45,7 +52,7 @@ export class RuntimeEnvironment {
     resolvedType: ResolvedType = { kind: 'primitive', type: AstigType.Any },
   ): void {
     if (this.bindings.has(name)) {
-      throw new Error(`Cannot redeclare variable "${name}"`);
+      throw new RuntimeError(`Runtime Error: Cannot redeclare variable "${name}"`);
     }
 
     this.bindings.set(name, { kind, value, isInitialized: true, resolvedType });
@@ -54,16 +61,16 @@ export class RuntimeEnvironment {
   assign(name: string, value: RuntimeValue): void {
     const environment = this.findEnvironmentWithBinding(name);
     if (!environment) {
-      throw new Error(`Undefined variable "${name}"`);
+      throw new UndefinedVariableError(name);
     }
 
     const binding = environment.bindings.get(name);
     if (!binding) {
-      throw new Error(`Undefined variable "${name}"`);
+      throw new UndefinedVariableError(name);
     }
 
     if (binding.kind === 'const') {
-      throw new Error(`Cannot assign to const variable "${name}"`);
+      throw new ConstAssignmentError(name);
     }
 
     binding.value = value;
@@ -86,11 +93,11 @@ export class RuntimeEnvironment {
     const environment = this.findEnvironmentWithBinding(name);
     const binding = environment?.bindings.get(name);
     if (!binding) {
-      throw new Error(`Undefined variable "${name}"`);
+      throw new UndefinedVariableError(name);
     }
 
     if (!binding.isInitialized) {
-      throw new Error(`Variable '${name}' is used before being assigned.`);
+      throw new UninitializedVariableError(name);
     }
 
     return binding;
@@ -98,7 +105,7 @@ export class RuntimeEnvironment {
 
   declareFunction(functionNode: FunctionDeclarationNode): void {
     if (this.functions.has(functionNode.name)) {
-      throw new Error(`Cannot redeclare function "${functionNode.name}"`);
+      throw new RuntimeError(`Runtime Error: Cannot redeclare function "${functionNode.name}"`);
     }
 
     this.functions.set(functionNode.name, functionNode);
@@ -108,7 +115,7 @@ export class RuntimeEnvironment {
     const environment = this.findEnvironmentWithFunction(name);
     const functionNode = environment?.functions.get(name);
     if (!functionNode) {
-      throw new Error(`Undefined function "${name}"`);
+      throw new UndefinedFunctionError(name);
     }
 
     return functionNode;
@@ -124,7 +131,7 @@ export class RuntimeEnvironment {
       return this.parent.lookup(name);
     }
 
-    throw new Error(`Undefined variable "${name}"`);
+    throw new UndefinedVariableError(name);
   }
 
   private findEnvironmentWithBinding(

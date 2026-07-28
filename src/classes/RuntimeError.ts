@@ -1,6 +1,9 @@
 import { SourceLocation } from '../models/StatementNode';
 
-/** Thrown by the interpreter when execution fails at runtime. */
+/**
+ * Base class for interpreter runtime failures (Java-style checked hierarchy root).
+ * Specialized errors live in {@link RuntimeExceptions}.
+ */
 export class RuntimeError extends Error {
   readonly location?: SourceLocation;
 

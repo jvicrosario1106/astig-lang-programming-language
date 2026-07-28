@@ -1,0 +1,25 @@
+rH3cH0rHDz pH0iHNtHs {
+  xH1s:iHNtSZ,
+  yH2s:iHNtSZ
+}
+
+fHUncTH!0Ns mHA1Ns() {
+  vH4rs tH4skH3s:iHNtSZ = 4;
+
+  !HFs(tH4skH3s == 1) {
+    lH3tsz aHs:iHNtSZ[] = [1, 2, 3];
+    pHR!HNTs(aHs[0]);
+    pHR!HNTs("Program completed without runtime error.");
+  } eHLSEs !HFs(tH4skH3s == 2) {
+    lH3tsz aHs:iHNtSZ[] = [1, 2, 3];
+    pHR!HNTs(aHs[99]);
+  } eHLSEs !HFs(tH4skH3s == 3) {
+    vH4rs pH1s:pH0iHNtHs = nHEWs pH0iHNtHs { xH1s = 1 };
+    pHR!HNTs(pH1s.yH2s);
+  } eHLSEs !HFs(tH4skH3s == 4) {
+    lH3tsz aHs:iHNtSZ[] = [1, 2, 3];
+    aHs[99] = 0;
+  } eHLSEs {
+    pHR!HNTs("Set tH4skH3s to 1 (success), 2, 3, or 4 (runtime errors).");
+  }
+}
