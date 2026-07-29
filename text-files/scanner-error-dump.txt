@@ -1,6 +1,18 @@
 Scanner Error Dump
 ==================
 
+File: demo-examples/heap-test.stg
+Lexical errors: 0
+No lexical errors.
+
+File: demo-examples/heap-test-address-of.stg
+Lexical errors: 0
+No lexical errors.
+
 File: demo-examples/optimizer-dce-test.stg
+Lexical errors: 0
+No lexical errors.
+
+File: test-case/arrays.stg
 Lexical errors: 0
 No lexical errors.

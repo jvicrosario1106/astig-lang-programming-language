@@ -4,11 +4,41 @@ AstigLang Interpreter Demo
 Source → Lexer → Parser → AST → Type check → Optimizer → Interpreter
 
 Sample files:
-  1. demo-examples/optimizer-dce-test.stg — DCE: Eliminates unused variables.
+  1. demo-examples/heap-test.stg — Tests for heap emulator.
+  2. demo-examples/heap-test-address-of.stg — Tests for heap emulator (address of).
+  3. demo-examples/optimizer-dce-test.stg — Optimizer test
+  4. test-case/arrays.stg — Array test
 
 ========================================================================
-Example 1: demo-examples/optimizer-dce-test.stg
-DCE: Eliminates unused variables.
+Example 1: demo-examples/heap-test.stg
+Tests for heap emulator.
+========================================================================
+
+PHASE 5 — TYPE CHECK + INTERPRETER
+----------------------------------
+Type check: passed
+
+Print output:
+  [1] 42
+  [2] 42
+  [3] 1046
+
+========================================================================
+Example 2: demo-examples/heap-test-address-of.stg
+Tests for heap emulator (address of).
+========================================================================
+
+PHASE 5 — TYPE CHECK + INTERPRETER
+----------------------------------
+Type check: passed
+
+Print output:
+  [1] 1000
+  [2] 256
+
+========================================================================
+Example 3: demo-examples/optimizer-dce-test.stg
+Optimizer test
 ========================================================================
 
 PHASE 5 — TYPE CHECK + INTERPRETER
@@ -18,5 +48,19 @@ Type check: passed
 Print output:
   [1] 224
   [2] 224
+
+========================================================================
+Example 4: test-case/arrays.stg
+Array test
+========================================================================
+
+PHASE 5 — TYPE CHECK + INTERPRETER
+----------------------------------
+Type check: passed
+
+Print output:
+  [1] 10
+  [2] 25
+  [3] 40
 
 Written to text-files/interpreter-output.txt

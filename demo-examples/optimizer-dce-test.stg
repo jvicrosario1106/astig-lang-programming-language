@@ -1,4 +1,4 @@
-// RULE: Unused so it should be ignored
+// RULE: Constant folded 
 fHUncTH!0Ns dH1bHs(xH1s:iHNtSZ):iHNtSZ {
   rH3tHUrns xH1s * 2;
   // RULE: After return statement so it should be ignored
@@ -10,12 +10,14 @@ fHUncTH!0Ns mHA1Ns() {
   // RULE: Unused so it should be ignored
   vH4rs xH1s:iHNtSZ = 4; 
   vH4rs yH2s:iHNtSZ = 8;
+  // RULE: wHs should copy propagated
   vH4rs wHs:iHNtSZ = yH2s;
 
   // id + num
   vH4rs aH1s:iHNtSZ = dH1bHs(wHs + 1) + 10;
 
   // id * id
+  // RULE: Strength reduced to aH1s << 3
   vH4rs bH2s:iHNtSZ = aH1s * yH2s;
   
   // RULE: Should be folded into 26

@@ -17,6 +17,8 @@ import { RecordLiteralFieldContext } from "./AstigLangParser";
 import { ArrayLiteralContext } from "./AstigLangParser";
 import { ArrayElementListContext } from "./AstigLangParser";
 import { DeclarationKeywordContext } from "./AstigLangParser";
+import { FreeStatementContext } from "./AstigLangParser";
+import { MemsetStatementContext } from "./AstigLangParser";
 import { PrintStatementContext } from "./AstigLangParser";
 import { ScanStatementContext } from "./AstigLangParser";
 import { IfStatementContext } from "./AstigLangParser";
@@ -208,6 +210,28 @@ export interface AstigLangListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitDeclarationKeyword?: (ctx: DeclarationKeywordContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `AstigLangParser.freeStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterFreeStatement?: (ctx: FreeStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `AstigLangParser.freeStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitFreeStatement?: (ctx: FreeStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `AstigLangParser.memsetStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterMemsetStatement?: (ctx: MemsetStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `AstigLangParser.memsetStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitMemsetStatement?: (ctx: MemsetStatementContext) => void;
 
 	/**
 	 * Enter a parse tree produced by `AstigLangParser.printStatement`.

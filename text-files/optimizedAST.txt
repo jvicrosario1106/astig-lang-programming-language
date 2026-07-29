@@ -4,11 +4,315 @@ AstigLang Optimizer Demo
 Source → Lexer → Parser → AST → Type check → Optimizer → Interpreter
 
 Sample files:
-  1. demo-examples/optimizer-dce-test.stg — DCE: Eliminates unused variables.
+  1. demo-examples/heap-test.stg — Tests for heap emulator.
+  2. demo-examples/heap-test-address-of.stg — Tests for heap emulator (address of).
+  3. demo-examples/optimizer-dce-test.stg — Optimizer test
+  4. test-case/arrays.stg — Array test
 
 ========================================================================
-Example 1: demo-examples/optimizer-dce-test.stg
-DCE: Eliminates unused variables.
+Example 1: demo-examples/heap-test.stg
+Tests for heap emulator.
+========================================================================
+
+PHASE 4 — Optimized AST (buildOptimizedAst)
+------------------------
+Syntax errors: 0
+
+ProgramNode (ASCII tree):
+Program
+  MainFunction(mHA1Ns)
+    VariableDeclaration(let xHs: iHNtSZ) @ 3:3
+      MallocExpression
+        NumberLiteral(32)
+    Assignment(=) @ 4:3
+      target dereference(*)
+        Identifier(xHs)
+      NumberLiteral(42)
+    PrintStatement @ 5:3
+      UnaryExpression(*)
+        Identifier(xHs)
+    VariableDeclaration(let vHAlHs: iHNtSZ) @ 9:3
+      UnaryExpression(*)
+        Identifier(xHs)
+    PrintStatement @ 10:3
+      Identifier(vHAlHs)
+    FreeStatement @ 12:3
+      Identifier(xHs)
+    VariableDeclaration(let yHs: iHNtSZ) @ 15:3
+      ReallocExpression
+        Identifier(xHs)
+        NumberLiteral(8)
+    FreeStatement @ 18:3
+      Identifier(yHs)
+    PrintStatement @ 19:3
+      Identifier(yHs)
+
+ProgramNode (JSON):
+{
+  "type": "Program",
+  "includes": [],
+  "recordDeclarations": [],
+  "functions": [],
+  "mainFunction": {
+    "type": "MainFunction",
+    "body": [
+      {
+        "type": "VariableDeclaration",
+        "location": {
+          "line": 3,
+          "column": 3
+        },
+        "declarationKind": "let",
+        "name": "xHs",
+        "declaredType": "iHNtSZ",
+        "isArray": false,
+        "value": {
+          "type": "Malloc",
+          "sizeExpr": {
+            "type": "NumberLiteral",
+            "value": 32
+          }
+        }
+      },
+      {
+        "type": "Assignment",
+        "location": {
+          "line": 4,
+          "column": 3
+        },
+        "operator": "=",
+        "target": {
+          "kind": "dereference",
+          "pointerExpression": {
+            "type": "Identifier",
+            "name": "xHs"
+          }
+        },
+        "value": {
+          "type": "NumberLiteral",
+          "value": 42
+        }
+      },
+      {
+        "type": "PrintStatement",
+        "location": {
+          "line": 5,
+          "column": 3
+        },
+        "value": {
+          "type": "UnaryExpression",
+          "operator": "*",
+          "argument": {
+            "type": "Identifier",
+            "name": "xHs"
+          }
+        }
+      },
+      {
+        "type": "VariableDeclaration",
+        "location": {
+          "line": 9,
+          "column": 3
+        },
+        "declarationKind": "let",
+        "name": "vHAlHs",
+        "declaredType": "iHNtSZ",
+        "isArray": false,
+        "value": {
+          "type": "UnaryExpression",
+          "operator": "*",
+          "argument": {
+            "type": "Identifier",
+            "name": "xHs"
+          }
+        }
+      },
+      {
+        "type": "PrintStatement",
+        "location": {
+          "line": 10,
+          "column": 3
+        },
+        "value": {
+          "type": "Identifier",
+          "name": "vHAlHs"
+        }
+      },
+      {
+        "type": "FreeStatement",
+        "location": {
+          "line": 12,
+          "column": 3
+        },
+        "ptrExpr": {
+          "type": "Identifier",
+          "name": "xHs"
+        }
+      },
+      {
+        "type": "VariableDeclaration",
+        "location": {
+          "line": 15,
+          "column": 3
+        },
+        "declarationKind": "let",
+        "name": "yHs",
+        "declaredType": "iHNtSZ",
+        "isArray": false,
+        "value": {
+          "type": "Realloc",
+          "ptrExpr": {
+            "type": "Identifier",
+            "name": "xHs"
+          },
+          "sizeExpr": {
+            "type": "NumberLiteral",
+            "value": 8
+          }
+        }
+      },
+      {
+        "type": "FreeStatement",
+        "location": {
+          "line": 18,
+          "column": 3
+        },
+        "ptrExpr": {
+          "type": "Identifier",
+          "name": "yHs"
+        }
+      },
+      {
+        "type": "PrintStatement",
+        "location": {
+          "line": 19,
+          "column": 3
+        },
+        "value": {
+          "type": "Identifier",
+          "name": "yHs"
+        }
+      }
+    ]
+  }
+}
+
+========================================================================
+Example 2: demo-examples/heap-test-address-of.stg
+Tests for heap emulator (address of).
+========================================================================
+
+PHASE 4 — Optimized AST (buildOptimizedAst)
+------------------------
+Syntax errors: 0
+
+ProgramNode (ASCII tree):
+Program
+  MainFunction(mHA1Ns)
+    VariableDeclaration(let vHAlHs: iHNtSZ) @ 3:3
+      NumberLiteral(256)
+    VariableDeclaration(let xHs: iHNtSZ) @ 7:3
+      UnaryExpression(&)
+        Identifier(vHAlHs)
+    PrintStatement @ 10:3
+      Identifier(xHs)
+    VariableDeclaration(let yHs: iHNtSZ) @ 13:3
+      UnaryExpression(*)
+        Identifier(xHs)
+    PrintStatement @ 14:3
+      Identifier(yHs)
+
+ProgramNode (JSON):
+{
+  "type": "Program",
+  "includes": [],
+  "recordDeclarations": [],
+  "functions": [],
+  "mainFunction": {
+    "type": "MainFunction",
+    "body": [
+      {
+        "type": "VariableDeclaration",
+        "location": {
+          "line": 3,
+          "column": 3
+        },
+        "declarationKind": "let",
+        "name": "vHAlHs",
+        "declaredType": "iHNtSZ",
+        "isArray": false,
+        "value": {
+          "type": "NumberLiteral",
+          "value": 256
+        }
+      },
+      {
+        "type": "VariableDeclaration",
+        "location": {
+          "line": 7,
+          "column": 3
+        },
+        "declarationKind": "let",
+        "name": "xHs",
+        "declaredType": "iHNtSZ",
+        "isArray": false,
+        "value": {
+          "type": "UnaryExpression",
+          "operator": "&",
+          "argument": {
+            "type": "Identifier",
+            "name": "vHAlHs"
+          }
+        }
+      },
+      {
+        "type": "PrintStatement",
+        "location": {
+          "line": 10,
+          "column": 3
+        },
+        "value": {
+          "type": "Identifier",
+          "name": "xHs"
+        }
+      },
+      {
+        "type": "VariableDeclaration",
+        "location": {
+          "line": 13,
+          "column": 3
+        },
+        "declarationKind": "let",
+        "name": "yHs",
+        "declaredType": "iHNtSZ",
+        "isArray": false,
+        "value": {
+          "type": "UnaryExpression",
+          "operator": "*",
+          "argument": {
+            "type": "Identifier",
+            "name": "xHs"
+          }
+        }
+      },
+      {
+        "type": "PrintStatement",
+        "location": {
+          "line": 14,
+          "column": 3
+        },
+        "value": {
+          "type": "Identifier",
+          "name": "yHs"
+        }
+      }
+    ]
+  }
+}
+
+========================================================================
+Example 3: demo-examples/optimizer-dce-test.stg
+Optimizer test
 ========================================================================
 
 PHASE 4 — Optimized AST (buildOptimizedAst)
@@ -113,6 +417,121 @@ ProgramNode (JSON):
         "value": {
           "type": "Identifier",
           "name": "bH2s"
+        }
+      }
+    ]
+  }
+}
+
+========================================================================
+Example 4: test-case/arrays.stg
+Array test
+========================================================================
+
+PHASE 4 — Optimized AST (buildOptimizedAst)
+------------------------
+Syntax errors: 0
+
+ProgramNode (ASCII tree):
+Program
+  MainFunction(mHA1Ns)
+    ArrayIndexAssignment(aHs =) @ 6:3
+      NumberLiteral(1)
+      NumberLiteral(25)
+    PrintStatement @ 7:3
+      ArrayIndexAccess(aHs)
+        NumberLiteral(0)
+    PrintStatement @ 8:3
+      ArrayIndexAccess(aHs)
+        NumberLiteral(1)
+    PrintStatement @ 9:3
+      BinaryExpression(+)
+        ArrayIndexAccess(aHs)
+          NumberLiteral(0)
+        ArrayIndexAccess(aHs)
+          NumberLiteral(2)
+
+ProgramNode (JSON):
+{
+  "type": "Program",
+  "includes": [],
+  "recordDeclarations": [],
+  "functions": [],
+  "mainFunction": {
+    "type": "MainFunction",
+    "body": [
+      {
+        "type": "ArrayIndexAssignment",
+        "location": {
+          "line": 6,
+          "column": 3
+        },
+        "arrayName": "aHs",
+        "index": {
+          "type": "NumberLiteral",
+          "value": 1
+        },
+        "operator": "=",
+        "value": {
+          "type": "NumberLiteral",
+          "value": 25
+        }
+      },
+      {
+        "type": "PrintStatement",
+        "location": {
+          "line": 7,
+          "column": 3
+        },
+        "value": {
+          "type": "ArrayIndexAccess",
+          "arrayName": "aHs",
+          "index": {
+            "type": "NumberLiteral",
+            "value": 0
+          }
+        }
+      },
+      {
+        "type": "PrintStatement",
+        "location": {
+          "line": 8,
+          "column": 3
+        },
+        "value": {
+          "type": "ArrayIndexAccess",
+          "arrayName": "aHs",
+          "index": {
+            "type": "NumberLiteral",
+            "value": 1
+          }
+        }
+      },
+      {
+        "type": "PrintStatement",
+        "location": {
+          "line": 9,
+          "column": 3
+        },
+        "value": {
+          "type": "BinaryExpression",
+          "operator": "+",
+          "left": {
+            "type": "ArrayIndexAccess",
+            "arrayName": "aHs",
+            "index": {
+              "type": "NumberLiteral",
+              "value": 0
+            }
+          },
+          "right": {
+            "type": "ArrayIndexAccess",
+            "arrayName": "aHs",
+            "index": {
+              "type": "NumberLiteral",
+              "value": 2
+            }
+          }
         }
       }
     ]

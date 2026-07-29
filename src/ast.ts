@@ -74,6 +74,7 @@ import {
   VariableDeclarationNode,
   WhileStatementNode,
 } from './models/StatementNode';
+import { expressionTypeToResolved } from './utils/astigTypeUtils';
 
 function sourceLocationFrom(ctx: ParserRuleContext): SourceLocation | undefined {
   const token = ctx.start;
@@ -228,6 +229,16 @@ function buildStatement(ctx: StatementContext): StatementNode {
   const returnStatement = ctx.returnStatement();
   if (returnStatement) {
     return buildReturnStatement(returnStatement);
+  }
+
+  const freeStatement = (ctx as any).freeStatement?.();
+  if (freeStatement) {
+    return buildFreeStatement(freeStatement);
+  }
+
+  const memsetStatement = (ctx as any).memsetStatement?.();
+  if (memsetStatement) {
+    return buildMemsetStatement(memsetStatement);
   }
 
   const block = ctx.block();
@@ -413,12 +424,30 @@ function buildArrayAssignment(ctx: ArrayIndexAssignmentContext): ArrayIndexAssig
 }
 
 function buildAssignment(ctx: AssignmentContext): AssignmentNode {
+  const expressions = ctx.expression();
+  let target: AssignmentTarget;
+  let valueExpressionContext: ExpressionContext;
+
+  if (expressions.length === 2){
+    // If '*' expression assignmentOperator expression
+    target = {
+      kind: 'dereference',
+      pointerExpression: buildExpression(expressions[0])
+    };
+    valueExpressionContext = expressions[1];
+  } 
+  else{
+    // Only one expression is present in the rule (the value being assigned)
+    target = buildAssignmentTarget(ctx); 
+    valueExpressionContext = expressions[0];
+  }
+
   return {
     type: StatementNodeType.Assignment,
     location: sourceLocationFrom(ctx),
-    target: buildAssignmentTarget(ctx),
+    target: target,
     operator: buildAssignmentOperator(ctx.assignmentOperator()),
-    value: buildExpression(ctx.expression()),
+    value: buildExpression(valueExpressionContext),
   };
 }
 
@@ -497,6 +526,25 @@ function buildReturnStatement(
   };
 }
 
+function buildFreeStatement(ctx: any): any {
+  return {
+    type: StatementNodeType.FreeStatement,
+    location: sourceLocationFrom(ctx),
+    ptrExpr: buildExpression(ctx.expression()),
+  };
+}
+
+function buildMemsetStatement(ctx: any): any {
+  const expressions = ctx.expression(); // targets: [ptr, value, size]
+  return {
+    type: StatementNodeType.MemsetStatement,
+    location: sourceLocationFrom(ctx),
+    ptrExpr: buildExpression(expressions[0]),
+    valueExpr: buildExpression(expressions[1]),
+    sizeExpr: buildExpression(expressions[2]),
+  };
+}
+
 function buildBlockStatement(ctx: BlockContext): BlockStatementNode {
   return {
     type: StatementNodeType.BlockStatement,
@@ -511,6 +559,23 @@ function buildExpression(ctx: ExpressionContext): ExpressionNode {
   if (functionCall) {
 
     return buildFunctionCall(functionCall);
+  }
+
+  if (ctx.MALLOC_KW()) {
+    const innerExpr = ctx.expression(0) || ctx.expression();
+    return {
+      type: ExpressionNodeType.Malloc,
+      sizeExpr: buildExpression(innerExpr),
+    };
+  }
+  
+  if (ctx.REALLOC_KW()) {
+    const reallocExprs = ctx.getRuleContexts(ExpressionContext); 
+    return {
+      type: ExpressionNodeType.Realloc,
+      ptrExpr: buildExpression(reallocExprs[0]),
+      sizeExpr: buildExpression(reallocExprs[1]),
+    };
   }
 
   const recordLiteral = ctx.recordLiteral();
@@ -589,6 +654,22 @@ function buildExpression(ctx: ExpressionContext): ExpressionNode {
     return {
       type: ExpressionNodeType.UnaryExpression,
       operator: 'NOT',
+      argument: buildExpression(expressions[0]),
+    };
+  }
+
+  if (expressions.length === 1 && ctx.MUL() && !memberField) {
+    return {
+      type: ExpressionNodeType.UnaryExpression,
+      operator: '*',
+      argument: buildExpression(expressions[0]),
+    };
+  }
+
+  if (expressions.length === 1 && ctx.BWA() && !memberField) {
+    return {
+      type: ExpressionNodeType.UnaryExpression,
+      operator: '&',
       argument: buildExpression(expressions[0]),
     };
   }
@@ -708,7 +789,7 @@ function buildRecordLiteralField(ctx: RecordLiteralFieldContext) {
 
   return {
     name: target.name,
-    value: buildExpression(assignment.expression()),
+    value: buildExpression(assignment.expression(0)),
   };
 }
 

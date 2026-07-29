@@ -4,11 +4,1124 @@ AstigLang Pipeline Demo
 Source → Lexer → Parser → AST → Type check → Optimizer → Interpreter
 
 Sample files:
-  1. demo-examples/optimizer-dce-test.stg — DCE: Eliminates unused variables.
+  1. demo-examples/heap-test.stg — Tests for heap emulator.
+  2. demo-examples/heap-test-address-of.stg — Tests for heap emulator (address of).
+  3. demo-examples/optimizer-dce-test.stg — Optimizer test
+  4. test-case/arrays.stg — Array test
 
 ========================================================================
-Example 1: demo-examples/optimizer-dce-test.stg
-DCE: Eliminates unused variables.
+Example 1: demo-examples/heap-test.stg
+Tests for heap emulator.
+========================================================================
+
+PHASE 1 — LEXER (Scanner)
+-------------------------
+Source preview:
+  fHUncTH!0Ns mHA1Ns() {
+    // 1. Test Malloc & Dereference Assignment
+    lH3tsz xHs: iHNtSZ* = MhaLlH0cZ(32);
+    *xHs = 42;
+    pHR!HNTs(*xHs);
+  
+    // 2. Test Memset & Pointer Reading
+    //mH3msEHts(xHs, 0, 8);
+    lH3tsz vHAlHs: iHNtSZ = *xHs;
+    pHR!HNTs(vHAlHs); // Expected: 0
+  ...
+
+Tokens (76 total, showing first 60):
+  FUNCTION_KW "fHUncTH!0Ns" @ line 1 col 1
+  MAIN_KW "mHA1Ns" @ line 1 col 13
+  '(' "(" @ line 1 col 19
+  ')' ")" @ line 1 col 20
+  '{' "{" @ line 1 col 22
+  LINE_COMMENT "// 1. Test Malloc & Dereference Assignment" @ line 2 col 3
+  LET_KW "lH3tsz" @ line 3 col 3
+  IDENTIFIER "xHs" @ line 3 col 10
+  ':' ":" @ line 3 col 13
+  INT_KW "iHNtSZ" @ line 3 col 15
+  '*' "*" @ line 3 col 21
+  '=' "=" @ line 3 col 23
+  MALLOC_KW "MhaLlH0cZ" @ line 3 col 25
+  '(' "(" @ line 3 col 34
+  NUMBER "32" @ line 3 col 35
+  ')' ")" @ line 3 col 37
+  ';' ";" @ line 3 col 38
+  '*' "*" @ line 4 col 3
+  IDENTIFIER "xHs" @ line 4 col 4
+  '=' "=" @ line 4 col 8
+  NUMBER "42" @ line 4 col 10
+  ';' ";" @ line 4 col 12
+  PRINT_KW "pHR!HNTs" @ line 5 col 3
+  '(' "(" @ line 5 col 11
+  '*' "*" @ line 5 col 12
+  IDENTIFIER "xHs" @ line 5 col 13
+  ')' ")" @ line 5 col 16
+  ';' ";" @ line 5 col 17
+  LINE_COMMENT "// 2. Test Memset & Pointer Reading" @ line 7 col 3
+  LINE_COMMENT "//mH3msEHts(xHs, 0, 8);" @ line 8 col 3
+  LET_KW "lH3tsz" @ line 9 col 3
+  IDENTIFIER "vHAlHs" @ line 9 col 10
+  ':' ":" @ line 9 col 16
+  INT_KW "iHNtSZ" @ line 9 col 18
+  '=' "=" @ line 9 col 25
+  '*' "*" @ line 9 col 27
+  IDENTIFIER "xHs" @ line 9 col 28
+  ';' ";" @ line 9 col 31
+  PRINT_KW "pHR!HNTs" @ line 10 col 3
+  '(' "(" @ line 10 col 11
+  IDENTIFIER "vHAlHs" @ line 10 col 12
+  ')' ")" @ line 10 col 18
+  ';' ";" @ line 10 col 19
+  LINE_COMMENT "// Expected: 0" @ line 10 col 21
+  FREE_KW "Frh3eZ" @ line 12 col 3
+  '(' "(" @ line 12 col 9
+  IDENTIFIER "xHs" @ line 12 col 10
+  ')' ")" @ line 12 col 13
+  ';' ";" @ line 12 col 14
+  LINE_COMMENT "// 3. Test Realloc" @ line 14 col 3
+  LET_KW "lH3tsz" @ line 15 col 3
+  IDENTIFIER "yHs" @ line 15 col 10
+  ':' ":" @ line 15 col 13
+  INT_KW "iHNtSZ" @ line 15 col 15
+  '*' "*" @ line 15 col 21
+  '=' "=" @ line 15 col 23
+  REALLOC_KW "rH3aHLlH0cs" @ line 15 col 25
+  '(' "(" @ line 15 col 36
+  IDENTIFIER "xHs" @ line 15 col 37
+  ',' "," @ line 15 col 40
+  ... 16 more tokens
+
+Lexical errors: none
+
+Scan time: 61.448 ms
+Characters: 451
+
+PHASE 2 — PARSER
+----------------
+Syntax errors: 0
+
+Parse tree:
+(
+  program
+  (
+    functionMainDeclaration
+    fHUncTH!0Ns
+    mHA1Ns
+    (
+    )
+    (
+      block
+      {
+      (
+        statement
+        (
+          variableDeclaration
+          (
+            declarationKeyword
+            lH3tsz
+          )
+          xHs
+          (
+            typeAnnotation
+            :
+            (
+              dataType
+              iHNtSZ
+            )
+            *
+          )
+          =
+          (
+            expression
+            MhaLlH0cZ
+            (
+              (
+                expression
+                32
+              )
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          assignment
+          *
+          (
+            expression
+            xHs
+          )
+          (
+            assignmentOperator
+            =
+          )
+          (
+            expression
+            42
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          printStatement
+          pHR!HNTs
+          (
+            (
+              expression
+              *
+              (
+                expression
+                xHs
+              )
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          variableDeclaration
+          (
+            declarationKeyword
+            lH3tsz
+          )
+          vHAlHs
+          (
+            typeAnnotation
+            :
+            (
+              dataType
+              iHNtSZ
+            )
+          )
+          =
+          (
+            expression
+            *
+            (
+              expression
+              xHs
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          printStatement
+          pHR!HNTs
+          (
+            (
+              expression
+              vHAlHs
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          freeStatement
+          Frh3eZ
+          (
+            (
+              expression
+              xHs
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          variableDeclaration
+          (
+            declarationKeyword
+            lH3tsz
+          )
+          yHs
+          (
+            typeAnnotation
+            :
+            (
+              dataType
+              iHNtSZ
+            )
+            *
+          )
+          =
+          (
+            expression
+            rH3aHLlH0cs
+            (
+              (
+                expression
+                xHs
+              )
+              ,
+              (
+                expression
+                8
+              )
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          freeStatement
+          Frh3eZ
+          (
+            (
+              expression
+              yHs
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          printStatement
+          pHR!HNTs
+          (
+            (
+              expression
+              yHs
+            )
+          )
+        )
+        ;
+      )
+      }
+    )
+  )
+  <EOF>
+)
+
+PHASE 3 — AST (buildAst)
+------------------------
+Syntax errors: 0
+
+ProgramNode (ASCII tree):
+Program
+  MainFunction(mHA1Ns)
+    VariableDeclaration(let xHs: iHNtSZ) @ 3:3
+      MallocExpression
+        NumberLiteral(32)
+    Assignment(=) @ 4:3
+      target dereference(*)
+        Identifier(xHs)
+      NumberLiteral(42)
+    PrintStatement @ 5:3
+      UnaryExpression(*)
+        Identifier(xHs)
+    VariableDeclaration(let vHAlHs: iHNtSZ) @ 9:3
+      UnaryExpression(*)
+        Identifier(xHs)
+    PrintStatement @ 10:3
+      Identifier(vHAlHs)
+    FreeStatement @ 12:3
+      Identifier(xHs)
+    VariableDeclaration(let yHs: iHNtSZ) @ 15:3
+      ReallocExpression
+        Identifier(xHs)
+        NumberLiteral(8)
+    FreeStatement @ 18:3
+      Identifier(yHs)
+    PrintStatement @ 19:3
+      Identifier(yHs)
+
+ProgramNode (JSON):
+{
+  "type": "Program",
+  "entryModule": "main",
+  "includes": [],
+  "recordDeclarations": [],
+  "functions": [],
+  "mainFunction": {
+    "type": "MainFunction",
+    "body": [
+      {
+        "type": "VariableDeclaration",
+        "location": {
+          "line": 3,
+          "column": 3
+        },
+        "declarationKind": "let",
+        "name": "xHs",
+        "declaredType": "iHNtSZ",
+        "isArray": false,
+        "value": {
+          "type": "Malloc",
+          "sizeExpr": {
+            "type": "NumberLiteral",
+            "value": 32
+          }
+        }
+      },
+      {
+        "type": "Assignment",
+        "location": {
+          "line": 4,
+          "column": 3
+        },
+        "operator": "=",
+        "target": {
+          "kind": "dereference",
+          "pointerExpression": {
+            "type": "Identifier",
+            "name": "xHs"
+          }
+        },
+        "value": {
+          "type": "NumberLiteral",
+          "value": 42
+        }
+      },
+      {
+        "type": "PrintStatement",
+        "location": {
+          "line": 5,
+          "column": 3
+        },
+        "value": {
+          "type": "UnaryExpression",
+          "operator": "*",
+          "argument": {
+            "type": "Identifier",
+            "name": "xHs"
+          }
+        }
+      },
+      {
+        "type": "VariableDeclaration",
+        "location": {
+          "line": 9,
+          "column": 3
+        },
+        "declarationKind": "let",
+        "name": "vHAlHs",
+        "declaredType": "iHNtSZ",
+        "isArray": false,
+        "value": {
+          "type": "UnaryExpression",
+          "operator": "*",
+          "argument": {
+            "type": "Identifier",
+            "name": "xHs"
+          }
+        }
+      },
+      {
+        "type": "PrintStatement",
+        "location": {
+          "line": 10,
+          "column": 3
+        },
+        "value": {
+          "type": "Identifier",
+          "name": "vHAlHs"
+        }
+      },
+      {
+        "type": "FreeStatement",
+        "location": {
+          "line": 12,
+          "column": 3
+        },
+        "ptrExpr": {
+          "type": "Identifier",
+          "name": "xHs"
+        }
+      },
+      {
+        "type": "VariableDeclaration",
+        "location": {
+          "line": 15,
+          "column": 3
+        },
+        "declarationKind": "let",
+        "name": "yHs",
+        "declaredType": "iHNtSZ",
+        "isArray": false,
+        "value": {
+          "type": "Realloc",
+          "ptrExpr": {
+            "type": "Identifier",
+            "name": "xHs"
+          },
+          "sizeExpr": {
+            "type": "NumberLiteral",
+            "value": 8
+          }
+        }
+      },
+      {
+        "type": "FreeStatement",
+        "location": {
+          "line": 18,
+          "column": 3
+        },
+        "ptrExpr": {
+          "type": "Identifier",
+          "name": "yHs"
+        }
+      },
+      {
+        "type": "PrintStatement",
+        "location": {
+          "line": 19,
+          "column": 3
+        },
+        "value": {
+          "type": "Identifier",
+          "name": "yHs"
+        }
+      }
+    ]
+  }
+}
+
+PHASE 4 — Optimized AST (buildOptimizedAst)
+------------------------
+Syntax errors: 0
+
+ProgramNode (ASCII tree):
+Program
+  MainFunction(mHA1Ns)
+    VariableDeclaration(let xHs: iHNtSZ) @ 3:3
+      MallocExpression
+        NumberLiteral(32)
+    Assignment(=) @ 4:3
+      target dereference(*)
+        Identifier(xHs)
+      NumberLiteral(42)
+    PrintStatement @ 5:3
+      UnaryExpression(*)
+        Identifier(xHs)
+    VariableDeclaration(let vHAlHs: iHNtSZ) @ 9:3
+      UnaryExpression(*)
+        Identifier(xHs)
+    PrintStatement @ 10:3
+      Identifier(vHAlHs)
+    FreeStatement @ 12:3
+      Identifier(xHs)
+    VariableDeclaration(let yHs: iHNtSZ) @ 15:3
+      ReallocExpression
+        Identifier(xHs)
+        NumberLiteral(8)
+    FreeStatement @ 18:3
+      Identifier(yHs)
+    PrintStatement @ 19:3
+      Identifier(yHs)
+
+ProgramNode (JSON):
+{
+  "type": "Program",
+  "includes": [],
+  "recordDeclarations": [],
+  "functions": [],
+  "mainFunction": {
+    "type": "MainFunction",
+    "body": [
+      {
+        "type": "VariableDeclaration",
+        "location": {
+          "line": 3,
+          "column": 3
+        },
+        "declarationKind": "let",
+        "name": "xHs",
+        "declaredType": "iHNtSZ",
+        "isArray": false,
+        "value": {
+          "type": "Malloc",
+          "sizeExpr": {
+            "type": "NumberLiteral",
+            "value": 32
+          }
+        }
+      },
+      {
+        "type": "Assignment",
+        "location": {
+          "line": 4,
+          "column": 3
+        },
+        "operator": "=",
+        "target": {
+          "kind": "dereference",
+          "pointerExpression": {
+            "type": "Identifier",
+            "name": "xHs"
+          }
+        },
+        "value": {
+          "type": "NumberLiteral",
+          "value": 42
+        }
+      },
+      {
+        "type": "PrintStatement",
+        "location": {
+          "line": 5,
+          "column": 3
+        },
+        "value": {
+          "type": "UnaryExpression",
+          "operator": "*",
+          "argument": {
+            "type": "Identifier",
+            "name": "xHs"
+          }
+        }
+      },
+      {
+        "type": "VariableDeclaration",
+        "location": {
+          "line": 9,
+          "column": 3
+        },
+        "declarationKind": "let",
+        "name": "vHAlHs",
+        "declaredType": "iHNtSZ",
+        "isArray": false,
+        "value": {
+          "type": "UnaryExpression",
+          "operator": "*",
+          "argument": {
+            "type": "Identifier",
+            "name": "xHs"
+          }
+        }
+      },
+      {
+        "type": "PrintStatement",
+        "location": {
+          "line": 10,
+          "column": 3
+        },
+        "value": {
+          "type": "Identifier",
+          "name": "vHAlHs"
+        }
+      },
+      {
+        "type": "FreeStatement",
+        "location": {
+          "line": 12,
+          "column": 3
+        },
+        "ptrExpr": {
+          "type": "Identifier",
+          "name": "xHs"
+        }
+      },
+      {
+        "type": "VariableDeclaration",
+        "location": {
+          "line": 15,
+          "column": 3
+        },
+        "declarationKind": "let",
+        "name": "yHs",
+        "declaredType": "iHNtSZ",
+        "isArray": false,
+        "value": {
+          "type": "Realloc",
+          "ptrExpr": {
+            "type": "Identifier",
+            "name": "xHs"
+          },
+          "sizeExpr": {
+            "type": "NumberLiteral",
+            "value": 8
+          }
+        }
+      },
+      {
+        "type": "FreeStatement",
+        "location": {
+          "line": 18,
+          "column": 3
+        },
+        "ptrExpr": {
+          "type": "Identifier",
+          "name": "yHs"
+        }
+      },
+      {
+        "type": "PrintStatement",
+        "location": {
+          "line": 19,
+          "column": 3
+        },
+        "value": {
+          "type": "Identifier",
+          "name": "yHs"
+        }
+      }
+    ]
+  }
+}
+
+PHASE 5 — TYPE CHECK + INTERPRETER
+----------------------------------
+Type check: passed
+
+Print output:
+  [1] 42
+  [2] 42
+  [3] 1046
+
+========================================================================
+Example 2: demo-examples/heap-test-address-of.stg
+Tests for heap emulator (address of).
+========================================================================
+
+PHASE 1 — LEXER (Scanner)
+-------------------------
+Source preview:
+  fHUncTH!0Ns mHA1Ns() {
+    // 1. Declare a standard integer variable
+    lH3tsz vHAlHs: iHNtSZ = 256;
+    
+    // 2. Use the address-of operator (&) to capture its reference location
+    // This verifies that your ast.ts correctly handles UnaryExpression mapping for '&'
+    lH3tsz xHs: iHNtSZ* = &vHAlHs;
+    
+    // 3. Print out the raw pointer integer value to see where the compiler stores local variables
+    pHR!HNTs(xHs);
+  ...
+
+Tokens (46 total, showing first 60):
+  FUNCTION_KW "fHUncTH!0Ns" @ line 1 col 1
+  MAIN_KW "mHA1Ns" @ line 1 col 13
+  '(' "(" @ line 1 col 19
+  ')' ")" @ line 1 col 20
+  '{' "{" @ line 1 col 22
+  LINE_COMMENT "// 1. Declare a standard integer variable" @ line 2 col 3
+  LET_KW "lH3tsz" @ line 3 col 3
+  IDENTIFIER "vHAlHs" @ line 3 col 10
+  ':' ":" @ line 3 col 16
+  INT_KW "iHNtSZ" @ line 3 col 18
+  '=' "=" @ line 3 col 25
+  NUMBER "256" @ line 3 col 27
+  ';' ";" @ line 3 col 30
+  LINE_COMMENT "// 2. Use the address-of operator (&) to captur..." @ line 5 col 3
+  LINE_COMMENT "// This verifies that your ast.ts correctly han..." @ line 6 col 3
+  LET_KW "lH3tsz" @ line 7 col 3
+  IDENTIFIER "xHs" @ line 7 col 10
+  ':' ":" @ line 7 col 13
+  INT_KW "iHNtSZ" @ line 7 col 15
+  '*' "*" @ line 7 col 21
+  '=' "=" @ line 7 col 23
+  '&' "&" @ line 7 col 25
+  IDENTIFIER "vHAlHs" @ line 7 col 26
+  ';' ";" @ line 7 col 32
+  LINE_COMMENT "// 3. Print out the raw pointer integer value t..." @ line 9 col 3
+  PRINT_KW "pHR!HNTs" @ line 10 col 3
+  '(' "(" @ line 10 col 11
+  IDENTIFIER "xHs" @ line 10 col 12
+  ')' ")" @ line 10 col 15
+  ';' ";" @ line 10 col 16
+  LINE_COMMENT "// 4. Double check that dereferencing the point..." @ line 12 col 3
+  LET_KW "lH3tsz" @ line 13 col 3
+  IDENTIFIER "yHs" @ line 13 col 10
+  ':' ":" @ line 13 col 13
+  INT_KW "iHNtSZ" @ line 13 col 15
+  '=' "=" @ line 13 col 22
+  '*' "*" @ line 13 col 24
+  IDENTIFIER "xHs" @ line 13 col 25
+  ';' ";" @ line 13 col 28
+  PRINT_KW "pHR!HNTs" @ line 14 col 3
+  '(' "(" @ line 14 col 11
+  IDENTIFIER "yHs" @ line 14 col 12
+  ')' ")" @ line 14 col 15
+  ';' ";" @ line 14 col 16
+  LINE_COMMENT "// Expected: 256" @ line 14 col 18
+  '}' "}" @ line 15 col 1
+
+Lexical errors: none
+
+Scan time: 2.275 ms
+Characters: 575
+
+PHASE 2 — PARSER
+----------------
+Syntax errors: 0
+
+Parse tree:
+(
+  program
+  (
+    functionMainDeclaration
+    fHUncTH!0Ns
+    mHA1Ns
+    (
+    )
+    (
+      block
+      {
+      (
+        statement
+        (
+          variableDeclaration
+          (
+            declarationKeyword
+            lH3tsz
+          )
+          vHAlHs
+          (
+            typeAnnotation
+            :
+            (
+              dataType
+              iHNtSZ
+            )
+          )
+          =
+          (
+            expression
+            256
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          variableDeclaration
+          (
+            declarationKeyword
+            lH3tsz
+          )
+          xHs
+          (
+            typeAnnotation
+            :
+            (
+              dataType
+              iHNtSZ
+            )
+            *
+          )
+          =
+          (
+            expression
+            &
+            (
+              expression
+              vHAlHs
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          printStatement
+          pHR!HNTs
+          (
+            (
+              expression
+              xHs
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          variableDeclaration
+          (
+            declarationKeyword
+            lH3tsz
+          )
+          yHs
+          (
+            typeAnnotation
+            :
+            (
+              dataType
+              iHNtSZ
+            )
+          )
+          =
+          (
+            expression
+            *
+            (
+              expression
+              xHs
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          printStatement
+          pHR!HNTs
+          (
+            (
+              expression
+              yHs
+            )
+          )
+        )
+        ;
+      )
+      }
+    )
+  )
+  <EOF>
+)
+
+PHASE 3 — AST (buildAst)
+------------------------
+Syntax errors: 0
+
+ProgramNode (ASCII tree):
+Program
+  MainFunction(mHA1Ns)
+    VariableDeclaration(let vHAlHs: iHNtSZ) @ 3:3
+      NumberLiteral(256)
+    VariableDeclaration(let xHs: iHNtSZ) @ 7:3
+      UnaryExpression(&)
+        Identifier(vHAlHs)
+    PrintStatement @ 10:3
+      Identifier(xHs)
+    VariableDeclaration(let yHs: iHNtSZ) @ 13:3
+      UnaryExpression(*)
+        Identifier(xHs)
+    PrintStatement @ 14:3
+      Identifier(yHs)
+
+ProgramNode (JSON):
+{
+  "type": "Program",
+  "entryModule": "main",
+  "includes": [],
+  "recordDeclarations": [],
+  "functions": [],
+  "mainFunction": {
+    "type": "MainFunction",
+    "body": [
+      {
+        "type": "VariableDeclaration",
+        "location": {
+          "line": 3,
+          "column": 3
+        },
+        "declarationKind": "let",
+        "name": "vHAlHs",
+        "declaredType": "iHNtSZ",
+        "isArray": false,
+        "value": {
+          "type": "NumberLiteral",
+          "value": 256
+        }
+      },
+      {
+        "type": "VariableDeclaration",
+        "location": {
+          "line": 7,
+          "column": 3
+        },
+        "declarationKind": "let",
+        "name": "xHs",
+        "declaredType": "iHNtSZ",
+        "isArray": false,
+        "value": {
+          "type": "UnaryExpression",
+          "operator": "&",
+          "argument": {
+            "type": "Identifier",
+            "name": "vHAlHs"
+          }
+        }
+      },
+      {
+        "type": "PrintStatement",
+        "location": {
+          "line": 10,
+          "column": 3
+        },
+        "value": {
+          "type": "Identifier",
+          "name": "xHs"
+        }
+      },
+      {
+        "type": "VariableDeclaration",
+        "location": {
+          "line": 13,
+          "column": 3
+        },
+        "declarationKind": "let",
+        "name": "yHs",
+        "declaredType": "iHNtSZ",
+        "isArray": false,
+        "value": {
+          "type": "UnaryExpression",
+          "operator": "*",
+          "argument": {
+            "type": "Identifier",
+            "name": "xHs"
+          }
+        }
+      },
+      {
+        "type": "PrintStatement",
+        "location": {
+          "line": 14,
+          "column": 3
+        },
+        "value": {
+          "type": "Identifier",
+          "name": "yHs"
+        }
+      }
+    ]
+  }
+}
+
+PHASE 4 — Optimized AST (buildOptimizedAst)
+------------------------
+Syntax errors: 0
+
+ProgramNode (ASCII tree):
+Program
+  MainFunction(mHA1Ns)
+    VariableDeclaration(let vHAlHs: iHNtSZ) @ 3:3
+      NumberLiteral(256)
+    VariableDeclaration(let xHs: iHNtSZ) @ 7:3
+      UnaryExpression(&)
+        Identifier(vHAlHs)
+    PrintStatement @ 10:3
+      Identifier(xHs)
+    VariableDeclaration(let yHs: iHNtSZ) @ 13:3
+      UnaryExpression(*)
+        Identifier(xHs)
+    PrintStatement @ 14:3
+      Identifier(yHs)
+
+ProgramNode (JSON):
+{
+  "type": "Program",
+  "includes": [],
+  "recordDeclarations": [],
+  "functions": [],
+  "mainFunction": {
+    "type": "MainFunction",
+    "body": [
+      {
+        "type": "VariableDeclaration",
+        "location": {
+          "line": 3,
+          "column": 3
+        },
+        "declarationKind": "let",
+        "name": "vHAlHs",
+        "declaredType": "iHNtSZ",
+        "isArray": false,
+        "value": {
+          "type": "NumberLiteral",
+          "value": 256
+        }
+      },
+      {
+        "type": "VariableDeclaration",
+        "location": {
+          "line": 7,
+          "column": 3
+        },
+        "declarationKind": "let",
+        "name": "xHs",
+        "declaredType": "iHNtSZ",
+        "isArray": false,
+        "value": {
+          "type": "UnaryExpression",
+          "operator": "&",
+          "argument": {
+            "type": "Identifier",
+            "name": "vHAlHs"
+          }
+        }
+      },
+      {
+        "type": "PrintStatement",
+        "location": {
+          "line": 10,
+          "column": 3
+        },
+        "value": {
+          "type": "Identifier",
+          "name": "xHs"
+        }
+      },
+      {
+        "type": "VariableDeclaration",
+        "location": {
+          "line": 13,
+          "column": 3
+        },
+        "declarationKind": "let",
+        "name": "yHs",
+        "declaredType": "iHNtSZ",
+        "isArray": false,
+        "value": {
+          "type": "UnaryExpression",
+          "operator": "*",
+          "argument": {
+            "type": "Identifier",
+            "name": "xHs"
+          }
+        }
+      },
+      {
+        "type": "PrintStatement",
+        "location": {
+          "line": 14,
+          "column": 3
+        },
+        "value": {
+          "type": "Identifier",
+          "name": "yHs"
+        }
+      }
+    ]
+  }
+}
+
+PHASE 5 — TYPE CHECK + INTERPRETER
+----------------------------------
+Type check: passed
+
+Print output:
+  [1] 1000
+  [2] 256
+
+========================================================================
+Example 3: demo-examples/optimizer-dce-test.stg
+Optimizer test
 ========================================================================
 
 PHASE 1 — LEXER (Scanner)
@@ -91,7 +1204,7 @@ Tokens (155 total, showing first 60):
 
 Lexical errors: none
 
-Scan time: 39.069 ms
+Scan time: 11.955 ms
 Characters: 943
 
 PHASE 2 — PARSER
@@ -1118,6 +2231,533 @@ Type check: passed
 Print output:
   [1] 224
   [2] 224
+
+========================================================================
+Example 4: test-case/arrays.stg
+Array test
+========================================================================
+
+PHASE 1 — LEXER (Scanner)
+-------------------------
+Source preview:
+  // Criteria: Arrays (primitive int arrays — literals, index read/write)
+  // Run: npm start -- test-case/arrays.stg
+  
+  fHUncTH!0Ns mHA1Ns() {
+    lH3tsz aHs:iHNtSZ[] = [10, 20, 30];
+    aHs[1] = 25;
+    pHR!HNTs(aHs[0]);
+    pHR!HNTs(aHs[1]);
+    pHR!HNTs(aHs[0] + aHs[2]);
+  }
+  ...
+
+Tokens (59 total, showing first 60):
+  LINE_COMMENT "// Criteria: Arrays (primitive int arrays — lit..." @ line 1 col 1
+  LINE_COMMENT "// Run: npm start -- test-case/arrays.stg" @ line 2 col 1
+  FUNCTION_KW "fHUncTH!0Ns" @ line 4 col 1
+  MAIN_KW "mHA1Ns" @ line 4 col 13
+  '(' "(" @ line 4 col 19
+  ')' ")" @ line 4 col 20
+  '{' "{" @ line 4 col 22
+  LET_KW "lH3tsz" @ line 5 col 3
+  IDENTIFIER "aHs" @ line 5 col 10
+  ':' ":" @ line 5 col 13
+  INT_KW "iHNtSZ" @ line 5 col 14
+  '[' "[" @ line 5 col 20
+  ']' "]" @ line 5 col 21
+  '=' "=" @ line 5 col 23
+  '[' "[" @ line 5 col 25
+  NUMBER "10" @ line 5 col 26
+  ',' "," @ line 5 col 28
+  NUMBER "20" @ line 5 col 30
+  ',' "," @ line 5 col 32
+  NUMBER "30" @ line 5 col 34
+  ']' "]" @ line 5 col 36
+  ';' ";" @ line 5 col 37
+  IDENTIFIER "aHs" @ line 6 col 3
+  '[' "[" @ line 6 col 6
+  NUMBER "1" @ line 6 col 7
+  ']' "]" @ line 6 col 8
+  '=' "=" @ line 6 col 10
+  NUMBER "25" @ line 6 col 12
+  ';' ";" @ line 6 col 14
+  PRINT_KW "pHR!HNTs" @ line 7 col 3
+  '(' "(" @ line 7 col 11
+  IDENTIFIER "aHs" @ line 7 col 12
+  '[' "[" @ line 7 col 15
+  NUMBER "0" @ line 7 col 16
+  ']' "]" @ line 7 col 17
+  ')' ")" @ line 7 col 18
+  ';' ";" @ line 7 col 19
+  PRINT_KW "pHR!HNTs" @ line 8 col 3
+  '(' "(" @ line 8 col 11
+  IDENTIFIER "aHs" @ line 8 col 12
+  '[' "[" @ line 8 col 15
+  NUMBER "1" @ line 8 col 16
+  ']' "]" @ line 8 col 17
+  ')' ")" @ line 8 col 18
+  ';' ";" @ line 8 col 19
+  PRINT_KW "pHR!HNTs" @ line 9 col 3
+  '(' "(" @ line 9 col 11
+  IDENTIFIER "aHs" @ line 9 col 12
+  '[' "[" @ line 9 col 15
+  NUMBER "0" @ line 9 col 16
+  ']' "]" @ line 9 col 17
+  '+' "+" @ line 9 col 19
+  IDENTIFIER "aHs" @ line 9 col 21
+  '[' "[" @ line 9 col 24
+  NUMBER "2" @ line 9 col 25
+  ']' "]" @ line 9 col 26
+  ')' ")" @ line 9 col 27
+  ';' ";" @ line 9 col 28
+  '}' "}" @ line 10 col 1
+
+Lexical errors: none
+
+Scan time: 1.427 ms
+Characters: 272
+
+PHASE 2 — PARSER
+----------------
+Syntax errors: 0
+
+Parse tree:
+(
+  program
+  (
+    functionMainDeclaration
+    fHUncTH!0Ns
+    mHA1Ns
+    (
+    )
+    (
+      block
+      {
+      (
+        statement
+        (
+          variableDeclaration
+          (
+            declarationKeyword
+            lH3tsz
+          )
+          aHs
+          (
+            typeAnnotation
+            :
+            (
+              dataType
+              iHNtSZ
+            )
+            [
+            ]
+          )
+          =
+          (
+            expression
+            (
+              arrayLiteral
+              [
+              (
+                arrayElementList
+                (
+                  expression
+                  10
+                )
+                ,
+                (
+                  expression
+                  20
+                )
+                ,
+                (
+                  expression
+                  30
+                )
+              )
+              ]
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          arrayIndexAssignment
+          aHs
+          [
+          (
+            expression
+            1
+          )
+          ]
+          (
+            assignmentOperator
+            =
+          )
+          (
+            expression
+            25
+          )
+          ;
+        )
+      )
+      (
+        statement
+        (
+          printStatement
+          pHR!HNTs
+          (
+            (
+              expression
+              (
+                arrayIndexAccess
+                aHs
+                [
+                (
+                  expression
+                  0
+                )
+                ]
+              )
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          printStatement
+          pHR!HNTs
+          (
+            (
+              expression
+              (
+                arrayIndexAccess
+                aHs
+                [
+                (
+                  expression
+                  1
+                )
+                ]
+              )
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          printStatement
+          pHR!HNTs
+          (
+            (
+              expression
+              (
+                expression
+                (
+                  arrayIndexAccess
+                  aHs
+                  [
+                  (
+                    expression
+                    0
+                  )
+                  ]
+                )
+              )
+              +
+              (
+                expression
+                (
+                  arrayIndexAccess
+                  aHs
+                  [
+                  (
+                    expression
+                    2
+                  )
+                  ]
+                )
+              )
+            )
+          )
+        )
+        ;
+      )
+      }
+    )
+  )
+  <EOF>
+)
+
+PHASE 3 — AST (buildAst)
+------------------------
+Syntax errors: 0
+
+ProgramNode (ASCII tree):
+Program
+  MainFunction(mHA1Ns)
+    VariableDeclaration(let aHs: iHNtSZ[]) @ 5:3
+      ArrayLiteral
+        NumberLiteral(10)
+        NumberLiteral(20)
+        NumberLiteral(30)
+    ArrayIndexAssignment(aHs =) @ 6:3
+      NumberLiteral(1)
+      NumberLiteral(25)
+    PrintStatement @ 7:3
+      ArrayIndexAccess(aHs)
+        NumberLiteral(0)
+    PrintStatement @ 8:3
+      ArrayIndexAccess(aHs)
+        NumberLiteral(1)
+    PrintStatement @ 9:3
+      BinaryExpression(+)
+        ArrayIndexAccess(aHs)
+          NumberLiteral(0)
+        ArrayIndexAccess(aHs)
+          NumberLiteral(2)
+
+ProgramNode (JSON):
+{
+  "type": "Program",
+  "entryModule": "main",
+  "includes": [],
+  "recordDeclarations": [],
+  "functions": [],
+  "mainFunction": {
+    "type": "MainFunction",
+    "body": [
+      {
+        "type": "VariableDeclaration",
+        "location": {
+          "line": 5,
+          "column": 3
+        },
+        "declarationKind": "let",
+        "name": "aHs",
+        "declaredType": "iHNtSZ",
+        "isArray": true,
+        "value": {
+          "type": "ArrayLiteral",
+          "elements": [
+            {
+              "type": "NumberLiteral",
+              "value": 10
+            },
+            {
+              "type": "NumberLiteral",
+              "value": 20
+            },
+            {
+              "type": "NumberLiteral",
+              "value": 30
+            }
+          ]
+        }
+      },
+      {
+        "type": "ArrayIndexAssignment",
+        "location": {
+          "line": 6,
+          "column": 3
+        },
+        "arrayName": "aHs",
+        "index": {
+          "type": "NumberLiteral",
+          "value": 1
+        },
+        "operator": "=",
+        "value": {
+          "type": "NumberLiteral",
+          "value": 25
+        }
+      },
+      {
+        "type": "PrintStatement",
+        "location": {
+          "line": 7,
+          "column": 3
+        },
+        "value": {
+          "type": "ArrayIndexAccess",
+          "arrayName": "aHs",
+          "index": {
+            "type": "NumberLiteral",
+            "value": 0
+          }
+        }
+      },
+      {
+        "type": "PrintStatement",
+        "location": {
+          "line": 8,
+          "column": 3
+        },
+        "value": {
+          "type": "ArrayIndexAccess",
+          "arrayName": "aHs",
+          "index": {
+            "type": "NumberLiteral",
+            "value": 1
+          }
+        }
+      },
+      {
+        "type": "PrintStatement",
+        "location": {
+          "line": 9,
+          "column": 3
+        },
+        "value": {
+          "type": "BinaryExpression",
+          "operator": "+",
+          "left": {
+            "type": "ArrayIndexAccess",
+            "arrayName": "aHs",
+            "index": {
+              "type": "NumberLiteral",
+              "value": 0
+            }
+          },
+          "right": {
+            "type": "ArrayIndexAccess",
+            "arrayName": "aHs",
+            "index": {
+              "type": "NumberLiteral",
+              "value": 2
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+PHASE 4 — Optimized AST (buildOptimizedAst)
+------------------------
+Syntax errors: 0
+
+ProgramNode (ASCII tree):
+Program
+  MainFunction(mHA1Ns)
+    ArrayIndexAssignment(aHs =) @ 6:3
+      NumberLiteral(1)
+      NumberLiteral(25)
+    PrintStatement @ 7:3
+      ArrayIndexAccess(aHs)
+        NumberLiteral(0)
+    PrintStatement @ 8:3
+      ArrayIndexAccess(aHs)
+        NumberLiteral(1)
+    PrintStatement @ 9:3
+      BinaryExpression(+)
+        ArrayIndexAccess(aHs)
+          NumberLiteral(0)
+        ArrayIndexAccess(aHs)
+          NumberLiteral(2)
+
+ProgramNode (JSON):
+{
+  "type": "Program",
+  "includes": [],
+  "recordDeclarations": [],
+  "functions": [],
+  "mainFunction": {
+    "type": "MainFunction",
+    "body": [
+      {
+        "type": "ArrayIndexAssignment",
+        "location": {
+          "line": 6,
+          "column": 3
+        },
+        "arrayName": "aHs",
+        "index": {
+          "type": "NumberLiteral",
+          "value": 1
+        },
+        "operator": "=",
+        "value": {
+          "type": "NumberLiteral",
+          "value": 25
+        }
+      },
+      {
+        "type": "PrintStatement",
+        "location": {
+          "line": 7,
+          "column": 3
+        },
+        "value": {
+          "type": "ArrayIndexAccess",
+          "arrayName": "aHs",
+          "index": {
+            "type": "NumberLiteral",
+            "value": 0
+          }
+        }
+      },
+      {
+        "type": "PrintStatement",
+        "location": {
+          "line": 8,
+          "column": 3
+        },
+        "value": {
+          "type": "ArrayIndexAccess",
+          "arrayName": "aHs",
+          "index": {
+            "type": "NumberLiteral",
+            "value": 1
+          }
+        }
+      },
+      {
+        "type": "PrintStatement",
+        "location": {
+          "line": 9,
+          "column": 3
+        },
+        "value": {
+          "type": "BinaryExpression",
+          "operator": "+",
+          "left": {
+            "type": "ArrayIndexAccess",
+            "arrayName": "aHs",
+            "index": {
+              "type": "NumberLiteral",
+              "value": 0
+            }
+          },
+          "right": {
+            "type": "ArrayIndexAccess",
+            "arrayName": "aHs",
+            "index": {
+              "type": "NumberLiteral",
+              "value": 2
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+PHASE 5 — TYPE CHECK + INTERPRETER
+----------------------------------
+Type check: passed
+
+Print output:
+  [1] 10
+  [2] 25
+  [3] 40
 
 Output files:
   text-files/scanner-output.txt

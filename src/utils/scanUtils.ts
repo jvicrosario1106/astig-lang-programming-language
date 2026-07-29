@@ -35,7 +35,7 @@ export function resetScanInputBuffer(): void {
 
 /** Primitive and scalar types that `scan` may write into. */
 export function isScannableType(resolvedType: ResolvedType): boolean {
-  if (resolvedType.kind === 'array' || resolvedType.kind === 'record') {
+  if (resolvedType.kind === 'array' || resolvedType.kind === 'record' || resolvedType.kind === 'pointer') {
     return false;
   }
 

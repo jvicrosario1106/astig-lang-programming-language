@@ -37,12 +37,14 @@ import {
   setRecordFieldValue,
 } from './utils/recordRuntimeUtils';
 import { coerceScanInput, readScanLine } from './utils/scanUtils';
+import { HeapEmulator, VirtualHeap } from './classes/HeapEmulator';
 
 type ExecutionContext = {
   environment: RuntimeEnvironment;
   recordRegistry: RecordRegistry;
   output: string[];
   moduleFunctions: Record<string, FunctionDeclarationNode[]>;
+  heap: HeapEmulator;
 };
 
 function raiseRuntimeError(message: string, location?: SourceLocation): never {
@@ -54,11 +56,13 @@ export function runProgram(program: ProgramNode): string[] {
   const recordRegistry = buildRecordRegistry(program.recordDeclarations);
   const environment = new RuntimeEnvironment(undefined, true);
   const output: string[] = [];
+  const heapInstance = new VirtualHeap();
   const context: ExecutionContext = {
     environment,
     recordRegistry,
     output,
     moduleFunctions: program.moduleFunctions,
+    heap: heapInstance
   };
 
   for (const functionNode of program.functions) {
@@ -106,11 +110,17 @@ function executeStatement(statement: StatementNode, context: ExecutionContext): 
 
   switch (statement.type) {
     case StatementNodeType.VariableDeclaration:
+      const initialValue = evaluateExpression(statement.value, context);
+      // 1. Allocate a single slot on the heap for this variable
+      const addr = context.heap.malloc(1);
+      // 2. Write the initial value into that heap slot
+      context.heap.set(addr, initialValue);
+
       runSafely(() =>
         environment.declare(
           statement.declarationKind,
           statement.name,
-          evaluateExpression(statement.value, context),
+          { isHeapReference: true, address: addr },
           resolveVariableDeclarationType(statement, context.recordRegistry),
         ),
       );
@@ -121,7 +131,12 @@ function executeStatement(statement: StatementNode, context: ExecutionContext): 
       return;
     
     case StatementNodeType.ArrayIndexAssignment: {
-      const targetArray = environment.lookup(statement.arrayName);
+      let targetArray = environment.lookup(statement.arrayName);
+
+      // Unwrap if it was passed as a function argument or variable pointer reference
+      if (targetArray && typeof targetArray === 'object' && 'isHeapReference' in targetArray) {
+        targetArray = context.heap.get(targetArray.address);
+      }
 
       if (!Array.isArray(targetArray)) {
         raiseRuntimeError(
@@ -165,7 +180,13 @@ function executeStatement(statement: StatementNode, context: ExecutionContext): 
       runSafely(() => {
         const targetType = environment.getResolvedType(statement.variableName);
         const finalValue = coerceScanInput(userInput, targetType);
-        environment.assign(statement.variableName, finalValue);
+
+        const binding = environment.get(statement.variableName);
+        if (binding && typeof binding === 'object' && 'isHeapReference' in binding) {
+          context.heap.set(binding.address, finalValue);
+        } else {
+          environment.assign(statement.variableName, finalValue);
+        }
       });
       return;
     }
@@ -315,6 +336,33 @@ function executeStatement(statement: StatementNode, context: ExecutionContext): 
       throw new ReturnException(
         statement.value ? evaluateExpression(statement.value, context) : null,
       );
+    
+      case StatementNodeType.FreeStatement: {
+      const ptrAddress = evaluateExpression(statement.ptrExpr, context);
+      if (typeof ptrAddress !== 'number') {
+        throw new Error('Runtime Error: Address targeted for fHR33z must resolve to a valid numeric pointer.');
+      }
+      context.heap.free(ptrAddress);
+      return;
+    }
+
+    case StatementNodeType.MemsetStatement: {
+      const ptrAddress = evaluateExpression(statement.ptrExpr, context);
+      const fillValue = evaluateExpression(statement.valueExpr, context);
+      const allocationSize = evaluateExpression(statement.sizeExpr, context);
+
+      if (typeof ptrAddress !== 'number' || typeof fillValue !== 'number' || typeof allocationSize !== 'number') {
+        throw new Error('Runtime Error: Invalid numerical arguments supplied to mH3mS3t operation.');
+      }
+
+      const byteValue = Math.floor(fillValue) & 0xFF;
+
+      // Fill heap memory range sequentially
+      for (let offset = 0; offset < Math.floor(allocationSize); offset++) {
+        context.heap.set(ptrAddress + offset, byteValue);
+      }
+      return;
+    }
 
     case StatementNodeType.BlockStatement:
       executeBlock(statement.body, context);
@@ -333,13 +381,30 @@ function executeAssignment(
 
   if (assignment.target.kind === 'variable') {
     try {
-      context.environment.assign(assignment.target.name, resultValue);
+      const binding = context.environment.get(assignment.target.name);
+      
+      // Mutate the value inside the heap slot instead of replacing the environment binding object
+      if (binding && typeof binding === 'object' && 'isHeapReference' in binding) {
+        context.heap.set(binding.address, resultValue);
+      } else {
+        context.environment.assign(assignment.target.name, resultValue);
+      }
     } catch (error) {
       if (error instanceof Error) {
         throw new RuntimeError(error.message, location);
       }
       throw error;
     }
+    return;
+  }
+  else if (assignment.target.kind === 'dereference'){
+    const heapAddress = evaluateExpression(assignment.target.pointerExpression, context);
+
+    if (typeof heapAddress === 'number' && context.heap.isFreed(heapAddress)) {
+      throw new Error(`Runtime Error: Segmentation Fault. Attempted to write to dangling pointer at address ${heapAddress}`);
+    }
+
+    context.heap.set(heapAddress, resultValue);
     return;
   }
 
@@ -353,7 +418,11 @@ function assignRecordField(
   context: ExecutionContext,
   location?: SourceLocation,
 ): void {
-  const recordValue = context.environment.get(target.rootVariable);
+  let recordValue = context.environment.get(target.rootVariable);
+
+  if (recordValue && typeof recordValue === 'object' && 'isHeapReference' in recordValue) {
+    recordValue = context.heap.get(recordValue.address);
+  }
 
   if (!isRecordRuntimeValue(recordValue)) {
     throw new RuntimeError(`Variable "${target.rootVariable}" is not a record`, location);
@@ -394,10 +463,32 @@ function readAssignmentTargetValue(
   context: ExecutionContext,
 ): RuntimeValue {
   if (target.kind === 'variable') {
-    return context.environment.get(target.name);
+    const binding = context.environment.get(target.name);
+    
+    if (binding && typeof binding === 'object' && 'isHeapReference' in binding) {
+      return context.heap.get(binding.address);
+    }
+    
+    return binding;
   }
 
-  const recordValue = context.environment.get(target.rootVariable);
+  if (target.kind === 'dereference'){
+    // Evaluate the inner pointer expression to find the target address
+    const heapAddress = evaluateExpression(target.pointerExpression, context);
+
+    // Safety Guard: Check if the VirtualHeap address space is still valid/allocated
+    if (typeof heapAddress === 'number' && context.heap.isFreed(heapAddress)) {
+      throw new Error(`Runtime Error: Segmentation Fault. Attempted to read dangling pointer at address ${heapAddress}`);
+    }
+
+    // Return value from heap emulator
+    return context.heap.get(heapAddress);
+  }
+
+  let recordValue = context.environment.get(target.rootVariable);
+  if (recordValue && typeof recordValue === 'object' && 'isHeapReference' in recordValue) {
+    recordValue = context.heap.get(recordValue.address);
+  }
   if (!isRecordRuntimeValue(recordValue)) {
     throw new Error(`Variable "${target.rootVariable}" is not a record`);
   }
@@ -432,8 +523,14 @@ function evaluateExpression(
     case ExpressionNodeType.BooleanLiteral:
       return expression.value;
 
-    case ExpressionNodeType.Identifier:
-      return context.environment.get(expression.name);
+    case ExpressionNodeType.Identifier:{
+      const binding = context.environment.get(expression.name);
+      // If it's a number pointing to heap memory, read the actual value out of it
+      if (binding && typeof binding === 'object' && 'isHeapReference' in binding) {
+        return context.heap.get(binding.address);
+      }
+      return binding;
+    }
 
     case ExpressionNodeType.MemberAccess: {
       const objectValue = evaluateExpression(expression.object, context);
@@ -445,11 +542,36 @@ function evaluateExpression(
       return getRecordFieldValue(objectValue, [expression.field]);
     }
 
+    case ExpressionNodeType.Malloc: {
+      const sizeBytes = evaluateExpression(expression.sizeExpr, context);
+      if (typeof sizeBytes !== 'number') {
+        throw new Error('Runtime Error: Size argument for mH4lL0cH must be a number.');
+      }
+      // Allocate chunk via the HeapEmulator interface and return the base address pointer
+      return context.heap.malloc(Math.floor(sizeBytes));
+    }
+
+    case ExpressionNodeType.Realloc: {
+      const ptrAddress = evaluateExpression(expression.ptrExpr, context);
+      const sizeBytes = evaluateExpression(expression.sizeExpr, context);
+      if (typeof ptrAddress !== 'number' || typeof sizeBytes !== 'number') {
+        throw new Error('Runtime Error: Invalid pointer or size arguments passed to rH34lL0cH.');
+      }
+      // Reallocate block memory layout safely
+      return context.heap.realloc(ptrAddress, Math.floor(sizeBytes));
+    }
+
     case ExpressionNodeType.ArrayLiteral:
       return expression.elements.map(elementNode => (evaluateExpression(elementNode, context)));
 
     case ExpressionNodeType.ArrayIndexAccess:
-      const targetArray = context.environment.lookup(expression.arrayName);
+      let targetArray = context.environment.lookup(expression.arrayName);
+
+      // Unwrap if it was passed as a function argument or variable pointer reference
+      if (targetArray && typeof targetArray === 'object' && 'isHeapReference' in targetArray) {
+        targetArray = context.heap.get(targetArray.address);
+      }
+
       if (!Array.isArray(targetArray)){
         throw new Error(`Runtime Error: "${expression.arrayName}" is not an array.`);
       }
@@ -524,7 +646,32 @@ function evaluateExpression(
     }
 
     case ExpressionNodeType.UnaryExpression: {
+      // Handle address-of operator (&) before evaluating the argument
+      if (expression.operator === '&') {
+        if (expression.argument.type === ExpressionNodeType.Identifier) {
+          const binding = context.environment.get(expression.argument.name);
+          
+          // Extract the underlying numeric address pointer from the tag object
+          if (binding && typeof binding === 'object' && 'isHeapReference' in binding) {
+            return binding.address;
+          }
+          throw new Error('Runtime Error: Identifier is not allocated in heap memory.');
+        }
+      }
+      
       const value = evaluateExpression(expression.argument, context);
+
+      if (expression.operator === '*') {
+        if (typeof value !== 'number') {
+          throw new Error(`Runtime Error: Cannot dereference non-numeric address: ${value}`);
+        }
+        // Memory safety guard: block read if the address is flagged as deallocated[cite: 3]
+        if (context.heap.isFreed(value)) {
+          throw new Error(`Runtime Error: Segmentation Fault. Attempted to read from dangling pointer at address ${value}`);
+        }
+        return context.heap.get(value);
+      }
+
       if (typeof value === 'number') {
         return -value;
         
@@ -613,10 +760,13 @@ function executeUserFunction(
   };
 
   functionNode.parameters.forEach((parameter, index) => {
+    const paramAddr = context.heap.malloc(1);
+    context.heap.set(paramAddr, argValues[index]);
+
     functionEnvironment.declare(
       'let',
       parameter.name,
-      argValues[index],
+      { isHeapReference: true, address: paramAddr },
       resolveParameterType(parameter, context.recordRegistry),
     );
   });

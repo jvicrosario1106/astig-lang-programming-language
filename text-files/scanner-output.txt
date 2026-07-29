@@ -4,11 +4,175 @@ AstigLang Scanner / Lexer Demo
 Source → Lexer → Parser → AST → Type check → Optimizer → Interpreter
 
 Sample files:
-  1. demo-examples/optimizer-dce-test.stg — DCE: Eliminates unused variables.
+  1. demo-examples/heap-test.stg — Tests for heap emulator.
+  2. demo-examples/heap-test-address-of.stg — Tests for heap emulator (address of).
+  3. demo-examples/optimizer-dce-test.stg — Optimizer test
+  4. test-case/arrays.stg — Array test
 
 ========================================================================
-Example 1: demo-examples/optimizer-dce-test.stg
-DCE: Eliminates unused variables.
+Example 1: demo-examples/heap-test.stg
+Tests for heap emulator.
+========================================================================
+
+PHASE 1 — LEXER (Scanner)
+-------------------------
+Source preview:
+  fHUncTH!0Ns mHA1Ns() {
+    // 1. Test Malloc & Dereference Assignment
+    lH3tsz xHs: iHNtSZ* = MhaLlH0cZ(32);
+    *xHs = 42;
+    pHR!HNTs(*xHs);
+  
+    // 2. Test Memset & Pointer Reading
+    //mH3msEHts(xHs, 0, 8);
+    lH3tsz vHAlHs: iHNtSZ = *xHs;
+    pHR!HNTs(vHAlHs); // Expected: 0
+  ...
+
+Tokens (76 total, showing first 60):
+  FUNCTION_KW "fHUncTH!0Ns" @ line 1 col 1
+  MAIN_KW "mHA1Ns" @ line 1 col 13
+  '(' "(" @ line 1 col 19
+  ')' ")" @ line 1 col 20
+  '{' "{" @ line 1 col 22
+  LINE_COMMENT "// 1. Test Malloc & Dereference Assignment" @ line 2 col 3
+  LET_KW "lH3tsz" @ line 3 col 3
+  IDENTIFIER "xHs" @ line 3 col 10
+  ':' ":" @ line 3 col 13
+  INT_KW "iHNtSZ" @ line 3 col 15
+  '*' "*" @ line 3 col 21
+  '=' "=" @ line 3 col 23
+  MALLOC_KW "MhaLlH0cZ" @ line 3 col 25
+  '(' "(" @ line 3 col 34
+  NUMBER "32" @ line 3 col 35
+  ')' ")" @ line 3 col 37
+  ';' ";" @ line 3 col 38
+  '*' "*" @ line 4 col 3
+  IDENTIFIER "xHs" @ line 4 col 4
+  '=' "=" @ line 4 col 8
+  NUMBER "42" @ line 4 col 10
+  ';' ";" @ line 4 col 12
+  PRINT_KW "pHR!HNTs" @ line 5 col 3
+  '(' "(" @ line 5 col 11
+  '*' "*" @ line 5 col 12
+  IDENTIFIER "xHs" @ line 5 col 13
+  ')' ")" @ line 5 col 16
+  ';' ";" @ line 5 col 17
+  LINE_COMMENT "// 2. Test Memset & Pointer Reading" @ line 7 col 3
+  LINE_COMMENT "//mH3msEHts(xHs, 0, 8);" @ line 8 col 3
+  LET_KW "lH3tsz" @ line 9 col 3
+  IDENTIFIER "vHAlHs" @ line 9 col 10
+  ':' ":" @ line 9 col 16
+  INT_KW "iHNtSZ" @ line 9 col 18
+  '=' "=" @ line 9 col 25
+  '*' "*" @ line 9 col 27
+  IDENTIFIER "xHs" @ line 9 col 28
+  ';' ";" @ line 9 col 31
+  PRINT_KW "pHR!HNTs" @ line 10 col 3
+  '(' "(" @ line 10 col 11
+  IDENTIFIER "vHAlHs" @ line 10 col 12
+  ')' ")" @ line 10 col 18
+  ';' ";" @ line 10 col 19
+  LINE_COMMENT "// Expected: 0" @ line 10 col 21
+  FREE_KW "Frh3eZ" @ line 12 col 3
+  '(' "(" @ line 12 col 9
+  IDENTIFIER "xHs" @ line 12 col 10
+  ')' ")" @ line 12 col 13
+  ';' ";" @ line 12 col 14
+  LINE_COMMENT "// 3. Test Realloc" @ line 14 col 3
+  LET_KW "lH3tsz" @ line 15 col 3
+  IDENTIFIER "yHs" @ line 15 col 10
+  ':' ":" @ line 15 col 13
+  INT_KW "iHNtSZ" @ line 15 col 15
+  '*' "*" @ line 15 col 21
+  '=' "=" @ line 15 col 23
+  REALLOC_KW "rH3aHLlH0cs" @ line 15 col 25
+  '(' "(" @ line 15 col 36
+  IDENTIFIER "xHs" @ line 15 col 37
+  ',' "," @ line 15 col 40
+  ... 16 more tokens
+
+Lexical errors: none
+
+Scan time: 61.448 ms
+Characters: 451
+
+========================================================================
+Example 2: demo-examples/heap-test-address-of.stg
+Tests for heap emulator (address of).
+========================================================================
+
+PHASE 1 — LEXER (Scanner)
+-------------------------
+Source preview:
+  fHUncTH!0Ns mHA1Ns() {
+    // 1. Declare a standard integer variable
+    lH3tsz vHAlHs: iHNtSZ = 256;
+    
+    // 2. Use the address-of operator (&) to capture its reference location
+    // This verifies that your ast.ts correctly handles UnaryExpression mapping for '&'
+    lH3tsz xHs: iHNtSZ* = &vHAlHs;
+    
+    // 3. Print out the raw pointer integer value to see where the compiler stores local variables
+    pHR!HNTs(xHs);
+  ...
+
+Tokens (46 total, showing first 60):
+  FUNCTION_KW "fHUncTH!0Ns" @ line 1 col 1
+  MAIN_KW "mHA1Ns" @ line 1 col 13
+  '(' "(" @ line 1 col 19
+  ')' ")" @ line 1 col 20
+  '{' "{" @ line 1 col 22
+  LINE_COMMENT "// 1. Declare a standard integer variable" @ line 2 col 3
+  LET_KW "lH3tsz" @ line 3 col 3
+  IDENTIFIER "vHAlHs" @ line 3 col 10
+  ':' ":" @ line 3 col 16
+  INT_KW "iHNtSZ" @ line 3 col 18
+  '=' "=" @ line 3 col 25
+  NUMBER "256" @ line 3 col 27
+  ';' ";" @ line 3 col 30
+  LINE_COMMENT "// 2. Use the address-of operator (&) to captur..." @ line 5 col 3
+  LINE_COMMENT "// This verifies that your ast.ts correctly han..." @ line 6 col 3
+  LET_KW "lH3tsz" @ line 7 col 3
+  IDENTIFIER "xHs" @ line 7 col 10
+  ':' ":" @ line 7 col 13
+  INT_KW "iHNtSZ" @ line 7 col 15
+  '*' "*" @ line 7 col 21
+  '=' "=" @ line 7 col 23
+  '&' "&" @ line 7 col 25
+  IDENTIFIER "vHAlHs" @ line 7 col 26
+  ';' ";" @ line 7 col 32
+  LINE_COMMENT "// 3. Print out the raw pointer integer value t..." @ line 9 col 3
+  PRINT_KW "pHR!HNTs" @ line 10 col 3
+  '(' "(" @ line 10 col 11
+  IDENTIFIER "xHs" @ line 10 col 12
+  ')' ")" @ line 10 col 15
+  ';' ";" @ line 10 col 16
+  LINE_COMMENT "// 4. Double check that dereferencing the point..." @ line 12 col 3
+  LET_KW "lH3tsz" @ line 13 col 3
+  IDENTIFIER "yHs" @ line 13 col 10
+  ':' ":" @ line 13 col 13
+  INT_KW "iHNtSZ" @ line 13 col 15
+  '=' "=" @ line 13 col 22
+  '*' "*" @ line 13 col 24
+  IDENTIFIER "xHs" @ line 13 col 25
+  ';' ";" @ line 13 col 28
+  PRINT_KW "pHR!HNTs" @ line 14 col 3
+  '(' "(" @ line 14 col 11
+  IDENTIFIER "yHs" @ line 14 col 12
+  ')' ")" @ line 14 col 15
+  ';' ";" @ line 14 col 16
+  LINE_COMMENT "// Expected: 256" @ line 14 col 18
+  '}' "}" @ line 15 col 1
+
+Lexical errors: none
+
+Scan time: 2.275 ms
+Characters: 575
+
+========================================================================
+Example 3: demo-examples/optimizer-dce-test.stg
+Optimizer test
 ========================================================================
 
 PHASE 1 — LEXER (Scanner)
@@ -91,7 +255,93 @@ Tokens (155 total, showing first 60):
 
 Lexical errors: none
 
-Scan time: 39.069 ms
+Scan time: 11.955 ms
 Characters: 943
+
+========================================================================
+Example 4: test-case/arrays.stg
+Array test
+========================================================================
+
+PHASE 1 — LEXER (Scanner)
+-------------------------
+Source preview:
+  // Criteria: Arrays (primitive int arrays — literals, index read/write)
+  // Run: npm start -- test-case/arrays.stg
+  
+  fHUncTH!0Ns mHA1Ns() {
+    lH3tsz aHs:iHNtSZ[] = [10, 20, 30];
+    aHs[1] = 25;
+    pHR!HNTs(aHs[0]);
+    pHR!HNTs(aHs[1]);
+    pHR!HNTs(aHs[0] + aHs[2]);
+  }
+  ...
+
+Tokens (59 total, showing first 60):
+  LINE_COMMENT "// Criteria: Arrays (primitive int arrays — lit..." @ line 1 col 1
+  LINE_COMMENT "// Run: npm start -- test-case/arrays.stg" @ line 2 col 1
+  FUNCTION_KW "fHUncTH!0Ns" @ line 4 col 1
+  MAIN_KW "mHA1Ns" @ line 4 col 13
+  '(' "(" @ line 4 col 19
+  ')' ")" @ line 4 col 20
+  '{' "{" @ line 4 col 22
+  LET_KW "lH3tsz" @ line 5 col 3
+  IDENTIFIER "aHs" @ line 5 col 10
+  ':' ":" @ line 5 col 13
+  INT_KW "iHNtSZ" @ line 5 col 14
+  '[' "[" @ line 5 col 20
+  ']' "]" @ line 5 col 21
+  '=' "=" @ line 5 col 23
+  '[' "[" @ line 5 col 25
+  NUMBER "10" @ line 5 col 26
+  ',' "," @ line 5 col 28
+  NUMBER "20" @ line 5 col 30
+  ',' "," @ line 5 col 32
+  NUMBER "30" @ line 5 col 34
+  ']' "]" @ line 5 col 36
+  ';' ";" @ line 5 col 37
+  IDENTIFIER "aHs" @ line 6 col 3
+  '[' "[" @ line 6 col 6
+  NUMBER "1" @ line 6 col 7
+  ']' "]" @ line 6 col 8
+  '=' "=" @ line 6 col 10
+  NUMBER "25" @ line 6 col 12
+  ';' ";" @ line 6 col 14
+  PRINT_KW "pHR!HNTs" @ line 7 col 3
+  '(' "(" @ line 7 col 11
+  IDENTIFIER "aHs" @ line 7 col 12
+  '[' "[" @ line 7 col 15
+  NUMBER "0" @ line 7 col 16
+  ']' "]" @ line 7 col 17
+  ')' ")" @ line 7 col 18
+  ';' ";" @ line 7 col 19
+  PRINT_KW "pHR!HNTs" @ line 8 col 3
+  '(' "(" @ line 8 col 11
+  IDENTIFIER "aHs" @ line 8 col 12
+  '[' "[" @ line 8 col 15
+  NUMBER "1" @ line 8 col 16
+  ']' "]" @ line 8 col 17
+  ')' ")" @ line 8 col 18
+  ';' ";" @ line 8 col 19
+  PRINT_KW "pHR!HNTs" @ line 9 col 3
+  '(' "(" @ line 9 col 11
+  IDENTIFIER "aHs" @ line 9 col 12
+  '[' "[" @ line 9 col 15
+  NUMBER "0" @ line 9 col 16
+  ']' "]" @ line 9 col 17
+  '+' "+" @ line 9 col 19
+  IDENTIFIER "aHs" @ line 9 col 21
+  '[' "[" @ line 9 col 24
+  NUMBER "2" @ line 9 col 25
+  ']' "]" @ line 9 col 26
+  ')' ")" @ line 9 col 27
+  ';' ";" @ line 9 col 28
+  '}' "}" @ line 10 col 1
+
+Lexical errors: none
+
+Scan time: 1.427 ms
+Characters: 272
 
 Written to text-files/scanner-output.txt

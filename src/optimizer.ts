@@ -54,6 +54,12 @@ export function collectUsedSymbols(program: ProgramNode): Set<string> {
                 // Note: The left-hand side variable is being written to, not read.
                 // In advanced DCE, you track writes separately, but for a basic pass, 
                 // just visiting the value expression is perfectly safe.
+                // FIX: If a variable is mutated, it MUST be preserved in the symbol table 
+                // so that the interpreter can successfully allocate its environment heap cell reference binding!
+                if (node.target.kind === 'variable') {
+                    usedSymbols.add(node.target.name);
+                }
+
                 break;
 
             case StatementNodeType.IfStatement:

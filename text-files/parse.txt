@@ -4,11 +4,372 @@ AstigLang Parser Demo
 Source → Lexer → Parser → AST → Type check → Optimizer → Interpreter
 
 Sample files:
-  1. demo-examples/optimizer-dce-test.stg — DCE: Eliminates unused variables.
+  1. demo-examples/heap-test.stg — Tests for heap emulator.
+  2. demo-examples/heap-test-address-of.stg — Tests for heap emulator (address of).
+  3. demo-examples/optimizer-dce-test.stg — Optimizer test
+  4. test-case/arrays.stg — Array test
 
 ========================================================================
-Example 1: demo-examples/optimizer-dce-test.stg
-DCE: Eliminates unused variables.
+Example 1: demo-examples/heap-test.stg
+Tests for heap emulator.
+========================================================================
+
+PHASE 2 — PARSER
+----------------
+Syntax errors: 0
+
+Parse tree:
+(
+  program
+  (
+    functionMainDeclaration
+    fHUncTH!0Ns
+    mHA1Ns
+    (
+    )
+    (
+      block
+      {
+      (
+        statement
+        (
+          variableDeclaration
+          (
+            declarationKeyword
+            lH3tsz
+          )
+          xHs
+          (
+            typeAnnotation
+            :
+            (
+              dataType
+              iHNtSZ
+            )
+            *
+          )
+          =
+          (
+            expression
+            MhaLlH0cZ
+            (
+              (
+                expression
+                32
+              )
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          assignment
+          *
+          (
+            expression
+            xHs
+          )
+          (
+            assignmentOperator
+            =
+          )
+          (
+            expression
+            42
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          printStatement
+          pHR!HNTs
+          (
+            (
+              expression
+              *
+              (
+                expression
+                xHs
+              )
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          variableDeclaration
+          (
+            declarationKeyword
+            lH3tsz
+          )
+          vHAlHs
+          (
+            typeAnnotation
+            :
+            (
+              dataType
+              iHNtSZ
+            )
+          )
+          =
+          (
+            expression
+            *
+            (
+              expression
+              xHs
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          printStatement
+          pHR!HNTs
+          (
+            (
+              expression
+              vHAlHs
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          freeStatement
+          Frh3eZ
+          (
+            (
+              expression
+              xHs
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          variableDeclaration
+          (
+            declarationKeyword
+            lH3tsz
+          )
+          yHs
+          (
+            typeAnnotation
+            :
+            (
+              dataType
+              iHNtSZ
+            )
+            *
+          )
+          =
+          (
+            expression
+            rH3aHLlH0cs
+            (
+              (
+                expression
+                xHs
+              )
+              ,
+              (
+                expression
+                8
+              )
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          freeStatement
+          Frh3eZ
+          (
+            (
+              expression
+              yHs
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          printStatement
+          pHR!HNTs
+          (
+            (
+              expression
+              yHs
+            )
+          )
+        )
+        ;
+      )
+      }
+    )
+  )
+  <EOF>
+)
+
+========================================================================
+Example 2: demo-examples/heap-test-address-of.stg
+Tests for heap emulator (address of).
+========================================================================
+
+PHASE 2 — PARSER
+----------------
+Syntax errors: 0
+
+Parse tree:
+(
+  program
+  (
+    functionMainDeclaration
+    fHUncTH!0Ns
+    mHA1Ns
+    (
+    )
+    (
+      block
+      {
+      (
+        statement
+        (
+          variableDeclaration
+          (
+            declarationKeyword
+            lH3tsz
+          )
+          vHAlHs
+          (
+            typeAnnotation
+            :
+            (
+              dataType
+              iHNtSZ
+            )
+          )
+          =
+          (
+            expression
+            256
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          variableDeclaration
+          (
+            declarationKeyword
+            lH3tsz
+          )
+          xHs
+          (
+            typeAnnotation
+            :
+            (
+              dataType
+              iHNtSZ
+            )
+            *
+          )
+          =
+          (
+            expression
+            &
+            (
+              expression
+              vHAlHs
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          printStatement
+          pHR!HNTs
+          (
+            (
+              expression
+              xHs
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          variableDeclaration
+          (
+            declarationKeyword
+            lH3tsz
+          )
+          yHs
+          (
+            typeAnnotation
+            :
+            (
+              dataType
+              iHNtSZ
+            )
+          )
+          =
+          (
+            expression
+            *
+            (
+              expression
+              xHs
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          printStatement
+          pHR!HNTs
+          (
+            (
+              expression
+              yHs
+            )
+          )
+        )
+        ;
+      )
+      }
+    )
+  )
+  <EOF>
+)
+
+========================================================================
+Example 3: demo-examples/optimizer-dce-test.stg
+Optimizer test
 ========================================================================
 
 PHASE 2 — PARSER
@@ -502,6 +863,189 @@ Parse tree:
             (
               expression
               bH2s
+            )
+          )
+        )
+        ;
+      )
+      }
+    )
+  )
+  <EOF>
+)
+
+========================================================================
+Example 4: test-case/arrays.stg
+Array test
+========================================================================
+
+PHASE 2 — PARSER
+----------------
+Syntax errors: 0
+
+Parse tree:
+(
+  program
+  (
+    functionMainDeclaration
+    fHUncTH!0Ns
+    mHA1Ns
+    (
+    )
+    (
+      block
+      {
+      (
+        statement
+        (
+          variableDeclaration
+          (
+            declarationKeyword
+            lH3tsz
+          )
+          aHs
+          (
+            typeAnnotation
+            :
+            (
+              dataType
+              iHNtSZ
+            )
+            [
+            ]
+          )
+          =
+          (
+            expression
+            (
+              arrayLiteral
+              [
+              (
+                arrayElementList
+                (
+                  expression
+                  10
+                )
+                ,
+                (
+                  expression
+                  20
+                )
+                ,
+                (
+                  expression
+                  30
+                )
+              )
+              ]
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          arrayIndexAssignment
+          aHs
+          [
+          (
+            expression
+            1
+          )
+          ]
+          (
+            assignmentOperator
+            =
+          )
+          (
+            expression
+            25
+          )
+          ;
+        )
+      )
+      (
+        statement
+        (
+          printStatement
+          pHR!HNTs
+          (
+            (
+              expression
+              (
+                arrayIndexAccess
+                aHs
+                [
+                (
+                  expression
+                  0
+                )
+                ]
+              )
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          printStatement
+          pHR!HNTs
+          (
+            (
+              expression
+              (
+                arrayIndexAccess
+                aHs
+                [
+                (
+                  expression
+                  1
+                )
+                ]
+              )
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          printStatement
+          pHR!HNTs
+          (
+            (
+              expression
+              (
+                expression
+                (
+                  arrayIndexAccess
+                  aHs
+                  [
+                  (
+                    expression
+                    0
+                  )
+                  ]
+                )
+              )
+              +
+              (
+                expression
+                (
+                  arrayIndexAccess
+                  aHs
+                  [
+                  (
+                    expression
+                    2
+                  )
+                  ]
+                )
+              )
             )
           )
         )

@@ -10,9 +10,24 @@ export type PipelineDemoFile = {
 
 export const pipelineDemoFiles: PipelineDemoFile[] = [
   {
+    path: 'demo-examples/heap-test.stg',
+    description:
+      'Tests for heap emulator.',
+  },
+  {
+    path: 'demo-examples/heap-test-address-of.stg',
+    description:
+      'Tests for heap emulator (address of).',
+  },
+  {
     path: 'demo-examples/optimizer-dce-test.stg',
     description:
-      'DCE: Eliminates unused variables.',
+      'Optimizer test',
+  },
+  {
+    path: 'test-case/arrays.stg',
+    description:
+      'Array test',
   },
 ];
 

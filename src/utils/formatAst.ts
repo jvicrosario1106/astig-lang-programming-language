@@ -67,6 +67,17 @@ function formatExpression(expression: ExpressionNode, depth: number): string[] {
           ...formatExpression(field.value, depth + 2),
         ]),
       ];
+    case ExpressionNodeType.Malloc:
+      return [
+        indentLine(depth, 'MallocExpression'),
+        ...formatExpression(expression.sizeExpr, depth + 1)
+      ];
+    case ExpressionNodeType.Realloc:
+      return [
+        indentLine(depth, 'ReallocExpression'),
+        ...formatExpression(expression.ptrExpr, depth + 1),
+        ...formatExpression(expression.sizeExpr, depth + 1)
+      ];
   }
 }
 
@@ -77,6 +88,13 @@ function formatAssignmentTarget(
   if (target.kind === 'variable') {
     return [indentLine(depth, `target variable(${target.name})`)];
   }
+
+  if (target.kind === 'dereference'){
+    return [indentLine(depth, 'target dereference(*)'),
+      ...formatExpression(target.pointerExpression, depth + 1)
+    ];
+  }
+
   return [
     indentLine(
       depth,
@@ -202,6 +220,21 @@ function formatStatement(statement: StatementNode, depth: number): string[] {
         ),
         ...statement.body.flatMap((stmt) => formatStatement(stmt, depth + 1)),
       ];
+    case StatementNodeType.FreeStatement:
+      return [
+        indentLine(depth, `FreeStatement${loc}`),
+        ...formatExpression(statement.ptrExpr, depth + 1)
+      ];
+    case StatementNodeType.MemsetStatement:
+      return [
+        indentLine(depth, `MemsetStatement${loc}`),
+        indentLine(depth + 1, 'dest'),
+        ...formatExpression(statement.ptrExpr, depth + 2),
+        indentLine(depth + 1, 'value'),
+        ...formatExpression(statement.valueExpr, depth + 2),
+        indentLine(depth + 1, 'size'),
+        ...formatExpression(statement.sizeExpr, depth + 2)
+      ];
   }
 }
 
@@ -265,6 +298,17 @@ function serializeExpression(expression: ExpressionNode): object {
           name: field.name,
           value: serializeExpression(field.value),
         })),
+      };
+    case ExpressionNodeType.Malloc:
+      return {
+        type: expression.type,
+        sizeExpr: serializeExpression(expression.sizeExpr)
+      };
+    case ExpressionNodeType.Realloc:
+      return {
+        type: expression.type,
+        ptrExpr: serializeExpression(expression.ptrExpr),
+        sizeExpr: serializeExpression(expression.sizeExpr)
       };
   }
 }
@@ -389,6 +433,20 @@ function serializeStatement(statement: StatementNode): object {
         })),
         returnType: statement.returnType,
         body: statement.body.map(serializeStatement),
+      };
+    case StatementNodeType.FreeStatement:
+      return {
+        type: statement.type,
+        ...(location ? { location } : {}),
+        ptrExpr: serializeExpression(statement.ptrExpr)
+      };
+    case StatementNodeType.MemsetStatement:
+      return {
+        type: statement.type,
+        ...(location ? { location } : {}),
+        ptrExpr: serializeExpression(statement.ptrExpr),
+        valueExpr: serializeExpression(statement.valueExpr),
+        sizeExpr: serializeExpression(statement.sizeExpr)
       };
   }
 }

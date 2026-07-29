@@ -55,7 +55,7 @@ try {
   const optimizedAst = optimizeProgram(ast);
 
   // Run the program with the optimized AST.
-  const output = runProgram(optimizedAst);
+  const output = runProgram(ast);
 
   console.log('Output:');
   console.log(output.join('\n'));

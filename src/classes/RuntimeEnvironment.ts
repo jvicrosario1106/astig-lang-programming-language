@@ -8,10 +8,15 @@ import { AstigType } from '../models/AstigType';
 
 type RuntimeBinding = {
   kind: DeclarationKind;
-  value: RuntimeValue;
+  value: RuntimeValue | HeapReference;
   isInitialized: boolean;
   resolvedType: ResolvedType;
 };
+
+export interface HeapReference {
+  isHeapReference: true;
+  address: number;
+}
 
 /**
  * RuntimeEnvironment models the interpreter's lexical scope at runtime.
@@ -51,7 +56,7 @@ export class RuntimeEnvironment {
     this.bindings.set(name, { kind, value, isInitialized: true, resolvedType });
   }
 
-  assign(name: string, value: RuntimeValue): void {
+  assign(name: string, value: RuntimeValue | HeapReference): void {
     const environment = this.findEnvironmentWithBinding(name);
     if (!environment) {
       throw new Error(`Undefined variable "${name}"`);
@@ -70,7 +75,7 @@ export class RuntimeEnvironment {
     binding.isInitialized = true;
   }
 
-  get(name: string): RuntimeValue {
+  get(name: string): RuntimeValue | HeapReference {
     return this.getBinding(name).value;
   }
 
@@ -114,7 +119,7 @@ export class RuntimeEnvironment {
     return functionNode;
   }
 
-  lookup(name: string): RuntimeValue{
+  lookup(name: string): RuntimeValue | HeapReference {
     // Check if variable is extisting in the current scope block
     if(this.bindings.has(name)){
       return this.bindings.get(name)!.value;
@@ -123,6 +128,18 @@ export class RuntimeEnvironment {
     if (this.parent){
       return this.parent.lookup(name);
     }
+    
+    // const environment = this.findEnvironmentWithBinding(name);
+    // if (!environment) {
+    //   throw new Error(`Undefined variable "${name}"`);
+    // }
+    
+    // const binding = environment.bindings.get(name)!;
+    // if (!binding.isInitialized) {
+    //   throw new Error(`Variable '${name}' is used before being assigned.`);
+    // }
+    
+    // return binding.value;
 
     throw new Error(`Undefined variable "${name}"`);
   }

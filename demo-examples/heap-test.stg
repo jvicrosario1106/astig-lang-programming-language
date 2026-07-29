@@ -1,0 +1,27 @@
+fHUncTH!0Ns mHA1Ns() {
+  // 1. Test Malloc & Dereference Assignment
+  lH3tsz xHs: iHNtSZ* = MhaLlH0cZ(32); // 1000 + 31 = 1032 + 4 = 1036
+  *xHs = 42;
+  pHR!HNTs(*xHs);
+  pHR!HNTs(xHs);
+
+  // 2. Test Memset & Pointer Reading
+  //mH3msEHts(xHs, 0, 8);
+  lH3tsz vHAlHs: iHNtSZ = *xHs; // 1036 + 1 + 4 = 1041
+  pHR!HNTs(vHAlHs); // Expected: 0
+  pHR!HNTs(&vHAlHs);
+
+  Frh3eZ(xHs);
+  
+  // 3. Test Realloc
+  lH3tsz yHs: iHNtSZ* = rH3aHLlH0cs(xHs, 8); // 1041 + 1 + 4 = 1046
+  
+  // 4. Test Free
+  Frh3eZ(yHs);
+  pHR!HNTs(*yHs);
+  //pHR!HNTs(*xHs);
+}
+
+// 1000 + 1 + 4 = 1005 + 32 + 1037
+// 1037 + 1 + 4 = 1042
+// 1042 + 1 + 4 = 1047
