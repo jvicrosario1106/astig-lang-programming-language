@@ -8,6 +8,8 @@ Single-target build (current machine):
 
 ```bash
 ./binaries/astiglang path/to/program.stg
+./binaries/astiglang                    # type code interactively at the > prompt
+cat program.stg | ./binaries/astiglang  # read source from stdin pipe
 ```
 
 Windows:

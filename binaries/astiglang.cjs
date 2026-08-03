@@ -8,9 +8,9 @@ var __commonJS = (cb, mod) => function __require() {
   }
 };
 
-// node_modules/antlr4ts/Decorators.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/Decorators.js
 var require_Decorators = __commonJS({
-  "node_modules/antlr4ts/Decorators.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/Decorators.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.SuppressWarnings = exports2.Override = exports2.Nullable = exports2.NotNull = void 0;
@@ -31,9 +31,9 @@ var require_Decorators = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/misc/MurmurHash.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/MurmurHash.js
 var require_MurmurHash = __commonJS({
-  "node_modules/antlr4ts/misc/MurmurHash.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/MurmurHash.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.MurmurHash = void 0;
@@ -106,9 +106,9 @@ var require_MurmurHash = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/misc/ObjectEqualityComparator.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/ObjectEqualityComparator.js
 var require_ObjectEqualityComparator = __commonJS({
-  "node_modules/antlr4ts/misc/ObjectEqualityComparator.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/ObjectEqualityComparator.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -159,9 +159,9 @@ var require_ObjectEqualityComparator = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/misc/DefaultEqualityComparator.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/DefaultEqualityComparator.js
 var require_DefaultEqualityComparator = __commonJS({
-  "node_modules/antlr4ts/misc/DefaultEqualityComparator.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/DefaultEqualityComparator.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -220,9 +220,9 @@ var require_DefaultEqualityComparator = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/misc/Array2DHashSet.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/Array2DHashSet.js
 var require_Array2DHashSet = __commonJS({
-  "node_modules/antlr4ts/misc/Array2DHashSet.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/Array2DHashSet.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -571,9 +571,9 @@ var require_Array2DHashSet = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/misc/Array2DHashMap.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/Array2DHashMap.js
 var require_Array2DHashMap = __commonJS({
-  "node_modules/antlr4ts/misc/Array2DHashMap.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/Array2DHashMap.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.Array2DHashMap = void 0;
@@ -651,9 +651,9 @@ var require_Array2DHashMap = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/misc/ArrayEqualityComparator.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/ArrayEqualityComparator.js
 var require_ArrayEqualityComparator = __commonJS({
-  "node_modules/antlr4ts/misc/ArrayEqualityComparator.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/ArrayEqualityComparator.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -716,9 +716,9 @@ var require_ArrayEqualityComparator = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/ATNState.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ATNState.js
 var require_ATNState = __commonJS({
-  "node_modules/antlr4ts/atn/ATNState.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ATNState.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -843,9 +843,9 @@ var require_ATNState = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/DecisionState.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/DecisionState.js
 var require_DecisionState = __commonJS({
-  "node_modules/antlr4ts/atn/DecisionState.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/DecisionState.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.DecisionState = void 0;
@@ -862,9 +862,9 @@ var require_DecisionState = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/misc/Arrays.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/Arrays.js
 var require_Arrays = __commonJS({
-  "node_modules/antlr4ts/misc/Arrays.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/Arrays.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.Arrays = void 0;
@@ -915,9 +915,9 @@ var require_Arrays = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/PredictionContextCache.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/PredictionContextCache.js
 var require_PredictionContextCache = __commonJS({
-  "node_modules/antlr4ts/atn/PredictionContextCache.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/PredictionContextCache.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1046,9 +1046,9 @@ var require_PredictionContextCache = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/PredictionContext.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/PredictionContext.js
 var require_PredictionContext = __commonJS({
-  "node_modules/antlr4ts/atn/PredictionContext.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/PredictionContext.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1714,9 +1714,9 @@ var require_PredictionContext = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/misc/Utils.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/Utils.js
 var require_Utils = __commonJS({
-  "node_modules/antlr4ts/misc/Utils.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/Utils.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.toCharArray = exports2.toMap = exports2.equals = exports2.join = exports2.escapeWhitespace = void 0;
@@ -1771,9 +1771,9 @@ var require_Utils = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/SemanticContext.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/SemanticContext.js
 var require_SemanticContext = __commonJS({
-  "node_modules/antlr4ts/atn/SemanticContext.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/SemanticContext.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2209,9 +2209,9 @@ var require_SemanticContext = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/ATNConfig.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ATNConfig.js
 var require_ATNConfig = __commonJS({
-  "node_modules/antlr4ts/atn/ATNConfig.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ATNConfig.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2646,9 +2646,9 @@ var require_ATNConfig = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/misc/BitSet.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/BitSet.js
 var require_BitSet = __commonJS({
-  "node_modules/antlr4ts/misc/BitSet.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/BitSet.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.BitSet = void 0;
@@ -3268,9 +3268,9 @@ var require_BitSet = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/ATNConfigSet.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ATNConfigSet.js
 var require_ATNConfigSet = __commonJS({
-  "node_modules/antlr4ts/atn/ATNConfigSet.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ATNConfigSet.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -3679,9 +3679,9 @@ var require_ATNConfigSet = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/dfa/DFAState.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/dfa/DFAState.js
 var require_DFAState = __commonJS({
-  "node_modules/antlr4ts/dfa/DFAState.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/dfa/DFAState.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -3883,9 +3883,9 @@ var require_DFAState = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/ATNSimulator.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ATNSimulator.js
 var require_ATNSimulator = __commonJS({
-  "node_modules/antlr4ts/atn/ATNSimulator.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ATNSimulator.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -3949,9 +3949,9 @@ var require_ATNSimulator = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/ConsoleErrorListener.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/ConsoleErrorListener.js
 var require_ConsoleErrorListener = __commonJS({
-  "node_modules/antlr4ts/ConsoleErrorListener.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/ConsoleErrorListener.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.ConsoleErrorListener = void 0;
@@ -3976,9 +3976,9 @@ var require_ConsoleErrorListener = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/ProxyErrorListener.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/ProxyErrorListener.js
 var require_ProxyErrorListener = __commonJS({
-  "node_modules/antlr4ts/ProxyErrorListener.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/ProxyErrorListener.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -4021,9 +4021,9 @@ var require_ProxyErrorListener = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/IntStream.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/IntStream.js
 var require_IntStream = __commonJS({
-  "node_modules/antlr4ts/IntStream.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/IntStream.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.IntStream = void 0;
@@ -4035,9 +4035,9 @@ var require_IntStream = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/Token.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/Token.js
 var require_Token = __commonJS({
-  "node_modules/antlr4ts/Token.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/Token.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.Token = void 0;
@@ -4055,9 +4055,9 @@ var require_Token = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/Recognizer.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/Recognizer.js
 var require_Recognizer = __commonJS({
-  "node_modules/antlr4ts/Recognizer.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/Recognizer.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -4273,9 +4273,9 @@ var require_Recognizer = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/VocabularyImpl.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/VocabularyImpl.js
 var require_VocabularyImpl = __commonJS({
-  "node_modules/antlr4ts/VocabularyImpl.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/VocabularyImpl.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -4377,9 +4377,9 @@ var require_VocabularyImpl = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/dfa/DFASerializer.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/dfa/DFASerializer.js
 var require_DFASerializer = __commonJS({
-  "node_modules/antlr4ts/dfa/DFASerializer.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/dfa/DFASerializer.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -4508,9 +4508,9 @@ var require_DFASerializer = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/dfa/LexerDFASerializer.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/dfa/LexerDFASerializer.js
 var require_LexerDFASerializer = __commonJS({
-  "node_modules/antlr4ts/dfa/LexerDFASerializer.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/dfa/LexerDFASerializer.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -4547,9 +4547,9 @@ var require_LexerDFASerializer = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/ATNStateType.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ATNStateType.js
 var require_ATNStateType = __commonJS({
-  "node_modules/antlr4ts/atn/ATNStateType.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ATNStateType.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.ATNStateType = void 0;
@@ -4572,9 +4572,9 @@ var require_ATNStateType = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/StarLoopEntryState.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/StarLoopEntryState.js
 var require_StarLoopEntryState = __commonJS({
-  "node_modules/antlr4ts/atn/StarLoopEntryState.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/StarLoopEntryState.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -4605,9 +4605,9 @@ var require_StarLoopEntryState = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/dfa/DFA.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/dfa/DFA.js
 var require_DFA = __commonJS({
-  "node_modules/antlr4ts/dfa/DFA.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/dfa/DFA.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -4763,9 +4763,9 @@ var require_DFA = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/misc/IntegerList.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/IntegerList.js
 var require_IntegerList = __commonJS({
-  "node_modules/antlr4ts/misc/IntegerList.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/IntegerList.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -5040,9 +5040,9 @@ var require_IntegerList = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/misc/Interval.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/Interval.js
 var require_Interval = __commonJS({
-  "node_modules/antlr4ts/misc/Interval.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/Interval.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -5176,9 +5176,9 @@ var require_Interval = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/CommonToken.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/CommonToken.js
 var require_CommonToken = __commonJS({
-  "node_modules/antlr4ts/CommonToken.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/CommonToken.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -5387,9 +5387,9 @@ var require_CommonToken = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/CommonTokenFactory.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/CommonTokenFactory.js
 var require_CommonTokenFactory = __commonJS({
-  "node_modules/antlr4ts/CommonTokenFactory.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/CommonTokenFactory.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -5441,9 +5441,9 @@ var require_CommonTokenFactory = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/misc/IntegerStack.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/IntegerStack.js
 var require_IntegerStack = __commonJS({
-  "node_modules/antlr4ts/misc/IntegerStack.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/IntegerStack.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.IntegerStack = void 0;
@@ -5466,9 +5466,9 @@ var require_IntegerStack = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/dfa/AcceptStateInfo.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/dfa/AcceptStateInfo.js
 var require_AcceptStateInfo = __commonJS({
-  "node_modules/antlr4ts/dfa/AcceptStateInfo.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/dfa/AcceptStateInfo.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.AcceptStateInfo = void 0;
@@ -5499,9 +5499,9 @@ var require_AcceptStateInfo = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/LexerIndexedCustomAction.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LexerIndexedCustomAction.js
 var require_LexerIndexedCustomAction = __commonJS({
-  "node_modules/antlr4ts/atn/LexerIndexedCustomAction.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LexerIndexedCustomAction.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -5620,9 +5620,9 @@ var require_LexerIndexedCustomAction = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/LexerActionExecutor.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LexerActionExecutor.js
 var require_LexerActionExecutor = __commonJS({
-  "node_modules/antlr4ts/atn/LexerActionExecutor.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LexerActionExecutor.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -5807,9 +5807,9 @@ var require_LexerActionExecutor = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/RecognitionException.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/RecognitionException.js
 var require_RecognitionException = __commonJS({
-  "node_modules/antlr4ts/RecognitionException.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/RecognitionException.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.RecognitionException = void 0;
@@ -5906,9 +5906,9 @@ var require_RecognitionException = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/LexerNoViableAltException.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/LexerNoViableAltException.js
 var require_LexerNoViableAltException = __commonJS({
-  "node_modules/antlr4ts/LexerNoViableAltException.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/LexerNoViableAltException.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -5964,9 +5964,9 @@ var require_LexerNoViableAltException = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/OrderedATNConfigSet.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/OrderedATNConfigSet.js
 var require_OrderedATNConfigSet = __commonJS({
-  "node_modules/antlr4ts/atn/OrderedATNConfigSet.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/OrderedATNConfigSet.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -6013,9 +6013,9 @@ var require_OrderedATNConfigSet = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/RuleStopState.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/RuleStopState.js
 var require_RuleStopState = __commonJS({
-  "node_modules/antlr4ts/atn/RuleStopState.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/RuleStopState.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -6046,9 +6046,9 @@ var require_RuleStopState = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/LexerATNSimulator.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LexerATNSimulator.js
 var require_LexerATNSimulator = __commonJS({
-  "node_modules/antlr4ts/atn/LexerATNSimulator.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LexerATNSimulator.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -6646,9 +6646,9 @@ var require_LexerATNSimulator = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/Lexer.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/Lexer.js
 var require_Lexer = __commonJS({
-  "node_modules/antlr4ts/Lexer.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/Lexer.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -6948,9 +6948,9 @@ var require_Lexer = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/misc/IntervalSet.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/IntervalSet.js
 var require_IntervalSet = __commonJS({
-  "node_modules/antlr4ts/misc/IntervalSet.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/IntervalSet.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -7515,9 +7515,9 @@ var require_IntervalSet = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/BasicState.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/BasicState.js
 var require_BasicState = __commonJS({
-  "node_modules/antlr4ts/atn/BasicState.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/BasicState.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -7542,9 +7542,9 @@ var require_BasicState = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/InvalidState.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/InvalidState.js
 var require_InvalidState = __commonJS({
-  "node_modules/antlr4ts/atn/InvalidState.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/InvalidState.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -7569,9 +7569,9 @@ var require_InvalidState = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/Transition.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/Transition.js
 var require_Transition = __commonJS({
-  "node_modules/antlr4ts/atn/Transition.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/Transition.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -7633,9 +7633,9 @@ var require_Transition = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/AbstractPredicateTransition.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/AbstractPredicateTransition.js
 var require_AbstractPredicateTransition = __commonJS({
-  "node_modules/antlr4ts/atn/AbstractPredicateTransition.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/AbstractPredicateTransition.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.AbstractPredicateTransition = void 0;
@@ -7649,9 +7649,9 @@ var require_AbstractPredicateTransition = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/SetTransition.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/SetTransition.js
 var require_SetTransition = __commonJS({
-  "node_modules/antlr4ts/atn/SetTransition.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/SetTransition.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -7717,9 +7717,9 @@ var require_SetTransition = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/NotSetTransition.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/NotSetTransition.js
 var require_NotSetTransition = __commonJS({
-  "node_modules/antlr4ts/atn/NotSetTransition.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/NotSetTransition.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -7767,9 +7767,9 @@ var require_NotSetTransition = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/RuleTransition.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/RuleTransition.js
 var require_RuleTransition = __commonJS({
-  "node_modules/antlr4ts/atn/RuleTransition.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/RuleTransition.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -7825,9 +7825,9 @@ var require_RuleTransition = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/WildcardTransition.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/WildcardTransition.js
 var require_WildcardTransition = __commonJS({
-  "node_modules/antlr4ts/atn/WildcardTransition.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/WildcardTransition.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -7875,9 +7875,9 @@ var require_WildcardTransition = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/LL1Analyzer.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LL1Analyzer.js
 var require_LL1Analyzer = __commonJS({
-  "node_modules/antlr4ts/atn/LL1Analyzer.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LL1Analyzer.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -8081,9 +8081,9 @@ var require_LL1Analyzer = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/ATN.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ATN.js
 var require_ATN = __commonJS({
-  "node_modules/antlr4ts/atn/ATN.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ATN.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -8298,9 +8298,9 @@ var require_ATN = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/ActionTransition.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ActionTransition.js
 var require_ActionTransition = __commonJS({
-  "node_modules/antlr4ts/atn/ActionTransition.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ActionTransition.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -8356,9 +8356,9 @@ var require_ActionTransition = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/ATNDeserializationOptions.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ATNDeserializationOptions.js
 var require_ATNDeserializationOptions = __commonJS({
-  "node_modules/antlr4ts/atn/ATNDeserializationOptions.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ATNDeserializationOptions.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -8429,9 +8429,9 @@ var require_ATNDeserializationOptions = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/AtomTransition.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/AtomTransition.js
 var require_AtomTransition = __commonJS({
-  "node_modules/antlr4ts/atn/AtomTransition.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/AtomTransition.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -8488,9 +8488,9 @@ var require_AtomTransition = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/BlockStartState.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/BlockStartState.js
 var require_BlockStartState = __commonJS({
-  "node_modules/antlr4ts/atn/BlockStartState.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/BlockStartState.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.BlockStartState = void 0;
@@ -8501,9 +8501,9 @@ var require_BlockStartState = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/BasicBlockStartState.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/BasicBlockStartState.js
 var require_BasicBlockStartState = __commonJS({
-  "node_modules/antlr4ts/atn/BasicBlockStartState.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/BasicBlockStartState.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -8528,9 +8528,9 @@ var require_BasicBlockStartState = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/BlockEndState.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/BlockEndState.js
 var require_BlockEndState = __commonJS({
-  "node_modules/antlr4ts/atn/BlockEndState.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/BlockEndState.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -8555,9 +8555,9 @@ var require_BlockEndState = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/EpsilonTransition.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/EpsilonTransition.js
 var require_EpsilonTransition = __commonJS({
-  "node_modules/antlr4ts/atn/EpsilonTransition.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/EpsilonTransition.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -8623,9 +8623,9 @@ var require_EpsilonTransition = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/LexerChannelAction.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LexerChannelAction.js
 var require_LexerChannelAction = __commonJS({
-  "node_modules/antlr4ts/atn/LexerChannelAction.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LexerChannelAction.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -8722,9 +8722,9 @@ var require_LexerChannelAction = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/LexerCustomAction.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LexerCustomAction.js
 var require_LexerCustomAction = __commonJS({
-  "node_modules/antlr4ts/atn/LexerCustomAction.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LexerCustomAction.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -8838,9 +8838,9 @@ var require_LexerCustomAction = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/LexerModeAction.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LexerModeAction.js
 var require_LexerModeAction = __commonJS({
-  "node_modules/antlr4ts/atn/LexerModeAction.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LexerModeAction.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -8937,9 +8937,9 @@ var require_LexerModeAction = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/LexerMoreAction.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LexerMoreAction.js
 var require_LexerMoreAction = __commonJS({
-  "node_modules/antlr4ts/atn/LexerMoreAction.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LexerMoreAction.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -9022,9 +9022,9 @@ var require_LexerMoreAction = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/LexerPopModeAction.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LexerPopModeAction.js
 var require_LexerPopModeAction = __commonJS({
-  "node_modules/antlr4ts/atn/LexerPopModeAction.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LexerPopModeAction.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -9107,9 +9107,9 @@ var require_LexerPopModeAction = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/LexerPushModeAction.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LexerPushModeAction.js
 var require_LexerPushModeAction = __commonJS({
-  "node_modules/antlr4ts/atn/LexerPushModeAction.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LexerPushModeAction.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -9206,9 +9206,9 @@ var require_LexerPushModeAction = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/LexerSkipAction.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LexerSkipAction.js
 var require_LexerSkipAction = __commonJS({
-  "node_modules/antlr4ts/atn/LexerSkipAction.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LexerSkipAction.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -9291,9 +9291,9 @@ var require_LexerSkipAction = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/LexerTypeAction.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LexerTypeAction.js
 var require_LexerTypeAction = __commonJS({
-  "node_modules/antlr4ts/atn/LexerTypeAction.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LexerTypeAction.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -9389,9 +9389,9 @@ var require_LexerTypeAction = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/LoopEndState.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LoopEndState.js
 var require_LoopEndState = __commonJS({
-  "node_modules/antlr4ts/atn/LoopEndState.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LoopEndState.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -9416,9 +9416,9 @@ var require_LoopEndState = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/ConflictInfo.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ConflictInfo.js
 var require_ConflictInfo = __commonJS({
-  "node_modules/antlr4ts/atn/ConflictInfo.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ConflictInfo.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -9479,9 +9479,9 @@ var require_ConflictInfo = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/PredicateTransition.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/PredicateTransition.js
 var require_PredicateTransition = __commonJS({
-  "node_modules/antlr4ts/atn/PredicateTransition.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/PredicateTransition.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -9542,9 +9542,9 @@ var require_PredicateTransition = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/FailedPredicateException.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/FailedPredicateException.js
 var require_FailedPredicateException = __commonJS({
-  "node_modules/antlr4ts/FailedPredicateException.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/FailedPredicateException.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -9603,9 +9603,9 @@ var require_FailedPredicateException = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/InputMismatchException.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/InputMismatchException.js
 var require_InputMismatchException = __commonJS({
-  "node_modules/antlr4ts/InputMismatchException.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/InputMismatchException.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -9641,9 +9641,9 @@ var require_InputMismatchException = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/DefaultErrorStrategy.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/DefaultErrorStrategy.js
 var require_DefaultErrorStrategy = __commonJS({
-  "node_modules/antlr4ts/DefaultErrorStrategy.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/DefaultErrorStrategy.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -10376,9 +10376,9 @@ var require_DefaultErrorStrategy = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/tree/TerminalNode.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/TerminalNode.js
 var require_TerminalNode = __commonJS({
-  "node_modules/antlr4ts/tree/TerminalNode.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/TerminalNode.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -10467,9 +10467,9 @@ var require_TerminalNode = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/tree/ErrorNode.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/ErrorNode.js
 var require_ErrorNode = __commonJS({
-  "node_modules/antlr4ts/tree/ErrorNode.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/ErrorNode.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -10496,9 +10496,9 @@ var require_ErrorNode = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/ParseInfo.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ParseInfo.js
 var require_ParseInfo = __commonJS({
-  "node_modules/antlr4ts/atn/ParseInfo.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ParseInfo.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -10653,9 +10653,9 @@ var require_ParseInfo = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/ProxyParserErrorListener.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/ProxyParserErrorListener.js
 var require_ProxyParserErrorListener = __commonJS({
-  "node_modules/antlr4ts/ProxyParserErrorListener.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/ProxyParserErrorListener.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -10706,9 +10706,9 @@ var require_ProxyParserErrorListener = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/misc/ParseCancellationException.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/ParseCancellationException.js
 var require_ParseCancellationException = __commonJS({
-  "node_modules/antlr4ts/misc/ParseCancellationException.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/ParseCancellationException.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.ParseCancellationException = void 0;
@@ -10726,9 +10726,9 @@ var require_ParseCancellationException = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/BailErrorStrategy.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/BailErrorStrategy.js
 var require_BailErrorStrategy = __commonJS({
-  "node_modules/antlr4ts/BailErrorStrategy.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/BailErrorStrategy.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -10781,9 +10781,9 @@ var require_BailErrorStrategy = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/misc/Character.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/Character.js
 var require_Character = __commonJS({
-  "node_modules/antlr4ts/misc/Character.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/Character.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.isSupplementaryCodePoint = exports2.isLowSurrogate = exports2.isHighSurrogate = void 0;
@@ -10802,9 +10802,9 @@ var require_Character = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/CodePointBuffer.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/CodePointBuffer.js
 var require_CodePointBuffer = __commonJS({
-  "node_modules/antlr4ts/CodePointBuffer.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/CodePointBuffer.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.CodePointBuffer = void 0;
@@ -11022,9 +11022,9 @@ var require_CodePointBuffer = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/CodePointCharStream.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/CodePointCharStream.js
 var require_CodePointCharStream = __commonJS({
-  "node_modules/antlr4ts/CodePointCharStream.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/CodePointCharStream.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -11150,9 +11150,9 @@ var require_CodePointCharStream = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/CharStreams.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/CharStreams.js
 var require_CharStreams = __commonJS({
-  "node_modules/antlr4ts/CharStreams.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/CharStreams.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.CharStreams = void 0;
@@ -11178,9 +11178,9 @@ var require_CharStreams = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/BufferedTokenStream.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/BufferedTokenStream.js
 var require_BufferedTokenStream = __commonJS({
-  "node_modules/antlr4ts/BufferedTokenStream.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/BufferedTokenStream.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -11609,9 +11609,9 @@ var require_BufferedTokenStream = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/CommonTokenStream.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/CommonTokenStream.js
 var require_CommonTokenStream = __commonJS({
-  "node_modules/antlr4ts/CommonTokenStream.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/CommonTokenStream.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -11711,9 +11711,9 @@ var require_CommonTokenStream = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/ListTokenSource.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/ListTokenSource.js
 var require_ListTokenSource = __commonJS({
-  "node_modules/antlr4ts/ListTokenSource.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/ListTokenSource.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -11890,9 +11890,9 @@ var require_ListTokenSource = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/misc/MultiMap.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/MultiMap.js
 var require_MultiMap = __commonJS({
-  "node_modules/antlr4ts/misc/MultiMap.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/MultiMap.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.MultiMap = void 0;
@@ -11922,9 +11922,9 @@ var require_MultiMap = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/tree/RuleNode.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/RuleNode.js
 var require_RuleNode = __commonJS({
-  "node_modules/antlr4ts/tree/RuleNode.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/RuleNode.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.RuleNode = void 0;
@@ -11934,9 +11934,9 @@ var require_RuleNode = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/tree/Trees.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/Trees.js
 var require_Trees = __commonJS({
-  "node_modules/antlr4ts/tree/Trees.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/Trees.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -12167,9 +12167,9 @@ var require_Trees = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/RuleContext.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/RuleContext.js
 var require_RuleContext = __commonJS({
-  "node_modules/antlr4ts/RuleContext.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/RuleContext.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -12340,9 +12340,9 @@ var require_RuleContext = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/ParserRuleContext.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/ParserRuleContext.js
 var require_ParserRuleContext = __commonJS({
-  "node_modules/antlr4ts/ParserRuleContext.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/ParserRuleContext.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -12607,9 +12607,9 @@ var require_ParserRuleContext = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/InterpreterRuleContext.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/InterpreterRuleContext.js
 var require_InterpreterRuleContext = __commonJS({
-  "node_modules/antlr4ts/InterpreterRuleContext.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/InterpreterRuleContext.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -12641,9 +12641,9 @@ var require_InterpreterRuleContext = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/ParserInterpreter.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/ParserInterpreter.js
 var require_ParserInterpreter = __commonJS({
-  "node_modules/antlr4ts/ParserInterpreter.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/ParserInterpreter.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -13017,9 +13017,9 @@ var require_ParserInterpreter = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/tree/pattern/ParseTreeMatch.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/pattern/ParseTreeMatch.js
 var require_ParseTreeMatch = __commonJS({
-  "node_modules/antlr4ts/tree/pattern/ParseTreeMatch.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/pattern/ParseTreeMatch.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -13196,9 +13196,9 @@ var require_ParseTreeMatch = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/tree/xpath/XPathLexer.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/xpath/XPathLexer.js
 var require_XPathLexer = __commonJS({
-  "node_modules/antlr4ts/tree/xpath/XPathLexer.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/xpath/XPathLexer.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.XPathLexer = void 0;
@@ -13323,9 +13323,9 @@ var require_XPathLexer = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/tree/xpath/XPathLexerErrorListener.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/xpath/XPathLexerErrorListener.js
 var require_XPathLexerErrorListener = __commonJS({
-  "node_modules/antlr4ts/tree/xpath/XPathLexerErrorListener.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/xpath/XPathLexerErrorListener.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -13347,9 +13347,9 @@ var require_XPathLexerErrorListener = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/tree/xpath/XPathElement.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/xpath/XPathElement.js
 var require_XPathElement = __commonJS({
-  "node_modules/antlr4ts/tree/xpath/XPathElement.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/xpath/XPathElement.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -13381,9 +13381,9 @@ var require_XPathElement = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/tree/xpath/XPathRuleAnywhereElement.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/xpath/XPathRuleAnywhereElement.js
 var require_XPathRuleAnywhereElement = __commonJS({
-  "node_modules/antlr4ts/tree/xpath/XPathRuleAnywhereElement.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/xpath/XPathRuleAnywhereElement.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -13412,9 +13412,9 @@ var require_XPathRuleAnywhereElement = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/tree/xpath/XPathRuleElement.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/xpath/XPathRuleElement.js
 var require_XPathRuleElement = __commonJS({
-  "node_modules/antlr4ts/tree/xpath/XPathRuleElement.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/xpath/XPathRuleElement.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -13452,9 +13452,9 @@ var require_XPathRuleElement = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/tree/xpath/XPathTokenAnywhereElement.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/xpath/XPathTokenAnywhereElement.js
 var require_XPathTokenAnywhereElement = __commonJS({
-  "node_modules/antlr4ts/tree/xpath/XPathTokenAnywhereElement.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/xpath/XPathTokenAnywhereElement.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -13483,9 +13483,9 @@ var require_XPathTokenAnywhereElement = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/tree/xpath/XPathTokenElement.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/xpath/XPathTokenElement.js
 var require_XPathTokenElement = __commonJS({
-  "node_modules/antlr4ts/tree/xpath/XPathTokenElement.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/xpath/XPathTokenElement.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -13523,9 +13523,9 @@ var require_XPathTokenElement = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/tree/xpath/XPathWildcardAnywhereElement.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/xpath/XPathWildcardAnywhereElement.js
 var require_XPathWildcardAnywhereElement = __commonJS({
-  "node_modules/antlr4ts/tree/xpath/XPathWildcardAnywhereElement.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/xpath/XPathWildcardAnywhereElement.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -13557,9 +13557,9 @@ var require_XPathWildcardAnywhereElement = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/tree/xpath/XPathWildcardElement.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/xpath/XPathWildcardElement.js
 var require_XPathWildcardElement = __commonJS({
-  "node_modules/antlr4ts/tree/xpath/XPathWildcardElement.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/xpath/XPathWildcardElement.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -13595,9 +13595,9 @@ var require_XPathWildcardElement = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/tree/xpath/XPath.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/xpath/XPath.js
 var require_XPath = __commonJS({
-  "node_modules/antlr4ts/tree/xpath/XPath.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/xpath/XPath.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.XPath = void 0;
@@ -13740,9 +13740,9 @@ var require_XPath = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/tree/pattern/ParseTreePattern.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/pattern/ParseTreePattern.js
 var require_ParseTreePattern = __commonJS({
-  "node_modules/antlr4ts/tree/pattern/ParseTreePattern.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/pattern/ParseTreePattern.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -13896,9 +13896,9 @@ var require_ParseTreePattern = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/tree/pattern/RuleTagToken.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/pattern/RuleTagToken.js
 var require_RuleTagToken = __commonJS({
-  "node_modules/antlr4ts/tree/pattern/RuleTagToken.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/pattern/RuleTagToken.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -14091,9 +14091,9 @@ var require_RuleTagToken = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/tree/pattern/Chunk.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/pattern/Chunk.js
 var require_Chunk = __commonJS({
-  "node_modules/antlr4ts/tree/pattern/Chunk.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/pattern/Chunk.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.Chunk = void 0;
@@ -14103,9 +14103,9 @@ var require_Chunk = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/tree/pattern/TagChunk.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/pattern/TagChunk.js
 var require_TagChunk = __commonJS({
-  "node_modules/antlr4ts/tree/pattern/TagChunk.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/pattern/TagChunk.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -14177,9 +14177,9 @@ var require_TagChunk = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/tree/pattern/TextChunk.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/pattern/TextChunk.js
 var require_TextChunk = __commonJS({
-  "node_modules/antlr4ts/tree/pattern/TextChunk.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/pattern/TextChunk.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -14244,9 +14244,9 @@ var require_TextChunk = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/tree/pattern/TokenTagToken.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/pattern/TokenTagToken.js
 var require_TokenTagToken = __commonJS({
-  "node_modules/antlr4ts/tree/pattern/TokenTagToken.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/pattern/TokenTagToken.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -14335,9 +14335,9 @@ var require_TokenTagToken = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/tree/pattern/ParseTreePatternMatcher.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/pattern/ParseTreePatternMatcher.js
 var require_ParseTreePatternMatcher = __commonJS({
-  "node_modules/antlr4ts/tree/pattern/ParseTreePatternMatcher.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/pattern/ParseTreePatternMatcher.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -14708,9 +14708,9 @@ var require_ParseTreePatternMatcher = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/DecisionEventInfo.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/DecisionEventInfo.js
 var require_DecisionEventInfo = __commonJS({
-  "node_modules/antlr4ts/atn/DecisionEventInfo.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/DecisionEventInfo.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -14746,9 +14746,9 @@ var require_DecisionEventInfo = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/AmbiguityInfo.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/AmbiguityInfo.js
 var require_AmbiguityInfo = __commonJS({
-  "node_modules/antlr4ts/atn/AmbiguityInfo.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/AmbiguityInfo.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -14808,9 +14808,9 @@ var require_AmbiguityInfo = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/ContextSensitivityInfo.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ContextSensitivityInfo.js
 var require_ContextSensitivityInfo = __commonJS({
-  "node_modules/antlr4ts/atn/ContextSensitivityInfo.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ContextSensitivityInfo.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -14852,9 +14852,9 @@ var require_ContextSensitivityInfo = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/DecisionInfo.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/DecisionInfo.js
 var require_DecisionInfo = __commonJS({
-  "node_modules/antlr4ts/atn/DecisionInfo.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/DecisionInfo.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -14903,9 +14903,9 @@ var require_DecisionInfo = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/ErrorInfo.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ErrorInfo.js
 var require_ErrorInfo = __commonJS({
-  "node_modules/antlr4ts/atn/ErrorInfo.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ErrorInfo.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -14946,9 +14946,9 @@ var require_ErrorInfo = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/LookaheadEventInfo.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LookaheadEventInfo.js
 var require_LookaheadEventInfo = __commonJS({
-  "node_modules/antlr4ts/atn/LookaheadEventInfo.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LookaheadEventInfo.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -14993,9 +14993,9 @@ var require_LookaheadEventInfo = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/PredicateEvalInfo.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/PredicateEvalInfo.js
 var require_PredicateEvalInfo = __commonJS({
-  "node_modules/antlr4ts/atn/PredicateEvalInfo.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/PredicateEvalInfo.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -15049,9 +15049,9 @@ var require_PredicateEvalInfo = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/SimulatorState.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/SimulatorState.js
 var require_SimulatorState = __commonJS({
-  "node_modules/antlr4ts/atn/SimulatorState.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/SimulatorState.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -15083,9 +15083,9 @@ var require_SimulatorState = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/ProfilingATNSimulator.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ProfilingATNSimulator.js
 var require_ProfilingATNSimulator = __commonJS({
-  "node_modules/antlr4ts/atn/ProfilingATNSimulator.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ProfilingATNSimulator.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -15319,9 +15319,9 @@ var require_ProfilingATNSimulator = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/Parser.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/Parser.js
 var require_Parser = __commonJS({
-  "node_modules/antlr4ts/Parser.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/Parser.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -16123,9 +16123,9 @@ var require_Parser = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/NoViableAltException.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/NoViableAltException.js
 var require_NoViableAltException = __commonJS({
-  "node_modules/antlr4ts/NoViableAltException.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/NoViableAltException.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -16173,9 +16173,9 @@ var require_NoViableAltException = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/PredictionMode.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/PredictionMode.js
 var require_PredictionMode = __commonJS({
-  "node_modules/antlr4ts/atn/PredictionMode.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/PredictionMode.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -16254,9 +16254,9 @@ var require_PredictionMode = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/ParserATNSimulator.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ParserATNSimulator.js
 var require_ParserATNSimulator = __commonJS({
-  "node_modules/antlr4ts/atn/ParserATNSimulator.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ParserATNSimulator.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -18057,9 +18057,9 @@ var require_ParserATNSimulator = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/PlusBlockStartState.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/PlusBlockStartState.js
 var require_PlusBlockStartState = __commonJS({
-  "node_modules/antlr4ts/atn/PlusBlockStartState.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/PlusBlockStartState.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -18084,9 +18084,9 @@ var require_PlusBlockStartState = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/PlusLoopbackState.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/PlusLoopbackState.js
 var require_PlusLoopbackState = __commonJS({
-  "node_modules/antlr4ts/atn/PlusLoopbackState.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/PlusLoopbackState.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -18111,9 +18111,9 @@ var require_PlusLoopbackState = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/PrecedencePredicateTransition.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/PrecedencePredicateTransition.js
 var require_PrecedencePredicateTransition = __commonJS({
-  "node_modules/antlr4ts/atn/PrecedencePredicateTransition.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/PrecedencePredicateTransition.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -18171,9 +18171,9 @@ var require_PrecedencePredicateTransition = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/RangeTransition.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/RangeTransition.js
 var require_RangeTransition = __commonJS({
-  "node_modules/antlr4ts/atn/RangeTransition.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/RangeTransition.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -18231,9 +18231,9 @@ var require_RangeTransition = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/RuleStartState.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/RuleStartState.js
 var require_RuleStartState = __commonJS({
-  "node_modules/antlr4ts/atn/RuleStartState.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/RuleStartState.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -18263,9 +18263,9 @@ var require_RuleStartState = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/StarBlockStartState.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/StarBlockStartState.js
 var require_StarBlockStartState = __commonJS({
-  "node_modules/antlr4ts/atn/StarBlockStartState.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/StarBlockStartState.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -18290,9 +18290,9 @@ var require_StarBlockStartState = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/StarLoopbackState.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/StarLoopbackState.js
 var require_StarLoopbackState = __commonJS({
-  "node_modules/antlr4ts/atn/StarLoopbackState.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/StarLoopbackState.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -18320,9 +18320,9 @@ var require_StarLoopbackState = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/TokensStartState.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/TokensStartState.js
 var require_TokensStartState = __commonJS({
-  "node_modules/antlr4ts/atn/TokensStartState.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/TokensStartState.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -18347,9 +18347,9 @@ var require_TokensStartState = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/misc/UUID.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/UUID.js
 var require_UUID = __commonJS({
-  "node_modules/antlr4ts/misc/UUID.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/UUID.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.UUID = void 0;
@@ -18392,9 +18392,9 @@ var require_UUID = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/atn/ATNDeserializer.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ATNDeserializer.js
 var require_ATNDeserializer = __commonJS({
-  "node_modules/antlr4ts/atn/ATNDeserializer.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ATNDeserializer.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -19374,9 +19374,9 @@ var require_ATNDeserializer = __commonJS({
   }
 });
 
-// dist/generated/grammar/AstigLangParser.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/generated/grammar/AstigLangParser.js
 var require_AstigLangParser = __commonJS({
-  "dist/generated/grammar/AstigLangParser.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/generated/grammar/AstigLangParser.js"(exports2) {
     "use strict";
     var __createBinding = exports2 && exports2.__createBinding || (Object.create ? (function(o, m, k, k2) {
       if (k2 === void 0) k2 = k;
@@ -19811,6 +19811,7 @@ var require_AstigLangParser = __commonJS({
       variableDeclaration() {
         let _localctx = new VariableDeclarationContext(this._ctx, this.state);
         this.enterRule(_localctx, 8, _AstigLangParser.RULE_variableDeclaration);
+        let _la;
         try {
           this.enterOuterAlt(_localctx, 1);
           {
@@ -19820,10 +19821,17 @@ var require_AstigLangParser = __commonJS({
             this.match(_AstigLangParser.IDENTIFIER);
             this.state = 168;
             this.typeAnnotation();
-            this.state = 169;
-            this.match(_AstigLangParser.T__0);
-            this.state = 170;
-            this.expression(0);
+            this.state = 171;
+            this._errHandler.sync(this);
+            _la = this._input.LA(1);
+            if (_la === _AstigLangParser.T__0) {
+              {
+                this.state = 169;
+                this.match(_AstigLangParser.T__0);
+                this.state = 170;
+                this.expression(0);
+              }
+            }
           }
         } catch (re) {
           if (re instanceof RecognitionException_1.RecognitionException) {
@@ -19846,29 +19854,29 @@ var require_AstigLangParser = __commonJS({
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 172;
-            this.match(_AstigLangParser.RECORD_KW);
             this.state = 173;
-            this.match(_AstigLangParser.IDENTIFIER);
+            this.match(_AstigLangParser.RECORD_KW);
             this.state = 174;
+            this.match(_AstigLangParser.IDENTIFIER);
+            this.state = 175;
             this.match(_AstigLangParser.T__1);
-            this.state = 176;
+            this.state = 177;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             if (_la === _AstigLangParser.IDENTIFIER) {
               {
-                this.state = 175;
+                this.state = 176;
                 this.recordFieldList();
               }
             }
-            this.state = 178;
+            this.state = 179;
             this.match(_AstigLangParser.T__2);
-            this.state = 180;
+            this.state = 181;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             if (_la === _AstigLangParser.SEMICOLON) {
               {
-                this.state = 179;
+                this.state = 180;
                 this.match(_AstigLangParser.SEMICOLON);
               }
             }
@@ -19894,21 +19902,21 @@ var require_AstigLangParser = __commonJS({
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 182;
+            this.state = 183;
             this.recordField();
-            this.state = 187;
+            this.state = 188;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             while (_la === _AstigLangParser.T__3) {
               {
                 {
-                  this.state = 183;
-                  this.match(_AstigLangParser.T__3);
                   this.state = 184;
+                  this.match(_AstigLangParser.T__3);
+                  this.state = 185;
                   this.recordField();
                 }
               }
-              this.state = 189;
+              this.state = 190;
               this._errHandler.sync(this);
               _la = this._input.LA(1);
             }
@@ -19933,9 +19941,9 @@ var require_AstigLangParser = __commonJS({
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 190;
-            this.match(_AstigLangParser.IDENTIFIER);
             this.state = 191;
+            this.match(_AstigLangParser.IDENTIFIER);
+            this.state = 192;
             this.typeAnnotation();
           }
         } catch (re) {
@@ -19959,29 +19967,29 @@ var require_AstigLangParser = __commonJS({
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 193;
-            this.match(_AstigLangParser.NEW_KW);
             this.state = 194;
-            this.match(_AstigLangParser.IDENTIFIER);
+            this.match(_AstigLangParser.NEW_KW);
             this.state = 195;
+            this.match(_AstigLangParser.IDENTIFIER);
+            this.state = 196;
             this.match(_AstigLangParser.T__1);
-            this.state = 197;
+            this.state = 198;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             if (_la === _AstigLangParser.IDENTIFIER) {
               {
-                this.state = 196;
+                this.state = 197;
                 this.recordLiteralFieldList();
               }
             }
-            this.state = 199;
+            this.state = 200;
             this.match(_AstigLangParser.T__2);
-            this.state = 201;
+            this.state = 202;
             this._errHandler.sync(this);
-            switch (this.interpreter.adaptivePredict(this._input, 19, this._ctx)) {
+            switch (this.interpreter.adaptivePredict(this._input, 20, this._ctx)) {
               case 1:
                 {
-                  this.state = 200;
+                  this.state = 201;
                   this.match(_AstigLangParser.SEMICOLON);
                 }
                 break;
@@ -20008,21 +20016,21 @@ var require_AstigLangParser = __commonJS({
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 203;
+            this.state = 204;
             this.recordLiteralField();
-            this.state = 208;
+            this.state = 209;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             while (_la === _AstigLangParser.T__3) {
               {
                 {
-                  this.state = 204;
-                  this.match(_AstigLangParser.T__3);
                   this.state = 205;
+                  this.match(_AstigLangParser.T__3);
+                  this.state = 206;
                   this.recordLiteralField();
                 }
               }
-              this.state = 210;
+              this.state = 211;
               this._errHandler.sync(this);
               _la = this._input.LA(1);
             }
@@ -20047,7 +20055,7 @@ var require_AstigLangParser = __commonJS({
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 211;
+            this.state = 212;
             this.assignment();
           }
         } catch (re) {
@@ -20071,18 +20079,18 @@ var require_AstigLangParser = __commonJS({
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 213;
+            this.state = 214;
             this.match(_AstigLangParser.T__4);
-            this.state = 215;
+            this.state = 216;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             if (_la === _AstigLangParser.T__4 || _la === _AstigLangParser.T__6 || (_la - 33 & ~31) === 0 && (1 << _la - 33 & (1 << _AstigLangParser.TRUE_KW - 33 | 1 << _AstigLangParser.FALSE_KW - 33 | 1 << _AstigLangParser.NEW_KW - 33 | 1 << _AstigLangParser.NOT_KW - 33 | 1 << _AstigLangParser.IDENTIFIER - 33 | 1 << _AstigLangParser.SUB - 33 | 1 << _AstigLangParser.FLOAT - 33 | 1 << _AstigLangParser.NUMBER - 33 | 1 << _AstigLangParser.STRING - 33)) !== 0) {
               {
-                this.state = 214;
+                this.state = 215;
                 this.arrayElementList();
               }
             }
-            this.state = 217;
+            this.state = 218;
             this.match(_AstigLangParser.T__5);
           }
         } catch (re) {
@@ -20106,21 +20114,21 @@ var require_AstigLangParser = __commonJS({
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 219;
+            this.state = 220;
             this.expression(0);
-            this.state = 224;
+            this.state = 225;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             while (_la === _AstigLangParser.T__3) {
               {
                 {
-                  this.state = 220;
-                  this.match(_AstigLangParser.T__3);
                   this.state = 221;
+                  this.match(_AstigLangParser.T__3);
+                  this.state = 222;
                   this.expression(0);
                 }
               }
-              this.state = 226;
+              this.state = 227;
               this._errHandler.sync(this);
               _la = this._input.LA(1);
             }
@@ -20146,7 +20154,7 @@ var require_AstigLangParser = __commonJS({
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 227;
+            this.state = 228;
             _la = this._input.LA(1);
             if (!((_la & ~31) === 0 && (1 << _la & (1 << _AstigLangParser.CONST_KW | 1 << _AstigLangParser.VAR_KW | 1 << _AstigLangParser.LET_KW)) !== 0)) {
               this._errHandler.recoverInline(this);
@@ -20178,13 +20186,13 @@ var require_AstigLangParser = __commonJS({
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 229;
-            this.match(_AstigLangParser.PRINT_KW);
             this.state = 230;
-            this.match(_AstigLangParser.T__6);
+            this.match(_AstigLangParser.PRINT_KW);
             this.state = 231;
-            this.expression(0);
+            this.match(_AstigLangParser.T__6);
             this.state = 232;
+            this.expression(0);
+            this.state = 233;
             this.match(_AstigLangParser.T__7);
           }
         } catch (re) {
@@ -20208,31 +20216,31 @@ var require_AstigLangParser = __commonJS({
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 234;
-            this.match(_AstigLangParser.SCAN_KW);
             this.state = 235;
+            this.match(_AstigLangParser.SCAN_KW);
+            this.state = 236;
             this.match(_AstigLangParser.T__6);
-            this.state = 238;
+            this.state = 239;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             if (_la === _AstigLangParser.STRING) {
               {
-                this.state = 236;
-                this.match(_AstigLangParser.STRING);
                 this.state = 237;
+                this.match(_AstigLangParser.STRING);
+                this.state = 238;
                 this.match(_AstigLangParser.T__3);
               }
             }
-            this.state = 240;
-            this.match(_AstigLangParser.IDENTIFIER);
             this.state = 241;
+            this.match(_AstigLangParser.IDENTIFIER);
+            this.state = 242;
             this.match(_AstigLangParser.T__7);
-            this.state = 243;
+            this.state = 244;
             this._errHandler.sync(this);
-            switch (this.interpreter.adaptivePredict(this._input, 24, this._ctx)) {
+            switch (this.interpreter.adaptivePredict(this._input, 25, this._ctx)) {
               case 1:
                 {
-                  this.state = 242;
+                  this.state = 243;
                   this.match(_AstigLangParser.SEMICOLON);
                 }
                 break;
@@ -20260,38 +20268,38 @@ var require_AstigLangParser = __commonJS({
           let _alt;
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 245;
-            this.match(_AstigLangParser.IF_KW);
             this.state = 246;
-            this.match(_AstigLangParser.T__6);
+            this.match(_AstigLangParser.IF_KW);
             this.state = 247;
-            this.expression(0);
+            this.match(_AstigLangParser.T__6);
             this.state = 248;
-            this.match(_AstigLangParser.T__7);
+            this.expression(0);
             this.state = 249;
+            this.match(_AstigLangParser.T__7);
+            this.state = 250;
             this.block();
-            this.state = 253;
+            this.state = 254;
             this._errHandler.sync(this);
-            _alt = this.interpreter.adaptivePredict(this._input, 25, this._ctx);
+            _alt = this.interpreter.adaptivePredict(this._input, 26, this._ctx);
             while (_alt !== 2 && _alt !== ATN_1.ATN.INVALID_ALT_NUMBER) {
               if (_alt === 1) {
                 {
                   {
-                    this.state = 250;
+                    this.state = 251;
                     this.elseIfPart();
                   }
                 }
               }
-              this.state = 255;
+              this.state = 256;
               this._errHandler.sync(this);
-              _alt = this.interpreter.adaptivePredict(this._input, 25, this._ctx);
+              _alt = this.interpreter.adaptivePredict(this._input, 26, this._ctx);
             }
-            this.state = 257;
+            this.state = 258;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             if (_la === _AstigLangParser.ELSE_KW) {
               {
-                this.state = 256;
+                this.state = 257;
                 this.elsePart();
               }
             }
@@ -20316,17 +20324,17 @@ var require_AstigLangParser = __commonJS({
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 259;
-            this.match(_AstigLangParser.ELSE_KW);
             this.state = 260;
-            this.match(_AstigLangParser.IF_KW);
+            this.match(_AstigLangParser.ELSE_KW);
             this.state = 261;
-            this.match(_AstigLangParser.T__6);
+            this.match(_AstigLangParser.IF_KW);
             this.state = 262;
-            this.expression(0);
+            this.match(_AstigLangParser.T__6);
             this.state = 263;
-            this.match(_AstigLangParser.T__7);
+            this.expression(0);
             this.state = 264;
+            this.match(_AstigLangParser.T__7);
+            this.state = 265;
             this.block();
           }
         } catch (re) {
@@ -20349,9 +20357,9 @@ var require_AstigLangParser = __commonJS({
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 266;
-            this.match(_AstigLangParser.ELSE_KW);
             this.state = 267;
+            this.match(_AstigLangParser.ELSE_KW);
+            this.state = 268;
             this.block();
           }
         } catch (re) {
@@ -20374,15 +20382,15 @@ var require_AstigLangParser = __commonJS({
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 269;
-            this.match(_AstigLangParser.WHILE_KW);
             this.state = 270;
-            this.match(_AstigLangParser.T__6);
+            this.match(_AstigLangParser.WHILE_KW);
             this.state = 271;
-            this.expression(0);
+            this.match(_AstigLangParser.T__6);
             this.state = 272;
-            this.match(_AstigLangParser.T__7);
+            this.expression(0);
             this.state = 273;
+            this.match(_AstigLangParser.T__7);
+            this.state = 274;
             this.block();
           }
         } catch (re) {
@@ -20406,24 +20414,24 @@ var require_AstigLangParser = __commonJS({
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 275;
-            this.match(_AstigLangParser.DO_KW);
             this.state = 276;
-            this.block();
+            this.match(_AstigLangParser.DO_KW);
             this.state = 277;
-            this.match(_AstigLangParser.WHILE_KW);
+            this.block();
             this.state = 278;
-            this.match(_AstigLangParser.T__6);
+            this.match(_AstigLangParser.WHILE_KW);
             this.state = 279;
-            this.expression(0);
+            this.match(_AstigLangParser.T__6);
             this.state = 280;
+            this.expression(0);
+            this.state = 281;
             this.match(_AstigLangParser.T__7);
-            this.state = 282;
+            this.state = 283;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             if (_la === _AstigLangParser.SEMICOLON) {
               {
-                this.state = 281;
+                this.state = 282;
                 this.match(_AstigLangParser.SEMICOLON);
               }
             }
@@ -20449,44 +20457,44 @@ var require_AstigLangParser = __commonJS({
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 284;
-            this.match(_AstigLangParser.FOR_KW);
             this.state = 285;
+            this.match(_AstigLangParser.FOR_KW);
+            this.state = 286;
             this.match(_AstigLangParser.T__6);
-            this.state = 287;
+            this.state = 288;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             if ((_la - 12 & ~31) === 0 && (1 << _la - 12 & (1 << _AstigLangParser.CONST_KW - 12 | 1 << _AstigLangParser.VAR_KW - 12 | 1 << _AstigLangParser.LET_KW - 12 | 1 << _AstigLangParser.IDENTIFIER - 12)) !== 0) {
               {
-                this.state = 286;
+                this.state = 287;
                 this.forInit();
               }
             }
-            this.state = 289;
+            this.state = 290;
             this.match(_AstigLangParser.SEMICOLON);
-            this.state = 291;
+            this.state = 292;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             if (_la === _AstigLangParser.T__4 || _la === _AstigLangParser.T__6 || (_la - 33 & ~31) === 0 && (1 << _la - 33 & (1 << _AstigLangParser.TRUE_KW - 33 | 1 << _AstigLangParser.FALSE_KW - 33 | 1 << _AstigLangParser.NEW_KW - 33 | 1 << _AstigLangParser.NOT_KW - 33 | 1 << _AstigLangParser.IDENTIFIER - 33 | 1 << _AstigLangParser.SUB - 33 | 1 << _AstigLangParser.FLOAT - 33 | 1 << _AstigLangParser.NUMBER - 33 | 1 << _AstigLangParser.STRING - 33)) !== 0) {
               {
-                this.state = 290;
+                this.state = 291;
                 this.expression(0);
               }
             }
-            this.state = 293;
+            this.state = 294;
             this.match(_AstigLangParser.SEMICOLON);
-            this.state = 295;
+            this.state = 296;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             if (_la === _AstigLangParser.IDENTIFIER) {
               {
-                this.state = 294;
+                this.state = 295;
                 this.forUpdate();
               }
             }
-            this.state = 297;
-            this.match(_AstigLangParser.T__7);
             this.state = 298;
+            this.match(_AstigLangParser.T__7);
+            this.state = 299;
             this.block();
           }
         } catch (re) {
@@ -20507,7 +20515,7 @@ var require_AstigLangParser = __commonJS({
         let _localctx = new ForInitContext(this._ctx, this.state);
         this.enterRule(_localctx, 44, _AstigLangParser.RULE_forInit);
         try {
-          this.state = 302;
+          this.state = 303;
           this._errHandler.sync(this);
           switch (this._input.LA(1)) {
             case _AstigLangParser.CONST_KW:
@@ -20515,14 +20523,14 @@ var require_AstigLangParser = __commonJS({
             case _AstigLangParser.LET_KW:
               this.enterOuterAlt(_localctx, 1);
               {
-                this.state = 300;
+                this.state = 301;
                 this.variableDeclaration();
               }
               break;
             case _AstigLangParser.IDENTIFIER:
               this.enterOuterAlt(_localctx, 2);
               {
-                this.state = 301;
+                this.state = 302;
                 this.assignment();
               }
               break;
@@ -20547,20 +20555,20 @@ var require_AstigLangParser = __commonJS({
         let _localctx = new ForUpdateContext(this._ctx, this.state);
         this.enterRule(_localctx, 46, _AstigLangParser.RULE_forUpdate);
         try {
-          this.state = 306;
+          this.state = 307;
           this._errHandler.sync(this);
-          switch (this.interpreter.adaptivePredict(this._input, 32, this._ctx)) {
+          switch (this.interpreter.adaptivePredict(this._input, 33, this._ctx)) {
             case 1:
               this.enterOuterAlt(_localctx, 1);
               {
-                this.state = 304;
+                this.state = 305;
                 this.assignment();
               }
               break;
             case 2:
               this.enterOuterAlt(_localctx, 2);
               {
-                this.state = 305;
+                this.state = 306;
                 this.functionCall();
               }
               break;
@@ -20583,28 +20591,28 @@ var require_AstigLangParser = __commonJS({
         let _localctx = new AssignmentContext(this._ctx, this.state);
         this.enterRule(_localctx, 48, _AstigLangParser.RULE_assignment);
         try {
-          this.state = 316;
+          this.state = 317;
           this._errHandler.sync(this);
-          switch (this.interpreter.adaptivePredict(this._input, 33, this._ctx)) {
+          switch (this.interpreter.adaptivePredict(this._input, 34, this._ctx)) {
             case 1:
               this.enterOuterAlt(_localctx, 1);
               {
-                this.state = 308;
-                this.match(_AstigLangParser.IDENTIFIER);
                 this.state = 309;
-                this.assignmentOperator();
+                this.match(_AstigLangParser.IDENTIFIER);
                 this.state = 310;
+                this.assignmentOperator();
+                this.state = 311;
                 this.expression(0);
               }
               break;
             case 2:
               this.enterOuterAlt(_localctx, 2);
               {
-                this.state = 312;
-                this.recordFieldAccess();
                 this.state = 313;
-                this.assignmentOperator();
+                this.recordFieldAccess();
                 this.state = 314;
+                this.assignmentOperator();
+                this.state = 315;
                 this.expression(0);
               }
               break;
@@ -20629,13 +20637,13 @@ var require_AstigLangParser = __commonJS({
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 318;
-            this.match(_AstigLangParser.IDENTIFIER);
             this.state = 319;
-            this.match(_AstigLangParser.T__4);
+            this.match(_AstigLangParser.IDENTIFIER);
             this.state = 320;
-            this.expression(0);
+            this.match(_AstigLangParser.T__4);
             this.state = 321;
+            this.expression(0);
+            this.state = 322;
             this.match(_AstigLangParser.T__5);
           }
         } catch (re) {
@@ -20658,19 +20666,19 @@ var require_AstigLangParser = __commonJS({
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 323;
-            this.match(_AstigLangParser.IDENTIFIER);
             this.state = 324;
-            this.match(_AstigLangParser.T__4);
+            this.match(_AstigLangParser.IDENTIFIER);
             this.state = 325;
-            this.expression(0);
+            this.match(_AstigLangParser.T__4);
             this.state = 326;
-            this.match(_AstigLangParser.T__5);
-            this.state = 327;
-            this.assignmentOperator();
-            this.state = 328;
             this.expression(0);
+            this.state = 327;
+            this.match(_AstigLangParser.T__5);
+            this.state = 328;
+            this.assignmentOperator();
             this.state = 329;
+            this.expression(0);
+            this.state = 330;
             this.match(_AstigLangParser.SEMICOLON);
           }
         } catch (re) {
@@ -20694,21 +20702,21 @@ var require_AstigLangParser = __commonJS({
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 331;
+            this.state = 332;
             this.match(_AstigLangParser.IDENTIFIER);
-            this.state = 334;
+            this.state = 335;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             do {
               {
                 {
-                  this.state = 332;
-                  this.match(_AstigLangParser.T__8);
                   this.state = 333;
+                  this.match(_AstigLangParser.T__8);
+                  this.state = 334;
                   this.match(_AstigLangParser.IDENTIFIER);
                 }
               }
-              this.state = 336;
+              this.state = 337;
               this._errHandler.sync(this);
               _la = this._input.LA(1);
             } while (_la === _AstigLangParser.T__8);
@@ -20734,7 +20742,7 @@ var require_AstigLangParser = __commonJS({
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 338;
+            this.state = 339;
             _la = this._input.LA(1);
             if (!(_la === _AstigLangParser.T__0 || _la === _AstigLangParser.ADD_ASSIGN || _la === _AstigLangParser.SUB_ASSIGN)) {
               this._errHandler.recoverInline(this);
@@ -20766,19 +20774,19 @@ var require_AstigLangParser = __commonJS({
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 340;
-            this.match(_AstigLangParser.FOREACH_KW);
             this.state = 341;
-            this.match(_AstigLangParser.T__6);
+            this.match(_AstigLangParser.FOREACH_KW);
             this.state = 342;
-            this.match(_AstigLangParser.IDENTIFIER);
+            this.match(_AstigLangParser.T__6);
             this.state = 343;
-            this.match(_AstigLangParser.IN_KW);
+            this.match(_AstigLangParser.IDENTIFIER);
             this.state = 344;
-            this.expression(0);
+            this.match(_AstigLangParser.IN_KW);
             this.state = 345;
-            this.match(_AstigLangParser.T__7);
+            this.expression(0);
             this.state = 346;
+            this.match(_AstigLangParser.T__7);
+            this.state = 347;
             this.block();
           }
         } catch (re) {
@@ -20801,7 +20809,7 @@ var require_AstigLangParser = __commonJS({
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 348;
+            this.state = 349;
             this.match(_AstigLangParser.BREAK_KW);
           }
         } catch (re) {
@@ -20824,7 +20832,7 @@ var require_AstigLangParser = __commonJS({
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 350;
+            this.state = 351;
             this.match(_AstigLangParser.CONTINUE_KW);
           }
         } catch (re) {
@@ -20848,42 +20856,42 @@ var require_AstigLangParser = __commonJS({
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 353;
+            this.state = 354;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             if (_la === _AstigLangParser.EXPORT_KW) {
               {
-                this.state = 352;
+                this.state = 353;
                 this.match(_AstigLangParser.EXPORT_KW);
               }
             }
-            this.state = 355;
-            this.match(_AstigLangParser.FUNCTION_KW);
             this.state = 356;
-            this.match(_AstigLangParser.IDENTIFIER);
+            this.match(_AstigLangParser.FUNCTION_KW);
             this.state = 357;
+            this.match(_AstigLangParser.IDENTIFIER);
+            this.state = 358;
             this.match(_AstigLangParser.T__6);
-            this.state = 359;
+            this.state = 360;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             if (_la === _AstigLangParser.IDENTIFIER) {
               {
-                this.state = 358;
+                this.state = 359;
                 this.parameterList();
               }
             }
-            this.state = 361;
+            this.state = 362;
             this.match(_AstigLangParser.T__7);
-            this.state = 363;
+            this.state = 364;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             if (_la === _AstigLangParser.T__9) {
               {
-                this.state = 362;
+                this.state = 363;
                 this.returnTypeAnnotation();
               }
             }
-            this.state = 365;
+            this.state = 366;
             this.block();
           }
         } catch (re) {
@@ -20906,15 +20914,15 @@ var require_AstigLangParser = __commonJS({
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 367;
-            this.match(_AstigLangParser.FUNCTION_KW);
             this.state = 368;
-            this.match(_AstigLangParser.MAIN_KW);
+            this.match(_AstigLangParser.FUNCTION_KW);
             this.state = 369;
-            this.match(_AstigLangParser.T__6);
+            this.match(_AstigLangParser.MAIN_KW);
             this.state = 370;
-            this.match(_AstigLangParser.T__7);
+            this.match(_AstigLangParser.T__6);
             this.state = 371;
+            this.match(_AstigLangParser.T__7);
+            this.state = 372;
             this.block();
           }
         } catch (re) {
@@ -20938,21 +20946,21 @@ var require_AstigLangParser = __commonJS({
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 373;
+            this.state = 374;
             this.parameter();
-            this.state = 378;
+            this.state = 379;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             while (_la === _AstigLangParser.T__3) {
               {
                 {
-                  this.state = 374;
-                  this.match(_AstigLangParser.T__3);
                   this.state = 375;
+                  this.match(_AstigLangParser.T__3);
+                  this.state = 376;
                   this.parameter();
                 }
               }
-              this.state = 380;
+              this.state = 381;
               this._errHandler.sync(this);
               _la = this._input.LA(1);
             }
@@ -20978,14 +20986,14 @@ var require_AstigLangParser = __commonJS({
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 381;
+            this.state = 382;
             this.match(_AstigLangParser.IDENTIFIER);
-            this.state = 383;
+            this.state = 384;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             if (_la === _AstigLangParser.T__9) {
               {
-                this.state = 382;
+                this.state = 383;
                 this.typeAnnotation();
               }
             }
@@ -21010,14 +21018,14 @@ var require_AstigLangParser = __commonJS({
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 385;
+            this.state = 386;
             this.match(_AstigLangParser.RETURN_KW);
-            this.state = 387;
+            this.state = 388;
             this._errHandler.sync(this);
-            switch (this.interpreter.adaptivePredict(this._input, 40, this._ctx)) {
+            switch (this.interpreter.adaptivePredict(this._input, 41, this._ctx)) {
               case 1:
                 {
-                  this.state = 386;
+                  this.state = 387;
                   this.expression(0);
                 }
                 break;
@@ -21044,23 +21052,23 @@ var require_AstigLangParser = __commonJS({
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 389;
+            this.state = 390;
             this.match(_AstigLangParser.T__1);
-            this.state = 393;
+            this.state = 394;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             while ((_la & ~31) === 0 && (1 << _la & (1 << _AstigLangParser.T__1 | 1 << _AstigLangParser.CONST_KW | 1 << _AstigLangParser.VAR_KW | 1 << _AstigLangParser.LET_KW | 1 << _AstigLangParser.PRINT_KW | 1 << _AstigLangParser.SCAN_KW | 1 << _AstigLangParser.IF_KW | 1 << _AstigLangParser.WHILE_KW | 1 << _AstigLangParser.FUNCTION_KW | 1 << _AstigLangParser.RETURN_KW | 1 << _AstigLangParser.DO_KW | 1 << _AstigLangParser.FOR_KW | 1 << _AstigLangParser.FOREACH_KW | 1 << _AstigLangParser.BREAK_KW | 1 << _AstigLangParser.CONTINUE_KW)) !== 0 || _la === _AstigLangParser.EXPORT_KW || _la === _AstigLangParser.IDENTIFIER) {
               {
                 {
-                  this.state = 390;
+                  this.state = 391;
                   this.statement();
                 }
               }
-              this.state = 395;
+              this.state = 396;
               this._errHandler.sync(this);
               _la = this._input.LA(1);
             }
-            this.state = 396;
+            this.state = 397;
             this.match(_AstigLangParser.T__2);
           }
         } catch (re) {
@@ -21084,21 +21092,21 @@ var require_AstigLangParser = __commonJS({
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 398;
+            this.state = 399;
             this.expression(0);
-            this.state = 403;
+            this.state = 404;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             while (_la === _AstigLangParser.T__3) {
               {
                 {
-                  this.state = 399;
-                  this.match(_AstigLangParser.T__3);
                   this.state = 400;
+                  this.match(_AstigLangParser.T__3);
+                  this.state = 401;
                   this.expression(0);
                 }
               }
-              this.state = 405;
+              this.state = 406;
               this._errHandler.sync(this);
               _la = this._input.LA(1);
             }
@@ -21124,20 +21132,20 @@ var require_AstigLangParser = __commonJS({
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 406;
-            this.match(_AstigLangParser.IDENTIFIER);
             this.state = 407;
+            this.match(_AstigLangParser.IDENTIFIER);
+            this.state = 408;
             this.match(_AstigLangParser.T__6);
-            this.state = 409;
+            this.state = 410;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             if (_la === _AstigLangParser.T__4 || _la === _AstigLangParser.T__6 || (_la - 33 & ~31) === 0 && (1 << _la - 33 & (1 << _AstigLangParser.TRUE_KW - 33 | 1 << _AstigLangParser.FALSE_KW - 33 | 1 << _AstigLangParser.NEW_KW - 33 | 1 << _AstigLangParser.NOT_KW - 33 | 1 << _AstigLangParser.IDENTIFIER - 33 | 1 << _AstigLangParser.SUB - 33 | 1 << _AstigLangParser.FLOAT - 33 | 1 << _AstigLangParser.NUMBER - 33 | 1 << _AstigLangParser.STRING - 33)) !== 0) {
               {
-                this.state = 408;
+                this.state = 409;
                 this.argumentList();
               }
             }
-            this.state = 411;
+            this.state = 412;
             this.match(_AstigLangParser.T__7);
           }
         } catch (re) {
@@ -21161,18 +21169,18 @@ var require_AstigLangParser = __commonJS({
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 413;
-            this.match(_AstigLangParser.T__9);
             this.state = 414;
+            this.match(_AstigLangParser.T__9);
+            this.state = 415;
             this.dataType();
-            this.state = 417;
+            this.state = 418;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             if (_la === _AstigLangParser.T__4) {
               {
-                this.state = 415;
-                this.match(_AstigLangParser.T__4);
                 this.state = 416;
+                this.match(_AstigLangParser.T__4);
+                this.state = 417;
                 this.match(_AstigLangParser.T__5);
               }
             }
@@ -21197,9 +21205,9 @@ var require_AstigLangParser = __commonJS({
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 419;
-            this.match(_AstigLangParser.T__9);
             this.state = 420;
+            this.match(_AstigLangParser.T__9);
+            this.state = 421;
             this.returnDataType();
           }
         } catch (re) {
@@ -21223,7 +21231,7 @@ var require_AstigLangParser = __commonJS({
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 422;
+            this.state = 423;
             _la = this._input.LA(1);
             if (!((_la - 28 & ~31) === 0 && (1 << _la - 28 & (1 << _AstigLangParser.INT_KW - 28 | 1 << _AstigLangParser.FLOAT_KW - 28 | 1 << _AstigLangParser.STRING_KW - 28 | 1 << _AstigLangParser.CHAR_KW - 28 | 1 << _AstigLangParser.BOOLEAN_KW - 28 | 1 << _AstigLangParser.IDENTIFIER - 28)) !== 0)) {
               this._errHandler.recoverInline(this);
@@ -21253,7 +21261,7 @@ var require_AstigLangParser = __commonJS({
         let _localctx = new ReturnDataTypeContext(this._ctx, this.state);
         this.enterRule(_localctx, 86, _AstigLangParser.RULE_returnDataType);
         try {
-          this.state = 426;
+          this.state = 427;
           this._errHandler.sync(this);
           switch (this._input.LA(1)) {
             case _AstigLangParser.INT_KW:
@@ -21264,14 +21272,14 @@ var require_AstigLangParser = __commonJS({
             case _AstigLangParser.IDENTIFIER:
               this.enterOuterAlt(_localctx, 1);
               {
-                this.state = 424;
+                this.state = 425;
                 this.dataType();
               }
               break;
             case _AstigLangParser.VOID_KW:
               this.enterOuterAlt(_localctx, 2);
               {
-                this.state = 425;
+                this.state = 426;
                 this.match(_AstigLangParser.VOID_KW);
               }
               break;
@@ -21307,100 +21315,100 @@ var require_AstigLangParser = __commonJS({
           let _alt;
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 447;
+            this.state = 448;
             this._errHandler.sync(this);
-            switch (this.interpreter.adaptivePredict(this._input, 46, this._ctx)) {
+            switch (this.interpreter.adaptivePredict(this._input, 47, this._ctx)) {
               case 1:
                 {
-                  this.state = 429;
-                  this.match(_AstigLangParser.NOT_KW);
                   this.state = 430;
+                  this.match(_AstigLangParser.NOT_KW);
+                  this.state = 431;
                   this.expression(18);
                 }
                 break;
               case 2:
                 {
-                  this.state = 431;
-                  this.match(_AstigLangParser.SUB);
                   this.state = 432;
+                  this.match(_AstigLangParser.SUB);
+                  this.state = 433;
                   this.expression(17);
                 }
                 break;
               case 3:
                 {
-                  this.state = 433;
-                  this.match(_AstigLangParser.T__6);
                   this.state = 434;
-                  this.expression(0);
+                  this.match(_AstigLangParser.T__6);
                   this.state = 435;
+                  this.expression(0);
+                  this.state = 436;
                   this.match(_AstigLangParser.T__7);
                 }
                 break;
               case 4:
                 {
-                  this.state = 437;
+                  this.state = 438;
                   this.functionCall();
                 }
                 break;
               case 5:
                 {
-                  this.state = 438;
+                  this.state = 439;
                   this.recordLiteral();
                 }
                 break;
               case 6:
                 {
-                  this.state = 439;
+                  this.state = 440;
                   this.arrayLiteral();
                 }
                 break;
               case 7:
                 {
-                  this.state = 440;
+                  this.state = 441;
                   this.arrayIndexAccess();
                 }
                 break;
               case 8:
                 {
-                  this.state = 441;
+                  this.state = 442;
                   this.match(_AstigLangParser.NUMBER);
                 }
                 break;
               case 9:
                 {
-                  this.state = 442;
+                  this.state = 443;
                   this.match(_AstigLangParser.FLOAT);
                 }
                 break;
               case 10:
                 {
-                  this.state = 443;
+                  this.state = 444;
                   this.match(_AstigLangParser.STRING);
                 }
                 break;
               case 11:
                 {
-                  this.state = 444;
+                  this.state = 445;
                   this.match(_AstigLangParser.TRUE_KW);
                 }
                 break;
               case 12:
                 {
-                  this.state = 445;
+                  this.state = 446;
                   this.match(_AstigLangParser.FALSE_KW);
                 }
                 break;
               case 13:
                 {
-                  this.state = 446;
+                  this.state = 447;
                   this.match(_AstigLangParser.IDENTIFIER);
                 }
                 break;
             }
             this._ctx._stop = this._input.tryLT(-1);
-            this.state = 466;
+            this.state = 467;
             this._errHandler.sync(this);
-            _alt = this.interpreter.adaptivePredict(this._input, 48, this._ctx);
+            _alt = this.interpreter.adaptivePredict(this._input, 49, this._ctx);
             while (_alt !== 2 && _alt !== ATN_1.ATN.INVALID_ALT_NUMBER) {
               if (_alt === 1) {
                 if (this._parseListeners != null) {
@@ -21408,18 +21416,18 @@ var require_AstigLangParser = __commonJS({
                 }
                 _prevctx = _localctx;
                 {
-                  this.state = 464;
+                  this.state = 465;
                   this._errHandler.sync(this);
-                  switch (this.interpreter.adaptivePredict(this._input, 47, this._ctx)) {
+                  switch (this.interpreter.adaptivePredict(this._input, 48, this._ctx)) {
                     case 1:
                       {
                         _localctx = new ExpressionContext(_parentctx, _parentState);
                         this.pushNewRecursionContext(_localctx, _startState, _AstigLangParser.RULE_expression);
-                        this.state = 449;
+                        this.state = 450;
                         if (!this.precpred(this._ctx, 16)) {
                           throw this.createFailedPredicateException("this.precpred(this._ctx, 16)");
                         }
-                        this.state = 450;
+                        this.state = 451;
                         _localctx._op = this._input.LT(1);
                         _la = this._input.LA(1);
                         if (!((_la - 52 & ~31) === 0 && (1 << _la - 52 & (1 << _AstigLangParser.MUL - 52 | 1 << _AstigLangParser.DIV - 52 | 1 << _AstigLangParser.MOD - 52)) !== 0)) {
@@ -21431,7 +21439,7 @@ var require_AstigLangParser = __commonJS({
                           this._errHandler.reportMatch(this);
                           this.consume();
                         }
-                        this.state = 451;
+                        this.state = 452;
                         this.expression(17);
                       }
                       break;
@@ -21439,11 +21447,11 @@ var require_AstigLangParser = __commonJS({
                       {
                         _localctx = new ExpressionContext(_parentctx, _parentState);
                         this.pushNewRecursionContext(_localctx, _startState, _AstigLangParser.RULE_expression);
-                        this.state = 452;
+                        this.state = 453;
                         if (!this.precpred(this._ctx, 15)) {
                           throw this.createFailedPredicateException("this.precpred(this._ctx, 15)");
                         }
-                        this.state = 453;
+                        this.state = 454;
                         _localctx._op = this._input.LT(1);
                         _la = this._input.LA(1);
                         if (!(_la === _AstigLangParser.ADD || _la === _AstigLangParser.SUB)) {
@@ -21455,7 +21463,7 @@ var require_AstigLangParser = __commonJS({
                           this._errHandler.reportMatch(this);
                           this.consume();
                         }
-                        this.state = 454;
+                        this.state = 455;
                         this.expression(16);
                       }
                       break;
@@ -21463,11 +21471,11 @@ var require_AstigLangParser = __commonJS({
                       {
                         _localctx = new ExpressionContext(_parentctx, _parentState);
                         this.pushNewRecursionContext(_localctx, _startState, _AstigLangParser.RULE_expression);
-                        this.state = 455;
+                        this.state = 456;
                         if (!this.precpred(this._ctx, 14)) {
                           throw this.createFailedPredicateException("this.precpred(this._ctx, 14)");
                         }
-                        this.state = 456;
+                        this.state = 457;
                         _localctx._op = this._input.LT(1);
                         _la = this._input.LA(1);
                         if (!((_la - 55 & ~31) === 0 && (1 << _la - 55 & (1 << _AstigLangParser.EQ - 55 | 1 << _AstigLangParser.NEQ - 55 | 1 << _AstigLangParser.LT - 55 | 1 << _AstigLangParser.GT - 55 | 1 << _AstigLangParser.LTE - 55 | 1 << _AstigLangParser.GTE - 55)) !== 0)) {
@@ -21479,7 +21487,7 @@ var require_AstigLangParser = __commonJS({
                           this._errHandler.reportMatch(this);
                           this.consume();
                         }
-                        this.state = 457;
+                        this.state = 458;
                         this.expression(15);
                       }
                       break;
@@ -21487,11 +21495,11 @@ var require_AstigLangParser = __commonJS({
                       {
                         _localctx = new ExpressionContext(_parentctx, _parentState);
                         this.pushNewRecursionContext(_localctx, _startState, _AstigLangParser.RULE_expression);
-                        this.state = 458;
+                        this.state = 459;
                         if (!this.precpred(this._ctx, 13)) {
                           throw this.createFailedPredicateException("this.precpred(this._ctx, 13)");
                         }
-                        this.state = 459;
+                        this.state = 460;
                         _localctx._op = this._input.LT(1);
                         _la = this._input.LA(1);
                         if (!(_la === _AstigLangParser.AND_KW || _la === _AstigLangParser.OR_KW)) {
@@ -21503,7 +21511,7 @@ var require_AstigLangParser = __commonJS({
                           this._errHandler.reportMatch(this);
                           this.consume();
                         }
-                        this.state = 460;
+                        this.state = 461;
                         this.expression(14);
                       }
                       break;
@@ -21511,22 +21519,22 @@ var require_AstigLangParser = __commonJS({
                       {
                         _localctx = new ExpressionContext(_parentctx, _parentState);
                         this.pushNewRecursionContext(_localctx, _startState, _AstigLangParser.RULE_expression);
-                        this.state = 461;
+                        this.state = 462;
                         if (!this.precpred(this._ctx, 7)) {
                           throw this.createFailedPredicateException("this.precpred(this._ctx, 7)");
                         }
-                        this.state = 462;
-                        this.match(_AstigLangParser.T__8);
                         this.state = 463;
+                        this.match(_AstigLangParser.T__8);
+                        this.state = 464;
                         this.match(_AstigLangParser.IDENTIFIER);
                       }
                       break;
                   }
                 }
               }
-              this.state = 468;
+              this.state = 469;
               this._errHandler.sync(this);
-              _alt = this.interpreter.adaptivePredict(this._input, 48, this._ctx);
+              _alt = this.interpreter.adaptivePredict(this._input, 49, this._ctx);
             }
           }
         } catch (re) {
@@ -21862,7 +21870,7 @@ var require_AstigLangParser = __commonJS({
       "WS"
     ];
     AstigLangParser.VOCABULARY = new VocabularyImpl_1.VocabularyImpl(AstigLangParser._LITERAL_NAMES, AstigLangParser._SYMBOLIC_NAMES, []);
-    AstigLangParser._serializedATN = `\uC91D\uCABA\u058D\uAFBA\u4F53\u0607\uEA8B\uC241C\u01D8					\x07	\x07\b	\b			
+    AstigLangParser._serializedATN = `\uC91D\uCABA\u058D\uAFBA\u4F53\u0607\uEA8B\uC241C\u01D9					\x07	\x07\b	\b			
 	
 \v	\v\f	\f\r	\r													\x1B	\x1B				 	 !	!"	"#	#$	$%	%&	&'	'(	()	)*	*+	+,	,-	-.	.\x07^
 \fa\v\x07d
@@ -21879,67 +21887,68 @@ var require_AstigLangParser = __commonJS({
 \xA0
 \xA4
 \xA7
-\x07\x07\x07\x07\x07\xB3
-\x07\x07\x07\x07\xB7
-\x07\b\b\b\x07\b\xBC
-\b\f\b\b\xBF\v\b			
+\xAE
+\x07\x07\x07\x07\x07\xB4
+\x07\x07\x07\x07\xB8
+\x07\b\b\b\x07\b\xBD
+\b\f\b\b\xC0\v\b			
 
 
 
 
-\xC8
+\xC9
 
 
 
 
-\xCC
+\xCD
 
-\v\v\v\x07\v\xD1
-\v\f\v\v\xD4\v\v\f\f\r\r\r\xDA
-\r\r\r\x07\xE1
-\f\xE4\v\xF1
-\xF6
-\x07\xFE
-\f\u0101\v\u0104
-\u011D
-\u0122
-\u0126
-\u012A
-\u0131
-\u0135
-\u013F
-\x1B\x1B\x1B\x1B\x1B\u0151
-\r\u0152  !!""\u0164
-""""""\u016A
-""""\u016E
-"""######$$$\x07$\u017B
-$\f$$\u017E\v$%%%\u0182
-%&&&\u0186
-&''\x07'\u018A
-'\f''\u018D\v'''(((\x07(\u0194
-(\f((\u0197\v())))\u019C
-)))*****\u01A4
-*+++,,---\u01AD
--....................\u01C2
-................\x07.\u01D3
-.\f..\u01D6\v..Z/\b
-\f "$&(*,.02468:<>@BDFHJLNPRTVXZ	23"--68459>+,\u01F6_sz\b\xA6
-\xA8\f\xAE\xB8\xC0\xC3\xCD\xD5\xD7\xDD\xE5\xE7 \xEC"\xF7$\u0105&\u010C(\u010F*\u0115,\u011E.\u01300\u01342\u013E4\u01406\u01458\u014D:\u0154<\u0156>\u015E@\u0160B\u0163D\u0171F\u0177H\u017FJ\u0183L\u0187N\u0190P\u0198R\u019FT\u01A5V\u01A8X\u01ACZ\u01C1\\^]\\^a_]_\`\`ea_bd\f\x07cbdgeceffkgehjB"ihjmkikllomknpD#onoppqqr\x07rswtvutvywuwxxywz{\x07\r{}\x07.|~\x07?}|}~~\x07\x7F\x81
-\x80\x82\x07?\x81\x80\x81\x82\x82\xA7\x83\x852\x84\x86\x07?\x85\x84\x85\x86\x86\xA7\x87\x896\x88\x8A\x07?\x89\x88\x89\x8A\x8A\xA7\x8B\x8D\x8C\x8E\x07?\x8D\x8C\x8D\x8E\x8E\xA7\x8F\x91 \x90\x92\x07?\x91\x90\x91\x92\x92\xA7\x93\xA7"\x94\xA7(\x95\xA7*\x96\xA7,\x97\xA7<\x98\xA7B"\x99\x9BJ&\x9A\x9C\x07?\x9B\x9A\x9B\x9C\x9C\xA7\x9D\x9F> \x9E\xA0\x07?\x9F\x9E\x9F\xA0\xA0\xA7\xA1\xA3@!\xA2\xA4\x07?\xA3\xA2\xA3\xA4\xA4\xA7\xA5\xA7L'\xA6\x7F\xA6\x83\xA6\x87\xA6\x8B\xA6\x8F\xA6\x93\xA6\x94\xA6\x95\xA6\x96\xA6\x97\xA6\x98\xA6\x99\xA6\x9D\xA6\xA1\xA6\xA5\xA7	\xA8\xA9\xA9\xAA\x07-\xAA\xABR*\xAB\xAC\x07\xAC\xADZ.\xAD\v\xAE\xAF\x07'\xAF\xB0\x07-\xB0\xB2\x07\xB1\xB3\b\xB2\xB1\xB2\xB3\xB3\xB4\xB4\xB6\x07\xB5\xB7\x07?\xB6\xB5\xB6\xB7\xB7\r\xB8\xBD	\xB9\xBA\x07\xBA\xBC	\xBB\xB9\xBC\xBF\xBD\xBB\xBD\xBE\xBE\xBF\xBD\xC0\xC1\x07-\xC1\xC2R*\xC2\xC3\xC4\x07(\xC4\xC5\x07-\xC5\xC7\x07\xC6\xC8\v\xC7\xC6\xC7\xC8\xC8\xC9\xC9\xCB\x07\xCA\xCC\x07?\xCB\xCA\xCB\xCC\xCC\xCD\xD2\f\xCE\xCF\x07\xCF\xD1\f\xD0\xCE\xD1\xD4\xD2\xD0\xD2\xD3\xD3\xD4\xD2\xD5\xD62\xD6\xD7\xD9\x07\x07\xD8\xDA\xD9\xD8\xD9\xDA\xDA\xDB\xDB\xDC\x07\b\xDC\xDD\xE2Z.\xDE\xDF\x07\xDF\xE1Z.\xE0\xDE\xE1\xE4\xE2\xE0\xE2\xE3\xE3\x1B\xE4\xE2\xE5\xE6	\xE6\xE7\xE8\x07\xE8\xE9\x07	\xE9\xEAZ.\xEA\xEB\x07
-\xEB\xEC\xED\x07\xED\xF0\x07	\xEE\xEF\x07B\xEF\xF1\x07\xF0\xEE\xF0\xF1\xF1\xF2\xF2\xF3\x07-\xF3\xF5\x07
-\xF4\xF6\x07?\xF5\xF4\xF5\xF6\xF6!\xF7\xF8\x07\xF8\xF9\x07	\xF9\xFAZ.\xFA\xFB\x07
-\xFB\xFFL'\xFC\xFE$\xFD\xFC\xFE\u0101\xFF\xFD\xFF\u0100\u0100\u0103\u0101\xFF\u0102\u0104&\u0103\u0102\u0103\u0104\u0104#\u0105\u0106\x07\u0106\u0107\x07\u0107\u0108\x07	\u0108\u0109Z.\u0109\u010A\x07
-\u010A\u010BL'\u010B%\u010C\u010D\x07\u010D\u010EL'\u010E'\u010F\u0110\x07\u0110\u0111\x07	\u0111\u0112Z.\u0112\u0113\x07
-\u0113\u0114L'\u0114)\u0115\u0116\x07\u0116\u0117L'\u0117\u0118\x07\u0118\u0119\x07	\u0119\u011AZ.\u011A\u011C\x07
-\u011B\u011D\x07?\u011C\u011B\u011C\u011D\u011D+\u011E\u011F\x07\u011F\u0121\x07	\u0120\u0122.\u0121\u0120\u0121\u0122\u0122\u0123\u0123\u0125\x07?\u0124\u0126Z.\u0125\u0124\u0125\u0126\u0126\u0127\u0127\u0129\x07?\u0128\u012A0\u0129\u0128\u0129\u012A\u012A\u012B\u012B\u012C\x07
-\u012C\u012DL'\u012D-\u012E\u0131
-\u012F\u01312\u0130\u012E\u0130\u012F\u0131/\u0132\u01352\u0133\u0135P)\u0134\u0132\u0134\u0133\u01351\u0136\u0137\x07-\u0137\u0138:\u0138\u0139Z.\u0139\u013F\u013A\u013B8\u013B\u013C:\u013C\u013DZ.\u013D\u013F\u013E\u0136\u013E\u013A\u013F3\u0140\u0141\x07-\u0141\u0142\x07\x07\u0142\u0143Z.\u0143\u0144\x07\b\u01445\u0145\u0146\x07-\u0146\u0147\x07\x07\u0147\u0148Z.\u0148\u0149\x07\b\u0149\u014A:\u014A\u014BZ.\u014B\u014C\x07?\u014C7\u014D\u0150\x07-\u014E\u014F\x07\v\u014F\u0151\x07-\u0150\u014E\u0151\u0152\u0152\u0150\u0152\u0153\u01539\u0154\u0155	\u0155;\u0156\u0157\x07\u0157\u0158\x07	\u0158\u0159\x07-\u0159\u015A\x07\x1B\u015A\u015BZ.\u015B\u015C\x07
-\u015C\u015DL'\u015D=\u015E\u015F\x07\u015F?\u0160\u0161\x07\u0161A\u0162\u0164\x07)\u0163\u0162\u0163\u0164\u0164\u0165\u0165\u0166\x07\u0166\u0167\x07-\u0167\u0169\x07	\u0168\u016AF$\u0169\u0168\u0169\u016A\u016A\u016B\u016B\u016D\x07
-\u016C\u016ET+\u016D\u016C\u016D\u016E\u016E\u016F\u016F\u0170L'\u0170C\u0171\u0172\x07\u0172\u0173\x07&\u0173\u0174\x07	\u0174\u0175\x07
-\u0175\u0176L'\u0176E\u0177\u017CH%\u0178\u0179\x07\u0179\u017BH%\u017A\u0178\u017B\u017E\u017C\u017A\u017C\u017D\u017DG\u017E\u017C\u017F\u0181\x07-\u0180\u0182R*\u0181\u0180\u0181\u0182\u0182I\u0183\u0185\x07\u0184\u0186Z.\u0185\u0184\u0185\u0186\u0186K\u0187\u018B\x07\u0188\u018A\b\u0189\u0188\u018A\u018D\u018B\u0189\u018B\u018C\u018C\u018E\u018D\u018B\u018E\u018F\x07\u018FM\u0190\u0195Z.\u0191\u0192\x07\u0192\u0194Z.\u0193\u0191\u0194\u0197\u0195\u0193\u0195\u0196\u0196O\u0197\u0195\u0198\u0199\x07-\u0199\u019B\x07	\u019A\u019CN(\u019B\u019A\u019B\u019C\u019C\u019D\u019D\u019E\x07
-\u019EQ\u019F\u01A0\x07\f\u01A0\u01A3V,\u01A1\u01A2\x07\x07\u01A2\u01A4\x07\b\u01A3\u01A1\u01A3\u01A4\u01A4S\u01A5\u01A6\x07\f\u01A6\u01A7X-\u01A7U\u01A8\u01A9	\u01A9W\u01AA\u01ADV,\u01AB\u01AD\x07%\u01AC\u01AA\u01AC\u01AB\u01ADY\u01AE\u01AF\b.\u01AF\u01B0\x07*\u01B0\u01C2Z.\u01B1\u01B2\x075\u01B2\u01C2Z.\u01B3\u01B4\x07	\u01B4\u01B5Z.\u01B5\u01B6\x07
-\u01B6\u01C2\u01B7\u01C2P)\u01B8\u01C2
-\u01B9\u01C2\r\u01BA\u01C24\x1B\u01BB\u01C2\x07A\u01BC\u01C2\x07@\u01BD\u01C2\x07B\u01BE\u01C2\x07#\u01BF\u01C2\x07$\u01C0\u01C2\x07-\u01C1\u01AE\u01C1\u01B1\u01C1\u01B3\u01C1\u01B7\u01C1\u01B8\u01C1\u01B9\u01C1\u01BA\u01C1\u01BB\u01C1\u01BC\u01C1\u01BD\u01C1\u01BE\u01C1\u01BF\u01C1\u01C0\u01C2\u01D4\u01C3\u01C4\f\u01C4\u01C5	\u01C5\u01D3Z.\u01C6\u01C7\f\u01C7\u01C8	\u01C8\u01D3Z.\u01C9\u01CA\f\u01CA\u01CB	\x07\u01CB\u01D3Z.\u01CC\u01CD\f\u01CD\u01CE	\b\u01CE\u01D3Z.\u01CF\u01D0\f	\u01D0\u01D1\x07\v\u01D1\u01D3\x07-\u01D2\u01C3\u01D2\u01C6\u01D2\u01C9\u01D2\u01CC\u01D2\u01CF\u01D3\u01D6\u01D4\u01D2\u01D4\u01D5\u01D5[\u01D6\u01D43_ekow}\x81\x85\x89\x8D\x91\x9B\x9F\xA3\xA6\xB2\xB6\xBD\xC7\xCB\xD2\xD9\xE2\xF0\xF5\xFF\u0103\u011C\u0121\u0125\u0129\u0130\u0134\u013E\u0152\u0163\u0169\u016D\u017C\u0181\u0185\u018B\u0195\u019B\u01A3\u01AC\u01C1\u01D2\u01D4`;
+\v\v\v\x07\v\xD2
+\v\f\v\v\xD5\v\v\f\f\r\r\r\xDB
+\r\r\r\x07\xE2
+\f\xE5\v\xF2
+\xF7
+\x07\xFF
+\f\u0102\v\u0105
+\u011E
+\u0123
+\u0127
+\u012B
+\u0132
+\u0136
+\u0140
+\x1B\x1B\x1B\x1B\x1B\u0152
+\r\u0153  !!""\u0165
+""""""\u016B
+""""\u016F
+"""######$$$\x07$\u017C
+$\f$$\u017F\v$%%%\u0183
+%&&&\u0187
+&''\x07'\u018B
+'\f''\u018E\v'''(((\x07(\u0195
+(\f((\u0198\v())))\u019D
+)))*****\u01A5
+*+++,,---\u01AE
+-....................\u01C3
+................\x07.\u01D4
+.\f..\u01D7\v..Z/\b
+\f "$&(*,.02468:<>@BDFHJLNPRTVXZ	23"--68459>+,\u01F8_sz\b\xA6
+\xA8\f\xAF\xB9\xC1\xC4\xCE\xD6\xD8\xDE\xE6\xE8 \xED"\xF8$\u0106&\u010D(\u0110*\u0116,\u011F.\u01310\u01352\u013F4\u01416\u01468\u014E:\u0155<\u0157>\u015F@\u0161B\u0164D\u0172F\u0178H\u0180J\u0184L\u0188N\u0191P\u0199R\u01A0T\u01A6V\u01A9X\u01ADZ\u01C2\\^]\\^a_]_\`\`ea_bd\f\x07cbdgeceffkgehjB"ihjmkikllomknpD#onoppqqr\x07rswtvutvywuwxxywz{\x07\r{}\x07.|~\x07?}|}~~\x07\x7F\x81
+\x80\x82\x07?\x81\x80\x81\x82\x82\xA7\x83\x852\x84\x86\x07?\x85\x84\x85\x86\x86\xA7\x87\x896\x88\x8A\x07?\x89\x88\x89\x8A\x8A\xA7\x8B\x8D\x8C\x8E\x07?\x8D\x8C\x8D\x8E\x8E\xA7\x8F\x91 \x90\x92\x07?\x91\x90\x91\x92\x92\xA7\x93\xA7"\x94\xA7(\x95\xA7*\x96\xA7,\x97\xA7<\x98\xA7B"\x99\x9BJ&\x9A\x9C\x07?\x9B\x9A\x9B\x9C\x9C\xA7\x9D\x9F> \x9E\xA0\x07?\x9F\x9E\x9F\xA0\xA0\xA7\xA1\xA3@!\xA2\xA4\x07?\xA3\xA2\xA3\xA4\xA4\xA7\xA5\xA7L'\xA6\x7F\xA6\x83\xA6\x87\xA6\x8B\xA6\x8F\xA6\x93\xA6\x94\xA6\x95\xA6\x96\xA6\x97\xA6\x98\xA6\x99\xA6\x9D\xA6\xA1\xA6\xA5\xA7	\xA8\xA9\xA9\xAA\x07-\xAA\xADR*\xAB\xAC\x07\xAC\xAEZ.\xAD\xAB\xAD\xAE\xAE\v\xAF\xB0\x07'\xB0\xB1\x07-\xB1\xB3\x07\xB2\xB4\b\xB3\xB2\xB3\xB4\xB4\xB5\xB5\xB7\x07\xB6\xB8\x07?\xB7\xB6\xB7\xB8\xB8\r\xB9\xBE	\xBA\xBB\x07\xBB\xBD	\xBC\xBA\xBD\xC0\xBE\xBC\xBE\xBF\xBF\xC0\xBE\xC1\xC2\x07-\xC2\xC3R*\xC3\xC4\xC5\x07(\xC5\xC6\x07-\xC6\xC8\x07\xC7\xC9\v\xC8\xC7\xC8\xC9\xC9\xCA\xCA\xCC\x07\xCB\xCD\x07?\xCC\xCB\xCC\xCD\xCD\xCE\xD3\f\xCF\xD0\x07\xD0\xD2\f\xD1\xCF\xD2\xD5\xD3\xD1\xD3\xD4\xD4\xD5\xD3\xD6\xD72\xD7\xD8\xDA\x07\x07\xD9\xDB\xDA\xD9\xDA\xDB\xDB\xDC\xDC\xDD\x07\b\xDD\xDE\xE3Z.\xDF\xE0\x07\xE0\xE2Z.\xE1\xDF\xE2\xE5\xE3\xE1\xE3\xE4\xE4\x1B\xE5\xE3\xE6\xE7	\xE7\xE8\xE9\x07\xE9\xEA\x07	\xEA\xEBZ.\xEB\xEC\x07
+\xEC\xED\xEE\x07\xEE\xF1\x07	\xEF\xF0\x07B\xF0\xF2\x07\xF1\xEF\xF1\xF2\xF2\xF3\xF3\xF4\x07-\xF4\xF6\x07
+\xF5\xF7\x07?\xF6\xF5\xF6\xF7\xF7!\xF8\xF9\x07\xF9\xFA\x07	\xFA\xFBZ.\xFB\xFC\x07
+\xFC\u0100L'\xFD\xFF$\xFE\xFD\xFF\u0102\u0100\xFE\u0100\u0101\u0101\u0104\u0102\u0100\u0103\u0105&\u0104\u0103\u0104\u0105\u0105#\u0106\u0107\x07\u0107\u0108\x07\u0108\u0109\x07	\u0109\u010AZ.\u010A\u010B\x07
+\u010B\u010CL'\u010C%\u010D\u010E\x07\u010E\u010FL'\u010F'\u0110\u0111\x07\u0111\u0112\x07	\u0112\u0113Z.\u0113\u0114\x07
+\u0114\u0115L'\u0115)\u0116\u0117\x07\u0117\u0118L'\u0118\u0119\x07\u0119\u011A\x07	\u011A\u011BZ.\u011B\u011D\x07
+\u011C\u011E\x07?\u011D\u011C\u011D\u011E\u011E+\u011F\u0120\x07\u0120\u0122\x07	\u0121\u0123.\u0122\u0121\u0122\u0123\u0123\u0124\u0124\u0126\x07?\u0125\u0127Z.\u0126\u0125\u0126\u0127\u0127\u0128\u0128\u012A\x07?\u0129\u012B0\u012A\u0129\u012A\u012B\u012B\u012C\u012C\u012D\x07
+\u012D\u012EL'\u012E-\u012F\u0132
+\u0130\u01322\u0131\u012F\u0131\u0130\u0132/\u0133\u01362\u0134\u0136P)\u0135\u0133\u0135\u0134\u01361\u0137\u0138\x07-\u0138\u0139:\u0139\u013AZ.\u013A\u0140\u013B\u013C8\u013C\u013D:\u013D\u013EZ.\u013E\u0140\u013F\u0137\u013F\u013B\u01403\u0141\u0142\x07-\u0142\u0143\x07\x07\u0143\u0144Z.\u0144\u0145\x07\b\u01455\u0146\u0147\x07-\u0147\u0148\x07\x07\u0148\u0149Z.\u0149\u014A\x07\b\u014A\u014B:\u014B\u014CZ.\u014C\u014D\x07?\u014D7\u014E\u0151\x07-\u014F\u0150\x07\v\u0150\u0152\x07-\u0151\u014F\u0152\u0153\u0153\u0151\u0153\u0154\u01549\u0155\u0156	\u0156;\u0157\u0158\x07\u0158\u0159\x07	\u0159\u015A\x07-\u015A\u015B\x07\x1B\u015B\u015CZ.\u015C\u015D\x07
+\u015D\u015EL'\u015E=\u015F\u0160\x07\u0160?\u0161\u0162\x07\u0162A\u0163\u0165\x07)\u0164\u0163\u0164\u0165\u0165\u0166\u0166\u0167\x07\u0167\u0168\x07-\u0168\u016A\x07	\u0169\u016BF$\u016A\u0169\u016A\u016B\u016B\u016C\u016C\u016E\x07
+\u016D\u016FT+\u016E\u016D\u016E\u016F\u016F\u0170\u0170\u0171L'\u0171C\u0172\u0173\x07\u0173\u0174\x07&\u0174\u0175\x07	\u0175\u0176\x07
+\u0176\u0177L'\u0177E\u0178\u017DH%\u0179\u017A\x07\u017A\u017CH%\u017B\u0179\u017C\u017F\u017D\u017B\u017D\u017E\u017EG\u017F\u017D\u0180\u0182\x07-\u0181\u0183R*\u0182\u0181\u0182\u0183\u0183I\u0184\u0186\x07\u0185\u0187Z.\u0186\u0185\u0186\u0187\u0187K\u0188\u018C\x07\u0189\u018B\b\u018A\u0189\u018B\u018E\u018C\u018A\u018C\u018D\u018D\u018F\u018E\u018C\u018F\u0190\x07\u0190M\u0191\u0196Z.\u0192\u0193\x07\u0193\u0195Z.\u0194\u0192\u0195\u0198\u0196\u0194\u0196\u0197\u0197O\u0198\u0196\u0199\u019A\x07-\u019A\u019C\x07	\u019B\u019DN(\u019C\u019B\u019C\u019D\u019D\u019E\u019E\u019F\x07
+\u019FQ\u01A0\u01A1\x07\f\u01A1\u01A4V,\u01A2\u01A3\x07\x07\u01A3\u01A5\x07\b\u01A4\u01A2\u01A4\u01A5\u01A5S\u01A6\u01A7\x07\f\u01A7\u01A8X-\u01A8U\u01A9\u01AA	\u01AAW\u01AB\u01AEV,\u01AC\u01AE\x07%\u01AD\u01AB\u01AD\u01AC\u01AEY\u01AF\u01B0\b.\u01B0\u01B1\x07*\u01B1\u01C3Z.\u01B2\u01B3\x075\u01B3\u01C3Z.\u01B4\u01B5\x07	\u01B5\u01B6Z.\u01B6\u01B7\x07
+\u01B7\u01C3\u01B8\u01C3P)\u01B9\u01C3
+\u01BA\u01C3\r\u01BB\u01C34\x1B\u01BC\u01C3\x07A\u01BD\u01C3\x07@\u01BE\u01C3\x07B\u01BF\u01C3\x07#\u01C0\u01C3\x07$\u01C1\u01C3\x07-\u01C2\u01AF\u01C2\u01B2\u01C2\u01B4\u01C2\u01B8\u01C2\u01B9\u01C2\u01BA\u01C2\u01BB\u01C2\u01BC\u01C2\u01BD\u01C2\u01BE\u01C2\u01BF\u01C2\u01C0\u01C2\u01C1\u01C3\u01D5\u01C4\u01C5\f\u01C5\u01C6	\u01C6\u01D4Z.\u01C7\u01C8\f\u01C8\u01C9	\u01C9\u01D4Z.\u01CA\u01CB\f\u01CB\u01CC	\x07\u01CC\u01D4Z.\u01CD\u01CE\f\u01CE\u01CF	\b\u01CF\u01D4Z.\u01D0\u01D1\f	\u01D1\u01D2\x07\v\u01D2\u01D4\x07-\u01D3\u01C4\u01D3\u01C7\u01D3\u01CA\u01D3\u01CD\u01D3\u01D0\u01D4\u01D7\u01D5\u01D3\u01D5\u01D6\u01D6[\u01D7\u01D54_ekow}\x81\x85\x89\x8D\x91\x9B\x9F\xA3\xA6\xAD\xB3\xB7\xBE\xC8\xCC\xD3\xDA\xE3\xF1\xF6\u0100\u0104\u011D\u0122\u0126\u012A\u0131\u0135\u013F\u0153\u0164\u016A\u016E\u017D\u0182\u0186\u018C\u0196\u019C\u01A4\u01AD\u01C2\u01D3\u01D5`;
     var ProgramContext = class extends ParserRuleContext_1.ParserRuleContext {
       EOF() {
         return this.getToken(AstigLangParser.EOF, 0);
@@ -22165,7 +22174,7 @@ $\f$$\u017E\v$%%%\u0182
         return this.getRuleContext(0, TypeAnnotationContext);
       }
       expression() {
-        return this.getRuleContext(0, ExpressionContext);
+        return this.tryGetRuleContext(0, ExpressionContext);
       }
       constructor(parent, invokingState) {
         super(parent, invokingState);
@@ -23821,9 +23830,9 @@ $\f$$\u017E\v$%%%\u0182
   }
 });
 
-// dist/src/models/ExpressionNode.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/models/ExpressionNode.js
 var require_ExpressionNode = __commonJS({
-  "dist/src/models/ExpressionNode.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/models/ExpressionNode.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.ExpressionNodeType = void 0;
@@ -23845,9 +23854,9 @@ var require_ExpressionNode = __commonJS({
   }
 });
 
-// dist/src/models/StatementNode.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/models/StatementNode.js
 var require_StatementNode = __commonJS({
-  "dist/src/models/StatementNode.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/models/StatementNode.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.StatementNodeType = void 0;
@@ -23872,9 +23881,9 @@ var require_StatementNode = __commonJS({
   }
 });
 
-// dist/src/ast.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/ast.js
 var require_ast = __commonJS({
-  "dist/src/ast.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/ast.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.buildAst = buildAst;
@@ -24006,13 +24015,14 @@ var require_ast = __commonJS({
     function buildVariableDeclaration(ctx) {
       const typeAnnotation = ctx.typeAnnotation();
       const isArrayType = typeAnnotation ? typeAnnotation.text.includes("[") && typeAnnotation.text.includes("]") : false;
+      const expressionContext = ctx.expression();
       return {
         type: StatementNode_1.StatementNodeType.VariableDeclaration,
         location: sourceLocationFrom(ctx),
         declarationKind: buildDeclarationKind(ctx),
         name: ctx.IDENTIFIER().text,
         declaredType: ctx.typeAnnotation()?.dataType().text,
-        value: buildExpression(ctx.expression()),
+        value: expressionContext ? buildExpression(expressionContext) : void 0,
         isArray: isArrayType
       };
     }
@@ -24357,9 +24367,9 @@ var require_ast = __commonJS({
   }
 });
 
-// dist/src/classes/ParseError.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/ParseError.js
 var require_ParseError = __commonJS({
-  "dist/src/classes/ParseError.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/ParseError.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.ParseError = void 0;
@@ -24375,9 +24385,9 @@ var require_ParseError = __commonJS({
   }
 });
 
-// dist/src/classes/RuntimeError.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/RuntimeError.js
 var require_RuntimeError = __commonJS({
-  "dist/src/classes/RuntimeError.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/RuntimeError.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.RuntimeError = void 0;
@@ -24392,9 +24402,27 @@ var require_RuntimeError = __commonJS({
   }
 });
 
-// dist/src/classes/TypeCheckError.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/RuntimeErrors.js
+var require_RuntimeErrors = __commonJS({
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/RuntimeErrors.js"(exports2) {
+    "use strict";
+    Object.defineProperty(exports2, "__esModule", { value: true });
+    exports2.RuntimeErrors = void 0;
+    var RuntimeErrors = class extends Error {
+      constructor(diagnostics) {
+        const count = diagnostics.length;
+        super(count === 1 ? "Interpretation failed with 1 runtime error" : `Interpretation failed with ${count} runtime errors`);
+        this.name = "RuntimeErrors";
+        this.diagnostics = diagnostics;
+      }
+    };
+    exports2.RuntimeErrors = RuntimeErrors;
+  }
+});
+
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/TypeCheckError.js
 var require_TypeCheckError = __commonJS({
-  "dist/src/classes/TypeCheckError.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/TypeCheckError.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.TypeCheckError = void 0;
@@ -24409,9 +24437,9 @@ var require_TypeCheckError = __commonJS({
   }
 });
 
-// dist/src/classes/TypeCheckErrors.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/TypeCheckErrors.js
 var require_TypeCheckErrors = __commonJS({
-  "dist/src/classes/TypeCheckErrors.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/TypeCheckErrors.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.TypeCheckErrors = void 0;
@@ -24427,9 +24455,9 @@ var require_TypeCheckErrors = __commonJS({
   }
 });
 
-// dist/src/classes/BreakException.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/BreakException.js
 var require_BreakException = __commonJS({
-  "dist/src/classes/BreakException.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/BreakException.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.BreakException = void 0;
@@ -24442,9 +24470,9 @@ var require_BreakException = __commonJS({
   }
 });
 
-// dist/src/classes/ContinueException.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/ContinueException.js
 var require_ContinueException = __commonJS({
-  "dist/src/classes/ContinueException.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/ContinueException.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.ContinueException = void 0;
@@ -24457,9 +24485,9 @@ var require_ContinueException = __commonJS({
   }
 });
 
-// dist/src/classes/RecordRegistry.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/RecordRegistry.js
 var require_RecordRegistry = __commonJS({
-  "dist/src/classes/RecordRegistry.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/RecordRegistry.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.RecordRegistry = void 0;
@@ -24503,9 +24531,9 @@ var require_RecordRegistry = __commonJS({
   }
 });
 
-// dist/src/classes/ReturnException.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/ReturnException.js
 var require_ReturnException = __commonJS({
-  "dist/src/classes/ReturnException.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/ReturnException.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.ReturnException = void 0;
@@ -24519,9 +24547,9 @@ var require_ReturnException = __commonJS({
   }
 });
 
-// dist/src/classes/RuntimeExceptions.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/RuntimeExceptions.js
 var require_RuntimeExceptions = __commonJS({
-  "dist/src/classes/RuntimeExceptions.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/RuntimeExceptions.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.ScanError = exports2.PrintError = exports2.InvalidOperationError = exports2.ArrayTypeError = exports2.ArrayBoundsError = exports2.UndefinedFunctionError = exports2.UninitializedVariableError = exports2.ConstAssignmentError = exports2.UndefinedVariableError = exports2.RedeclarationError = void 0;
@@ -24537,7 +24565,8 @@ var require_RuntimeExceptions = __commonJS({
       const message = error.message;
       if (message.includes("Cannot redeclare")) {
         const name = message.match(/"([^"]+)"/)?.[1] ?? "unknown";
-        return new RedeclarationError(name, location);
+        const symbolKind = message.includes("function") ? "function" : "variable";
+        return new RedeclarationError(name, symbolKind, location);
       }
       if (message.includes("Undefined variable")) {
         const name = message.match(/"([^"]+)"/)?.[1] ?? "unknown";
@@ -24567,10 +24596,11 @@ var require_RuntimeExceptions = __commonJS({
       return new RuntimeError_12.RuntimeError(message, location);
     }
     var RedeclarationError = class extends RuntimeError_12.RuntimeError {
-      constructor(symbolName, location) {
-        super(`Runtime Error: Cannot redeclare variable "${symbolName}"`, location);
+      constructor(symbolName, symbolKind = "variable", location) {
+        super(`Runtime Error: Cannot redeclare ${symbolKind} "${symbolName}"`, location);
         this.name = "RedeclarationError";
         this.symbolName = symbolName;
+        this.symbolKind = symbolKind;
       }
     };
     exports2.RedeclarationError = RedeclarationError;
@@ -24644,9 +24674,9 @@ var require_RuntimeExceptions = __commonJS({
   }
 });
 
-// dist/src/models/AstigType.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/models/AstigType.js
 var require_AstigType = __commonJS({
-  "dist/src/models/AstigType.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/models/AstigType.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.AstigType = void 0;
@@ -24665,13 +24695,12 @@ var require_AstigType = __commonJS({
   }
 });
 
-// dist/src/classes/RuntimeEnvironment.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/RuntimeEnvironment.js
 var require_RuntimeEnvironment = __commonJS({
-  "dist/src/classes/RuntimeEnvironment.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/RuntimeEnvironment.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.RuntimeEnvironment = void 0;
-    var RuntimeError_12 = require_RuntimeError();
     var RuntimeExceptions_1 = require_RuntimeExceptions();
     var AstigType_1 = require_AstigType();
     var RuntimeEnvironment = class _RuntimeEnvironment {
@@ -24693,6 +24722,17 @@ var require_RuntimeEnvironment = __commonJS({
         }
         this.bindings.set(name, { kind, value, isInitialized: true, resolvedType });
       }
+      declareUninitialized(kind, name, resolvedType) {
+        if (this.bindings.has(name)) {
+          throw new RuntimeExceptions_1.RedeclarationError(name);
+        }
+        this.bindings.set(name, {
+          kind,
+          value: defaultPlaceholderValue(resolvedType),
+          isInitialized: false,
+          resolvedType
+        });
+      }
       assign(name, value) {
         const environment = this.findEnvironmentWithBinding(name);
         if (!environment) {
@@ -24712,25 +24752,25 @@ var require_RuntimeEnvironment = __commonJS({
         return this.getBinding(name).value;
       }
       getVariableKind(name) {
-        return this.getBinding(name).kind;
+        return this.getBinding(name, false).kind;
       }
       getResolvedType(name) {
-        return this.getBinding(name).resolvedType;
+        return this.getBinding(name, false).resolvedType;
       }
-      getBinding(name) {
+      getBinding(name, requireInitialized = true) {
         const environment = this.findEnvironmentWithBinding(name);
         const binding = environment?.bindings.get(name);
         if (!binding) {
           throw new RuntimeExceptions_1.UndefinedVariableError(name);
         }
-        if (!binding.isInitialized) {
+        if (requireInitialized && !binding.isInitialized) {
           throw new RuntimeExceptions_1.UninitializedVariableError(name);
         }
         return binding;
       }
       declareFunction(functionNode) {
         if (this.functions.has(functionNode.name)) {
-          throw new RuntimeError_12.RuntimeError(`Runtime Error: Cannot redeclare function "${functionNode.name}"`);
+          throw new RuntimeExceptions_1.RedeclarationError(functionNode.name, "function");
         }
         this.functions.set(functionNode.name, functionNode);
       }
@@ -24743,13 +24783,7 @@ var require_RuntimeEnvironment = __commonJS({
         return functionNode;
       }
       lookup(name) {
-        if (this.bindings.has(name)) {
-          return this.bindings.get(name).value;
-        }
-        if (this.parent) {
-          return this.parent.lookup(name);
-        }
-        throw new RuntimeExceptions_1.UndefinedVariableError(name);
+        return this.get(name);
       }
       findEnvironmentWithBinding(name) {
         if (this.bindings.has(name)) {
@@ -24765,12 +24799,32 @@ var require_RuntimeEnvironment = __commonJS({
       }
     };
     exports2.RuntimeEnvironment = RuntimeEnvironment;
+    function defaultPlaceholderValue(resolvedType) {
+      if (resolvedType.kind === "array") {
+        return [];
+      }
+      if (resolvedType.kind === "record") {
+        return { recordTypeName: resolvedType.name, fields: /* @__PURE__ */ new Map() };
+      }
+      switch (resolvedType.type) {
+        case AstigType_1.AstigType.String:
+        case AstigType_1.AstigType.Char:
+          return "";
+        case AstigType_1.AstigType.Boolean:
+          return false;
+        case AstigType_1.AstigType.Float:
+        case AstigType_1.AstigType.Int:
+          return 0;
+        default:
+          return 0;
+      }
+    }
   }
 });
 
-// dist/src/models/RuntimeValue.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/models/RuntimeValue.js
 var require_RuntimeValue = __commonJS({
-  "dist/src/models/RuntimeValue.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/models/RuntimeValue.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.isRecordRuntimeValue = isRecordRuntimeValue;
@@ -24780,9 +24834,9 @@ var require_RuntimeValue = __commonJS({
   }
 });
 
-// dist/src/utils/astigTypeUtils.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/utils/astigTypeUtils.js
 var require_astigTypeUtils = __commonJS({
-  "dist/src/utils/astigTypeUtils.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/utils/astigTypeUtils.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.parseDeclaredType = parseDeclaredType;
@@ -24924,9 +24978,9 @@ var require_astigTypeUtils = __commonJS({
   }
 });
 
-// dist/src/utils/isTruthy.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/utils/isTruthy.js
 var require_isTruthy = __commonJS({
-  "dist/src/utils/isTruthy.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/utils/isTruthy.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.isTruthy = void 0;
@@ -24946,9 +25000,9 @@ var require_isTruthy = __commonJS({
   }
 });
 
-// dist/src/utils/moduleScope.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/utils/moduleScope.js
 var require_moduleScope = __commonJS({
-  "dist/src/utils/moduleScope.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/utils/moduleScope.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.tagModuleFunctions = tagModuleFunctions;
@@ -24991,9 +25045,9 @@ var require_moduleScope = __commonJS({
   }
 });
 
-// dist/src/utils/recordRuntimeUtils.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/utils/recordRuntimeUtils.js
 var require_recordRuntimeUtils = __commonJS({
-  "dist/src/utils/recordRuntimeUtils.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/utils/recordRuntimeUtils.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.getRecordFieldValue = getRecordFieldValue;
@@ -25031,9 +25085,9 @@ var require_recordRuntimeUtils = __commonJS({
   }
 });
 
-// dist/src/utils/scanUtils.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/utils/scanUtils.js
 var require_scanUtils = __commonJS({
-  "dist/src/utils/scanUtils.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/utils/scanUtils.js"(exports2) {
     "use strict";
     var __importDefault = exports2 && exports2.__importDefault || function(mod) {
       return mod && mod.__esModule ? mod : { "default": mod };
@@ -25044,7 +25098,7 @@ var require_scanUtils = __commonJS({
     exports2.isScannableType = isScannableType;
     exports2.coerceScanInput = coerceScanInput;
     var AstigType_1 = require_AstigType();
-    var fs_12 = __importDefault(require("fs"));
+    var fs_1 = __importDefault(require("fs"));
     var RuntimeExceptions_1 = require_RuntimeExceptions();
     var astigTypeUtils_1 = require_astigTypeUtils();
     var stdinBuffer = "";
@@ -25057,7 +25111,7 @@ var require_scanUtils = __commonJS({
           return line;
         }
         const buffer = Buffer.alloc(256);
-        const bytesRead = fs_12.default.readSync(0, buffer, 0, buffer.length, null);
+        const bytesRead = fs_1.default.readSync(0, buffer, 0, buffer.length, null);
         if (bytesRead <= 0) {
           const remaining = stdinBuffer;
           stdinBuffer = "";
@@ -25116,9 +25170,255 @@ var require_scanUtils = __commonJS({
   }
 });
 
-// dist/src/interpreter.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/utils/diagnostics.js
+var require_diagnostics = __commonJS({
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/utils/diagnostics.js"(exports2) {
+    "use strict";
+    Object.defineProperty(exports2, "__esModule", { value: true });
+    exports2.humanizeAntlrMessage = humanizeAntlrMessage;
+    exports2.getSourceLine = getSourceLine;
+    exports2.formatDiagnostic = formatDiagnostic;
+    exports2.formatRecoveryFooter = formatRecoveryFooter;
+    exports2.formatDiagnosticReport = formatDiagnosticReport;
+    exports2.getErrorSourceLocation = getErrorSourceLocation;
+    exports2.diagnosticFromError = diagnosticFromError;
+    exports2.reportDiagnostics = reportDiagnostics;
+    var TOP_LEVEL_RULE_HINT = "At the top level, only includes, record declarations, functions, and main are allowed. Move statements like print, scan, and assignments inside mHA1Ns() or another function.";
+    var EXPECTING_KEYWORD_MAP = {
+      INCLUDE_KW: "include (iHNcHLuHD3s)",
+      FUNCTION_KW: "function (fHUncTH!0Ns)",
+      RECORD_KW: "record (rH3cH0rHDz)",
+      EXPORT_KW: "export (eHXpH0RTz)",
+      CONST_KW: "const (c0hNsTz)",
+      VAR_KW: "var (vH4rs)",
+      LET_KW: "let (lH3tsz)",
+      PRINT_KW: "print (pHR!HNTs)",
+      SCAN_KW: "scan (scH4nz)",
+      IF_KW: "if (!HFs)",
+      WHILE_KW: "while (wH1lEs)",
+      RETURN_KW: "return (rH3tHUrns)",
+      EOF: "end of file"
+    };
+    function extractQuotedToken(message) {
+      const match = message.match(/'([^']*)'/);
+      return match?.[1];
+    }
+    function extractExpectingList(message) {
+      const match = message.match(/expecting \{([^}]+)\}/);
+      return match?.[1];
+    }
+    function humanizeExpectingList(expectingList) {
+      const tokens = expectingList.split(",").map((token) => token.trim());
+      const labels = tokens.map((token) => EXPECTING_KEYWORD_MAP[token] ?? token);
+      return labels.join(", ");
+    }
+    function hintForOffendingToken(token, rawMessage) {
+      if (/^[a-z][a-z]+$/.test(token) && !token.includes("H")) {
+        return `"${token}" looks like plain English. AstigLang identifiers and keywords must use jejemon spellings (for example nH4mH3s, pHR!HNTs, fHUncTH!0Ns).`;
+      }
+      if (token === "&&" || token === "||" || token === "!") {
+        return `The operator "${token}" is not valid AstigLang syntax. Use jejemon logical operators instead (nH0ts for NOT, aHNdz for AND, 0hrS for OR).`;
+      }
+      if (rawMessage.includes("token recognition error")) {
+        return "The lexer could not recognize this text as a valid token. Check jejemon spelling, string quotes, and punctuation.";
+      }
+      if (rawMessage.includes("no viable alternative")) {
+        return "This token cannot start a valid statement here. Function calls must appear inside print, scan, assignment, or another expression \u2014 not alone as a statement.";
+      }
+      return void 0;
+    }
+    function humanizeAntlrMessage(rawMessage) {
+      const offendingToken = extractQuotedToken(rawMessage);
+      const tokenHint = offendingToken ? hintForOffendingToken(offendingToken, rawMessage) : void 0;
+      if (rawMessage.includes("token recognition error")) {
+        const invalid = offendingToken ?? "invalid characters";
+        return {
+          message: `Unrecognized input: "${invalid}"`,
+          hint: tokenHint ?? "Use valid AstigLang tokens (jejemon keywords/identifiers, numbers, strings, operators)."
+        };
+      }
+      if (rawMessage.startsWith("mismatched input")) {
+        const expectingList = extractExpectingList(rawMessage);
+        const expectingText = expectingList ? humanizeExpectingList(expectingList) : "something else";
+        let message = `Unexpected "${offendingToken ?? "token"}". Expected ${expectingText}.`;
+        let hint = tokenHint;
+        if (expectingList && (expectingList.includes("INCLUDE_KW") || expectingList.includes("FUNCTION_KW") || expectingList.includes("RECORD_KW"))) {
+          hint = hint ?? TOP_LEVEL_RULE_HINT;
+        }
+        if (offendingToken === "=" && expectingList?.includes(":")) {
+          hint = "Variable declarations require a type annotation before = (for example vH4rs xH1s:iHNtSZ = 1).";
+          message = "Missing type annotation before assignment.";
+        }
+        return { message, hint };
+      }
+      if (rawMessage.startsWith("extraneous input")) {
+        const expectingList = extractExpectingList(rawMessage);
+        return {
+          message: `Unexpected extra token "${offendingToken ?? "token"}".`,
+          hint: tokenHint ?? (expectingList ? `Expected ${humanizeExpectingList(expectingList)}.` : "Remove or relocate this token.")
+        };
+      }
+      if (rawMessage.startsWith("no viable alternative")) {
+        return {
+          message: `Invalid syntax near "${offendingToken ?? "this token"}".`,
+          hint: tokenHint ?? "Check statement structure: bare function calls, missing types, or misplaced punctuation are common causes."
+        };
+      }
+      if (rawMessage.startsWith("missing")) {
+        return {
+          message: rawMessage.replace(/^missing /, "Missing "),
+          hint: tokenHint
+        };
+      }
+      return {
+        message: rawMessage,
+        hint: tokenHint
+      };
+    }
+    function getSourceLine(source, line) {
+      const lines = source.split("\n");
+      return lines[line - 1];
+    }
+    function formatDiagnostic(diagnostic, source) {
+      const location = `${diagnostic.filename}:${diagnostic.line}:${diagnostic.column}`;
+      const phaseLabel = diagnostic.phase === "lex" ? "Lexical error" : diagnostic.phase === "parse" ? "Syntax error" : diagnostic.phase === "type" ? "Type error" : diagnostic.phase === "runtime" ? "Runtime error" : "Include error";
+      const lines = [`${phaseLabel} at ${location}`, `  ${diagnostic.message}`];
+      if (source) {
+        const sourceLine = getSourceLine(source, diagnostic.line);
+        if (sourceLine !== void 0) {
+          lines.push(`  | ${sourceLine}`);
+          const caretPadding = "  | " + " ".repeat(Math.max(0, diagnostic.column - 1));
+          lines.push(`${caretPadding}^`);
+        }
+      }
+      if (diagnostic.hint) {
+        lines.push(`  hint: ${diagnostic.hint}`);
+      }
+      return lines.join("\n");
+    }
+    function formatRecoveryFooter(phase) {
+      if (phase === "lex") {
+        return "Note: Lexer skipped invalid input and continued scanning (error recovery).";
+      }
+      if (phase === "parse") {
+        return "Note: Parser used ANTLR error recovery and continued after syntax errors.";
+      }
+      if (phase === "runtime") {
+        return "Note: Interpreter continued after errors and reported all issues found (error recovery).";
+      }
+      return "Note: Type checker continued after errors and reported all issues found (error recovery).";
+    }
+    function formatDiagnosticReport(diagnostics, source, options) {
+      if (diagnostics.length === 0) {
+        return "Unknown error.";
+      }
+      const header = diagnostics.length === 1 ? "1 error found:" : `${diagnostics.length} errors found:`;
+      const lines = [
+        header,
+        "",
+        ...diagnostics.map((diagnostic) => formatDiagnostic(diagnostic, source))
+      ];
+      if (options?.showRecoveryNote && diagnostics.length > 0) {
+        const phases = new Set(diagnostics.map((diagnostic) => diagnostic.phase));
+        if (phases.has("lex")) {
+          lines.push("", formatRecoveryFooter("lex"));
+        }
+        if (phases.has("parse")) {
+          lines.push("", formatRecoveryFooter("parse"));
+        }
+        if (phases.has("type")) {
+          lines.push("", formatRecoveryFooter("type"));
+        }
+        if (phases.has("runtime")) {
+          lines.push("", formatRecoveryFooter("runtime"));
+        }
+      }
+      return lines.join("\n\n");
+    }
+    function getErrorSourceLocation(error) {
+      if (!("location" in error)) {
+        return void 0;
+      }
+      const location = error.location;
+      if (location && typeof location.line === "number" && typeof location.column === "number") {
+        return location;
+      }
+      return void 0;
+    }
+    function diagnosticFromError(error, phase, filename, location) {
+      const resolvedLocation = location ?? getErrorSourceLocation(error);
+      return {
+        phase,
+        filename,
+        line: resolvedLocation?.line ?? 1,
+        column: resolvedLocation?.column ?? 1,
+        message: error.message,
+        hint: phase === "runtime" && error.name !== "Error" ? `Exception: ${error.name}` : void 0
+      };
+    }
+    function reportDiagnostics(diagnostics, source, options) {
+      console.error(formatDiagnosticReport(diagnostics, source, options));
+    }
+  }
+});
+
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/utils/runtimeRecovery.js
+var require_runtimeRecovery = __commonJS({
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/utils/runtimeRecovery.js"(exports2) {
+    "use strict";
+    Object.defineProperty(exports2, "__esModule", { value: true });
+    exports2.isRecoverableRuntimeError = isRecoverableRuntimeError;
+    exports2.recordRecoverableRuntimeError = recordRecoverableRuntimeError;
+    exports2.runWithRuntimeRecovery = runWithRuntimeRecovery;
+    var BreakException_1 = require_BreakException();
+    var ContinueException_1 = require_ContinueException();
+    var ReturnException_1 = require_ReturnException();
+    var RuntimeError_12 = require_RuntimeError();
+    var RuntimeExceptions_1 = require_RuntimeExceptions();
+    var diagnostics_12 = require_diagnostics();
+    function isControlFlowException(error) {
+      return error instanceof BreakException_1.BreakException || error instanceof ContinueException_1.ContinueException || error instanceof ReturnException_1.ReturnException;
+    }
+    function isRecoverableRuntimeError(error) {
+      if (isControlFlowException(error)) {
+        return false;
+      }
+      if (error instanceof RuntimeError_12.RuntimeError) {
+        return true;
+      }
+      if (error instanceof Error) {
+        return true;
+      }
+      return false;
+    }
+    function recordRecoverableRuntimeError(session, error, location) {
+      const runtimeError = error instanceof RuntimeError_12.RuntimeError ? error : (0, RuntimeExceptions_1.toRuntimeError)(error, location);
+      const resolvedLocation = location ?? (0, diagnostics_12.getErrorSourceLocation)(runtimeError) ?? runtimeError.location;
+      session.diagnostics.push((0, diagnostics_12.diagnosticFromError)(runtimeError, "runtime", session.filename, resolvedLocation));
+    }
+    function runWithRuntimeRecovery(session, action, location) {
+      if (!session) {
+        action();
+        return;
+      }
+      try {
+        action();
+      } catch (error) {
+        if (isControlFlowException(error)) {
+          throw error;
+        }
+        if (!isRecoverableRuntimeError(error)) {
+          throw error;
+        }
+        recordRecoverableRuntimeError(session, error, location);
+      }
+    }
+  }
+});
+
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/interpreter.js
 var require_interpreter = __commonJS({
-  "dist/src/interpreter.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/interpreter.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.runProgram = runProgram;
@@ -25127,6 +25427,7 @@ var require_interpreter = __commonJS({
     var RecordRegistry_1 = require_RecordRegistry();
     var ReturnException_1 = require_ReturnException();
     var RuntimeEnvironment_1 = require_RuntimeEnvironment();
+    var RuntimeErrors_12 = require_RuntimeErrors();
     var RuntimeExceptions_1 = require_RuntimeExceptions();
     var RuntimeError_12 = require_RuntimeError();
     var AstigType_1 = require_AstigType();
@@ -25138,6 +25439,7 @@ var require_interpreter = __commonJS({
     var moduleScope_1 = require_moduleScope();
     var recordRuntimeUtils_1 = require_recordRuntimeUtils();
     var scanUtils_1 = require_scanUtils();
+    var runtimeRecovery_1 = require_runtimeRecovery();
     function raiseArrayBoundsError(message, location) {
       throw new RuntimeExceptions_1.ArrayBoundsError(message, location);
     }
@@ -25157,11 +25459,20 @@ var require_interpreter = __commonJS({
         throw error;
       }
     }
+    function formatValueForPrint(value) {
+      if ((0, RuntimeValue_1.isRecordRuntimeValue)(value)) {
+        throw new Error(`Cannot print record value of type "${value.recordTypeName}" directly`);
+      }
+      if (Array.isArray(value)) {
+        return `[${value.map((element) => formatValueForPrint(element)).join(", ")}]`;
+      }
+      return String(value);
+    }
     function executePrintStatement(statement, context) {
       const location = statement.location;
       try {
         const value = evaluateExpression(statement.value, context);
-        context.output.push(String(value));
+        context.output.push(formatValueForPrint(value));
       } catch (error) {
         if (error instanceof RuntimeError_12.RuntimeError) {
           throw error;
@@ -25193,7 +25504,8 @@ var require_interpreter = __commonJS({
         throw new RuntimeExceptions_1.ScanError(message, location);
       }
     }
-    function runProgram(program) {
+    function runProgram(program, filename = "<input>", recover = true) {
+      const recovery = recover ? { filename, diagnostics: [] } : void 0;
       const recordRegistry = (0, RecordRegistry_1.buildRecordRegistry)(program.recordDeclarations);
       const environment = new RuntimeEnvironment_1.RuntimeEnvironment(void 0, true);
       const output = [];
@@ -25202,10 +25514,11 @@ var require_interpreter = __commonJS({
         recordRegistry,
         output,
         moduleFunctions: program.moduleFunctions,
-        insideFunction: false
+        insideFunction: false,
+        recovery
       };
       for (const functionNode of program.functions) {
-        environment.declareFunction(functionNode);
+        (0, runtimeRecovery_1.runWithRuntimeRecovery)(recovery, () => environment.declareFunction(functionNode), functionNode.location);
       }
       if (!program.mainFunction) {
         throw new Error("Entry program file must define function main()");
@@ -25215,6 +25528,9 @@ var require_interpreter = __commonJS({
         ...context,
         environment: mainEnvironment
       });
+      if (recovery && recovery.diagnostics.length > 0) {
+        throw new RuntimeErrors_12.RuntimeErrors(recovery.diagnostics);
+      }
       return output;
     }
     function executeStatement(statement, context) {
@@ -25232,7 +25548,14 @@ var require_interpreter = __commonJS({
       };
       switch (statement.type) {
         case StatementNode_1.StatementNodeType.VariableDeclaration:
-          runSafely(() => environment.declare(statement.declarationKind, statement.name, evaluateExpression(statement.value, context), (0, astigTypeUtils_1.resolveVariableDeclarationType)(statement, context.recordRegistry)));
+          runSafely(() => {
+            const resolvedType = (0, astigTypeUtils_1.resolveVariableDeclarationType)(statement, context.recordRegistry);
+            if (statement.value) {
+              environment.declare(statement.declarationKind, statement.name, evaluateExpression(statement.value, context), resolvedType);
+              return;
+            }
+            environment.declareUninitialized(statement.declarationKind, statement.name, resolvedType);
+          });
           return;
         case StatementNode_1.StatementNodeType.Assignment:
           executeAssignment(statement, context, location);
@@ -25437,7 +25760,7 @@ var require_interpreter = __commonJS({
         environment: blockEnvironment
       };
       for (const statement of statements) {
-        executeStatement(statement, blockContext);
+        (0, runtimeRecovery_1.runWithRuntimeRecovery)(context.recovery, () => executeStatement(statement, blockContext), statement.location);
       }
     }
     function evaluateExpression(expression, context) {
@@ -25481,7 +25804,8 @@ var require_interpreter = __commonJS({
         case ExpressionNode_1.ExpressionNodeType.BinaryExpression: {
           const left = evaluateExpression(expression.left, context);
           const right = evaluateExpression(expression.right, context);
-          switch (expression.operator) {
+          const operator = expression.operator;
+          switch (operator) {
             case "+":
               if (typeof left === "string" || typeof right === "string") {
                 return String(left) + String(right);
@@ -25512,7 +25836,7 @@ var require_interpreter = __commonJS({
             case "OR":
               return left || right;
             default:
-              throw new Error("Unsupported binary operator");
+              raiseInvalidOperation(`Unsupported binary operator "${operator}"`);
           }
         }
         case ExpressionNode_1.ExpressionNodeType.UnaryExpression: {
@@ -25522,7 +25846,7 @@ var require_interpreter = __commonJS({
           } else if (typeof value === "boolean") {
             return !value;
           }
-          throw new Error("Invalid unary expression.");
+          raiseInvalidOperation("Invalid unary expression.");
         }
         case ExpressionNode_1.ExpressionNodeType.FunctionCall:
           return executeFunctionCall(expression.name, expression.arguments, context);
@@ -25595,25 +25919,25 @@ var require_interpreter = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/ANTLRErrorListener.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/ANTLRErrorListener.js
 var require_ANTLRErrorListener = __commonJS({
-  "node_modules/antlr4ts/ANTLRErrorListener.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/ANTLRErrorListener.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
   }
 });
 
-// node_modules/antlr4ts/ANTLRErrorStrategy.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/ANTLRErrorStrategy.js
 var require_ANTLRErrorStrategy = __commonJS({
-  "node_modules/antlr4ts/ANTLRErrorStrategy.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/ANTLRErrorStrategy.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
   }
 });
 
-// node_modules/antlr4ts/ANTLRInputStream.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/ANTLRInputStream.js
 var require_ANTLRInputStream = __commonJS({
-  "node_modules/antlr4ts/ANTLRInputStream.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/ANTLRInputStream.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -25752,17 +26076,17 @@ var require_ANTLRInputStream = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/CharStream.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/CharStream.js
 var require_CharStream = __commonJS({
-  "node_modules/antlr4ts/CharStream.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/CharStream.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
   }
 });
 
-// node_modules/antlr4ts/Dependents.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/Dependents.js
 var require_Dependents = __commonJS({
-  "node_modules/antlr4ts/Dependents.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/Dependents.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.Dependents = void 0;
@@ -25782,9 +26106,9 @@ var require_Dependents = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/DiagnosticErrorListener.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/DiagnosticErrorListener.js
 var require_DiagnosticErrorListener = __commonJS({
-  "node_modules/antlr4ts/DiagnosticErrorListener.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/DiagnosticErrorListener.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -25908,9 +26232,9 @@ var require_DiagnosticErrorListener = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/LexerInterpreter.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/LexerInterpreter.js
 var require_LexerInterpreter = __commonJS({
-  "node_modules/antlr4ts/LexerInterpreter.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/LexerInterpreter.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -25990,17 +26314,17 @@ var require_LexerInterpreter = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/ParserErrorListener.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/ParserErrorListener.js
 var require_ParserErrorListener = __commonJS({
-  "node_modules/antlr4ts/ParserErrorListener.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/ParserErrorListener.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
   }
 });
 
-// node_modules/antlr4ts/RuleContextWithAltNum.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/RuleContextWithAltNum.js
 var require_RuleContextWithAltNum = __commonJS({
-  "node_modules/antlr4ts/RuleContextWithAltNum.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/RuleContextWithAltNum.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -26037,9 +26361,9 @@ var require_RuleContextWithAltNum = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/RuleDependency.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/RuleDependency.js
 var require_RuleDependency = __commonJS({
-  "node_modules/antlr4ts/RuleDependency.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/RuleDependency.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.RuleDependency = void 0;
@@ -26051,9 +26375,9 @@ var require_RuleDependency = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/RuleVersion.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/RuleVersion.js
 var require_RuleVersion = __commonJS({
-  "node_modules/antlr4ts/RuleVersion.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/RuleVersion.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.RuleVersion = void 0;
@@ -26065,33 +26389,33 @@ var require_RuleVersion = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/TokenFactory.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/TokenFactory.js
 var require_TokenFactory = __commonJS({
-  "node_modules/antlr4ts/TokenFactory.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/TokenFactory.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
   }
 });
 
-// node_modules/antlr4ts/TokenSource.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/TokenSource.js
 var require_TokenSource = __commonJS({
-  "node_modules/antlr4ts/TokenSource.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/TokenSource.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
   }
 });
 
-// node_modules/antlr4ts/TokenStream.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/TokenStream.js
 var require_TokenStream = __commonJS({
-  "node_modules/antlr4ts/TokenStream.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/TokenStream.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
   }
 });
 
-// node_modules/antlr4ts/TokenStreamRewriter.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/TokenStreamRewriter.js
 var require_TokenStreamRewriter = __commonJS({
-  "node_modules/antlr4ts/TokenStreamRewriter.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/TokenStreamRewriter.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -26475,25 +26799,25 @@ var require_TokenStreamRewriter = __commonJS({
   }
 });
 
-// node_modules/antlr4ts/Vocabulary.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/Vocabulary.js
 var require_Vocabulary = __commonJS({
-  "node_modules/antlr4ts/Vocabulary.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/Vocabulary.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
   }
 });
 
-// node_modules/antlr4ts/WritableToken.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/WritableToken.js
 var require_WritableToken = __commonJS({
-  "node_modules/antlr4ts/WritableToken.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/WritableToken.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
   }
 });
 
-// node_modules/antlr4ts/index.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/index.js
 var require_antlr4ts = __commonJS({
-  "node_modules/antlr4ts/index.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/index.js"(exports2) {
     "use strict";
     var __createBinding = exports2 && exports2.__createBinding || (Object.create ? (function(o, m, k, k2) {
       if (k2 === void 0) k2 = k;
@@ -26556,9 +26880,9 @@ var require_antlr4ts = __commonJS({
   }
 });
 
-// dist/generated/grammar/AstigLangLexer.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/generated/grammar/AstigLangLexer.js
 var require_AstigLangLexer = __commonJS({
-  "dist/generated/grammar/AstigLangLexer.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/generated/grammar/AstigLangLexer.js"(exports2) {
     "use strict";
     var __createBinding = exports2 && exports2.__createBinding || (Object.create ? (function(o, m, k, k2) {
       if (k2 === void 0) k2 = k;
@@ -27116,189 +27440,9 @@ GHHIIJJKKLLMMNNOOPPQQRRSSTTUUVVWWXXYYZZ[
   }
 });
 
-// dist/src/utils/diagnostics.js
-var require_diagnostics = __commonJS({
-  "dist/src/utils/diagnostics.js"(exports2) {
-    "use strict";
-    Object.defineProperty(exports2, "__esModule", { value: true });
-    exports2.humanizeAntlrMessage = humanizeAntlrMessage;
-    exports2.getSourceLine = getSourceLine;
-    exports2.formatDiagnostic = formatDiagnostic;
-    exports2.formatRecoveryFooter = formatRecoveryFooter;
-    exports2.formatDiagnosticReport = formatDiagnosticReport;
-    exports2.getErrorSourceLocation = getErrorSourceLocation;
-    exports2.diagnosticFromError = diagnosticFromError;
-    exports2.reportDiagnostics = reportDiagnostics;
-    var TOP_LEVEL_RULE_HINT = "At the top level, only includes, record declarations, functions, and main are allowed. Move statements like print, scan, and assignments inside mHA1Ns() or another function.";
-    var EXPECTING_KEYWORD_MAP = {
-      INCLUDE_KW: "include (iHNcHLuHD3s)",
-      FUNCTION_KW: "function (fHUncTH!0Ns)",
-      RECORD_KW: "record (rH3cH0rHDz)",
-      EXPORT_KW: "export (eHXpH0RTz)",
-      CONST_KW: "const (c0hNsTz)",
-      VAR_KW: "var (vH4rs)",
-      LET_KW: "let (lH3tsz)",
-      PRINT_KW: "print (pHR!HNTs)",
-      SCAN_KW: "scan (scH4nz)",
-      IF_KW: "if (!HFs)",
-      WHILE_KW: "while (wH1lEs)",
-      RETURN_KW: "return (rH3tHUrns)",
-      EOF: "end of file"
-    };
-    function extractQuotedToken(message) {
-      const match = message.match(/'([^']*)'/);
-      return match?.[1];
-    }
-    function extractExpectingList(message) {
-      const match = message.match(/expecting \{([^}]+)\}/);
-      return match?.[1];
-    }
-    function humanizeExpectingList(expectingList) {
-      const tokens = expectingList.split(",").map((token) => token.trim());
-      const labels = tokens.map((token) => EXPECTING_KEYWORD_MAP[token] ?? token);
-      return labels.join(", ");
-    }
-    function hintForOffendingToken(token, rawMessage) {
-      if (/^[a-z][a-z]+$/.test(token) && !token.includes("H")) {
-        return `"${token}" looks like plain English. AstigLang identifiers and keywords must use jejemon spellings (for example nH4mH3s, pHR!HNTs, fHUncTH!0Ns).`;
-      }
-      if (token === "&&" || token === "||" || token === "!") {
-        return `The operator "${token}" is not valid AstigLang syntax. Use jejemon logical operators instead (nH0ts for NOT, aHNdz for AND, 0hrS for OR).`;
-      }
-      if (rawMessage.includes("token recognition error")) {
-        return "The lexer could not recognize this text as a valid token. Check jejemon spelling, string quotes, and punctuation.";
-      }
-      if (rawMessage.includes("no viable alternative")) {
-        return "This token cannot start a valid statement here. Function calls must appear inside print, scan, assignment, or another expression \u2014 not alone as a statement.";
-      }
-      return void 0;
-    }
-    function humanizeAntlrMessage(rawMessage) {
-      const offendingToken = extractQuotedToken(rawMessage);
-      const tokenHint = offendingToken ? hintForOffendingToken(offendingToken, rawMessage) : void 0;
-      if (rawMessage.includes("token recognition error")) {
-        const invalid = offendingToken ?? "invalid characters";
-        return {
-          message: `Unrecognized input: "${invalid}"`,
-          hint: tokenHint ?? "Use valid AstigLang tokens (jejemon keywords/identifiers, numbers, strings, operators)."
-        };
-      }
-      if (rawMessage.startsWith("mismatched input")) {
-        const expectingList = extractExpectingList(rawMessage);
-        const expectingText = expectingList ? humanizeExpectingList(expectingList) : "something else";
-        let message = `Unexpected "${offendingToken ?? "token"}". Expected ${expectingText}.`;
-        let hint = tokenHint;
-        if (expectingList && (expectingList.includes("INCLUDE_KW") || expectingList.includes("FUNCTION_KW") || expectingList.includes("RECORD_KW"))) {
-          hint = hint ?? TOP_LEVEL_RULE_HINT;
-        }
-        if (offendingToken === "=" && expectingList?.includes(":")) {
-          hint = "Variable declarations require a type annotation before = (for example vH4rs xH1s:iHNtSZ = 1).";
-          message = "Missing type annotation before assignment.";
-        }
-        return { message, hint };
-      }
-      if (rawMessage.startsWith("extraneous input")) {
-        const expectingList = extractExpectingList(rawMessage);
-        return {
-          message: `Unexpected extra token "${offendingToken ?? "token"}".`,
-          hint: tokenHint ?? (expectingList ? `Expected ${humanizeExpectingList(expectingList)}.` : "Remove or relocate this token.")
-        };
-      }
-      if (rawMessage.startsWith("no viable alternative")) {
-        return {
-          message: `Invalid syntax near "${offendingToken ?? "this token"}".`,
-          hint: tokenHint ?? "Check statement structure: bare function calls, missing types, or misplaced punctuation are common causes."
-        };
-      }
-      if (rawMessage.startsWith("missing")) {
-        return {
-          message: rawMessage.replace(/^missing /, "Missing "),
-          hint: tokenHint
-        };
-      }
-      return {
-        message: rawMessage,
-        hint: tokenHint
-      };
-    }
-    function getSourceLine(source, line) {
-      const lines = source.split("\n");
-      return lines[line - 1];
-    }
-    function formatDiagnostic(diagnostic, source) {
-      const location = `${diagnostic.filename}:${diagnostic.line}:${diagnostic.column}`;
-      const phaseLabel = diagnostic.phase === "lex" ? "Lexical error" : diagnostic.phase === "parse" ? "Syntax error" : diagnostic.phase === "type" ? "Type error" : diagnostic.phase === "runtime" ? "Runtime error" : "Include error";
-      const lines = [`${phaseLabel} at ${location}`, `  ${diagnostic.message}`];
-      if (source) {
-        const sourceLine = getSourceLine(source, diagnostic.line);
-        if (sourceLine !== void 0) {
-          lines.push(`  | ${sourceLine}`);
-          const caretPadding = "  | " + " ".repeat(Math.max(0, diagnostic.column - 1));
-          lines.push(`${caretPadding}^`);
-        }
-      }
-      if (diagnostic.hint) {
-        lines.push(`  hint: ${diagnostic.hint}`);
-      }
-      return lines.join("\n");
-    }
-    function formatRecoveryFooter(phase) {
-      if (phase === "lex") {
-        return "Note: Lexer skipped invalid input and continued scanning (error recovery).";
-      }
-      if (phase === "parse") {
-        return "Note: Parser used ANTLR error recovery and continued after syntax errors.";
-      }
-      return "Note: Type checker continued after errors and reported all issues found (error recovery).";
-    }
-    function formatDiagnosticReport(diagnostics, source, options) {
-      if (diagnostics.length === 0) {
-        return "Unknown error.";
-      }
-      const header = diagnostics.length === 1 ? "1 error found:" : `${diagnostics.length} errors found:`;
-      const lines = [
-        header,
-        "",
-        ...diagnostics.map((diagnostic) => formatDiagnostic(diagnostic, source))
-      ];
-      if (options?.showRecoveryNote && diagnostics.length > 0) {
-        const phase = diagnostics[0].phase;
-        if (phase === "lex" || phase === "parse" || phase === "type") {
-          lines.push("", formatRecoveryFooter(phase));
-        }
-      }
-      return lines.join("\n\n");
-    }
-    function getErrorSourceLocation(error) {
-      if (!("location" in error)) {
-        return void 0;
-      }
-      const location = error.location;
-      if (location && typeof location.line === "number" && typeof location.column === "number") {
-        return location;
-      }
-      return void 0;
-    }
-    function diagnosticFromError(error, phase, filename, location) {
-      const resolvedLocation = location ?? getErrorSourceLocation(error);
-      return {
-        phase,
-        filename,
-        line: resolvedLocation?.line ?? 1,
-        column: resolvedLocation?.column ?? 1,
-        message: error.message,
-        hint: phase === "runtime" && error.name !== "Error" ? `Exception: ${error.name}` : void 0
-      };
-    }
-    function reportDiagnostics(diagnostics, source, options) {
-      console.error(formatDiagnosticReport(diagnostics, source, options));
-    }
-  }
-});
-
-// dist/src/utils/parseWithDiagnostics.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/utils/parseWithDiagnostics.js
 var require_parseWithDiagnostics = __commonJS({
-  "dist/src/utils/parseWithDiagnostics.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/utils/parseWithDiagnostics.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.parseSourceWithDiagnostics = parseSourceWithDiagnostics;
@@ -27350,16 +27494,16 @@ var require_parseWithDiagnostics = __commonJS({
   }
 });
 
-// dist/src/programLoader.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/programLoader.js
 var require_programLoader = __commonJS({
-  "dist/src/programLoader.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/programLoader.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.parseProgramSource = parseProgramSource;
     exports2.finalizeStandaloneProgram = finalizeStandaloneProgram;
     exports2.loadProgram = loadProgram;
-    var fs_12 = require("fs");
-    var path_12 = require("path");
+    var fs_1 = require("fs");
+    var path_1 = require("path");
     var ast_12 = require_ast();
     var ParseError_12 = require_ParseError();
     var moduleScope_1 = require_moduleScope();
@@ -27386,23 +27530,23 @@ var require_programLoader = __commonJS({
         entryModule: mainModule
       };
     }
-    function loadProgram(source, baseDirectory2, entryFilename) {
+    function loadProgram(source, baseDirectory, entryFilename) {
       const visitedFiles = /* @__PURE__ */ new Set();
       const program = parseAndBuildAst(source, entryFilename);
-      const mergedProgram = mergeIncludedModules(program, baseDirectory2, entryFilename, entryFilename, visitedFiles, true);
+      const mergedProgram = mergeIncludedModules(program, baseDirectory, entryFilename, entryFilename, visitedFiles, true);
       if (!mergedProgram.mainFunction) {
         throw new Error("Entry program file must define function main()");
       }
       return mergedProgram;
     }
-    function loadModule(source, baseDirectory2, filename, entryModule, visitedFiles) {
+    function loadModule(source, baseDirectory, filename, entryModule, visitedFiles) {
       const program = parseAndBuildAst(source, filename);
       if (program.mainFunction) {
         throw new Error(`Include file "${filename}" must not define main; only the entry program file may define main`);
       }
-      return mergeIncludedModules(program, baseDirectory2, filename, entryModule, visitedFiles, false);
+      return mergeIncludedModules(program, baseDirectory, filename, entryModule, visitedFiles, false);
     }
-    function mergeIncludedModules(program, baseDirectory2, currentModule, entryModule, visitedFiles, isEntryFile) {
+    function mergeIncludedModules(program, baseDirectory, currentModule, entryModule, visitedFiles, isEntryFile) {
       const currentModuleFunctions = (0, moduleScope_1.tagModuleFunctions)(program.functions, currentModule);
       const mergedIncludes = [...program.includes];
       const mergedRecords = [...program.recordDeclarations];
@@ -27412,16 +27556,16 @@ var require_programLoader = __commonJS({
       };
       const mergedMain = isEntryFile ? program.mainFunction : void 0;
       for (const includeNode of program.includes) {
-        const includePath = (0, path_12.resolve)(baseDirectory2, includeNode.filename);
+        const includePath = (0, path_1.resolve)(baseDirectory, includeNode.filename);
         if (visitedFiles.has(includePath)) {
           throw new Error(`Circular include detected for "${includeNode.filename}"`);
         }
-        if (!(0, fs_12.existsSync)(includePath)) {
+        if (!(0, fs_1.existsSync)(includePath)) {
           throw new Error(`Include file not found: "${includeNode.filename}"`);
         }
         visitedFiles.add(includePath);
-        const includedSource = (0, fs_12.readFileSync)(includePath, "utf8");
-        const includedModule = loadModule(includedSource, (0, path_12.dirname)(includePath), includeNode.filename, entryModule, visitedFiles);
+        const includedSource = (0, fs_1.readFileSync)(includePath, "utf8");
+        const includedModule = loadModule(includedSource, (0, path_1.dirname)(includePath), includeNode.filename, entryModule, visitedFiles);
         visitedFiles.delete(includePath);
         mergedIncludes.push(...includedModule.includes);
         mergedRecords.push(...includedModule.recordDeclarations);
@@ -27441,13 +27585,12 @@ var require_programLoader = __commonJS({
   }
 });
 
-// dist/src/classes/TypeEnvironment.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/TypeEnvironment.js
 var require_TypeEnvironment = __commonJS({
-  "dist/src/classes/TypeEnvironment.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/TypeEnvironment.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.TypeEnvironment = void 0;
-    var TypeCheckError_12 = require_TypeCheckError();
     var TypeEnvironment = class _TypeEnvironment {
       constructor(parent, isFunctionScope = false) {
         this.parent = parent;
@@ -27493,7 +27636,7 @@ var require_TypeEnvironment = __commonJS({
       }
       declareFunction(functionNode) {
         if (this.functions.has(functionNode.name)) {
-          throw new TypeCheckError_12.TypeCheckError(`Cannot redeclare function "${functionNode.name}"`);
+          return;
         }
         this.functions.set(functionNode.name, functionNode);
       }
@@ -27524,9 +27667,9 @@ var require_TypeEnvironment = __commonJS({
   }
 });
 
-// dist/src/utils/typeCheckRecovery.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/utils/typeCheckRecovery.js
 var require_typeCheckRecovery = __commonJS({
-  "dist/src/utils/typeCheckRecovery.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/utils/typeCheckRecovery.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.isRecoverableTypeError = isRecoverableTypeError;
@@ -27561,6 +27704,9 @@ var require_typeCheckRecovery = __commonJS({
     }
     function recordRecoverableTypeError(session, error, location) {
       const err = error instanceof Error ? error : new Error(String(error));
+      if (isRuntimeSemanticMessage(err.message)) {
+        return;
+      }
       const resolvedLocation = location ?? (0, diagnostics_12.getErrorSourceLocation)(err);
       session.diagnostics.push((0, diagnostics_12.diagnosticFromError)(err, "type", session.filename, resolvedLocation));
     }
@@ -27584,9 +27730,9 @@ var require_typeCheckRecovery = __commonJS({
   }
 });
 
-// dist/src/typeChecker.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/typeChecker.js
 var require_typeChecker = __commonJS({
-  "dist/src/typeChecker.js"(exports2) {
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/typeChecker.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.typeCheckProgram = typeCheckProgram;
@@ -27598,7 +27744,6 @@ var require_typeChecker = __commonJS({
     var AstigType_1 = require_AstigType();
     var StatementNode_1 = require_StatementNode();
     var astigTypeUtils_1 = require_astigTypeUtils();
-    var scanUtils_1 = require_scanUtils();
     var moduleScope_1 = require_moduleScope();
     var typeCheckRecovery_1 = require_typeCheckRecovery();
     function typeCheckProgram(program, filename = "<input>", recover = true) {
@@ -27606,7 +27751,9 @@ var require_typeChecker = __commonJS({
       const recordRegistry = (0, RecordRegistry_1.buildRecordRegistry)(program.recordDeclarations);
       const globalEnvironment = new TypeEnvironment_1.TypeEnvironment(void 0, true);
       for (const functionNode of program.functions) {
-        globalEnvironment.declareFunction(functionNode);
+        if (!globalEnvironment.hasFunction(functionNode.name)) {
+          globalEnvironment.declareFunction(functionNode);
+        }
       }
       for (const moduleFunctions of Object.values(program.moduleFunctions)) {
         for (const functionNode of moduleFunctions) {
@@ -27699,6 +27846,17 @@ var require_typeChecker = __commonJS({
       }
     }
     function checkVariableDeclaration(declaration, environment, recordRegistry, program) {
+      if (!declaration.value) {
+        if (declaration.declarationKind === "const") {
+          throw new TypeCheckError_12.TypeCheckError(`const variable "${declaration.name}" must be initialized`);
+        }
+        if (!declaration.declaredType) {
+          throw new TypeCheckError_12.TypeCheckError(`Variable "${declaration.name}" must have a type annotation when declared without an initializer`);
+        }
+        const variableType2 = (0, astigTypeUtils_1.resolveVariableDeclarationType)(declaration, recordRegistry);
+        environment.declareVariable(declaration.declarationKind, declaration.name, variableType2);
+        return;
+      }
       const valueType = checkExpression(declaration.value, environment, recordRegistry, program);
       if (valueType.kind === "array" && !declaration.isArray) {
         throw new Error(`Type error: Cannot assign an array to scalar variable "${declaration.name}". Did you forget '[]' in the type annotation?`);
@@ -27729,10 +27887,6 @@ var require_typeChecker = __commonJS({
     function checkScanStatement(statement, environment) {
       if (!environment.hasVariable(statement.variableName)) {
         return;
-      }
-      const variableType = environment.getVariableType(statement.variableName);
-      if (!(0, scanUtils_1.isScannableType)(variableType)) {
-        throw new TypeCheckError_12.TypeCheckError(`Cannot scan into variable "${statement.variableName}" of type ${(0, astigTypeUtils_1.formatResolvedType)(variableType)}`, statement.location);
       }
     }
     function checkArrayIndexAssignment(statement, environment, recordRegistry, program) {
@@ -27887,7 +28041,8 @@ var require_typeChecker = __commonJS({
           }
           const arrayContainerResolved = environment.getVariableType(expression.arrayName);
           if (arrayContainerResolved.kind !== "array") {
-            throw new TypeCheckError_12.TypeCheckError(`Type Error: Cannot index into non-array variable "${expression.arrayName}".`);
+            checkExpression(expression.index, environment, recordRegistry, program);
+            return { kind: "primitive", type: AstigType_1.AstigType.Any };
           }
           const indexResolved = checkExpression(expression.index, environment, recordRegistry, program);
           if (indexResolved.kind !== "primitive" || indexResolved.type !== AstigType_1.AstigType.Int) {
@@ -28004,6 +28159,12 @@ var require_typeChecker = __commonJS({
       }
     }
     function checkFunctionCall(name, args, environment, recordRegistry, program) {
+      if (!environment.hasFunction(name)) {
+        for (const argument of args) {
+          checkExpression(argument, environment, recordRegistry, program);
+        }
+        return { kind: "primitive", type: AstigType_1.AstigType.Any };
+      }
       const functionNode = environment.getFunction(name);
       const checkedArgumentCount = Math.min(args.length, functionNode.parameters.length);
       for (let index = 0; index < checkedArgumentCount; index++) {
@@ -28047,63 +28208,1371 @@ var require_typeChecker = __commonJS({
   }
 });
 
-// dist/src/main.js
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/readline-sync/lib/readline-sync.js
+var require_readline_sync = __commonJS({
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/readline-sync/lib/readline-sync.js"(exports2) {
+    "use strict";
+    var IS_WIN = process.platform === "win32";
+    var ALGORITHM_CIPHER = "aes-256-cbc";
+    var ALGORITHM_HASH = "sha256";
+    var DEFAULT_ERR_MSG = "The current environment doesn't support interactive reading from TTY.";
+    var fs = require("fs");
+    var TTY = process.binding("tty_wrap").TTY;
+    var childProc = require("child_process");
+    var pathUtil = require("path");
+    var defaultOptions = {
+      /* eslint-disable key-spacing */
+      prompt: "> ",
+      hideEchoBack: false,
+      mask: "*",
+      limit: [],
+      limitMessage: "Input another, please.$<( [)limit(])>",
+      defaultInput: "",
+      trueValue: [],
+      falseValue: [],
+      caseSensitive: false,
+      keepWhitespace: false,
+      encoding: "utf8",
+      bufferSize: 1024,
+      print: void 0,
+      history: true,
+      cd: false,
+      phContent: void 0,
+      preCheck: void 0
+      /* eslint-enable key-spacing */
+    };
+    var fdR = "none";
+    var isRawMode = false;
+    var salt = 0;
+    var lastInput = "";
+    var inputHistory = [];
+    var _DBG_useExt = false;
+    var _DBG_checkOptions = false;
+    var _DBG_checkMethod = false;
+    var fdW;
+    var ttyR;
+    var extHostPath;
+    var extHostArgs;
+    var tempdir;
+    var rawInput;
+    function getHostArgs(options) {
+      function encodeArg(arg) {
+        return arg.replace(/[^\w\u0080-\uFFFF]/g, function(chr) {
+          return "#" + chr.charCodeAt(0) + ";";
+        });
+      }
+      return extHostArgs.concat((function(conf) {
+        var args = [];
+        Object.keys(conf).forEach(function(optionName) {
+          if (conf[optionName] === "boolean") {
+            if (options[optionName]) {
+              args.push("--" + optionName);
+            }
+          } else if (conf[optionName] === "string") {
+            if (options[optionName]) {
+              args.push("--" + optionName, encodeArg(options[optionName]));
+            }
+          }
+        });
+        return args;
+      })({
+        /* eslint-disable key-spacing */
+        display: "string",
+        displayOnly: "boolean",
+        keyIn: "boolean",
+        hideEchoBack: "boolean",
+        mask: "string",
+        limit: "string",
+        caseSensitive: "boolean"
+        /* eslint-enable key-spacing */
+      }));
+    }
+    function _execFileSync(options, execOptions) {
+      function getTempfile(name) {
+        var suffix = "", filepath, fd;
+        tempdir = tempdir || require("os").tmpdir();
+        while (true) {
+          filepath = pathUtil.join(tempdir, name + suffix);
+          try {
+            fd = fs.openSync(filepath, "wx");
+          } catch (e) {
+            if (e.code === "EEXIST") {
+              suffix++;
+              continue;
+            } else {
+              throw e;
+            }
+          }
+          fs.closeSync(fd);
+          break;
+        }
+        return filepath;
+      }
+      var res = {}, pathStdout = getTempfile("readline-sync.stdout"), pathStderr = getTempfile("readline-sync.stderr"), pathExit = getTempfile("readline-sync.exit"), pathDone = getTempfile("readline-sync.done"), crypto = require("crypto"), hostArgs, shellPath, shellArgs, exitCode, extMessage, shasum, decipher, password;
+      shasum = crypto.createHash(ALGORITHM_HASH);
+      shasum.update("" + process.pid + salt++ + Math.random());
+      password = shasum.digest("hex");
+      decipher = crypto.createDecipher(ALGORITHM_CIPHER, password);
+      hostArgs = getHostArgs(options);
+      if (IS_WIN) {
+        shellPath = process.env.ComSpec || "cmd.exe";
+        process.env.Q = '"';
+        shellArgs = [
+          "/V:ON",
+          "/S",
+          "/C",
+          "(%Q%" + shellPath + "%Q% /V:ON /S /C %Q%%Q%" + extHostPath + "%Q%" + hostArgs.map(function(arg) {
+            return " %Q%" + arg + "%Q%";
+          }).join("") + " & (echo !ERRORLEVEL!)>%Q%" + pathExit + "%Q%%Q%) 2>%Q%" + pathStderr + "%Q% |%Q%" + process.execPath + "%Q% %Q%" + __dirname + "\\encrypt.js%Q% %Q%" + ALGORITHM_CIPHER + "%Q% %Q%" + password + "%Q% >%Q%" + pathStdout + "%Q% & (echo 1)>%Q%" + pathDone + "%Q%"
+        ];
+      } else {
+        shellPath = "/bin/sh";
+        shellArgs = [
+          "-c",
+          // Use `()`, not `{}` for `-c` (text param)
+          '("' + extHostPath + '"' + /* ESLint bug? */
+          // eslint-disable-line no-path-concat
+          hostArgs.map(function(arg) {
+            return " '" + arg.replace(/'/g, "'\\''") + "'";
+          }).join("") + '; echo $?>"' + pathExit + '") 2>"' + pathStderr + '" |"' + process.execPath + '" "' + __dirname + '/encrypt.js" "' + ALGORITHM_CIPHER + '" "' + password + '" >"' + pathStdout + '"; echo 1 >"' + pathDone + '"'
+        ];
+      }
+      if (_DBG_checkMethod) {
+        _DBG_checkMethod("_execFileSync", hostArgs);
+      }
+      try {
+        childProc.spawn(shellPath, shellArgs, execOptions);
+      } catch (e) {
+        res.error = new Error(e.message);
+        res.error.method = "_execFileSync - spawn";
+        res.error.program = shellPath;
+        res.error.args = shellArgs;
+      }
+      while (fs.readFileSync(pathDone, { encoding: options.encoding }).trim() !== "1") {
+      }
+      if ((exitCode = fs.readFileSync(pathExit, { encoding: options.encoding }).trim()) === "0") {
+        res.input = decipher.update(
+          fs.readFileSync(pathStdout, { encoding: "binary" }),
+          "hex",
+          options.encoding
+        ) + decipher.final(options.encoding);
+      } else {
+        extMessage = fs.readFileSync(pathStderr, { encoding: options.encoding }).trim();
+        res.error = new Error(DEFAULT_ERR_MSG + (extMessage ? "\n" + extMessage : ""));
+        res.error.method = "_execFileSync";
+        res.error.program = shellPath;
+        res.error.args = shellArgs;
+        res.error.extMessage = extMessage;
+        res.error.exitCode = +exitCode;
+      }
+      fs.unlinkSync(pathStdout);
+      fs.unlinkSync(pathStderr);
+      fs.unlinkSync(pathExit);
+      fs.unlinkSync(pathDone);
+      return res;
+    }
+    function readlineExt(options) {
+      var res = {}, execOptions = { env: process.env, encoding: options.encoding }, hostArgs, extMessage;
+      if (!extHostPath) {
+        if (IS_WIN) {
+          if (process.env.PSModulePath) {
+            extHostPath = "powershell.exe";
+            extHostArgs = [
+              "-ExecutionPolicy",
+              "Bypass",
+              "-File",
+              __dirname + "\\read.ps1"
+            ];
+          } else {
+            extHostPath = "cscript.exe";
+            extHostArgs = ["//nologo", __dirname + "\\read.cs.js"];
+          }
+        } else {
+          extHostPath = "/bin/sh";
+          extHostArgs = [__dirname + "/read.sh"];
+        }
+      }
+      if (IS_WIN && !process.env.PSModulePath) {
+        execOptions.stdio = [process.stdin];
+      }
+      if (childProc.execFileSync) {
+        hostArgs = getHostArgs(options);
+        if (_DBG_checkMethod) {
+          _DBG_checkMethod("execFileSync", hostArgs);
+        }
+        try {
+          res.input = childProc.execFileSync(extHostPath, hostArgs, execOptions);
+        } catch (e) {
+          extMessage = e.stderr ? (e.stderr + "").trim() : "";
+          res.error = new Error(DEFAULT_ERR_MSG + (extMessage ? "\n" + extMessage : ""));
+          res.error.method = "execFileSync";
+          res.error.program = extHostPath;
+          res.error.args = hostArgs;
+          res.error.extMessage = extMessage;
+          res.error.exitCode = e.status;
+          res.error.code = e.code;
+          res.error.signal = e.signal;
+        }
+      } else {
+        res = _execFileSync(options, execOptions);
+      }
+      if (!res.error) {
+        res.input = res.input.replace(/^\s*'|'\s*$/g, "");
+        options.display = "";
+      }
+      return res;
+    }
+    function _readlineSync(options) {
+      var input = "", displaySave = options.display, silent = !options.display && options.keyIn && options.hideEchoBack && !options.mask;
+      function tryExt() {
+        var res = readlineExt(options);
+        if (res.error) {
+          throw res.error;
+        }
+        return res.input;
+      }
+      if (_DBG_checkOptions) {
+        _DBG_checkOptions(options);
+      }
+      (function() {
+        var fsB, constants, verNum;
+        function getFsB() {
+          if (!fsB) {
+            fsB = process.binding("fs");
+            constants = process.binding("constants");
+            constants = constants && constants.fs && typeof constants.fs.O_RDWR === "number" ? constants.fs : constants;
+          }
+          return fsB;
+        }
+        if (typeof fdR !== "string") {
+          return;
+        }
+        fdR = null;
+        if (IS_WIN) {
+          verNum = (function(ver) {
+            var nums = ver.replace(/^\D+/, "").split(".");
+            var verNum2 = 0;
+            if (nums[0] = +nums[0]) {
+              verNum2 += nums[0] * 1e4;
+            }
+            if (nums[1] = +nums[1]) {
+              verNum2 += nums[1] * 100;
+            }
+            if (nums[2] = +nums[2]) {
+              verNum2 += nums[2];
+            }
+            return verNum2;
+          })(process.version);
+          if (!(verNum >= 20302 && verNum < 40204 || verNum >= 5e4 && verNum < 50100 || verNum >= 50600 && verNum < 60200) && process.stdin.isTTY) {
+            process.stdin.pause();
+            fdR = process.stdin.fd;
+            ttyR = process.stdin._handle;
+          } else {
+            try {
+              fdR = getFsB().open("CONIN$", constants.O_RDWR, parseInt("0666", 8));
+              ttyR = new TTY(fdR, true);
+            } catch (e) {
+            }
+          }
+          if (process.stdout.isTTY) {
+            fdW = process.stdout.fd;
+          } else {
+            try {
+              fdW = fs.openSync("\\\\.\\CON", "w");
+            } catch (e) {
+            }
+            if (typeof fdW !== "number") {
+              try {
+                fdW = getFsB().open("CONOUT$", constants.O_RDWR, parseInt("0666", 8));
+              } catch (e) {
+              }
+            }
+          }
+        } else {
+          if (process.stdin.isTTY) {
+            process.stdin.pause();
+            try {
+              fdR = fs.openSync("/dev/tty", "r");
+              ttyR = process.stdin._handle;
+            } catch (e) {
+            }
+          } else {
+            try {
+              fdR = fs.openSync("/dev/tty", "r");
+              ttyR = new TTY(fdR, false);
+            } catch (e) {
+            }
+          }
+          if (process.stdout.isTTY) {
+            fdW = process.stdout.fd;
+          } else {
+            try {
+              fdW = fs.openSync("/dev/tty", "w");
+            } catch (e) {
+            }
+          }
+        }
+      })();
+      (function() {
+        var isCooked = !options.hideEchoBack && !options.keyIn, atEol, limit, buffer, reqSize, readSize, chunk, line;
+        rawInput = "";
+        function setRawMode(mode) {
+          if (mode === isRawMode) {
+            return true;
+          }
+          if (ttyR.setRawMode(mode) !== 0) {
+            return false;
+          }
+          isRawMode = mode;
+          return true;
+        }
+        if (_DBG_useExt || !ttyR || typeof fdW !== "number" && (options.display || !isCooked)) {
+          input = tryExt();
+          return;
+        }
+        if (options.display) {
+          fs.writeSync(fdW, options.display);
+          options.display = "";
+        }
+        if (options.displayOnly) {
+          return;
+        }
+        if (!setRawMode(!isCooked)) {
+          input = tryExt();
+          return;
+        }
+        reqSize = options.keyIn ? 1 : options.bufferSize;
+        buffer = Buffer.allocUnsafe && Buffer.alloc ? Buffer.alloc(reqSize) : new Buffer(reqSize);
+        if (options.keyIn && options.limit) {
+          limit = new RegExp(
+            "[^" + options.limit + "]",
+            "g" + (options.caseSensitive ? "" : "i")
+          );
+        }
+        while (true) {
+          readSize = 0;
+          try {
+            readSize = fs.readSync(fdR, buffer, 0, reqSize);
+          } catch (e) {
+            if (e.code !== "EOF") {
+              setRawMode(false);
+              input += tryExt();
+              return;
+            }
+          }
+          if (readSize > 0) {
+            chunk = buffer.toString(options.encoding, 0, readSize);
+            rawInput += chunk;
+          } else {
+            chunk = "\n";
+            rawInput += String.fromCharCode(0);
+          }
+          if (chunk && typeof (line = (chunk.match(/^(.*?)[\r\n]/) || [])[1]) === "string") {
+            chunk = line;
+            atEol = true;
+          }
+          if (chunk) {
+            chunk = chunk.replace(/[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]/g, "");
+          }
+          if (chunk && limit) {
+            chunk = chunk.replace(limit, "");
+          }
+          if (chunk) {
+            if (!isCooked) {
+              if (!options.hideEchoBack) {
+                fs.writeSync(fdW, chunk);
+              } else if (options.mask) {
+                fs.writeSync(fdW, new Array(chunk.length + 1).join(options.mask));
+              }
+            }
+            input += chunk;
+          }
+          if (!options.keyIn && atEol || options.keyIn && input.length >= reqSize) {
+            break;
+          }
+        }
+        if (!isCooked && !silent) {
+          fs.writeSync(fdW, "\n");
+        }
+        setRawMode(false);
+      })();
+      if (options.print && !silent) {
+        options.print(
+          displaySave + (options.displayOnly ? "" : (options.hideEchoBack ? new Array(input.length + 1).join(options.mask) : input) + "\n"),
+          options.encoding
+        );
+      }
+      return options.displayOnly ? "" : lastInput = options.keepWhitespace || options.keyIn ? input : input.trim();
+    }
+    function flattenArray(array, validator) {
+      var flatArray = [];
+      function _flattenArray(array2) {
+        if (array2 == null) {
+          return;
+        }
+        if (Array.isArray(array2)) {
+          array2.forEach(_flattenArray);
+        } else if (!validator || validator(array2)) {
+          flatArray.push(array2);
+        }
+      }
+      _flattenArray(array);
+      return flatArray;
+    }
+    function escapePattern(pattern) {
+      return pattern.replace(
+        /[\x00-\x7f]/g,
+        // eslint-disable-line no-control-regex
+        function(s) {
+          return "\\x" + ("00" + s.charCodeAt().toString(16)).substr(-2);
+        }
+      );
+    }
+    function margeOptions() {
+      var optionsList = Array.prototype.slice.call(arguments), optionNames, fromDefault;
+      if (optionsList.length && typeof optionsList[0] === "boolean") {
+        fromDefault = optionsList.shift();
+        if (fromDefault) {
+          optionNames = Object.keys(defaultOptions);
+          optionsList.unshift(defaultOptions);
+        }
+      }
+      return optionsList.reduce(function(options, optionsPart) {
+        if (optionsPart == null) {
+          return options;
+        }
+        if (optionsPart.hasOwnProperty("noEchoBack") && !optionsPart.hasOwnProperty("hideEchoBack")) {
+          optionsPart.hideEchoBack = optionsPart.noEchoBack;
+          delete optionsPart.noEchoBack;
+        }
+        if (optionsPart.hasOwnProperty("noTrim") && !optionsPart.hasOwnProperty("keepWhitespace")) {
+          optionsPart.keepWhitespace = optionsPart.noTrim;
+          delete optionsPart.noTrim;
+        }
+        if (!fromDefault) {
+          optionNames = Object.keys(optionsPart);
+        }
+        optionNames.forEach(function(optionName) {
+          var value;
+          if (!optionsPart.hasOwnProperty(optionName)) {
+            return;
+          }
+          value = optionsPart[optionName];
+          switch (optionName) {
+            //                    _readlineSync <- *    * -> defaultOptions
+            // ================ string
+            case "mask":
+            // *    *
+            case "limitMessage":
+            //      *
+            case "defaultInput":
+            //      *
+            case "encoding":
+              value = value != null ? value + "" : "";
+              if (value && optionName !== "limitMessage") {
+                value = value.replace(/[\r\n]/g, "");
+              }
+              options[optionName] = value;
+              break;
+            // ================ number(int)
+            case "bufferSize":
+              if (!isNaN(value = parseInt(value, 10)) && typeof value === "number") {
+                options[optionName] = value;
+              }
+              break;
+            // ================ boolean
+            case "displayOnly":
+            // *
+            case "keyIn":
+            // *
+            case "hideEchoBack":
+            // *    *
+            case "caseSensitive":
+            // *    *
+            case "keepWhitespace":
+            // *    *
+            case "history":
+            //      *
+            case "cd":
+              options[optionName] = !!value;
+              break;
+            // ================ array
+            case "limit":
+            // *    *     to string for readlineExt
+            case "trueValue":
+            //      *
+            case "falseValue":
+              options[optionName] = flattenArray(value, function(value2) {
+                var type = typeof value2;
+                return type === "string" || type === "number" || type === "function" || value2 instanceof RegExp;
+              }).map(function(value2) {
+                return typeof value2 === "string" ? value2.replace(/[\r\n]/g, "") : value2;
+              });
+              break;
+            // ================ function
+            case "print":
+            // *    *
+            case "phContent":
+            //      *
+            case "preCheck":
+              options[optionName] = typeof value === "function" ? value : void 0;
+              break;
+            // ================ other
+            case "prompt":
+            //      *
+            case "display":
+              options[optionName] = value != null ? value : "";
+              break;
+          }
+        });
+        return options;
+      }, {});
+    }
+    function isMatched(res, comps, caseSensitive) {
+      return comps.some(function(comp) {
+        var type = typeof comp;
+        return type === "string" ? caseSensitive ? res === comp : res.toLowerCase() === comp.toLowerCase() : type === "number" ? parseFloat(res) === comp : type === "function" ? comp(res) : comp instanceof RegExp ? comp.test(res) : false;
+      });
+    }
+    function replaceHomePath(path, expand) {
+      var homePath = pathUtil.normalize(
+        IS_WIN ? (process.env.HOMEDRIVE || "") + (process.env.HOMEPATH || "") : process.env.HOME || ""
+      ).replace(/[/\\]+$/, "");
+      path = pathUtil.normalize(path);
+      return expand ? path.replace(/^~(?=\/|\\|$)/, homePath) : path.replace(new RegExp("^" + escapePattern(homePath) + "(?=\\/|\\\\|$)", IS_WIN ? "i" : ""), "~");
+    }
+    function replacePlaceholder(text, generator) {
+      var PTN_INNER = "(?:\\(([\\s\\S]*?)\\))?(\\w+|.-.)(?:\\(([\\s\\S]*?)\\))?", rePlaceholder = new RegExp("(\\$)?(\\$<" + PTN_INNER + ">)", "g"), rePlaceholderCompat = new RegExp("(\\$)?(\\$\\{" + PTN_INNER + "\\})", "g");
+      function getPlaceholderText(s, escape, placeholder, pre, param, post) {
+        var text2;
+        return escape || typeof (text2 = generator(param)) !== "string" ? placeholder : text2 ? (pre || "") + text2 + (post || "") : "";
+      }
+      return text.replace(rePlaceholder, getPlaceholderText).replace(rePlaceholderCompat, getPlaceholderText);
+    }
+    function array2charlist(array, caseSensitive, collectSymbols) {
+      var group = [], groupClass = -1, charCode = 0, symbols = "", values, suppressed;
+      function addGroup(groups, group2) {
+        if (group2.length > 3) {
+          groups.push(group2[0] + "..." + group2[group2.length - 1]);
+          suppressed = true;
+        } else if (group2.length) {
+          groups = groups.concat(group2);
+        }
+        return groups;
+      }
+      values = array.reduce(function(chars, value) {
+        return chars.concat((value + "").split(""));
+      }, []).reduce(function(groups, curChar) {
+        var curGroupClass, curCharCode;
+        if (!caseSensitive) {
+          curChar = curChar.toLowerCase();
+        }
+        curGroupClass = /^\d$/.test(curChar) ? 1 : /^[A-Z]$/.test(curChar) ? 2 : /^[a-z]$/.test(curChar) ? 3 : 0;
+        if (collectSymbols && curGroupClass === 0) {
+          symbols += curChar;
+        } else {
+          curCharCode = curChar.charCodeAt(0);
+          if (curGroupClass && curGroupClass === groupClass && curCharCode === charCode + 1) {
+            group.push(curChar);
+          } else {
+            groups = addGroup(groups, group);
+            group = [curChar];
+            groupClass = curGroupClass;
+          }
+          charCode = curCharCode;
+        }
+        return groups;
+      }, []);
+      values = addGroup(values, group);
+      if (symbols) {
+        values.push(symbols);
+        suppressed = true;
+      }
+      return { values, suppressed };
+    }
+    function joinChunks(chunks, suppressed) {
+      return chunks.join(chunks.length > 2 ? ", " : suppressed ? " / " : "/");
+    }
+    function getPhContent(param, options) {
+      var resCharlist = {}, text, values, arg;
+      if (options.phContent) {
+        text = options.phContent(param, options);
+      }
+      if (typeof text !== "string") {
+        switch (param) {
+          case "hideEchoBack":
+          case "mask":
+          case "defaultInput":
+          case "caseSensitive":
+          case "keepWhitespace":
+          case "encoding":
+          case "bufferSize":
+          case "history":
+          case "cd":
+            text = !options.hasOwnProperty(param) ? "" : typeof options[param] === "boolean" ? options[param] ? "on" : "off" : options[param] + "";
+            break;
+          // case 'prompt':
+          // case 'query':
+          // case 'display':
+          //   text = options.hasOwnProperty('displaySrc') ? options.displaySrc + '' : '';
+          //   break;
+          case "limit":
+          case "trueValue":
+          case "falseValue":
+            values = options[options.hasOwnProperty(param + "Src") ? param + "Src" : param];
+            if (options.keyIn) {
+              resCharlist = array2charlist(values, options.caseSensitive);
+              values = resCharlist.values;
+            } else {
+              values = values.filter(function(value) {
+                var type = typeof value;
+                return type === "string" || type === "number";
+              });
+            }
+            text = joinChunks(values, resCharlist.suppressed);
+            break;
+          case "limitCount":
+          case "limitCountNotZero":
+            text = options[options.hasOwnProperty("limitSrc") ? "limitSrc" : "limit"].length;
+            text = text || param !== "limitCountNotZero" ? text + "" : "";
+            break;
+          case "lastInput":
+            text = lastInput;
+            break;
+          case "cwd":
+          case "CWD":
+          case "cwdHome":
+            text = process.cwd();
+            if (param === "CWD") {
+              text = pathUtil.basename(text);
+            } else if (param === "cwdHome") {
+              text = replaceHomePath(text);
+            }
+            break;
+          case "date":
+          case "time":
+          case "localeDate":
+          case "localeTime":
+            text = (/* @__PURE__ */ new Date())["to" + param.replace(/^./, function(str) {
+              return str.toUpperCase();
+            }) + "String"]();
+            break;
+          default:
+            if (typeof (arg = (param.match(/^history_m(\d+)$/) || [])[1]) === "string") {
+              text = inputHistory[inputHistory.length - arg] || "";
+            }
+        }
+      }
+      return text;
+    }
+    function getPhCharlist(param) {
+      var matches = /^(.)-(.)$/.exec(param), text = "", from, to, code, step;
+      if (!matches) {
+        return null;
+      }
+      from = matches[1].charCodeAt(0);
+      to = matches[2].charCodeAt(0);
+      step = from < to ? 1 : -1;
+      for (code = from; code !== to + step; code += step) {
+        text += String.fromCharCode(code);
+      }
+      return text;
+    }
+    function parseCl(cl) {
+      var reToken = new RegExp(/(\s*)(?:("|')(.*?)(?:\2|$)|(\S+))/g), taken = "", args = [], matches, part;
+      cl = cl.trim();
+      while (matches = reToken.exec(cl)) {
+        part = matches[3] || matches[4] || "";
+        if (matches[1]) {
+          args.push(taken);
+          taken = "";
+        }
+        taken += part;
+      }
+      if (taken) {
+        args.push(taken);
+      }
+      return args;
+    }
+    function toBool(res, options) {
+      return options.trueValue.length && isMatched(res, options.trueValue, options.caseSensitive) ? true : options.falseValue.length && isMatched(res, options.falseValue, options.caseSensitive) ? false : res;
+    }
+    function getValidLine(options) {
+      var res, forceNext, limitMessage, matches, histInput, args, resCheck;
+      function _getPhContent(param) {
+        return getPhContent(param, options);
+      }
+      function addDisplay(text) {
+        options.display += (/[^\r\n]$/.test(options.display) ? "\n" : "") + text;
+      }
+      options.limitSrc = options.limit;
+      options.displaySrc = options.display;
+      options.limit = "";
+      options.display = replacePlaceholder(options.display + "", _getPhContent);
+      while (true) {
+        res = _readlineSync(options);
+        forceNext = false;
+        limitMessage = "";
+        if (options.defaultInput && !res) {
+          res = options.defaultInput;
+        }
+        if (options.history) {
+          if (matches = /^\s*!(?:!|-1)(:p)?\s*$/.exec(res)) {
+            histInput = inputHistory[0] || "";
+            if (matches[1]) {
+              forceNext = true;
+            } else {
+              res = histInput;
+            }
+            addDisplay(histInput + "\n");
+            if (!forceNext) {
+              options.displayOnly = true;
+              _readlineSync(options);
+              options.displayOnly = false;
+            }
+          } else if (res && res !== inputHistory[inputHistory.length - 1]) {
+            inputHistory = [res];
+          }
+        }
+        if (!forceNext && options.cd && res) {
+          args = parseCl(res);
+          switch (args[0].toLowerCase()) {
+            case "cd":
+              if (args[1]) {
+                try {
+                  process.chdir(replaceHomePath(args[1], true));
+                } catch (e) {
+                  addDisplay(e + "");
+                }
+              }
+              forceNext = true;
+              break;
+            case "pwd":
+              addDisplay(process.cwd());
+              forceNext = true;
+              break;
+          }
+        }
+        if (!forceNext && options.preCheck) {
+          resCheck = options.preCheck(res, options);
+          res = resCheck.res;
+          if (resCheck.forceNext) {
+            forceNext = true;
+          }
+        }
+        if (!forceNext) {
+          if (!options.limitSrc.length || isMatched(res, options.limitSrc, options.caseSensitive)) {
+            break;
+          }
+          if (options.limitMessage) {
+            limitMessage = replacePlaceholder(options.limitMessage, _getPhContent);
+          }
+        }
+        addDisplay((limitMessage ? limitMessage + "\n" : "") + replacePlaceholder(options.displaySrc + "", _getPhContent));
+      }
+      return toBool(res, options);
+    }
+    exports2._DBG_set_useExt = function(val) {
+      _DBG_useExt = val;
+    };
+    exports2._DBG_set_checkOptions = function(val) {
+      _DBG_checkOptions = val;
+    };
+    exports2._DBG_set_checkMethod = function(val) {
+      _DBG_checkMethod = val;
+    };
+    exports2._DBG_clearHistory = function() {
+      lastInput = "";
+      inputHistory = [];
+    };
+    exports2.setDefaultOptions = function(options) {
+      defaultOptions = margeOptions(true, options);
+      return margeOptions(true);
+    };
+    exports2.question = function(query, options) {
+      return getValidLine(margeOptions(margeOptions(true, options), {
+        display: query
+      }));
+    };
+    exports2.prompt = function(options) {
+      var readOptions = margeOptions(true, options);
+      readOptions.display = readOptions.prompt;
+      return getValidLine(readOptions);
+    };
+    exports2.keyIn = function(query, options) {
+      var readOptions = margeOptions(margeOptions(true, options), {
+        display: query,
+        keyIn: true,
+        keepWhitespace: true
+      });
+      readOptions.limitSrc = readOptions.limit.filter(function(value) {
+        var type = typeof value;
+        return type === "string" || type === "number";
+      }).map(function(text) {
+        return replacePlaceholder(text + "", getPhCharlist);
+      });
+      readOptions.limit = escapePattern(readOptions.limitSrc.join(""));
+      ["trueValue", "falseValue"].forEach(function(optionName) {
+        readOptions[optionName] = readOptions[optionName].reduce(function(comps, comp) {
+          var type = typeof comp;
+          if (type === "string" || type === "number") {
+            comps = comps.concat((comp + "").split(""));
+          } else {
+            comps.push(comp);
+          }
+          return comps;
+        }, []);
+      });
+      readOptions.display = replacePlaceholder(
+        readOptions.display + "",
+        function(param) {
+          return getPhContent(param, readOptions);
+        }
+      );
+      return toBool(_readlineSync(readOptions), readOptions);
+    };
+    exports2.questionEMail = function(query, options) {
+      if (query == null) {
+        query = "Input e-mail address: ";
+      }
+      return exports2.question(query, margeOptions({
+        // -------- default
+        hideEchoBack: false,
+        // http://www.w3.org/TR/html5/forms.html#valid-e-mail-address
+        limit: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
+        limitMessage: "Input valid e-mail address, please.",
+        trueValue: null,
+        falseValue: null
+      }, options, {
+        // -------- forced
+        keepWhitespace: false,
+        cd: false
+      }));
+    };
+    exports2.questionNewPassword = function(query, options) {
+      var resCharlist, min, max, readOptions = margeOptions({
+        // -------- default
+        hideEchoBack: true,
+        mask: "*",
+        limitMessage: "It can include: $<charlist>\nAnd the length must be: $<length>",
+        trueValue: null,
+        falseValue: null,
+        caseSensitive: true
+      }, options, {
+        // -------- forced
+        history: false,
+        cd: false,
+        // limit (by charlist etc.),
+        phContent: function(param) {
+          return param === "charlist" ? resCharlist.text : param === "length" ? min + "..." + max : null;
+        }
+      }), charlist, confirmMessage, unmatchMessage, limit, limitMessage, res1, res2;
+      options = options || {};
+      charlist = replacePlaceholder(
+        options.charlist ? options.charlist + "" : "$<!-~>",
+        getPhCharlist
+      );
+      if (isNaN(min = parseInt(options.min, 10)) || typeof min !== "number") {
+        min = 12;
+      }
+      if (isNaN(max = parseInt(options.max, 10)) || typeof max !== "number") {
+        max = 24;
+      }
+      limit = new RegExp("^[" + escapePattern(charlist) + "]{" + min + "," + max + "}$");
+      resCharlist = array2charlist([charlist], readOptions.caseSensitive, true);
+      resCharlist.text = joinChunks(resCharlist.values, resCharlist.suppressed);
+      confirmMessage = options.confirmMessage != null ? options.confirmMessage : "Reinput a same one to confirm it: ";
+      unmatchMessage = options.unmatchMessage != null ? options.unmatchMessage : "It differs from first one. Hit only the Enter key if you want to retry from first one.";
+      if (query == null) {
+        query = "Input new password: ";
+      }
+      limitMessage = readOptions.limitMessage;
+      while (!res2) {
+        readOptions.limit = limit;
+        readOptions.limitMessage = limitMessage;
+        res1 = exports2.question(query, readOptions);
+        readOptions.limit = [res1, ""];
+        readOptions.limitMessage = unmatchMessage;
+        res2 = exports2.question(confirmMessage, readOptions);
+      }
+      return res1;
+    };
+    function _questionNum(query, options, parser) {
+      var validValue;
+      function getValidValue(value) {
+        validValue = parser(value);
+        return !isNaN(validValue) && typeof validValue === "number";
+      }
+      exports2.question(query, margeOptions({
+        // -------- default
+        limitMessage: "Input valid number, please."
+      }, options, {
+        // -------- forced
+        limit: getValidValue,
+        cd: false
+        // trueValue, falseValue, caseSensitive, keepWhitespace don't work.
+      }));
+      return validValue;
+    }
+    exports2.questionInt = function(query, options) {
+      return _questionNum(query, options, function(value) {
+        return parseInt(value, 10);
+      });
+    };
+    exports2.questionFloat = function(query, options) {
+      return _questionNum(query, options, parseFloat);
+    };
+    exports2.questionPath = function(query, options) {
+      var error = "", validPath, readOptions = margeOptions({
+        // -------- default
+        hideEchoBack: false,
+        limitMessage: "$<error(\n)>Input valid path, please.$<( Min:)min>$<( Max:)max>",
+        history: true,
+        cd: true
+      }, options, {
+        // -------- forced
+        keepWhitespace: false,
+        limit: function(value) {
+          var exists, stat, res;
+          value = replaceHomePath(value, true);
+          error = "";
+          function mkdirParents(dirPath) {
+            dirPath.split(/\/|\\/).reduce(function(parents, dir) {
+              var path = pathUtil.resolve(parents += dir + pathUtil.sep);
+              if (!fs.existsSync(path)) {
+                fs.mkdirSync(path);
+              } else if (!fs.statSync(path).isDirectory()) {
+                throw new Error("Non directory already exists: " + path);
+              }
+              return parents;
+            }, "");
+          }
+          try {
+            exists = fs.existsSync(value);
+            validPath = exists ? fs.realpathSync(value) : pathUtil.resolve(value);
+            if (!options.hasOwnProperty("exists") && !exists || typeof options.exists === "boolean" && options.exists !== exists) {
+              error = (exists ? "Already exists" : "No such file or directory") + ": " + validPath;
+              return false;
+            }
+            if (!exists && options.create) {
+              if (options.isDirectory) {
+                mkdirParents(validPath);
+              } else {
+                mkdirParents(pathUtil.dirname(validPath));
+                fs.closeSync(fs.openSync(validPath, "w"));
+              }
+              validPath = fs.realpathSync(validPath);
+            }
+            if (exists && (options.min || options.max || options.isFile || options.isDirectory)) {
+              stat = fs.statSync(validPath);
+              if (options.isFile && !stat.isFile()) {
+                error = "Not file: " + validPath;
+                return false;
+              } else if (options.isDirectory && !stat.isDirectory()) {
+                error = "Not directory: " + validPath;
+                return false;
+              } else if (options.min && stat.size < +options.min || options.max && stat.size > +options.max) {
+                error = "Size " + stat.size + " is out of range: " + validPath;
+                return false;
+              }
+            }
+            if (typeof options.validate === "function" && (res = options.validate(validPath)) !== true) {
+              if (typeof res === "string") {
+                error = res;
+              }
+              return false;
+            }
+          } catch (e) {
+            error = e + "";
+            return false;
+          }
+          return true;
+        },
+        // trueValue, falseValue, caseSensitive don't work.
+        phContent: function(param) {
+          return param === "error" ? error : param !== "min" && param !== "max" ? null : options.hasOwnProperty(param) ? options[param] + "" : "";
+        }
+      });
+      options = options || {};
+      if (query == null) {
+        query = 'Input path (you can "cd" and "pwd"): ';
+      }
+      exports2.question(query, readOptions);
+      return validPath;
+    };
+    function getClHandler(commandHandler, options) {
+      var clHandler = {}, hIndex = {};
+      if (typeof commandHandler === "object") {
+        Object.keys(commandHandler).forEach(function(cmd) {
+          if (typeof commandHandler[cmd] === "function") {
+            hIndex[options.caseSensitive ? cmd : cmd.toLowerCase()] = commandHandler[cmd];
+          }
+        });
+        clHandler.preCheck = function(res) {
+          var cmdKey;
+          clHandler.args = parseCl(res);
+          cmdKey = clHandler.args[0] || "";
+          if (!options.caseSensitive) {
+            cmdKey = cmdKey.toLowerCase();
+          }
+          clHandler.hRes = cmdKey !== "_" && hIndex.hasOwnProperty(cmdKey) ? hIndex[cmdKey].apply(res, clHandler.args.slice(1)) : hIndex.hasOwnProperty("_") ? hIndex._.apply(res, clHandler.args) : null;
+          return { res, forceNext: false };
+        };
+        if (!hIndex.hasOwnProperty("_")) {
+          clHandler.limit = function() {
+            var cmdKey = clHandler.args[0] || "";
+            if (!options.caseSensitive) {
+              cmdKey = cmdKey.toLowerCase();
+            }
+            return hIndex.hasOwnProperty(cmdKey);
+          };
+        }
+      } else {
+        clHandler.preCheck = function(res) {
+          clHandler.args = parseCl(res);
+          clHandler.hRes = typeof commandHandler === "function" ? commandHandler.apply(res, clHandler.args) : true;
+          return { res, forceNext: false };
+        };
+      }
+      return clHandler;
+    }
+    exports2.promptCL = function(commandHandler, options) {
+      var readOptions = margeOptions({
+        // -------- default
+        hideEchoBack: false,
+        limitMessage: "Requested command is not available.",
+        caseSensitive: false,
+        history: true
+      }, options), clHandler = getClHandler(commandHandler, readOptions);
+      readOptions.limit = clHandler.limit;
+      readOptions.preCheck = clHandler.preCheck;
+      exports2.prompt(readOptions);
+      return clHandler.args;
+    };
+    exports2.promptLoop = function(inputHandler, options) {
+      var readOptions = margeOptions({
+        // -------- default
+        hideEchoBack: false,
+        trueValue: null,
+        falseValue: null,
+        caseSensitive: false,
+        history: true
+      }, options);
+      while (true) {
+        if (inputHandler(exports2.prompt(readOptions))) {
+          break;
+        }
+      }
+    };
+    exports2.promptCLLoop = function(commandHandler, options) {
+      var readOptions = margeOptions({
+        // -------- default
+        hideEchoBack: false,
+        limitMessage: "Requested command is not available.",
+        caseSensitive: false,
+        history: true
+      }, options), clHandler = getClHandler(commandHandler, readOptions);
+      readOptions.limit = clHandler.limit;
+      readOptions.preCheck = clHandler.preCheck;
+      while (true) {
+        exports2.prompt(readOptions);
+        if (clHandler.hRes) {
+          break;
+        }
+      }
+    };
+    exports2.promptSimShell = function(options) {
+      return exports2.prompt(margeOptions({
+        // -------- default
+        hideEchoBack: false,
+        history: true
+      }, options, {
+        // -------- forced
+        prompt: (function() {
+          return IS_WIN ? "$<cwd>>" : (
+            // 'user@host:cwd$ '
+            (process.env.USER || "") + (process.env.HOSTNAME ? "@" + process.env.HOSTNAME.replace(/\..*$/, "") : "") + ":$<cwdHome>$ "
+          );
+        })()
+      }));
+    };
+    function _keyInYN(query, options, limit) {
+      var res;
+      if (query == null) {
+        query = "Are you sure? ";
+      }
+      if ((!options || options.guide !== false) && (query += "")) {
+        query = query.replace(/\s*:?\s*$/, "") + " [y/n]: ";
+      }
+      res = exports2.keyIn(query, margeOptions(options, {
+        // -------- forced
+        hideEchoBack: false,
+        limit,
+        trueValue: "y",
+        falseValue: "n",
+        caseSensitive: false
+        // mask doesn't work.
+      }));
+      return typeof res === "boolean" ? res : "";
+    }
+    exports2.keyInYN = function(query, options) {
+      return _keyInYN(query, options);
+    };
+    exports2.keyInYNStrict = function(query, options) {
+      return _keyInYN(query, options, "yn");
+    };
+    exports2.keyInPause = function(query, options) {
+      if (query == null) {
+        query = "Continue...";
+      }
+      if ((!options || options.guide !== false) && (query += "")) {
+        query = query.replace(/\s+$/, "") + " (Hit any key)";
+      }
+      exports2.keyIn(query, margeOptions({
+        // -------- default
+        limit: null
+      }, options, {
+        // -------- forced
+        hideEchoBack: true,
+        mask: ""
+      }));
+    };
+    exports2.keyInSelect = function(items, query, options) {
+      var readOptions = margeOptions({
+        // -------- default
+        hideEchoBack: false
+      }, options, {
+        // -------- forced
+        trueValue: null,
+        falseValue: null,
+        caseSensitive: false,
+        // limit (by items),
+        phContent: function(param) {
+          return param === "itemsCount" ? items.length + "" : param === "firstItem" ? (items[0] + "").trim() : param === "lastItem" ? (items[items.length - 1] + "").trim() : null;
+        }
+      }), keylist = "", key2i = {}, charCode = 49, display = "\n";
+      if (!Array.isArray(items) || !items.length || items.length > 35) {
+        throw "`items` must be Array (max length: 35).";
+      }
+      items.forEach(function(item, i) {
+        var key = String.fromCharCode(charCode);
+        keylist += key;
+        key2i[key] = i;
+        display += "[" + key + "] " + (item + "").trim() + "\n";
+        charCode = charCode === 57 ? 97 : charCode + 1;
+      });
+      if (!options || options.cancel !== false) {
+        keylist += "0";
+        key2i["0"] = -1;
+        display += "[0] " + (options && options.cancel != null && typeof options.cancel !== "boolean" ? (options.cancel + "").trim() : "CANCEL") + "\n";
+      }
+      readOptions.limit = keylist;
+      display += "\n";
+      if (query == null) {
+        query = "Choose one from list: ";
+      }
+      if (query += "") {
+        if (!options || options.guide !== false) {
+          query = query.replace(/\s*:?\s*$/, "") + " [$<limit>]: ";
+        }
+        display += query;
+      }
+      return key2i[exports2.keyIn(display, readOptions).toLowerCase()];
+    };
+    exports2.getRawInput = function() {
+      return rawInput;
+    };
+    function _setOption(optionName, args) {
+      var options;
+      if (args.length) {
+        options = {};
+        options[optionName] = args[0];
+      }
+      return exports2.setDefaultOptions(options)[optionName];
+    }
+    exports2.setPrint = function() {
+      return _setOption("print", arguments);
+    };
+    exports2.setPrompt = function() {
+      return _setOption("prompt", arguments);
+    };
+    exports2.setEncoding = function() {
+      return _setOption("encoding", arguments);
+    };
+    exports2.setMask = function() {
+      return _setOption("mask", arguments);
+    };
+    exports2.setBufferSize = function() {
+      return _setOption("bufferSize", arguments);
+    };
+  }
+});
+
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/utils/readProgramSource.js
+var require_readProgramSource = __commonJS({
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/utils/readProgramSource.js"(exports2) {
+    "use strict";
+    var __importDefault = exports2 && exports2.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports2, "__esModule", { value: true });
+    exports2.readPipedStdin = readPipedStdin;
+    exports2.resolveLaunchMode = resolveLaunchMode;
+    exports2.readInteractiveSourceBlock = readInteractiveSourceBlock;
+    exports2.resolveProgramInput = resolveProgramInput;
+    var fs_1 = require("fs");
+    var path_1 = require("path");
+    var readline_sync_1 = __importDefault(require_readline_sync());
+    function readPipedStdin() {
+      return (0, fs_1.readFileSync)(0, "utf8");
+    }
+    function resolveLaunchMode(argv) {
+      const inputArg = argv.join(" ").trim();
+      if (inputArg === "-" || inputArg === "--stdin") {
+        return "stdin";
+      }
+      if (inputArg) {
+        return "file";
+      }
+      if (!process.stdin.isTTY) {
+        return "stdin";
+      }
+      return "repl";
+    }
+    function readInteractiveSourceBlock(isFirstBlock) {
+      if (isFirstBlock) {
+        console.log("AstigLang \u2014 type your program at the > prompt.");
+        console.log("Empty line runs the code. Empty submit again to exit.\n");
+      }
+      const lines = [];
+      while (true) {
+        const line = readline_sync_1.default.question("> ");
+        if (line === "") {
+          break;
+        }
+        lines.push(line);
+      }
+      if (lines.length === 0) {
+        return null;
+      }
+      return lines.join("\n");
+    }
+    function resolveProgramInput(argv) {
+      const inputArg = argv.join(" ").trim();
+      const mode = resolveLaunchMode(argv);
+      if (mode === "repl") {
+        throw new Error("resolveProgramInput does not apply to REPL mode");
+      }
+      if (mode === "stdin") {
+        return {
+          sourceCode: readPipedStdin(),
+          programFilename: "<stdin>",
+          baseDirectory: process.cwd()
+        };
+      }
+      const resolvedPath = (0, path_1.resolve)(inputArg);
+      if (!(0, fs_1.existsSync)(resolvedPath)) {
+        throw new Error(`File not found: ${inputArg}`);
+      }
+      return {
+        sourceCode: (0, fs_1.readFileSync)(resolvedPath, "utf8"),
+        sourcePath: resolvedPath,
+        programFilename: (0, path_1.basename)(resolvedPath),
+        baseDirectory: (0, path_1.dirname)(resolvedPath)
+      };
+    }
+  }
+});
+
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/main.js
 Object.defineProperty(exports, "__esModule", { value: true });
-var fs_1 = require("fs");
-var path_1 = require("path");
 var ast_1 = require_ast();
 var ParseError_1 = require_ParseError();
 var RuntimeError_1 = require_RuntimeError();
+var RuntimeErrors_1 = require_RuntimeErrors();
 var TypeCheckError_1 = require_TypeCheckError();
 var TypeCheckErrors_1 = require_TypeCheckErrors();
 var interpreter_1 = require_interpreter();
 var programLoader_1 = require_programLoader();
 var typeChecker_1 = require_typeChecker();
 var diagnostics_1 = require_diagnostics();
-var defaultCode = `
-fHUncTH!0Ns mHA1Ns() {
-  vH4rs nH4mH3s:sTRh1Ngz = "Hello";
-  vH4rs cH0uHNtHs:iHNtSZ = 10;
-  pHR!HNTs(nH4mH3s);
-}
-`;
-var inputArg = process.argv.slice(2).join(" ");
-var sourcePath = inputArg && (0, fs_1.existsSync)(inputArg) ? (0, path_1.resolve)(inputArg) : void 0;
-var sourceCode = sourcePath ? (0, fs_1.readFileSync)(sourcePath, "utf8") : defaultCode;
-var baseDirectory = sourcePath ? (0, path_1.dirname)(sourcePath) : process.cwd();
-var programFilename = sourcePath ? (0, path_1.basename)(sourcePath) : "<stdin>";
-var parseResult = (0, programLoader_1.parseProgramSource)(sourceCode, programFilename);
-if (parseResult.syntaxErrors > 0) {
-  (0, diagnostics_1.reportDiagnostics)(parseResult.diagnostics, sourceCode, { showRecoveryNote: parseResult.diagnostics.length > 0 });
-  process.exit(1);
-}
+var readProgramSource_1 = require_readProgramSource();
+var replFilename = "<interactive>";
 try {
-  const ast = sourcePath ? (0, programLoader_1.loadProgram)(sourceCode, baseDirectory, programFilename) : (0, programLoader_1.finalizeStandaloneProgram)((0, ast_1.buildAst)(parseResult.tree));
-  const typeDiagnostics = runTypeCheck(ast, programFilename);
-  try {
-    const output = (0, interpreter_1.runProgram)(ast);
-    if (typeDiagnostics.length > 0) {
-      (0, diagnostics_1.reportDiagnostics)(typeDiagnostics, sourceCode, { showRecoveryNote: true });
-      process.exit(1);
-    }
-    console.log("Output:");
-    console.log(output.join("\n"));
-  } catch (runtimeError) {
-    if (typeDiagnostics.length > 0) {
-      const runtimeDiagnostic = toRuntimeDiagnostic(runtimeError, programFilename);
-      (0, diagnostics_1.reportDiagnostics)(runtimeDiagnostic ? [...typeDiagnostics, runtimeDiagnostic] : typeDiagnostics, sourceCode, { showRecoveryNote: true });
-      process.exit(1);
-    }
-    reportErrors(runtimeError);
-    process.exit(1);
+  const argv = process.argv.slice(2);
+  const launchMode = (0, readProgramSource_1.resolveLaunchMode)(argv);
+  if (launchMode === "repl") {
+    runInteractiveRepl();
+    process.exit(0);
   }
+  const programInput = (0, readProgramSource_1.resolveProgramInput)(argv);
+  const exitCode = executeProgram(programInput);
+  process.exit(exitCode);
 } catch (error) {
-  reportErrors(error);
+  reportErrors(error, "", replFilename);
   process.exit(1);
 }
-function runTypeCheck(ast, programFilename2) {
+function runInteractiveRepl() {
+  let isFirstPrompt = true;
+  let hasRunCode = false;
+  while (true) {
+    const sourceCode = (0, readProgramSource_1.readInteractiveSourceBlock)(isFirstPrompt);
+    isFirstPrompt = false;
+    if (sourceCode === null) {
+      console.log(hasRunCode ? "Bye." : "No code entered.");
+      return;
+    }
+    hasRunCode = true;
+    executeProgram({
+      sourceCode,
+      programFilename: replFilename,
+      baseDirectory: process.cwd()
+    });
+    console.log("");
+  }
+}
+function executeProgram(programInput) {
+  const { sourceCode, programFilename } = programInput;
+  const parseResult = (0, programLoader_1.parseProgramSource)(sourceCode, programFilename);
+  if (parseResult.syntaxErrors > 0) {
+    (0, diagnostics_1.reportDiagnostics)(parseResult.diagnostics, sourceCode, {
+      showRecoveryNote: parseResult.diagnostics.length > 0
+    });
+    return 1;
+  }
   try {
-    (0, typeChecker_1.typeCheckProgram)(ast, programFilename2);
+    const ast = programInput.sourcePath ? (0, programLoader_1.loadProgram)(sourceCode, programInput.baseDirectory, programInput.programFilename) : (0, programLoader_1.finalizeStandaloneProgram)((0, ast_1.buildAst)(parseResult.tree));
+    const typeDiagnostics = runTypeCheck(ast, programFilename);
+    try {
+      const output = (0, interpreter_1.runProgram)(ast, programFilename);
+      if (typeDiagnostics.length > 0) {
+        (0, diagnostics_1.reportDiagnostics)(typeDiagnostics, sourceCode, { showRecoveryNote: true });
+        return 1;
+      }
+      console.log("Output:");
+      console.log(output.join("\n"));
+      return 0;
+    } catch (runtimeError) {
+      if (runtimeError instanceof RuntimeErrors_1.RuntimeErrors) {
+        (0, diagnostics_1.reportDiagnostics)([...typeDiagnostics, ...runtimeError.diagnostics], sourceCode, { showRecoveryNote: true });
+        return 1;
+      }
+      if (typeDiagnostics.length > 0) {
+        const runtimeDiagnostic = toRuntimeDiagnostic(runtimeError, programFilename);
+        (0, diagnostics_1.reportDiagnostics)(runtimeDiagnostic ? [...typeDiagnostics, runtimeDiagnostic] : typeDiagnostics, sourceCode, { showRecoveryNote: true });
+        return 1;
+      }
+      reportErrors(runtimeError, sourceCode, programFilename);
+      return 1;
+    }
+  } catch (error) {
+    reportErrors(error, sourceCode, programFilename);
+    return 1;
+  }
+}
+function runTypeCheck(ast, filename) {
+  try {
+    (0, typeChecker_1.typeCheckProgram)(ast, filename);
     return [];
   } catch (error) {
     if (error instanceof TypeCheckErrors_1.TypeCheckErrors) {
@@ -28112,22 +29581,26 @@ function runTypeCheck(ast, programFilename2) {
     throw error;
   }
 }
-function toRuntimeDiagnostic(error, programFilename2) {
+function toRuntimeDiagnostic(error, filename) {
   if (error instanceof RuntimeError_1.RuntimeError) {
-    return (0, diagnostics_1.diagnosticFromError)(error, "runtime", programFilename2, error.location);
+    return (0, diagnostics_1.diagnosticFromError)(error, "runtime", filename, error.location);
   }
   if (error instanceof Error) {
     const phase = classifyErrorPhase(error.message);
-    return (0, diagnostics_1.diagnosticFromError)(error, phase, programFilename2, (0, diagnostics_1.getErrorSourceLocation)(error));
+    return (0, diagnostics_1.diagnosticFromError)(error, phase, filename, (0, diagnostics_1.getErrorSourceLocation)(error));
   }
   return void 0;
 }
-function reportErrors(error) {
+function reportErrors(error, sourceCode, programFilename) {
   if (error instanceof ParseError_1.ParseError) {
     (0, diagnostics_1.reportDiagnostics)(error.diagnostics, error.source);
     return;
   }
   if (error instanceof TypeCheckErrors_1.TypeCheckErrors) {
+    (0, diagnostics_1.reportDiagnostics)(error.diagnostics, sourceCode, { showRecoveryNote: true });
+    return;
+  }
+  if (error instanceof RuntimeErrors_1.RuntimeErrors) {
     (0, diagnostics_1.reportDiagnostics)(error.diagnostics, sourceCode, { showRecoveryNote: true });
     return;
   }
@@ -28140,8 +29613,7 @@ function reportErrors(error) {
     return;
   }
   if (error instanceof Error) {
-    const phase = classifyErrorPhase(error.message);
-    console.error((0, diagnostics_1.formatDiagnostic)((0, diagnostics_1.diagnosticFromError)(error, phase, programFilename), sourceCode));
+    console.error(error.message);
     return;
   }
   throw error;

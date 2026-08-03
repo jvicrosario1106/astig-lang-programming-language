@@ -4,12 +4,13 @@ Jejemon-styled programming language (`.stg` files). Pipeline: **lexer → parser
 
 ```bash
 npm run generate          # regenerate ANTLR lexer/parser from grammar/AstigLang.g4
-npm start -- program.stg  # run a program
+npm start -- program.stg  # run a program file
+npm start                 # REPL: type code, empty line to run, repeat
 npm run pipeline          # pipeline demo → text-files/
 npm run compile           # build standalone interpreter binary → binaries/
 ```
 
-**Submission binary:** run `npm run compile`, then use `./binaries/astiglang program.stg`. See `binaries/README.md`.
+**Submission binary:** run `npm run compile`, then use `./binaries/astiglang program.stg` or `./binaries/astiglang` to type code interactively. See `binaries/README.md`.
 
 Docs: `LANGUAGE.md` (manual), `SYNTAX-RULES.md` (do / don't reference), `Pipeline.md` (compiler pipeline).  
 Demos: `demo-examples/`.
