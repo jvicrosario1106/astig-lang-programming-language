@@ -8,7 +8,7 @@
     "build": "tsc",
     "compile": "npx ts-node scripts/buildBinaries.ts",
     "compile:all": "PKG_TARGETS=node22-macos-arm64,node22-macos-x64,node22-linux-x64,node22-win-x64 npx ts-node scripts/buildBinaries.ts",
-    "start": "npx ts-node src/main.ts",
+    "start": "npm run build && node dist/src/main.js",
     "pipeline": "npx ts-node src/pipelineDemo.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "generate": "npx antlr4ts-cli -visitor -o generated grammar/AstigLang.g4"

@@ -53,7 +53,7 @@ export type VariableDeclarationNode = AstNodeLocation & {
   declarationKind: DeclarationKind;
   name: string;
   declaredType?: string;
-  value: ExpressionNode;
+  value?: ExpressionNode;
   isArray: boolean;
 };
 

@@ -39,7 +39,7 @@ statement
 // Type annotations are optional for now, inspired by TypeScript.
 // Examples: v4r x4 = 10, v4r x4: iHNtSZ = 10
 variableDeclaration
-    : declarationKeyword IDENTIFIER typeAnnotation '=' expression
+    : declarationKeyword IDENTIFIER typeAnnotation ('=' expression)?
     ;
 
 // CHANGE: Added record declaration and literal rules

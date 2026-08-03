@@ -16,6 +16,12 @@ export function toRuntimeError(
 
   const message = error.message;
 
+  if (message.includes('Cannot redeclare')) {
+    const name = message.match(/"([^"]+)"/)?.[1] ?? 'unknown';
+    const symbolKind = message.includes('function') ? 'function' : 'variable';
+    return new RedeclarationError(name, symbolKind, location);
+  }
+
   if (message.includes('Undefined variable')) {
     const name = message.match(/"([^"]+)"/)?.[1] ?? 'unknown';
     return new UndefinedVariableError(name, location);
@@ -49,6 +55,25 @@ export function toRuntimeError(
   }
 
   return new RuntimeError(message, location);
+}
+
+export class RedeclarationError extends RuntimeError {
+  readonly symbolName: string;
+  readonly symbolKind: 'variable' | 'function';
+
+  constructor(
+    symbolName: string,
+    symbolKind: 'variable' | 'function' = 'variable',
+    location?: SourceLocation,
+  ) {
+    super(
+      `Runtime Error: Cannot redeclare ${symbolKind} "${symbolName}"`,
+      location,
+    );
+    this.name = 'RedeclarationError';
+    this.symbolName = symbolName;
+    this.symbolKind = symbolKind;
+  }
 }
 
 export class UndefinedVariableError extends RuntimeError {

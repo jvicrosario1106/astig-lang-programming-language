@@ -8,9 +8,9 @@ var __commonJS = (cb, mod) => function __require() {
   }
 };
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/Decorators.js
+// node_modules/antlr4ts/Decorators.js
 var require_Decorators = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/Decorators.js"(exports2) {
+  "node_modules/antlr4ts/Decorators.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.SuppressWarnings = exports2.Override = exports2.Nullable = exports2.NotNull = void 0;
@@ -31,9 +31,9 @@ var require_Decorators = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/MurmurHash.js
+// node_modules/antlr4ts/misc/MurmurHash.js
 var require_MurmurHash = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/MurmurHash.js"(exports2) {
+  "node_modules/antlr4ts/misc/MurmurHash.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.MurmurHash = void 0;
@@ -106,9 +106,9 @@ var require_MurmurHash = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/ObjectEqualityComparator.js
+// node_modules/antlr4ts/misc/ObjectEqualityComparator.js
 var require_ObjectEqualityComparator = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/ObjectEqualityComparator.js"(exports2) {
+  "node_modules/antlr4ts/misc/ObjectEqualityComparator.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -159,9 +159,9 @@ var require_ObjectEqualityComparator = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/DefaultEqualityComparator.js
+// node_modules/antlr4ts/misc/DefaultEqualityComparator.js
 var require_DefaultEqualityComparator = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/DefaultEqualityComparator.js"(exports2) {
+  "node_modules/antlr4ts/misc/DefaultEqualityComparator.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -220,9 +220,9 @@ var require_DefaultEqualityComparator = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/Array2DHashSet.js
+// node_modules/antlr4ts/misc/Array2DHashSet.js
 var require_Array2DHashSet = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/Array2DHashSet.js"(exports2) {
+  "node_modules/antlr4ts/misc/Array2DHashSet.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -571,9 +571,9 @@ var require_Array2DHashSet = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/Array2DHashMap.js
+// node_modules/antlr4ts/misc/Array2DHashMap.js
 var require_Array2DHashMap = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/Array2DHashMap.js"(exports2) {
+  "node_modules/antlr4ts/misc/Array2DHashMap.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.Array2DHashMap = void 0;
@@ -651,9 +651,9 @@ var require_Array2DHashMap = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/ArrayEqualityComparator.js
+// node_modules/antlr4ts/misc/ArrayEqualityComparator.js
 var require_ArrayEqualityComparator = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/ArrayEqualityComparator.js"(exports2) {
+  "node_modules/antlr4ts/misc/ArrayEqualityComparator.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -716,9 +716,9 @@ var require_ArrayEqualityComparator = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ATNState.js
+// node_modules/antlr4ts/atn/ATNState.js
 var require_ATNState = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ATNState.js"(exports2) {
+  "node_modules/antlr4ts/atn/ATNState.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -843,9 +843,9 @@ var require_ATNState = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/DecisionState.js
+// node_modules/antlr4ts/atn/DecisionState.js
 var require_DecisionState = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/DecisionState.js"(exports2) {
+  "node_modules/antlr4ts/atn/DecisionState.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.DecisionState = void 0;
@@ -862,9 +862,9 @@ var require_DecisionState = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/Arrays.js
+// node_modules/antlr4ts/misc/Arrays.js
 var require_Arrays = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/Arrays.js"(exports2) {
+  "node_modules/antlr4ts/misc/Arrays.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.Arrays = void 0;
@@ -915,9 +915,9 @@ var require_Arrays = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/PredictionContextCache.js
+// node_modules/antlr4ts/atn/PredictionContextCache.js
 var require_PredictionContextCache = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/PredictionContextCache.js"(exports2) {
+  "node_modules/antlr4ts/atn/PredictionContextCache.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1046,9 +1046,9 @@ var require_PredictionContextCache = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/PredictionContext.js
+// node_modules/antlr4ts/atn/PredictionContext.js
 var require_PredictionContext = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/PredictionContext.js"(exports2) {
+  "node_modules/antlr4ts/atn/PredictionContext.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1714,9 +1714,9 @@ var require_PredictionContext = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/Utils.js
+// node_modules/antlr4ts/misc/Utils.js
 var require_Utils = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/Utils.js"(exports2) {
+  "node_modules/antlr4ts/misc/Utils.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.toCharArray = exports2.toMap = exports2.equals = exports2.join = exports2.escapeWhitespace = void 0;
@@ -1771,9 +1771,9 @@ var require_Utils = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/SemanticContext.js
+// node_modules/antlr4ts/atn/SemanticContext.js
 var require_SemanticContext = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/SemanticContext.js"(exports2) {
+  "node_modules/antlr4ts/atn/SemanticContext.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2209,9 +2209,9 @@ var require_SemanticContext = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ATNConfig.js
+// node_modules/antlr4ts/atn/ATNConfig.js
 var require_ATNConfig = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ATNConfig.js"(exports2) {
+  "node_modules/antlr4ts/atn/ATNConfig.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2646,9 +2646,9 @@ var require_ATNConfig = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/BitSet.js
+// node_modules/antlr4ts/misc/BitSet.js
 var require_BitSet = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/BitSet.js"(exports2) {
+  "node_modules/antlr4ts/misc/BitSet.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.BitSet = void 0;
@@ -3268,9 +3268,9 @@ var require_BitSet = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ATNConfigSet.js
+// node_modules/antlr4ts/atn/ATNConfigSet.js
 var require_ATNConfigSet = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ATNConfigSet.js"(exports2) {
+  "node_modules/antlr4ts/atn/ATNConfigSet.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -3679,9 +3679,9 @@ var require_ATNConfigSet = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/dfa/DFAState.js
+// node_modules/antlr4ts/dfa/DFAState.js
 var require_DFAState = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/dfa/DFAState.js"(exports2) {
+  "node_modules/antlr4ts/dfa/DFAState.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -3883,9 +3883,9 @@ var require_DFAState = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ATNSimulator.js
+// node_modules/antlr4ts/atn/ATNSimulator.js
 var require_ATNSimulator = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ATNSimulator.js"(exports2) {
+  "node_modules/antlr4ts/atn/ATNSimulator.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -3949,9 +3949,9 @@ var require_ATNSimulator = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/ConsoleErrorListener.js
+// node_modules/antlr4ts/ConsoleErrorListener.js
 var require_ConsoleErrorListener = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/ConsoleErrorListener.js"(exports2) {
+  "node_modules/antlr4ts/ConsoleErrorListener.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.ConsoleErrorListener = void 0;
@@ -3976,9 +3976,9 @@ var require_ConsoleErrorListener = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/ProxyErrorListener.js
+// node_modules/antlr4ts/ProxyErrorListener.js
 var require_ProxyErrorListener = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/ProxyErrorListener.js"(exports2) {
+  "node_modules/antlr4ts/ProxyErrorListener.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -4021,9 +4021,9 @@ var require_ProxyErrorListener = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/IntStream.js
+// node_modules/antlr4ts/IntStream.js
 var require_IntStream = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/IntStream.js"(exports2) {
+  "node_modules/antlr4ts/IntStream.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.IntStream = void 0;
@@ -4035,9 +4035,9 @@ var require_IntStream = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/Token.js
+// node_modules/antlr4ts/Token.js
 var require_Token = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/Token.js"(exports2) {
+  "node_modules/antlr4ts/Token.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.Token = void 0;
@@ -4055,9 +4055,9 @@ var require_Token = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/Recognizer.js
+// node_modules/antlr4ts/Recognizer.js
 var require_Recognizer = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/Recognizer.js"(exports2) {
+  "node_modules/antlr4ts/Recognizer.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -4273,9 +4273,9 @@ var require_Recognizer = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/VocabularyImpl.js
+// node_modules/antlr4ts/VocabularyImpl.js
 var require_VocabularyImpl = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/VocabularyImpl.js"(exports2) {
+  "node_modules/antlr4ts/VocabularyImpl.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -4377,9 +4377,9 @@ var require_VocabularyImpl = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/dfa/DFASerializer.js
+// node_modules/antlr4ts/dfa/DFASerializer.js
 var require_DFASerializer = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/dfa/DFASerializer.js"(exports2) {
+  "node_modules/antlr4ts/dfa/DFASerializer.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -4508,9 +4508,9 @@ var require_DFASerializer = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/dfa/LexerDFASerializer.js
+// node_modules/antlr4ts/dfa/LexerDFASerializer.js
 var require_LexerDFASerializer = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/dfa/LexerDFASerializer.js"(exports2) {
+  "node_modules/antlr4ts/dfa/LexerDFASerializer.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -4547,9 +4547,9 @@ var require_LexerDFASerializer = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ATNStateType.js
+// node_modules/antlr4ts/atn/ATNStateType.js
 var require_ATNStateType = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ATNStateType.js"(exports2) {
+  "node_modules/antlr4ts/atn/ATNStateType.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.ATNStateType = void 0;
@@ -4572,9 +4572,9 @@ var require_ATNStateType = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/StarLoopEntryState.js
+// node_modules/antlr4ts/atn/StarLoopEntryState.js
 var require_StarLoopEntryState = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/StarLoopEntryState.js"(exports2) {
+  "node_modules/antlr4ts/atn/StarLoopEntryState.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -4605,9 +4605,9 @@ var require_StarLoopEntryState = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/dfa/DFA.js
+// node_modules/antlr4ts/dfa/DFA.js
 var require_DFA = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/dfa/DFA.js"(exports2) {
+  "node_modules/antlr4ts/dfa/DFA.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -4763,9 +4763,9 @@ var require_DFA = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/IntegerList.js
+// node_modules/antlr4ts/misc/IntegerList.js
 var require_IntegerList = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/IntegerList.js"(exports2) {
+  "node_modules/antlr4ts/misc/IntegerList.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -5040,9 +5040,9 @@ var require_IntegerList = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/Interval.js
+// node_modules/antlr4ts/misc/Interval.js
 var require_Interval = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/Interval.js"(exports2) {
+  "node_modules/antlr4ts/misc/Interval.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -5176,9 +5176,9 @@ var require_Interval = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/CommonToken.js
+// node_modules/antlr4ts/CommonToken.js
 var require_CommonToken = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/CommonToken.js"(exports2) {
+  "node_modules/antlr4ts/CommonToken.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -5387,9 +5387,9 @@ var require_CommonToken = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/CommonTokenFactory.js
+// node_modules/antlr4ts/CommonTokenFactory.js
 var require_CommonTokenFactory = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/CommonTokenFactory.js"(exports2) {
+  "node_modules/antlr4ts/CommonTokenFactory.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -5441,9 +5441,9 @@ var require_CommonTokenFactory = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/IntegerStack.js
+// node_modules/antlr4ts/misc/IntegerStack.js
 var require_IntegerStack = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/IntegerStack.js"(exports2) {
+  "node_modules/antlr4ts/misc/IntegerStack.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.IntegerStack = void 0;
@@ -5466,9 +5466,9 @@ var require_IntegerStack = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/dfa/AcceptStateInfo.js
+// node_modules/antlr4ts/dfa/AcceptStateInfo.js
 var require_AcceptStateInfo = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/dfa/AcceptStateInfo.js"(exports2) {
+  "node_modules/antlr4ts/dfa/AcceptStateInfo.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.AcceptStateInfo = void 0;
@@ -5499,9 +5499,9 @@ var require_AcceptStateInfo = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LexerIndexedCustomAction.js
+// node_modules/antlr4ts/atn/LexerIndexedCustomAction.js
 var require_LexerIndexedCustomAction = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LexerIndexedCustomAction.js"(exports2) {
+  "node_modules/antlr4ts/atn/LexerIndexedCustomAction.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -5620,9 +5620,9 @@ var require_LexerIndexedCustomAction = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LexerActionExecutor.js
+// node_modules/antlr4ts/atn/LexerActionExecutor.js
 var require_LexerActionExecutor = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LexerActionExecutor.js"(exports2) {
+  "node_modules/antlr4ts/atn/LexerActionExecutor.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -5807,9 +5807,9 @@ var require_LexerActionExecutor = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/RecognitionException.js
+// node_modules/antlr4ts/RecognitionException.js
 var require_RecognitionException = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/RecognitionException.js"(exports2) {
+  "node_modules/antlr4ts/RecognitionException.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.RecognitionException = void 0;
@@ -5906,9 +5906,9 @@ var require_RecognitionException = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/LexerNoViableAltException.js
+// node_modules/antlr4ts/LexerNoViableAltException.js
 var require_LexerNoViableAltException = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/LexerNoViableAltException.js"(exports2) {
+  "node_modules/antlr4ts/LexerNoViableAltException.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -5964,9 +5964,9 @@ var require_LexerNoViableAltException = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/OrderedATNConfigSet.js
+// node_modules/antlr4ts/atn/OrderedATNConfigSet.js
 var require_OrderedATNConfigSet = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/OrderedATNConfigSet.js"(exports2) {
+  "node_modules/antlr4ts/atn/OrderedATNConfigSet.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -6013,9 +6013,9 @@ var require_OrderedATNConfigSet = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/RuleStopState.js
+// node_modules/antlr4ts/atn/RuleStopState.js
 var require_RuleStopState = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/RuleStopState.js"(exports2) {
+  "node_modules/antlr4ts/atn/RuleStopState.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -6046,9 +6046,9 @@ var require_RuleStopState = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LexerATNSimulator.js
+// node_modules/antlr4ts/atn/LexerATNSimulator.js
 var require_LexerATNSimulator = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LexerATNSimulator.js"(exports2) {
+  "node_modules/antlr4ts/atn/LexerATNSimulator.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -6646,9 +6646,9 @@ var require_LexerATNSimulator = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/Lexer.js
+// node_modules/antlr4ts/Lexer.js
 var require_Lexer = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/Lexer.js"(exports2) {
+  "node_modules/antlr4ts/Lexer.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -6948,9 +6948,9 @@ var require_Lexer = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/IntervalSet.js
+// node_modules/antlr4ts/misc/IntervalSet.js
 var require_IntervalSet = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/IntervalSet.js"(exports2) {
+  "node_modules/antlr4ts/misc/IntervalSet.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -7515,9 +7515,9 @@ var require_IntervalSet = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/BasicState.js
+// node_modules/antlr4ts/atn/BasicState.js
 var require_BasicState = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/BasicState.js"(exports2) {
+  "node_modules/antlr4ts/atn/BasicState.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -7542,9 +7542,9 @@ var require_BasicState = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/InvalidState.js
+// node_modules/antlr4ts/atn/InvalidState.js
 var require_InvalidState = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/InvalidState.js"(exports2) {
+  "node_modules/antlr4ts/atn/InvalidState.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -7569,9 +7569,9 @@ var require_InvalidState = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/Transition.js
+// node_modules/antlr4ts/atn/Transition.js
 var require_Transition = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/Transition.js"(exports2) {
+  "node_modules/antlr4ts/atn/Transition.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -7633,9 +7633,9 @@ var require_Transition = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/AbstractPredicateTransition.js
+// node_modules/antlr4ts/atn/AbstractPredicateTransition.js
 var require_AbstractPredicateTransition = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/AbstractPredicateTransition.js"(exports2) {
+  "node_modules/antlr4ts/atn/AbstractPredicateTransition.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.AbstractPredicateTransition = void 0;
@@ -7649,9 +7649,9 @@ var require_AbstractPredicateTransition = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/SetTransition.js
+// node_modules/antlr4ts/atn/SetTransition.js
 var require_SetTransition = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/SetTransition.js"(exports2) {
+  "node_modules/antlr4ts/atn/SetTransition.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -7717,9 +7717,9 @@ var require_SetTransition = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/NotSetTransition.js
+// node_modules/antlr4ts/atn/NotSetTransition.js
 var require_NotSetTransition = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/NotSetTransition.js"(exports2) {
+  "node_modules/antlr4ts/atn/NotSetTransition.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -7767,9 +7767,9 @@ var require_NotSetTransition = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/RuleTransition.js
+// node_modules/antlr4ts/atn/RuleTransition.js
 var require_RuleTransition = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/RuleTransition.js"(exports2) {
+  "node_modules/antlr4ts/atn/RuleTransition.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -7825,9 +7825,9 @@ var require_RuleTransition = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/WildcardTransition.js
+// node_modules/antlr4ts/atn/WildcardTransition.js
 var require_WildcardTransition = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/WildcardTransition.js"(exports2) {
+  "node_modules/antlr4ts/atn/WildcardTransition.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -7875,9 +7875,9 @@ var require_WildcardTransition = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LL1Analyzer.js
+// node_modules/antlr4ts/atn/LL1Analyzer.js
 var require_LL1Analyzer = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LL1Analyzer.js"(exports2) {
+  "node_modules/antlr4ts/atn/LL1Analyzer.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -8081,9 +8081,9 @@ var require_LL1Analyzer = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ATN.js
+// node_modules/antlr4ts/atn/ATN.js
 var require_ATN = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ATN.js"(exports2) {
+  "node_modules/antlr4ts/atn/ATN.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -8298,9 +8298,9 @@ var require_ATN = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ActionTransition.js
+// node_modules/antlr4ts/atn/ActionTransition.js
 var require_ActionTransition = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ActionTransition.js"(exports2) {
+  "node_modules/antlr4ts/atn/ActionTransition.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -8356,9 +8356,9 @@ var require_ActionTransition = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ATNDeserializationOptions.js
+// node_modules/antlr4ts/atn/ATNDeserializationOptions.js
 var require_ATNDeserializationOptions = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ATNDeserializationOptions.js"(exports2) {
+  "node_modules/antlr4ts/atn/ATNDeserializationOptions.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -8429,9 +8429,9 @@ var require_ATNDeserializationOptions = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/AtomTransition.js
+// node_modules/antlr4ts/atn/AtomTransition.js
 var require_AtomTransition = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/AtomTransition.js"(exports2) {
+  "node_modules/antlr4ts/atn/AtomTransition.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -8488,9 +8488,9 @@ var require_AtomTransition = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/BlockStartState.js
+// node_modules/antlr4ts/atn/BlockStartState.js
 var require_BlockStartState = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/BlockStartState.js"(exports2) {
+  "node_modules/antlr4ts/atn/BlockStartState.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.BlockStartState = void 0;
@@ -8501,9 +8501,9 @@ var require_BlockStartState = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/BasicBlockStartState.js
+// node_modules/antlr4ts/atn/BasicBlockStartState.js
 var require_BasicBlockStartState = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/BasicBlockStartState.js"(exports2) {
+  "node_modules/antlr4ts/atn/BasicBlockStartState.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -8528,9 +8528,9 @@ var require_BasicBlockStartState = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/BlockEndState.js
+// node_modules/antlr4ts/atn/BlockEndState.js
 var require_BlockEndState = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/BlockEndState.js"(exports2) {
+  "node_modules/antlr4ts/atn/BlockEndState.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -8555,9 +8555,9 @@ var require_BlockEndState = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/EpsilonTransition.js
+// node_modules/antlr4ts/atn/EpsilonTransition.js
 var require_EpsilonTransition = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/EpsilonTransition.js"(exports2) {
+  "node_modules/antlr4ts/atn/EpsilonTransition.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -8623,9 +8623,9 @@ var require_EpsilonTransition = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LexerChannelAction.js
+// node_modules/antlr4ts/atn/LexerChannelAction.js
 var require_LexerChannelAction = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LexerChannelAction.js"(exports2) {
+  "node_modules/antlr4ts/atn/LexerChannelAction.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -8722,9 +8722,9 @@ var require_LexerChannelAction = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LexerCustomAction.js
+// node_modules/antlr4ts/atn/LexerCustomAction.js
 var require_LexerCustomAction = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LexerCustomAction.js"(exports2) {
+  "node_modules/antlr4ts/atn/LexerCustomAction.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -8838,9 +8838,9 @@ var require_LexerCustomAction = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LexerModeAction.js
+// node_modules/antlr4ts/atn/LexerModeAction.js
 var require_LexerModeAction = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LexerModeAction.js"(exports2) {
+  "node_modules/antlr4ts/atn/LexerModeAction.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -8937,9 +8937,9 @@ var require_LexerModeAction = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LexerMoreAction.js
+// node_modules/antlr4ts/atn/LexerMoreAction.js
 var require_LexerMoreAction = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LexerMoreAction.js"(exports2) {
+  "node_modules/antlr4ts/atn/LexerMoreAction.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -9022,9 +9022,9 @@ var require_LexerMoreAction = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LexerPopModeAction.js
+// node_modules/antlr4ts/atn/LexerPopModeAction.js
 var require_LexerPopModeAction = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LexerPopModeAction.js"(exports2) {
+  "node_modules/antlr4ts/atn/LexerPopModeAction.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -9107,9 +9107,9 @@ var require_LexerPopModeAction = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LexerPushModeAction.js
+// node_modules/antlr4ts/atn/LexerPushModeAction.js
 var require_LexerPushModeAction = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LexerPushModeAction.js"(exports2) {
+  "node_modules/antlr4ts/atn/LexerPushModeAction.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -9206,9 +9206,9 @@ var require_LexerPushModeAction = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LexerSkipAction.js
+// node_modules/antlr4ts/atn/LexerSkipAction.js
 var require_LexerSkipAction = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LexerSkipAction.js"(exports2) {
+  "node_modules/antlr4ts/atn/LexerSkipAction.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -9291,9 +9291,9 @@ var require_LexerSkipAction = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LexerTypeAction.js
+// node_modules/antlr4ts/atn/LexerTypeAction.js
 var require_LexerTypeAction = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LexerTypeAction.js"(exports2) {
+  "node_modules/antlr4ts/atn/LexerTypeAction.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -9389,9 +9389,9 @@ var require_LexerTypeAction = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LoopEndState.js
+// node_modules/antlr4ts/atn/LoopEndState.js
 var require_LoopEndState = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LoopEndState.js"(exports2) {
+  "node_modules/antlr4ts/atn/LoopEndState.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -9416,9 +9416,9 @@ var require_LoopEndState = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ConflictInfo.js
+// node_modules/antlr4ts/atn/ConflictInfo.js
 var require_ConflictInfo = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ConflictInfo.js"(exports2) {
+  "node_modules/antlr4ts/atn/ConflictInfo.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -9479,9 +9479,9 @@ var require_ConflictInfo = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/PredicateTransition.js
+// node_modules/antlr4ts/atn/PredicateTransition.js
 var require_PredicateTransition = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/PredicateTransition.js"(exports2) {
+  "node_modules/antlr4ts/atn/PredicateTransition.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -9542,9 +9542,9 @@ var require_PredicateTransition = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/FailedPredicateException.js
+// node_modules/antlr4ts/FailedPredicateException.js
 var require_FailedPredicateException = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/FailedPredicateException.js"(exports2) {
+  "node_modules/antlr4ts/FailedPredicateException.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -9603,9 +9603,9 @@ var require_FailedPredicateException = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/InputMismatchException.js
+// node_modules/antlr4ts/InputMismatchException.js
 var require_InputMismatchException = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/InputMismatchException.js"(exports2) {
+  "node_modules/antlr4ts/InputMismatchException.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -9641,9 +9641,9 @@ var require_InputMismatchException = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/DefaultErrorStrategy.js
+// node_modules/antlr4ts/DefaultErrorStrategy.js
 var require_DefaultErrorStrategy = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/DefaultErrorStrategy.js"(exports2) {
+  "node_modules/antlr4ts/DefaultErrorStrategy.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -10376,9 +10376,9 @@ var require_DefaultErrorStrategy = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/TerminalNode.js
+// node_modules/antlr4ts/tree/TerminalNode.js
 var require_TerminalNode = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/TerminalNode.js"(exports2) {
+  "node_modules/antlr4ts/tree/TerminalNode.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -10467,9 +10467,9 @@ var require_TerminalNode = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/ErrorNode.js
+// node_modules/antlr4ts/tree/ErrorNode.js
 var require_ErrorNode = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/ErrorNode.js"(exports2) {
+  "node_modules/antlr4ts/tree/ErrorNode.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -10496,9 +10496,9 @@ var require_ErrorNode = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ParseInfo.js
+// node_modules/antlr4ts/atn/ParseInfo.js
 var require_ParseInfo = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ParseInfo.js"(exports2) {
+  "node_modules/antlr4ts/atn/ParseInfo.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -10653,9 +10653,9 @@ var require_ParseInfo = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/ProxyParserErrorListener.js
+// node_modules/antlr4ts/ProxyParserErrorListener.js
 var require_ProxyParserErrorListener = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/ProxyParserErrorListener.js"(exports2) {
+  "node_modules/antlr4ts/ProxyParserErrorListener.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -10706,9 +10706,9 @@ var require_ProxyParserErrorListener = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/ParseCancellationException.js
+// node_modules/antlr4ts/misc/ParseCancellationException.js
 var require_ParseCancellationException = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/ParseCancellationException.js"(exports2) {
+  "node_modules/antlr4ts/misc/ParseCancellationException.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.ParseCancellationException = void 0;
@@ -10726,9 +10726,9 @@ var require_ParseCancellationException = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/BailErrorStrategy.js
+// node_modules/antlr4ts/BailErrorStrategy.js
 var require_BailErrorStrategy = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/BailErrorStrategy.js"(exports2) {
+  "node_modules/antlr4ts/BailErrorStrategy.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -10781,9 +10781,9 @@ var require_BailErrorStrategy = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/Character.js
+// node_modules/antlr4ts/misc/Character.js
 var require_Character = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/Character.js"(exports2) {
+  "node_modules/antlr4ts/misc/Character.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.isSupplementaryCodePoint = exports2.isLowSurrogate = exports2.isHighSurrogate = void 0;
@@ -10802,9 +10802,9 @@ var require_Character = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/CodePointBuffer.js
+// node_modules/antlr4ts/CodePointBuffer.js
 var require_CodePointBuffer = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/CodePointBuffer.js"(exports2) {
+  "node_modules/antlr4ts/CodePointBuffer.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.CodePointBuffer = void 0;
@@ -11022,9 +11022,9 @@ var require_CodePointBuffer = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/CodePointCharStream.js
+// node_modules/antlr4ts/CodePointCharStream.js
 var require_CodePointCharStream = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/CodePointCharStream.js"(exports2) {
+  "node_modules/antlr4ts/CodePointCharStream.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -11150,9 +11150,9 @@ var require_CodePointCharStream = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/CharStreams.js
+// node_modules/antlr4ts/CharStreams.js
 var require_CharStreams = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/CharStreams.js"(exports2) {
+  "node_modules/antlr4ts/CharStreams.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.CharStreams = void 0;
@@ -11178,9 +11178,9 @@ var require_CharStreams = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/BufferedTokenStream.js
+// node_modules/antlr4ts/BufferedTokenStream.js
 var require_BufferedTokenStream = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/BufferedTokenStream.js"(exports2) {
+  "node_modules/antlr4ts/BufferedTokenStream.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -11609,9 +11609,9 @@ var require_BufferedTokenStream = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/CommonTokenStream.js
+// node_modules/antlr4ts/CommonTokenStream.js
 var require_CommonTokenStream = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/CommonTokenStream.js"(exports2) {
+  "node_modules/antlr4ts/CommonTokenStream.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -11711,9 +11711,9 @@ var require_CommonTokenStream = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/ListTokenSource.js
+// node_modules/antlr4ts/ListTokenSource.js
 var require_ListTokenSource = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/ListTokenSource.js"(exports2) {
+  "node_modules/antlr4ts/ListTokenSource.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -11890,9 +11890,9 @@ var require_ListTokenSource = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/MultiMap.js
+// node_modules/antlr4ts/misc/MultiMap.js
 var require_MultiMap = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/MultiMap.js"(exports2) {
+  "node_modules/antlr4ts/misc/MultiMap.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.MultiMap = void 0;
@@ -11922,9 +11922,9 @@ var require_MultiMap = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/RuleNode.js
+// node_modules/antlr4ts/tree/RuleNode.js
 var require_RuleNode = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/RuleNode.js"(exports2) {
+  "node_modules/antlr4ts/tree/RuleNode.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.RuleNode = void 0;
@@ -11934,9 +11934,9 @@ var require_RuleNode = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/Trees.js
+// node_modules/antlr4ts/tree/Trees.js
 var require_Trees = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/Trees.js"(exports2) {
+  "node_modules/antlr4ts/tree/Trees.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -12167,9 +12167,9 @@ var require_Trees = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/RuleContext.js
+// node_modules/antlr4ts/RuleContext.js
 var require_RuleContext = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/RuleContext.js"(exports2) {
+  "node_modules/antlr4ts/RuleContext.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -12340,9 +12340,9 @@ var require_RuleContext = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/ParserRuleContext.js
+// node_modules/antlr4ts/ParserRuleContext.js
 var require_ParserRuleContext = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/ParserRuleContext.js"(exports2) {
+  "node_modules/antlr4ts/ParserRuleContext.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -12607,9 +12607,9 @@ var require_ParserRuleContext = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/InterpreterRuleContext.js
+// node_modules/antlr4ts/InterpreterRuleContext.js
 var require_InterpreterRuleContext = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/InterpreterRuleContext.js"(exports2) {
+  "node_modules/antlr4ts/InterpreterRuleContext.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -12641,9 +12641,9 @@ var require_InterpreterRuleContext = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/ParserInterpreter.js
+// node_modules/antlr4ts/ParserInterpreter.js
 var require_ParserInterpreter = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/ParserInterpreter.js"(exports2) {
+  "node_modules/antlr4ts/ParserInterpreter.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -13017,9 +13017,9 @@ var require_ParserInterpreter = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/pattern/ParseTreeMatch.js
+// node_modules/antlr4ts/tree/pattern/ParseTreeMatch.js
 var require_ParseTreeMatch = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/pattern/ParseTreeMatch.js"(exports2) {
+  "node_modules/antlr4ts/tree/pattern/ParseTreeMatch.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -13196,9 +13196,9 @@ var require_ParseTreeMatch = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/xpath/XPathLexer.js
+// node_modules/antlr4ts/tree/xpath/XPathLexer.js
 var require_XPathLexer = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/xpath/XPathLexer.js"(exports2) {
+  "node_modules/antlr4ts/tree/xpath/XPathLexer.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.XPathLexer = void 0;
@@ -13323,9 +13323,9 @@ var require_XPathLexer = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/xpath/XPathLexerErrorListener.js
+// node_modules/antlr4ts/tree/xpath/XPathLexerErrorListener.js
 var require_XPathLexerErrorListener = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/xpath/XPathLexerErrorListener.js"(exports2) {
+  "node_modules/antlr4ts/tree/xpath/XPathLexerErrorListener.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -13347,9 +13347,9 @@ var require_XPathLexerErrorListener = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/xpath/XPathElement.js
+// node_modules/antlr4ts/tree/xpath/XPathElement.js
 var require_XPathElement = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/xpath/XPathElement.js"(exports2) {
+  "node_modules/antlr4ts/tree/xpath/XPathElement.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -13381,9 +13381,9 @@ var require_XPathElement = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/xpath/XPathRuleAnywhereElement.js
+// node_modules/antlr4ts/tree/xpath/XPathRuleAnywhereElement.js
 var require_XPathRuleAnywhereElement = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/xpath/XPathRuleAnywhereElement.js"(exports2) {
+  "node_modules/antlr4ts/tree/xpath/XPathRuleAnywhereElement.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -13412,9 +13412,9 @@ var require_XPathRuleAnywhereElement = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/xpath/XPathRuleElement.js
+// node_modules/antlr4ts/tree/xpath/XPathRuleElement.js
 var require_XPathRuleElement = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/xpath/XPathRuleElement.js"(exports2) {
+  "node_modules/antlr4ts/tree/xpath/XPathRuleElement.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -13452,9 +13452,9 @@ var require_XPathRuleElement = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/xpath/XPathTokenAnywhereElement.js
+// node_modules/antlr4ts/tree/xpath/XPathTokenAnywhereElement.js
 var require_XPathTokenAnywhereElement = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/xpath/XPathTokenAnywhereElement.js"(exports2) {
+  "node_modules/antlr4ts/tree/xpath/XPathTokenAnywhereElement.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -13483,9 +13483,9 @@ var require_XPathTokenAnywhereElement = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/xpath/XPathTokenElement.js
+// node_modules/antlr4ts/tree/xpath/XPathTokenElement.js
 var require_XPathTokenElement = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/xpath/XPathTokenElement.js"(exports2) {
+  "node_modules/antlr4ts/tree/xpath/XPathTokenElement.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -13523,9 +13523,9 @@ var require_XPathTokenElement = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/xpath/XPathWildcardAnywhereElement.js
+// node_modules/antlr4ts/tree/xpath/XPathWildcardAnywhereElement.js
 var require_XPathWildcardAnywhereElement = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/xpath/XPathWildcardAnywhereElement.js"(exports2) {
+  "node_modules/antlr4ts/tree/xpath/XPathWildcardAnywhereElement.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -13557,9 +13557,9 @@ var require_XPathWildcardAnywhereElement = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/xpath/XPathWildcardElement.js
+// node_modules/antlr4ts/tree/xpath/XPathWildcardElement.js
 var require_XPathWildcardElement = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/xpath/XPathWildcardElement.js"(exports2) {
+  "node_modules/antlr4ts/tree/xpath/XPathWildcardElement.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -13595,9 +13595,9 @@ var require_XPathWildcardElement = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/xpath/XPath.js
+// node_modules/antlr4ts/tree/xpath/XPath.js
 var require_XPath = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/xpath/XPath.js"(exports2) {
+  "node_modules/antlr4ts/tree/xpath/XPath.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.XPath = void 0;
@@ -13740,9 +13740,9 @@ var require_XPath = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/pattern/ParseTreePattern.js
+// node_modules/antlr4ts/tree/pattern/ParseTreePattern.js
 var require_ParseTreePattern = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/pattern/ParseTreePattern.js"(exports2) {
+  "node_modules/antlr4ts/tree/pattern/ParseTreePattern.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -13896,9 +13896,9 @@ var require_ParseTreePattern = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/pattern/RuleTagToken.js
+// node_modules/antlr4ts/tree/pattern/RuleTagToken.js
 var require_RuleTagToken = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/pattern/RuleTagToken.js"(exports2) {
+  "node_modules/antlr4ts/tree/pattern/RuleTagToken.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -14091,9 +14091,9 @@ var require_RuleTagToken = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/pattern/Chunk.js
+// node_modules/antlr4ts/tree/pattern/Chunk.js
 var require_Chunk = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/pattern/Chunk.js"(exports2) {
+  "node_modules/antlr4ts/tree/pattern/Chunk.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.Chunk = void 0;
@@ -14103,9 +14103,9 @@ var require_Chunk = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/pattern/TagChunk.js
+// node_modules/antlr4ts/tree/pattern/TagChunk.js
 var require_TagChunk = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/pattern/TagChunk.js"(exports2) {
+  "node_modules/antlr4ts/tree/pattern/TagChunk.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -14177,9 +14177,9 @@ var require_TagChunk = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/pattern/TextChunk.js
+// node_modules/antlr4ts/tree/pattern/TextChunk.js
 var require_TextChunk = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/pattern/TextChunk.js"(exports2) {
+  "node_modules/antlr4ts/tree/pattern/TextChunk.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -14244,9 +14244,9 @@ var require_TextChunk = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/pattern/TokenTagToken.js
+// node_modules/antlr4ts/tree/pattern/TokenTagToken.js
 var require_TokenTagToken = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/pattern/TokenTagToken.js"(exports2) {
+  "node_modules/antlr4ts/tree/pattern/TokenTagToken.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -14335,9 +14335,9 @@ var require_TokenTagToken = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/pattern/ParseTreePatternMatcher.js
+// node_modules/antlr4ts/tree/pattern/ParseTreePatternMatcher.js
 var require_ParseTreePatternMatcher = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/tree/pattern/ParseTreePatternMatcher.js"(exports2) {
+  "node_modules/antlr4ts/tree/pattern/ParseTreePatternMatcher.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -14708,9 +14708,9 @@ var require_ParseTreePatternMatcher = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/DecisionEventInfo.js
+// node_modules/antlr4ts/atn/DecisionEventInfo.js
 var require_DecisionEventInfo = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/DecisionEventInfo.js"(exports2) {
+  "node_modules/antlr4ts/atn/DecisionEventInfo.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -14746,9 +14746,9 @@ var require_DecisionEventInfo = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/AmbiguityInfo.js
+// node_modules/antlr4ts/atn/AmbiguityInfo.js
 var require_AmbiguityInfo = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/AmbiguityInfo.js"(exports2) {
+  "node_modules/antlr4ts/atn/AmbiguityInfo.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -14808,9 +14808,9 @@ var require_AmbiguityInfo = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ContextSensitivityInfo.js
+// node_modules/antlr4ts/atn/ContextSensitivityInfo.js
 var require_ContextSensitivityInfo = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ContextSensitivityInfo.js"(exports2) {
+  "node_modules/antlr4ts/atn/ContextSensitivityInfo.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -14852,9 +14852,9 @@ var require_ContextSensitivityInfo = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/DecisionInfo.js
+// node_modules/antlr4ts/atn/DecisionInfo.js
 var require_DecisionInfo = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/DecisionInfo.js"(exports2) {
+  "node_modules/antlr4ts/atn/DecisionInfo.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -14903,9 +14903,9 @@ var require_DecisionInfo = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ErrorInfo.js
+// node_modules/antlr4ts/atn/ErrorInfo.js
 var require_ErrorInfo = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ErrorInfo.js"(exports2) {
+  "node_modules/antlr4ts/atn/ErrorInfo.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -14946,9 +14946,9 @@ var require_ErrorInfo = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LookaheadEventInfo.js
+// node_modules/antlr4ts/atn/LookaheadEventInfo.js
 var require_LookaheadEventInfo = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/LookaheadEventInfo.js"(exports2) {
+  "node_modules/antlr4ts/atn/LookaheadEventInfo.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -14993,9 +14993,9 @@ var require_LookaheadEventInfo = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/PredicateEvalInfo.js
+// node_modules/antlr4ts/atn/PredicateEvalInfo.js
 var require_PredicateEvalInfo = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/PredicateEvalInfo.js"(exports2) {
+  "node_modules/antlr4ts/atn/PredicateEvalInfo.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -15049,9 +15049,9 @@ var require_PredicateEvalInfo = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/SimulatorState.js
+// node_modules/antlr4ts/atn/SimulatorState.js
 var require_SimulatorState = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/SimulatorState.js"(exports2) {
+  "node_modules/antlr4ts/atn/SimulatorState.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -15083,9 +15083,9 @@ var require_SimulatorState = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ProfilingATNSimulator.js
+// node_modules/antlr4ts/atn/ProfilingATNSimulator.js
 var require_ProfilingATNSimulator = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ProfilingATNSimulator.js"(exports2) {
+  "node_modules/antlr4ts/atn/ProfilingATNSimulator.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -15319,9 +15319,9 @@ var require_ProfilingATNSimulator = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/Parser.js
+// node_modules/antlr4ts/Parser.js
 var require_Parser = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/Parser.js"(exports2) {
+  "node_modules/antlr4ts/Parser.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -16123,9 +16123,9 @@ var require_Parser = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/NoViableAltException.js
+// node_modules/antlr4ts/NoViableAltException.js
 var require_NoViableAltException = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/NoViableAltException.js"(exports2) {
+  "node_modules/antlr4ts/NoViableAltException.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -16173,9 +16173,9 @@ var require_NoViableAltException = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/PredictionMode.js
+// node_modules/antlr4ts/atn/PredictionMode.js
 var require_PredictionMode = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/PredictionMode.js"(exports2) {
+  "node_modules/antlr4ts/atn/PredictionMode.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -16254,9 +16254,9 @@ var require_PredictionMode = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ParserATNSimulator.js
+// node_modules/antlr4ts/atn/ParserATNSimulator.js
 var require_ParserATNSimulator = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ParserATNSimulator.js"(exports2) {
+  "node_modules/antlr4ts/atn/ParserATNSimulator.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -18057,9 +18057,9 @@ var require_ParserATNSimulator = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/PlusBlockStartState.js
+// node_modules/antlr4ts/atn/PlusBlockStartState.js
 var require_PlusBlockStartState = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/PlusBlockStartState.js"(exports2) {
+  "node_modules/antlr4ts/atn/PlusBlockStartState.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -18084,9 +18084,9 @@ var require_PlusBlockStartState = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/PlusLoopbackState.js
+// node_modules/antlr4ts/atn/PlusLoopbackState.js
 var require_PlusLoopbackState = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/PlusLoopbackState.js"(exports2) {
+  "node_modules/antlr4ts/atn/PlusLoopbackState.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -18111,9 +18111,9 @@ var require_PlusLoopbackState = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/PrecedencePredicateTransition.js
+// node_modules/antlr4ts/atn/PrecedencePredicateTransition.js
 var require_PrecedencePredicateTransition = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/PrecedencePredicateTransition.js"(exports2) {
+  "node_modules/antlr4ts/atn/PrecedencePredicateTransition.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -18171,9 +18171,9 @@ var require_PrecedencePredicateTransition = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/RangeTransition.js
+// node_modules/antlr4ts/atn/RangeTransition.js
 var require_RangeTransition = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/RangeTransition.js"(exports2) {
+  "node_modules/antlr4ts/atn/RangeTransition.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -18231,9 +18231,9 @@ var require_RangeTransition = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/RuleStartState.js
+// node_modules/antlr4ts/atn/RuleStartState.js
 var require_RuleStartState = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/RuleStartState.js"(exports2) {
+  "node_modules/antlr4ts/atn/RuleStartState.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -18263,9 +18263,9 @@ var require_RuleStartState = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/StarBlockStartState.js
+// node_modules/antlr4ts/atn/StarBlockStartState.js
 var require_StarBlockStartState = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/StarBlockStartState.js"(exports2) {
+  "node_modules/antlr4ts/atn/StarBlockStartState.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -18290,9 +18290,9 @@ var require_StarBlockStartState = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/StarLoopbackState.js
+// node_modules/antlr4ts/atn/StarLoopbackState.js
 var require_StarLoopbackState = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/StarLoopbackState.js"(exports2) {
+  "node_modules/antlr4ts/atn/StarLoopbackState.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -18320,9 +18320,9 @@ var require_StarLoopbackState = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/TokensStartState.js
+// node_modules/antlr4ts/atn/TokensStartState.js
 var require_TokensStartState = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/TokensStartState.js"(exports2) {
+  "node_modules/antlr4ts/atn/TokensStartState.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -18347,9 +18347,9 @@ var require_TokensStartState = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/UUID.js
+// node_modules/antlr4ts/misc/UUID.js
 var require_UUID = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/misc/UUID.js"(exports2) {
+  "node_modules/antlr4ts/misc/UUID.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.UUID = void 0;
@@ -18392,9 +18392,9 @@ var require_UUID = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ATNDeserializer.js
+// node_modules/antlr4ts/atn/ATNDeserializer.js
 var require_ATNDeserializer = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/atn/ATNDeserializer.js"(exports2) {
+  "node_modules/antlr4ts/atn/ATNDeserializer.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -19374,9 +19374,9 @@ var require_ATNDeserializer = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/generated/grammar/AstigLangParser.js
+// dist/generated/grammar/AstigLangParser.js
 var require_AstigLangParser = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/generated/grammar/AstigLangParser.js"(exports2) {
+  "dist/generated/grammar/AstigLangParser.js"(exports2) {
     "use strict";
     var __createBinding = exports2 && exports2.__createBinding || (Object.create ? (function(o, m, k, k2) {
       if (k2 === void 0) k2 = k;
@@ -23821,9 +23821,9 @@ $\f$$\u017E\v$%%%\u0182
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/models/ExpressionNode.js
+// dist/src/models/ExpressionNode.js
 var require_ExpressionNode = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/models/ExpressionNode.js"(exports2) {
+  "dist/src/models/ExpressionNode.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.ExpressionNodeType = void 0;
@@ -23845,9 +23845,9 @@ var require_ExpressionNode = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/models/StatementNode.js
+// dist/src/models/StatementNode.js
 var require_StatementNode = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/models/StatementNode.js"(exports2) {
+  "dist/src/models/StatementNode.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.StatementNodeType = void 0;
@@ -23872,9 +23872,9 @@ var require_StatementNode = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/ast.js
+// dist/src/ast.js
 var require_ast = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/ast.js"(exports2) {
+  "dist/src/ast.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.buildAst = buildAst;
@@ -24357,9 +24357,9 @@ var require_ast = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/ParseError.js
+// dist/src/classes/ParseError.js
 var require_ParseError = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/ParseError.js"(exports2) {
+  "dist/src/classes/ParseError.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.ParseError = void 0;
@@ -24375,9 +24375,9 @@ var require_ParseError = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/RuntimeError.js
+// dist/src/classes/RuntimeError.js
 var require_RuntimeError = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/RuntimeError.js"(exports2) {
+  "dist/src/classes/RuntimeError.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.RuntimeError = void 0;
@@ -24392,9 +24392,9 @@ var require_RuntimeError = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/TypeCheckError.js
+// dist/src/classes/TypeCheckError.js
 var require_TypeCheckError = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/TypeCheckError.js"(exports2) {
+  "dist/src/classes/TypeCheckError.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.TypeCheckError = void 0;
@@ -24409,9 +24409,9 @@ var require_TypeCheckError = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/TypeCheckErrors.js
+// dist/src/classes/TypeCheckErrors.js
 var require_TypeCheckErrors = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/TypeCheckErrors.js"(exports2) {
+  "dist/src/classes/TypeCheckErrors.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.TypeCheckErrors = void 0;
@@ -24427,9 +24427,9 @@ var require_TypeCheckErrors = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/BreakException.js
+// dist/src/classes/BreakException.js
 var require_BreakException = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/BreakException.js"(exports2) {
+  "dist/src/classes/BreakException.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.BreakException = void 0;
@@ -24442,9 +24442,9 @@ var require_BreakException = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/ContinueException.js
+// dist/src/classes/ContinueException.js
 var require_ContinueException = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/ContinueException.js"(exports2) {
+  "dist/src/classes/ContinueException.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.ContinueException = void 0;
@@ -24457,9 +24457,9 @@ var require_ContinueException = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/RecordRegistry.js
+// dist/src/classes/RecordRegistry.js
 var require_RecordRegistry = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/RecordRegistry.js"(exports2) {
+  "dist/src/classes/RecordRegistry.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.RecordRegistry = void 0;
@@ -24503,9 +24503,9 @@ var require_RecordRegistry = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/ReturnException.js
+// dist/src/classes/ReturnException.js
 var require_ReturnException = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/ReturnException.js"(exports2) {
+  "dist/src/classes/ReturnException.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.ReturnException = void 0;
@@ -24519,9 +24519,134 @@ var require_ReturnException = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/models/AstigType.js
+// dist/src/classes/RuntimeExceptions.js
+var require_RuntimeExceptions = __commonJS({
+  "dist/src/classes/RuntimeExceptions.js"(exports2) {
+    "use strict";
+    Object.defineProperty(exports2, "__esModule", { value: true });
+    exports2.ScanError = exports2.PrintError = exports2.InvalidOperationError = exports2.ArrayTypeError = exports2.ArrayBoundsError = exports2.UndefinedFunctionError = exports2.UninitializedVariableError = exports2.ConstAssignmentError = exports2.UndefinedVariableError = exports2.RedeclarationError = void 0;
+    exports2.toRuntimeError = toRuntimeError;
+    var RuntimeError_12 = require_RuntimeError();
+    function toRuntimeError(error, location) {
+      if (error instanceof RuntimeError_12.RuntimeError) {
+        return error;
+      }
+      if (!(error instanceof Error)) {
+        return new RuntimeError_12.RuntimeError("Unknown runtime error", location);
+      }
+      const message = error.message;
+      if (message.includes("Cannot redeclare")) {
+        const name = message.match(/"([^"]+)"/)?.[1] ?? "unknown";
+        return new RedeclarationError(name, location);
+      }
+      if (message.includes("Undefined variable")) {
+        const name = message.match(/"([^"]+)"/)?.[1] ?? "unknown";
+        return new UndefinedVariableError(name, location);
+      }
+      if (message.includes("Cannot assign to const variable")) {
+        const name = message.match(/"([^"]+)"/)?.[1] ?? "unknown";
+        return new ConstAssignmentError(name, location);
+      }
+      if (message.includes("used before being assigned")) {
+        const name = message.match(/'([^']+)'/)?.[1] ?? "unknown";
+        return new UninitializedVariableError(name, location);
+      }
+      if (message.includes("Undefined function")) {
+        const name = message.match(/"([^"]+)"/)?.[1] ?? "unknown";
+        return new UndefinedFunctionError(name, location);
+      }
+      if (message.includes("out of bounds")) {
+        return new ArrayBoundsError(message, location);
+      }
+      if (message.includes("is not an array")) {
+        return new ArrayTypeError(message, location);
+      }
+      if (message.includes("Cannot scan into") || message.includes("EAGAIN")) {
+        return new ScanError(message, location);
+      }
+      return new RuntimeError_12.RuntimeError(message, location);
+    }
+    var RedeclarationError = class extends RuntimeError_12.RuntimeError {
+      constructor(symbolName, location) {
+        super(`Runtime Error: Cannot redeclare variable "${symbolName}"`, location);
+        this.name = "RedeclarationError";
+        this.symbolName = symbolName;
+      }
+    };
+    exports2.RedeclarationError = RedeclarationError;
+    var UndefinedVariableError = class extends RuntimeError_12.RuntimeError {
+      constructor(variableName, location) {
+        super(`Runtime Error: Undefined variable "${variableName}"`, location);
+        this.name = "UndefinedVariableError";
+        this.variableName = variableName;
+      }
+    };
+    exports2.UndefinedVariableError = UndefinedVariableError;
+    var ConstAssignmentError = class extends RuntimeError_12.RuntimeError {
+      constructor(variableName, location) {
+        super(`Runtime Error: Cannot assign to const variable "${variableName}"`, location);
+        this.name = "ConstAssignmentError";
+        this.variableName = variableName;
+      }
+    };
+    exports2.ConstAssignmentError = ConstAssignmentError;
+    var UninitializedVariableError = class extends RuntimeError_12.RuntimeError {
+      constructor(variableName, location) {
+        super(`Runtime Error: Variable '${variableName}' is used before being assigned.`, location);
+        this.name = "UninitializedVariableError";
+        this.variableName = variableName;
+      }
+    };
+    exports2.UninitializedVariableError = UninitializedVariableError;
+    var UndefinedFunctionError = class extends RuntimeError_12.RuntimeError {
+      constructor(functionName, location) {
+        super(`Runtime Error: Undefined function "${functionName}"`, location);
+        this.name = "UndefinedFunctionError";
+        this.functionName = functionName;
+      }
+    };
+    exports2.UndefinedFunctionError = UndefinedFunctionError;
+    var ArrayBoundsError = class extends RuntimeError_12.RuntimeError {
+      constructor(message, location) {
+        super(message.startsWith("Runtime Error:") ? message : `Runtime Error: ${message}`, location);
+        this.name = "ArrayBoundsError";
+      }
+    };
+    exports2.ArrayBoundsError = ArrayBoundsError;
+    var ArrayTypeError = class extends RuntimeError_12.RuntimeError {
+      constructor(message, location) {
+        super(message.startsWith("Runtime Error:") ? message : `Runtime Error: ${message}`, location);
+        this.name = "ArrayTypeError";
+      }
+    };
+    exports2.ArrayTypeError = ArrayTypeError;
+    var InvalidOperationError = class extends RuntimeError_12.RuntimeError {
+      constructor(message, location) {
+        super(message.startsWith("Runtime Error:") ? message : `Runtime Error: ${message}`, location);
+        this.name = "InvalidOperationError";
+      }
+    };
+    exports2.InvalidOperationError = InvalidOperationError;
+    var PrintError = class extends RuntimeError_12.RuntimeError {
+      constructor(message, location) {
+        super(message.startsWith("Runtime Error:") ? message : `Runtime Error: ${message}`, location);
+        this.name = "PrintError";
+      }
+    };
+    exports2.PrintError = PrintError;
+    var ScanError = class extends RuntimeError_12.RuntimeError {
+      constructor(message, location) {
+        super(message.startsWith("Runtime Error:") ? message : `Runtime Error: ${message}`, location);
+        this.name = "ScanError";
+      }
+    };
+    exports2.ScanError = ScanError;
+  }
+});
+
+// dist/src/models/AstigType.js
 var require_AstigType = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/models/AstigType.js"(exports2) {
+  "dist/src/models/AstigType.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.AstigType = void 0;
@@ -24540,12 +24665,14 @@ var require_AstigType = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/RuntimeEnvironment.js
+// dist/src/classes/RuntimeEnvironment.js
 var require_RuntimeEnvironment = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/RuntimeEnvironment.js"(exports2) {
+  "dist/src/classes/RuntimeEnvironment.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.RuntimeEnvironment = void 0;
+    var RuntimeError_12 = require_RuntimeError();
+    var RuntimeExceptions_1 = require_RuntimeExceptions();
     var AstigType_1 = require_AstigType();
     var RuntimeEnvironment = class _RuntimeEnvironment {
       constructor(parent, isFunctionScope = false) {
@@ -24562,21 +24689,21 @@ var require_RuntimeEnvironment = __commonJS({
       }
       declare(kind, name, value, resolvedType = { kind: "primitive", type: AstigType_1.AstigType.Any }) {
         if (this.bindings.has(name)) {
-          throw new Error(`Cannot redeclare variable "${name}"`);
+          throw new RuntimeExceptions_1.RedeclarationError(name);
         }
         this.bindings.set(name, { kind, value, isInitialized: true, resolvedType });
       }
       assign(name, value) {
         const environment = this.findEnvironmentWithBinding(name);
         if (!environment) {
-          throw new Error(`Undefined variable "${name}"`);
+          throw new RuntimeExceptions_1.UndefinedVariableError(name);
         }
         const binding = environment.bindings.get(name);
         if (!binding) {
-          throw new Error(`Undefined variable "${name}"`);
+          throw new RuntimeExceptions_1.UndefinedVariableError(name);
         }
         if (binding.kind === "const") {
-          throw new Error(`Cannot assign to const variable "${name}"`);
+          throw new RuntimeExceptions_1.ConstAssignmentError(name);
         }
         binding.value = value;
         binding.isInitialized = true;
@@ -24594,16 +24721,16 @@ var require_RuntimeEnvironment = __commonJS({
         const environment = this.findEnvironmentWithBinding(name);
         const binding = environment?.bindings.get(name);
         if (!binding) {
-          throw new Error(`Undefined variable "${name}"`);
+          throw new RuntimeExceptions_1.UndefinedVariableError(name);
         }
         if (!binding.isInitialized) {
-          throw new Error(`Variable '${name}' is used before being assigned.`);
+          throw new RuntimeExceptions_1.UninitializedVariableError(name);
         }
         return binding;
       }
       declareFunction(functionNode) {
         if (this.functions.has(functionNode.name)) {
-          throw new Error(`Cannot redeclare function "${functionNode.name}"`);
+          throw new RuntimeError_12.RuntimeError(`Runtime Error: Cannot redeclare function "${functionNode.name}"`);
         }
         this.functions.set(functionNode.name, functionNode);
       }
@@ -24611,7 +24738,7 @@ var require_RuntimeEnvironment = __commonJS({
         const environment = this.findEnvironmentWithFunction(name);
         const functionNode = environment?.functions.get(name);
         if (!functionNode) {
-          throw new Error(`Undefined function "${name}"`);
+          throw new RuntimeExceptions_1.UndefinedFunctionError(name);
         }
         return functionNode;
       }
@@ -24622,7 +24749,7 @@ var require_RuntimeEnvironment = __commonJS({
         if (this.parent) {
           return this.parent.lookup(name);
         }
-        throw new Error(`Undefined variable "${name}"`);
+        throw new RuntimeExceptions_1.UndefinedVariableError(name);
       }
       findEnvironmentWithBinding(name) {
         if (this.bindings.has(name)) {
@@ -24641,9 +24768,9 @@ var require_RuntimeEnvironment = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/models/RuntimeValue.js
+// dist/src/models/RuntimeValue.js
 var require_RuntimeValue = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/models/RuntimeValue.js"(exports2) {
+  "dist/src/models/RuntimeValue.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.isRecordRuntimeValue = isRecordRuntimeValue;
@@ -24653,15 +24780,16 @@ var require_RuntimeValue = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/utils/astigTypeUtils.js
+// dist/src/utils/astigTypeUtils.js
 var require_astigTypeUtils = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/utils/astigTypeUtils.js"(exports2) {
+  "dist/src/utils/astigTypeUtils.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.parseDeclaredType = parseDeclaredType;
     exports2.resolveDataType = resolveDataType;
     exports2.isNumericType = isNumericType;
     exports2.isAssignableType = isAssignableType;
+    exports2.inferRuntimeValueType = inferRuntimeValueType;
     exports2.formatAstigType = formatAstigType;
     exports2.formatResolvedType = formatResolvedType;
     exports2.resolveVariableDeclarationType = resolveVariableDeclarationType;
@@ -24669,6 +24797,7 @@ var require_astigTypeUtils = __commonJS({
     exports2.expressionTypeToResolved = expressionTypeToResolved;
     var TypeCheckError_12 = require_TypeCheckError();
     var AstigType_1 = require_AstigType();
+    var RuntimeValue_1 = require_RuntimeValue();
     function parseDeclaredType(typeName) {
       const lower = typeName.toLowerCase();
       const fuzzy = lower.replace(/h/g, "").replace(/[0-9@]/g, "").replace(/z+$/, "");
@@ -24731,6 +24860,27 @@ var require_astigTypeUtils = __commonJS({
       }
       return false;
     }
+    function inferRuntimeValueType(value) {
+      if (typeof value === "number") {
+        return {
+          kind: "primitive",
+          type: Number.isInteger(value) ? AstigType_1.AstigType.Int : AstigType_1.AstigType.Float
+        };
+      }
+      if (typeof value === "string") {
+        return { kind: "primitive", type: AstigType_1.AstigType.String };
+      }
+      if (typeof value === "boolean") {
+        return { kind: "primitive", type: AstigType_1.AstigType.Boolean };
+      }
+      if (Array.isArray(value)) {
+        return { kind: "array", elementType: AstigType_1.AstigType.Any };
+      }
+      if ((0, RuntimeValue_1.isRecordRuntimeValue)(value)) {
+        return { kind: "record", name: value.recordTypeName };
+      }
+      return { kind: "primitive", type: AstigType_1.AstigType.Any };
+    }
     function formatAstigType(type) {
       return type;
     }
@@ -24774,9 +24924,9 @@ var require_astigTypeUtils = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/utils/isTruthy.js
+// dist/src/utils/isTruthy.js
 var require_isTruthy = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/utils/isTruthy.js"(exports2) {
+  "dist/src/utils/isTruthy.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.isTruthy = void 0;
@@ -24796,9 +24946,9 @@ var require_isTruthy = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/utils/moduleScope.js
+// dist/src/utils/moduleScope.js
 var require_moduleScope = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/utils/moduleScope.js"(exports2) {
+  "dist/src/utils/moduleScope.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.tagModuleFunctions = tagModuleFunctions;
@@ -24841,9 +24991,9 @@ var require_moduleScope = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/utils/recordRuntimeUtils.js
+// dist/src/utils/recordRuntimeUtils.js
 var require_recordRuntimeUtils = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/utils/recordRuntimeUtils.js"(exports2) {
+  "dist/src/utils/recordRuntimeUtils.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.getRecordFieldValue = getRecordFieldValue;
@@ -24881,9 +25031,9 @@ var require_recordRuntimeUtils = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/utils/scanUtils.js
+// dist/src/utils/scanUtils.js
 var require_scanUtils = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/utils/scanUtils.js"(exports2) {
+  "dist/src/utils/scanUtils.js"(exports2) {
     "use strict";
     var __importDefault = exports2 && exports2.__importDefault || function(mod) {
       return mod && mod.__esModule ? mod : { "default": mod };
@@ -24893,8 +25043,9 @@ var require_scanUtils = __commonJS({
     exports2.resetScanInputBuffer = resetScanInputBuffer;
     exports2.isScannableType = isScannableType;
     exports2.coerceScanInput = coerceScanInput;
-    var fs_12 = __importDefault(require("fs"));
     var AstigType_1 = require_AstigType();
+    var fs_12 = __importDefault(require("fs"));
+    var RuntimeExceptions_1 = require_RuntimeExceptions();
     var astigTypeUtils_1 = require_astigTypeUtils();
     var stdinBuffer = "";
     function readScanLine() {
@@ -24937,10 +25088,10 @@ var require_scanUtils = __commonJS({
     function coerceScanInput(rawInput, targetType) {
       const input = rawInput.trim();
       if (!isScannableType(targetType)) {
-        throw new Error(`Runtime Error: Cannot scan into ${(0, astigTypeUtils_1.formatResolvedType)(targetType)}`);
+        throw new RuntimeExceptions_1.ScanError(`Cannot scan into ${(0, astigTypeUtils_1.formatResolvedType)(targetType)}`);
       }
       if (targetType.kind !== "primitive") {
-        throw new Error(`Runtime Error: Cannot scan into ${(0, astigTypeUtils_1.formatResolvedType)(targetType)}`);
+        throw new RuntimeExceptions_1.ScanError(`Cannot scan into ${(0, astigTypeUtils_1.formatResolvedType)(targetType)}`);
       }
       switch (targetType.type) {
         case AstigType_1.AstigType.Int: {
@@ -24959,15 +25110,15 @@ var require_scanUtils = __commonJS({
         case AstigType_1.AstigType.Any:
           return input;
         default:
-          throw new Error(`Runtime Error: Cannot scan into ${(0, astigTypeUtils_1.formatResolvedType)(targetType)}`);
+          throw new RuntimeExceptions_1.ScanError(`Cannot scan into ${(0, astigTypeUtils_1.formatResolvedType)(targetType)}`);
       }
     }
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/interpreter.js
+// dist/src/interpreter.js
 var require_interpreter = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/interpreter.js"(exports2) {
+  "dist/src/interpreter.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.runProgram = runProgram;
@@ -24976,6 +25127,7 @@ var require_interpreter = __commonJS({
     var RecordRegistry_1 = require_RecordRegistry();
     var ReturnException_1 = require_ReturnException();
     var RuntimeEnvironment_1 = require_RuntimeEnvironment();
+    var RuntimeExceptions_1 = require_RuntimeExceptions();
     var RuntimeError_12 = require_RuntimeError();
     var AstigType_1 = require_AstigType();
     var ExpressionNode_1 = require_ExpressionNode();
@@ -24986,8 +25138,60 @@ var require_interpreter = __commonJS({
     var moduleScope_1 = require_moduleScope();
     var recordRuntimeUtils_1 = require_recordRuntimeUtils();
     var scanUtils_1 = require_scanUtils();
-    function raiseRuntimeError(message, location) {
-      throw new RuntimeError_12.RuntimeError(message, location);
+    function raiseArrayBoundsError(message, location) {
+      throw new RuntimeExceptions_1.ArrayBoundsError(message, location);
+    }
+    function raiseArrayTypeError(message, location) {
+      throw new RuntimeExceptions_1.ArrayTypeError(message, location);
+    }
+    function raiseInvalidOperation(message, location) {
+      throw new RuntimeExceptions_1.InvalidOperationError(message, location);
+    }
+    function runRecordOperation(operation, location) {
+      try {
+        return operation();
+      } catch (error) {
+        if (error instanceof Error) {
+          raiseInvalidOperation(error.message, location);
+        }
+        throw error;
+      }
+    }
+    function executePrintStatement(statement, context) {
+      const location = statement.location;
+      try {
+        const value = evaluateExpression(statement.value, context);
+        context.output.push(String(value));
+      } catch (error) {
+        if (error instanceof RuntimeError_12.RuntimeError) {
+          throw error;
+        }
+        const message = error instanceof Error ? error.message : "Print statement failed";
+        throw new RuntimeExceptions_1.PrintError(message, location);
+      }
+    }
+    function executeScanStatement(statement, context) {
+      const location = statement.location;
+      const { environment } = context;
+      try {
+        const variableKind = environment.getVariableKind(statement.variableName);
+        if (variableKind === "const") {
+          throw new RuntimeExceptions_1.ConstAssignmentError(statement.variableName, location);
+        }
+        if (statement.promptMessage) {
+          process.stdout.write(statement.promptMessage);
+        }
+        const userInput = (0, scanUtils_1.readScanLine)();
+        const targetType = environment.getResolvedType(statement.variableName);
+        const finalValue = (0, scanUtils_1.coerceScanInput)(userInput, targetType);
+        environment.assign(statement.variableName, finalValue);
+      } catch (error) {
+        if (error instanceof RuntimeError_12.RuntimeError) {
+          throw error;
+        }
+        const message = error instanceof Error ? error.message : "Scan statement failed";
+        throw new RuntimeExceptions_1.ScanError(message, location);
+      }
     }
     function runProgram(program) {
       const recordRegistry = (0, RecordRegistry_1.buildRecordRegistry)(program.recordDeclarations);
@@ -24997,7 +25201,8 @@ var require_interpreter = __commonJS({
         environment,
         recordRegistry,
         output,
-        moduleFunctions: program.moduleFunctions
+        moduleFunctions: program.moduleFunctions,
+        insideFunction: false
       };
       for (const functionNode of program.functions) {
         environment.declareFunction(functionNode);
@@ -25022,10 +25227,7 @@ var require_interpreter = __commonJS({
           if (error instanceof RuntimeError_12.RuntimeError || error instanceof BreakException_1.BreakException || error instanceof ContinueException_1.ContinueException || error instanceof ReturnException_1.ReturnException) {
             throw error;
           }
-          if (error instanceof Error) {
-            throw new RuntimeError_12.RuntimeError(error.message, location);
-          }
-          throw error;
+          throw (0, RuntimeExceptions_1.toRuntimeError)(error, location);
         }
       };
       switch (statement.type) {
@@ -25036,37 +25238,31 @@ var require_interpreter = __commonJS({
           executeAssignment(statement, context, location);
           return;
         case StatementNode_1.StatementNodeType.ArrayIndexAssignment: {
+          if (statement.operator !== "=") {
+            raiseInvalidOperation(`Unsupported array index assignment operator "${statement.operator}"`, location);
+          }
           const targetArray = environment.lookup(statement.arrayName);
           if (!Array.isArray(targetArray)) {
-            raiseRuntimeError(`Runtime Error: Variable "${statement.arrayName}" is not an array.`, location);
+            raiseArrayTypeError(`Variable "${statement.arrayName}" is not an array.`, location);
           }
           const incomingValue = evaluateExpression(statement.value, context);
           const evaluatedIndex = evaluateExpression(statement.index, context);
           if (typeof evaluatedIndex !== "number") {
-            raiseRuntimeError(`Runtime Error: Array index must evaluate to a number. Got value "${evaluatedIndex}" of type: ${typeof evaluatedIndex}`, location);
+            raiseInvalidOperation(`Array index must evaluate to a number. Got value "${evaluatedIndex}" of type: ${typeof evaluatedIndex}`, location);
           }
           const index = Math.floor(evaluatedIndex);
           if (index < 0 || index >= targetArray.length) {
-            raiseRuntimeError(`Runtime Error: Index ${index} is out of bounds for array "${statement.arrayName}" of length ${targetArray.length}.`, location);
+            raiseArrayBoundsError(`Index ${index} is out of bounds for array "${statement.arrayName}" of length ${targetArray.length}.`, location);
           }
           targetArray[index] = incomingValue;
           return;
         }
         case StatementNode_1.StatementNodeType.PrintStatement:
-          output.push(String(evaluateExpression(statement.value, context)));
+          executePrintStatement(statement, context);
           return;
-        case StatementNode_1.StatementNodeType.ScanStatement: {
-          if (statement.promptMessage) {
-            process.stdout.write(statement.promptMessage);
-          }
-          const userInput = (0, scanUtils_1.readScanLine)();
-          runSafely(() => {
-            const targetType = environment.getResolvedType(statement.variableName);
-            const finalValue = (0, scanUtils_1.coerceScanInput)(userInput, targetType);
-            environment.assign(statement.variableName, finalValue);
-          });
+        case StatementNode_1.StatementNodeType.ScanStatement:
+          executeScanStatement(statement, context);
           return;
-        }
         case StatementNode_1.StatementNodeType.IfStatement: {
           const condition = evaluateExpression(statement.condition, context);
           if ((0, isTruthy_1.isTruthy)(condition)) {
@@ -25167,7 +25363,7 @@ var require_interpreter = __commonJS({
               }
             }
           } else {
-            raiseRuntimeError(`Foreach only supports string iteration, got ${typeof iterable}`, location);
+            raiseInvalidOperation(`Foreach only supports string iteration, got ${typeof iterable}`, location);
           }
           return;
         }
@@ -25179,6 +25375,9 @@ var require_interpreter = __commonJS({
           environment.declareFunction(statement);
           return;
         case StatementNode_1.StatementNodeType.ReturnStatement:
+          if (!context.insideFunction) {
+            throw new RuntimeExceptions_1.InvalidOperationError("Return statement outside of a function", location);
+          }
           throw new ReturnException_1.ReturnException(statement.value ? evaluateExpression(statement.value, context) : null);
         case StatementNode_1.StatementNodeType.BlockStatement:
           executeBlock(statement.body, context);
@@ -25187,15 +25386,12 @@ var require_interpreter = __commonJS({
     }
     function executeAssignment(assignment, context, location) {
       const rightValue = evaluateExpression(assignment.value, context);
-      const resultValue = evaluateAssignmentValue(assignment, rightValue, context);
+      const resultValue = evaluateAssignmentValue(assignment, rightValue, context, location);
       if (assignment.target.kind === "variable") {
         try {
           context.environment.assign(assignment.target.name, resultValue);
         } catch (error) {
-          if (error instanceof Error) {
-            throw new RuntimeError_12.RuntimeError(error.message, location);
-          }
-          throw error;
+          throw (0, RuntimeExceptions_1.toRuntimeError)(error, location);
         }
         return;
       }
@@ -25204,15 +25400,15 @@ var require_interpreter = __commonJS({
     function assignRecordField(target, value, context, location) {
       const recordValue = context.environment.get(target.rootVariable);
       if (!(0, RuntimeValue_1.isRecordRuntimeValue)(recordValue)) {
-        throw new RuntimeError_12.RuntimeError(`Variable "${target.rootVariable}" is not a record`, location);
+        throw new RuntimeExceptions_1.InvalidOperationError(`Variable "${target.rootVariable}" is not a record`, location);
       }
-      (0, recordRuntimeUtils_1.setRecordFieldValue)(recordValue, target.fieldPath, value);
+      runRecordOperation(() => (0, recordRuntimeUtils_1.setRecordFieldValue)(recordValue, target.fieldPath, value), location);
     }
-    function evaluateAssignmentValue(assignment, rightValue, context) {
+    function evaluateAssignmentValue(assignment, rightValue, context, location) {
       if (assignment.operator === "=") {
         return rightValue;
       }
-      const leftValue = readAssignmentTargetValue(assignment.target, context);
+      const leftValue = readAssignmentTargetValue(assignment.target, context, location);
       if (assignment.operator === "+=") {
         if (typeof leftValue === "string" || typeof rightValue === "string") {
           return String(leftValue) + String(rightValue);
@@ -25222,17 +25418,17 @@ var require_interpreter = __commonJS({
       if (assignment.operator === "-=") {
         return leftValue - rightValue;
       }
-      throw new Error(`Unsupported assignment operator ${assignment.operator}`);
+      raiseInvalidOperation(`Unsupported assignment operator "${assignment.operator}"`, location);
     }
-    function readAssignmentTargetValue(target, context) {
+    function readAssignmentTargetValue(target, context, location) {
       if (target.kind === "variable") {
         return context.environment.get(target.name);
       }
       const recordValue = context.environment.get(target.rootVariable);
       if (!(0, RuntimeValue_1.isRecordRuntimeValue)(recordValue)) {
-        throw new Error(`Variable "${target.rootVariable}" is not a record`);
+        raiseInvalidOperation(`Variable "${target.rootVariable}" is not a record`, location);
       }
-      return (0, recordRuntimeUtils_1.getRecordFieldValue)(recordValue, target.fieldPath);
+      return runRecordOperation(() => (0, recordRuntimeUtils_1.getRecordFieldValue)(recordValue, target.fieldPath), location);
     }
     function executeBlock(statements, context) {
       const blockEnvironment = context.environment.createBlockScope();
@@ -25257,27 +25453,27 @@ var require_interpreter = __commonJS({
         case ExpressionNode_1.ExpressionNodeType.MemberAccess: {
           const objectValue = evaluateExpression(expression.object, context);
           if (!(0, RuntimeValue_1.isRecordRuntimeValue)(objectValue)) {
-            throw new Error(`Cannot access member "${expression.field}" on non-record value`);
+            throw new RuntimeExceptions_1.InvalidOperationError(`Cannot access member "${expression.field}" on non-record value`);
           }
-          return (0, recordRuntimeUtils_1.getRecordFieldValue)(objectValue, [expression.field]);
+          return runRecordOperation(() => (0, recordRuntimeUtils_1.getRecordFieldValue)(objectValue, [expression.field]));
         }
         case ExpressionNode_1.ExpressionNodeType.ArrayLiteral:
           return expression.elements.map((elementNode) => evaluateExpression(elementNode, context));
         case ExpressionNode_1.ExpressionNodeType.ArrayIndexAccess:
           const targetArray = context.environment.lookup(expression.arrayName);
           if (!Array.isArray(targetArray)) {
-            throw new Error(`Runtime Error: "${expression.arrayName}" is not an array.`);
+            throw new RuntimeExceptions_1.ArrayTypeError(`"${expression.arrayName}" is not an array.`);
           }
           let evaluatedIndex = evaluateExpression(expression.index, context);
           if (typeof evaluatedIndex === "string" && !isNaN(Number(evaluatedIndex))) {
             evaluatedIndex = parseInt(evaluatedIndex, 10);
           }
           if (typeof evaluatedIndex !== "number") {
-            throw new Error(`Runtime Error: Array index must evaluate to a number. Got value "${evaluatedIndex}" of type: ${typeof evaluatedIndex}`);
+            throw new RuntimeExceptions_1.InvalidOperationError(`Array index must evaluate to a number. Got value "${evaluatedIndex}" of type: ${typeof evaluatedIndex}`);
           }
           const index = Math.floor(evaluatedIndex);
           if (index < 0 || index >= targetArray.length) {
-            throw new Error(`Runtime Error: Index ${index} is out of bounds for array "${expression.arrayName}" of length ${targetArray.length}.`);
+            throw new RuntimeExceptions_1.ArrayBoundsError(`Index ${index} is out of bounds for array "${expression.arrayName}" of length ${targetArray.length}.`);
           }
           return targetArray[index];
         case ExpressionNode_1.ExpressionNodeType.RecordLiteral:
@@ -25333,12 +25529,21 @@ var require_interpreter = __commonJS({
       }
     }
     function evaluateRecordLiteral(expression, context) {
+      if (!context.recordRegistry.has(expression.recordTypeName)) {
+        raiseInvalidOperation(`Unknown record type "${expression.recordTypeName}"`);
+      }
       const recordFields = context.recordRegistry.getFields(expression.recordTypeName);
       const fieldValues = /* @__PURE__ */ new Map();
+      for (const literalField of expression.fields) {
+        const fieldDefinition = recordFields.find((field) => field.name === literalField.name);
+        if (!fieldDefinition) {
+          raiseInvalidOperation(`Field "${literalField.name}" is not declared on record "${expression.recordTypeName}"`);
+        }
+      }
       for (const fieldDefinition of recordFields) {
         const literalField = expression.fields.find((field) => field.name === fieldDefinition.name);
         if (!literalField) {
-          throw new Error(`Missing field "${fieldDefinition.name}" in record literal for "${expression.recordTypeName}"`);
+          raiseInvalidOperation(`Missing field "${fieldDefinition.name}" in record literal for "${expression.recordTypeName}"`);
         }
         fieldValues.set(fieldDefinition.name, evaluateExpression(literalField.value, context));
       }
@@ -25347,20 +25552,32 @@ var require_interpreter = __commonJS({
         fields: fieldValues
       };
     }
-    function executeFunctionCall(name, args, context) {
-      const functionNode = context.environment.getFunction(name);
+    function executeFunctionCall(name, args, context, location) {
+      let functionNode;
+      try {
+        functionNode = context.environment.getFunction(name);
+      } catch (error) {
+        if (error instanceof RuntimeExceptions_1.UndefinedFunctionError) {
+          const privateFunction = (0, moduleScope_1.findFunctionInModules)(name, context.moduleFunctions);
+          if (privateFunction && !privateFunction.isExported) {
+            raiseInvalidOperation(`Function "${name}" is not exported from "${privateFunction.sourceModule}"`, location);
+          }
+        }
+        throw error;
+      }
       const argValues = args.map((arg) => evaluateExpression(arg, context));
-      return executeUserFunction(functionNode, argValues, context);
+      return executeUserFunction(functionNode, argValues, context, location);
     }
-    function executeUserFunction(functionNode, argValues, context) {
+    function executeUserFunction(functionNode, argValues, context, location) {
       if (argValues.length !== functionNode.parameters.length) {
-        throw new Error(`Function "${functionNode.name}" expected ${functionNode.parameters.length} arguments but got ${argValues.length}`);
+        raiseInvalidOperation(`Function "${functionNode.name}" expected ${functionNode.parameters.length} arguments but got ${argValues.length}`, location);
       }
       const callableEnvironment = (0, moduleScope_1.withModuleFunctions)(context.environment, functionNode.sourceModule, context.moduleFunctions);
       const functionEnvironment = callableEnvironment.createFunctionScope();
       const functionContext = {
         ...context,
-        environment: functionEnvironment
+        environment: functionEnvironment,
+        insideFunction: true
       };
       functionNode.parameters.forEach((parameter, index) => {
         functionEnvironment.declare("let", parameter.name, argValues[index], (0, astigTypeUtils_1.resolveParameterType)(parameter, context.recordRegistry));
@@ -25378,25 +25595,25 @@ var require_interpreter = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/ANTLRErrorListener.js
+// node_modules/antlr4ts/ANTLRErrorListener.js
 var require_ANTLRErrorListener = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/ANTLRErrorListener.js"(exports2) {
+  "node_modules/antlr4ts/ANTLRErrorListener.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/ANTLRErrorStrategy.js
+// node_modules/antlr4ts/ANTLRErrorStrategy.js
 var require_ANTLRErrorStrategy = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/ANTLRErrorStrategy.js"(exports2) {
+  "node_modules/antlr4ts/ANTLRErrorStrategy.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/ANTLRInputStream.js
+// node_modules/antlr4ts/ANTLRInputStream.js
 var require_ANTLRInputStream = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/ANTLRInputStream.js"(exports2) {
+  "node_modules/antlr4ts/ANTLRInputStream.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -25535,17 +25752,17 @@ var require_ANTLRInputStream = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/CharStream.js
+// node_modules/antlr4ts/CharStream.js
 var require_CharStream = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/CharStream.js"(exports2) {
+  "node_modules/antlr4ts/CharStream.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/Dependents.js
+// node_modules/antlr4ts/Dependents.js
 var require_Dependents = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/Dependents.js"(exports2) {
+  "node_modules/antlr4ts/Dependents.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.Dependents = void 0;
@@ -25565,9 +25782,9 @@ var require_Dependents = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/DiagnosticErrorListener.js
+// node_modules/antlr4ts/DiagnosticErrorListener.js
 var require_DiagnosticErrorListener = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/DiagnosticErrorListener.js"(exports2) {
+  "node_modules/antlr4ts/DiagnosticErrorListener.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -25691,9 +25908,9 @@ var require_DiagnosticErrorListener = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/LexerInterpreter.js
+// node_modules/antlr4ts/LexerInterpreter.js
 var require_LexerInterpreter = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/LexerInterpreter.js"(exports2) {
+  "node_modules/antlr4ts/LexerInterpreter.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -25773,17 +25990,17 @@ var require_LexerInterpreter = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/ParserErrorListener.js
+// node_modules/antlr4ts/ParserErrorListener.js
 var require_ParserErrorListener = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/ParserErrorListener.js"(exports2) {
+  "node_modules/antlr4ts/ParserErrorListener.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/RuleContextWithAltNum.js
+// node_modules/antlr4ts/RuleContextWithAltNum.js
 var require_RuleContextWithAltNum = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/RuleContextWithAltNum.js"(exports2) {
+  "node_modules/antlr4ts/RuleContextWithAltNum.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -25820,9 +26037,9 @@ var require_RuleContextWithAltNum = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/RuleDependency.js
+// node_modules/antlr4ts/RuleDependency.js
 var require_RuleDependency = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/RuleDependency.js"(exports2) {
+  "node_modules/antlr4ts/RuleDependency.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.RuleDependency = void 0;
@@ -25834,9 +26051,9 @@ var require_RuleDependency = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/RuleVersion.js
+// node_modules/antlr4ts/RuleVersion.js
 var require_RuleVersion = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/RuleVersion.js"(exports2) {
+  "node_modules/antlr4ts/RuleVersion.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.RuleVersion = void 0;
@@ -25848,33 +26065,33 @@ var require_RuleVersion = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/TokenFactory.js
+// node_modules/antlr4ts/TokenFactory.js
 var require_TokenFactory = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/TokenFactory.js"(exports2) {
+  "node_modules/antlr4ts/TokenFactory.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/TokenSource.js
+// node_modules/antlr4ts/TokenSource.js
 var require_TokenSource = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/TokenSource.js"(exports2) {
+  "node_modules/antlr4ts/TokenSource.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/TokenStream.js
+// node_modules/antlr4ts/TokenStream.js
 var require_TokenStream = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/TokenStream.js"(exports2) {
+  "node_modules/antlr4ts/TokenStream.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/TokenStreamRewriter.js
+// node_modules/antlr4ts/TokenStreamRewriter.js
 var require_TokenStreamRewriter = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/TokenStreamRewriter.js"(exports2) {
+  "node_modules/antlr4ts/TokenStreamRewriter.js"(exports2) {
     "use strict";
     var __decorate = exports2 && exports2.__decorate || function(decorators, target, key, desc) {
       var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -26258,25 +26475,25 @@ var require_TokenStreamRewriter = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/Vocabulary.js
+// node_modules/antlr4ts/Vocabulary.js
 var require_Vocabulary = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/Vocabulary.js"(exports2) {
+  "node_modules/antlr4ts/Vocabulary.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/WritableToken.js
+// node_modules/antlr4ts/WritableToken.js
 var require_WritableToken = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/WritableToken.js"(exports2) {
+  "node_modules/antlr4ts/WritableToken.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/index.js
+// node_modules/antlr4ts/index.js
 var require_antlr4ts = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/node_modules/antlr4ts/index.js"(exports2) {
+  "node_modules/antlr4ts/index.js"(exports2) {
     "use strict";
     var __createBinding = exports2 && exports2.__createBinding || (Object.create ? (function(o, m, k, k2) {
       if (k2 === void 0) k2 = k;
@@ -26339,9 +26556,9 @@ var require_antlr4ts = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/generated/grammar/AstigLangLexer.js
+// dist/generated/grammar/AstigLangLexer.js
 var require_AstigLangLexer = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/generated/grammar/AstigLangLexer.js"(exports2) {
+  "dist/generated/grammar/AstigLangLexer.js"(exports2) {
     "use strict";
     var __createBinding = exports2 && exports2.__createBinding || (Object.create ? (function(o, m, k, k2) {
       if (k2 === void 0) k2 = k;
@@ -26899,9 +27116,9 @@ GHHIIJJKKLLMMNNOOPPQQRRSSTTUUVVWWXXYYZZ[
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/utils/diagnostics.js
+// dist/src/utils/diagnostics.js
 var require_diagnostics = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/utils/diagnostics.js"(exports2) {
+  "dist/src/utils/diagnostics.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.humanizeAntlrMessage = humanizeAntlrMessage;
@@ -27069,7 +27286,8 @@ var require_diagnostics = __commonJS({
         filename,
         line: resolvedLocation?.line ?? 1,
         column: resolvedLocation?.column ?? 1,
-        message: error.message
+        message: error.message,
+        hint: phase === "runtime" && error.name !== "Error" ? `Exception: ${error.name}` : void 0
       };
     }
     function reportDiagnostics(diagnostics, source, options) {
@@ -27078,9 +27296,9 @@ var require_diagnostics = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/utils/parseWithDiagnostics.js
+// dist/src/utils/parseWithDiagnostics.js
 var require_parseWithDiagnostics = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/utils/parseWithDiagnostics.js"(exports2) {
+  "dist/src/utils/parseWithDiagnostics.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.parseSourceWithDiagnostics = parseSourceWithDiagnostics;
@@ -27132,9 +27350,9 @@ var require_parseWithDiagnostics = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/programLoader.js
+// dist/src/programLoader.js
 var require_programLoader = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/programLoader.js"(exports2) {
+  "dist/src/programLoader.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.parseProgramSource = parseProgramSource;
@@ -27223,9 +27441,9 @@ var require_programLoader = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/TypeEnvironment.js
+// dist/src/classes/TypeEnvironment.js
 var require_TypeEnvironment = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/TypeEnvironment.js"(exports2) {
+  "dist/src/classes/TypeEnvironment.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.TypeEnvironment = void 0;
@@ -27245,9 +27463,12 @@ var require_TypeEnvironment = __commonJS({
       }
       declareVariable(kind, name, resolvedType) {
         if (this.bindings.has(name)) {
-          throw new TypeCheckError_12.TypeCheckError(`Cannot redeclare variable "${name}"`);
+          return;
         }
         this.bindings.set(name, { kind, resolvedType });
+      }
+      hasVariable(name) {
+        return this.findBinding(name) !== void 0;
       }
       assignVariable(name, resolvedType) {
         const binding = this.findBinding(name);
@@ -27303,9 +27524,9 @@ var require_TypeEnvironment = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/utils/typeCheckRecovery.js
+// dist/src/utils/typeCheckRecovery.js
 var require_typeCheckRecovery = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/utils/typeCheckRecovery.js"(exports2) {
+  "dist/src/utils/typeCheckRecovery.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.isRecoverableTypeError = isRecoverableTypeError;
@@ -27313,22 +27534,26 @@ var require_typeCheckRecovery = __commonJS({
     exports2.runWithTypeRecovery = runWithTypeRecovery;
     var TypeCheckError_12 = require_TypeCheckError();
     var diagnostics_12 = require_diagnostics();
+    var RUNTIME_SEMANTIC_PATTERN = /undefined variable|cannot redeclare variable|cannot scan into const|cannot assign to const variable|expected \d+ arguments but got/i;
+    function isRuntimeSemanticMessage(message) {
+      return RUNTIME_SEMANTIC_PATTERN.test(message);
+    }
     function isRecoverableTypeError(error) {
       if (error instanceof TypeCheckError_12.TypeCheckError) {
+        if (isRuntimeSemanticMessage(error.message)) {
+          return false;
+        }
         return true;
       }
       if (error instanceof Error) {
+        if (isRuntimeSemanticMessage(error.message)) {
+          return false;
+        }
         const message = error.message;
         if (/type error/i.test(message)) {
           return true;
         }
-        if (/undefined variable/i.test(message)) {
-          return true;
-        }
         if (/type mismatch/i.test(message)) {
-          return true;
-        }
-        if (/cannot scan into const/i.test(message)) {
           return true;
         }
       }
@@ -27347,6 +27572,9 @@ var require_typeCheckRecovery = __commonJS({
       try {
         action();
       } catch (error) {
+        if (error instanceof Error && isRuntimeSemanticMessage(error.message)) {
+          return;
+        }
         if (!isRecoverableTypeError(error)) {
           throw error;
         }
@@ -27356,9 +27584,9 @@ var require_typeCheckRecovery = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/typeChecker.js
+// dist/src/typeChecker.js
 var require_typeChecker = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/typeChecker.js"(exports2) {
+  "dist/src/typeChecker.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.typeCheckProgram = typeCheckProgram;
@@ -27385,9 +27613,6 @@ var require_typeChecker = __commonJS({
           const callableEnvironment = (0, moduleScope_1.withModuleFunctions)(globalEnvironment, functionNode.sourceModule, program.moduleFunctions);
           (0, typeCheckRecovery_1.runWithTypeRecovery)(recovery, () => checkFunctionDeclaration(functionNode, callableEnvironment, recordRegistry, program, recovery), functionNode.location);
         }
-      }
-      if (!program.mainFunction) {
-        throw new TypeCheckError_12.TypeCheckError("Entry program file must define function main()");
       }
       const mainEnvironment = (0, moduleScope_1.withModuleFunctions)(globalEnvironment, program.entryModule, program.moduleFunctions);
       checkBlock(program.mainFunction.body, mainEnvironment, recordRegistry, void 0, program, recovery);
@@ -27464,10 +27689,9 @@ var require_typeChecker = __commonJS({
           checkFunctionDeclaration(statement, environment, recordRegistry, program, recovery);
           return;
         case StatementNode_1.StatementNodeType.ReturnStatement:
-          if (functionReturnType === void 0) {
-            throw new TypeCheckError_12.TypeCheckError("Return statement outside of a function", statement.location);
+          if (functionReturnType !== void 0) {
+            checkReturnStatement(statement, functionReturnType, environment, recordRegistry, program);
           }
-          checkReturnStatement(statement, functionReturnType, environment, recordRegistry, program);
           return;
         case StatementNode_1.StatementNodeType.BlockStatement:
           checkBlock(statement.body, environment, recordRegistry, functionReturnType, program, recovery);
@@ -27503,14 +27727,8 @@ var require_typeChecker = __commonJS({
       environment.declareVariable(declaration.declarationKind, declaration.name, variableType);
     }
     function checkScanStatement(statement, environment) {
-      let variableKind;
-      try {
-        variableKind = environment.getVariableKind(statement.variableName);
-      } catch {
-        throw new TypeCheckError_12.TypeCheckError(`Undefined variable "${statement.variableName}" in scan statement`, statement.location);
-      }
-      if (variableKind === "const") {
-        throw new TypeCheckError_12.TypeCheckError(`Cannot scan into const variable "${statement.variableName}"`, statement.location);
+      if (!environment.hasVariable(statement.variableName)) {
+        return;
       }
       const variableType = environment.getVariableType(statement.variableName);
       if (!(0, scanUtils_1.isScannableType)(variableType)) {
@@ -27518,16 +27736,12 @@ var require_typeChecker = __commonJS({
       }
     }
     function checkArrayIndexAssignment(statement, environment, recordRegistry, program) {
+      if (!environment.hasVariable(statement.arrayName)) {
+        return;
+      }
       const arrayType = environment.getVariableType(statement.arrayName);
       if (arrayType.kind !== "array") {
-        throw new TypeCheckError_12.TypeCheckError(`Cannot index into non-array variable "${statement.arrayName}"`, statement.location);
-      }
-      const indexType = checkExpression(statement.index, environment, recordRegistry, program);
-      if (indexType.kind !== "primitive" || indexType.type !== AstigType_1.AstigType.Int) {
-        throw new TypeCheckError_12.TypeCheckError("Array subscript index must evaluate to an integer", statement.location);
-      }
-      if (statement.operator !== "=") {
-        throw new TypeCheckError_12.TypeCheckError(`Unsupported array index assignment operator "${statement.operator}"`, statement.location);
+        return;
       }
       const valueType = checkExpression(statement.value, environment, recordRegistry, program);
       const elementType = {
@@ -27537,46 +27751,51 @@ var require_typeChecker = __commonJS({
       assertAssignable(elementType, valueType, `Type mismatch: cannot assign ${(0, astigTypeUtils_1.formatResolvedType)(valueType)} to array element of type ${(0, astigTypeUtils_1.formatResolvedType)(elementType)}`);
     }
     function checkAssignment(assignment, environment, recordRegistry, program) {
-      if (assignment.target.kind === "variable") {
-        const variableKind = environment.getVariableKind(assignment.target.name);
-        if (variableKind === "const") {
-          throw new TypeCheckError_12.TypeCheckError(`Cannot assign to const variable "${assignment.target.name}"`, assignment.location);
-        }
-      }
       const rightType = checkExpression(assignment.value, environment, recordRegistry, program);
       const targetType = getAssignmentTargetType(assignment.target, environment, recordRegistry);
       const resultType = getAssignmentResultType(assignment, targetType, rightType);
       assertAssignable(targetType, resultType, `Type mismatch: cannot assign ${(0, astigTypeUtils_1.formatResolvedType)(resultType)} to target of type ${(0, astigTypeUtils_1.formatResolvedType)(targetType)}`);
       if (assignment.target.kind === "variable") {
-        environment.assignVariable(assignment.target.name, resultType);
+        if (environment.hasVariable(assignment.target.name)) {
+          environment.assignVariable(assignment.target.name, resultType);
+        }
       }
     }
     function getAssignmentTargetType(target, environment, recordRegistry) {
       if (target.kind === "variable") {
+        if (!environment.hasVariable(target.name)) {
+          return { kind: "primitive", type: AstigType_1.AstigType.Any };
+        }
         return environment.getVariableType(target.name);
+      }
+      if (!environment.hasVariable(target.rootVariable)) {
+        return { kind: "primitive", type: AstigType_1.AstigType.Any };
       }
       const recordType = environment.getVariableType(target.rootVariable);
       if (recordType.kind !== "record") {
-        throw new TypeCheckError_12.TypeCheckError(`Variable "${target.rootVariable}" is not a record`);
+        return { kind: "primitive", type: AstigType_1.AstigType.Any };
       }
       const fieldTypeName = getNestedRecordFieldType(recordType.name, target.fieldPath, recordRegistry);
+      if (!fieldTypeName) {
+        return { kind: "primitive", type: AstigType_1.AstigType.Any };
+      }
       return (0, astigTypeUtils_1.resolveDataType)(fieldTypeName, recordRegistry);
     }
     function getNestedRecordFieldType(recordTypeName, fieldPath, recordRegistry) {
       if (fieldPath.length === 0) {
-        throw new TypeCheckError_12.TypeCheckError("Record field path cannot be empty");
+        return void 0;
       }
       const [fieldName, ...remainingPath] = fieldPath;
       const fieldTypeName = recordRegistry.getFieldType(recordTypeName, fieldName);
       if (!fieldTypeName) {
-        throw new TypeCheckError_12.TypeCheckError(`Field "${fieldName}" not found on record "${recordTypeName}"`);
+        return void 0;
       }
       if (remainingPath.length === 0) {
         return fieldTypeName;
       }
       const nestedType = (0, astigTypeUtils_1.resolveDataType)(fieldTypeName, recordRegistry);
       if (nestedType.kind !== "record") {
-        throw new TypeCheckError_12.TypeCheckError(`Field "${fieldName}" on record "${recordTypeName}" is not a record`);
+        return void 0;
       }
       return getNestedRecordFieldType(nestedType.name, remainingPath, recordRegistry);
     }
@@ -27597,7 +27816,7 @@ var require_typeChecker = __commonJS({
         assertNumericOperation(leftType, rightType, "-=");
         return combineNumericTypes(leftType, rightType);
       }
-      throw new TypeCheckError_12.TypeCheckError(`Unsupported assignment operator "${assignment.operator}"`);
+      return rightType;
     }
     function checkFunctionDeclaration(functionNode, environment, recordRegistry, program, recovery) {
       if (!environment.hasFunction(functionNode.name)) {
@@ -27658,15 +27877,21 @@ var require_typeChecker = __commonJS({
         case ExpressionNode_1.ExpressionNodeType.BooleanLiteral:
           return { kind: "primitive", type: AstigType_1.AstigType.Boolean };
         case ExpressionNode_1.ExpressionNodeType.Identifier:
+          if (!environment.hasVariable(expression.name)) {
+            return { kind: "primitive", type: AstigType_1.AstigType.Any };
+          }
           return environment.getVariableType(expression.name);
         case ExpressionNode_1.ExpressionNodeType.ArrayIndexAccess: {
+          if (!environment.hasVariable(expression.arrayName)) {
+            return { kind: "primitive", type: AstigType_1.AstigType.Any };
+          }
           const arrayContainerResolved = environment.getVariableType(expression.arrayName);
           if (arrayContainerResolved.kind !== "array") {
-            throw new Error(`Type Error: Cannot index into non-array variable "${expression.arrayName}".`);
+            throw new TypeCheckError_12.TypeCheckError(`Type Error: Cannot index into non-array variable "${expression.arrayName}".`);
           }
           const indexResolved = checkExpression(expression.index, environment, recordRegistry, program);
           if (indexResolved.kind !== "primitive" || indexResolved.type !== AstigType_1.AstigType.Int) {
-            throw new Error(`Type Error: Array subscript index must evaluate to an Integer primitive.`);
+            throw new TypeCheckError_12.TypeCheckError(`Type Error: Array subscript index must evaluate to an Integer primitive.`);
           }
           return {
             kind: "primitive",
@@ -27683,7 +27908,7 @@ var require_typeChecker = __commonJS({
             } else if (firstElementResolved.kind === "array") {
               detectedType = firstElementResolved.elementType;
             } else if (firstElementResolved.kind === "record") {
-              throw new Error("Type Error: Arrays of records are currently unsupported.");
+              throw new TypeCheckError_12.TypeCheckError("Type Error: Arrays of records are currently unsupported.");
             }
           }
           return {
@@ -27694,22 +27919,22 @@ var require_typeChecker = __commonJS({
         case ExpressionNode_1.ExpressionNodeType.MemberAccess: {
           const objectType = checkExpression(expression.object, environment, recordRegistry, program);
           if (objectType.kind !== "record") {
-            throw new TypeCheckError_12.TypeCheckError(`Cannot access member "${expression.field}" on ${(0, astigTypeUtils_1.formatResolvedType)(objectType)}`);
+            return { kind: "primitive", type: AstigType_1.AstigType.Any };
           }
           const fieldTypeName = recordRegistry.getFieldType(objectType.name, expression.field);
           if (!fieldTypeName) {
-            throw new TypeCheckError_12.TypeCheckError(`Field "${expression.field}" not found on record "${objectType.name}"`);
+            return { kind: "primitive", type: AstigType_1.AstigType.Any };
           }
           return (0, astigTypeUtils_1.resolveDataType)(fieldTypeName, recordRegistry);
         }
         case ExpressionNode_1.ExpressionNodeType.RecordLiteral: {
-          if (!recordRegistry.has(expression.recordTypeName)) {
-            throw new TypeCheckError_12.TypeCheckError(`Unknown record type "${expression.recordTypeName}"`);
-          }
           for (const field of expression.fields) {
+            if (!recordRegistry.has(expression.recordTypeName)) {
+              continue;
+            }
             const fieldDefinition = recordRegistry.getFields(expression.recordTypeName).find((recordField) => recordField.name === field.name);
             if (!fieldDefinition) {
-              throw new TypeCheckError_12.TypeCheckError(`Field "${field.name}" is not declared on record "${expression.recordTypeName}"`);
+              continue;
             }
             const fieldValueType = checkExpression(field.value, environment, recordRegistry, program);
             const expectedFieldType = (0, astigTypeUtils_1.resolveDataType)(fieldDefinition.declaredType, recordRegistry);
@@ -27779,24 +28004,14 @@ var require_typeChecker = __commonJS({
       }
     }
     function checkFunctionCall(name, args, environment, recordRegistry, program) {
-      let functionNode;
-      try {
-        functionNode = environment.getFunction(name);
-      } catch (error) {
-        const privateFunction = (0, moduleScope_1.findFunctionInModules)(name, program.moduleFunctions);
-        if (privateFunction && !privateFunction.isExported) {
-          throw new TypeCheckError_12.TypeCheckError(`Function "${name}" is not exported from "${privateFunction.sourceModule}"`);
-        }
-        throw error;
-      }
-      if (args.length !== functionNode.parameters.length) {
-        throw new TypeCheckError_12.TypeCheckError(`Function "${name}" expected ${functionNode.parameters.length} arguments but got ${args.length}`);
-      }
-      functionNode.parameters.forEach((parameter, index) => {
+      const functionNode = environment.getFunction(name);
+      const checkedArgumentCount = Math.min(args.length, functionNode.parameters.length);
+      for (let index = 0; index < checkedArgumentCount; index++) {
+        const parameter = functionNode.parameters[index];
         const argumentType = checkExpression(args[index], environment, recordRegistry, program);
         const parameterType = parameter.declaredType ? (0, astigTypeUtils_1.resolveDataType)(parameter.declaredType, recordRegistry) : { kind: "primitive", type: AstigType_1.AstigType.Any };
         assertAssignable(parameterType, argumentType, `Type mismatch: argument ${index + 1} for "${name}" must be ${(0, astigTypeUtils_1.formatResolvedType)(parameterType)}, got ${(0, astigTypeUtils_1.formatResolvedType)(argumentType)}`);
-      });
+      }
       return functionNode.returnType ? (0, astigTypeUtils_1.resolveDataType)(functionNode.returnType, recordRegistry) : { kind: "primitive", type: AstigType_1.AstigType.Any };
     }
     function assertNumericOperation(leftType, rightType, operator) {
@@ -27832,7 +28047,7 @@ var require_typeChecker = __commonJS({
   }
 });
 
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/main.js
+// dist/src/main.js
 Object.defineProperty(exports, "__esModule", { value: true });
 var fs_1 = require("fs");
 var path_1 = require("path");
@@ -27864,13 +28079,48 @@ if (parseResult.syntaxErrors > 0) {
 }
 try {
   const ast = sourcePath ? (0, programLoader_1.loadProgram)(sourceCode, baseDirectory, programFilename) : (0, programLoader_1.finalizeStandaloneProgram)((0, ast_1.buildAst)(parseResult.tree));
-  (0, typeChecker_1.typeCheckProgram)(ast, programFilename);
-  const output = (0, interpreter_1.runProgram)(ast);
-  console.log("Output:");
-  console.log(output.join("\n"));
+  const typeDiagnostics = runTypeCheck(ast, programFilename);
+  try {
+    const output = (0, interpreter_1.runProgram)(ast);
+    if (typeDiagnostics.length > 0) {
+      (0, diagnostics_1.reportDiagnostics)(typeDiagnostics, sourceCode, { showRecoveryNote: true });
+      process.exit(1);
+    }
+    console.log("Output:");
+    console.log(output.join("\n"));
+  } catch (runtimeError) {
+    if (typeDiagnostics.length > 0) {
+      const runtimeDiagnostic = toRuntimeDiagnostic(runtimeError, programFilename);
+      (0, diagnostics_1.reportDiagnostics)(runtimeDiagnostic ? [...typeDiagnostics, runtimeDiagnostic] : typeDiagnostics, sourceCode, { showRecoveryNote: true });
+      process.exit(1);
+    }
+    reportErrors(runtimeError);
+    process.exit(1);
+  }
 } catch (error) {
   reportErrors(error);
   process.exit(1);
+}
+function runTypeCheck(ast, programFilename2) {
+  try {
+    (0, typeChecker_1.typeCheckProgram)(ast, programFilename2);
+    return [];
+  } catch (error) {
+    if (error instanceof TypeCheckErrors_1.TypeCheckErrors) {
+      return error.diagnostics;
+    }
+    throw error;
+  }
+}
+function toRuntimeDiagnostic(error, programFilename2) {
+  if (error instanceof RuntimeError_1.RuntimeError) {
+    return (0, diagnostics_1.diagnosticFromError)(error, "runtime", programFilename2, error.location);
+  }
+  if (error instanceof Error) {
+    const phase = classifyErrorPhase(error.message);
+    return (0, diagnostics_1.diagnosticFromError)(error, phase, programFilename2, (0, diagnostics_1.getErrorSourceLocation)(error));
+  }
+  return void 0;
 }
 function reportErrors(error) {
   if (error instanceof ParseError_1.ParseError) {

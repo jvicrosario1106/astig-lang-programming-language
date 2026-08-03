@@ -4,9 +4,11 @@ import { basename, dirname, resolve } from 'path';
 import { buildAst } from './ast';
 import { ParseError } from './classes/ParseError';
 import { RuntimeError } from './classes/RuntimeError';
+import { RuntimeErrors } from './classes/RuntimeErrors';
 import { TypeCheckError } from './classes/TypeCheckError';
 import { TypeCheckErrors } from './classes/TypeCheckErrors';
 import { runProgram } from './interpreter';
+import { ProgramNode } from './models/ProgramNode';
 import {
   finalizeStandaloneProgram,
   loadProgram,
@@ -16,7 +18,9 @@ import { typeCheckProgram } from './typeChecker';
 import {
   diagnosticFromError,
   formatDiagnostic,
+  getErrorSourceLocation,
   reportDiagnostics,
+  SourceDiagnostic,
 } from './utils/diagnostics';
 
 const defaultCode = `
@@ -47,17 +51,88 @@ try {
     ? loadProgram(sourceCode, baseDirectory, programFilename)
     : finalizeStandaloneProgram(buildAst(parseResult.tree));
 
-  // Type check the program.
-  typeCheckProgram(ast, programFilename);
+  const typeDiagnostics = runTypeCheck(ast, programFilename);
 
-  // Run the program.
-  const output = runProgram(ast);
+  try {
+    const output = runProgram(ast, programFilename);
 
-  console.log('Output:');
-  console.log(output.join('\n'));
+    if (typeDiagnostics.length > 0) {
+      reportDiagnostics(typeDiagnostics, sourceCode, { showRecoveryNote: true });
+      process.exit(1);
+    }
+
+    console.log('Output:');
+    console.log(output.join('\n'));
+  } catch (runtimeError) {
+    if (runtimeError instanceof RuntimeErrors) {
+      reportDiagnostics(
+        [...typeDiagnostics, ...runtimeError.diagnostics],
+        sourceCode,
+        { showRecoveryNote: true },
+      );
+      process.exit(1);
+    }
+
+    if (typeDiagnostics.length > 0) {
+      const runtimeDiagnostic = toRuntimeDiagnostic(
+        runtimeError,
+        programFilename,
+      );
+      reportDiagnostics(
+        runtimeDiagnostic
+          ? [...typeDiagnostics, runtimeDiagnostic]
+          : typeDiagnostics,
+        sourceCode,
+        { showRecoveryNote: true },
+      );
+      process.exit(1);
+    }
+
+    reportErrors(runtimeError);
+    process.exit(1);
+  }
 } catch (error) {
   reportErrors(error);
   process.exit(1);
+}
+
+/** Type-checks the program and returns collected diagnostics (recovery mode). */
+function runTypeCheck(
+  ast: ProgramNode,
+  programFilename: string,
+): SourceDiagnostic[] {
+  try {
+    typeCheckProgram(ast, programFilename);
+    return [];
+  } catch (error) {
+    if (error instanceof TypeCheckErrors) {
+      return error.diagnostics;
+    }
+
+    throw error;
+  }
+}
+
+/** Builds a runtime-phase diagnostic from a thrown value, when possible. */
+function toRuntimeDiagnostic(
+  error: unknown,
+  programFilename: string,
+): SourceDiagnostic | undefined {
+  if (error instanceof RuntimeError) {
+    return diagnosticFromError(error, 'runtime', programFilename, error.location);
+  }
+
+  if (error instanceof Error) {
+    const phase = classifyErrorPhase(error.message);
+    return diagnosticFromError(
+      error,
+      phase,
+      programFilename,
+      getErrorSourceLocation(error),
+    );
+  }
+
+  return undefined;
 }
 
 
@@ -72,6 +147,11 @@ function reportErrors(error: unknown): void {
 
   if (error instanceof TypeCheckErrors) {
     // Report type check errors.
+    reportDiagnostics(error.diagnostics, sourceCode, { showRecoveryNote: true });
+    return;
+  }
+
+  if (error instanceof RuntimeErrors) {
     reportDiagnostics(error.diagnostics, sourceCode, { showRecoveryNote: true });
     return;
   }

@@ -1,6 +1,6 @@
-import { RuntimeError } from './RuntimeError';
 import {
   ConstAssignmentError,
+  RedeclarationError,
   UndefinedFunctionError,
   UndefinedVariableError,
   UninitializedVariableError,
@@ -52,10 +52,27 @@ export class RuntimeEnvironment {
     resolvedType: ResolvedType = { kind: 'primitive', type: AstigType.Any },
   ): void {
     if (this.bindings.has(name)) {
-      throw new RuntimeError(`Runtime Error: Cannot redeclare variable "${name}"`);
+      throw new RedeclarationError(name);
     }
 
     this.bindings.set(name, { kind, value, isInitialized: true, resolvedType });
+  }
+
+  declareUninitialized(
+    kind: DeclarationKind,
+    name: string,
+    resolvedType: ResolvedType,
+  ): void {
+    if (this.bindings.has(name)) {
+      throw new RedeclarationError(name);
+    }
+
+    this.bindings.set(name, {
+      kind,
+      value: defaultPlaceholderValue(resolvedType),
+      isInitialized: false,
+      resolvedType,
+    });
   }
 
   assign(name: string, value: RuntimeValue): void {
@@ -82,21 +99,21 @@ export class RuntimeEnvironment {
   }
 
   getVariableKind(name: string): DeclarationKind {
-    return this.getBinding(name).kind;
+    return this.getBinding(name, false).kind;
   }
 
   getResolvedType(name: string): ResolvedType {
-    return this.getBinding(name).resolvedType;
+    return this.getBinding(name, false).resolvedType;
   }
 
-  private getBinding(name: string): RuntimeBinding {
+  private getBinding(name: string, requireInitialized = true): RuntimeBinding {
     const environment = this.findEnvironmentWithBinding(name);
     const binding = environment?.bindings.get(name);
     if (!binding) {
       throw new UndefinedVariableError(name);
     }
 
-    if (!binding.isInitialized) {
+    if (requireInitialized && !binding.isInitialized) {
       throw new UninitializedVariableError(name);
     }
 
@@ -105,7 +122,7 @@ export class RuntimeEnvironment {
 
   declareFunction(functionNode: FunctionDeclarationNode): void {
     if (this.functions.has(functionNode.name)) {
-      throw new RuntimeError(`Runtime Error: Cannot redeclare function "${functionNode.name}"`);
+      throw new RedeclarationError(functionNode.name, 'function');
     }
 
     this.functions.set(functionNode.name, functionNode);
@@ -121,17 +138,8 @@ export class RuntimeEnvironment {
     return functionNode;
   }
 
-  lookup(name: string): RuntimeValue{
-    // Check if variable is extisting in the current scope block
-    if(this.bindings.has(name)){
-      return this.bindings.get(name)!.value;
-    }
-
-    if (this.parent){
-      return this.parent.lookup(name);
-    }
-
-    throw new UndefinedVariableError(name);
+  lookup(name: string): RuntimeValue {
+    return this.get(name);
   }
 
   private findEnvironmentWithBinding(
@@ -152,5 +160,28 @@ export class RuntimeEnvironment {
     }
 
     return this.parent?.findEnvironmentWithFunction(name);
+  }
+}
+
+function defaultPlaceholderValue(resolvedType: ResolvedType): RuntimeValue {
+  if (resolvedType.kind === 'array') {
+    return [];
+  }
+
+  if (resolvedType.kind === 'record') {
+    return { recordTypeName: resolvedType.name, fields: new Map() };
+  }
+
+  switch (resolvedType.type) {
+    case AstigType.String:
+    case AstigType.Char:
+      return '';
+    case AstigType.Boolean:
+      return false;
+    case AstigType.Float:
+    case AstigType.Int:
+      return 0;
+    default:
+      return 0;
   }
 }

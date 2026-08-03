@@ -95,7 +95,7 @@ function formatStatement(statement: StatementNode, depth: number): string[] {
           depth,
           `VariableDeclaration(${statement.declarationKind} ${statement.name}: ${statement.declaredType ?? '?'}${statement.isArray ? '[]' : ''})${loc}`,
         ),
-        ...formatExpression(statement.value, depth + 1),
+        ...(statement.value ? formatExpression(statement.value, depth + 1) : []),
       ];
     case StatementNodeType.Assignment:
       return [
@@ -281,7 +281,9 @@ function serializeStatement(statement: StatementNode): object {
         name: statement.name,
         declaredType: statement.declaredType,
         isArray: statement.isArray,
-        value: serializeExpression(statement.value),
+        ...(statement.value
+          ? { value: serializeExpression(statement.value) }
+          : {}),
       };
     case StatementNodeType.Assignment:
       return {
