@@ -39,6 +39,7 @@ import {
 import { coerceScanInput, readScanLine } from './utils/scanUtils';
 import { HeapEmulator, VirtualHeap } from './classes/HeapEmulator';
 import { MarkSweepGC } from './models/GarbageCollector';
+import { HeapVisualizer } from './classes/HeapVisualizer';
 
 export type ExecutionContext = {
   environment: RuntimeEnvironment;
@@ -67,7 +68,13 @@ export function runProgram(program: ProgramNode): string[] {
   };
 
   heapInstance.registerGCCallback(() => {
+    console.log("\n CRITICAL THRESHOLD HIT (>=75%)! Initiating Mark-and-Sweep...");
+    console.log(HeapVisualizer.render(heapInstance)); // Before GC Snapshot
+
     MarkSweepGC.run(context);
+
+    console.log(" GC SWEEP COMPLETE!");
+    console.log(HeapVisualizer.render(heapInstance)); // After GC Snapshot
   });
 
   for (const functionNode of program.functions) {
