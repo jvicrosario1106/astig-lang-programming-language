@@ -103,6 +103,48 @@ Parse tree:
       (
         statement
         (
+          printStatement
+          pHR!HNTs
+          (
+            (
+              expression
+              &
+              (
+                expression
+                xHs
+              )
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          memsetStatement
+          mH3msEHts
+          (
+            (
+              expression
+              xHs
+            )
+            ,
+            (
+              expression
+              0
+            )
+            ,
+            (
+              expression
+              8
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
           variableDeclaration
           (
             declarationKeyword
@@ -146,12 +188,16 @@ Parse tree:
       (
         statement
         (
-          freeStatement
-          Frh3eZ
+          printStatement
+          pHR!HNTs
           (
             (
               expression
-              xHs
+              &
+              (
+                expression
+                vHAlHs
+              )
             )
           )
         )
@@ -277,6 +323,38 @@ Parse tree:
       (
         statement
         (
+          printStatement
+          pHR!HNTs
+          (
+            (
+              expression
+              vHAlHs
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          printStatement
+          pHR!HNTs
+          (
+            (
+              expression
+              &
+              (
+                expression
+                vHAlHs
+              )
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
           variableDeclaration
           (
             declarationKeyword
@@ -321,6 +399,24 @@ Parse tree:
       (
         statement
         (
+          printStatement
+          pHR!HNTs
+          (
+            (
+              expression
+              &
+              (
+                expression
+                xHs
+              )
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
           variableDeclaration
           (
             declarationKeyword
@@ -356,6 +452,24 @@ Parse tree:
             (
               expression
               yHs
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          printStatement
+          pHR!HNTs
+          (
+            (
+              expression
+              &
+              (
+                expression
+                yHs
+              )
             )
           )
         )

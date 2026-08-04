@@ -20,8 +20,10 @@ Type check: passed
 
 Print output:
   [1] 42
-  [2] 42
-  [3] 1046
+  [2] 1036
+  [3] 0
+  [4] 1041
+  [5] 1046
 
 ========================================================================
 Example 2: demo-examples/heap-test-address-of.stg
@@ -33,8 +35,12 @@ PHASE 5 — TYPE CHECK + INTERPRETER
 Type check: passed
 
 Print output:
-  [1] 1000
-  [2] 256
+  [1] 256
+  [2] 1000
+  [3] 1000
+  [4] 1005
+  [5] 256
+  [6] 1010
 
 ========================================================================
 Example 3: demo-examples/optimizer-dce-test.stg

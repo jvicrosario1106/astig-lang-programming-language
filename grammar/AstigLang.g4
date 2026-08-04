@@ -365,7 +365,7 @@ ELSE_KW
     ;
 
 // Jejemonized "while".
-// Examples: wh1le, whil3, whileZ
+// Examples: wHIl3s, WhiLeZ
 WHILE_KW
     : LOWER_W UPPER_H UPPER_I LOWER_L UPPER_E LOWER_PLURAL+
     | UPPER_W LOWER_H LOWER_I UPPER_L LOWER_E UPPER_PLURAL+

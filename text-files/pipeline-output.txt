@@ -19,17 +19,17 @@ PHASE 1 — LEXER (Scanner)
 Source preview:
   fHUncTH!0Ns mHA1Ns() {
     // 1. Test Malloc & Dereference Assignment
-    lH3tsz xHs: iHNtSZ* = MhaLlH0cZ(32);
+    lH3tsz xHs: iHNtSZ* = MhaLlH0cZ(32); // 1000 + 31 = 1032 + 4 = 1036
     *xHs = 42;
-    pHR!HNTs(*xHs);
+    pHR!HNTs(*xHs); // Outputs: 42
+    pHR!HNTs(&xHs); // Outputs: 1036
   
     // 2. Test Memset & Pointer Reading
-    //mH3msEHts(xHs, 0, 8);
-    lH3tsz vHAlHs: iHNtSZ = *xHs;
-    pHR!HNTs(vHAlHs); // Expected: 0
+    mH3msEHts(xHs, 0, 8);
+    lH3tsz vHAlHs: iHNtSZ = *xHs; // 1036 + 1 + 4 = 1041
   ...
 
-Tokens (76 total, showing first 60):
+Tokens (100 total, showing first 60):
   FUNCTION_KW "fHUncTH!0Ns" @ line 1 col 1
   MAIN_KW "mHA1Ns" @ line 1 col 13
   '(' "(" @ line 1 col 19
@@ -47,6 +47,7 @@ Tokens (76 total, showing first 60):
   NUMBER "32" @ line 3 col 35
   ')' ")" @ line 3 col 37
   ';' ";" @ line 3 col 38
+  LINE_COMMENT "// 1000 + 31 = 1032 + 4 = 1036" @ line 3 col 40
   '*' "*" @ line 4 col 3
   IDENTIFIER "xHs" @ line 4 col 4
   '=' "=" @ line 4 col 8
@@ -58,44 +59,43 @@ Tokens (76 total, showing first 60):
   IDENTIFIER "xHs" @ line 5 col 13
   ')' ")" @ line 5 col 16
   ';' ";" @ line 5 col 17
-  LINE_COMMENT "// 2. Test Memset & Pointer Reading" @ line 7 col 3
-  LINE_COMMENT "//mH3msEHts(xHs, 0, 8);" @ line 8 col 3
-  LET_KW "lH3tsz" @ line 9 col 3
-  IDENTIFIER "vHAlHs" @ line 9 col 10
-  ':' ":" @ line 9 col 16
-  INT_KW "iHNtSZ" @ line 9 col 18
-  '=' "=" @ line 9 col 25
-  '*' "*" @ line 9 col 27
-  IDENTIFIER "xHs" @ line 9 col 28
-  ';' ";" @ line 9 col 31
-  PRINT_KW "pHR!HNTs" @ line 10 col 3
-  '(' "(" @ line 10 col 11
-  IDENTIFIER "vHAlHs" @ line 10 col 12
-  ')' ")" @ line 10 col 18
-  ';' ";" @ line 10 col 19
-  LINE_COMMENT "// Expected: 0" @ line 10 col 21
-  FREE_KW "Frh3eZ" @ line 12 col 3
-  '(' "(" @ line 12 col 9
-  IDENTIFIER "xHs" @ line 12 col 10
-  ')' ")" @ line 12 col 13
-  ';' ";" @ line 12 col 14
-  LINE_COMMENT "// 3. Test Realloc" @ line 14 col 3
-  LET_KW "lH3tsz" @ line 15 col 3
-  IDENTIFIER "yHs" @ line 15 col 10
-  ':' ":" @ line 15 col 13
-  INT_KW "iHNtSZ" @ line 15 col 15
-  '*' "*" @ line 15 col 21
-  '=' "=" @ line 15 col 23
-  REALLOC_KW "rH3aHLlH0cs" @ line 15 col 25
-  '(' "(" @ line 15 col 36
-  IDENTIFIER "xHs" @ line 15 col 37
-  ',' "," @ line 15 col 40
-  ... 16 more tokens
+  LINE_COMMENT "// Outputs: 42" @ line 5 col 19
+  PRINT_KW "pHR!HNTs" @ line 6 col 3
+  '(' "(" @ line 6 col 11
+  '&' "&" @ line 6 col 12
+  IDENTIFIER "xHs" @ line 6 col 13
+  ')' ")" @ line 6 col 16
+  ';' ";" @ line 6 col 17
+  LINE_COMMENT "// Outputs: 1036" @ line 6 col 19
+  LINE_COMMENT "// 2. Test Memset & Pointer Reading" @ line 8 col 3
+  MEMSET_KW "mH3msEHts" @ line 9 col 3
+  '(' "(" @ line 9 col 12
+  IDENTIFIER "xHs" @ line 9 col 13
+  ',' "," @ line 9 col 16
+  NUMBER "0" @ line 9 col 18
+  ',' "," @ line 9 col 19
+  NUMBER "8" @ line 9 col 21
+  ')' ")" @ line 9 col 22
+  ';' ";" @ line 9 col 23
+  LET_KW "lH3tsz" @ line 10 col 3
+  IDENTIFIER "vHAlHs" @ line 10 col 10
+  ':' ":" @ line 10 col 16
+  INT_KW "iHNtSZ" @ line 10 col 18
+  '=' "=" @ line 10 col 25
+  '*' "*" @ line 10 col 27
+  IDENTIFIER "xHs" @ line 10 col 28
+  ';' ";" @ line 10 col 31
+  LINE_COMMENT "// 1036 + 1 + 4 = 1041" @ line 10 col 33
+  PRINT_KW "pHR!HNTs" @ line 11 col 3
+  '(' "(" @ line 11 col 11
+  IDENTIFIER "vHAlHs" @ line 11 col 12
+  ')' ")" @ line 11 col 18
+  ... 40 more tokens
 
 Lexical errors: none
 
-Scan time: 61.448 ms
-Characters: 451
+Scan time: 52.041 ms
+Characters: 700
 
 PHASE 2 — PARSER
 ----------------
@@ -186,6 +186,48 @@ Parse tree:
       (
         statement
         (
+          printStatement
+          pHR!HNTs
+          (
+            (
+              expression
+              &
+              (
+                expression
+                xHs
+              )
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          memsetStatement
+          mH3msEHts
+          (
+            (
+              expression
+              xHs
+            )
+            ,
+            (
+              expression
+              0
+            )
+            ,
+            (
+              expression
+              8
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
           variableDeclaration
           (
             declarationKeyword
@@ -229,12 +271,16 @@ Parse tree:
       (
         statement
         (
-          freeStatement
-          Frh3eZ
+          printStatement
+          pHR!HNTs
           (
             (
               expression
-              xHs
+              &
+              (
+                expression
+                vHAlHs
+              )
             )
           )
         )
@@ -328,20 +374,31 @@ Program
     PrintStatement @ 5:3
       UnaryExpression(*)
         Identifier(xHs)
-    VariableDeclaration(let vHAlHs: iHNtSZ) @ 9:3
+    PrintStatement @ 6:3
+      UnaryExpression(&)
+        Identifier(xHs)
+    MemsetStatement @ 9:3
+      dest
+        Identifier(xHs)
+      value
+        NumberLiteral(0)
+      size
+        NumberLiteral(8)
+    VariableDeclaration(let vHAlHs: iHNtSZ) @ 10:3
       UnaryExpression(*)
         Identifier(xHs)
-    PrintStatement @ 10:3
+    PrintStatement @ 11:3
       Identifier(vHAlHs)
-    FreeStatement @ 12:3
-      Identifier(xHs)
-    VariableDeclaration(let yHs: iHNtSZ) @ 15:3
+    PrintStatement @ 12:3
+      UnaryExpression(&)
+        Identifier(vHAlHs)
+    VariableDeclaration(let yHs: iHNtSZ) @ 18:3
       ReallocExpression
         Identifier(xHs)
         NumberLiteral(8)
-    FreeStatement @ 18:3
+    FreeStatement @ 21:3
       Identifier(yHs)
-    PrintStatement @ 19:3
+    PrintStatement @ 22:3
       Identifier(yHs)
 
 ProgramNode (JSON):
@@ -407,9 +464,43 @@ ProgramNode (JSON):
         }
       },
       {
-        "type": "VariableDeclaration",
+        "type": "PrintStatement",
+        "location": {
+          "line": 6,
+          "column": 3
+        },
+        "value": {
+          "type": "UnaryExpression",
+          "operator": "&",
+          "argument": {
+            "type": "Identifier",
+            "name": "xHs"
+          }
+        }
+      },
+      {
+        "type": "MemsetStatement",
         "location": {
           "line": 9,
+          "column": 3
+        },
+        "ptrExpr": {
+          "type": "Identifier",
+          "name": "xHs"
+        },
+        "valueExpr": {
+          "type": "NumberLiteral",
+          "value": 0
+        },
+        "sizeExpr": {
+          "type": "NumberLiteral",
+          "value": 8
+        }
+      },
+      {
+        "type": "VariableDeclaration",
+        "location": {
+          "line": 10,
           "column": 3
         },
         "declarationKind": "let",
@@ -428,7 +519,7 @@ ProgramNode (JSON):
       {
         "type": "PrintStatement",
         "location": {
-          "line": 10,
+          "line": 11,
           "column": 3
         },
         "value": {
@@ -437,20 +528,24 @@ ProgramNode (JSON):
         }
       },
       {
-        "type": "FreeStatement",
+        "type": "PrintStatement",
         "location": {
           "line": 12,
           "column": 3
         },
-        "ptrExpr": {
-          "type": "Identifier",
-          "name": "xHs"
+        "value": {
+          "type": "UnaryExpression",
+          "operator": "&",
+          "argument": {
+            "type": "Identifier",
+            "name": "vHAlHs"
+          }
         }
       },
       {
         "type": "VariableDeclaration",
         "location": {
-          "line": 15,
+          "line": 18,
           "column": 3
         },
         "declarationKind": "let",
@@ -472,7 +567,7 @@ ProgramNode (JSON):
       {
         "type": "FreeStatement",
         "location": {
-          "line": 18,
+          "line": 21,
           "column": 3
         },
         "ptrExpr": {
@@ -483,7 +578,7 @@ ProgramNode (JSON):
       {
         "type": "PrintStatement",
         "location": {
-          "line": 19,
+          "line": 22,
           "column": 3
         },
         "value": {
@@ -512,20 +607,31 @@ Program
     PrintStatement @ 5:3
       UnaryExpression(*)
         Identifier(xHs)
-    VariableDeclaration(let vHAlHs: iHNtSZ) @ 9:3
+    PrintStatement @ 6:3
+      UnaryExpression(&)
+        Identifier(xHs)
+    MemsetStatement @ 9:3
+      dest
+        Identifier(xHs)
+      value
+        NumberLiteral(0)
+      size
+        NumberLiteral(8)
+    VariableDeclaration(let vHAlHs: iHNtSZ) @ 10:3
       UnaryExpression(*)
         Identifier(xHs)
-    PrintStatement @ 10:3
+    PrintStatement @ 11:3
       Identifier(vHAlHs)
-    FreeStatement @ 12:3
-      Identifier(xHs)
-    VariableDeclaration(let yHs: iHNtSZ) @ 15:3
+    PrintStatement @ 12:3
+      UnaryExpression(&)
+        Identifier(vHAlHs)
+    VariableDeclaration(let yHs: iHNtSZ) @ 18:3
       ReallocExpression
         Identifier(xHs)
         NumberLiteral(8)
-    FreeStatement @ 18:3
+    FreeStatement @ 21:3
       Identifier(yHs)
-    PrintStatement @ 19:3
+    PrintStatement @ 22:3
       Identifier(yHs)
 
 ProgramNode (JSON):
@@ -590,9 +696,43 @@ ProgramNode (JSON):
         }
       },
       {
-        "type": "VariableDeclaration",
+        "type": "PrintStatement",
+        "location": {
+          "line": 6,
+          "column": 3
+        },
+        "value": {
+          "type": "UnaryExpression",
+          "operator": "&",
+          "argument": {
+            "type": "Identifier",
+            "name": "xHs"
+          }
+        }
+      },
+      {
+        "type": "MemsetStatement",
         "location": {
           "line": 9,
+          "column": 3
+        },
+        "ptrExpr": {
+          "type": "Identifier",
+          "name": "xHs"
+        },
+        "valueExpr": {
+          "type": "NumberLiteral",
+          "value": 0
+        },
+        "sizeExpr": {
+          "type": "NumberLiteral",
+          "value": 8
+        }
+      },
+      {
+        "type": "VariableDeclaration",
+        "location": {
+          "line": 10,
           "column": 3
         },
         "declarationKind": "let",
@@ -611,7 +751,7 @@ ProgramNode (JSON):
       {
         "type": "PrintStatement",
         "location": {
-          "line": 10,
+          "line": 11,
           "column": 3
         },
         "value": {
@@ -620,20 +760,24 @@ ProgramNode (JSON):
         }
       },
       {
-        "type": "FreeStatement",
+        "type": "PrintStatement",
         "location": {
           "line": 12,
           "column": 3
         },
-        "ptrExpr": {
-          "type": "Identifier",
-          "name": "xHs"
+        "value": {
+          "type": "UnaryExpression",
+          "operator": "&",
+          "argument": {
+            "type": "Identifier",
+            "name": "vHAlHs"
+          }
         }
       },
       {
         "type": "VariableDeclaration",
         "location": {
-          "line": 15,
+          "line": 18,
           "column": 3
         },
         "declarationKind": "let",
@@ -655,7 +799,7 @@ ProgramNode (JSON):
       {
         "type": "FreeStatement",
         "location": {
-          "line": 18,
+          "line": 21,
           "column": 3
         },
         "ptrExpr": {
@@ -666,7 +810,7 @@ ProgramNode (JSON):
       {
         "type": "PrintStatement",
         "location": {
-          "line": 19,
+          "line": 22,
           "column": 3
         },
         "value": {
@@ -684,8 +828,10 @@ Type check: passed
 
 Print output:
   [1] 42
-  [2] 42
-  [3] 1046
+  [2] 1036
+  [3] 0
+  [4] 1041
+  [5] 1046
 
 ========================================================================
 Example 2: demo-examples/heap-test-address-of.stg
@@ -698,16 +844,16 @@ Source preview:
   fHUncTH!0Ns mHA1Ns() {
     // 1. Declare a standard integer variable
     lH3tsz vHAlHs: iHNtSZ = 256;
+    pHR!HNTs(vHAlHs);
+    pHR!HNTs(&vHAlHs);
     
     // 2. Use the address-of operator (&) to capture its reference location
     // This verifies that your ast.ts correctly handles UnaryExpression mapping for '&'
     lH3tsz xHs: iHNtSZ* = &vHAlHs;
     
-    // 3. Print out the raw pointer integer value to see where the compiler stores local variables
-    pHR!HNTs(xHs);
   ...
 
-Tokens (46 total, showing first 60):
+Tokens (69 total, showing first 60):
   FUNCTION_KW "fHUncTH!0Ns" @ line 1 col 1
   MAIN_KW "mHA1Ns" @ line 1 col 13
   '(' "(" @ line 1 col 19
@@ -721,44 +867,59 @@ Tokens (46 total, showing first 60):
   '=' "=" @ line 3 col 25
   NUMBER "256" @ line 3 col 27
   ';' ";" @ line 3 col 30
-  LINE_COMMENT "// 2. Use the address-of operator (&) to captur..." @ line 5 col 3
-  LINE_COMMENT "// This verifies that your ast.ts correctly han..." @ line 6 col 3
-  LET_KW "lH3tsz" @ line 7 col 3
-  IDENTIFIER "xHs" @ line 7 col 10
-  ':' ":" @ line 7 col 13
-  INT_KW "iHNtSZ" @ line 7 col 15
-  '*' "*" @ line 7 col 21
-  '=' "=" @ line 7 col 23
-  '&' "&" @ line 7 col 25
-  IDENTIFIER "vHAlHs" @ line 7 col 26
-  ';' ";" @ line 7 col 32
-  LINE_COMMENT "// 3. Print out the raw pointer integer value t..." @ line 9 col 3
-  PRINT_KW "pHR!HNTs" @ line 10 col 3
-  '(' "(" @ line 10 col 11
-  IDENTIFIER "xHs" @ line 10 col 12
-  ')' ")" @ line 10 col 15
-  ';' ";" @ line 10 col 16
-  LINE_COMMENT "// 4. Double check that dereferencing the point..." @ line 12 col 3
-  LET_KW "lH3tsz" @ line 13 col 3
-  IDENTIFIER "yHs" @ line 13 col 10
-  ':' ":" @ line 13 col 13
-  INT_KW "iHNtSZ" @ line 13 col 15
-  '=' "=" @ line 13 col 22
-  '*' "*" @ line 13 col 24
-  IDENTIFIER "xHs" @ line 13 col 25
-  ';' ";" @ line 13 col 28
-  PRINT_KW "pHR!HNTs" @ line 14 col 3
-  '(' "(" @ line 14 col 11
-  IDENTIFIER "yHs" @ line 14 col 12
-  ')' ")" @ line 14 col 15
-  ';' ";" @ line 14 col 16
-  LINE_COMMENT "// Expected: 256" @ line 14 col 18
-  '}' "}" @ line 15 col 1
+  PRINT_KW "pHR!HNTs" @ line 4 col 3
+  '(' "(" @ line 4 col 11
+  IDENTIFIER "vHAlHs" @ line 4 col 12
+  ')' ")" @ line 4 col 18
+  ';' ";" @ line 4 col 19
+  PRINT_KW "pHR!HNTs" @ line 5 col 3
+  '(' "(" @ line 5 col 11
+  '&' "&" @ line 5 col 12
+  IDENTIFIER "vHAlHs" @ line 5 col 13
+  ')' ")" @ line 5 col 19
+  ';' ";" @ line 5 col 20
+  LINE_COMMENT "// 2. Use the address-of operator (&) to captur..." @ line 7 col 3
+  LINE_COMMENT "// This verifies that your ast.ts correctly han..." @ line 8 col 3
+  LET_KW "lH3tsz" @ line 9 col 3
+  IDENTIFIER "xHs" @ line 9 col 10
+  ':' ":" @ line 9 col 13
+  INT_KW "iHNtSZ" @ line 9 col 15
+  '*' "*" @ line 9 col 21
+  '=' "=" @ line 9 col 23
+  '&' "&" @ line 9 col 25
+  IDENTIFIER "vHAlHs" @ line 9 col 26
+  ';' ";" @ line 9 col 32
+  LINE_COMMENT "// 3. Print out the raw pointer integer value t..." @ line 11 col 3
+  PRINT_KW "pHR!HNTs" @ line 12 col 3
+  '(' "(" @ line 12 col 11
+  IDENTIFIER "xHs" @ line 12 col 12
+  ')' ")" @ line 12 col 15
+  ';' ";" @ line 12 col 16
+  PRINT_KW "pHR!HNTs" @ line 13 col 3
+  '(' "(" @ line 13 col 11
+  '&' "&" @ line 13 col 12
+  IDENTIFIER "xHs" @ line 13 col 13
+  ')' ")" @ line 13 col 16
+  ';' ";" @ line 13 col 17
+  LINE_COMMENT "// 4. Double check that dereferencing the point..." @ line 15 col 3
+  LET_KW "lH3tsz" @ line 16 col 3
+  IDENTIFIER "yHs" @ line 16 col 10
+  ':' ":" @ line 16 col 13
+  INT_KW "iHNtSZ" @ line 16 col 15
+  '=' "=" @ line 16 col 22
+  '*' "*" @ line 16 col 24
+  IDENTIFIER "xHs" @ line 16 col 25
+  ';' ";" @ line 16 col 28
+  PRINT_KW "pHR!HNTs" @ line 17 col 3
+  '(' "(" @ line 17 col 11
+  IDENTIFIER "yHs" @ line 17 col 12
+  ')' ")" @ line 17 col 15
+  ... 9 more tokens
 
 Lexical errors: none
 
-Scan time: 2.275 ms
-Characters: 575
+Scan time: 6.435 ms
+Characters: 654
 
 PHASE 2 — PARSER
 ----------------
@@ -797,6 +958,38 @@ Parse tree:
           (
             expression
             256
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          printStatement
+          pHR!HNTs
+          (
+            (
+              expression
+              vHAlHs
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          printStatement
+          pHR!HNTs
+          (
+            (
+              expression
+              &
+              (
+                expression
+                vHAlHs
+              )
+            )
           )
         )
         ;
@@ -848,6 +1041,24 @@ Parse tree:
       (
         statement
         (
+          printStatement
+          pHR!HNTs
+          (
+            (
+              expression
+              &
+              (
+                expression
+                xHs
+              )
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
           variableDeclaration
           (
             declarationKeyword
@@ -888,6 +1099,24 @@ Parse tree:
         )
         ;
       )
+      (
+        statement
+        (
+          printStatement
+          pHR!HNTs
+          (
+            (
+              expression
+              &
+              (
+                expression
+                yHs
+              )
+            )
+          )
+        )
+        ;
+      )
       }
     )
   )
@@ -903,16 +1132,27 @@ Program
   MainFunction(mHA1Ns)
     VariableDeclaration(let vHAlHs: iHNtSZ) @ 3:3
       NumberLiteral(256)
-    VariableDeclaration(let xHs: iHNtSZ) @ 7:3
+    PrintStatement @ 4:3
+      Identifier(vHAlHs)
+    PrintStatement @ 5:3
       UnaryExpression(&)
         Identifier(vHAlHs)
-    PrintStatement @ 10:3
+    VariableDeclaration(let xHs: iHNtSZ) @ 9:3
+      UnaryExpression(&)
+        Identifier(vHAlHs)
+    PrintStatement @ 12:3
       Identifier(xHs)
-    VariableDeclaration(let yHs: iHNtSZ) @ 13:3
+    PrintStatement @ 13:3
+      UnaryExpression(&)
+        Identifier(xHs)
+    VariableDeclaration(let yHs: iHNtSZ) @ 16:3
       UnaryExpression(*)
         Identifier(xHs)
-    PrintStatement @ 14:3
+    PrintStatement @ 17:3
       Identifier(yHs)
+    PrintStatement @ 18:3
+      UnaryExpression(&)
+        Identifier(yHs)
 
 ProgramNode (JSON):
 {
@@ -940,9 +1180,35 @@ ProgramNode (JSON):
         }
       },
       {
+        "type": "PrintStatement",
+        "location": {
+          "line": 4,
+          "column": 3
+        },
+        "value": {
+          "type": "Identifier",
+          "name": "vHAlHs"
+        }
+      },
+      {
+        "type": "PrintStatement",
+        "location": {
+          "line": 5,
+          "column": 3
+        },
+        "value": {
+          "type": "UnaryExpression",
+          "operator": "&",
+          "argument": {
+            "type": "Identifier",
+            "name": "vHAlHs"
+          }
+        }
+      },
+      {
         "type": "VariableDeclaration",
         "location": {
-          "line": 7,
+          "line": 9,
           "column": 3
         },
         "declarationKind": "let",
@@ -961,7 +1227,7 @@ ProgramNode (JSON):
       {
         "type": "PrintStatement",
         "location": {
-          "line": 10,
+          "line": 12,
           "column": 3
         },
         "value": {
@@ -970,9 +1236,24 @@ ProgramNode (JSON):
         }
       },
       {
-        "type": "VariableDeclaration",
+        "type": "PrintStatement",
         "location": {
           "line": 13,
+          "column": 3
+        },
+        "value": {
+          "type": "UnaryExpression",
+          "operator": "&",
+          "argument": {
+            "type": "Identifier",
+            "name": "xHs"
+          }
+        }
+      },
+      {
+        "type": "VariableDeclaration",
+        "location": {
+          "line": 16,
           "column": 3
         },
         "declarationKind": "let",
@@ -991,12 +1272,27 @@ ProgramNode (JSON):
       {
         "type": "PrintStatement",
         "location": {
-          "line": 14,
+          "line": 17,
           "column": 3
         },
         "value": {
           "type": "Identifier",
           "name": "yHs"
+        }
+      },
+      {
+        "type": "PrintStatement",
+        "location": {
+          "line": 18,
+          "column": 3
+        },
+        "value": {
+          "type": "UnaryExpression",
+          "operator": "&",
+          "argument": {
+            "type": "Identifier",
+            "name": "yHs"
+          }
         }
       }
     ]
@@ -1012,16 +1308,27 @@ Program
   MainFunction(mHA1Ns)
     VariableDeclaration(let vHAlHs: iHNtSZ) @ 3:3
       NumberLiteral(256)
-    VariableDeclaration(let xHs: iHNtSZ) @ 7:3
+    PrintStatement @ 4:3
+      Identifier(vHAlHs)
+    PrintStatement @ 5:3
       UnaryExpression(&)
         Identifier(vHAlHs)
-    PrintStatement @ 10:3
+    VariableDeclaration(let xHs: iHNtSZ) @ 9:3
+      UnaryExpression(&)
+        Identifier(vHAlHs)
+    PrintStatement @ 12:3
       Identifier(xHs)
-    VariableDeclaration(let yHs: iHNtSZ) @ 13:3
+    PrintStatement @ 13:3
+      UnaryExpression(&)
+        Identifier(xHs)
+    VariableDeclaration(let yHs: iHNtSZ) @ 16:3
       UnaryExpression(*)
         Identifier(xHs)
-    PrintStatement @ 14:3
+    PrintStatement @ 17:3
       Identifier(yHs)
+    PrintStatement @ 18:3
+      UnaryExpression(&)
+        Identifier(yHs)
 
 ProgramNode (JSON):
 {
@@ -1048,9 +1355,35 @@ ProgramNode (JSON):
         }
       },
       {
+        "type": "PrintStatement",
+        "location": {
+          "line": 4,
+          "column": 3
+        },
+        "value": {
+          "type": "Identifier",
+          "name": "vHAlHs"
+        }
+      },
+      {
+        "type": "PrintStatement",
+        "location": {
+          "line": 5,
+          "column": 3
+        },
+        "value": {
+          "type": "UnaryExpression",
+          "operator": "&",
+          "argument": {
+            "type": "Identifier",
+            "name": "vHAlHs"
+          }
+        }
+      },
+      {
         "type": "VariableDeclaration",
         "location": {
-          "line": 7,
+          "line": 9,
           "column": 3
         },
         "declarationKind": "let",
@@ -1069,7 +1402,7 @@ ProgramNode (JSON):
       {
         "type": "PrintStatement",
         "location": {
-          "line": 10,
+          "line": 12,
           "column": 3
         },
         "value": {
@@ -1078,9 +1411,24 @@ ProgramNode (JSON):
         }
       },
       {
-        "type": "VariableDeclaration",
+        "type": "PrintStatement",
         "location": {
           "line": 13,
+          "column": 3
+        },
+        "value": {
+          "type": "UnaryExpression",
+          "operator": "&",
+          "argument": {
+            "type": "Identifier",
+            "name": "xHs"
+          }
+        }
+      },
+      {
+        "type": "VariableDeclaration",
+        "location": {
+          "line": 16,
           "column": 3
         },
         "declarationKind": "let",
@@ -1099,12 +1447,27 @@ ProgramNode (JSON):
       {
         "type": "PrintStatement",
         "location": {
-          "line": 14,
+          "line": 17,
           "column": 3
         },
         "value": {
           "type": "Identifier",
           "name": "yHs"
+        }
+      },
+      {
+        "type": "PrintStatement",
+        "location": {
+          "line": 18,
+          "column": 3
+        },
+        "value": {
+          "type": "UnaryExpression",
+          "operator": "&",
+          "argument": {
+            "type": "Identifier",
+            "name": "yHs"
+          }
         }
       }
     ]
@@ -1116,8 +1479,12 @@ PHASE 5 — TYPE CHECK + INTERPRETER
 Type check: passed
 
 Print output:
-  [1] 1000
-  [2] 256
+  [1] 256
+  [2] 1000
+  [3] 1000
+  [4] 1005
+  [5] 256
+  [6] 1010
 
 ========================================================================
 Example 3: demo-examples/optimizer-dce-test.stg
@@ -1127,7 +1494,7 @@ Optimizer test
 PHASE 1 — LEXER (Scanner)
 -------------------------
 Source preview:
-  // RULE: Unused so it should be ignored
+  // RULE: Constant folded 
   fHUncTH!0Ns dH1bHs(xH1s:iHNtSZ):iHNtSZ {
     rH3tHUrns xH1s * 2;
     // RULE: After return statement so it should be ignored
@@ -1139,8 +1506,8 @@ Source preview:
     // RULE: Unused so it should be ignored
   ...
 
-Tokens (155 total, showing first 60):
-  LINE_COMMENT "// RULE: Unused so it should be ignored" @ line 1 col 1
+Tokens (157 total, showing first 60):
+  LINE_COMMENT "// RULE: Constant folded " @ line 1 col 1
   FUNCTION_KW "fHUncTH!0Ns" @ line 2 col 1
   IDENTIFIER "dH1bHs" @ line 2 col 13
   '(' "(" @ line 2 col 19
@@ -1190,22 +1557,22 @@ Tokens (155 total, showing first 60):
   '=' "=" @ line 12 col 21
   NUMBER "8" @ line 12 col 23
   ';' ";" @ line 12 col 24
-  VAR_KW "vH4rs" @ line 13 col 3
-  IDENTIFIER "wHs" @ line 13 col 9
-  ':' ":" @ line 13 col 12
-  INT_KW "iHNtSZ" @ line 13 col 13
-  '=' "=" @ line 13 col 20
-  IDENTIFIER "yH2s" @ line 13 col 22
-  ';' ";" @ line 13 col 26
-  LINE_COMMENT "// id + num" @ line 15 col 3
-  VAR_KW "vH4rs" @ line 16 col 3
-  IDENTIFIER "aH1s" @ line 16 col 9
-  ... 95 more tokens
+  LINE_COMMENT "// RULE: wHs should copy propagated" @ line 13 col 3
+  VAR_KW "vH4rs" @ line 14 col 3
+  IDENTIFIER "wHs" @ line 14 col 9
+  ':' ":" @ line 14 col 12
+  INT_KW "iHNtSZ" @ line 14 col 13
+  '=' "=" @ line 14 col 20
+  IDENTIFIER "yH2s" @ line 14 col 22
+  ';' ";" @ line 14 col 26
+  LINE_COMMENT "// id + num" @ line 16 col 3
+  VAR_KW "vH4rs" @ line 17 col 3
+  ... 97 more tokens
 
 Lexical errors: none
 
-Scan time: 11.955 ms
-Characters: 943
+Scan time: 8.681 ms
+Characters: 1010
 
 PHASE 2 — PARSER
 ----------------
@@ -1730,49 +2097,49 @@ Program
       NumberLiteral(4)
     VariableDeclaration(var yH2s: iHNtSZ) @ 12:3
       NumberLiteral(8)
-    VariableDeclaration(var wHs: iHNtSZ) @ 13:3
+    VariableDeclaration(var wHs: iHNtSZ) @ 14:3
       Identifier(yH2s)
-    VariableDeclaration(var aH1s: iHNtSZ) @ 16:3
+    VariableDeclaration(var aH1s: iHNtSZ) @ 17:3
       BinaryExpression(+)
         FunctionCall(dH1bHs)
           BinaryExpression(+)
             Identifier(wHs)
             NumberLiteral(1)
         NumberLiteral(10)
-    VariableDeclaration(var bH2s: iHNtSZ) @ 19:3
+    VariableDeclaration(var bH2s: iHNtSZ) @ 21:3
       BinaryExpression(*)
         Identifier(aH1s)
         Identifier(yH2s)
-    VariableDeclaration(var yHs: iHNtSZ) @ 22:3
+    VariableDeclaration(var yHs: iHNtSZ) @ 24:3
       BinaryExpression(+)
         NumberLiteral(26)
         NumberLiteral(0)
-    VariableDeclaration(var zHs: bH0oHLeaNs) @ 24:3
+    VariableDeclaration(var zHs: bH0oHLeaNs) @ 26:3
       BinaryExpression(>)
         BinaryExpression(%)
           Identifier(yHs)
           NumberLiteral(4)
         NumberLiteral(1)
-    VariableDeclaration(var cH3s: iHNtSZ) @ 28:3
+    VariableDeclaration(var cH3s: iHNtSZ) @ 30:3
       BinaryExpression(/)
         NumberLiteral(20)
         NumberLiteral(4)
-    IfStatement @ 32:3
+    IfStatement @ 34:3
       condition
         Identifier(zHs)
       then
-        PrintStatement @ 33:5
+        PrintStatement @ 35:5
           Identifier(bH2s)
       else
-        VariableDeclaration(var dHs: iHNtSZ) @ 35:5
+        VariableDeclaration(var dHs: iHNtSZ) @ 37:5
           BinaryExpression(/)
             NumberLiteral(20)
             NumberLiteral(4)
-        PrintStatement @ 36:5
+        PrintStatement @ 38:5
           BinaryExpression(+)
             Identifier(dHs)
             NumberLiteral(1)
-    PrintStatement @ 39:3
+    PrintStatement @ 41:3
       Identifier(bH2s)
 
 ProgramNode (JSON):
@@ -1883,7 +2250,7 @@ ProgramNode (JSON):
       {
         "type": "VariableDeclaration",
         "location": {
-          "line": 13,
+          "line": 14,
           "column": 3
         },
         "declarationKind": "var",
@@ -1898,7 +2265,7 @@ ProgramNode (JSON):
       {
         "type": "VariableDeclaration",
         "location": {
-          "line": 16,
+          "line": 17,
           "column": 3
         },
         "declarationKind": "var",
@@ -1935,7 +2302,7 @@ ProgramNode (JSON):
       {
         "type": "VariableDeclaration",
         "location": {
-          "line": 19,
+          "line": 21,
           "column": 3
         },
         "declarationKind": "var",
@@ -1958,7 +2325,7 @@ ProgramNode (JSON):
       {
         "type": "VariableDeclaration",
         "location": {
-          "line": 22,
+          "line": 24,
           "column": 3
         },
         "declarationKind": "var",
@@ -1981,7 +2348,7 @@ ProgramNode (JSON):
       {
         "type": "VariableDeclaration",
         "location": {
-          "line": 24,
+          "line": 26,
           "column": 3
         },
         "declarationKind": "var",
@@ -2012,7 +2379,7 @@ ProgramNode (JSON):
       {
         "type": "VariableDeclaration",
         "location": {
-          "line": 28,
+          "line": 30,
           "column": 3
         },
         "declarationKind": "var",
@@ -2035,7 +2402,7 @@ ProgramNode (JSON):
       {
         "type": "IfStatement",
         "location": {
-          "line": 32,
+          "line": 34,
           "column": 3
         },
         "condition": {
@@ -2046,7 +2413,7 @@ ProgramNode (JSON):
           {
             "type": "PrintStatement",
             "location": {
-              "line": 33,
+              "line": 35,
               "column": 5
             },
             "value": {
@@ -2060,7 +2427,7 @@ ProgramNode (JSON):
           {
             "type": "VariableDeclaration",
             "location": {
-              "line": 35,
+              "line": 37,
               "column": 5
             },
             "declarationKind": "var",
@@ -2083,7 +2450,7 @@ ProgramNode (JSON):
           {
             "type": "PrintStatement",
             "location": {
-              "line": 36,
+              "line": 38,
               "column": 5
             },
             "value": {
@@ -2104,7 +2471,7 @@ ProgramNode (JSON):
       {
         "type": "PrintStatement",
         "location": {
-          "line": 39,
+          "line": 41,
           "column": 3
         },
         "value": {
@@ -2123,18 +2490,18 @@ Syntax errors: 0
 ProgramNode (ASCII tree):
 Program
   MainFunction(mHA1Ns)
-    VariableDeclaration(var aH1s: iHNtSZ) @ 16:3
+    VariableDeclaration(var aH1s: iHNtSZ) @ 17:3
       BinaryExpression(+)
         FunctionCall(dH1bHs)
           NumberLiteral(9)
         NumberLiteral(10)
-    VariableDeclaration(var bH2s: iHNtSZ) @ 19:3
+    VariableDeclaration(var bH2s: iHNtSZ) @ 21:3
       BinaryExpression(<<)
         Identifier(aH1s)
         NumberLiteral(3)
-    PrintStatement @ 33:5
+    PrintStatement @ 35:5
       Identifier(bH2s)
-    PrintStatement @ 39:3
+    PrintStatement @ 41:3
       Identifier(bH2s)
 
 ProgramNode (JSON):
@@ -2149,7 +2516,7 @@ ProgramNode (JSON):
       {
         "type": "VariableDeclaration",
         "location": {
-          "line": 16,
+          "line": 17,
           "column": 3
         },
         "declarationKind": "var",
@@ -2178,7 +2545,7 @@ ProgramNode (JSON):
       {
         "type": "VariableDeclaration",
         "location": {
-          "line": 19,
+          "line": 21,
           "column": 3
         },
         "declarationKind": "var",
@@ -2201,7 +2568,7 @@ ProgramNode (JSON):
       {
         "type": "PrintStatement",
         "location": {
-          "line": 33,
+          "line": 35,
           "column": 5
         },
         "value": {
@@ -2212,7 +2579,7 @@ ProgramNode (JSON):
       {
         "type": "PrintStatement",
         "location": {
-          "line": 39,
+          "line": 41,
           "column": 3
         },
         "value": {
@@ -2315,7 +2682,7 @@ Tokens (59 total, showing first 60):
 
 Lexical errors: none
 
-Scan time: 1.427 ms
+Scan time: 0.967 ms
 Characters: 272
 
 PHASE 2 — PARSER

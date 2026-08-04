@@ -163,4 +163,25 @@ export class RuntimeEnvironment {
 
     return this.parent?.findEnvironmentWithFunction(name);
   }
+
+  public collectActiveHeapAddresses(addresses: Set<number> = new Set()): Set<number> {
+    // Scan all variable bindings in the current scope level
+    for (const [key, binding] of this.bindings.entries()) {
+      // Ensure the binding exists and has an initialized value
+      if (binding && binding.isInitialized && binding.value) {
+          const val = binding.value;
+          // Check if the INNER value object is the HeapReference
+          if (typeof val === 'object' && 'isHeapReference' in val) {
+              addresses.add(Number(val.address));
+          }
+      }
+    }
+
+    // 2. Recursively crawl up the parent scope chain until reaching the global scope
+    if (this.parent) {
+      this.parent.collectActiveHeapAddresses(addresses);
+    }
+
+    return addresses;
+}
 }

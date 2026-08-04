@@ -38,8 +38,9 @@ import {
 } from './utils/recordRuntimeUtils';
 import { coerceScanInput, readScanLine } from './utils/scanUtils';
 import { HeapEmulator, VirtualHeap } from './classes/HeapEmulator';
+import { MarkSweepGC } from './models/GarbageCollector';
 
-type ExecutionContext = {
+export type ExecutionContext = {
   environment: RuntimeEnvironment;
   recordRegistry: RecordRegistry;
   output: string[];
@@ -64,6 +65,10 @@ export function runProgram(program: ProgramNode): string[] {
     moduleFunctions: program.moduleFunctions,
     heap: heapInstance
   };
+
+  heapInstance.registerGCCallback(() => {
+    MarkSweepGC.run(context);
+  });
 
   for (const functionNode of program.functions) {
     environment.declareFunction(functionNode);

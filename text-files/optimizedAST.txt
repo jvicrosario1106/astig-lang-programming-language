@@ -31,20 +31,31 @@ Program
     PrintStatement @ 5:3
       UnaryExpression(*)
         Identifier(xHs)
-    VariableDeclaration(let vHAlHs: iHNtSZ) @ 9:3
+    PrintStatement @ 6:3
+      UnaryExpression(&)
+        Identifier(xHs)
+    MemsetStatement @ 9:3
+      dest
+        Identifier(xHs)
+      value
+        NumberLiteral(0)
+      size
+        NumberLiteral(8)
+    VariableDeclaration(let vHAlHs: iHNtSZ) @ 10:3
       UnaryExpression(*)
         Identifier(xHs)
-    PrintStatement @ 10:3
+    PrintStatement @ 11:3
       Identifier(vHAlHs)
-    FreeStatement @ 12:3
-      Identifier(xHs)
-    VariableDeclaration(let yHs: iHNtSZ) @ 15:3
+    PrintStatement @ 12:3
+      UnaryExpression(&)
+        Identifier(vHAlHs)
+    VariableDeclaration(let yHs: iHNtSZ) @ 18:3
       ReallocExpression
         Identifier(xHs)
         NumberLiteral(8)
-    FreeStatement @ 18:3
+    FreeStatement @ 21:3
       Identifier(yHs)
-    PrintStatement @ 19:3
+    PrintStatement @ 22:3
       Identifier(yHs)
 
 ProgramNode (JSON):
@@ -109,9 +120,43 @@ ProgramNode (JSON):
         }
       },
       {
-        "type": "VariableDeclaration",
+        "type": "PrintStatement",
+        "location": {
+          "line": 6,
+          "column": 3
+        },
+        "value": {
+          "type": "UnaryExpression",
+          "operator": "&",
+          "argument": {
+            "type": "Identifier",
+            "name": "xHs"
+          }
+        }
+      },
+      {
+        "type": "MemsetStatement",
         "location": {
           "line": 9,
+          "column": 3
+        },
+        "ptrExpr": {
+          "type": "Identifier",
+          "name": "xHs"
+        },
+        "valueExpr": {
+          "type": "NumberLiteral",
+          "value": 0
+        },
+        "sizeExpr": {
+          "type": "NumberLiteral",
+          "value": 8
+        }
+      },
+      {
+        "type": "VariableDeclaration",
+        "location": {
+          "line": 10,
           "column": 3
         },
         "declarationKind": "let",
@@ -130,7 +175,7 @@ ProgramNode (JSON):
       {
         "type": "PrintStatement",
         "location": {
-          "line": 10,
+          "line": 11,
           "column": 3
         },
         "value": {
@@ -139,20 +184,24 @@ ProgramNode (JSON):
         }
       },
       {
-        "type": "FreeStatement",
+        "type": "PrintStatement",
         "location": {
           "line": 12,
           "column": 3
         },
-        "ptrExpr": {
-          "type": "Identifier",
-          "name": "xHs"
+        "value": {
+          "type": "UnaryExpression",
+          "operator": "&",
+          "argument": {
+            "type": "Identifier",
+            "name": "vHAlHs"
+          }
         }
       },
       {
         "type": "VariableDeclaration",
         "location": {
-          "line": 15,
+          "line": 18,
           "column": 3
         },
         "declarationKind": "let",
@@ -174,7 +223,7 @@ ProgramNode (JSON):
       {
         "type": "FreeStatement",
         "location": {
-          "line": 18,
+          "line": 21,
           "column": 3
         },
         "ptrExpr": {
@@ -185,7 +234,7 @@ ProgramNode (JSON):
       {
         "type": "PrintStatement",
         "location": {
-          "line": 19,
+          "line": 22,
           "column": 3
         },
         "value": {
@@ -211,16 +260,27 @@ Program
   MainFunction(mHA1Ns)
     VariableDeclaration(let vHAlHs: iHNtSZ) @ 3:3
       NumberLiteral(256)
-    VariableDeclaration(let xHs: iHNtSZ) @ 7:3
+    PrintStatement @ 4:3
+      Identifier(vHAlHs)
+    PrintStatement @ 5:3
       UnaryExpression(&)
         Identifier(vHAlHs)
-    PrintStatement @ 10:3
+    VariableDeclaration(let xHs: iHNtSZ) @ 9:3
+      UnaryExpression(&)
+        Identifier(vHAlHs)
+    PrintStatement @ 12:3
       Identifier(xHs)
-    VariableDeclaration(let yHs: iHNtSZ) @ 13:3
+    PrintStatement @ 13:3
+      UnaryExpression(&)
+        Identifier(xHs)
+    VariableDeclaration(let yHs: iHNtSZ) @ 16:3
       UnaryExpression(*)
         Identifier(xHs)
-    PrintStatement @ 14:3
+    PrintStatement @ 17:3
       Identifier(yHs)
+    PrintStatement @ 18:3
+      UnaryExpression(&)
+        Identifier(yHs)
 
 ProgramNode (JSON):
 {
@@ -247,9 +307,35 @@ ProgramNode (JSON):
         }
       },
       {
+        "type": "PrintStatement",
+        "location": {
+          "line": 4,
+          "column": 3
+        },
+        "value": {
+          "type": "Identifier",
+          "name": "vHAlHs"
+        }
+      },
+      {
+        "type": "PrintStatement",
+        "location": {
+          "line": 5,
+          "column": 3
+        },
+        "value": {
+          "type": "UnaryExpression",
+          "operator": "&",
+          "argument": {
+            "type": "Identifier",
+            "name": "vHAlHs"
+          }
+        }
+      },
+      {
         "type": "VariableDeclaration",
         "location": {
-          "line": 7,
+          "line": 9,
           "column": 3
         },
         "declarationKind": "let",
@@ -268,7 +354,7 @@ ProgramNode (JSON):
       {
         "type": "PrintStatement",
         "location": {
-          "line": 10,
+          "line": 12,
           "column": 3
         },
         "value": {
@@ -277,9 +363,24 @@ ProgramNode (JSON):
         }
       },
       {
-        "type": "VariableDeclaration",
+        "type": "PrintStatement",
         "location": {
           "line": 13,
+          "column": 3
+        },
+        "value": {
+          "type": "UnaryExpression",
+          "operator": "&",
+          "argument": {
+            "type": "Identifier",
+            "name": "xHs"
+          }
+        }
+      },
+      {
+        "type": "VariableDeclaration",
+        "location": {
+          "line": 16,
           "column": 3
         },
         "declarationKind": "let",
@@ -298,12 +399,27 @@ ProgramNode (JSON):
       {
         "type": "PrintStatement",
         "location": {
-          "line": 14,
+          "line": 17,
           "column": 3
         },
         "value": {
           "type": "Identifier",
           "name": "yHs"
+        }
+      },
+      {
+        "type": "PrintStatement",
+        "location": {
+          "line": 18,
+          "column": 3
+        },
+        "value": {
+          "type": "UnaryExpression",
+          "operator": "&",
+          "argument": {
+            "type": "Identifier",
+            "name": "yHs"
+          }
         }
       }
     ]
@@ -322,18 +438,18 @@ Syntax errors: 0
 ProgramNode (ASCII tree):
 Program
   MainFunction(mHA1Ns)
-    VariableDeclaration(var aH1s: iHNtSZ) @ 16:3
+    VariableDeclaration(var aH1s: iHNtSZ) @ 17:3
       BinaryExpression(+)
         FunctionCall(dH1bHs)
           NumberLiteral(9)
         NumberLiteral(10)
-    VariableDeclaration(var bH2s: iHNtSZ) @ 19:3
+    VariableDeclaration(var bH2s: iHNtSZ) @ 21:3
       BinaryExpression(<<)
         Identifier(aH1s)
         NumberLiteral(3)
-    PrintStatement @ 33:5
+    PrintStatement @ 35:5
       Identifier(bH2s)
-    PrintStatement @ 39:3
+    PrintStatement @ 41:3
       Identifier(bH2s)
 
 ProgramNode (JSON):
@@ -348,7 +464,7 @@ ProgramNode (JSON):
       {
         "type": "VariableDeclaration",
         "location": {
-          "line": 16,
+          "line": 17,
           "column": 3
         },
         "declarationKind": "var",
@@ -377,7 +493,7 @@ ProgramNode (JSON):
       {
         "type": "VariableDeclaration",
         "location": {
-          "line": 19,
+          "line": 21,
           "column": 3
         },
         "declarationKind": "var",
@@ -400,7 +516,7 @@ ProgramNode (JSON):
       {
         "type": "PrintStatement",
         "location": {
-          "line": 33,
+          "line": 35,
           "column": 5
         },
         "value": {
@@ -411,7 +527,7 @@ ProgramNode (JSON):
       {
         "type": "PrintStatement",
         "location": {
-          "line": 39,
+          "line": 41,
           "column": 3
         },
         "value": {
