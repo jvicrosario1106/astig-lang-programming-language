@@ -1,4 +1,5 @@
 import { RuntimeValue } from '../models/RuntimeValue';
+import { HeapVisualizer } from './HeapVisualizer';
 
 export interface HeapEmulator {
     // Stores a value at a given numeric memory index (address)
@@ -13,6 +14,11 @@ export interface HeapEmulator {
     free(address: number): void;
     // Checks if the space is freed
     isFreed(address: number): boolean
+
+    // Returns the max address of the heap
+    getMaxAddress(): number;
+    // Returns the heap base address
+    getHeapBase(): number;
 }
 
 export interface FreeBlock {
@@ -23,7 +29,8 @@ export interface FreeBlock {
 export class VirtualHeap implements HeapEmulator {
     // Emulated raw address space indexing
     private memory: (RuntimeValue | undefined)[] = [];
-    private nextAddress = 1000; // Start at a high index to avoid zero/falsy address collisions
+    private readonly heapBase = 1000;
+    private nextAddress = this.heapBase; // Start at a high index to avoid zero/falsy address collisions
 
     // Hard architectural ceiling (e.g., max array slots allowed)
     private readonly HEAP_MAX_ADDRESS = 50000;
@@ -105,13 +112,15 @@ export class VirtualHeap implements HeapEmulator {
             }
         }
 
+        let allocatedAddr: number;
+
         // Strategy A: First-Fit Search in the Free List
         for (let i = 0; i < this.freeList.length; i++) {
             const block = this.freeList[i];
             
             // Does this recycled hole fit our size + padding requirements?
             if (block.size >= requiredTotal) {
-                const allocatedAddr = block.address;
+                allocatedAddr = block.address;
 
                 // Adjust or remove the hole from our free tracking list
                 if (block.size === requiredTotal) {
@@ -127,6 +136,11 @@ export class VirtualHeap implements HeapEmulator {
                 for (let j = 0; j < size; j++) {
                     this.memory[allocatedAddr + j] = undefined; 
                 }
+
+                // -- Visualize the heap --
+                let heapLog = HeapVisualizer.renderSnapshot(this, '', allocatedAddr, size);
+                //console.log(heapLog);
+                HeapVisualizer.appendFullReport(heapLog);
                 return allocatedAddr;
             }
         }
@@ -136,13 +150,17 @@ export class VirtualHeap implements HeapEmulator {
             throw new Error(`Runtime Error: Out of Memory. Heap limit of ${this.HEAP_MAX_ADDRESS} bytes exceeded.`);
         }
 
-        const addr = this.nextAddress;
-        this.allocations.set(addr, size);
+        allocatedAddr = this.nextAddress;
+        this.allocations.set(allocatedAddr, size);
         // Safety step: ensure it's not marked as freed if addresses shift
         //this.freedAllocations.delete(addr);
         
         this.nextAddress += requiredTotal; // Padding to catch simple buffer overruns
-        return addr;
+        // -- Visualize the heap --
+        let heapLog = HeapVisualizer.renderSnapshot(this, '', allocatedAddr, size);
+        //console.log(heapLog);
+        HeapVisualizer.appendFullReport(heapLog);
+        return allocatedAddr;
     }
 
     free(address: number): void {
@@ -204,4 +222,7 @@ export class VirtualHeap implements HeapEmulator {
         }
         return false;
     }
+
+    getMaxAddress(): number { return this.HEAP_MAX_ADDRESS; }
+    getHeapBase(): number { return this.heapBase }
 }

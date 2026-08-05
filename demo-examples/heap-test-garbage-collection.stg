@@ -12,7 +12,7 @@ fHUncTH!0Ns mHA1Ns() {
     {
       // Allocate an array or memory slice. 
       // The variable 'tempPtr' only exists inside this block environment!
-      lH3tsz tH3mHPs: iHNtSZ* = MhaLlH0cZ(10);
+      lH3tsz tH3mHPs: iHNtSZ* = MhaLlH0cZ(100);
 
       pHR!HNTs(tH3mHPs);
       
