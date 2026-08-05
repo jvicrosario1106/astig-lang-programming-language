@@ -1,0 +1,18 @@
+// Criteria: Boolean Expr — Multiple / Complex Logical (nested boolean + math)
+// Run: npm start -- test-case/15-boolean-multiple-complex.stg
+
+fHUncTH!0Ns mHA1Ns() {
+  vH4rs wH1dHs:iHNtSZ = 8;
+  vH4rs hH3iHtHvH4lHs:iHNtSZ = 3;
+  vH4rs dH3pHs:iHNtSZ = 12;
+
+  !HFs(
+    (wH1dHs * 2 + hH3iHtHvH4lHs > 10 aHNdz dH3pHs <= 15)
+    0hrS
+    nH0ts (wH1dHs / hH3iHtHvH4lHs < 1)
+  ) {
+    pHR!HNTs("complex-true");
+  } eHLSEs {
+    pHR!HNTs("complex-false");
+  }
+}

@@ -1,0 +1,15 @@
+// Criteria: Math Expr — Simple (id + num, id * id, num / num)
+// Run: npm start -- test-case/7-math-simple.stg
+
+fHUncTH!0Ns mHA1Ns() {
+  vH4rs bH4sHs:iHNtSZ = 4;
+  vH4rs tH1mH3s:iHNtSZ = 3;
+
+  vH4rs sH0mHs:iHNtSZ = bH4sHs + 10;
+  vH4rs pH0dHs:iHNtSZ = bH4sHs * tH1mH3s;
+  vH4rs qH0tHs:iHNtSZ = 20 / 4;
+
+  pHR!HNTs(sH0mHs);
+  pHR!HNTs(pH0dHs);
+  pHR!HNTs(qH0tHs);
+}

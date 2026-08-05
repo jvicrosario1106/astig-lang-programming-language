@@ -12,6 +12,10 @@ import {
   FunctionDeclarationNode,
 } from '../models/StatementNode';
 import { AstigType } from '../models/AstigType';
+import { HeapEmulator } from './HeapEmulator';
+import { formatResolvedType } from '../utils/astigTypeUtils';
+import { formatRuntimeValue } from '../utils/formatRuntimeValue';
+import type { ScopeSnapshot, VariableSnapshot } from './RuntimeDebugger';
 
 type RuntimeBinding = {
   kind: DeclarationKind;
@@ -40,14 +44,54 @@ export class RuntimeEnvironment {
   constructor(
     private readonly parent?: RuntimeEnvironment,
     private readonly isFunctionScope = false,
+    private readonly scopeName = 'global',
   ) {}
 
   createBlockScope(): RuntimeEnvironment {
-    return new RuntimeEnvironment(this);
+    return new RuntimeEnvironment(this, false, 'block');
   }
 
-  createFunctionScope(): RuntimeEnvironment {
-    return new RuntimeEnvironment(this, true);
+  createFunctionScope(functionName = 'function'): RuntimeEnvironment {
+    return new RuntimeEnvironment(this, true, functionName);
+  }
+
+  /** Outermost-first scope chain ending at the current (innermost) scope. */
+  getScopeChain(): RuntimeEnvironment[] {
+    const chain: RuntimeEnvironment[] = [];
+    let current: RuntimeEnvironment | undefined = this;
+
+    while (current) {
+      chain.unshift(current);
+      current = current.parent;
+    }
+
+    return chain;
+  }
+
+  /** Snapshot of bindings and functions declared in this scope level only. */
+  snapshot(heap: HeapEmulator): ScopeSnapshot {
+    const variables: VariableSnapshot[] = [...this.bindings.entries()]
+      .sort(([leftName], [rightName]) => leftName.localeCompare(rightName))
+      .map(([name, binding]) => ({
+        name,
+        kind: binding.kind,
+        type: formatResolvedType(binding.resolvedType),
+        value: binding.isInitialized
+          ? formatRuntimeValue(binding.value, heap)
+          : '(uninitialized)',
+        initialized: binding.isInitialized,
+      }));
+
+    const functions = [...this.functions.keys()].sort((left, right) =>
+      left.localeCompare(right),
+    );
+
+    return {
+      scopeName: this.scopeName,
+      isFunctionScope: this.isFunctionScope,
+      variables,
+      functions,
+    };
   }
 
   declare(

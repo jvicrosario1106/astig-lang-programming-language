@@ -21,7 +21,7 @@ binaries\astiglang-win-x64.exe path\to\program.stg
 Examples:
 
 ```bash
-./binaries/astiglang test-case/loop-while.stg
+./binaries/astiglang test-case/10-loop-event-controlled.stg
 ./binaries/astiglang demo-examples/include-main.stg
 ```
 

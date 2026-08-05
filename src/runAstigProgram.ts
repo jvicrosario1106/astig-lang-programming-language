@@ -8,6 +8,10 @@ import { runProgram } from './interpreter';
 import { optimizeProgram } from './optimizer';
 import { ProgramNode } from './models/ProgramNode';
 import {
+  RuntimeDebugSession,
+  writeRuntimeDebugFile,
+} from './classes/RuntimeDebugger';
+import {
   finalizeStandaloneProgram,
   loadProgram,
   parseProgramSource,
@@ -24,6 +28,7 @@ import {
   ProgramInput,
   readInteractiveSourceBlock,
 } from './utils/readProgramSource';
+import { relative } from 'path';
 
 const replFilename = '<interactive>';
 
@@ -79,6 +84,7 @@ export function executeProgram(programInput: ProgramInput): number {
       sourceCode,
       programFilename,
       typeDiagnostics,
+      programInput,
     );
   } catch (error) {
     reportExecutionError(error, sourceCode, programFilename);
@@ -121,9 +127,24 @@ function runWithDiagnostics(
   sourceCode: string,
   programFilename: string,
   typeDiagnostics: SourceDiagnostic[],
+  programInput: ProgramInput,
 ): number {
+  const debugSession = programInput.sourcePath
+    ? new RuntimeDebugSession()
+    : undefined;
+  const debugSourceLabel = programInput.sourcePath
+    ? relative(process.cwd(), programInput.sourcePath)
+    : programFilename;
+
   try {
-    const output = runProgram(ast, programFilename);
+    const output = runProgram(ast, programFilename, true, debugSession);
+
+    if (debugSession) {
+      const debugPath = writeRuntimeDebugFile(
+        debugSession.formatReport(debugSourceLabel, output),
+      );
+      console.log(`Runtime debug written to ${debugPath}`);
+    }
 
     if (typeDiagnostics.length > 0) {
       reportDiagnostics(typeDiagnostics, sourceCode, { showRecoveryNote: true });
@@ -134,6 +155,16 @@ function runWithDiagnostics(
     console.log(output.join('\n'));
     return 0;
   } catch (error) {
+    if (debugSession) {
+      debugSession.setError(
+        error instanceof Error ? error.message : String(error),
+      );
+      const debugPath = writeRuntimeDebugFile(
+        debugSession.formatReport(debugSourceLabel, []),
+      );
+      console.log(`Runtime debug written to ${debugPath}`);
+    }
+
     if (error instanceof RuntimeErrors) {
       reportDiagnostics(
         [...typeDiagnostics, ...error.diagnostics],

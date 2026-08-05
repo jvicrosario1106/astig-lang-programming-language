@@ -1,0 +1,12 @@
+// Criteria: Functions — Call Multiple Times
+// Run: npm start -- test-case/21-function-call-multiple-times.stg
+
+fHUncTH!0Ns dH1bHs(nH0nHs:iHNtSZ):iHNtSZ {
+  rH3tHUrns nH0nHs * 2;
+}
+
+fHUncTH!0Ns mHA1Ns() {
+  pHR!HNTs(dH1bHs(6));
+  pHR!HNTs(dH1bHs(2));
+  pHR!HNTs(dH1bHs(4) + dH1bHs(3));
+}

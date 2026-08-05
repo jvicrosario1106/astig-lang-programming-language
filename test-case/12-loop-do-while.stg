@@ -1,0 +1,10 @@
+// Criteria: Iterative Statements — Repeat-Until / Do-while
+// Run: npm start -- test-case/12-loop-do-while.stg
+
+fHUncTH!0Ns mHA1Ns() {
+  vH4rs cH0uHNtHs:iHNtSZ = 3;
+  dH0s {
+    pHR!HNTs(cH0uHNtHs);
+    cH0uHNtHs = cH0uHNtHs - 1;
+  } wH1lEs(cH0uHNtHs > 0);
+}

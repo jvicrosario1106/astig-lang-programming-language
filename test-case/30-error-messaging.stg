@@ -1,0 +1,25 @@
+// Criteria: Error Messaging — accuracy (correct error kind) + informativeness (location, hint)
+// Run: npm start -- test-case/30-error-messaging.stg
+//
+// Expected: 2 type errors + 2 runtime errors (recovery mode).
+// Messages show phase, file:line:column, source line, caret, and hints.
+
+fHUncTH!0Ns aHDs(nH0nHs:iHNtSZ):iHNtSZ {
+  rH3tHUrns nH0nHs;
+}
+
+fHUncTH!0Ns mHA1Ns() {
+  // Cannot scan into const
+  c0hNsTz lH1mH1tHs:iHNtSZ = 1;
+  scH4nz("Enter number: ", lH1mH1tHs);
+
+  // Type mismatch: string → int
+  vH4rs sH0rH3s:iHNtSZ = 0;
+  sH0rH3s = "not an int";
+
+  // Wrong argument count (cardinality)
+  pHR!HNTs(aHDs(10, 20, 30));
+
+  // Wrong argument type at position (ordinality)
+  pHR!HNTs(aHDs("a"));
+}

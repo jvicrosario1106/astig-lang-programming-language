@@ -1,0 +1,14 @@
+// Criteria: Conditional Statements (if / else if / else)
+// Run: npm start -- test-case/9-conditional-statements.stg
+
+fHUncTH!0Ns mHA1Ns() {
+  vH4rs sH0rH3s:iHNtSZ = 85;
+
+  !HFs(sH0rH3s >= 90) {
+    pHR!HNTs("A");
+  } eHLSEs !HFs(sH0rH3s >= 75) {
+    pHR!HNTs("B");
+  } eHLSEs {
+    pHR!HNTs("C");
+  }
+}

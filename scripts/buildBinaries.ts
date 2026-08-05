@@ -87,7 +87,7 @@ binaries\\astiglang-win-x64.exe path\\to\\program.stg
 Examples:
 
 \`\`\`bash
-./binaries/astiglang test-case/loop-while.stg
+./binaries/astiglang test-case/10-loop-event-controlled.stg
 ./binaries/astiglang demo-examples/include-main.stg
 \`\`\`
 
@@ -118,14 +118,14 @@ function printDone(targets: string): void {
       }
     }
     console.log('\nExample:');
-    console.log('  ./binaries/astiglang-macos-arm64 test-case/loop-while.stg');
+    console.log('  ./binaries/astiglang-macos-arm64 test-case/10-loop-event-controlled.stg');
     return;
   }
 
   const binaryName = platform() === 'win32' ? 'astiglang.exe' : 'astiglang';
   console.log(`Created: binaries/${binaryName}`);
   console.log('\nExample:');
-  console.log(`  ./binaries/${binaryName} test-case/loop-while.stg`);
+  console.log(`  ./binaries/${binaryName} test-case/10-loop-event-controlled.stg`);
 }
 
 function main(): void {
