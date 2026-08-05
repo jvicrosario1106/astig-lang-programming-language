@@ -30,6 +30,11 @@ import {
 } from './utils/readProgramSource';
 import { relative } from 'path';
 
+import { dirname, join } from 'path';
+import * as fs from 'fs';
+import { HeapVisualizer } from './classes/HeapVisualizer';
+
+const TEXT_FILES_DIR = 'text-files';
 const replFilename = '<interactive>';
 
 /** REPL: type code, empty line to run, repeat; empty submit with no code exits. */
@@ -78,6 +83,7 @@ export function executeProgram(programInput: ProgramInput): number {
     // Optimize the AST
     const optimizedAst = optimizeProgram(ast);
 
+    
     // Run the program
     return runWithDiagnostics(
       optimizedAst,
@@ -145,6 +151,11 @@ function runWithDiagnostics(
       );
       console.log(`Runtime debug written to ${debugPath}`);
     }
+
+    // Save the heap log file
+    const file = join(TEXT_FILES_DIR, 'heap_trace.log');
+    fs.writeFileSync(file, '');
+    fs.appendFileSync(file, HeapVisualizer.getFullReport(), 'utf8');
 
     if (typeDiagnostics.length > 0) {
       reportDiagnostics(typeDiagnostics, sourceCode, { showRecoveryNote: true });

@@ -206,13 +206,17 @@ export function runProgram(
   };
 
   heapInstance.registerGCCallback(() => {
-    console.log("\n CRITICAL THRESHOLD HIT (>=75%)! Initiating Mark-and-Sweep...");
-    console.log(HeapVisualizer.render(heapInstance)); // Before GC Snapshot
+    let header: string = "\n CRITICAL THRESHOLD HIT (>=75%)! Initiating Mark-and-Sweep...";
+    let gcReport = HeapVisualizer.renderSnapshot(heapInstance, header);
+    console.log(gcReport); // Before GC Snapshot
+    HeapVisualizer.appendFullReport(gcReport);
 
     MarkSweepGC.run(context);
 
-    console.log(" GC SWEEP COMPLETE!");
-    console.log(HeapVisualizer.render(heapInstance)); // After GC Snapshot
+    header = " GC SWEEP COMPLETE!";
+    gcReport = HeapVisualizer.renderSnapshot(heapInstance, header);
+    console.log(gcReport); // After GC Snapshot
+    HeapVisualizer.appendFullReport(gcReport);
   });
 
   for (const functionNode of program.functions) {
@@ -274,6 +278,18 @@ export function runProgram(
   if (recovery && recovery.diagnostics.length > 0) {
     throw new RuntimeErrors(recovery.diagnostics);
   }
+
+  let header: string = "\n CLOSING PROGRAM! Initiating Mark-and-Sweep...";
+  let gcReport = HeapVisualizer.renderSnapshot(heapInstance, header);
+  //console.log(gcReport); // Before GC Snapshot
+  HeapVisualizer.appendFullReport(gcReport);
+
+  MarkSweepGC.run(context);
+
+  header = " GC SWEEP COMPLETE!";
+  gcReport = HeapVisualizer.renderSnapshot(heapInstance, header);
+  //console.log(gcReport); // After GC Snapshot
+  HeapVisualizer.appendFullReport(gcReport);
 
   return output;
 }
