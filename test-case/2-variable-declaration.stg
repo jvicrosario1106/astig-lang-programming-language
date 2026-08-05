@@ -1,0 +1,10 @@
+// Criteria: Variable Declaration (var, let)
+// Run: npm start -- test-case/2-variable-declaration.stg
+
+fHUncTH!0Ns mHA1Ns() {
+  vH4rs nH0nHs:iHNtSZ = 10;
+  lH3tsz tH0wHs:iHNtSZ = 20;
+  vH4rs nH4mH3s:sTRh1Ngz = "Astig";
+  pHR!HNTs(nH0nHs + tH0wHs);
+  pHR!HNTs(nH4mH3s);
+}

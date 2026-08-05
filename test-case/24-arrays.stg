@@ -1,0 +1,10 @@
+// Criteria: Arrays (primitive int arrays — literals, index read/write)
+// Run: npm start -- test-case/24-arrays.stg
+
+fHUncTH!0Ns mHA1Ns() {
+  lH3tsz aHs:iHNtSZ[] = [10, 20, 30];
+  aHs[1] = 25;
+  pHR!HNTs(aHs[0]);
+  pHR!HNTs(aHs[1]);
+  pHR!HNTs(aHs[0] + aHs[2]);
+}

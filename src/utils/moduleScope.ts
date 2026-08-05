@@ -9,7 +9,7 @@ import { FunctionDeclarationNode } from '../models/StatementNode';
 
 /** Minimal interface shared by TypeEnvironment and RuntimeEnvironment. */
 export type ModuleScopeHost = {
-  createFunctionScope(): ModuleScopeHost;
+  createFunctionScope(functionName?: string): ModuleScopeHost;
   declareFunction(functionNode: FunctionDeclarationNode): void;
 };
 
@@ -52,7 +52,7 @@ export function withModuleFunctions<T extends ModuleScopeHost>(
     return parent;
   }
 
-  const moduleEnvironment = parent.createFunctionScope() as T;
+  const moduleEnvironment = parent.createFunctionScope('module') as T;
   for (const functionNode of moduleFileFunctions) {
     moduleEnvironment.declareFunction(functionNode);
   }

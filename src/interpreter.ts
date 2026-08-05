@@ -55,6 +55,11 @@ import {
 import { HeapEmulator, VirtualHeap } from './classes/HeapEmulator';
 import { MarkSweepGC } from './models/GarbageCollector';
 import { HeapVisualizer } from './classes/HeapVisualizer';
+import {
+  describeStatement,
+  MAIN_FUNCTION_NAME,
+  RuntimeDebugSession,
+} from './classes/RuntimeDebugger';
 
 export type ExecutionContext = {
   environment: RuntimeEnvironment;
@@ -64,6 +69,7 @@ export type ExecutionContext = {
   insideFunction: boolean;
   recovery?: RuntimeRecoverySession;
   heap: HeapEmulator;
+  debug?: RuntimeDebugSession;
 };
 
 function raiseArrayBoundsError(message: string, location?: SourceLocation): never {
@@ -179,12 +185,13 @@ export function runProgram(
   program: ProgramNode,
   filename = '<input>',
   recover = true,
+  debug?: RuntimeDebugSession,
 ): string[] {
   const recovery: RuntimeRecoverySession | undefined = recover
     ? { filename, diagnostics: [] }
     : undefined;
   const recordRegistry = buildRecordRegistry(program.recordDeclarations);
-  const environment = new RuntimeEnvironment(undefined, true);
+  const environment = new RuntimeEnvironment(undefined, true, 'global');
   const output: string[] = [];
   const heapInstance = new VirtualHeap();
   const context: ExecutionContext = {
@@ -195,6 +202,7 @@ export function runProgram(
     insideFunction: false,
     recovery,
     heap: heapInstance,
+    debug,
   };
 
   heapInstance.registerGCCallback(() => {
@@ -219,6 +227,15 @@ export function runProgram(
     );
   }
 
+  if (debug) {
+    debug.recordStep(
+      environment,
+      heapInstance,
+      'Functions registered in global scope',
+      { line: 1, column: 1 },
+    );
+  }
+
   if (!program.mainFunction) {
     throw new Error('Entry program file must define function main()');
   }
@@ -230,10 +247,33 @@ export function runProgram(
     program.moduleFunctions,
   );
 
+  const mainEntryLine = program.mainFunction.body[0]?.location?.line ?? 1;
+  const mainEntryColumn = program.mainFunction.body[0]?.location?.column ?? 1;
+
+  if (debug) {
+    debug.pushFrame(MAIN_FUNCTION_NAME, mainEntryLine, mainEntryColumn);
+    debug.recordStep(
+      mainEnvironment,
+      heapInstance,
+      `Enter ${MAIN_FUNCTION_NAME}`,
+      { line: mainEntryLine, column: mainEntryColumn },
+    );
+  }
+
   executeBlock(program.mainFunction.body, {
     ...context,
     environment: mainEnvironment,
   });
+
+  if (debug) {
+    debug.recordStep(
+      mainEnvironment,
+      heapInstance,
+      `${MAIN_FUNCTION_NAME} finished`,
+      { line: mainEntryLine, column: mainEntryColumn },
+    );
+    debug.popFrame();
+  }
 
   if (recovery && recovery.diagnostics.length > 0) {
     throw new RuntimeErrors(recovery.diagnostics);
@@ -707,6 +747,13 @@ function executeBlock(statements: StatementNode[], context: ExecutionContext): v
       () => executeStatement(statement, blockContext),
       statement.location,
     );
+
+    context.debug?.recordStep(
+      blockContext.environment,
+      context.heap,
+      describeStatement(statement),
+      statement.location,
+    );
   }
 }
 
@@ -997,12 +1044,17 @@ function executeUserFunction(
     functionNode.sourceModule,
     context.moduleFunctions,
   );
-  const functionEnvironment = callableEnvironment.createFunctionScope();
+  const functionEnvironment = callableEnvironment.createFunctionScope(functionNode.name);
   const functionContext: ExecutionContext = {
     ...context,
     environment: functionEnvironment,
     insideFunction: true,
   };
+
+  const callLine = location?.line ?? functionNode.location?.line ?? 1;
+  const callColumn = location?.column ?? functionNode.location?.column ?? 1;
+
+  context.debug?.pushFrame(functionNode.name, callLine, callColumn);
 
   functionNode.parameters.forEach((parameter, index) => {
     const paramAddr = context.heap.malloc(1);
@@ -1016,14 +1068,37 @@ function executeUserFunction(
     );
   });
 
+  context.debug?.recordStep(
+    functionEnvironment,
+    context.heap,
+    `Enter function ${functionNode.name}`,
+    location ?? functionNode.location,
+  );
+
   try {
     executeBlock(functionNode.body, functionContext);
   } catch (error) {
     if (error instanceof ReturnException) {
+      context.debug?.recordStep(
+        functionEnvironment,
+        context.heap,
+        `Return from ${functionNode.name}`,
+        location ?? functionNode.location,
+      );
+      context.debug?.popFrame();
       return error.value;
     }
+    context.debug?.popFrame();
     throw error;
   }
+
+  context.debug?.recordStep(
+    functionEnvironment,
+    context.heap,
+    `Return from ${functionNode.name} (implicit null)`,
+    location ?? functionNode.location,
+  );
+  context.debug?.popFrame();
 
   return null;
 }

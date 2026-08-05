@@ -19416,7 +19416,7 @@ var require_AstigLangParser = __commonJS({
       };
     })();
     Object.defineProperty(exports2, "__esModule", { value: true });
-    exports2.ExpressionContext = exports2.ReturnDataTypeContext = exports2.DataTypeContext = exports2.ReturnTypeAnnotationContext = exports2.TypeAnnotationContext = exports2.FunctionCallContext = exports2.ArgumentListContext = exports2.BlockContext = exports2.ReturnStatementContext = exports2.ParameterContext = exports2.ParameterListContext = exports2.FunctionMainDeclarationContext = exports2.FunctionDeclarationContext = exports2.ContinueStatementContext = exports2.BreakStatementContext = exports2.ForeachStatementContext = exports2.AssignmentOperatorContext = exports2.RecordFieldAccessContext = exports2.ArrayIndexAssignmentContext = exports2.ArrayIndexAccessContext = exports2.AssignmentContext = exports2.ForUpdateContext = exports2.ForInitContext = exports2.ForStatementContext = exports2.DoWhileStatementContext = exports2.WhileStatementContext = exports2.ElsePartContext = exports2.ElseIfPartContext = exports2.IfStatementContext = exports2.ScanStatementContext = exports2.PrintStatementContext = exports2.DeclarationKeywordContext = exports2.ArrayElementListContext = exports2.ArrayLiteralContext = exports2.RecordLiteralFieldContext = exports2.RecordLiteralFieldListContext = exports2.RecordLiteralContext = exports2.RecordFieldContext = exports2.RecordFieldListContext = exports2.RecordDeclarationContext = exports2.VariableDeclarationContext = exports2.StatementContext = exports2.IncludeStatementContext = exports2.IncludeListContext = exports2.ProgramContext = exports2.AstigLangParser = void 0;
+    exports2.ExpressionContext = exports2.ReturnDataTypeContext = exports2.DataTypeContext = exports2.ReturnTypeAnnotationContext = exports2.TypeAnnotationContext = exports2.FunctionCallContext = exports2.ArgumentListContext = exports2.BlockContext = exports2.ReturnStatementContext = exports2.ParameterContext = exports2.ParameterListContext = exports2.FunctionMainDeclarationContext = exports2.FunctionDeclarationContext = exports2.ContinueStatementContext = exports2.BreakStatementContext = exports2.ForeachStatementContext = exports2.AssignmentOperatorContext = exports2.RecordFieldAccessContext = exports2.ArrayIndexAssignmentContext = exports2.ArrayIndexAccessContext = exports2.AssignmentContext = exports2.ForUpdateContext = exports2.ForInitContext = exports2.ForStatementContext = exports2.DoWhileStatementContext = exports2.WhileStatementContext = exports2.ElsePartContext = exports2.ElseIfPartContext = exports2.IfStatementContext = exports2.ScanStatementContext = exports2.PrintStatementContext = exports2.MemsetStatementContext = exports2.FreeStatementContext = exports2.DeclarationKeywordContext = exports2.ArrayElementListContext = exports2.ArrayLiteralContext = exports2.RecordLiteralFieldContext = exports2.RecordLiteralFieldListContext = exports2.RecordLiteralContext = exports2.RecordFieldContext = exports2.RecordFieldListContext = exports2.RecordDeclarationContext = exports2.VariableDeclarationContext = exports2.StatementContext = exports2.IncludeStatementContext = exports2.IncludeListContext = exports2.ProgramContext = exports2.AstigLangParser = void 0;
     var ATN_1 = require_ATN();
     var ATNDeserializer_1 = require_ATNDeserializer();
     var FailedPredicateException_1 = require_FailedPredicateException();
@@ -19463,60 +19463,60 @@ var require_AstigLangParser = __commonJS({
           let _alt;
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 93;
+            this.state = 97;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             while (_la === _AstigLangParser.INCLUDE_KW) {
               {
                 {
-                  this.state = 90;
+                  this.state = 94;
                   this.includeList();
                 }
               }
-              this.state = 95;
+              this.state = 99;
               this._errHandler.sync(this);
               _la = this._input.LA(1);
             }
-            this.state = 99;
+            this.state = 103;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             while (_la === _AstigLangParser.RECORD_KW) {
               {
                 {
-                  this.state = 96;
+                  this.state = 100;
                   this.recordDeclaration();
                 }
               }
-              this.state = 101;
+              this.state = 105;
               this._errHandler.sync(this);
               _la = this._input.LA(1);
             }
-            this.state = 105;
+            this.state = 109;
             this._errHandler.sync(this);
             _alt = this.interpreter.adaptivePredict(this._input, 2, this._ctx);
             while (_alt !== 2 && _alt !== ATN_1.ATN.INVALID_ALT_NUMBER) {
               if (_alt === 1) {
                 {
                   {
-                    this.state = 102;
+                    this.state = 106;
                     this.functionDeclaration();
                   }
                 }
               }
-              this.state = 107;
+              this.state = 111;
               this._errHandler.sync(this);
               _alt = this.interpreter.adaptivePredict(this._input, 2, this._ctx);
             }
-            this.state = 109;
+            this.state = 113;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             if (_la === _AstigLangParser.FUNCTION_KW) {
               {
-                this.state = 108;
+                this.state = 112;
                 this.functionMainDeclaration();
               }
             }
-            this.state = 111;
+            this.state = 115;
             this.match(_AstigLangParser.EOF);
           }
         } catch (re) {
@@ -19540,21 +19540,21 @@ var require_AstigLangParser = __commonJS({
           let _alt;
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 113;
-            this.includeStatement();
             this.state = 117;
+            this.includeStatement();
+            this.state = 121;
             this._errHandler.sync(this);
             _alt = this.interpreter.adaptivePredict(this._input, 4, this._ctx);
             while (_alt !== 2 && _alt !== ATN_1.ATN.INVALID_ALT_NUMBER) {
               if (_alt === 1) {
                 {
                   {
-                    this.state = 114;
+                    this.state = 118;
                     this.includeList();
                   }
                 }
               }
-              this.state = 119;
+              this.state = 123;
               this._errHandler.sync(this);
               _alt = this.interpreter.adaptivePredict(this._input, 4, this._ctx);
             }
@@ -19580,16 +19580,16 @@ var require_AstigLangParser = __commonJS({
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 120;
+            this.state = 124;
             this.match(_AstigLangParser.INCLUDE_KW);
-            this.state = 121;
+            this.state = 125;
             this.match(_AstigLangParser.FILENAME);
-            this.state = 123;
+            this.state = 127;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             if (_la === _AstigLangParser.SEMICOLON) {
               {
-                this.state = 122;
+                this.state = 126;
                 this.match(_AstigLangParser.SEMICOLON);
               }
             }
@@ -19613,30 +19613,14 @@ var require_AstigLangParser = __commonJS({
         this.enterRule(_localctx, 6, _AstigLangParser.RULE_statement);
         let _la;
         try {
-          this.state = 164;
+          this.state = 176;
           this._errHandler.sync(this);
-          switch (this.interpreter.adaptivePredict(this._input, 14, this._ctx)) {
+          switch (this.interpreter.adaptivePredict(this._input, 16, this._ctx)) {
             case 1:
               this.enterOuterAlt(_localctx, 1);
               {
-                this.state = 125;
-                this.variableDeclaration();
-                this.state = 127;
-                this._errHandler.sync(this);
-                _la = this._input.LA(1);
-                if (_la === _AstigLangParser.SEMICOLON) {
-                  {
-                    this.state = 126;
-                    this.match(_AstigLangParser.SEMICOLON);
-                  }
-                }
-              }
-              break;
-            case 2:
-              this.enterOuterAlt(_localctx, 2);
-              {
                 this.state = 129;
-                this.assignment();
+                this.variableDeclaration();
                 this.state = 131;
                 this._errHandler.sync(this);
                 _la = this._input.LA(1);
@@ -19648,11 +19632,11 @@ var require_AstigLangParser = __commonJS({
                 }
               }
               break;
-            case 3:
-              this.enterOuterAlt(_localctx, 3);
+            case 2:
+              this.enterOuterAlt(_localctx, 2);
               {
                 this.state = 133;
-                this.arrayIndexAssignment();
+                this.assignment();
                 this.state = 135;
                 this._errHandler.sync(this);
                 _la = this._input.LA(1);
@@ -19664,11 +19648,11 @@ var require_AstigLangParser = __commonJS({
                 }
               }
               break;
-            case 4:
-              this.enterOuterAlt(_localctx, 4);
+            case 3:
+              this.enterOuterAlt(_localctx, 3);
               {
                 this.state = 137;
-                this.printStatement();
+                this.arrayIndexAssignment();
                 this.state = 139;
                 this._errHandler.sync(this);
                 _la = this._input.LA(1);
@@ -19680,11 +19664,11 @@ var require_AstigLangParser = __commonJS({
                 }
               }
               break;
-            case 5:
-              this.enterOuterAlt(_localctx, 5);
+            case 4:
+              this.enterOuterAlt(_localctx, 4);
               {
                 this.state = 141;
-                this.scanStatement();
+                this.freeStatement();
                 this.state = 143;
                 this._errHandler.sync(this);
                 _la = this._input.LA(1);
@@ -19696,91 +19680,107 @@ var require_AstigLangParser = __commonJS({
                 }
               }
               break;
+            case 5:
+              this.enterOuterAlt(_localctx, 5);
+              {
+                this.state = 145;
+                this.memsetStatement();
+                this.state = 147;
+                this._errHandler.sync(this);
+                _la = this._input.LA(1);
+                if (_la === _AstigLangParser.SEMICOLON) {
+                  {
+                    this.state = 146;
+                    this.match(_AstigLangParser.SEMICOLON);
+                  }
+                }
+              }
+              break;
             case 6:
               this.enterOuterAlt(_localctx, 6);
               {
-                this.state = 145;
-                this.ifStatement();
+                this.state = 149;
+                this.printStatement();
+                this.state = 151;
+                this._errHandler.sync(this);
+                _la = this._input.LA(1);
+                if (_la === _AstigLangParser.SEMICOLON) {
+                  {
+                    this.state = 150;
+                    this.match(_AstigLangParser.SEMICOLON);
+                  }
+                }
               }
               break;
             case 7:
               this.enterOuterAlt(_localctx, 7);
               {
-                this.state = 146;
-                this.whileStatement();
+                this.state = 153;
+                this.scanStatement();
+                this.state = 155;
+                this._errHandler.sync(this);
+                _la = this._input.LA(1);
+                if (_la === _AstigLangParser.SEMICOLON) {
+                  {
+                    this.state = 154;
+                    this.match(_AstigLangParser.SEMICOLON);
+                  }
+                }
               }
               break;
             case 8:
               this.enterOuterAlt(_localctx, 8);
               {
-                this.state = 147;
-                this.doWhileStatement();
+                this.state = 157;
+                this.ifStatement();
               }
               break;
             case 9:
               this.enterOuterAlt(_localctx, 9);
               {
-                this.state = 148;
-                this.forStatement();
+                this.state = 158;
+                this.whileStatement();
               }
               break;
             case 10:
               this.enterOuterAlt(_localctx, 10);
               {
-                this.state = 149;
-                this.foreachStatement();
+                this.state = 159;
+                this.doWhileStatement();
               }
               break;
             case 11:
               this.enterOuterAlt(_localctx, 11);
               {
-                this.state = 150;
-                this.functionDeclaration();
+                this.state = 160;
+                this.forStatement();
               }
               break;
             case 12:
               this.enterOuterAlt(_localctx, 12);
               {
-                this.state = 151;
-                this.returnStatement();
-                this.state = 153;
-                this._errHandler.sync(this);
-                _la = this._input.LA(1);
-                if (_la === _AstigLangParser.SEMICOLON) {
-                  {
-                    this.state = 152;
-                    this.match(_AstigLangParser.SEMICOLON);
-                  }
-                }
+                this.state = 161;
+                this.foreachStatement();
               }
               break;
             case 13:
               this.enterOuterAlt(_localctx, 13);
               {
-                this.state = 155;
-                this.breakStatement();
-                this.state = 157;
-                this._errHandler.sync(this);
-                _la = this._input.LA(1);
-                if (_la === _AstigLangParser.SEMICOLON) {
-                  {
-                    this.state = 156;
-                    this.match(_AstigLangParser.SEMICOLON);
-                  }
-                }
+                this.state = 162;
+                this.functionDeclaration();
               }
               break;
             case 14:
               this.enterOuterAlt(_localctx, 14);
               {
-                this.state = 159;
-                this.continueStatement();
-                this.state = 161;
+                this.state = 163;
+                this.returnStatement();
+                this.state = 165;
                 this._errHandler.sync(this);
                 _la = this._input.LA(1);
                 if (_la === _AstigLangParser.SEMICOLON) {
                   {
-                    this.state = 160;
+                    this.state = 164;
                     this.match(_AstigLangParser.SEMICOLON);
                   }
                 }
@@ -19789,7 +19789,39 @@ var require_AstigLangParser = __commonJS({
             case 15:
               this.enterOuterAlt(_localctx, 15);
               {
-                this.state = 163;
+                this.state = 167;
+                this.breakStatement();
+                this.state = 169;
+                this._errHandler.sync(this);
+                _la = this._input.LA(1);
+                if (_la === _AstigLangParser.SEMICOLON) {
+                  {
+                    this.state = 168;
+                    this.match(_AstigLangParser.SEMICOLON);
+                  }
+                }
+              }
+              break;
+            case 16:
+              this.enterOuterAlt(_localctx, 16);
+              {
+                this.state = 171;
+                this.continueStatement();
+                this.state = 173;
+                this._errHandler.sync(this);
+                _la = this._input.LA(1);
+                if (_la === _AstigLangParser.SEMICOLON) {
+                  {
+                    this.state = 172;
+                    this.match(_AstigLangParser.SEMICOLON);
+                  }
+                }
+              }
+              break;
+            case 17:
+              this.enterOuterAlt(_localctx, 17);
+              {
+                this.state = 175;
                 this.block();
               }
               break;
@@ -19815,20 +19847,20 @@ var require_AstigLangParser = __commonJS({
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 166;
+            this.state = 178;
             this.declarationKeyword();
-            this.state = 167;
+            this.state = 179;
             this.match(_AstigLangParser.IDENTIFIER);
-            this.state = 168;
+            this.state = 180;
             this.typeAnnotation();
-            this.state = 171;
+            this.state = 183;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             if (_la === _AstigLangParser.T__0) {
               {
-                this.state = 169;
+                this.state = 181;
                 this.match(_AstigLangParser.T__0);
-                this.state = 170;
+                this.state = 182;
                 this.expression(0);
               }
             }
@@ -19854,29 +19886,29 @@ var require_AstigLangParser = __commonJS({
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 173;
+            this.state = 185;
             this.match(_AstigLangParser.RECORD_KW);
-            this.state = 174;
+            this.state = 186;
             this.match(_AstigLangParser.IDENTIFIER);
-            this.state = 175;
+            this.state = 187;
             this.match(_AstigLangParser.T__1);
-            this.state = 177;
+            this.state = 189;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             if (_la === _AstigLangParser.IDENTIFIER) {
               {
-                this.state = 176;
+                this.state = 188;
                 this.recordFieldList();
               }
             }
-            this.state = 179;
+            this.state = 191;
             this.match(_AstigLangParser.T__2);
-            this.state = 181;
+            this.state = 193;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             if (_la === _AstigLangParser.SEMICOLON) {
               {
-                this.state = 180;
+                this.state = 192;
                 this.match(_AstigLangParser.SEMICOLON);
               }
             }
@@ -19902,21 +19934,21 @@ var require_AstigLangParser = __commonJS({
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 183;
+            this.state = 195;
             this.recordField();
-            this.state = 188;
+            this.state = 200;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             while (_la === _AstigLangParser.T__3) {
               {
                 {
-                  this.state = 184;
+                  this.state = 196;
                   this.match(_AstigLangParser.T__3);
-                  this.state = 185;
+                  this.state = 197;
                   this.recordField();
                 }
               }
-              this.state = 190;
+              this.state = 202;
               this._errHandler.sync(this);
               _la = this._input.LA(1);
             }
@@ -19941,9 +19973,9 @@ var require_AstigLangParser = __commonJS({
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 191;
+            this.state = 203;
             this.match(_AstigLangParser.IDENTIFIER);
-            this.state = 192;
+            this.state = 204;
             this.typeAnnotation();
           }
         } catch (re) {
@@ -19967,29 +19999,29 @@ var require_AstigLangParser = __commonJS({
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 194;
+            this.state = 206;
             this.match(_AstigLangParser.NEW_KW);
-            this.state = 195;
+            this.state = 207;
             this.match(_AstigLangParser.IDENTIFIER);
-            this.state = 196;
+            this.state = 208;
             this.match(_AstigLangParser.T__1);
-            this.state = 198;
+            this.state = 210;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
-            if (_la === _AstigLangParser.IDENTIFIER) {
+            if (_la === _AstigLangParser.IDENTIFIER || _la === _AstigLangParser.MUL) {
               {
-                this.state = 197;
+                this.state = 209;
                 this.recordLiteralFieldList();
               }
             }
-            this.state = 200;
+            this.state = 212;
             this.match(_AstigLangParser.T__2);
-            this.state = 202;
+            this.state = 214;
             this._errHandler.sync(this);
-            switch (this.interpreter.adaptivePredict(this._input, 20, this._ctx)) {
+            switch (this.interpreter.adaptivePredict(this._input, 22, this._ctx)) {
               case 1:
                 {
-                  this.state = 201;
+                  this.state = 213;
                   this.match(_AstigLangParser.SEMICOLON);
                 }
                 break;
@@ -20016,21 +20048,21 @@ var require_AstigLangParser = __commonJS({
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 204;
+            this.state = 216;
             this.recordLiteralField();
-            this.state = 209;
+            this.state = 221;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             while (_la === _AstigLangParser.T__3) {
               {
                 {
-                  this.state = 205;
+                  this.state = 217;
                   this.match(_AstigLangParser.T__3);
-                  this.state = 206;
+                  this.state = 218;
                   this.recordLiteralField();
                 }
               }
-              this.state = 211;
+              this.state = 223;
               this._errHandler.sync(this);
               _la = this._input.LA(1);
             }
@@ -20055,7 +20087,7 @@ var require_AstigLangParser = __commonJS({
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 212;
+            this.state = 224;
             this.assignment();
           }
         } catch (re) {
@@ -20079,18 +20111,18 @@ var require_AstigLangParser = __commonJS({
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 214;
+            this.state = 226;
             this.match(_AstigLangParser.T__4);
-            this.state = 216;
+            this.state = 228;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
-            if (_la === _AstigLangParser.T__4 || _la === _AstigLangParser.T__6 || (_la - 33 & ~31) === 0 && (1 << _la - 33 & (1 << _AstigLangParser.TRUE_KW - 33 | 1 << _AstigLangParser.FALSE_KW - 33 | 1 << _AstigLangParser.NEW_KW - 33 | 1 << _AstigLangParser.NOT_KW - 33 | 1 << _AstigLangParser.IDENTIFIER - 33 | 1 << _AstigLangParser.SUB - 33 | 1 << _AstigLangParser.FLOAT - 33 | 1 << _AstigLangParser.NUMBER - 33 | 1 << _AstigLangParser.STRING - 33)) !== 0) {
+            if (_la === _AstigLangParser.T__4 || _la === _AstigLangParser.T__6 || (_la - 33 & ~31) === 0 && (1 << _la - 33 & (1 << _AstigLangParser.TRUE_KW - 33 | 1 << _AstigLangParser.FALSE_KW - 33 | 1 << _AstigLangParser.NEW_KW - 33 | 1 << _AstigLangParser.NOT_KW - 33 | 1 << _AstigLangParser.MALLOC_KW - 33 | 1 << _AstigLangParser.REALLOC_KW - 33 | 1 << _AstigLangParser.IDENTIFIER - 33 | 1 << _AstigLangParser.SUB - 33 | 1 << _AstigLangParser.MUL - 33)) !== 0 || (_la - 67 & ~31) === 0 && (1 << _la - 67 & (1 << _AstigLangParser.BWA - 67 | 1 << _AstigLangParser.FLOAT - 67 | 1 << _AstigLangParser.NUMBER - 67 | 1 << _AstigLangParser.STRING - 67)) !== 0) {
               {
-                this.state = 215;
+                this.state = 227;
                 this.arrayElementList();
               }
             }
-            this.state = 218;
+            this.state = 230;
             this.match(_AstigLangParser.T__5);
           }
         } catch (re) {
@@ -20114,21 +20146,21 @@ var require_AstigLangParser = __commonJS({
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 220;
+            this.state = 232;
             this.expression(0);
-            this.state = 225;
+            this.state = 237;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             while (_la === _AstigLangParser.T__3) {
               {
                 {
-                  this.state = 221;
+                  this.state = 233;
                   this.match(_AstigLangParser.T__3);
-                  this.state = 222;
+                  this.state = 234;
                   this.expression(0);
                 }
               }
-              this.state = 227;
+              this.state = 239;
               this._errHandler.sync(this);
               _la = this._input.LA(1);
             }
@@ -20154,7 +20186,7 @@ var require_AstigLangParser = __commonJS({
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 228;
+            this.state = 240;
             _la = this._input.LA(1);
             if (!((_la & ~31) === 0 && (1 << _la & (1 << _AstigLangParser.CONST_KW | 1 << _AstigLangParser.VAR_KW | 1 << _AstigLangParser.LET_KW)) !== 0)) {
               this._errHandler.recoverInline(this);
@@ -20180,19 +20212,85 @@ var require_AstigLangParser = __commonJS({
         return _localctx;
       }
       // @RuleVersion(0)
-      printStatement() {
-        let _localctx = new PrintStatementContext(this._ctx, this.state);
-        this.enterRule(_localctx, 28, _AstigLangParser.RULE_printStatement);
+      freeStatement() {
+        let _localctx = new FreeStatementContext(this._ctx, this.state);
+        this.enterRule(_localctx, 28, _AstigLangParser.RULE_freeStatement);
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 230;
-            this.match(_AstigLangParser.PRINT_KW);
-            this.state = 231;
+            this.state = 242;
+            this.match(_AstigLangParser.FREE_KW);
+            this.state = 243;
             this.match(_AstigLangParser.T__6);
-            this.state = 232;
+            this.state = 244;
             this.expression(0);
-            this.state = 233;
+            this.state = 245;
+            this.match(_AstigLangParser.T__7);
+          }
+        } catch (re) {
+          if (re instanceof RecognitionException_1.RecognitionException) {
+            _localctx.exception = re;
+            this._errHandler.reportError(this, re);
+            this._errHandler.recover(this, re);
+          } else {
+            throw re;
+          }
+        } finally {
+          this.exitRule();
+        }
+        return _localctx;
+      }
+      // @RuleVersion(0)
+      memsetStatement() {
+        let _localctx = new MemsetStatementContext(this._ctx, this.state);
+        this.enterRule(_localctx, 30, _AstigLangParser.RULE_memsetStatement);
+        try {
+          this.enterOuterAlt(_localctx, 1);
+          {
+            this.state = 247;
+            this.match(_AstigLangParser.MEMSET_KW);
+            this.state = 248;
+            this.match(_AstigLangParser.T__6);
+            this.state = 249;
+            this.expression(0);
+            this.state = 250;
+            this.match(_AstigLangParser.T__3);
+            this.state = 251;
+            this.expression(0);
+            this.state = 252;
+            this.match(_AstigLangParser.T__3);
+            this.state = 253;
+            this.expression(0);
+            this.state = 254;
+            this.match(_AstigLangParser.T__7);
+          }
+        } catch (re) {
+          if (re instanceof RecognitionException_1.RecognitionException) {
+            _localctx.exception = re;
+            this._errHandler.reportError(this, re);
+            this._errHandler.recover(this, re);
+          } else {
+            throw re;
+          }
+        } finally {
+          this.exitRule();
+        }
+        return _localctx;
+      }
+      // @RuleVersion(0)
+      printStatement() {
+        let _localctx = new PrintStatementContext(this._ctx, this.state);
+        this.enterRule(_localctx, 32, _AstigLangParser.RULE_printStatement);
+        try {
+          this.enterOuterAlt(_localctx, 1);
+          {
+            this.state = 256;
+            this.match(_AstigLangParser.PRINT_KW);
+            this.state = 257;
+            this.match(_AstigLangParser.T__6);
+            this.state = 258;
+            this.expression(0);
+            this.state = 259;
             this.match(_AstigLangParser.T__7);
           }
         } catch (re) {
@@ -20211,36 +20309,36 @@ var require_AstigLangParser = __commonJS({
       // @RuleVersion(0)
       scanStatement() {
         let _localctx = new ScanStatementContext(this._ctx, this.state);
-        this.enterRule(_localctx, 30, _AstigLangParser.RULE_scanStatement);
+        this.enterRule(_localctx, 34, _AstigLangParser.RULE_scanStatement);
         let _la;
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 235;
+            this.state = 261;
             this.match(_AstigLangParser.SCAN_KW);
-            this.state = 236;
+            this.state = 262;
             this.match(_AstigLangParser.T__6);
-            this.state = 239;
+            this.state = 265;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             if (_la === _AstigLangParser.STRING) {
               {
-                this.state = 237;
+                this.state = 263;
                 this.match(_AstigLangParser.STRING);
-                this.state = 238;
+                this.state = 264;
                 this.match(_AstigLangParser.T__3);
               }
             }
-            this.state = 241;
+            this.state = 267;
             this.match(_AstigLangParser.IDENTIFIER);
-            this.state = 242;
+            this.state = 268;
             this.match(_AstigLangParser.T__7);
-            this.state = 244;
+            this.state = 270;
             this._errHandler.sync(this);
-            switch (this.interpreter.adaptivePredict(this._input, 25, this._ctx)) {
+            switch (this.interpreter.adaptivePredict(this._input, 27, this._ctx)) {
               case 1:
                 {
-                  this.state = 243;
+                  this.state = 269;
                   this.match(_AstigLangParser.SEMICOLON);
                 }
                 break;
@@ -20262,44 +20360,44 @@ var require_AstigLangParser = __commonJS({
       // @RuleVersion(0)
       ifStatement() {
         let _localctx = new IfStatementContext(this._ctx, this.state);
-        this.enterRule(_localctx, 32, _AstigLangParser.RULE_ifStatement);
+        this.enterRule(_localctx, 36, _AstigLangParser.RULE_ifStatement);
         let _la;
         try {
           let _alt;
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 246;
+            this.state = 272;
             this.match(_AstigLangParser.IF_KW);
-            this.state = 247;
+            this.state = 273;
             this.match(_AstigLangParser.T__6);
-            this.state = 248;
+            this.state = 274;
             this.expression(0);
-            this.state = 249;
+            this.state = 275;
             this.match(_AstigLangParser.T__7);
-            this.state = 250;
+            this.state = 276;
             this.block();
-            this.state = 254;
+            this.state = 280;
             this._errHandler.sync(this);
-            _alt = this.interpreter.adaptivePredict(this._input, 26, this._ctx);
+            _alt = this.interpreter.adaptivePredict(this._input, 28, this._ctx);
             while (_alt !== 2 && _alt !== ATN_1.ATN.INVALID_ALT_NUMBER) {
               if (_alt === 1) {
                 {
                   {
-                    this.state = 251;
+                    this.state = 277;
                     this.elseIfPart();
                   }
                 }
               }
-              this.state = 256;
+              this.state = 282;
               this._errHandler.sync(this);
-              _alt = this.interpreter.adaptivePredict(this._input, 26, this._ctx);
+              _alt = this.interpreter.adaptivePredict(this._input, 28, this._ctx);
             }
-            this.state = 258;
+            this.state = 284;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             if (_la === _AstigLangParser.ELSE_KW) {
               {
-                this.state = 257;
+                this.state = 283;
                 this.elsePart();
               }
             }
@@ -20320,21 +20418,21 @@ var require_AstigLangParser = __commonJS({
       // @RuleVersion(0)
       elseIfPart() {
         let _localctx = new ElseIfPartContext(this._ctx, this.state);
-        this.enterRule(_localctx, 34, _AstigLangParser.RULE_elseIfPart);
+        this.enterRule(_localctx, 38, _AstigLangParser.RULE_elseIfPart);
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 260;
+            this.state = 286;
             this.match(_AstigLangParser.ELSE_KW);
-            this.state = 261;
+            this.state = 287;
             this.match(_AstigLangParser.IF_KW);
-            this.state = 262;
+            this.state = 288;
             this.match(_AstigLangParser.T__6);
-            this.state = 263;
+            this.state = 289;
             this.expression(0);
-            this.state = 264;
+            this.state = 290;
             this.match(_AstigLangParser.T__7);
-            this.state = 265;
+            this.state = 291;
             this.block();
           }
         } catch (re) {
@@ -20353,13 +20451,13 @@ var require_AstigLangParser = __commonJS({
       // @RuleVersion(0)
       elsePart() {
         let _localctx = new ElsePartContext(this._ctx, this.state);
-        this.enterRule(_localctx, 36, _AstigLangParser.RULE_elsePart);
+        this.enterRule(_localctx, 40, _AstigLangParser.RULE_elsePart);
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 267;
+            this.state = 293;
             this.match(_AstigLangParser.ELSE_KW);
-            this.state = 268;
+            this.state = 294;
             this.block();
           }
         } catch (re) {
@@ -20378,19 +20476,19 @@ var require_AstigLangParser = __commonJS({
       // @RuleVersion(0)
       whileStatement() {
         let _localctx = new WhileStatementContext(this._ctx, this.state);
-        this.enterRule(_localctx, 38, _AstigLangParser.RULE_whileStatement);
+        this.enterRule(_localctx, 42, _AstigLangParser.RULE_whileStatement);
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 270;
+            this.state = 296;
             this.match(_AstigLangParser.WHILE_KW);
-            this.state = 271;
+            this.state = 297;
             this.match(_AstigLangParser.T__6);
-            this.state = 272;
+            this.state = 298;
             this.expression(0);
-            this.state = 273;
+            this.state = 299;
             this.match(_AstigLangParser.T__7);
-            this.state = 274;
+            this.state = 300;
             this.block();
           }
         } catch (re) {
@@ -20409,29 +20507,29 @@ var require_AstigLangParser = __commonJS({
       // @RuleVersion(0)
       doWhileStatement() {
         let _localctx = new DoWhileStatementContext(this._ctx, this.state);
-        this.enterRule(_localctx, 40, _AstigLangParser.RULE_doWhileStatement);
+        this.enterRule(_localctx, 44, _AstigLangParser.RULE_doWhileStatement);
         let _la;
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 276;
+            this.state = 302;
             this.match(_AstigLangParser.DO_KW);
-            this.state = 277;
+            this.state = 303;
             this.block();
-            this.state = 278;
+            this.state = 304;
             this.match(_AstigLangParser.WHILE_KW);
-            this.state = 279;
+            this.state = 305;
             this.match(_AstigLangParser.T__6);
-            this.state = 280;
+            this.state = 306;
             this.expression(0);
-            this.state = 281;
+            this.state = 307;
             this.match(_AstigLangParser.T__7);
-            this.state = 283;
+            this.state = 309;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             if (_la === _AstigLangParser.SEMICOLON) {
               {
-                this.state = 282;
+                this.state = 308;
                 this.match(_AstigLangParser.SEMICOLON);
               }
             }
@@ -20452,49 +20550,49 @@ var require_AstigLangParser = __commonJS({
       // @RuleVersion(0)
       forStatement() {
         let _localctx = new ForStatementContext(this._ctx, this.state);
-        this.enterRule(_localctx, 42, _AstigLangParser.RULE_forStatement);
+        this.enterRule(_localctx, 46, _AstigLangParser.RULE_forStatement);
         let _la;
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 285;
+            this.state = 311;
             this.match(_AstigLangParser.FOR_KW);
-            this.state = 286;
+            this.state = 312;
             this.match(_AstigLangParser.T__6);
-            this.state = 288;
+            this.state = 314;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
-            if ((_la - 12 & ~31) === 0 && (1 << _la - 12 & (1 << _AstigLangParser.CONST_KW - 12 | 1 << _AstigLangParser.VAR_KW - 12 | 1 << _AstigLangParser.LET_KW - 12 | 1 << _AstigLangParser.IDENTIFIER - 12)) !== 0) {
+            if ((_la & ~31) === 0 && (1 << _la & (1 << _AstigLangParser.CONST_KW | 1 << _AstigLangParser.VAR_KW | 1 << _AstigLangParser.LET_KW)) !== 0 || _la === _AstigLangParser.IDENTIFIER || _la === _AstigLangParser.MUL) {
               {
-                this.state = 287;
+                this.state = 313;
                 this.forInit();
               }
             }
-            this.state = 290;
+            this.state = 316;
             this.match(_AstigLangParser.SEMICOLON);
-            this.state = 292;
+            this.state = 318;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
-            if (_la === _AstigLangParser.T__4 || _la === _AstigLangParser.T__6 || (_la - 33 & ~31) === 0 && (1 << _la - 33 & (1 << _AstigLangParser.TRUE_KW - 33 | 1 << _AstigLangParser.FALSE_KW - 33 | 1 << _AstigLangParser.NEW_KW - 33 | 1 << _AstigLangParser.NOT_KW - 33 | 1 << _AstigLangParser.IDENTIFIER - 33 | 1 << _AstigLangParser.SUB - 33 | 1 << _AstigLangParser.FLOAT - 33 | 1 << _AstigLangParser.NUMBER - 33 | 1 << _AstigLangParser.STRING - 33)) !== 0) {
+            if (_la === _AstigLangParser.T__4 || _la === _AstigLangParser.T__6 || (_la - 33 & ~31) === 0 && (1 << _la - 33 & (1 << _AstigLangParser.TRUE_KW - 33 | 1 << _AstigLangParser.FALSE_KW - 33 | 1 << _AstigLangParser.NEW_KW - 33 | 1 << _AstigLangParser.NOT_KW - 33 | 1 << _AstigLangParser.MALLOC_KW - 33 | 1 << _AstigLangParser.REALLOC_KW - 33 | 1 << _AstigLangParser.IDENTIFIER - 33 | 1 << _AstigLangParser.SUB - 33 | 1 << _AstigLangParser.MUL - 33)) !== 0 || (_la - 67 & ~31) === 0 && (1 << _la - 67 & (1 << _AstigLangParser.BWA - 67 | 1 << _AstigLangParser.FLOAT - 67 | 1 << _AstigLangParser.NUMBER - 67 | 1 << _AstigLangParser.STRING - 67)) !== 0) {
               {
-                this.state = 291;
+                this.state = 317;
                 this.expression(0);
               }
             }
-            this.state = 294;
+            this.state = 320;
             this.match(_AstigLangParser.SEMICOLON);
-            this.state = 296;
+            this.state = 322;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
-            if (_la === _AstigLangParser.IDENTIFIER) {
+            if (_la === _AstigLangParser.IDENTIFIER || _la === _AstigLangParser.MUL) {
               {
-                this.state = 295;
+                this.state = 321;
                 this.forUpdate();
               }
             }
-            this.state = 298;
+            this.state = 324;
             this.match(_AstigLangParser.T__7);
-            this.state = 299;
+            this.state = 325;
             this.block();
           }
         } catch (re) {
@@ -20513,9 +20611,9 @@ var require_AstigLangParser = __commonJS({
       // @RuleVersion(0)
       forInit() {
         let _localctx = new ForInitContext(this._ctx, this.state);
-        this.enterRule(_localctx, 44, _AstigLangParser.RULE_forInit);
+        this.enterRule(_localctx, 48, _AstigLangParser.RULE_forInit);
         try {
-          this.state = 303;
+          this.state = 329;
           this._errHandler.sync(this);
           switch (this._input.LA(1)) {
             case _AstigLangParser.CONST_KW:
@@ -20523,14 +20621,15 @@ var require_AstigLangParser = __commonJS({
             case _AstigLangParser.LET_KW:
               this.enterOuterAlt(_localctx, 1);
               {
-                this.state = 301;
+                this.state = 327;
                 this.variableDeclaration();
               }
               break;
             case _AstigLangParser.IDENTIFIER:
+            case _AstigLangParser.MUL:
               this.enterOuterAlt(_localctx, 2);
               {
-                this.state = 302;
+                this.state = 328;
                 this.assignment();
               }
               break;
@@ -20553,22 +20652,22 @@ var require_AstigLangParser = __commonJS({
       // @RuleVersion(0)
       forUpdate() {
         let _localctx = new ForUpdateContext(this._ctx, this.state);
-        this.enterRule(_localctx, 46, _AstigLangParser.RULE_forUpdate);
+        this.enterRule(_localctx, 50, _AstigLangParser.RULE_forUpdate);
         try {
-          this.state = 307;
+          this.state = 333;
           this._errHandler.sync(this);
-          switch (this.interpreter.adaptivePredict(this._input, 33, this._ctx)) {
+          switch (this.interpreter.adaptivePredict(this._input, 35, this._ctx)) {
             case 1:
               this.enterOuterAlt(_localctx, 1);
               {
-                this.state = 305;
+                this.state = 331;
                 this.assignment();
               }
               break;
             case 2:
               this.enterOuterAlt(_localctx, 2);
               {
-                this.state = 306;
+                this.state = 332;
                 this.functionCall();
               }
               break;
@@ -20589,30 +20688,43 @@ var require_AstigLangParser = __commonJS({
       // @RuleVersion(0)
       assignment() {
         let _localctx = new AssignmentContext(this._ctx, this.state);
-        this.enterRule(_localctx, 48, _AstigLangParser.RULE_assignment);
+        this.enterRule(_localctx, 52, _AstigLangParser.RULE_assignment);
         try {
-          this.state = 317;
+          this.state = 348;
           this._errHandler.sync(this);
-          switch (this.interpreter.adaptivePredict(this._input, 34, this._ctx)) {
+          switch (this.interpreter.adaptivePredict(this._input, 36, this._ctx)) {
             case 1:
               this.enterOuterAlt(_localctx, 1);
               {
-                this.state = 309;
+                this.state = 335;
                 this.match(_AstigLangParser.IDENTIFIER);
-                this.state = 310;
+                this.state = 336;
                 this.assignmentOperator();
-                this.state = 311;
+                this.state = 337;
                 this.expression(0);
               }
               break;
             case 2:
               this.enterOuterAlt(_localctx, 2);
               {
-                this.state = 313;
+                this.state = 339;
                 this.recordFieldAccess();
-                this.state = 314;
+                this.state = 340;
                 this.assignmentOperator();
-                this.state = 315;
+                this.state = 341;
+                this.expression(0);
+              }
+              break;
+            case 3:
+              this.enterOuterAlt(_localctx, 3);
+              {
+                this.state = 343;
+                this.match(_AstigLangParser.MUL);
+                this.state = 344;
+                this.expression(0);
+                this.state = 345;
+                this.assignmentOperator();
+                this.state = 346;
                 this.expression(0);
               }
               break;
@@ -20633,17 +20745,17 @@ var require_AstigLangParser = __commonJS({
       // @RuleVersion(0)
       arrayIndexAccess() {
         let _localctx = new ArrayIndexAccessContext(this._ctx, this.state);
-        this.enterRule(_localctx, 50, _AstigLangParser.RULE_arrayIndexAccess);
+        this.enterRule(_localctx, 54, _AstigLangParser.RULE_arrayIndexAccess);
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 319;
+            this.state = 350;
             this.match(_AstigLangParser.IDENTIFIER);
-            this.state = 320;
+            this.state = 351;
             this.match(_AstigLangParser.T__4);
-            this.state = 321;
+            this.state = 352;
             this.expression(0);
-            this.state = 322;
+            this.state = 353;
             this.match(_AstigLangParser.T__5);
           }
         } catch (re) {
@@ -20662,23 +20774,23 @@ var require_AstigLangParser = __commonJS({
       // @RuleVersion(0)
       arrayIndexAssignment() {
         let _localctx = new ArrayIndexAssignmentContext(this._ctx, this.state);
-        this.enterRule(_localctx, 52, _AstigLangParser.RULE_arrayIndexAssignment);
+        this.enterRule(_localctx, 56, _AstigLangParser.RULE_arrayIndexAssignment);
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 324;
+            this.state = 355;
             this.match(_AstigLangParser.IDENTIFIER);
-            this.state = 325;
+            this.state = 356;
             this.match(_AstigLangParser.T__4);
-            this.state = 326;
+            this.state = 357;
             this.expression(0);
-            this.state = 327;
+            this.state = 358;
             this.match(_AstigLangParser.T__5);
-            this.state = 328;
+            this.state = 359;
             this.assignmentOperator();
-            this.state = 329;
+            this.state = 360;
             this.expression(0);
-            this.state = 330;
+            this.state = 361;
             this.match(_AstigLangParser.SEMICOLON);
           }
         } catch (re) {
@@ -20697,26 +20809,26 @@ var require_AstigLangParser = __commonJS({
       // @RuleVersion(0)
       recordFieldAccess() {
         let _localctx = new RecordFieldAccessContext(this._ctx, this.state);
-        this.enterRule(_localctx, 54, _AstigLangParser.RULE_recordFieldAccess);
+        this.enterRule(_localctx, 58, _AstigLangParser.RULE_recordFieldAccess);
         let _la;
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 332;
+            this.state = 363;
             this.match(_AstigLangParser.IDENTIFIER);
-            this.state = 335;
+            this.state = 366;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             do {
               {
                 {
-                  this.state = 333;
+                  this.state = 364;
                   this.match(_AstigLangParser.T__8);
-                  this.state = 334;
+                  this.state = 365;
                   this.match(_AstigLangParser.IDENTIFIER);
                 }
               }
-              this.state = 337;
+              this.state = 368;
               this._errHandler.sync(this);
               _la = this._input.LA(1);
             } while (_la === _AstigLangParser.T__8);
@@ -20737,12 +20849,12 @@ var require_AstigLangParser = __commonJS({
       // @RuleVersion(0)
       assignmentOperator() {
         let _localctx = new AssignmentOperatorContext(this._ctx, this.state);
-        this.enterRule(_localctx, 56, _AstigLangParser.RULE_assignmentOperator);
+        this.enterRule(_localctx, 60, _AstigLangParser.RULE_assignmentOperator);
         let _la;
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 339;
+            this.state = 370;
             _la = this._input.LA(1);
             if (!(_la === _AstigLangParser.T__0 || _la === _AstigLangParser.ADD_ASSIGN || _la === _AstigLangParser.SUB_ASSIGN)) {
               this._errHandler.recoverInline(this);
@@ -20770,23 +20882,23 @@ var require_AstigLangParser = __commonJS({
       // @RuleVersion(0)
       foreachStatement() {
         let _localctx = new ForeachStatementContext(this._ctx, this.state);
-        this.enterRule(_localctx, 58, _AstigLangParser.RULE_foreachStatement);
+        this.enterRule(_localctx, 62, _AstigLangParser.RULE_foreachStatement);
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 341;
+            this.state = 372;
             this.match(_AstigLangParser.FOREACH_KW);
-            this.state = 342;
+            this.state = 373;
             this.match(_AstigLangParser.T__6);
-            this.state = 343;
+            this.state = 374;
             this.match(_AstigLangParser.IDENTIFIER);
-            this.state = 344;
+            this.state = 375;
             this.match(_AstigLangParser.IN_KW);
-            this.state = 345;
+            this.state = 376;
             this.expression(0);
-            this.state = 346;
+            this.state = 377;
             this.match(_AstigLangParser.T__7);
-            this.state = 347;
+            this.state = 378;
             this.block();
           }
         } catch (re) {
@@ -20805,11 +20917,11 @@ var require_AstigLangParser = __commonJS({
       // @RuleVersion(0)
       breakStatement() {
         let _localctx = new BreakStatementContext(this._ctx, this.state);
-        this.enterRule(_localctx, 60, _AstigLangParser.RULE_breakStatement);
+        this.enterRule(_localctx, 64, _AstigLangParser.RULE_breakStatement);
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 349;
+            this.state = 380;
             this.match(_AstigLangParser.BREAK_KW);
           }
         } catch (re) {
@@ -20828,11 +20940,11 @@ var require_AstigLangParser = __commonJS({
       // @RuleVersion(0)
       continueStatement() {
         let _localctx = new ContinueStatementContext(this._ctx, this.state);
-        this.enterRule(_localctx, 62, _AstigLangParser.RULE_continueStatement);
+        this.enterRule(_localctx, 66, _AstigLangParser.RULE_continueStatement);
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 351;
+            this.state = 382;
             this.match(_AstigLangParser.CONTINUE_KW);
           }
         } catch (re) {
@@ -20851,47 +20963,47 @@ var require_AstigLangParser = __commonJS({
       // @RuleVersion(0)
       functionDeclaration() {
         let _localctx = new FunctionDeclarationContext(this._ctx, this.state);
-        this.enterRule(_localctx, 64, _AstigLangParser.RULE_functionDeclaration);
+        this.enterRule(_localctx, 68, _AstigLangParser.RULE_functionDeclaration);
         let _la;
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 354;
+            this.state = 385;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             if (_la === _AstigLangParser.EXPORT_KW) {
               {
-                this.state = 353;
+                this.state = 384;
                 this.match(_AstigLangParser.EXPORT_KW);
               }
             }
-            this.state = 356;
+            this.state = 387;
             this.match(_AstigLangParser.FUNCTION_KW);
-            this.state = 357;
+            this.state = 388;
             this.match(_AstigLangParser.IDENTIFIER);
-            this.state = 358;
+            this.state = 389;
             this.match(_AstigLangParser.T__6);
-            this.state = 360;
+            this.state = 391;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             if (_la === _AstigLangParser.IDENTIFIER) {
               {
-                this.state = 359;
+                this.state = 390;
                 this.parameterList();
               }
             }
-            this.state = 362;
+            this.state = 393;
             this.match(_AstigLangParser.T__7);
-            this.state = 364;
+            this.state = 395;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             if (_la === _AstigLangParser.T__9) {
               {
-                this.state = 363;
+                this.state = 394;
                 this.returnTypeAnnotation();
               }
             }
-            this.state = 366;
+            this.state = 397;
             this.block();
           }
         } catch (re) {
@@ -20910,19 +21022,19 @@ var require_AstigLangParser = __commonJS({
       // @RuleVersion(0)
       functionMainDeclaration() {
         let _localctx = new FunctionMainDeclarationContext(this._ctx, this.state);
-        this.enterRule(_localctx, 66, _AstigLangParser.RULE_functionMainDeclaration);
+        this.enterRule(_localctx, 70, _AstigLangParser.RULE_functionMainDeclaration);
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 368;
+            this.state = 399;
             this.match(_AstigLangParser.FUNCTION_KW);
-            this.state = 369;
+            this.state = 400;
             this.match(_AstigLangParser.MAIN_KW);
-            this.state = 370;
+            this.state = 401;
             this.match(_AstigLangParser.T__6);
-            this.state = 371;
+            this.state = 402;
             this.match(_AstigLangParser.T__7);
-            this.state = 372;
+            this.state = 403;
             this.block();
           }
         } catch (re) {
@@ -20941,26 +21053,26 @@ var require_AstigLangParser = __commonJS({
       // @RuleVersion(0)
       parameterList() {
         let _localctx = new ParameterListContext(this._ctx, this.state);
-        this.enterRule(_localctx, 68, _AstigLangParser.RULE_parameterList);
+        this.enterRule(_localctx, 72, _AstigLangParser.RULE_parameterList);
         let _la;
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 374;
+            this.state = 405;
             this.parameter();
-            this.state = 379;
+            this.state = 410;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             while (_la === _AstigLangParser.T__3) {
               {
                 {
-                  this.state = 375;
+                  this.state = 406;
                   this.match(_AstigLangParser.T__3);
-                  this.state = 376;
+                  this.state = 407;
                   this.parameter();
                 }
               }
-              this.state = 381;
+              this.state = 412;
               this._errHandler.sync(this);
               _la = this._input.LA(1);
             }
@@ -20981,19 +21093,19 @@ var require_AstigLangParser = __commonJS({
       // @RuleVersion(0)
       parameter() {
         let _localctx = new ParameterContext(this._ctx, this.state);
-        this.enterRule(_localctx, 70, _AstigLangParser.RULE_parameter);
+        this.enterRule(_localctx, 74, _AstigLangParser.RULE_parameter);
         let _la;
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 382;
+            this.state = 413;
             this.match(_AstigLangParser.IDENTIFIER);
-            this.state = 384;
+            this.state = 415;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             if (_la === _AstigLangParser.T__9) {
               {
-                this.state = 383;
+                this.state = 414;
                 this.typeAnnotation();
               }
             }
@@ -21014,18 +21126,18 @@ var require_AstigLangParser = __commonJS({
       // @RuleVersion(0)
       returnStatement() {
         let _localctx = new ReturnStatementContext(this._ctx, this.state);
-        this.enterRule(_localctx, 72, _AstigLangParser.RULE_returnStatement);
+        this.enterRule(_localctx, 76, _AstigLangParser.RULE_returnStatement);
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 386;
+            this.state = 417;
             this.match(_AstigLangParser.RETURN_KW);
-            this.state = 388;
+            this.state = 419;
             this._errHandler.sync(this);
-            switch (this.interpreter.adaptivePredict(this._input, 41, this._ctx)) {
+            switch (this.interpreter.adaptivePredict(this._input, 43, this._ctx)) {
               case 1:
                 {
-                  this.state = 387;
+                  this.state = 418;
                   this.expression(0);
                 }
                 break;
@@ -21047,28 +21159,28 @@ var require_AstigLangParser = __commonJS({
       // @RuleVersion(0)
       block() {
         let _localctx = new BlockContext(this._ctx, this.state);
-        this.enterRule(_localctx, 74, _AstigLangParser.RULE_block);
+        this.enterRule(_localctx, 78, _AstigLangParser.RULE_block);
         let _la;
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 390;
+            this.state = 421;
             this.match(_AstigLangParser.T__1);
-            this.state = 394;
+            this.state = 425;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
-            while ((_la & ~31) === 0 && (1 << _la & (1 << _AstigLangParser.T__1 | 1 << _AstigLangParser.CONST_KW | 1 << _AstigLangParser.VAR_KW | 1 << _AstigLangParser.LET_KW | 1 << _AstigLangParser.PRINT_KW | 1 << _AstigLangParser.SCAN_KW | 1 << _AstigLangParser.IF_KW | 1 << _AstigLangParser.WHILE_KW | 1 << _AstigLangParser.FUNCTION_KW | 1 << _AstigLangParser.RETURN_KW | 1 << _AstigLangParser.DO_KW | 1 << _AstigLangParser.FOR_KW | 1 << _AstigLangParser.FOREACH_KW | 1 << _AstigLangParser.BREAK_KW | 1 << _AstigLangParser.CONTINUE_KW)) !== 0 || _la === _AstigLangParser.EXPORT_KW || _la === _AstigLangParser.IDENTIFIER) {
+            while ((_la & ~31) === 0 && (1 << _la & (1 << _AstigLangParser.T__1 | 1 << _AstigLangParser.CONST_KW | 1 << _AstigLangParser.VAR_KW | 1 << _AstigLangParser.LET_KW | 1 << _AstigLangParser.PRINT_KW | 1 << _AstigLangParser.SCAN_KW | 1 << _AstigLangParser.IF_KW | 1 << _AstigLangParser.WHILE_KW | 1 << _AstigLangParser.FUNCTION_KW | 1 << _AstigLangParser.RETURN_KW | 1 << _AstigLangParser.DO_KW | 1 << _AstigLangParser.FOR_KW | 1 << _AstigLangParser.FOREACH_KW | 1 << _AstigLangParser.BREAK_KW | 1 << _AstigLangParser.CONTINUE_KW)) !== 0 || (_la - 39 & ~31) === 0 && (1 << _la - 39 & (1 << _AstigLangParser.EXPORT_KW - 39 | 1 << _AstigLangParser.FREE_KW - 39 | 1 << _AstigLangParser.MEMSET_KW - 39 | 1 << _AstigLangParser.IDENTIFIER - 39 | 1 << _AstigLangParser.MUL - 39)) !== 0) {
               {
                 {
-                  this.state = 391;
+                  this.state = 422;
                   this.statement();
                 }
               }
-              this.state = 396;
+              this.state = 427;
               this._errHandler.sync(this);
               _la = this._input.LA(1);
             }
-            this.state = 397;
+            this.state = 428;
             this.match(_AstigLangParser.T__2);
           }
         } catch (re) {
@@ -21087,26 +21199,26 @@ var require_AstigLangParser = __commonJS({
       // @RuleVersion(0)
       argumentList() {
         let _localctx = new ArgumentListContext(this._ctx, this.state);
-        this.enterRule(_localctx, 76, _AstigLangParser.RULE_argumentList);
+        this.enterRule(_localctx, 80, _AstigLangParser.RULE_argumentList);
         let _la;
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 399;
+            this.state = 430;
             this.expression(0);
-            this.state = 404;
+            this.state = 435;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             while (_la === _AstigLangParser.T__3) {
               {
                 {
-                  this.state = 400;
+                  this.state = 431;
                   this.match(_AstigLangParser.T__3);
-                  this.state = 401;
+                  this.state = 432;
                   this.expression(0);
                 }
               }
-              this.state = 406;
+              this.state = 437;
               this._errHandler.sync(this);
               _la = this._input.LA(1);
             }
@@ -21127,25 +21239,25 @@ var require_AstigLangParser = __commonJS({
       // @RuleVersion(0)
       functionCall() {
         let _localctx = new FunctionCallContext(this._ctx, this.state);
-        this.enterRule(_localctx, 78, _AstigLangParser.RULE_functionCall);
+        this.enterRule(_localctx, 82, _AstigLangParser.RULE_functionCall);
         let _la;
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 407;
+            this.state = 438;
             this.match(_AstigLangParser.IDENTIFIER);
-            this.state = 408;
+            this.state = 439;
             this.match(_AstigLangParser.T__6);
-            this.state = 410;
+            this.state = 441;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
-            if (_la === _AstigLangParser.T__4 || _la === _AstigLangParser.T__6 || (_la - 33 & ~31) === 0 && (1 << _la - 33 & (1 << _AstigLangParser.TRUE_KW - 33 | 1 << _AstigLangParser.FALSE_KW - 33 | 1 << _AstigLangParser.NEW_KW - 33 | 1 << _AstigLangParser.NOT_KW - 33 | 1 << _AstigLangParser.IDENTIFIER - 33 | 1 << _AstigLangParser.SUB - 33 | 1 << _AstigLangParser.FLOAT - 33 | 1 << _AstigLangParser.NUMBER - 33 | 1 << _AstigLangParser.STRING - 33)) !== 0) {
+            if (_la === _AstigLangParser.T__4 || _la === _AstigLangParser.T__6 || (_la - 33 & ~31) === 0 && (1 << _la - 33 & (1 << _AstigLangParser.TRUE_KW - 33 | 1 << _AstigLangParser.FALSE_KW - 33 | 1 << _AstigLangParser.NEW_KW - 33 | 1 << _AstigLangParser.NOT_KW - 33 | 1 << _AstigLangParser.MALLOC_KW - 33 | 1 << _AstigLangParser.REALLOC_KW - 33 | 1 << _AstigLangParser.IDENTIFIER - 33 | 1 << _AstigLangParser.SUB - 33 | 1 << _AstigLangParser.MUL - 33)) !== 0 || (_la - 67 & ~31) === 0 && (1 << _la - 67 & (1 << _AstigLangParser.BWA - 67 | 1 << _AstigLangParser.FLOAT - 67 | 1 << _AstigLangParser.NUMBER - 67 | 1 << _AstigLangParser.STRING - 67)) !== 0) {
               {
-                this.state = 409;
+                this.state = 440;
                 this.argumentList();
               }
             }
-            this.state = 412;
+            this.state = 443;
             this.match(_AstigLangParser.T__7);
           }
         } catch (re) {
@@ -21164,23 +21276,40 @@ var require_AstigLangParser = __commonJS({
       // @RuleVersion(0)
       typeAnnotation() {
         let _localctx = new TypeAnnotationContext(this._ctx, this.state);
-        this.enterRule(_localctx, 80, _AstigLangParser.RULE_typeAnnotation);
+        this.enterRule(_localctx, 84, _AstigLangParser.RULE_typeAnnotation);
         let _la;
         try {
+          let _alt;
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 414;
+            this.state = 445;
             this.match(_AstigLangParser.T__9);
-            this.state = 415;
+            this.state = 446;
             this.dataType();
-            this.state = 418;
+            this.state = 450;
+            this._errHandler.sync(this);
+            _alt = this.interpreter.adaptivePredict(this._input, 47, this._ctx);
+            while (_alt !== 2 && _alt !== ATN_1.ATN.INVALID_ALT_NUMBER) {
+              if (_alt === 1) {
+                {
+                  {
+                    this.state = 447;
+                    this.match(_AstigLangParser.MUL);
+                  }
+                }
+              }
+              this.state = 452;
+              this._errHandler.sync(this);
+              _alt = this.interpreter.adaptivePredict(this._input, 47, this._ctx);
+            }
+            this.state = 455;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             if (_la === _AstigLangParser.T__4) {
               {
-                this.state = 416;
+                this.state = 453;
                 this.match(_AstigLangParser.T__4);
-                this.state = 417;
+                this.state = 454;
                 this.match(_AstigLangParser.T__5);
               }
             }
@@ -21201,14 +21330,29 @@ var require_AstigLangParser = __commonJS({
       // @RuleVersion(0)
       returnTypeAnnotation() {
         let _localctx = new ReturnTypeAnnotationContext(this._ctx, this.state);
-        this.enterRule(_localctx, 82, _AstigLangParser.RULE_returnTypeAnnotation);
+        this.enterRule(_localctx, 86, _AstigLangParser.RULE_returnTypeAnnotation);
+        let _la;
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 420;
+            this.state = 457;
             this.match(_AstigLangParser.T__9);
-            this.state = 421;
+            this.state = 458;
             this.returnDataType();
+            this.state = 462;
+            this._errHandler.sync(this);
+            _la = this._input.LA(1);
+            while (_la === _AstigLangParser.MUL) {
+              {
+                {
+                  this.state = 459;
+                  this.match(_AstigLangParser.MUL);
+                }
+              }
+              this.state = 464;
+              this._errHandler.sync(this);
+              _la = this._input.LA(1);
+            }
           }
         } catch (re) {
           if (re instanceof RecognitionException_1.RecognitionException) {
@@ -21226,12 +21370,12 @@ var require_AstigLangParser = __commonJS({
       // @RuleVersion(0)
       dataType() {
         let _localctx = new DataTypeContext(this._ctx, this.state);
-        this.enterRule(_localctx, 84, _AstigLangParser.RULE_dataType);
+        this.enterRule(_localctx, 88, _AstigLangParser.RULE_dataType);
         let _la;
         try {
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 423;
+            this.state = 465;
             _la = this._input.LA(1);
             if (!((_la - 28 & ~31) === 0 && (1 << _la - 28 & (1 << _AstigLangParser.INT_KW - 28 | 1 << _AstigLangParser.FLOAT_KW - 28 | 1 << _AstigLangParser.STRING_KW - 28 | 1 << _AstigLangParser.CHAR_KW - 28 | 1 << _AstigLangParser.BOOLEAN_KW - 28 | 1 << _AstigLangParser.IDENTIFIER - 28)) !== 0)) {
               this._errHandler.recoverInline(this);
@@ -21259,9 +21403,9 @@ var require_AstigLangParser = __commonJS({
       // @RuleVersion(0)
       returnDataType() {
         let _localctx = new ReturnDataTypeContext(this._ctx, this.state);
-        this.enterRule(_localctx, 86, _AstigLangParser.RULE_returnDataType);
+        this.enterRule(_localctx, 90, _AstigLangParser.RULE_returnDataType);
         try {
-          this.state = 427;
+          this.state = 469;
           this._errHandler.sync(this);
           switch (this._input.LA(1)) {
             case _AstigLangParser.INT_KW:
@@ -21272,14 +21416,14 @@ var require_AstigLangParser = __commonJS({
             case _AstigLangParser.IDENTIFIER:
               this.enterOuterAlt(_localctx, 1);
               {
-                this.state = 425;
+                this.state = 467;
                 this.dataType();
               }
               break;
             case _AstigLangParser.VOID_KW:
               this.enterOuterAlt(_localctx, 2);
               {
-                this.state = 426;
+                this.state = 468;
                 this.match(_AstigLangParser.VOID_KW);
               }
               break;
@@ -21308,107 +21452,151 @@ var require_AstigLangParser = __commonJS({
         let _parentState = this.state;
         let _localctx = new ExpressionContext(this._ctx, _parentState);
         let _prevctx = _localctx;
-        let _startState = 88;
-        this.enterRecursionRule(_localctx, 88, _AstigLangParser.RULE_expression, _p);
+        let _startState = 92;
+        this.enterRecursionRule(_localctx, 92, _AstigLangParser.RULE_expression, _p);
         let _la;
         try {
           let _alt;
           this.enterOuterAlt(_localctx, 1);
           {
-            this.state = 448;
+            this.state = 506;
             this._errHandler.sync(this);
-            switch (this.interpreter.adaptivePredict(this._input, 47, this._ctx)) {
+            switch (this.interpreter.adaptivePredict(this._input, 51, this._ctx)) {
               case 1:
                 {
-                  this.state = 430;
+                  this.state = 472;
                   this.match(_AstigLangParser.NOT_KW);
-                  this.state = 431;
-                  this.expression(18);
+                  this.state = 473;
+                  this.expression(24);
                 }
                 break;
               case 2:
                 {
-                  this.state = 432;
+                  this.state = 474;
                   this.match(_AstigLangParser.SUB);
-                  this.state = 433;
-                  this.expression(17);
+                  this.state = 475;
+                  this.expression(23);
                 }
                 break;
               case 3:
                 {
-                  this.state = 434;
-                  this.match(_AstigLangParser.T__6);
-                  this.state = 435;
-                  this.expression(0);
-                  this.state = 436;
-                  this.match(_AstigLangParser.T__7);
+                  this.state = 476;
+                  this.match(_AstigLangParser.MUL);
+                  this.state = 477;
+                  this.expression(22);
                 }
                 break;
               case 4:
                 {
-                  this.state = 438;
-                  this.functionCall();
+                  this.state = 478;
+                  this.match(_AstigLangParser.BWA);
+                  this.state = 479;
+                  this.expression(21);
                 }
                 break;
               case 5:
                 {
-                  this.state = 439;
-                  this.recordLiteral();
+                  this.state = 480;
+                  this.match(_AstigLangParser.T__6);
+                  this.state = 481;
+                  this.expression(0);
+                  this.state = 482;
+                  this.match(_AstigLangParser.T__7);
                 }
                 break;
               case 6:
                 {
-                  this.state = 440;
-                  this.arrayLiteral();
+                  this.state = 484;
+                  this.match(_AstigLangParser.MALLOC_KW);
+                  this.state = 485;
+                  this.match(_AstigLangParser.T__6);
+                  this.state = 486;
+                  this.expression(0);
+                  this.state = 487;
+                  this.match(_AstigLangParser.T__7);
                 }
                 break;
               case 7:
                 {
-                  this.state = 441;
-                  this.arrayIndexAccess();
+                  this.state = 489;
+                  this.match(_AstigLangParser.REALLOC_KW);
+                  this.state = 490;
+                  this.match(_AstigLangParser.T__6);
+                  this.state = 491;
+                  this.expression(0);
+                  this.state = 492;
+                  this.match(_AstigLangParser.T__3);
+                  this.state = 493;
+                  this.expression(0);
+                  this.state = 494;
+                  this.match(_AstigLangParser.T__7);
                 }
                 break;
               case 8:
                 {
-                  this.state = 442;
-                  this.match(_AstigLangParser.NUMBER);
+                  this.state = 496;
+                  this.functionCall();
                 }
                 break;
               case 9:
                 {
-                  this.state = 443;
-                  this.match(_AstigLangParser.FLOAT);
+                  this.state = 497;
+                  this.recordLiteral();
                 }
                 break;
               case 10:
                 {
-                  this.state = 444;
-                  this.match(_AstigLangParser.STRING);
+                  this.state = 498;
+                  this.arrayLiteral();
                 }
                 break;
               case 11:
                 {
-                  this.state = 445;
-                  this.match(_AstigLangParser.TRUE_KW);
+                  this.state = 499;
+                  this.arrayIndexAccess();
                 }
                 break;
               case 12:
                 {
-                  this.state = 446;
-                  this.match(_AstigLangParser.FALSE_KW);
+                  this.state = 500;
+                  this.match(_AstigLangParser.NUMBER);
                 }
                 break;
               case 13:
                 {
-                  this.state = 447;
+                  this.state = 501;
+                  this.match(_AstigLangParser.FLOAT);
+                }
+                break;
+              case 14:
+                {
+                  this.state = 502;
+                  this.match(_AstigLangParser.STRING);
+                }
+                break;
+              case 15:
+                {
+                  this.state = 503;
+                  this.match(_AstigLangParser.TRUE_KW);
+                }
+                break;
+              case 16:
+                {
+                  this.state = 504;
+                  this.match(_AstigLangParser.FALSE_KW);
+                }
+                break;
+              case 17:
+                {
+                  this.state = 505;
                   this.match(_AstigLangParser.IDENTIFIER);
                 }
                 break;
             }
             this._ctx._stop = this._input.tryLT(-1);
-            this.state = 467;
+            this.state = 531;
             this._errHandler.sync(this);
-            _alt = this.interpreter.adaptivePredict(this._input, 49, this._ctx);
+            _alt = this.interpreter.adaptivePredict(this._input, 53, this._ctx);
             while (_alt !== 2 && _alt !== ATN_1.ATN.INVALID_ALT_NUMBER) {
               if (_alt === 1) {
                 if (this._parseListeners != null) {
@@ -21416,21 +21604,21 @@ var require_AstigLangParser = __commonJS({
                 }
                 _prevctx = _localctx;
                 {
-                  this.state = 465;
+                  this.state = 529;
                   this._errHandler.sync(this);
-                  switch (this.interpreter.adaptivePredict(this._input, 48, this._ctx)) {
+                  switch (this.interpreter.adaptivePredict(this._input, 52, this._ctx)) {
                     case 1:
                       {
                         _localctx = new ExpressionContext(_parentctx, _parentState);
                         this.pushNewRecursionContext(_localctx, _startState, _AstigLangParser.RULE_expression);
-                        this.state = 450;
-                        if (!this.precpred(this._ctx, 16)) {
-                          throw this.createFailedPredicateException("this.precpred(this._ctx, 16)");
+                        this.state = 508;
+                        if (!this.precpred(this._ctx, 20)) {
+                          throw this.createFailedPredicateException("this.precpred(this._ctx, 20)");
                         }
-                        this.state = 451;
+                        this.state = 509;
                         _localctx._op = this._input.LT(1);
                         _la = this._input.LA(1);
-                        if (!((_la - 52 & ~31) === 0 && (1 << _la - 52 & (1 << _AstigLangParser.MUL - 52 | 1 << _AstigLangParser.DIV - 52 | 1 << _AstigLangParser.MOD - 52)) !== 0)) {
+                        if (!((_la - 56 & ~31) === 0 && (1 << _la - 56 & (1 << _AstigLangParser.MUL - 56 | 1 << _AstigLangParser.DIV - 56 | 1 << _AstigLangParser.MOD - 56)) !== 0)) {
                           _localctx._op = this._errHandler.recoverInline(this);
                         } else {
                           if (this._input.LA(1) === Token_1.Token.EOF) {
@@ -21439,19 +21627,19 @@ var require_AstigLangParser = __commonJS({
                           this._errHandler.reportMatch(this);
                           this.consume();
                         }
-                        this.state = 452;
-                        this.expression(17);
+                        this.state = 510;
+                        this.expression(21);
                       }
                       break;
                     case 2:
                       {
                         _localctx = new ExpressionContext(_parentctx, _parentState);
                         this.pushNewRecursionContext(_localctx, _startState, _AstigLangParser.RULE_expression);
-                        this.state = 453;
-                        if (!this.precpred(this._ctx, 15)) {
-                          throw this.createFailedPredicateException("this.precpred(this._ctx, 15)");
+                        this.state = 511;
+                        if (!this.precpred(this._ctx, 19)) {
+                          throw this.createFailedPredicateException("this.precpred(this._ctx, 19)");
                         }
-                        this.state = 454;
+                        this.state = 512;
                         _localctx._op = this._input.LT(1);
                         _la = this._input.LA(1);
                         if (!(_la === _AstigLangParser.ADD || _la === _AstigLangParser.SUB)) {
@@ -21463,22 +21651,22 @@ var require_AstigLangParser = __commonJS({
                           this._errHandler.reportMatch(this);
                           this.consume();
                         }
-                        this.state = 455;
-                        this.expression(16);
+                        this.state = 513;
+                        this.expression(20);
                       }
                       break;
                     case 3:
                       {
                         _localctx = new ExpressionContext(_parentctx, _parentState);
                         this.pushNewRecursionContext(_localctx, _startState, _AstigLangParser.RULE_expression);
-                        this.state = 456;
-                        if (!this.precpred(this._ctx, 14)) {
-                          throw this.createFailedPredicateException("this.precpred(this._ctx, 14)");
+                        this.state = 514;
+                        if (!this.precpred(this._ctx, 18)) {
+                          throw this.createFailedPredicateException("this.precpred(this._ctx, 18)");
                         }
-                        this.state = 457;
+                        this.state = 515;
                         _localctx._op = this._input.LT(1);
                         _la = this._input.LA(1);
-                        if (!((_la - 55 & ~31) === 0 && (1 << _la - 55 & (1 << _AstigLangParser.EQ - 55 | 1 << _AstigLangParser.NEQ - 55 | 1 << _AstigLangParser.LT - 55 | 1 << _AstigLangParser.GT - 55 | 1 << _AstigLangParser.LTE - 55 | 1 << _AstigLangParser.GTE - 55)) !== 0)) {
+                        if (!(_la === _AstigLangParser.SHL || _la === _AstigLangParser.SHR)) {
                           _localctx._op = this._errHandler.recoverInline(this);
                         } else {
                           if (this._input.LA(1) === Token_1.Token.EOF) {
@@ -21487,19 +21675,67 @@ var require_AstigLangParser = __commonJS({
                           this._errHandler.reportMatch(this);
                           this.consume();
                         }
-                        this.state = 458;
-                        this.expression(15);
+                        this.state = 516;
+                        this.expression(19);
                       }
                       break;
                     case 4:
                       {
                         _localctx = new ExpressionContext(_parentctx, _parentState);
                         this.pushNewRecursionContext(_localctx, _startState, _AstigLangParser.RULE_expression);
-                        this.state = 459;
-                        if (!this.precpred(this._ctx, 13)) {
-                          throw this.createFailedPredicateException("this.precpred(this._ctx, 13)");
+                        this.state = 517;
+                        if (!this.precpred(this._ctx, 17)) {
+                          throw this.createFailedPredicateException("this.precpred(this._ctx, 17)");
                         }
-                        this.state = 460;
+                        this.state = 518;
+                        _localctx._op = this._input.LT(1);
+                        _la = this._input.LA(1);
+                        if (!((_la - 59 & ~31) === 0 && (1 << _la - 59 & (1 << _AstigLangParser.EQ - 59 | 1 << _AstigLangParser.NEQ - 59 | 1 << _AstigLangParser.LT - 59 | 1 << _AstigLangParser.GT - 59 | 1 << _AstigLangParser.LTE - 59 | 1 << _AstigLangParser.GTE - 59)) !== 0)) {
+                          _localctx._op = this._errHandler.recoverInline(this);
+                        } else {
+                          if (this._input.LA(1) === Token_1.Token.EOF) {
+                            this.matchedEOF = true;
+                          }
+                          this._errHandler.reportMatch(this);
+                          this.consume();
+                        }
+                        this.state = 519;
+                        this.expression(18);
+                      }
+                      break;
+                    case 5:
+                      {
+                        _localctx = new ExpressionContext(_parentctx, _parentState);
+                        this.pushNewRecursionContext(_localctx, _startState, _AstigLangParser.RULE_expression);
+                        this.state = 520;
+                        if (!this.precpred(this._ctx, 16)) {
+                          throw this.createFailedPredicateException("this.precpred(this._ctx, 16)");
+                        }
+                        this.state = 521;
+                        _localctx._op = this._input.LT(1);
+                        _la = this._input.LA(1);
+                        if (!(_la === _AstigLangParser.BWA || _la === _AstigLangParser.BWO)) {
+                          _localctx._op = this._errHandler.recoverInline(this);
+                        } else {
+                          if (this._input.LA(1) === Token_1.Token.EOF) {
+                            this.matchedEOF = true;
+                          }
+                          this._errHandler.reportMatch(this);
+                          this.consume();
+                        }
+                        this.state = 522;
+                        this.expression(17);
+                      }
+                      break;
+                    case 6:
+                      {
+                        _localctx = new ExpressionContext(_parentctx, _parentState);
+                        this.pushNewRecursionContext(_localctx, _startState, _AstigLangParser.RULE_expression);
+                        this.state = 523;
+                        if (!this.precpred(this._ctx, 15)) {
+                          throw this.createFailedPredicateException("this.precpred(this._ctx, 15)");
+                        }
+                        this.state = 524;
                         _localctx._op = this._input.LT(1);
                         _la = this._input.LA(1);
                         if (!(_la === _AstigLangParser.AND_KW || _la === _AstigLangParser.OR_KW)) {
@@ -21511,30 +21747,30 @@ var require_AstigLangParser = __commonJS({
                           this._errHandler.reportMatch(this);
                           this.consume();
                         }
-                        this.state = 461;
-                        this.expression(14);
+                        this.state = 525;
+                        this.expression(16);
                       }
                       break;
-                    case 5:
+                    case 7:
                       {
                         _localctx = new ExpressionContext(_parentctx, _parentState);
                         this.pushNewRecursionContext(_localctx, _startState, _AstigLangParser.RULE_expression);
-                        this.state = 462;
+                        this.state = 526;
                         if (!this.precpred(this._ctx, 7)) {
                           throw this.createFailedPredicateException("this.precpred(this._ctx, 7)");
                         }
-                        this.state = 463;
+                        this.state = 527;
                         this.match(_AstigLangParser.T__8);
-                        this.state = 464;
+                        this.state = 528;
                         this.match(_AstigLangParser.IDENTIFIER);
                       }
                       break;
                   }
                 }
               }
-              this.state = 469;
+              this.state = 533;
               this._errHandler.sync(this);
-              _alt = this.interpreter.adaptivePredict(this._input, 49, this._ctx);
+              _alt = this.interpreter.adaptivePredict(this._input, 53, this._ctx);
             }
           }
         } catch (re) {
@@ -21552,7 +21788,7 @@ var require_AstigLangParser = __commonJS({
       }
       sempred(_localctx, ruleIndex, predIndex) {
         switch (ruleIndex) {
-          case 44:
+          case 46:
             return this.expression_sempred(_localctx, predIndex);
         }
         return true;
@@ -21560,14 +21796,18 @@ var require_AstigLangParser = __commonJS({
       expression_sempred(_localctx, predIndex) {
         switch (predIndex) {
           case 0:
-            return this.precpred(this._ctx, 16);
+            return this.precpred(this._ctx, 20);
           case 1:
-            return this.precpred(this._ctx, 15);
+            return this.precpred(this._ctx, 19);
           case 2:
-            return this.precpred(this._ctx, 14);
+            return this.precpred(this._ctx, 18);
           case 3:
-            return this.precpred(this._ctx, 13);
+            return this.precpred(this._ctx, 17);
           case 4:
+            return this.precpred(this._ctx, 16);
+          case 5:
+            return this.precpred(this._ctx, 15);
+          case 6:
             return this.precpred(this._ctx, 7);
         }
         return true;
@@ -21622,29 +21862,37 @@ var require_AstigLangParser = __commonJS({
     AstigLangParser.NOT_KW = 40;
     AstigLangParser.AND_KW = 41;
     AstigLangParser.OR_KW = 42;
-    AstigLangParser.IDENTIFIER = 43;
-    AstigLangParser.FILENAME = 44;
-    AstigLangParser.FILE_EXTENSION = 45;
-    AstigLangParser.LINE_COMMENT = 46;
-    AstigLangParser.BLOCK_COMMENT = 47;
-    AstigLangParser.ADD_ASSIGN = 48;
-    AstigLangParser.SUB_ASSIGN = 49;
-    AstigLangParser.ADD = 50;
-    AstigLangParser.SUB = 51;
-    AstigLangParser.MUL = 52;
-    AstigLangParser.DIV = 53;
-    AstigLangParser.MOD = 54;
-    AstigLangParser.EQ = 55;
-    AstigLangParser.NEQ = 56;
-    AstigLangParser.LT = 57;
-    AstigLangParser.GT = 58;
-    AstigLangParser.LTE = 59;
-    AstigLangParser.GTE = 60;
-    AstigLangParser.SEMICOLON = 61;
-    AstigLangParser.FLOAT = 62;
-    AstigLangParser.NUMBER = 63;
-    AstigLangParser.STRING = 64;
-    AstigLangParser.WS = 65;
+    AstigLangParser.MALLOC_KW = 43;
+    AstigLangParser.REALLOC_KW = 44;
+    AstigLangParser.FREE_KW = 45;
+    AstigLangParser.MEMSET_KW = 46;
+    AstigLangParser.IDENTIFIER = 47;
+    AstigLangParser.FILENAME = 48;
+    AstigLangParser.FILE_EXTENSION = 49;
+    AstigLangParser.LINE_COMMENT = 50;
+    AstigLangParser.BLOCK_COMMENT = 51;
+    AstigLangParser.ADD_ASSIGN = 52;
+    AstigLangParser.SUB_ASSIGN = 53;
+    AstigLangParser.ADD = 54;
+    AstigLangParser.SUB = 55;
+    AstigLangParser.MUL = 56;
+    AstigLangParser.DIV = 57;
+    AstigLangParser.MOD = 58;
+    AstigLangParser.EQ = 59;
+    AstigLangParser.NEQ = 60;
+    AstigLangParser.LT = 61;
+    AstigLangParser.GT = 62;
+    AstigLangParser.LTE = 63;
+    AstigLangParser.GTE = 64;
+    AstigLangParser.SHL = 65;
+    AstigLangParser.SHR = 66;
+    AstigLangParser.BWA = 67;
+    AstigLangParser.BWO = 68;
+    AstigLangParser.SEMICOLON = 69;
+    AstigLangParser.FLOAT = 70;
+    AstigLangParser.NUMBER = 71;
+    AstigLangParser.STRING = 72;
+    AstigLangParser.WS = 73;
     AstigLangParser.RULE_program = 0;
     AstigLangParser.RULE_includeList = 1;
     AstigLangParser.RULE_includeStatement = 2;
@@ -21659,37 +21907,39 @@ var require_AstigLangParser = __commonJS({
     AstigLangParser.RULE_arrayLiteral = 11;
     AstigLangParser.RULE_arrayElementList = 12;
     AstigLangParser.RULE_declarationKeyword = 13;
-    AstigLangParser.RULE_printStatement = 14;
-    AstigLangParser.RULE_scanStatement = 15;
-    AstigLangParser.RULE_ifStatement = 16;
-    AstigLangParser.RULE_elseIfPart = 17;
-    AstigLangParser.RULE_elsePart = 18;
-    AstigLangParser.RULE_whileStatement = 19;
-    AstigLangParser.RULE_doWhileStatement = 20;
-    AstigLangParser.RULE_forStatement = 21;
-    AstigLangParser.RULE_forInit = 22;
-    AstigLangParser.RULE_forUpdate = 23;
-    AstigLangParser.RULE_assignment = 24;
-    AstigLangParser.RULE_arrayIndexAccess = 25;
-    AstigLangParser.RULE_arrayIndexAssignment = 26;
-    AstigLangParser.RULE_recordFieldAccess = 27;
-    AstigLangParser.RULE_assignmentOperator = 28;
-    AstigLangParser.RULE_foreachStatement = 29;
-    AstigLangParser.RULE_breakStatement = 30;
-    AstigLangParser.RULE_continueStatement = 31;
-    AstigLangParser.RULE_functionDeclaration = 32;
-    AstigLangParser.RULE_functionMainDeclaration = 33;
-    AstigLangParser.RULE_parameterList = 34;
-    AstigLangParser.RULE_parameter = 35;
-    AstigLangParser.RULE_returnStatement = 36;
-    AstigLangParser.RULE_block = 37;
-    AstigLangParser.RULE_argumentList = 38;
-    AstigLangParser.RULE_functionCall = 39;
-    AstigLangParser.RULE_typeAnnotation = 40;
-    AstigLangParser.RULE_returnTypeAnnotation = 41;
-    AstigLangParser.RULE_dataType = 42;
-    AstigLangParser.RULE_returnDataType = 43;
-    AstigLangParser.RULE_expression = 44;
+    AstigLangParser.RULE_freeStatement = 14;
+    AstigLangParser.RULE_memsetStatement = 15;
+    AstigLangParser.RULE_printStatement = 16;
+    AstigLangParser.RULE_scanStatement = 17;
+    AstigLangParser.RULE_ifStatement = 18;
+    AstigLangParser.RULE_elseIfPart = 19;
+    AstigLangParser.RULE_elsePart = 20;
+    AstigLangParser.RULE_whileStatement = 21;
+    AstigLangParser.RULE_doWhileStatement = 22;
+    AstigLangParser.RULE_forStatement = 23;
+    AstigLangParser.RULE_forInit = 24;
+    AstigLangParser.RULE_forUpdate = 25;
+    AstigLangParser.RULE_assignment = 26;
+    AstigLangParser.RULE_arrayIndexAccess = 27;
+    AstigLangParser.RULE_arrayIndexAssignment = 28;
+    AstigLangParser.RULE_recordFieldAccess = 29;
+    AstigLangParser.RULE_assignmentOperator = 30;
+    AstigLangParser.RULE_foreachStatement = 31;
+    AstigLangParser.RULE_breakStatement = 32;
+    AstigLangParser.RULE_continueStatement = 33;
+    AstigLangParser.RULE_functionDeclaration = 34;
+    AstigLangParser.RULE_functionMainDeclaration = 35;
+    AstigLangParser.RULE_parameterList = 36;
+    AstigLangParser.RULE_parameter = 37;
+    AstigLangParser.RULE_returnStatement = 38;
+    AstigLangParser.RULE_block = 39;
+    AstigLangParser.RULE_argumentList = 40;
+    AstigLangParser.RULE_functionCall = 41;
+    AstigLangParser.RULE_typeAnnotation = 42;
+    AstigLangParser.RULE_returnTypeAnnotation = 43;
+    AstigLangParser.RULE_dataType = 44;
+    AstigLangParser.RULE_returnDataType = 45;
+    AstigLangParser.RULE_expression = 46;
     AstigLangParser.ruleNames = [
       "program",
       "includeList",
@@ -21705,6 +21955,8 @@ var require_AstigLangParser = __commonJS({
       "arrayLiteral",
       "arrayElementList",
       "declarationKeyword",
+      "freeStatement",
+      "memsetStatement",
       "printStatement",
       "scanStatement",
       "ifStatement",
@@ -21783,6 +22035,10 @@ var require_AstigLangParser = __commonJS({
       void 0,
       void 0,
       void 0,
+      void 0,
+      void 0,
+      void 0,
+      void 0,
       "'stg'",
       void 0,
       void 0,
@@ -21799,6 +22055,10 @@ var require_AstigLangParser = __commonJS({
       "'>'",
       "'<='",
       "'>='",
+      "'<<'",
+      "'>>'",
+      "'&'",
+      "'|'",
       "';'"
     ];
     AstigLangParser._SYMBOLIC_NAMES = [
@@ -21845,6 +22105,10 @@ var require_AstigLangParser = __commonJS({
       "NOT_KW",
       "AND_KW",
       "OR_KW",
+      "MALLOC_KW",
+      "REALLOC_KW",
+      "FREE_KW",
+      "MEMSET_KW",
       "IDENTIFIER",
       "FILENAME",
       "FILE_EXTENSION",
@@ -21863,6 +22127,10 @@ var require_AstigLangParser = __commonJS({
       "GT",
       "LTE",
       "GTE",
+      "SHL",
+      "SHR",
+      "BWA",
+      "BWO",
       "SEMICOLON",
       "FLOAT",
       "NUMBER",
@@ -21870,85 +22138,94 @@ var require_AstigLangParser = __commonJS({
       "WS"
     ];
     AstigLangParser.VOCABULARY = new VocabularyImpl_1.VocabularyImpl(AstigLangParser._LITERAL_NAMES, AstigLangParser._SYMBOLIC_NAMES, []);
-    AstigLangParser._serializedATN = `\uC91D\uCABA\u058D\uAFBA\u4F53\u0607\uEA8B\uC241C\u01D9					\x07	\x07\b	\b			
+    AstigLangParser._serializedATN = `\uC91D\uCABA\u058D\uAFBA\u4F53\u0607\uEA8B\uC241K\u0219					\x07	\x07\b	\b			
 	
-\v	\v\f	\f\r	\r													\x1B	\x1B				 	 !	!"	"#	#$	$%	%&	&'	'(	()	)*	*+	+,	,-	-.	.\x07^
-\fa\v\x07d
-\fg\v\x07j
-\fm\vp
-\x07v
-\fy\v~
-\x82
-\x86
+\v	\v\f	\f\r	\r													\x1B	\x1B				 	 !	!"	"#	#$	$%	%&	&'	'(	()	)*	*+	+,	,-	-.	./	/0	0\x07b
+\fe\v\x07h
+\fk\v\x07n
+\fq\vt
+\x07z
+\f}\v\x82
+\x86
 \x8A
 \x8E
 \x92
-\x9C
-\xA0
-\xA4
-\xA7
-\xAE
-\x07\x07\x07\x07\x07\xB4
-\x07\x07\x07\x07\xB8
-\x07\b\b\b\x07\b\xBD
-\b\f\b\b\xC0\v\b			
+\x96
+\x9A
+\x9E
+\xA8
+\xAC
+\xB0
+\xB3
+\xBA
+\x07\x07\x07\x07\x07\xC0
+\x07\x07\x07\x07\xC4
+\x07\b\b\b\x07\b\xC9
+\b\f\b\b\xCC\v\b			
 
 
 
 
-\xC9
+\xD5
 
 
 
 
-\xCD
+\xD9
 
-\v\v\v\x07\v\xD2
-\v\f\v\v\xD5\v\v\f\f\r\r\r\xDB
-\r\r\r\x07\xE2
-\f\xE5\v\xF2
-\xF7
-\x07\xFF
-\f\u0102\v\u0105
-\u011E
-\u0123
-\u0127
-\u012B
-\u0132
-\u0136
-\u0140
-\x1B\x1B\x1B\x1B\x1B\u0152
-\r\u0153  !!""\u0165
-""""""\u016B
-""""\u016F
-"""######$$$\x07$\u017C
-$\f$$\u017F\v$%%%\u0183
-%&&&\u0187
-&''\x07'\u018B
-'\f''\u018E\v'''(((\x07(\u0195
-(\f((\u0198\v())))\u019D
-)))*****\u01A5
-*+++,,---\u01AE
--....................\u01C3
-................\x07.\u01D4
-.\f..\u01D7\v..Z/\b
-\f "$&(*,.02468:<>@BDFHJLNPRTVXZ	23"--68459>+,\u01F8_sz\b\xA6
-\xA8\f\xAF\xB9\xC1\xC4\xCE\xD6\xD8\xDE\xE6\xE8 \xED"\xF8$\u0106&\u010D(\u0110*\u0116,\u011F.\u01310\u01352\u013F4\u01416\u01468\u014E:\u0155<\u0157>\u015F@\u0161B\u0164D\u0172F\u0178H\u0180J\u0184L\u0188N\u0191P\u0199R\u01A0T\u01A6V\u01A9X\u01ADZ\u01C2\\^]\\^a_]_\`\`ea_bd\f\x07cbdgeceffkgehjB"ihjmkikllomknpD#onoppqqr\x07rswtvutvywuwxxywz{\x07\r{}\x07.|~\x07?}|}~~\x07\x7F\x81
-\x80\x82\x07?\x81\x80\x81\x82\x82\xA7\x83\x852\x84\x86\x07?\x85\x84\x85\x86\x86\xA7\x87\x896\x88\x8A\x07?\x89\x88\x89\x8A\x8A\xA7\x8B\x8D\x8C\x8E\x07?\x8D\x8C\x8D\x8E\x8E\xA7\x8F\x91 \x90\x92\x07?\x91\x90\x91\x92\x92\xA7\x93\xA7"\x94\xA7(\x95\xA7*\x96\xA7,\x97\xA7<\x98\xA7B"\x99\x9BJ&\x9A\x9C\x07?\x9B\x9A\x9B\x9C\x9C\xA7\x9D\x9F> \x9E\xA0\x07?\x9F\x9E\x9F\xA0\xA0\xA7\xA1\xA3@!\xA2\xA4\x07?\xA3\xA2\xA3\xA4\xA4\xA7\xA5\xA7L'\xA6\x7F\xA6\x83\xA6\x87\xA6\x8B\xA6\x8F\xA6\x93\xA6\x94\xA6\x95\xA6\x96\xA6\x97\xA6\x98\xA6\x99\xA6\x9D\xA6\xA1\xA6\xA5\xA7	\xA8\xA9\xA9\xAA\x07-\xAA\xADR*\xAB\xAC\x07\xAC\xAEZ.\xAD\xAB\xAD\xAE\xAE\v\xAF\xB0\x07'\xB0\xB1\x07-\xB1\xB3\x07\xB2\xB4\b\xB3\xB2\xB3\xB4\xB4\xB5\xB5\xB7\x07\xB6\xB8\x07?\xB7\xB6\xB7\xB8\xB8\r\xB9\xBE	\xBA\xBB\x07\xBB\xBD	\xBC\xBA\xBD\xC0\xBE\xBC\xBE\xBF\xBF\xC0\xBE\xC1\xC2\x07-\xC2\xC3R*\xC3\xC4\xC5\x07(\xC5\xC6\x07-\xC6\xC8\x07\xC7\xC9\v\xC8\xC7\xC8\xC9\xC9\xCA\xCA\xCC\x07\xCB\xCD\x07?\xCC\xCB\xCC\xCD\xCD\xCE\xD3\f\xCF\xD0\x07\xD0\xD2\f\xD1\xCF\xD2\xD5\xD3\xD1\xD3\xD4\xD4\xD5\xD3\xD6\xD72\xD7\xD8\xDA\x07\x07\xD9\xDB\xDA\xD9\xDA\xDB\xDB\xDC\xDC\xDD\x07\b\xDD\xDE\xE3Z.\xDF\xE0\x07\xE0\xE2Z.\xE1\xDF\xE2\xE5\xE3\xE1\xE3\xE4\xE4\x1B\xE5\xE3\xE6\xE7	\xE7\xE8\xE9\x07\xE9\xEA\x07	\xEA\xEBZ.\xEB\xEC\x07
-\xEC\xED\xEE\x07\xEE\xF1\x07	\xEF\xF0\x07B\xF0\xF2\x07\xF1\xEF\xF1\xF2\xF2\xF3\xF3\xF4\x07-\xF4\xF6\x07
-\xF5\xF7\x07?\xF6\xF5\xF6\xF7\xF7!\xF8\xF9\x07\xF9\xFA\x07	\xFA\xFBZ.\xFB\xFC\x07
-\xFC\u0100L'\xFD\xFF$\xFE\xFD\xFF\u0102\u0100\xFE\u0100\u0101\u0101\u0104\u0102\u0100\u0103\u0105&\u0104\u0103\u0104\u0105\u0105#\u0106\u0107\x07\u0107\u0108\x07\u0108\u0109\x07	\u0109\u010AZ.\u010A\u010B\x07
-\u010B\u010CL'\u010C%\u010D\u010E\x07\u010E\u010FL'\u010F'\u0110\u0111\x07\u0111\u0112\x07	\u0112\u0113Z.\u0113\u0114\x07
-\u0114\u0115L'\u0115)\u0116\u0117\x07\u0117\u0118L'\u0118\u0119\x07\u0119\u011A\x07	\u011A\u011BZ.\u011B\u011D\x07
-\u011C\u011E\x07?\u011D\u011C\u011D\u011E\u011E+\u011F\u0120\x07\u0120\u0122\x07	\u0121\u0123.\u0122\u0121\u0122\u0123\u0123\u0124\u0124\u0126\x07?\u0125\u0127Z.\u0126\u0125\u0126\u0127\u0127\u0128\u0128\u012A\x07?\u0129\u012B0\u012A\u0129\u012A\u012B\u012B\u012C\u012C\u012D\x07
-\u012D\u012EL'\u012E-\u012F\u0132
-\u0130\u01322\u0131\u012F\u0131\u0130\u0132/\u0133\u01362\u0134\u0136P)\u0135\u0133\u0135\u0134\u01361\u0137\u0138\x07-\u0138\u0139:\u0139\u013AZ.\u013A\u0140\u013B\u013C8\u013C\u013D:\u013D\u013EZ.\u013E\u0140\u013F\u0137\u013F\u013B\u01403\u0141\u0142\x07-\u0142\u0143\x07\x07\u0143\u0144Z.\u0144\u0145\x07\b\u01455\u0146\u0147\x07-\u0147\u0148\x07\x07\u0148\u0149Z.\u0149\u014A\x07\b\u014A\u014B:\u014B\u014CZ.\u014C\u014D\x07?\u014D7\u014E\u0151\x07-\u014F\u0150\x07\v\u0150\u0152\x07-\u0151\u014F\u0152\u0153\u0153\u0151\u0153\u0154\u01549\u0155\u0156	\u0156;\u0157\u0158\x07\u0158\u0159\x07	\u0159\u015A\x07-\u015A\u015B\x07\x1B\u015B\u015CZ.\u015C\u015D\x07
-\u015D\u015EL'\u015E=\u015F\u0160\x07\u0160?\u0161\u0162\x07\u0162A\u0163\u0165\x07)\u0164\u0163\u0164\u0165\u0165\u0166\u0166\u0167\x07\u0167\u0168\x07-\u0168\u016A\x07	\u0169\u016BF$\u016A\u0169\u016A\u016B\u016B\u016C\u016C\u016E\x07
-\u016D\u016FT+\u016E\u016D\u016E\u016F\u016F\u0170\u0170\u0171L'\u0171C\u0172\u0173\x07\u0173\u0174\x07&\u0174\u0175\x07	\u0175\u0176\x07
-\u0176\u0177L'\u0177E\u0178\u017DH%\u0179\u017A\x07\u017A\u017CH%\u017B\u0179\u017C\u017F\u017D\u017B\u017D\u017E\u017EG\u017F\u017D\u0180\u0182\x07-\u0181\u0183R*\u0182\u0181\u0182\u0183\u0183I\u0184\u0186\x07\u0185\u0187Z.\u0186\u0185\u0186\u0187\u0187K\u0188\u018C\x07\u0189\u018B\b\u018A\u0189\u018B\u018E\u018C\u018A\u018C\u018D\u018D\u018F\u018E\u018C\u018F\u0190\x07\u0190M\u0191\u0196Z.\u0192\u0193\x07\u0193\u0195Z.\u0194\u0192\u0195\u0198\u0196\u0194\u0196\u0197\u0197O\u0198\u0196\u0199\u019A\x07-\u019A\u019C\x07	\u019B\u019DN(\u019C\u019B\u019C\u019D\u019D\u019E\u019E\u019F\x07
-\u019FQ\u01A0\u01A1\x07\f\u01A1\u01A4V,\u01A2\u01A3\x07\x07\u01A3\u01A5\x07\b\u01A4\u01A2\u01A4\u01A5\u01A5S\u01A6\u01A7\x07\f\u01A7\u01A8X-\u01A8U\u01A9\u01AA	\u01AAW\u01AB\u01AEV,\u01AC\u01AE\x07%\u01AD\u01AB\u01AD\u01AC\u01AEY\u01AF\u01B0\b.\u01B0\u01B1\x07*\u01B1\u01C3Z.\u01B2\u01B3\x075\u01B3\u01C3Z.\u01B4\u01B5\x07	\u01B5\u01B6Z.\u01B6\u01B7\x07
-\u01B7\u01C3\u01B8\u01C3P)\u01B9\u01C3
-\u01BA\u01C3\r\u01BB\u01C34\x1B\u01BC\u01C3\x07A\u01BD\u01C3\x07@\u01BE\u01C3\x07B\u01BF\u01C3\x07#\u01C0\u01C3\x07$\u01C1\u01C3\x07-\u01C2\u01AF\u01C2\u01B2\u01C2\u01B4\u01C2\u01B8\u01C2\u01B9\u01C2\u01BA\u01C2\u01BB\u01C2\u01BC\u01C2\u01BD\u01C2\u01BE\u01C2\u01BF\u01C2\u01C0\u01C2\u01C1\u01C3\u01D5\u01C4\u01C5\f\u01C5\u01C6	\u01C6\u01D4Z.\u01C7\u01C8\f\u01C8\u01C9	\u01C9\u01D4Z.\u01CA\u01CB\f\u01CB\u01CC	\x07\u01CC\u01D4Z.\u01CD\u01CE\f\u01CE\u01CF	\b\u01CF\u01D4Z.\u01D0\u01D1\f	\u01D1\u01D2\x07\v\u01D2\u01D4\x07-\u01D3\u01C4\u01D3\u01C7\u01D3\u01CA\u01D3\u01CD\u01D3\u01D0\u01D4\u01D7\u01D5\u01D3\u01D5\u01D6\u01D6[\u01D7\u01D54_ekow}\x81\x85\x89\x8D\x91\x9B\x9F\xA3\xA6\xAD\xB3\xB7\xBE\xC8\xCC\xD3\xDA\xE3\xF1\xF6\u0100\u0104\u011D\u0122\u0126\u012A\u0131\u0135\u013F\u0153\u0164\u016A\u016E\u017D\u0182\u0186\u018C\u0196\u019C\u01A4\u01AD\u01C2\u01D3\u01D5`;
+\v\v\v\x07\v\xDE
+\v\f\v\v\xE1\v\v\f\f\r\r\r\xE7
+\r\r\r\x07\xEE
+\f\xF1\v\u010C
+\u0111
+\x07\u0119
+\f\u011C\v\u011F
+\u0138
+\u013D
+\u0141
+\u0145
+\u014C
+\x1B\x1B\x1B\u0150
+\x1B\u015F
+\u0171
+\r\u0172  !!!!!!!!""##$$\u0184
+$$$$$$\u018A
+$$$$\u018E
+$$$%%%%%%&&&\x07&\u019B
+&\f&&\u019E\v&'''\u01A2
+'(((\u01A6
+())\x07)\u01AA
+)\f))\u01AD\v)))***\x07*\u01B4
+*\f**\u01B7\v*++++\u01BC
++++,,,\x07,\u01C3
+,\f,,\u01C6\v,,,,\u01CA
+,---\x07-\u01CF
+-\f--\u01D2\v-..///\u01D8
+/000000000000000000000000000000000000\u01FD
+0000000000000000000000\x070\u0214
+0\f00\u0217\v00^1\b
+\f "$&(*,.02468:<>@BDFHJLNPRTVXZ\\^\v67"11:<89CD=BEF+,\u0243cw~\b\xB2
+\xB4\f\xBB\xC5\xCD\xD0\xDA\xE2\xE4\xEA\xF2\xF4 \xF9"\u0102$\u0107&\u0112(\u0120*\u0127,\u012A.\u01300\u01392\u014B4\u014F6\u015E8\u0160:\u0165<\u016D>\u0174@\u0176B\u017ED\u0180F\u0183H\u0191J\u0197L\u019FN\u01A3P\u01A7R\u01B0T\u01B8V\u01BFX\u01CBZ\u01D3\\\u01D7^\u01FC\`ba\`becacddiecfh\f\x07gfhkigijjokilnF$mlnqomoppsqortH%srsttuuv\x07vw{xzyxz}{y{||}{~\x7F\x07\r\x7F\x81\x072\x80\x82\x07G\x81\x80\x81\x82\x82\x07\x83\x85
+\x84\x86\x07G\x85\x84\x85\x86\x86\xB3\x87\x896\x88\x8A\x07G\x89\x88\x89\x8A\x8A\xB3\x8B\x8D:\x8C\x8E\x07G\x8D\x8C\x8D\x8E\x8E\xB3\x8F\x91\x90\x92\x07G\x91\x90\x91\x92\x92\xB3\x93\x95 \x94\x96\x07G\x95\x94\x95\x96\x96\xB3\x97\x99"\x98\x9A\x07G\x99\x98\x99\x9A\x9A\xB3\x9B\x9D$\x9C\x9E\x07G\x9D\x9C\x9D\x9E\x9E\xB3\x9F\xB3&\xA0\xB3,\xA1\xB3.\xA2\xB30\xA3\xB3@!\xA4\xB3F$\xA5\xA7N(\xA6\xA8\x07G\xA7\xA6\xA7\xA8\xA8\xB3\xA9\xABB"\xAA\xAC\x07G\xAB\xAA\xAB\xAC\xAC\xB3\xAD\xAFD#\xAE\xB0\x07G\xAF\xAE\xAF\xB0\xB0\xB3\xB1\xB3P)\xB2\x83\xB2\x87\xB2\x8B\xB2\x8F\xB2\x93\xB2\x97\xB2\x9B\xB2\x9F\xB2\xA0\xB2\xA1\xB2\xA2\xB2\xA3\xB2\xA4\xB2\xA5\xB2\xA9\xB2\xAD\xB2\xB1\xB3	\xB4\xB5\xB5\xB6\x071\xB6\xB9V,\xB7\xB8\x07\xB8\xBA^0\xB9\xB7\xB9\xBA\xBA\v\xBB\xBC\x07'\xBC\xBD\x071\xBD\xBF\x07\xBE\xC0\b\xBF\xBE\xBF\xC0\xC0\xC1\xC1\xC3\x07\xC2\xC4\x07G\xC3\xC2\xC3\xC4\xC4\r\xC5\xCA	\xC6\xC7\x07\xC7\xC9	\xC8\xC6\xC9\xCC\xCA\xC8\xCA\xCB\xCB\xCC\xCA\xCD\xCE\x071\xCE\xCFV,\xCF\xD0\xD1\x07(\xD1\xD2\x071\xD2\xD4\x07\xD3\xD5\v\xD4\xD3\xD4\xD5\xD5\xD6\xD6\xD8\x07\xD7\xD9\x07G\xD8\xD7\xD8\xD9\xD9\xDA\xDF\f\xDB\xDC\x07\xDC\xDE\f\xDD\xDB\xDE\xE1\xDF\xDD\xDF\xE0\xE0\xE1\xDF\xE2\xE36\xE3\xE4\xE6\x07\x07\xE5\xE7\xE6\xE5\xE6\xE7\xE7\xE8\xE8\xE9\x07\b\xE9\xEA\xEF^0\xEB\xEC\x07\xEC\xEE^0\xED\xEB\xEE\xF1\xEF\xED\xEF\xF0\xF0\x1B\xF1\xEF\xF2\xF3	\xF3\xF4\xF5\x07/\xF5\xF6\x07	\xF6\xF7^0\xF7\xF8\x07
+\xF8\xF9\xFA\x070\xFA\xFB\x07	\xFB\xFC^0\xFC\xFD\x07\xFD\xFE^0\xFE\xFF\x07\xFF\u0100^0\u0100\u0101\x07
+\u0101!\u0102\u0103\x07\u0103\u0104\x07	\u0104\u0105^0\u0105\u0106\x07
+\u0106#\u0107\u0108\x07\u0108\u010B\x07	\u0109\u010A\x07J\u010A\u010C\x07\u010B\u0109\u010B\u010C\u010C\u010D\u010D\u010E\x071\u010E\u0110\x07
+\u010F\u0111\x07G\u0110\u010F\u0110\u0111\u0111%\u0112\u0113\x07\u0113\u0114\x07	\u0114\u0115^0\u0115\u0116\x07
+\u0116\u011AP)\u0117\u0119(\u0118\u0117\u0119\u011C\u011A\u0118\u011A\u011B\u011B\u011E\u011C\u011A\u011D\u011F*\u011E\u011D\u011E\u011F\u011F'\u0120\u0121\x07\u0121\u0122\x07\u0122\u0123\x07	\u0123\u0124^0\u0124\u0125\x07
+\u0125\u0126P)\u0126)\u0127\u0128\x07\u0128\u0129P)\u0129+\u012A\u012B\x07\u012B\u012C\x07	\u012C\u012D^0\u012D\u012E\x07
+\u012E\u012FP)\u012F-\u0130\u0131\x07\u0131\u0132P)\u0132\u0133\x07\u0133\u0134\x07	\u0134\u0135^0\u0135\u0137\x07
+\u0136\u0138\x07G\u0137\u0136\u0137\u0138\u0138/\u0139\u013A\x07\u013A\u013C\x07	\u013B\u013D2\u013C\u013B\u013C\u013D\u013D\u013E\u013E\u0140\x07G\u013F\u0141^0\u0140\u013F\u0140\u0141\u0141\u0142\u0142\u0144\x07G\u0143\u01454\x1B\u0144\u0143\u0144\u0145\u0145\u0146\u0146\u0147\x07
+\u0147\u0148P)\u01481\u0149\u014C
+\u014A\u014C6\u014B\u0149\u014B\u014A\u014C3\u014D\u01506\u014E\u0150T+\u014F\u014D\u014F\u014E\u01505\u0151\u0152\x071\u0152\u0153> \u0153\u0154^0\u0154\u015F\u0155\u0156<\u0156\u0157> \u0157\u0158^0\u0158\u015F\u0159\u015A\x07:\u015A\u015B^0\u015B\u015C> \u015C\u015D^0\u015D\u015F\u015E\u0151\u015E\u0155\u015E\u0159\u015F7\u0160\u0161\x071\u0161\u0162\x07\x07\u0162\u0163^0\u0163\u0164\x07\b\u01649\u0165\u0166\x071\u0166\u0167\x07\x07\u0167\u0168^0\u0168\u0169\x07\b\u0169\u016A> \u016A\u016B^0\u016B\u016C\x07G\u016C;\u016D\u0170\x071\u016E\u016F\x07\v\u016F\u0171\x071\u0170\u016E\u0171\u0172\u0172\u0170\u0172\u0173\u0173=\u0174\u0175	\u0175?\u0176\u0177\x07\u0177\u0178\x07	\u0178\u0179\x071\u0179\u017A\x07\x1B\u017A\u017B^0\u017B\u017C\x07
+\u017C\u017DP)\u017DA\u017E\u017F\x07\u017FC\u0180\u0181\x07\u0181E\u0182\u0184\x07)\u0183\u0182\u0183\u0184\u0184\u0185\u0185\u0186\x07\u0186\u0187\x071\u0187\u0189\x07	\u0188\u018AJ&\u0189\u0188\u0189\u018A\u018A\u018B\u018B\u018D\x07
+\u018C\u018EX-\u018D\u018C\u018D\u018E\u018E\u018F\u018F\u0190P)\u0190G\u0191\u0192\x07\u0192\u0193\x07&\u0193\u0194\x07	\u0194\u0195\x07
+\u0195\u0196P)\u0196I\u0197\u019CL'\u0198\u0199\x07\u0199\u019BL'\u019A\u0198\u019B\u019E\u019C\u019A\u019C\u019D\u019DK\u019E\u019C\u019F\u01A1\x071\u01A0\u01A2V,\u01A1\u01A0\u01A1\u01A2\u01A2M\u01A3\u01A5\x07\u01A4\u01A6^0\u01A5\u01A4\u01A5\u01A6\u01A6O\u01A7\u01AB\x07\u01A8\u01AA\b\u01A9\u01A8\u01AA\u01AD\u01AB\u01A9\u01AB\u01AC\u01AC\u01AE\u01AD\u01AB\u01AE\u01AF\x07\u01AFQ\u01B0\u01B5^0\u01B1\u01B2\x07\u01B2\u01B4^0\u01B3\u01B1\u01B4\u01B7\u01B5\u01B3\u01B5\u01B6\u01B6S\u01B7\u01B5\u01B8\u01B9\x071\u01B9\u01BB\x07	\u01BA\u01BCR*\u01BB\u01BA\u01BB\u01BC\u01BC\u01BD\u01BD\u01BE\x07
+\u01BEU\u01BF\u01C0\x07\f\u01C0\u01C4Z.\u01C1\u01C3\x07:\u01C2\u01C1\u01C3\u01C6\u01C4\u01C2\u01C4\u01C5\u01C5\u01C9\u01C6\u01C4\u01C7\u01C8\x07\x07\u01C8\u01CA\x07\b\u01C9\u01C7\u01C9\u01CA\u01CAW\u01CB\u01CC\x07\f\u01CC\u01D0\\/\u01CD\u01CF\x07:\u01CE\u01CD\u01CF\u01D2\u01D0\u01CE\u01D0\u01D1\u01D1Y\u01D2\u01D0\u01D3\u01D4	\u01D4[\u01D5\u01D8Z.\u01D6\u01D8\x07%\u01D7\u01D5\u01D7\u01D6\u01D8]\u01D9\u01DA\b0\u01DA\u01DB\x07*\u01DB\u01FD^0\u01DC\u01DD\x079\u01DD\u01FD^0\u01DE\u01DF\x07:\u01DF\u01FD^0\u01E0\u01E1\x07E\u01E1\u01FD^0\u01E2\u01E3\x07	\u01E3\u01E4^0\u01E4\u01E5\x07
+\u01E5\u01FD\u01E6\u01E7\x07-\u01E7\u01E8\x07	\u01E8\u01E9^0\u01E9\u01EA\x07
+\u01EA\u01FD\u01EB\u01EC\x07.\u01EC\u01ED\x07	\u01ED\u01EE^0\u01EE\u01EF\x07\u01EF\u01F0^0\u01F0\u01F1\x07
+\u01F1\u01FD\u01F2\u01FDT+\u01F3\u01FD
+\u01F4\u01FD\r\u01F5\u01FD8\u01F6\u01FD\x07I\u01F7\u01FD\x07H\u01F8\u01FD\x07J\u01F9\u01FD\x07#\u01FA\u01FD\x07$\u01FB\u01FD\x071\u01FC\u01D9\u01FC\u01DC\u01FC\u01DE\u01FC\u01E0\u01FC\u01E2\u01FC\u01E6\u01FC\u01EB\u01FC\u01F2\u01FC\u01F3\u01FC\u01F4\u01FC\u01F5\u01FC\u01F6\u01FC\u01F7\u01FC\u01F8\u01FC\u01F9\u01FC\u01FA\u01FC\u01FB\u01FD\u0215\u01FE\u01FF\f\u01FF\u0200	\u0200\u0214^0\u0201\u0202\f\u0202\u0203	\u0203\u0214^0\u0204\u0205\f\u0205\u0206	\x07\u0206\u0214^0\u0207\u0208\f\u0208\u0209	\b\u0209\u0214^0\u020A\u020B\f\u020B\u020C		\u020C\u0214^0\u020D\u020E\f\u020E\u020F	
+\u020F\u0214^0\u0210\u0211\f	\u0211\u0212\x07\v\u0212\u0214\x071\u0213\u01FE\u0213\u0201\u0213\u0204\u0213\u0207\u0213\u020A\u0213\u020D\u0213\u0210\u0214\u0217\u0215\u0213\u0215\u0216\u0216_\u0217\u02158cios{\x81\x85\x89\x8D\x91\x95\x99\x9D\xA7\xAB\xAF\xB2\xB9\xBF\xC3\xCA\xD4\xD8\xDF\xE6\xEF\u010B\u0110\u011A\u011E\u0137\u013C\u0140\u0144\u014B\u014F\u015E\u0172\u0183\u0189\u018D\u019C\u01A1\u01A5\u01AB\u01B5\u01BB\u01C4\u01C9\u01D0\u01D7\u01FC\u0213\u0215`;
     var ProgramContext = class extends ParserRuleContext_1.ParserRuleContext {
       EOF() {
         return this.getToken(AstigLangParser.EOF, 0);
@@ -22097,6 +22374,12 @@ $\f$$\u017F\v$%%%\u0183
       }
       arrayIndexAssignment() {
         return this.tryGetRuleContext(0, ArrayIndexAssignmentContext);
+      }
+      freeStatement() {
+        return this.tryGetRuleContext(0, FreeStatementContext);
+      }
+      memsetStatement() {
+        return this.tryGetRuleContext(0, MemsetStatementContext);
       }
       printStatement() {
         return this.tryGetRuleContext(0, PrintStatementContext);
@@ -22541,6 +22824,82 @@ $\f$$\u017F\v$%%%\u0183
       }
     };
     exports2.DeclarationKeywordContext = DeclarationKeywordContext;
+    var FreeStatementContext = class extends ParserRuleContext_1.ParserRuleContext {
+      FREE_KW() {
+        return this.getToken(AstigLangParser.FREE_KW, 0);
+      }
+      expression() {
+        return this.getRuleContext(0, ExpressionContext);
+      }
+      constructor(parent, invokingState) {
+        super(parent, invokingState);
+      }
+      // @Override
+      get ruleIndex() {
+        return AstigLangParser.RULE_freeStatement;
+      }
+      // @Override
+      enterRule(listener) {
+        if (listener.enterFreeStatement) {
+          listener.enterFreeStatement(this);
+        }
+      }
+      // @Override
+      exitRule(listener) {
+        if (listener.exitFreeStatement) {
+          listener.exitFreeStatement(this);
+        }
+      }
+      // @Override
+      accept(visitor) {
+        if (visitor.visitFreeStatement) {
+          return visitor.visitFreeStatement(this);
+        } else {
+          return visitor.visitChildren(this);
+        }
+      }
+    };
+    exports2.FreeStatementContext = FreeStatementContext;
+    var MemsetStatementContext = class extends ParserRuleContext_1.ParserRuleContext {
+      MEMSET_KW() {
+        return this.getToken(AstigLangParser.MEMSET_KW, 0);
+      }
+      expression(i) {
+        if (i === void 0) {
+          return this.getRuleContexts(ExpressionContext);
+        } else {
+          return this.getRuleContext(i, ExpressionContext);
+        }
+      }
+      constructor(parent, invokingState) {
+        super(parent, invokingState);
+      }
+      // @Override
+      get ruleIndex() {
+        return AstigLangParser.RULE_memsetStatement;
+      }
+      // @Override
+      enterRule(listener) {
+        if (listener.enterMemsetStatement) {
+          listener.enterMemsetStatement(this);
+        }
+      }
+      // @Override
+      exitRule(listener) {
+        if (listener.exitMemsetStatement) {
+          listener.exitMemsetStatement(this);
+        }
+      }
+      // @Override
+      accept(visitor) {
+        if (visitor.visitMemsetStatement) {
+          return visitor.visitMemsetStatement(this);
+        } else {
+          return visitor.visitChildren(this);
+        }
+      }
+    };
+    exports2.MemsetStatementContext = MemsetStatementContext;
     var PrintStatementContext = class extends ParserRuleContext_1.ParserRuleContext {
       PRINT_KW() {
         return this.getToken(AstigLangParser.PRINT_KW, 0);
@@ -22961,11 +23320,18 @@ $\f$$\u017F\v$%%%\u0183
       assignmentOperator() {
         return this.getRuleContext(0, AssignmentOperatorContext);
       }
-      expression() {
-        return this.getRuleContext(0, ExpressionContext);
+      expression(i) {
+        if (i === void 0) {
+          return this.getRuleContexts(ExpressionContext);
+        } else {
+          return this.getRuleContext(i, ExpressionContext);
+        }
       }
       recordFieldAccess() {
         return this.tryGetRuleContext(0, RecordFieldAccessContext);
+      }
+      MUL() {
+        return this.tryGetToken(AstigLangParser.MUL, 0);
       }
       constructor(parent, invokingState) {
         super(parent, invokingState);
@@ -23572,6 +23938,13 @@ $\f$$\u017F\v$%%%\u0183
       dataType() {
         return this.getRuleContext(0, DataTypeContext);
       }
+      MUL(i) {
+        if (i === void 0) {
+          return this.getTokens(AstigLangParser.MUL);
+        } else {
+          return this.getToken(AstigLangParser.MUL, i);
+        }
+      }
       constructor(parent, invokingState) {
         super(parent, invokingState);
       }
@@ -23604,6 +23977,13 @@ $\f$$\u017F\v$%%%\u0183
     var ReturnTypeAnnotationContext = class extends ParserRuleContext_1.ParserRuleContext {
       returnDataType() {
         return this.getRuleContext(0, ReturnDataTypeContext);
+      }
+      MUL(i) {
+        if (i === void 0) {
+          return this.getTokens(AstigLangParser.MUL);
+        } else {
+          return this.getToken(AstigLangParser.MUL, i);
+        }
       }
       constructor(parent, invokingState) {
         super(parent, invokingState);
@@ -23735,6 +24115,9 @@ $\f$$\u017F\v$%%%\u0183
       MUL() {
         return this.tryGetToken(AstigLangParser.MUL, 0);
       }
+      BWA() {
+        return this.tryGetToken(AstigLangParser.BWA, 0);
+      }
       DIV() {
         return this.tryGetToken(AstigLangParser.DIV, 0);
       }
@@ -23743,6 +24126,12 @@ $\f$$\u017F\v$%%%\u0183
       }
       ADD() {
         return this.tryGetToken(AstigLangParser.ADD, 0);
+      }
+      SHL() {
+        return this.tryGetToken(AstigLangParser.SHL, 0);
+      }
+      SHR() {
+        return this.tryGetToken(AstigLangParser.SHR, 0);
       }
       EQ() {
         return this.tryGetToken(AstigLangParser.EQ, 0);
@@ -23762,11 +24151,20 @@ $\f$$\u017F\v$%%%\u0183
       GTE() {
         return this.tryGetToken(AstigLangParser.GTE, 0);
       }
+      BWO() {
+        return this.tryGetToken(AstigLangParser.BWO, 0);
+      }
       AND_KW() {
         return this.tryGetToken(AstigLangParser.AND_KW, 0);
       }
       OR_KW() {
         return this.tryGetToken(AstigLangParser.OR_KW, 0);
+      }
+      MALLOC_KW() {
+        return this.tryGetToken(AstigLangParser.MALLOC_KW, 0);
+      }
+      REALLOC_KW() {
+        return this.tryGetToken(AstigLangParser.REALLOC_KW, 0);
       }
       functionCall() {
         return this.tryGetRuleContext(0, FunctionCallContext);
@@ -23850,6 +24248,8 @@ var require_ExpressionNode = __commonJS({
       ExpressionNodeType2["UnaryExpression"] = "UnaryExpression";
       ExpressionNodeType2["RecordLiteral"] = "RecordLiteral";
       ExpressionNodeType2["MemberAccess"] = "MemberAccess";
+      ExpressionNodeType2["Malloc"] = "Malloc";
+      ExpressionNodeType2["Realloc"] = "Realloc";
     })(ExpressionNodeType || (exports2.ExpressionNodeType = ExpressionNodeType = {}));
   }
 });
@@ -23877,6 +24277,8 @@ var require_StatementNode = __commonJS({
       StatementNodeType2["ReturnStatement"] = "ReturnStatement";
       StatementNodeType2["BlockStatement"] = "BlockStatement";
       StatementNodeType2["ArrayIndexAssignment"] = "ArrayIndexAssignment";
+      StatementNodeType2["FreeStatement"] = "FreeStatement";
+      StatementNodeType2["MemsetStatement"] = "MemsetStatement";
     })(StatementNodeType || (exports2.StatementNodeType = StatementNodeType = {}));
   }
 });
@@ -24005,6 +24407,14 @@ var require_ast = __commonJS({
       const returnStatement = ctx.returnStatement();
       if (returnStatement) {
         return buildReturnStatement(returnStatement);
+      }
+      const freeStatement = ctx.freeStatement?.();
+      if (freeStatement) {
+        return buildFreeStatement(freeStatement);
+      }
+      const memsetStatement = ctx.memsetStatement?.();
+      if (memsetStatement) {
+        return buildMemsetStatement(memsetStatement);
       }
       const block = ctx.block();
       if (block) {
@@ -24151,12 +24561,25 @@ var require_ast = __commonJS({
       };
     }
     function buildAssignment(ctx) {
+      const expressions = ctx.expression();
+      let target;
+      let valueExpressionContext;
+      if (expressions.length === 2) {
+        target = {
+          kind: "dereference",
+          pointerExpression: buildExpression(expressions[0])
+        };
+        valueExpressionContext = expressions[1];
+      } else {
+        target = buildAssignmentTarget(ctx);
+        valueExpressionContext = expressions[0];
+      }
       return {
         type: StatementNode_1.StatementNodeType.Assignment,
         location: sourceLocationFrom(ctx),
-        target: buildAssignmentTarget(ctx),
+        target,
         operator: buildAssignmentOperator(ctx.assignmentOperator()),
-        value: buildExpression(ctx.expression())
+        value: buildExpression(valueExpressionContext)
       };
     }
     function buildAssignmentOperator(ctx) {
@@ -24216,6 +24639,23 @@ var require_ast = __commonJS({
         value: expression ? buildExpression(expression) : void 0
       };
     }
+    function buildFreeStatement(ctx) {
+      return {
+        type: StatementNode_1.StatementNodeType.FreeStatement,
+        location: sourceLocationFrom(ctx),
+        ptrExpr: buildExpression(ctx.expression())
+      };
+    }
+    function buildMemsetStatement(ctx) {
+      const expressions = ctx.expression();
+      return {
+        type: StatementNode_1.StatementNodeType.MemsetStatement,
+        location: sourceLocationFrom(ctx),
+        ptrExpr: buildExpression(expressions[0]),
+        valueExpr: buildExpression(expressions[1]),
+        sizeExpr: buildExpression(expressions[2])
+      };
+    }
     function buildBlockStatement(ctx) {
       return {
         type: StatementNode_1.StatementNodeType.BlockStatement,
@@ -24227,6 +24667,21 @@ var require_ast = __commonJS({
       const functionCall = ctx.functionCall();
       if (functionCall) {
         return buildFunctionCall(functionCall);
+      }
+      if (ctx.MALLOC_KW()) {
+        const innerExpr = ctx.expression(0) || ctx.expression();
+        return {
+          type: ExpressionNode_1.ExpressionNodeType.Malloc,
+          sizeExpr: buildExpression(innerExpr)
+        };
+      }
+      if (ctx.REALLOC_KW()) {
+        const reallocExprs = ctx.getRuleContexts(AstigLangParser_1.ExpressionContext);
+        return {
+          type: ExpressionNode_1.ExpressionNodeType.Realloc,
+          ptrExpr: buildExpression(reallocExprs[0]),
+          sizeExpr: buildExpression(reallocExprs[1])
+        };
       }
       const recordLiteral = ctx.recordLiteral();
       if (recordLiteral) {
@@ -24296,7 +24751,21 @@ var require_ast = __commonJS({
           argument: buildExpression(expressions[0])
         };
       }
-      const operatorToken = ctx._op ?? ctx.ADD() ?? ctx.SUB() ?? ctx.MUL() ?? ctx.DIV() ?? ctx.EQ() ?? ctx.NEQ() ?? ctx.LT() ?? ctx.GT() ?? ctx.LTE() ?? ctx.GTE() ?? ctx.AND_KW() ?? ctx.OR_KW();
+      if (expressions.length === 1 && ctx.MUL() && !memberField) {
+        return {
+          type: ExpressionNode_1.ExpressionNodeType.UnaryExpression,
+          operator: "*",
+          argument: buildExpression(expressions[0])
+        };
+      }
+      if (expressions.length === 1 && ctx.BWA() && !memberField) {
+        return {
+          type: ExpressionNode_1.ExpressionNodeType.UnaryExpression,
+          operator: "&",
+          argument: buildExpression(expressions[0])
+        };
+      }
+      const operatorToken = ctx._op ?? ctx.ADD() ?? ctx.SUB() ?? ctx.MUL() ?? ctx.DIV() ?? ctx.EQ() ?? ctx.NEQ() ?? ctx.LT() ?? ctx.GT() ?? ctx.LTE() ?? ctx.GTE() ?? ctx.SHL() ?? ctx.SHR() ?? ctx.BWA() ?? ctx.BWO() ?? ctx.AND_KW() ?? ctx.OR_KW();
       if (expressions.length === 2 && operatorToken) {
         if (ctx.OR_KW()) {
           operatorToken.text = "OR";
@@ -24322,7 +24791,7 @@ var require_ast = __commonJS({
       throw new Error(`Unsupported expression: ${ctx.text}`);
     }
     function isMemberAccessExpression(ctx) {
-      return !ctx.ADD() && !ctx.SUB() && !ctx.MUL() && !ctx.DIV() && !ctx.MOD() && !ctx.EQ() && !ctx.NEQ() && !ctx.LT() && !ctx.GT() && !ctx.LTE() && !ctx.GTE() && !ctx.AND_KW() && !ctx.OR_KW() && ctx.text.includes(".");
+      return !ctx.ADD() && !ctx.SUB() && !ctx.MUL() && !ctx.DIV() && !ctx.MOD() && !ctx.EQ() && !ctx.NEQ() && !ctx.LT() && !ctx.GT() && !ctx.LTE() && !ctx.GTE() && !ctx.SHL() && !ctx.SHR() && !ctx.BWA() && !ctx.BWO() && !ctx.AND_KW() && !ctx.OR_KW() && ctx.text.includes(".");
     }
     function buildRecordLiteral(ctx) {
       return {
@@ -24339,7 +24808,7 @@ var require_ast = __commonJS({
       }
       return {
         name: target.name,
-        value: buildExpression(assignment.expression())
+        value: buildExpression(assignment.expression(0))
       };
     }
     function buildArrayLiteral(ctx) {
@@ -24554,13 +25023,13 @@ var require_RuntimeExceptions = __commonJS({
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.ScanError = exports2.PrintError = exports2.InvalidOperationError = exports2.ArrayTypeError = exports2.ArrayBoundsError = exports2.UndefinedFunctionError = exports2.UninitializedVariableError = exports2.ConstAssignmentError = exports2.UndefinedVariableError = exports2.RedeclarationError = void 0;
     exports2.toRuntimeError = toRuntimeError;
-    var RuntimeError_12 = require_RuntimeError();
+    var RuntimeError_1 = require_RuntimeError();
     function toRuntimeError(error, location) {
-      if (error instanceof RuntimeError_12.RuntimeError) {
+      if (error instanceof RuntimeError_1.RuntimeError) {
         return error;
       }
       if (!(error instanceof Error)) {
-        return new RuntimeError_12.RuntimeError("Unknown runtime error", location);
+        return new RuntimeError_1.RuntimeError("Unknown runtime error", location);
       }
       const message = error.message;
       if (message.includes("Cannot redeclare")) {
@@ -24593,9 +25062,9 @@ var require_RuntimeExceptions = __commonJS({
       if (message.includes("Cannot scan into") || message.includes("EAGAIN")) {
         return new ScanError(message, location);
       }
-      return new RuntimeError_12.RuntimeError(message, location);
+      return new RuntimeError_1.RuntimeError(message, location);
     }
-    var RedeclarationError = class extends RuntimeError_12.RuntimeError {
+    var RedeclarationError = class extends RuntimeError_1.RuntimeError {
       constructor(symbolName, symbolKind = "variable", location) {
         super(`Runtime Error: Cannot redeclare ${symbolKind} "${symbolName}"`, location);
         this.name = "RedeclarationError";
@@ -24604,7 +25073,7 @@ var require_RuntimeExceptions = __commonJS({
       }
     };
     exports2.RedeclarationError = RedeclarationError;
-    var UndefinedVariableError = class extends RuntimeError_12.RuntimeError {
+    var UndefinedVariableError = class extends RuntimeError_1.RuntimeError {
       constructor(variableName, location) {
         super(`Runtime Error: Undefined variable "${variableName}"`, location);
         this.name = "UndefinedVariableError";
@@ -24612,7 +25081,7 @@ var require_RuntimeExceptions = __commonJS({
       }
     };
     exports2.UndefinedVariableError = UndefinedVariableError;
-    var ConstAssignmentError = class extends RuntimeError_12.RuntimeError {
+    var ConstAssignmentError = class extends RuntimeError_1.RuntimeError {
       constructor(variableName, location) {
         super(`Runtime Error: Cannot assign to const variable "${variableName}"`, location);
         this.name = "ConstAssignmentError";
@@ -24620,7 +25089,7 @@ var require_RuntimeExceptions = __commonJS({
       }
     };
     exports2.ConstAssignmentError = ConstAssignmentError;
-    var UninitializedVariableError = class extends RuntimeError_12.RuntimeError {
+    var UninitializedVariableError = class extends RuntimeError_1.RuntimeError {
       constructor(variableName, location) {
         super(`Runtime Error: Variable '${variableName}' is used before being assigned.`, location);
         this.name = "UninitializedVariableError";
@@ -24628,7 +25097,7 @@ var require_RuntimeExceptions = __commonJS({
       }
     };
     exports2.UninitializedVariableError = UninitializedVariableError;
-    var UndefinedFunctionError = class extends RuntimeError_12.RuntimeError {
+    var UndefinedFunctionError = class extends RuntimeError_1.RuntimeError {
       constructor(functionName, location) {
         super(`Runtime Error: Undefined function "${functionName}"`, location);
         this.name = "UndefinedFunctionError";
@@ -24636,35 +25105,35 @@ var require_RuntimeExceptions = __commonJS({
       }
     };
     exports2.UndefinedFunctionError = UndefinedFunctionError;
-    var ArrayBoundsError = class extends RuntimeError_12.RuntimeError {
+    var ArrayBoundsError = class extends RuntimeError_1.RuntimeError {
       constructor(message, location) {
         super(message.startsWith("Runtime Error:") ? message : `Runtime Error: ${message}`, location);
         this.name = "ArrayBoundsError";
       }
     };
     exports2.ArrayBoundsError = ArrayBoundsError;
-    var ArrayTypeError = class extends RuntimeError_12.RuntimeError {
+    var ArrayTypeError = class extends RuntimeError_1.RuntimeError {
       constructor(message, location) {
         super(message.startsWith("Runtime Error:") ? message : `Runtime Error: ${message}`, location);
         this.name = "ArrayTypeError";
       }
     };
     exports2.ArrayTypeError = ArrayTypeError;
-    var InvalidOperationError = class extends RuntimeError_12.RuntimeError {
+    var InvalidOperationError = class extends RuntimeError_1.RuntimeError {
       constructor(message, location) {
         super(message.startsWith("Runtime Error:") ? message : `Runtime Error: ${message}`, location);
         this.name = "InvalidOperationError";
       }
     };
     exports2.InvalidOperationError = InvalidOperationError;
-    var PrintError = class extends RuntimeError_12.RuntimeError {
+    var PrintError = class extends RuntimeError_1.RuntimeError {
       constructor(message, location) {
         super(message.startsWith("Runtime Error:") ? message : `Runtime Error: ${message}`, location);
         this.name = "PrintError";
       }
     };
     exports2.PrintError = PrintError;
-    var ScanError = class extends RuntimeError_12.RuntimeError {
+    var ScanError = class extends RuntimeError_1.RuntimeError {
       constructor(message, location) {
         super(message.startsWith("Runtime Error:") ? message : `Runtime Error: ${message}`, location);
         this.name = "ScanError";
@@ -24695,6 +25164,212 @@ var require_AstigType = __commonJS({
   }
 });
 
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/models/RuntimeValue.js
+var require_RuntimeValue = __commonJS({
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/models/RuntimeValue.js"(exports2) {
+    "use strict";
+    Object.defineProperty(exports2, "__esModule", { value: true });
+    exports2.isRecordRuntimeValue = isRecordRuntimeValue;
+    function isRecordRuntimeValue(value) {
+      return typeof value === "object" && value !== null && "recordTypeName" in value && "fields" in value;
+    }
+  }
+});
+
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/utils/astigTypeUtils.js
+var require_astigTypeUtils = __commonJS({
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/utils/astigTypeUtils.js"(exports2) {
+    "use strict";
+    Object.defineProperty(exports2, "__esModule", { value: true });
+    exports2.parseDeclaredType = parseDeclaredType;
+    exports2.resolveDataType = resolveDataType;
+    exports2.isNumericType = isNumericType;
+    exports2.isAssignableType = isAssignableType;
+    exports2.inferRuntimeValueType = inferRuntimeValueType;
+    exports2.formatAstigType = formatAstigType;
+    exports2.formatResolvedType = formatResolvedType;
+    exports2.resolveVariableDeclarationType = resolveVariableDeclarationType;
+    exports2.resolveParameterType = resolveParameterType;
+    exports2.expressionTypeToResolved = expressionTypeToResolved;
+    var TypeCheckError_1 = require_TypeCheckError();
+    var AstigType_1 = require_AstigType();
+    var RuntimeValue_1 = require_RuntimeValue();
+    function parseDeclaredType(typeName) {
+      const lower = typeName.toLowerCase();
+      const fuzzy = lower.replace(/h/g, "").replace(/[0-9@]/g, "").replace(/z+$/, "");
+      if (lower === "1nt" || fuzzy.includes("int")) {
+        return AstigType_1.AstigType.Int;
+      }
+      if (fuzzy.includes("float") || fuzzy.includes("flot")) {
+        return AstigType_1.AstigType.Float;
+      }
+      if (fuzzy.includes("string") || fuzzy.includes("str") && fuzzy.includes("ng")) {
+        return AstigType_1.AstigType.String;
+      }
+      if (fuzzy.includes("char") || fuzzy.includes("chr")) {
+        return AstigType_1.AstigType.Char;
+      }
+      if (fuzzy.includes("bol") && fuzzy.includes("n")) {
+        return AstigType_1.AstigType.Boolean;
+      }
+      if (fuzzy.includes("void") || fuzzy.includes("viod")) {
+        return AstigType_1.AstigType.Void;
+      }
+      throw new TypeCheckError_1.TypeCheckError(`Unknown type "${typeName}"`);
+    }
+    function resolveDataType(typeName, recordRegistry) {
+      if (typeName.endsWith("*")) {
+        const innerTypeName = typeName.slice(0, -1).trim();
+        return {
+          kind: "pointer",
+          underlying: resolveDataType(innerTypeName, recordRegistry)
+        };
+      }
+      try {
+        return { kind: "primitive", type: parseDeclaredType(typeName) };
+      } catch (error) {
+        if (error instanceof TypeCheckError_1.TypeCheckError && recordRegistry.has(typeName)) {
+          return { kind: "record", name: typeName };
+        }
+        throw error;
+      }
+    }
+    function isNumericType(type) {
+      return type === AstigType_1.AstigType.Int || type === AstigType_1.AstigType.Float;
+    }
+    function isAssignableType(expected, actual) {
+      if (expected.kind === "primitive" && expected.type === AstigType_1.AstigType.Any) {
+        return true;
+      }
+      if (actual.kind === "primitive" && actual.type === AstigType_1.AstigType.Any) {
+        return true;
+      }
+      if (expected.kind === "pointer" && actual.kind === "pointer") {
+        return isAssignableType(expected.underlying, actual.underlying);
+      }
+      if (expected.kind === "record" && actual.kind === "record") {
+        return expected.name === actual.name;
+      }
+      if (expected.kind === "array" && actual.kind === "array") {
+        return expected.elementType === actual.elementType;
+      }
+      if (expected.kind === "primitive" && actual.kind === "primitive") {
+        if (expected.type === actual.type) {
+          return true;
+        }
+        if (isNumericType(expected.type) && isNumericType(actual.type)) {
+          return true;
+        }
+        if (expected.type === AstigType_1.AstigType.String && actual.type === AstigType_1.AstigType.Char) {
+          return true;
+        }
+      }
+      return false;
+    }
+    function inferRuntimeValueType(value) {
+      if (typeof value === "number") {
+        return {
+          kind: "primitive",
+          type: Number.isInteger(value) ? AstigType_1.AstigType.Int : AstigType_1.AstigType.Float
+        };
+      }
+      if (typeof value === "string") {
+        return { kind: "primitive", type: AstigType_1.AstigType.String };
+      }
+      if (typeof value === "boolean") {
+        return { kind: "primitive", type: AstigType_1.AstigType.Boolean };
+      }
+      if (Array.isArray(value)) {
+        return { kind: "array", elementType: AstigType_1.AstigType.Any };
+      }
+      if ((0, RuntimeValue_1.isRecordRuntimeValue)(value)) {
+        return { kind: "record", name: value.recordTypeName };
+      }
+      return { kind: "primitive", type: AstigType_1.AstigType.Any };
+    }
+    function formatAstigType(type) {
+      return type;
+    }
+    function formatResolvedType(resolvedType) {
+      if (resolvedType.kind === "record") {
+        return resolvedType.name;
+      }
+      if (resolvedType.kind === "array") {
+        return `${formatAstigType(resolvedType.elementType)}[]`;
+      }
+      if (resolvedType.kind === "pointer") {
+        return `${formatResolvedType(resolvedType.underlying)}*`;
+      }
+      return formatAstigType(resolvedType.type);
+    }
+    function resolveVariableDeclarationType(declaration, recordRegistry) {
+      if (!declaration.declaredType) {
+        return { kind: "primitive", type: AstigType_1.AstigType.Any };
+      }
+      const baseResolved = resolveDataType(declaration.declaredType, recordRegistry);
+      if (declaration.isArray) {
+        if (baseResolved.kind !== "primitive") {
+          throw new TypeCheckError_1.TypeCheckError(`Arrays of complex kinds are currently unsupported for "${declaration.name}"`);
+        }
+        return {
+          kind: "array",
+          elementType: baseResolved.type
+        };
+      }
+      return baseResolved;
+    }
+    function resolveParameterType(parameter, recordRegistry) {
+      if (!parameter.declaredType) {
+        return { kind: "primitive", type: AstigType_1.AstigType.Any };
+      }
+      return resolveDataType(parameter.declaredType, recordRegistry);
+    }
+    function expressionTypeToResolved(astigType, recordTypeName) {
+      if (astigType === AstigType_1.AstigType.Record && recordTypeName) {
+        return { kind: "record", name: recordTypeName };
+      }
+      return { kind: "primitive", type: astigType };
+    }
+  }
+});
+
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/utils/formatRuntimeValue.js
+var require_formatRuntimeValue = __commonJS({
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/utils/formatRuntimeValue.js"(exports2) {
+    "use strict";
+    Object.defineProperty(exports2, "__esModule", { value: true });
+    exports2.formatRuntimeValue = formatRuntimeValue;
+    var RuntimeValue_1 = require_RuntimeValue();
+    function formatRuntimeValue(value, heap, depth = 0) {
+      if (depth > 4) {
+        return "...";
+      }
+      if (typeof value === "object" && value !== null && "isHeapReference" in value) {
+        const heapValue = heap.get(value.address);
+        return `@${value.address} \u2192 ${formatRuntimeValue(heapValue, heap, depth + 1)}`;
+      }
+      if (value === null) {
+        return "null";
+      }
+      if (typeof value === "string") {
+        return `"${value}"`;
+      }
+      if (typeof value === "boolean" || typeof value === "number") {
+        return String(value);
+      }
+      if (Array.isArray(value)) {
+        const items = value.map((item) => formatRuntimeValue(item, heap, depth + 1));
+        return `[${items.join(", ")}]`;
+      }
+      if ((0, RuntimeValue_1.isRecordRuntimeValue)(value)) {
+        const fields = [...value.fields.entries()].map(([name, fieldValue]) => `${name}=${formatRuntimeValue(fieldValue, heap, depth + 1)}`).join(", ");
+        return `{${value.recordTypeName}: ${fields}}`;
+      }
+      return String(value);
+    }
+  }
+});
+
 // ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/RuntimeEnvironment.js
 var require_RuntimeEnvironment = __commonJS({
   "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/RuntimeEnvironment.js"(exports2) {
@@ -24703,18 +25378,48 @@ var require_RuntimeEnvironment = __commonJS({
     exports2.RuntimeEnvironment = void 0;
     var RuntimeExceptions_1 = require_RuntimeExceptions();
     var AstigType_1 = require_AstigType();
+    var astigTypeUtils_1 = require_astigTypeUtils();
+    var formatRuntimeValue_1 = require_formatRuntimeValue();
     var RuntimeEnvironment = class _RuntimeEnvironment {
-      constructor(parent, isFunctionScope = false) {
+      constructor(parent, isFunctionScope = false, scopeName = "global") {
         this.parent = parent;
         this.isFunctionScope = isFunctionScope;
+        this.scopeName = scopeName;
         this.bindings = /* @__PURE__ */ new Map();
         this.functions = /* @__PURE__ */ new Map();
       }
       createBlockScope() {
-        return new _RuntimeEnvironment(this);
+        return new _RuntimeEnvironment(this, false, "block");
       }
-      createFunctionScope() {
-        return new _RuntimeEnvironment(this, true);
+      createFunctionScope(functionName = "function") {
+        return new _RuntimeEnvironment(this, true, functionName);
+      }
+      /** Outermost-first scope chain ending at the current (innermost) scope. */
+      getScopeChain() {
+        const chain = [];
+        let current = this;
+        while (current) {
+          chain.unshift(current);
+          current = current.parent;
+        }
+        return chain;
+      }
+      /** Snapshot of bindings and functions declared in this scope level only. */
+      snapshot(heap) {
+        const variables = [...this.bindings.entries()].sort(([leftName], [rightName]) => leftName.localeCompare(rightName)).map(([name, binding]) => ({
+          name,
+          kind: binding.kind,
+          type: (0, astigTypeUtils_1.formatResolvedType)(binding.resolvedType),
+          value: binding.isInitialized ? (0, formatRuntimeValue_1.formatRuntimeValue)(binding.value, heap) : "(uninitialized)",
+          initialized: binding.isInitialized
+        }));
+        const functions = [...this.functions.keys()].sort((left, right) => left.localeCompare(right));
+        return {
+          scopeName: this.scopeName,
+          isFunctionScope: this.isFunctionScope,
+          variables,
+          functions
+        };
       }
       declare(kind, name, value, resolvedType = { kind: "primitive", type: AstigType_1.AstigType.Any }) {
         if (this.bindings.has(name)) {
@@ -24797,6 +25502,20 @@ var require_RuntimeEnvironment = __commonJS({
         }
         return this.parent?.findEnvironmentWithFunction(name);
       }
+      collectActiveHeapAddresses(addresses = /* @__PURE__ */ new Set()) {
+        for (const [key, binding] of this.bindings.entries()) {
+          if (binding && binding.isInitialized && binding.value) {
+            const val = binding.value;
+            if (typeof val === "object" && "isHeapReference" in val) {
+              addresses.add(Number(val.address));
+            }
+          }
+        }
+        if (this.parent) {
+          this.parent.collectActiveHeapAddresses(addresses);
+        }
+        return addresses;
+      }
     };
     exports2.RuntimeEnvironment = RuntimeEnvironment;
     function defaultPlaceholderValue(resolvedType) {
@@ -24805,6 +25524,9 @@ var require_RuntimeEnvironment = __commonJS({
       }
       if (resolvedType.kind === "record") {
         return { recordTypeName: resolvedType.name, fields: /* @__PURE__ */ new Map() };
+      }
+      if (resolvedType.kind === "pointer") {
+        return 0;
       }
       switch (resolvedType.type) {
         case AstigType_1.AstigType.String:
@@ -24818,162 +25540,6 @@ var require_RuntimeEnvironment = __commonJS({
         default:
           return 0;
       }
-    }
-  }
-});
-
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/models/RuntimeValue.js
-var require_RuntimeValue = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/models/RuntimeValue.js"(exports2) {
-    "use strict";
-    Object.defineProperty(exports2, "__esModule", { value: true });
-    exports2.isRecordRuntimeValue = isRecordRuntimeValue;
-    function isRecordRuntimeValue(value) {
-      return typeof value === "object" && value !== null && "recordTypeName" in value && "fields" in value;
-    }
-  }
-});
-
-// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/utils/astigTypeUtils.js
-var require_astigTypeUtils = __commonJS({
-  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/utils/astigTypeUtils.js"(exports2) {
-    "use strict";
-    Object.defineProperty(exports2, "__esModule", { value: true });
-    exports2.parseDeclaredType = parseDeclaredType;
-    exports2.resolveDataType = resolveDataType;
-    exports2.isNumericType = isNumericType;
-    exports2.isAssignableType = isAssignableType;
-    exports2.inferRuntimeValueType = inferRuntimeValueType;
-    exports2.formatAstigType = formatAstigType;
-    exports2.formatResolvedType = formatResolvedType;
-    exports2.resolveVariableDeclarationType = resolveVariableDeclarationType;
-    exports2.resolveParameterType = resolveParameterType;
-    exports2.expressionTypeToResolved = expressionTypeToResolved;
-    var TypeCheckError_12 = require_TypeCheckError();
-    var AstigType_1 = require_AstigType();
-    var RuntimeValue_1 = require_RuntimeValue();
-    function parseDeclaredType(typeName) {
-      const lower = typeName.toLowerCase();
-      const fuzzy = lower.replace(/h/g, "").replace(/[0-9@]/g, "").replace(/z+$/, "");
-      if (lower === "1nt" || fuzzy.includes("int")) {
-        return AstigType_1.AstigType.Int;
-      }
-      if (fuzzy.includes("float") || fuzzy.includes("flot")) {
-        return AstigType_1.AstigType.Float;
-      }
-      if (fuzzy.includes("string") || fuzzy.includes("str") && fuzzy.includes("ng")) {
-        return AstigType_1.AstigType.String;
-      }
-      if (fuzzy.includes("char") || fuzzy.includes("chr")) {
-        return AstigType_1.AstigType.Char;
-      }
-      if (fuzzy.includes("bol") && fuzzy.includes("n")) {
-        return AstigType_1.AstigType.Boolean;
-      }
-      if (fuzzy.includes("void") || fuzzy.includes("viod")) {
-        return AstigType_1.AstigType.Void;
-      }
-      throw new TypeCheckError_12.TypeCheckError(`Unknown type "${typeName}"`);
-    }
-    function resolveDataType(typeName, recordRegistry) {
-      try {
-        return { kind: "primitive", type: parseDeclaredType(typeName) };
-      } catch (error) {
-        if (error instanceof TypeCheckError_12.TypeCheckError && recordRegistry.has(typeName)) {
-          return { kind: "record", name: typeName };
-        }
-        throw error;
-      }
-    }
-    function isNumericType(type) {
-      return type === AstigType_1.AstigType.Int || type === AstigType_1.AstigType.Float;
-    }
-    function isAssignableType(expected, actual) {
-      if (expected.kind === "primitive" && expected.type === AstigType_1.AstigType.Any) {
-        return true;
-      }
-      if (actual.kind === "primitive" && actual.type === AstigType_1.AstigType.Any) {
-        return true;
-      }
-      if (expected.kind === "record" && actual.kind === "record") {
-        return expected.name === actual.name;
-      }
-      if (expected.kind === "array" && actual.kind === "array") {
-        return expected.elementType === actual.elementType;
-      }
-      if (expected.kind === "primitive" && actual.kind === "primitive") {
-        if (expected.type === actual.type) {
-          return true;
-        }
-        if (isNumericType(expected.type) && isNumericType(actual.type)) {
-          return true;
-        }
-        if (expected.type === AstigType_1.AstigType.String && actual.type === AstigType_1.AstigType.Char) {
-          return true;
-        }
-      }
-      return false;
-    }
-    function inferRuntimeValueType(value) {
-      if (typeof value === "number") {
-        return {
-          kind: "primitive",
-          type: Number.isInteger(value) ? AstigType_1.AstigType.Int : AstigType_1.AstigType.Float
-        };
-      }
-      if (typeof value === "string") {
-        return { kind: "primitive", type: AstigType_1.AstigType.String };
-      }
-      if (typeof value === "boolean") {
-        return { kind: "primitive", type: AstigType_1.AstigType.Boolean };
-      }
-      if (Array.isArray(value)) {
-        return { kind: "array", elementType: AstigType_1.AstigType.Any };
-      }
-      if ((0, RuntimeValue_1.isRecordRuntimeValue)(value)) {
-        return { kind: "record", name: value.recordTypeName };
-      }
-      return { kind: "primitive", type: AstigType_1.AstigType.Any };
-    }
-    function formatAstigType(type) {
-      return type;
-    }
-    function formatResolvedType(resolvedType) {
-      if (resolvedType.kind === "record") {
-        return resolvedType.name;
-      }
-      if (resolvedType.kind === "array") {
-        return `${formatAstigType(resolvedType.elementType)}[]`;
-      }
-      return formatAstigType(resolvedType.type);
-    }
-    function resolveVariableDeclarationType(declaration, recordRegistry) {
-      if (!declaration.declaredType) {
-        return { kind: "primitive", type: AstigType_1.AstigType.Any };
-      }
-      const baseResolved = resolveDataType(declaration.declaredType, recordRegistry);
-      if (declaration.isArray) {
-        if (baseResolved.kind !== "primitive") {
-          throw new TypeCheckError_12.TypeCheckError(`Arrays of complex kinds are currently unsupported for "${declaration.name}"`);
-        }
-        return {
-          kind: "array",
-          elementType: baseResolved.type
-        };
-      }
-      return baseResolved;
-    }
-    function resolveParameterType(parameter, recordRegistry) {
-      if (!parameter.declaredType) {
-        return { kind: "primitive", type: AstigType_1.AstigType.Any };
-      }
-      return resolveDataType(parameter.declaredType, recordRegistry);
-    }
-    function expressionTypeToResolved(astigType, recordTypeName) {
-      if (astigType === AstigType_1.AstigType.Record && recordTypeName) {
-        return { kind: "record", name: recordTypeName };
-      }
-      return { kind: "primitive", type: astigType };
     }
   }
 });
@@ -25027,7 +25593,7 @@ var require_moduleScope = __commonJS({
       if (!moduleFileFunctions?.length) {
         return parent;
       }
-      const moduleEnvironment = parent.createFunctionScope();
+      const moduleEnvironment = parent.createFunctionScope("module");
       for (const functionNode of moduleFileFunctions) {
         moduleEnvironment.declareFunction(functionNode);
       }
@@ -25124,7 +25690,7 @@ var require_scanUtils = __commonJS({
       stdinBuffer = "";
     }
     function isScannableType(resolvedType) {
-      if (resolvedType.kind === "array" || resolvedType.kind === "record") {
+      if (resolvedType.kind === "array" || resolvedType.kind === "record" || resolvedType.kind === "pointer") {
         return false;
       }
       switch (resolvedType.type) {
@@ -25197,6 +25763,10 @@ var require_diagnostics = __commonJS({
       IF_KW: "if (!HFs)",
       WHILE_KW: "while (wH1lEs)",
       RETURN_KW: "return (rH3tHUrns)",
+      ALLOC_KW: "allocate (mH4lLhoCs)",
+      REALLOC_KW: "reallocate (rH3aHLlH0cs)",
+      FREE_KW: "free (fRHe3s)",
+      MEMSET_KW: "memset (mH3msEHts)",
       EOF: "end of file"
     };
     function extractQuotedToken(message) {
@@ -25373,9 +25943,9 @@ var require_runtimeRecovery = __commonJS({
     var BreakException_1 = require_BreakException();
     var ContinueException_1 = require_ContinueException();
     var ReturnException_1 = require_ReturnException();
-    var RuntimeError_12 = require_RuntimeError();
+    var RuntimeError_1 = require_RuntimeError();
     var RuntimeExceptions_1 = require_RuntimeExceptions();
-    var diagnostics_12 = require_diagnostics();
+    var diagnostics_1 = require_diagnostics();
     function isControlFlowException(error) {
       return error instanceof BreakException_1.BreakException || error instanceof ContinueException_1.ContinueException || error instanceof ReturnException_1.ReturnException;
     }
@@ -25383,7 +25953,7 @@ var require_runtimeRecovery = __commonJS({
       if (isControlFlowException(error)) {
         return false;
       }
-      if (error instanceof RuntimeError_12.RuntimeError) {
+      if (error instanceof RuntimeError_1.RuntimeError) {
         return true;
       }
       if (error instanceof Error) {
@@ -25392,9 +25962,9 @@ var require_runtimeRecovery = __commonJS({
       return false;
     }
     function recordRecoverableRuntimeError(session, error, location) {
-      const runtimeError = error instanceof RuntimeError_12.RuntimeError ? error : (0, RuntimeExceptions_1.toRuntimeError)(error, location);
-      const resolvedLocation = location ?? (0, diagnostics_12.getErrorSourceLocation)(runtimeError) ?? runtimeError.location;
-      session.diagnostics.push((0, diagnostics_12.diagnosticFromError)(runtimeError, "runtime", session.filename, resolvedLocation));
+      const runtimeError = error instanceof RuntimeError_1.RuntimeError ? error : (0, RuntimeExceptions_1.toRuntimeError)(error, location);
+      const resolvedLocation = location ?? (0, diagnostics_1.getErrorSourceLocation)(runtimeError) ?? runtimeError.location;
+      session.diagnostics.push((0, diagnostics_1.diagnosticFromError)(runtimeError, "runtime", session.filename, resolvedLocation));
     }
     function runWithRuntimeRecovery(session, action, location) {
       if (!session) {
@@ -25416,6 +25986,461 @@ var require_runtimeRecovery = __commonJS({
   }
 });
 
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/HeapEmulator.js
+var require_HeapEmulator = __commonJS({
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/HeapEmulator.js"(exports2) {
+    "use strict";
+    Object.defineProperty(exports2, "__esModule", { value: true });
+    exports2.VirtualHeap = void 0;
+    var VirtualHeap = class {
+      constructor() {
+        this.memory = [];
+        this.nextAddress = 1e3;
+        this.HEAP_MAX_ADDRESS = 5e4;
+        this.allocations = /* @__PURE__ */ new Map();
+        this.freedAllocations = /* @__PURE__ */ new Map();
+        this.freeList = [];
+        this.isCollecting = false;
+        this.gcCallback = null;
+      }
+      registerGCCallback(callback) {
+        this.gcCallback = callback;
+      }
+      getNumericAddress(address) {
+        if (typeof address === "object" && address !== null && "value" in address) {
+          return Number(address.value);
+        }
+        return Number(address);
+      }
+      getMemoryUsage() {
+        const HEAP_MAX_ADDRESS = 5e4;
+        let occupiedSlots = 0;
+        for (const size of this.allocations.values()) {
+          occupiedSlots += size + 4;
+        }
+        return occupiedSlots / HEAP_MAX_ADDRESS;
+      }
+      set(address, value) {
+        const idx = this.getNumericAddress(address);
+        if (this.isFreed(idx)) {
+          throw new Error(`Segmentation fault: Attempted write to dangling pointer at address ${idx}`);
+        }
+        if (idx >= this.HEAP_MAX_ADDRESS) {
+          throw new Error(`Segmentation fault: Out of bounds memory write at address ${idx}`);
+        }
+        this.memory[idx] = value;
+      }
+      get(address) {
+        const idx = this.getNumericAddress(address);
+        if (this.isFreed(idx)) {
+          throw new Error(`Segmentation fault: Attempted read from dangling pointer at address ${idx}`);
+        }
+        if (idx >= this.HEAP_MAX_ADDRESS) {
+          throw new Error(`Segmentation fault: Out of bounds memory read at address ${idx}`);
+        }
+        const val = this.memory[idx];
+        if (val === void 0) {
+          throw new Error(`Segmentation fault: Accessing uninitialized or unallocated memory at address ${idx}`);
+        }
+        return val;
+      }
+      malloc(size) {
+        const requiredTotal = size + 4;
+        if (this.gcCallback && this.getMemoryUsage() >= 0.75 && !this.isCollecting) {
+          try {
+            this.isCollecting = true;
+            this.gcCallback();
+          } finally {
+            this.isCollecting = false;
+          }
+        }
+        for (let i = 0; i < this.freeList.length; i++) {
+          const block = this.freeList[i];
+          if (block.size >= requiredTotal) {
+            const allocatedAddr = block.address;
+            if (block.size === requiredTotal) {
+              this.freeList.splice(i, 1);
+            } else {
+              block.address += requiredTotal;
+              block.size -= requiredTotal;
+            }
+            this.allocations.set(allocatedAddr, size);
+            this.freedAllocations.delete(allocatedAddr);
+            for (let j = 0; j < size; j++) {
+              this.memory[allocatedAddr + j] = void 0;
+            }
+            return allocatedAddr;
+          }
+        }
+        if (this.nextAddress + requiredTotal > this.HEAP_MAX_ADDRESS) {
+          throw new Error(`Runtime Error: Out of Memory. Heap limit of ${this.HEAP_MAX_ADDRESS} bytes exceeded.`);
+        }
+        const addr = this.nextAddress;
+        this.allocations.set(addr, size);
+        this.nextAddress += requiredTotal;
+        return addr;
+      }
+      free(address) {
+        if (this.isFreed(address)) {
+          throw new Error(`Double Free Fault: Address ${address} has already been freed.`);
+        }
+        const size = this.allocations.get(address);
+        if (size === void 0) {
+          throw new Error(`Invalid Free: Address ${address} was not allocated via malloc.`);
+        }
+        const totalSizeWithPadding = size + 4;
+        this.freeList.push({ address, size: totalSizeWithPadding });
+        this.freeList.sort((a, b) => a.address - b.address);
+        for (let i = 0; i < size; i++) {
+          this.memory[address + i] = void 0;
+        }
+        this.freedAllocations.set(address, size);
+        this.allocations.delete(address);
+        for (let i = 0; i < size; i++) {
+          this.memory[address + i] = void 0;
+        }
+      }
+      realloc(address, newSize) {
+        if (this.isFreed(address)) {
+          throw new Error(`Segmentation fault: Attempted realloc on dangling pointer at address ${address}`);
+        }
+        const oldSize = this.allocations.get(address);
+        if (oldSize === void 0)
+          return this.malloc(newSize);
+        const newAddr = this.malloc(newSize);
+        const copySize = Math.min(oldSize, newSize);
+        for (let i = 0; i < copySize; i++) {
+          this.memory[newAddr + i] = this.memory[address + i];
+        }
+        this.free(address);
+        return newAddr;
+      }
+      isFreed(address) {
+        for (const [freedAddr, size] of this.freedAllocations.entries()) {
+          if (address >= freedAddr && address < freedAddr + size) {
+            return true;
+          }
+        }
+        return false;
+      }
+    };
+    exports2.VirtualHeap = VirtualHeap;
+  }
+});
+
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/models/GarbageCollector.js
+var require_GarbageCollector = __commonJS({
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/models/GarbageCollector.js"(exports2) {
+    "use strict";
+    Object.defineProperty(exports2, "__esModule", { value: true });
+    exports2.MarkSweepGC = void 0;
+    var MarkSweepGC = class {
+      static run(context) {
+        const visited = /* @__PURE__ */ new Set();
+        const heap = context.heap;
+        const roots = context.environment.collectActiveHeapAddresses();
+        for (const rootAddress of roots) {
+          this.traverse(rootAddress, context, visited);
+        }
+        const deadAddresses = [];
+        const activeAllocations = Array.from(heap.allocations.keys());
+        for (const address of activeAllocations) {
+          if (!visited.has(address)) {
+            deadAddresses.push(address);
+          }
+        }
+        for (const address of deadAddresses) {
+          context.heap.free(address);
+        }
+      }
+      static traverse(address, context, visited) {
+        if (visited.has(address))
+          return;
+        visited.add(address);
+        const heap = context.heap;
+        try {
+          if (heap.allocations && heap.allocations.has(address)) {
+            const size = heap.allocations.get(address);
+            const totalSpan = size + 4;
+            for (let i = 0; i < totalSpan; i++) {
+              visited.add(address + i);
+            }
+          }
+          const value = context.heap.get(address);
+          if (typeof value === "number" && !context.heap.isFreed(value)) {
+            this.traverse(value, context, visited);
+          } else if (value && typeof value === "object") {
+            if ("isHeapReference" in value) {
+              this.traverse(value.address, context, visited);
+            } else if (Array.isArray(value)) {
+              for (const element of value) {
+                if (typeof element === "number")
+                  this.traverse(element, context, visited);
+              }
+            } else if ("fields" in value && value.fields instanceof Map) {
+              for (const fieldValue of value.fields.values()) {
+                if (typeof fieldValue === "number")
+                  this.traverse(fieldValue, context, visited);
+              }
+            }
+          }
+        } catch {
+        }
+      }
+    };
+    exports2.MarkSweepGC = MarkSweepGC;
+  }
+});
+
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/HeapVisualizer.js
+var require_HeapVisualizer = __commonJS({
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/HeapVisualizer.js"(exports2) {
+    "use strict";
+    Object.defineProperty(exports2, "__esModule", { value: true });
+    exports2.HeapVisualizer = void 0;
+    var HeapVisualizer = class {
+      /**
+       * Renders a 100-character text bar representing the heap's layout.
+       * [■] = Active Allocation  |  [░] = Recycled Free List Gap  |  [.] = Untouched Frontier
+       */
+      static render(heap, width = 100) {
+        const heapMax = 5e4;
+        const chars = new Array(width).fill(".");
+        const internalHeap = heap;
+        const allocations = internalHeap.allocations;
+        const freeList = internalHeap.freeList || [];
+        const nextAddress = internalHeap.nextAddress || 1e3;
+        if (allocations) {
+          for (const [addr, size] of allocations.entries()) {
+            const startIdx = Math.floor(addr / heapMax * width);
+            const endIdx = Math.min(width, Math.ceil((addr + size + 4) / heapMax * width));
+            for (let i = startIdx; i < endIdx; i++) {
+              chars[i] = "\u25A0";
+            }
+          }
+        }
+        for (const block of freeList) {
+          const startIdx = Math.floor(block.address / heapMax * width);
+          const endIdx = Math.min(width, Math.ceil((block.address + block.size) / heapMax * width));
+          for (let i = startIdx; i < endIdx; i++) {
+            chars[i] = "\u2591";
+          }
+        }
+        const bumpIdx = Math.min(width - 1, Math.floor(nextAddress / heapMax * width));
+        if (chars[bumpIdx] === ".") {
+          chars[bumpIdx] = "|";
+        }
+        const totalAllocated = Array.from(allocations.values()).reduce((a, b) => a + b + 4, 0);
+        const totalFreeGaps = freeList.reduce((acc, b) => acc + b.size, 0);
+        const usagePct = (totalAllocated / heapMax * 100).toFixed(1);
+        return [
+          `\u2554\u2550\u2550 Heap Map (${usagePct}% Used) \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557`,
+          `  [${chars.join("")}]`,
+          `\u255A\u2550\u2550 Active Data: ${totalAllocated} slots | Recycled Gaps: ${totalFreeGaps} slots | Frontier: Address ${nextAddress} \u255D`
+        ].join("\n");
+      }
+    };
+    exports2.HeapVisualizer = HeapVisualizer;
+  }
+});
+
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/RuntimeDebugger.js
+var require_RuntimeDebugger = __commonJS({
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/classes/RuntimeDebugger.js"(exports2) {
+    "use strict";
+    Object.defineProperty(exports2, "__esModule", { value: true });
+    exports2.MAIN_FUNCTION_NAME = exports2.RuntimeDebugSession = exports2.RUNTIME_DEBUG_FILE = exports2.RUNTIME_DEBUG_DIR = void 0;
+    exports2.writeRuntimeDebugFile = writeRuntimeDebugFile;
+    exports2.describeStatement = describeStatement;
+    var fs_1 = require("fs");
+    var path_1 = require("path");
+    var StatementNode_1 = require_StatementNode();
+    exports2.RUNTIME_DEBUG_DIR = "text-files";
+    exports2.RUNTIME_DEBUG_FILE = "runtime-debug.md";
+    var MAIN_FUNCTION_NAME = "mHA1Ns";
+    exports2.MAIN_FUNCTION_NAME = MAIN_FUNCTION_NAME;
+    var RuntimeDebugSession = class {
+      constructor() {
+        this.callStack = [];
+        this.steps = [];
+        this.stepCounter = 0;
+      }
+      pushFrame(functionName, line, column) {
+        this.callStack.push({ functionName, line, column });
+      }
+      popFrame() {
+        return this.callStack.pop();
+      }
+      setError(message) {
+        this.errorMessage = message;
+      }
+      recordStep(environment, heap, event, location) {
+        this.stepCounter += 1;
+        this.steps.push({
+          step: this.stepCounter,
+          event,
+          location,
+          callStack: this.callStack.map((frame) => ({ ...frame })),
+          scopes: collectScopeSnapshots(environment, heap)
+        });
+      }
+      formatReport(sourceFile, output) {
+        const lines = [
+          "# AstigLang \u2014 Symbol Table & Call Stack",
+          "",
+          "## Run summary",
+          "",
+          "| Field | Value |",
+          "| --- | --- |",
+          `| Source | \`${escapeMarkdownCell(sourceFile)}\` |`,
+          `| Generated | ${(/* @__PURE__ */ new Date()).toISOString()} |`,
+          "| Execution mode | Run all (full trace during execution) |",
+          `| Status | ${this.errorMessage ? "Stopped with error" : "Completed successfully"} |`
+        ];
+        if (this.errorMessage) {
+          lines.push(`| Error | ${escapeMarkdownCell(this.errorMessage)} |`);
+        }
+        lines.push("", "## Program output", "");
+        if (output.length === 0) {
+          lines.push("_No printed output._");
+        } else {
+          lines.push("| # | Value |", "| --- | --- |");
+          output.forEach((line, index) => {
+            lines.push(`| ${index + 1} | ${escapeMarkdownCell(line)} |`);
+          });
+        }
+        lines.push("", "## Execution trace", "", "Each step records the **call stack** and **symbol table** as they existed while the program was running.", "");
+        if (this.steps.length === 0) {
+          lines.push("_No steps recorded._");
+        } else {
+          for (const step of this.steps) {
+            lines.push(formatDebugStep(step));
+          }
+        }
+        lines.push("", "## Notes", "", "- **Symbol table** \u2014 chained `RuntimeEnvironment` scopes from innermost to global.", "- **Call stack** \u2014 active function frames; frame 1 is the outermost caller.", "- **Heap variables** \u2014 values shown as `@address \u2192 resolved value`.", "- Re-run any `.stg` file to replace this report with that program's trace.");
+        return lines.join("\n");
+      }
+    };
+    exports2.RuntimeDebugSession = RuntimeDebugSession;
+    function writeRuntimeDebugFile(report) {
+      (0, fs_1.mkdirSync)(exports2.RUNTIME_DEBUG_DIR, { recursive: true });
+      const filePath = (0, path_1.join)(exports2.RUNTIME_DEBUG_DIR, exports2.RUNTIME_DEBUG_FILE);
+      (0, fs_1.writeFileSync)(filePath, report, "utf8");
+      return filePath;
+    }
+    function describeStatement(statement) {
+      switch (statement.type) {
+        case StatementNode_1.StatementNodeType.VariableDeclaration:
+          return `Declare ${statement.declarationKind} \`${statement.name}\``;
+        case StatementNode_1.StatementNodeType.Assignment:
+          return `Assign \`${formatAssignmentTarget(statement.target)}\` ${statement.operator}`;
+        case StatementNode_1.StatementNodeType.ArrayIndexAssignment:
+          return `Assign \`${statement.arrayName}[index]\` ${statement.operator}`;
+        case StatementNode_1.StatementNodeType.PrintStatement:
+          return "Print";
+        case StatementNode_1.StatementNodeType.ScanStatement:
+          return `Scan into \`${statement.variableName}\``;
+        case StatementNode_1.StatementNodeType.IfStatement:
+          return "If";
+        case StatementNode_1.StatementNodeType.WhileStatement:
+          return "While loop body";
+        case StatementNode_1.StatementNodeType.DoWhileStatement:
+          return "Do-while loop body";
+        case StatementNode_1.StatementNodeType.ForStatement:
+          return "For loop body";
+        case StatementNode_1.StatementNodeType.ForeachStatement:
+          return `Foreach \`${statement.variable}\``;
+        case StatementNode_1.StatementNodeType.BreakStatement:
+          return "Break";
+        case StatementNode_1.StatementNodeType.ContinueStatement:
+          return "Continue";
+        case StatementNode_1.StatementNodeType.ReturnStatement:
+          return statement.value ? "Return with value" : "Return";
+        case StatementNode_1.StatementNodeType.FunctionDeclaration:
+          return `Declare function \`${statement.name}\``;
+        case StatementNode_1.StatementNodeType.BlockStatement:
+          return "Block";
+        case StatementNode_1.StatementNodeType.FreeStatement:
+          return "Free pointer";
+        case StatementNode_1.StatementNodeType.MemsetStatement:
+          return "Memset pointer";
+        default:
+          return "Statement";
+      }
+    }
+    function formatAssignmentTarget(target) {
+      if (target.kind === "variable") {
+        return target.name;
+      }
+      if (target.kind === "recordField") {
+        return `${target.rootVariable}.${target.fieldPath.join(".")}`;
+      }
+      return "*pointer";
+    }
+    function collectScopeSnapshots(environment, heap) {
+      return environment.getScopeChain().map((scope) => scope.snapshot(heap));
+    }
+    function formatDebugStep(step) {
+      const locationText = step.location ? ` @ line ${step.location.line}, col ${step.location.column}` : "";
+      return [
+        `### Step ${step.step} \u2014 ${step.event}${locationText}`,
+        "",
+        "#### Call stack",
+        "",
+        formatCallStackTable(step.callStack),
+        "",
+        "#### Symbol table",
+        "",
+        formatSymbolTable(step.scopes),
+        ""
+      ].join("\n");
+    }
+    function formatCallStackTable(frames) {
+      if (frames.length === 0) {
+        return "_Empty \u2014 no active function frames._";
+      }
+      const lines = [
+        "| Frame | Function | Called at |",
+        "| ---: | --- | --- |"
+      ];
+      frames.forEach((frame, index) => {
+        lines.push(`| ${index + 1} | \`${escapeMarkdownCell(frame.functionName)}\` | line ${frame.line}, col ${frame.column} |`);
+      });
+      return lines.join("\n");
+    }
+    function formatSymbolTable(scopes) {
+      const visibleScopes = scopes.filter((scope) => scope.variables.length > 0 || scope.functions.length > 0);
+      if (visibleScopes.length === 0) {
+        return "_No bindings in active scopes._";
+      }
+      const lines = [
+        "| Scope | Kind | Name | Type | Value |",
+        "| --- | --- | --- | --- | --- |"
+      ];
+      for (const scope of visibleScopes) {
+        const scopeLabel = formatScopeLabel(scope);
+        for (const functionName of scope.functions) {
+          lines.push(`| ${escapeMarkdownCell(scopeLabel)} | function | \`${escapeMarkdownCell(functionName)}\` | \u2014 | declared |`);
+        }
+        for (const variable of scope.variables) {
+          const valueText = variable.initialized ? variable.value : "(uninitialized)";
+          lines.push(`| ${escapeMarkdownCell(scopeLabel)} | ${escapeMarkdownCell(variable.kind)} | \`${escapeMarkdownCell(variable.name)}\` | ${escapeMarkdownCell(variable.type)} | ${escapeMarkdownCell(valueText)} |`);
+        }
+      }
+      return lines.join("\n");
+    }
+    function formatScopeLabel(scope) {
+      if (scope.isFunctionScope) {
+        return scope.scopeName === "global" ? "global" : `function ${scope.scopeName}`;
+      }
+      return scope.scopeName;
+    }
+    function escapeMarkdownCell(text) {
+      return text.replace(/\|/g, "\\|").replace(/\n/g, " ");
+    }
+  }
+});
+
 // ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/interpreter.js
 var require_interpreter = __commonJS({
   "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/interpreter.js"(exports2) {
@@ -25427,9 +26452,9 @@ var require_interpreter = __commonJS({
     var RecordRegistry_1 = require_RecordRegistry();
     var ReturnException_1 = require_ReturnException();
     var RuntimeEnvironment_1 = require_RuntimeEnvironment();
-    var RuntimeErrors_12 = require_RuntimeErrors();
+    var RuntimeErrors_1 = require_RuntimeErrors();
     var RuntimeExceptions_1 = require_RuntimeExceptions();
-    var RuntimeError_12 = require_RuntimeError();
+    var RuntimeError_1 = require_RuntimeError();
     var AstigType_1 = require_AstigType();
     var ExpressionNode_1 = require_ExpressionNode();
     var RuntimeValue_1 = require_RuntimeValue();
@@ -25440,6 +26465,10 @@ var require_interpreter = __commonJS({
     var recordRuntimeUtils_1 = require_recordRuntimeUtils();
     var scanUtils_1 = require_scanUtils();
     var runtimeRecovery_1 = require_runtimeRecovery();
+    var HeapEmulator_1 = require_HeapEmulator();
+    var GarbageCollector_1 = require_GarbageCollector();
+    var HeapVisualizer_1 = require_HeapVisualizer();
+    var RuntimeDebugger_1 = require_RuntimeDebugger();
     function raiseArrayBoundsError(message, location) {
       throw new RuntimeExceptions_1.ArrayBoundsError(message, location);
     }
@@ -25474,7 +26503,7 @@ var require_interpreter = __commonJS({
         const value = evaluateExpression(statement.value, context);
         context.output.push(formatValueForPrint(value));
       } catch (error) {
-        if (error instanceof RuntimeError_12.RuntimeError) {
+        if (error instanceof RuntimeError_1.RuntimeError) {
           throw error;
         }
         const message = error instanceof Error ? error.message : "Print statement failed";
@@ -25489,47 +26518,78 @@ var require_interpreter = __commonJS({
         if (variableKind === "const") {
           throw new RuntimeExceptions_1.ConstAssignmentError(statement.variableName, location);
         }
+        const targetType = environment.getResolvedType(statement.variableName);
+        if (!(0, scanUtils_1.isScannableType)(targetType)) {
+          throw new RuntimeExceptions_1.ScanError(`Cannot scan into ${(0, astigTypeUtils_1.formatResolvedType)(targetType)}`, location);
+        }
         if (statement.promptMessage) {
           process.stdout.write(statement.promptMessage);
         }
         const userInput = (0, scanUtils_1.readScanLine)();
-        const targetType = environment.getResolvedType(statement.variableName);
         const finalValue = (0, scanUtils_1.coerceScanInput)(userInput, targetType);
-        environment.assign(statement.variableName, finalValue);
+        const binding = environment.get(statement.variableName);
+        if (binding && typeof binding === "object" && "isHeapReference" in binding) {
+          context.heap.set(binding.address, finalValue);
+        } else {
+          environment.assign(statement.variableName, finalValue);
+        }
       } catch (error) {
-        if (error instanceof RuntimeError_12.RuntimeError) {
+        if (error instanceof RuntimeError_1.RuntimeError) {
           throw error;
         }
         const message = error instanceof Error ? error.message : "Scan statement failed";
         throw new RuntimeExceptions_1.ScanError(message, location);
       }
     }
-    function runProgram(program, filename = "<input>", recover = true) {
+    function runProgram(program, filename = "<input>", recover = true, debug) {
       const recovery = recover ? { filename, diagnostics: [] } : void 0;
       const recordRegistry = (0, RecordRegistry_1.buildRecordRegistry)(program.recordDeclarations);
-      const environment = new RuntimeEnvironment_1.RuntimeEnvironment(void 0, true);
+      const environment = new RuntimeEnvironment_1.RuntimeEnvironment(void 0, true, "global");
       const output = [];
+      const heapInstance = new HeapEmulator_1.VirtualHeap();
       const context = {
         environment,
         recordRegistry,
         output,
         moduleFunctions: program.moduleFunctions,
         insideFunction: false,
-        recovery
+        recovery,
+        heap: heapInstance,
+        debug
       };
+      heapInstance.registerGCCallback(() => {
+        console.log("\n CRITICAL THRESHOLD HIT (>=75%)! Initiating Mark-and-Sweep...");
+        console.log(HeapVisualizer_1.HeapVisualizer.render(heapInstance));
+        GarbageCollector_1.MarkSweepGC.run(context);
+        console.log(" GC SWEEP COMPLETE!");
+        console.log(HeapVisualizer_1.HeapVisualizer.render(heapInstance));
+      });
       for (const functionNode of program.functions) {
         (0, runtimeRecovery_1.runWithRuntimeRecovery)(recovery, () => environment.declareFunction(functionNode), functionNode.location);
+      }
+      if (debug) {
+        debug.recordStep(environment, heapInstance, "Functions registered in global scope", { line: 1, column: 1 });
       }
       if (!program.mainFunction) {
         throw new Error("Entry program file must define function main()");
       }
       const mainEnvironment = (0, moduleScope_1.withModuleFunctions)(environment, program.entryModule, program.moduleFunctions);
+      const mainEntryLine = program.mainFunction.body[0]?.location?.line ?? 1;
+      const mainEntryColumn = program.mainFunction.body[0]?.location?.column ?? 1;
+      if (debug) {
+        debug.pushFrame(RuntimeDebugger_1.MAIN_FUNCTION_NAME, mainEntryLine, mainEntryColumn);
+        debug.recordStep(mainEnvironment, heapInstance, `Enter ${RuntimeDebugger_1.MAIN_FUNCTION_NAME}`, { line: mainEntryLine, column: mainEntryColumn });
+      }
       executeBlock(program.mainFunction.body, {
         ...context,
         environment: mainEnvironment
       });
+      if (debug) {
+        debug.recordStep(mainEnvironment, heapInstance, `${RuntimeDebugger_1.MAIN_FUNCTION_NAME} finished`, { line: mainEntryLine, column: mainEntryColumn });
+        debug.popFrame();
+      }
       if (recovery && recovery.diagnostics.length > 0) {
-        throw new RuntimeErrors_12.RuntimeErrors(recovery.diagnostics);
+        throw new RuntimeErrors_1.RuntimeErrors(recovery.diagnostics);
       }
       return output;
     }
@@ -25540,7 +26600,7 @@ var require_interpreter = __commonJS({
         try {
           action();
         } catch (error) {
-          if (error instanceof RuntimeError_12.RuntimeError || error instanceof BreakException_1.BreakException || error instanceof ContinueException_1.ContinueException || error instanceof ReturnException_1.ReturnException) {
+          if (error instanceof RuntimeError_1.RuntimeError || error instanceof BreakException_1.BreakException || error instanceof ContinueException_1.ContinueException || error instanceof ReturnException_1.ReturnException) {
             throw error;
           }
           throw (0, RuntimeExceptions_1.toRuntimeError)(error, location);
@@ -25551,7 +26611,10 @@ var require_interpreter = __commonJS({
           runSafely(() => {
             const resolvedType = (0, astigTypeUtils_1.resolveVariableDeclarationType)(statement, context.recordRegistry);
             if (statement.value) {
-              environment.declare(statement.declarationKind, statement.name, evaluateExpression(statement.value, context), resolvedType);
+              const initialValue = evaluateExpression(statement.value, context);
+              const addr = context.heap.malloc(1);
+              context.heap.set(addr, initialValue);
+              environment.declare(statement.declarationKind, statement.name, { isHeapReference: true, address: addr }, resolvedType);
               return;
             }
             environment.declareUninitialized(statement.declarationKind, statement.name, resolvedType);
@@ -25564,7 +26627,10 @@ var require_interpreter = __commonJS({
           if (statement.operator !== "=") {
             raiseInvalidOperation(`Unsupported array index assignment operator "${statement.operator}"`, location);
           }
-          const targetArray = environment.lookup(statement.arrayName);
+          let targetArray = environment.lookup(statement.arrayName);
+          if (targetArray && typeof targetArray === "object" && "isHeapReference" in targetArray) {
+            targetArray = context.heap.get(targetArray.address);
+          }
           if (!Array.isArray(targetArray)) {
             raiseArrayTypeError(`Variable "${statement.arrayName}" is not an array.`, location);
           }
@@ -25702,6 +26768,27 @@ var require_interpreter = __commonJS({
             throw new RuntimeExceptions_1.InvalidOperationError("Return statement outside of a function", location);
           }
           throw new ReturnException_1.ReturnException(statement.value ? evaluateExpression(statement.value, context) : null);
+        case StatementNode_1.StatementNodeType.FreeStatement: {
+          const ptrAddress = evaluateExpression(statement.ptrExpr, context);
+          if (typeof ptrAddress !== "number") {
+            throw new Error("Runtime Error: Address targeted for fHR33z must resolve to a valid numeric pointer.");
+          }
+          context.heap.free(ptrAddress);
+          return;
+        }
+        case StatementNode_1.StatementNodeType.MemsetStatement: {
+          const ptrAddress = evaluateExpression(statement.ptrExpr, context);
+          const fillValue = evaluateExpression(statement.valueExpr, context);
+          const allocationSize = evaluateExpression(statement.sizeExpr, context);
+          if (typeof ptrAddress !== "number" || typeof fillValue !== "number" || typeof allocationSize !== "number") {
+            throw new Error("Runtime Error: Invalid numerical arguments supplied to mH3mS3t operation.");
+          }
+          const byteValue = Math.floor(fillValue) & 255;
+          for (let offset = 0; offset < Math.floor(allocationSize); offset++) {
+            context.heap.set(ptrAddress + offset, byteValue);
+          }
+          return;
+        }
         case StatementNode_1.StatementNodeType.BlockStatement:
           executeBlock(statement.body, context);
           return;
@@ -25712,16 +26799,35 @@ var require_interpreter = __commonJS({
       const resultValue = evaluateAssignmentValue(assignment, rightValue, context, location);
       if (assignment.target.kind === "variable") {
         try {
-          context.environment.assign(assignment.target.name, resultValue);
+          const variableName = assignment.target.name;
+          if (context.environment.getVariableKind(variableName) === "const") {
+            throw new RuntimeExceptions_1.ConstAssignmentError(variableName, location);
+          }
+          const binding = context.environment.get(variableName);
+          if (binding && typeof binding === "object" && "isHeapReference" in binding) {
+            context.heap.set(binding.address, resultValue);
+          } else {
+            context.environment.assign(variableName, resultValue);
+          }
         } catch (error) {
           throw (0, RuntimeExceptions_1.toRuntimeError)(error, location);
         }
+        return;
+      } else if (assignment.target.kind === "dereference") {
+        const heapAddress = evaluateExpression(assignment.target.pointerExpression, context);
+        if (typeof heapAddress === "number" && context.heap.isFreed(heapAddress)) {
+          throw new Error(`Runtime Error: Segmentation Fault. Attempted to write to dangling pointer at address ${heapAddress}`);
+        }
+        context.heap.set(heapAddress, resultValue);
         return;
       }
       assignRecordField(assignment.target, resultValue, context, location);
     }
     function assignRecordField(target, value, context, location) {
-      const recordValue = context.environment.get(target.rootVariable);
+      let recordValue = context.environment.get(target.rootVariable);
+      if (recordValue && typeof recordValue === "object" && "isHeapReference" in recordValue) {
+        recordValue = context.heap.get(recordValue.address);
+      }
       if (!(0, RuntimeValue_1.isRecordRuntimeValue)(recordValue)) {
         throw new RuntimeExceptions_1.InvalidOperationError(`Variable "${target.rootVariable}" is not a record`, location);
       }
@@ -25745,9 +26851,23 @@ var require_interpreter = __commonJS({
     }
     function readAssignmentTargetValue(target, context, location) {
       if (target.kind === "variable") {
-        return context.environment.get(target.name);
+        const binding = context.environment.get(target.name);
+        if (binding && typeof binding === "object" && "isHeapReference" in binding) {
+          return context.heap.get(binding.address);
+        }
+        return binding;
       }
-      const recordValue = context.environment.get(target.rootVariable);
+      if (target.kind === "dereference") {
+        const heapAddress = evaluateExpression(target.pointerExpression, context);
+        if (typeof heapAddress === "number" && context.heap.isFreed(heapAddress)) {
+          throw new Error(`Runtime Error: Segmentation Fault. Attempted to read dangling pointer at address ${heapAddress}`);
+        }
+        return context.heap.get(heapAddress);
+      }
+      let recordValue = context.environment.get(target.rootVariable);
+      if (recordValue && typeof recordValue === "object" && "isHeapReference" in recordValue) {
+        recordValue = context.heap.get(recordValue.address);
+      }
       if (!(0, RuntimeValue_1.isRecordRuntimeValue)(recordValue)) {
         raiseInvalidOperation(`Variable "${target.rootVariable}" is not a record`, location);
       }
@@ -25761,6 +26881,7 @@ var require_interpreter = __commonJS({
       };
       for (const statement of statements) {
         (0, runtimeRecovery_1.runWithRuntimeRecovery)(context.recovery, () => executeStatement(statement, blockContext), statement.location);
+        context.debug?.recordStep(blockContext.environment, context.heap, (0, RuntimeDebugger_1.describeStatement)(statement), statement.location);
       }
     }
     function evaluateExpression(expression, context) {
@@ -25771,8 +26892,13 @@ var require_interpreter = __commonJS({
           return expression.value;
         case ExpressionNode_1.ExpressionNodeType.BooleanLiteral:
           return expression.value;
-        case ExpressionNode_1.ExpressionNodeType.Identifier:
-          return context.environment.get(expression.name);
+        case ExpressionNode_1.ExpressionNodeType.Identifier: {
+          const binding = context.environment.get(expression.name);
+          if (binding && typeof binding === "object" && "isHeapReference" in binding) {
+            return context.heap.get(binding.address);
+          }
+          return binding;
+        }
         case ExpressionNode_1.ExpressionNodeType.MemberAccess: {
           const objectValue = evaluateExpression(expression.object, context);
           if (!(0, RuntimeValue_1.isRecordRuntimeValue)(objectValue)) {
@@ -25780,10 +26906,28 @@ var require_interpreter = __commonJS({
           }
           return runRecordOperation(() => (0, recordRuntimeUtils_1.getRecordFieldValue)(objectValue, [expression.field]));
         }
+        case ExpressionNode_1.ExpressionNodeType.Malloc: {
+          const sizeBytes = evaluateExpression(expression.sizeExpr, context);
+          if (typeof sizeBytes !== "number") {
+            throw new Error("Runtime Error: Size argument for mH4lL0cH must be a number.");
+          }
+          return context.heap.malloc(Math.floor(sizeBytes));
+        }
+        case ExpressionNode_1.ExpressionNodeType.Realloc: {
+          const ptrAddress = evaluateExpression(expression.ptrExpr, context);
+          const sizeBytes = evaluateExpression(expression.sizeExpr, context);
+          if (typeof ptrAddress !== "number" || typeof sizeBytes !== "number") {
+            throw new Error("Runtime Error: Invalid pointer or size arguments passed to rH34lL0cH.");
+          }
+          return context.heap.realloc(ptrAddress, Math.floor(sizeBytes));
+        }
         case ExpressionNode_1.ExpressionNodeType.ArrayLiteral:
           return expression.elements.map((elementNode) => evaluateExpression(elementNode, context));
         case ExpressionNode_1.ExpressionNodeType.ArrayIndexAccess:
-          const targetArray = context.environment.lookup(expression.arrayName);
+          let targetArray = context.environment.lookup(expression.arrayName);
+          if (targetArray && typeof targetArray === "object" && "isHeapReference" in targetArray) {
+            targetArray = context.heap.get(targetArray.address);
+          }
           if (!Array.isArray(targetArray)) {
             throw new RuntimeExceptions_1.ArrayTypeError(`"${expression.arrayName}" is not an array.`);
           }
@@ -25831,6 +26975,14 @@ var require_interpreter = __commonJS({
               return left <= right;
             case ">=":
               return left >= right;
+            case "<<":
+              return left << right;
+            case ">>":
+              return left >> right;
+            case "&":
+              return left & right;
+            case "|":
+              return left | right;
             case "AND":
               return left && right;
             case "OR":
@@ -25840,7 +26992,25 @@ var require_interpreter = __commonJS({
           }
         }
         case ExpressionNode_1.ExpressionNodeType.UnaryExpression: {
+          if (expression.operator === "&") {
+            if (expression.argument.type === ExpressionNode_1.ExpressionNodeType.Identifier) {
+              const binding = context.environment.get(expression.argument.name);
+              if (binding && typeof binding === "object" && "isHeapReference" in binding) {
+                return binding.address;
+              }
+              throw new Error("Runtime Error: Identifier is not allocated in heap memory.");
+            }
+          }
           const value = evaluateExpression(expression.argument, context);
+          if (expression.operator === "*") {
+            if (typeof value !== "number") {
+              throw new Error(`Runtime Error: Cannot dereference non-numeric address: ${value}`);
+            }
+            if (context.heap.isFreed(value)) {
+              throw new Error(`Runtime Error: Segmentation Fault. Attempted to read from dangling pointer at address ${value}`);
+            }
+            return context.heap.get(value);
+          }
           if (typeof value === "number") {
             return -value;
           } else if (typeof value === "boolean") {
@@ -25897,24 +27067,498 @@ var require_interpreter = __commonJS({
         raiseInvalidOperation(`Function "${functionNode.name}" expected ${functionNode.parameters.length} arguments but got ${argValues.length}`, location);
       }
       const callableEnvironment = (0, moduleScope_1.withModuleFunctions)(context.environment, functionNode.sourceModule, context.moduleFunctions);
-      const functionEnvironment = callableEnvironment.createFunctionScope();
+      const functionEnvironment = callableEnvironment.createFunctionScope(functionNode.name);
       const functionContext = {
         ...context,
         environment: functionEnvironment,
         insideFunction: true
       };
+      const callLine = location?.line ?? functionNode.location?.line ?? 1;
+      const callColumn = location?.column ?? functionNode.location?.column ?? 1;
+      context.debug?.pushFrame(functionNode.name, callLine, callColumn);
       functionNode.parameters.forEach((parameter, index) => {
-        functionEnvironment.declare("let", parameter.name, argValues[index], (0, astigTypeUtils_1.resolveParameterType)(parameter, context.recordRegistry));
+        const paramAddr = context.heap.malloc(1);
+        context.heap.set(paramAddr, argValues[index]);
+        functionEnvironment.declare("let", parameter.name, { isHeapReference: true, address: paramAddr }, (0, astigTypeUtils_1.resolveParameterType)(parameter, context.recordRegistry));
       });
+      context.debug?.recordStep(functionEnvironment, context.heap, `Enter function ${functionNode.name}`, location ?? functionNode.location);
       try {
         executeBlock(functionNode.body, functionContext);
       } catch (error) {
         if (error instanceof ReturnException_1.ReturnException) {
+          context.debug?.recordStep(functionEnvironment, context.heap, `Return from ${functionNode.name}`, location ?? functionNode.location);
+          context.debug?.popFrame();
           return error.value;
         }
+        context.debug?.popFrame();
         throw error;
       }
+      context.debug?.recordStep(functionEnvironment, context.heap, `Return from ${functionNode.name} (implicit null)`, location ?? functionNode.location);
+      context.debug?.popFrame();
       return null;
+    }
+  }
+});
+
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/optimizer.js
+var require_optimizer = __commonJS({
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/optimizer.js"(exports2) {
+    "use strict";
+    Object.defineProperty(exports2, "__esModule", { value: true });
+    exports2.collectUsedSymbols = collectUsedSymbols;
+    exports2.optimizeProgram = optimizeProgram;
+    var ExpressionNode_1 = require_ExpressionNode();
+    var StatementNode_1 = require_StatementNode();
+    function markAssignmentTargetUsed(target, usedSymbols, visitExpression) {
+      switch (target.kind) {
+        case "variable":
+          usedSymbols.add(target.name);
+          break;
+        case "recordField":
+          usedSymbols.add(target.rootVariable);
+          break;
+        case "dereference":
+          visitExpression(target.pointerExpression);
+          break;
+      }
+    }
+    function markDuplicateVariableNamesInBlock(statements, usedSymbols) {
+      const declarationCounts = /* @__PURE__ */ new Map();
+      for (const statement of statements) {
+        if (statement.type === StatementNode_1.StatementNodeType.VariableDeclaration) {
+          declarationCounts.set(statement.name, (declarationCounts.get(statement.name) ?? 0) + 1);
+        }
+      }
+      for (const [name, count] of declarationCounts) {
+        if (count > 1) {
+          usedSymbols.add(name);
+        }
+      }
+    }
+    function createUseAnalysisVisitor(usedSymbols) {
+      function visitExpression(node) {
+        if (!node)
+          return;
+        switch (node.type) {
+          case ExpressionNode_1.ExpressionNodeType.Identifier:
+            usedSymbols.add(node.name);
+            break;
+          case ExpressionNode_1.ExpressionNodeType.UnaryExpression:
+            visitExpression(node.argument);
+            break;
+          case ExpressionNode_1.ExpressionNodeType.BinaryExpression:
+            visitExpression(node.left);
+            visitExpression(node.right);
+            break;
+          case ExpressionNode_1.ExpressionNodeType.FunctionCall:
+            usedSymbols.add(node.name);
+            node.arguments.forEach(visitExpression);
+            break;
+          case ExpressionNode_1.ExpressionNodeType.ArrayIndexAccess:
+            usedSymbols.add(node.arrayName);
+            visitExpression(node.index);
+            break;
+          case ExpressionNode_1.ExpressionNodeType.ArrayLiteral:
+            node.elements.forEach(visitExpression);
+            break;
+          case ExpressionNode_1.ExpressionNodeType.RecordLiteral:
+            node.fields.forEach((field) => visitExpression(field.value));
+            break;
+          case ExpressionNode_1.ExpressionNodeType.MemberAccess:
+            visitExpression(node.object);
+            break;
+          case ExpressionNode_1.ExpressionNodeType.Malloc:
+            visitExpression(node.sizeExpr);
+            break;
+          case ExpressionNode_1.ExpressionNodeType.Realloc:
+            visitExpression(node.ptrExpr);
+            visitExpression(node.sizeExpr);
+            break;
+          default:
+            break;
+        }
+      }
+      function visitBlock(statements) {
+        markDuplicateVariableNamesInBlock(statements, usedSymbols);
+        statements.forEach(visitStatement);
+      }
+      function visitStatement(node) {
+        if (!node)
+          return;
+        switch (node.type) {
+          case StatementNode_1.StatementNodeType.VariableDeclaration:
+            if (node.value) {
+              visitExpression(node.value);
+            }
+            break;
+          case StatementNode_1.StatementNodeType.Assignment:
+            markAssignmentTargetUsed(node.target, usedSymbols, visitExpression);
+            visitExpression(node.value);
+            break;
+          case StatementNode_1.StatementNodeType.ArrayIndexAssignment:
+            usedSymbols.add(node.arrayName);
+            visitExpression(node.index);
+            visitExpression(node.value);
+            break;
+          case StatementNode_1.StatementNodeType.ScanStatement:
+            usedSymbols.add(node.variableName);
+            break;
+          case StatementNode_1.StatementNodeType.PrintStatement:
+            visitExpression(node.value);
+            break;
+          case StatementNode_1.StatementNodeType.IfStatement:
+            visitExpression(node.condition);
+            visitBlock(node.thenBranch);
+            node.elseIfChains.forEach((chain) => {
+              visitExpression(chain.condition);
+              visitBlock(chain.body);
+            });
+            if (node.elseBranch) {
+              visitBlock(node.elseBranch);
+            }
+            break;
+          case StatementNode_1.StatementNodeType.WhileStatement:
+            visitExpression(node.condition);
+            visitBlock(node.body);
+            break;
+          case StatementNode_1.StatementNodeType.DoWhileStatement:
+            visitBlock(node.body);
+            visitExpression(node.condition);
+            break;
+          case StatementNode_1.StatementNodeType.ForStatement:
+            if (node.init) {
+              visitStatement(node.init);
+            }
+            if (node.condition) {
+              visitExpression(node.condition);
+            }
+            if (node.update) {
+              visitStatement(node.update);
+            }
+            visitBlock(node.body);
+            break;
+          case StatementNode_1.StatementNodeType.ForeachStatement:
+            usedSymbols.add(node.variable);
+            visitExpression(node.iterable);
+            visitBlock(node.body);
+            break;
+          case StatementNode_1.StatementNodeType.ReturnStatement:
+            if (node.value) {
+              visitExpression(node.value);
+            }
+            break;
+          case StatementNode_1.StatementNodeType.BlockStatement:
+            visitBlock(node.body);
+            break;
+          case StatementNode_1.StatementNodeType.FunctionDeclaration:
+            visitBlock(node.body);
+            break;
+          case StatementNode_1.StatementNodeType.FreeStatement:
+            visitExpression(node.ptrExpr);
+            break;
+          case StatementNode_1.StatementNodeType.MemsetStatement:
+            visitExpression(node.ptrExpr);
+            visitExpression(node.valueExpr);
+            visitExpression(node.sizeExpr);
+            break;
+          case StatementNode_1.StatementNodeType.BreakStatement:
+          case StatementNode_1.StatementNodeType.ContinueStatement:
+            break;
+        }
+      }
+      return { visitExpression, visitStatement, visitBlock };
+    }
+    function collectUsedSymbols(program) {
+      const usedSymbols = /* @__PURE__ */ new Set();
+      const { visitBlock } = createUseAnalysisVisitor(usedSymbols);
+      if (program.mainFunction) {
+        visitBlock(program.mainFunction.body);
+      }
+      program.functions.forEach((func) => visitBlock(func.body));
+      for (const moduleFunctions of Object.values(program.moduleFunctions)) {
+        moduleFunctions.forEach((func) => visitBlock(func.body));
+      }
+      return usedSymbols;
+    }
+    function optimizeBlock(statements, usedSymbols, constants) {
+      const optimized = [];
+      let reachable = true;
+      for (const stmt of statements) {
+        if (!reachable) {
+          continue;
+        }
+        const optimizedStmt = optimizeStatement(stmt, usedSymbols, constants);
+        if (optimizedStmt != null) {
+          if (Array.isArray(optimizedStmt)) {
+            optimized.push(...optimizedStmt);
+          } else {
+            optimized.push(optimizedStmt);
+          }
+        }
+        if (stmt.type === StatementNode_1.StatementNodeType.ReturnStatement) {
+          reachable = false;
+        }
+      }
+      return optimized;
+    }
+    function optimizeElseIfChains(chains, usedSymbols, constants) {
+      return chains.map((chain) => ({
+        condition: chain.condition,
+        body: optimizeBlock(chain.body, usedSymbols, constants)
+        // Passes usedSymbols down to the block optimizer
+      }));
+    }
+    function isPowerOfTwo(val) {
+      return val > 0 && (val & val - 1) === 0;
+    }
+    function getPowerOfTwoExponent(val) {
+      return Math.log2(val);
+    }
+    function optimizeExpression(expr, constants, usedSymbols) {
+      switch (expr.type) {
+        // RULE: Constant folding and Copy propagation
+        case ExpressionNode_1.ExpressionNodeType.Identifier: {
+          let currentKey = expr.name;
+          let resolvedNode = expr;
+          let propagated = false;
+          while (constants.has(currentKey)) {
+            resolvedNode = constants.get(currentKey);
+            if (resolvedNode.type === ExpressionNode_1.ExpressionNodeType.Identifier) {
+              currentKey = resolvedNode.name;
+            } else {
+              break;
+            }
+          }
+          return resolvedNode;
+        }
+        case ExpressionNode_1.ExpressionNodeType.BinaryExpression: {
+          const left = optimizeExpression(expr.left, constants, usedSymbols);
+          const right = optimizeExpression(expr.right, constants, usedSymbols);
+          if (left.type === ExpressionNode_1.ExpressionNodeType.NumberLiteral && right.type === ExpressionNode_1.ExpressionNodeType.NumberLiteral) {
+            const v1 = left.value;
+            const v2 = right.value;
+            switch (expr.operator) {
+              // Logical operations
+              case ">":
+                return { type: ExpressionNode_1.ExpressionNodeType.BooleanLiteral, value: v1 > v2 };
+              case "<":
+                return { type: ExpressionNode_1.ExpressionNodeType.BooleanLiteral, value: v1 < v2 };
+              case ">=":
+                return { type: ExpressionNode_1.ExpressionNodeType.BooleanLiteral, value: v1 >= v2 };
+              case "<=":
+                return { type: ExpressionNode_1.ExpressionNodeType.BooleanLiteral, value: v1 <= v2 };
+              case "==":
+                return { type: ExpressionNode_1.ExpressionNodeType.BooleanLiteral, value: v1 == v2 };
+              case "!=":
+                return { type: ExpressionNode_1.ExpressionNodeType.BooleanLiteral, value: v1 != v2 };
+              // Arithmetic operations
+              case "*":
+                return { type: ExpressionNode_1.ExpressionNodeType.NumberLiteral, value: v1 * v2 };
+              case "/":
+                return { type: ExpressionNode_1.ExpressionNodeType.NumberLiteral, value: v1 / v2 };
+              case "%":
+                return { type: ExpressionNode_1.ExpressionNodeType.NumberLiteral, value: v1 % v2 };
+              case "+":
+                return { type: ExpressionNode_1.ExpressionNodeType.NumberLiteral, value: v1 + v2 };
+              case "-":
+                return { type: ExpressionNode_1.ExpressionNodeType.NumberLiteral, value: v1 - v2 };
+            }
+          }
+          if (expr.operator === "+" || expr.operator === "-") {
+            if (right.type === ExpressionNode_1.ExpressionNodeType.NumberLiteral && right.value === 0) {
+              return left;
+            }
+            if (left.type === ExpressionNode_1.ExpressionNodeType.NumberLiteral && left.value === 0 && expr.operator === "+") {
+              return right;
+            }
+          }
+          if (expr.operator === "*") {
+            if (right.type === ExpressionNode_1.ExpressionNodeType.NumberLiteral && right.value === 1) {
+              return left;
+            }
+            if (left.type === ExpressionNode_1.ExpressionNodeType.NumberLiteral && left.value === 1) {
+              return right;
+            }
+            const rightNumNode = right.type === ExpressionNode_1.ExpressionNodeType.NumberLiteral ? right : null;
+            const leftNumNode = left.type === ExpressionNode_1.ExpressionNodeType.NumberLiteral ? left : null;
+            if (rightNumNode !== null && isPowerOfTwo(rightNumNode.value)) {
+              return {
+                type: ExpressionNode_1.ExpressionNodeType.BinaryExpression,
+                operator: "<<",
+                left,
+                right: {
+                  type: ExpressionNode_1.ExpressionNodeType.NumberLiteral,
+                  value: getPowerOfTwoExponent(rightNumNode.value)
+                }
+              };
+            }
+            if (leftNumNode !== null && isPowerOfTwo(leftNumNode.value)) {
+              return {
+                type: ExpressionNode_1.ExpressionNodeType.BinaryExpression,
+                operator: "<<",
+                left: right,
+                right: {
+                  type: ExpressionNode_1.ExpressionNodeType.NumberLiteral,
+                  value: getPowerOfTwoExponent(leftNumNode.value)
+                }
+              };
+            }
+          }
+          if (expr.operator === "/") {
+            if (right.type === ExpressionNode_1.ExpressionNodeType.NumberLiteral && right.value === 1) {
+              return left;
+            }
+            if (right.type === ExpressionNode_1.ExpressionNodeType.NumberLiteral && isPowerOfTwo(right.value)) {
+              return {
+                type: ExpressionNode_1.ExpressionNodeType.BinaryExpression,
+                operator: ">>",
+                left,
+                right: { type: ExpressionNode_1.ExpressionNodeType.NumberLiteral, value: getPowerOfTwoExponent(right.value) }
+              };
+            }
+          }
+          if (expr.operator === "%") {
+            if (right.type === ExpressionNode_1.ExpressionNodeType.NumberLiteral && isPowerOfTwo(right.value)) {
+              return {
+                type: ExpressionNode_1.ExpressionNodeType.BinaryExpression,
+                operator: "&",
+                left,
+                right: { type: ExpressionNode_1.ExpressionNodeType.NumberLiteral, value: right.value - 1 }
+              };
+            }
+          }
+          return { ...expr, left, right };
+        }
+        case ExpressionNode_1.ExpressionNodeType.FunctionCall: {
+          return {
+            ...expr,
+            arguments: expr.arguments.map((arg) => optimizeExpression(arg, constants, usedSymbols))
+          };
+        }
+        default:
+          return expr;
+      }
+    }
+    function optimizeStatement(stmt, usedSymbols, constants) {
+      switch (stmt.type) {
+        case StatementNode_1.StatementNodeType.VariableDeclaration: {
+          if (!stmt.value) {
+            return stmt;
+          }
+          const foldedValue = optimizeExpression(stmt.value, constants, usedSymbols);
+          if (foldedValue.type === ExpressionNode_1.ExpressionNodeType.BooleanLiteral || foldedValue.type === ExpressionNode_1.ExpressionNodeType.NumberLiteral || foldedValue.type === ExpressionNode_1.ExpressionNodeType.Identifier) {
+            constants.set(stmt.name, foldedValue);
+          } else {
+            constants.delete(stmt.name);
+          }
+          const isUsed = usedSymbols.has(stmt.name);
+          if (!isUsed) {
+            return null;
+          }
+          return {
+            ...stmt,
+            value: foldedValue
+          };
+        }
+        // HANDLE: Reassignments and 
+        case StatementNode_1.StatementNodeType.Assignment: {
+          const optimizedValue = optimizeExpression(stmt.value, constants, usedSymbols);
+          if (stmt.target.kind == "variable") {
+            constants.delete(stmt.target.name);
+          }
+          return {
+            ...stmt,
+            value: optimizedValue
+          };
+        }
+        // RULE: Dead branch elimination
+        case StatementNode_1.StatementNodeType.IfStatement: {
+          const cond = optimizeExpression(stmt.condition, constants, usedSymbols);
+          if (cond.type === ExpressionNode_1.ExpressionNodeType.BooleanLiteral) {
+            if (cond.value === true) {
+              return optimizeBlock(stmt.thenBranch, usedSymbols, constants);
+            } else {
+              for (const chain of stmt.elseIfChains) {
+                const chainCond = optimizeExpression(chain.condition, constants, usedSymbols);
+                if (chainCond.type === ExpressionNode_1.ExpressionNodeType.BooleanLiteral) {
+                  if (chainCond.value === true)
+                    return optimizeBlock(chain.body, usedSymbols, constants);
+                } else {
+                  return {
+                    type: StatementNode_1.StatementNodeType.IfStatement,
+                    condition: chainCond,
+                    thenBranch: optimizeBlock(chain.body, usedSymbols, constants),
+                    elseIfChains: optimizeElseIfChains(stmt.elseIfChains.slice(stmt.elseIfChains.indexOf(chain) + 1), usedSymbols, constants),
+                    elseBranch: stmt.elseBranch ? optimizeBlock(stmt.elseBranch, usedSymbols, constants) : void 0
+                  };
+                }
+              }
+              return stmt.elseBranch ? optimizeBlock(stmt.elseBranch, usedSymbols, constants) : null;
+            }
+          }
+          const optimizedElseIfs = stmt.elseIfChains.map((chain) => ({
+            condition: chain.condition,
+            //
+            body: optimizeBlock(chain.body, usedSymbols, constants)
+            //
+          }));
+          return {
+            ...stmt,
+            thenBranch: optimizeBlock(stmt.thenBranch, usedSymbols, constants),
+            //
+            elseIfChains: optimizedElseIfs,
+            //
+            elseBranch: stmt.elseBranch ? optimizeBlock(stmt.elseBranch, usedSymbols, constants) : void 0
+            //
+          };
+        }
+        // Default rule: Return the statement as is
+        default:
+          return stmt;
+      }
+    }
+    function optimizeProgram(program) {
+      let currentProgram = program;
+      let prevStringify = "";
+      let currentStringify = JSON.stringify(program);
+      while (currentStringify !== prevStringify) {
+        prevStringify = currentStringify;
+        const usedSymbols = collectUsedSymbols(currentProgram);
+        let optimizedMain = void 0;
+        if (currentProgram.mainFunction) {
+          const mainConstants = /* @__PURE__ */ new Map();
+          optimizedMain = {
+            ...currentProgram.mainFunction,
+            body: optimizeBlock(currentProgram.mainFunction.body, usedSymbols, mainConstants)
+          };
+        }
+        const optimizedFunctions = currentProgram.functions.filter((fn) => {
+          return usedSymbols.has(fn.name);
+        });
+        const fullyOptimizedFunctions = optimizedFunctions.map((fn) => {
+          const functionConstants = /* @__PURE__ */ new Map();
+          return {
+            ...fn,
+            body: optimizeBlock(fn.body, usedSymbols, functionConstants)
+          };
+        });
+        const optimizedModuleFunctions = {};
+        for (const [modName, funcArray] of Object.entries(currentProgram.moduleFunctions)) {
+          const functionConstants = /* @__PURE__ */ new Map();
+          optimizedModuleFunctions[modName] = funcArray.map((func) => ({
+            ...func,
+            body: optimizeBlock(func.body, usedSymbols, functionConstants)
+          }));
+        }
+        currentProgram = {
+          ...currentProgram,
+          mainFunction: optimizedMain,
+          functions: fullyOptimizedFunctions,
+          moduleFunctions: optimizedModuleFunctions
+        };
+        currentStringify = JSON.stringify(currentProgram);
+      }
+      return currentProgram;
     }
   }
 });
@@ -27009,29 +28653,37 @@ var require_AstigLangLexer = __commonJS({
     AstigLangLexer.NOT_KW = 40;
     AstigLangLexer.AND_KW = 41;
     AstigLangLexer.OR_KW = 42;
-    AstigLangLexer.IDENTIFIER = 43;
-    AstigLangLexer.FILENAME = 44;
-    AstigLangLexer.FILE_EXTENSION = 45;
-    AstigLangLexer.LINE_COMMENT = 46;
-    AstigLangLexer.BLOCK_COMMENT = 47;
-    AstigLangLexer.ADD_ASSIGN = 48;
-    AstigLangLexer.SUB_ASSIGN = 49;
-    AstigLangLexer.ADD = 50;
-    AstigLangLexer.SUB = 51;
-    AstigLangLexer.MUL = 52;
-    AstigLangLexer.DIV = 53;
-    AstigLangLexer.MOD = 54;
-    AstigLangLexer.EQ = 55;
-    AstigLangLexer.NEQ = 56;
-    AstigLangLexer.LT = 57;
-    AstigLangLexer.GT = 58;
-    AstigLangLexer.LTE = 59;
-    AstigLangLexer.GTE = 60;
-    AstigLangLexer.SEMICOLON = 61;
-    AstigLangLexer.FLOAT = 62;
-    AstigLangLexer.NUMBER = 63;
-    AstigLangLexer.STRING = 64;
-    AstigLangLexer.WS = 65;
+    AstigLangLexer.MALLOC_KW = 43;
+    AstigLangLexer.REALLOC_KW = 44;
+    AstigLangLexer.FREE_KW = 45;
+    AstigLangLexer.MEMSET_KW = 46;
+    AstigLangLexer.IDENTIFIER = 47;
+    AstigLangLexer.FILENAME = 48;
+    AstigLangLexer.FILE_EXTENSION = 49;
+    AstigLangLexer.LINE_COMMENT = 50;
+    AstigLangLexer.BLOCK_COMMENT = 51;
+    AstigLangLexer.ADD_ASSIGN = 52;
+    AstigLangLexer.SUB_ASSIGN = 53;
+    AstigLangLexer.ADD = 54;
+    AstigLangLexer.SUB = 55;
+    AstigLangLexer.MUL = 56;
+    AstigLangLexer.DIV = 57;
+    AstigLangLexer.MOD = 58;
+    AstigLangLexer.EQ = 59;
+    AstigLangLexer.NEQ = 60;
+    AstigLangLexer.LT = 61;
+    AstigLangLexer.GT = 62;
+    AstigLangLexer.LTE = 63;
+    AstigLangLexer.GTE = 64;
+    AstigLangLexer.SHL = 65;
+    AstigLangLexer.SHR = 66;
+    AstigLangLexer.BWA = 67;
+    AstigLangLexer.BWO = 68;
+    AstigLangLexer.SEMICOLON = 69;
+    AstigLangLexer.FLOAT = 70;
+    AstigLangLexer.NUMBER = 71;
+    AstigLangLexer.STRING = 72;
+    AstigLangLexer.WS = 73;
     AstigLangLexer.channelNames = [
       "DEFAULT_TOKEN_CHANNEL",
       "HIDDEN"
@@ -27082,6 +28734,10 @@ var require_AstigLangLexer = __commonJS({
       "NOT_KW",
       "AND_KW",
       "OR_KW",
+      "MALLOC_KW",
+      "REALLOC_KW",
+      "FREE_KW",
+      "MEMSET_KW",
       "IDENTIFIER",
       "FILENAME",
       "FILE_EXTENSION",
@@ -27100,6 +28756,10 @@ var require_AstigLangLexer = __commonJS({
       "GT",
       "LTE",
       "GTE",
+      "SHL",
+      "SHR",
+      "BWA",
+      "BWO",
       "SEMICOLON",
       "FLOAT",
       "NUMBER",
@@ -27214,6 +28874,10 @@ var require_AstigLangLexer = __commonJS({
       void 0,
       void 0,
       void 0,
+      void 0,
+      void 0,
+      void 0,
+      void 0,
       "'stg'",
       void 0,
       void 0,
@@ -27230,6 +28894,10 @@ var require_AstigLangLexer = __commonJS({
       "'>'",
       "'<='",
       "'>='",
+      "'<<'",
+      "'>>'",
+      "'&'",
+      "'|'",
       "';'"
     ];
     AstigLangLexer._SYMBOLIC_NAMES = [
@@ -27276,6 +28944,10 @@ var require_AstigLangLexer = __commonJS({
       "NOT_KW",
       "AND_KW",
       "OR_KW",
+      "MALLOC_KW",
+      "REALLOC_KW",
+      "FREE_KW",
+      "MEMSET_KW",
       "IDENTIFIER",
       "FILENAME",
       "FILE_EXTENSION",
@@ -27294,6 +28966,10 @@ var require_AstigLangLexer = __commonJS({
       "GT",
       "LTE",
       "GTE",
+      "SHL",
+      "SHR",
+      "BWA",
+      "BWO",
       "SEMICOLON",
       "FLOAT",
       "NUMBER",
@@ -27302,136 +28978,147 @@ var require_AstigLangLexer = __commonJS({
     ];
     AstigLangLexer.VOCABULARY = new VocabularyImpl_1.VocabularyImpl(AstigLangLexer._LITERAL_NAMES, AstigLangLexer._SYMBOLIC_NAMES, []);
     AstigLangLexer._serializedATNSegments = 3;
-    AstigLangLexer._serializedATNSegment0 = `\uC91D\uCABA\u058D\uAFBA\u4F53\u0607\uEA8B\uC241C\u053F\b					\x07	\x07\b	\b			
+    AstigLangLexer._serializedATNSegment0 = `\uC91D\uCABA\u058D\uAFBA\u4F53\u0607\uEA8B\uC241K\u05C7\b					\x07	\x07\b	\b			
 	
-\v	\v\f	\f\r	\r													\x1B	\x1B				 	 !	!"	"#	#$	$%	%&	&'	'(	()	)*	*+	+,	,-	-.	./	/0	01	12	23	34	45	56	67	78	89	9:	:;	;<	<=	=>	>?	?@	@A	AB	BC	CD	DE	EF	FG	GH	HI	IJ	JK	KL	LM	MN	NO	OP	PQ	QR	RS	ST	TU	UV	VW	WX	XY	YZ	Z[	[\\	\\]	]^	^_	_\`	\`a	ab	bc	cd	de	ef	fg	gh	hi	ij	jk	kl	lm	mn	no	op	pq	qr	rs	st	tu	uv	vw	wx	xy	yz	z{	{|	|}	}~	~\x7F	\x7F\x80	\x80\x07\x07\b\b		
+\v	\v\f	\f\r	\r													\x1B	\x1B				 	 !	!"	"#	#$	$%	%&	&'	'(	()	)*	*+	+,	,-	-.	./	/0	01	12	23	34	45	56	67	78	89	9:	:;	;<	<=	=>	>?	?@	@A	AB	BC	CD	DE	EF	FG	GH	HI	IJ	JK	KL	LM	MN	NO	OP	PQ	QR	RS	ST	TU	UV	VW	WX	XY	YZ	Z[	[\\	\\]	]^	^_	_\`	\`a	ab	bc	cd	de	ef	fg	gh	hi	ij	jk	kl	lm	mn	no	op	pq	qr	rs	st	tu	uv	vw	wx	xy	yz	z{	{|	|}	}~	~\x7F	\x7F\x80	\x80\x81	\x81\x82	\x82\x83	\x83\x84	\x84\x85	\x85\x86	\x86\x87	\x87\x88	\x88\x07\x07\b\b		
 
-\v\v\f\f\f\f\f\f\f\f\f\f\f\f\u0121
-\f\r\f\f\u0122\f\f\f\f\f\f\f\f\f\f\f\f\u0130
-\f\r\f\f\u0131\f\u0134
-\f\r\r\r\r\r\r\r\r\u013D
-\r\r\r\r\u013E\r\r\r\r\r\r\r\r\u0148
-\r\r\r\r\u0149\r\u014C
-\r\u0153
-\r\u0154\u015C
-\r\u015D\u0160
-\u0167
-\r\u0168\u0170
-\r\u0171\u0174
-\u017E
-\r\u017F\u018A
-\r\u018B\u018E
-\u0196
-\r\u0197\u01A0
-\r\u01A1\u01A4
-\u01AA
-\r\u01AB\u01B2
-\r\u01B3\u01B6
-\u01BE
-\r\u01BF\u01C8
-\r\u01C9\u01CC
-\u01D4
-\r\u01D5\u01DE
-\r\u01DF\u01E2
-\u01EF
-\r\u01F0\u01FE
-\r\u01FF\u0202
-\u020D
-\r\u020E\u021A
-\r\u021B\u021E
-\u0224
-\r\u0225\u022C
-\r\u022D\u0230
-\u0237
-\r\u0238\u0240
-\r\u0241\u0244
-\u024F
-\r\u0250\u025C
-\r\u025D\u0260
-\u0266
-\r\u0267\u026E
-\r\u026F\u0272
-\x1B\x1B\x1B\x1B\x1B\x1B\x1B\x1B\x1B\u027C
-\x1B\r\x1B\x1B\u027D\x1B\x1B\x1B\x1B\x1B\x1B\x1B\x1B\x1B\u0288
-\x1B\r\x1B\x1B\u0289\x1B\u028C
-\x1B\u029A
-\r\u029B\u02AA
-\r\u02AB\u02AE
-\u02B5
-\r\u02B6\u02BE
-\r\u02BF\u02C2
-\u02CC
-\r\u02CD\u02D8
-\r\u02D9\u02DC
-\u02E6
-\r\u02E7\u02F2
-\r\u02F3\u02F6
-       \u02FE
- \r  \u02FF       \u0308
- \r  \u0309 \u030C
- !!!!!!!!!!!\u0318
-!\r!!\u0319!!!!!!!!!!!\u0326
-!\r!!\u0327!\u032A
-!"""""""\u0332
-"\r""\u0333"""""""\u033C
-"\r""\u033D"\u0340
-"########\u0349
-#\r##\u034A########\u0354
-#\r##\u0355#\u0358
-#$$$$$$$\u0360
-$\r$$\u0361$$$$$$$\u036A
-$\r$$\u036B$\u036E
-$%%%%%%%\u0376
-%\r%%\u0377%%%%%%%\u0380
-%\r%%\u0381%\u0384
-%&&&&&&&&&&&\u0390
-&\r&&\u0391&&&&&&&&&&&\u039E
-&\r&&\u039F&\u03A2
-&''''''\u03A9
-'\r''\u03AA''''''\u03B2
-'\r''\u03B3'\u03B6
-'((((((((((\u03C1
-(\r((\u03C2((((((((((\u03CE
-(\r((\u03CF(\u03D2
-())))))\u03D9
-)\r))\u03DA))))))\u03E2
-)\r))\u03E3)\u03E6
-)******\u03ED
-*\r**\u03EE******\u03F6
-*\r**\u03F7*\u03FA
-*+++++\u0400
-+\r++\u0401+++++\u0408
-+\r++\u0409+\u040C
-+,,--\u0411
--\r--\u0412---....////\x07/\u0420
-/\f//\u0423\v///0000\x070\u042B
-0\f00\u042E\v0000001112223344556677888999::;;<<<===>>??\u0458
-?\r??\u0459?????\u0460
-?\r??\u0461??\u0465
-?\r??\u0466????\u046C
-?@@\u046F
-@\r@@\u0470AA\x07A\u0475
-A\fAA\u0478\vAAABB\u047D
-B\rBB\u047EBBCC\u0484
-C\rCC\u0485DD\u0489
-D\rDD\u048ADD\u048E
-D\rDD\u048FD\x07D\u0493
-D\fDD\u0496\vDDD\u0499
-D\rDD\u049ADD\u049E
-D\rDD\u049FD\x07D\u04A3
-D\fDD\u04A6\vDD\u04A8
-DEEE\x07E\u04AD
-E\fEE\u04B0\vEFFF\x07F\u04B5
-F\fFF\u04B8\vFGGG\u04BC
-GHHIIJJKKLLMMNNOOPPQQRRSSTTUUVVWWXXYYZZ[[\\\\]]^^__\`\`aabbccddeeffgghhiijjkkllmmnnooppqqrrssttuuvvwwxxyyzz{{||}}}\u052A
-}~~~\u052E
-~\x7F\x7F\x7F\x7F\x7F\u0534
-\x7F\x80\x80\x80\x80\x80\x80\x80\x80\x80\u053E
-\x80\u042C\u0476\x81\x07	\v\x07\r\b	
-\v\f\r\x1B!#%')+-/13\x1B579;= ?!A"C#E$G%I&K'M(O)Q*S+U,W-Y.[/]0_1a2c3e4g5i6k7m8o9q:s;u<w=y>{?}@\x7FA\x81B\x83C\x85\x87\x89\x8B\x8D\x8F\x91\x93\x95\x97\x99\x9B\x9D\x9F\xA1\xA3\xA5\xA7\xA9\xAB\xAD\xAF\xB1\xB3\xB5\xB7\xB9\xBB\xBD\xBF\xC1\xC3\xC5\xC7\xC9\xCB\xCD\xCF\xD1\xD3\xD5\xD7\xD9\xDB\xDD\xDF\xE1\xE3\xE5\xE7\xE9\xEB\xED\xEF\xF1\xF3\xF5\xF7\xF9\xFB\xFD\xFF;\f\f2;\v\f""BBcc66CCdd::DDeeEEffFFgg55GGhhHH;;iiIIjjJJ##kk33KKllLLmmMMnnNNooOOppPPqq22QQrrRRssSSttTTuu&&77UUvvVVwwWWxxXXyyYYzzZZ{{[[||44\\\\c|C\\\u0582\x07	\v\r\x1B!#%')+-/13579;=?ACEGIKMOQSUWY[]_acegikmoqsuwy{}\x7F\x81\x83\u0101\u0103\x07\u0105	\u0107\v\u0109\r\u010B\u010D\u010F\u0111\u0113\u0133\u014B\x1B\u015F\u0173\u018D!\u01A3#\u01B5%\u01CB'\u01E1)\u0201+\u021D-\u022F/\u02431\u025F3\u02715\u028B7\u02AD9\u02C1;\u02DB=\u02F5?\u030BA\u0329C\u033FE\u0357G\u036DI\u0383K\u03A1M\u03B5O\u03D1Q\u03E5S\u03F9U\u040BW\u040DY\u0410[\u0417]\u041B_\u0426a\u0434c\u0437e\u043Ag\u043Ci\u043Ek\u0440m\u0442o\u0444q\u0447s\u044Au\u044Cw\u044Ey\u0451{\u0454}\u046B\x7F\u046E\x81\u0472\x83\u047C\x85\u0483\x87\u04A7\x89\u04A9\x8B\u04B1\x8D\u04BB\x8F\u04BD\x91\u04BF\x93\u04C1\x95\u04C3\x97\u04C5\x99\u04C7\x9B\u04C9\x9D\u04CB\x9F\u04CD\xA1\u04CF\xA3\u04D1\xA5\u04D3\xA7\u04D5\xA9\u04D7\xAB\u04D9\xAD\u04DB\xAF\u04DD\xB1\u04DF\xB3\u04E1\xB5\u04E3\xB7\u04E5\xB9\u04E7\xBB\u04E9\xBD\u04EB\xBF\u04ED\xC1\u04EF\xC3\u04F1\xC5\u04F3\xC7\u04F5\xC9\u04F7\xCB\u04F9\xCD\u04FB\xCF\u04FD\xD1\u04FF\xD3\u0501\xD5\u0503\xD7\u0505\xD9\u0507\xDB\u0509\xDD\u050B\xDF\u050D\xE1\u050F\xE3\u0511\xE5\u0513\xE7\u0515\xE9\u0517\xEB\u0519\xED\u051B\xEF\u051D\xF1\u051F\xF3\u0521\xF5\u0523\xF7\u0525\xF9\u0529\xFB\u052D\xFD\u0533\xFF\u053D\u0101\u0102\x07?\u0102\u0103\u0104\x07}\u0104\u0105\u0106\x07\x7F\u0106\b\u0107\u0108\x07.\u0108
-\u0109\u010A\x07]\u010A\f\u010B\u010C\x07_\u010C\u010D\u010E\x07*\u010E\u010F\u0110\x07+\u0110\u0111\u0112\x070\u0112\u0113\u0114\x07<\u0114\u0115\u0116\xB1Y\u0116\u0117\xAFX\u0117\u0118\xC7d\u0118\u0119\x99M\u0119\u011A\xAFX\u011A\u011B\xBF\`\u011B\u011C\xE1q\u011C\u011D\xAFX\u011D\u011E\x9FP\u011E\u0120\xA3R\u011F\u0121\xF9}\u0120\u011F\u0121\u0122\u0122\u0120\u0122\u0123\u0123\u0134\u0124\u0125\xB3Z\u0125\u0126\xADW\u0126\u0127\xC5c\u0127\u0128\x9BN\u0128\u0129\xADW\u0129\u012A\xBD_\u012A\u012B\xE3r\u012B\u012C\xADW\u012C\u012D\x9DO\u012D\u012F\xA1Q\u012E\u0130\xFB~\u012F\u012E\u0130\u0131\u0131\u012F\u0131\u0132`;
-    AstigLangLexer._serializedATNSegment1 = '\u0132\u0134\u0133\u0115\u0133\u0124\u0134\u0135\u0136\x99M\u0136\u0137\xCBf\u0137\u0138\xADW\u0138\u0139\xC7d\u0139\u013A\xD9m\u013A\u013C\xDFp\u013B\u013D\xF9}\u013C\u013B\u013D\u013E\u013E\u013C\u013E\u013F\u013F\u014C\u0140\u0141\x9BN\u0141\u0142\xC9e\u0142\u0143\xAFX\u0143\u0144\xC5c\u0144\u0145\xDBn\u0145\u0147\xDDo\u0146\u0148\xFB~\u0147\u0146\u0148\u0149\u0149\u0147\u0149\u014A\u014A\u014C\u014B\u0135\u014B\u0140\u014C\u014D\u014E\xE5s\u014E\u014F\xAFX\u014F\u0150\x93J\u0150\u0152\xD5k\u0151\u0153\xF9}\u0152\u0151\u0153\u0154\u0154\u0152\u0154\u0155\u0155\u0160\u0156\u0157\xE7t\u0157\u0158\xADW\u0158\u0159\x91I\u0159\u015B\xD7l\u015A\u015C\xFB~\u015B\u015A\u015C\u015D\u015D\u015B\u015D\u015E\u015E\u0160\u015F\u014D\u015F\u0156\u0160\u0161\u0162\xBD_\u0162\u0163\xAFX\u0163\u0164\xA3R\u0164\u0166\xDDo\u0165\u0167\xF9}\u0166\u0165\u0167\u0168\u0168\u0166\u0168\u0169\u0169\u0174\u016A\u016B\xBF`\u016B\u016C\xADW\u016C\u016D\xA1Q\u016D\u016F\xDFp\u016E\u0170\xFB~\u016F\u016E\u0170\u0171\u0171\u016F\u0171\u0172\u0172\u0174\u0173\u0161\u0173\u016A\u0174\u0175\u0176\xCDg\u0176\u0177\xAFX\u0177\u0178\xD7l\u0178\u0179\xB1Y\u0179\u017A\xAFX\u017A\u017B\xC7d\u017B\u017D\xDFp\u017C\u017E\xF9}\u017D\u017C\u017E\u017F\u017F\u017D\u017F\u0180\u0180\u018E\u0181\u0182\xCFh\u0182\u0183\xADW\u0183\u0184\xD5k\u0184\u0185\xB3Z\u0185\u0186\xADW\u0186\u0187\xC5c\u0187\u0189\xDDo\u0188\u018A\xFB~\u0189\u0188\u018A\u018B\u018B\u0189\u018B\u018C\u018C\u018E\u018D\u0175\u018D\u0181\u018E \u018F\u0190\xD9m\u0190\u0191\x99M\u0191\u0192\xAFX\u0192\u0193\x93J\u0193\u0195\xC5c\u0194\u0196\xF9}\u0195\u0194\u0196\u0197\u0197\u0195\u0197\u0198\u0198\u01A4\u0199\u019A\xDBn\u019A\u019B\x9BN\u019B\u019C\xADW\u019C\u019D\x91I\u019D\u019F\xC7d\u019E\u01A0\xFB~\u019F\u019E\u01A0\u01A1\u01A1\u019F\u01A1\u01A2\u01A2\u01A4\u01A3\u018F\u01A3\u0199\u01A4"\u01A5\u01A6\xB1Y\u01A6\u01A7\xAFX\u01A7\u01A9\xA7T\u01A8\u01AA\xF9}\u01A9\u01A8\u01AA\u01AB\u01AB\u01A9\u01AB\u01AC\u01AC\u01B6\u01AD\u01AE\xB3Z\u01AE\u01AF\xADW\u01AF\u01B1\xA5S\u01B0\u01B2\xFB~\u01B1\u01B0\u01B2\u01B3\u01B3\u01B1\u01B3\u01B4\u01B4\u01B6\u01B5\u01A5\u01B5\u01AD\u01B6$\u01B7\u01B8\xA1Q\u01B8\u01B9\xAFX\u01B9\u01BA\xBF`\u01BA\u01BB\xDBn\u01BB\u01BD\xA3R\u01BC\u01BE\xF9}\u01BD\u01BC\u01BE\u01BF\u01BF\u01BD\u01BF\u01C0\u01C0\u01CC\u01C1\u01C2\xA3R\u01C2\u01C3\xADW\u01C3\u01C4\xBD_\u01C4\u01C5\xD9m\u01C5\u01C7\xA1Q\u01C6\u01C8\xFB~\u01C7\u01C6\u01C8\u01C9\u01C9\u01C7\u01C9\u01CA\u01CA\u01CC\u01CB\u01B7\u01CB\u01C1\u01CC&\u01CD\u01CE\xE9u\u01CE\u01CF\xAFX\u01CF\u01D0\xB3Z\u01D0\u01D1\xBD_\u01D1\u01D3\xA3R\u01D2\u01D4\xF9}\u01D3\u01D2\u01D4\u01D5\u01D5\u01D3\u01D5\u01D6\u01D6\u01E2\u01D7\u01D8\xEBv\u01D8\u01D9\xADW\u01D9\u01DA\xB1Y\u01DA\u01DB\xBF`\u01DB\u01DD\xA1Q\u01DC\u01DE\xFB~\u01DD\u01DC\u01DE\u01DF\u01DF\u01DD\u01DF\u01E0\u01E0\u01E2\u01E1\u01CD\u01E1\u01D7\u01E2(\u01E3\u01E4\xA5S\u01E4\u01E5\xAFX\u01E5\u01E6\xE3r\u01E6\u01E7\xC5c\u01E7\u01E8\x99M\u01E8\u01E9\xDFp\u01E9\u01EA\xAFX\u01EA\u01EB\xB1Y\u01EB\u01EC\xCBf\u01EC\u01EE\xC7d\u01ED\u01EF\xF9}\u01EE\u01ED\u01EF\u01F0\u01F0\u01EE\u01F0\u01F1\u01F1\u0202\u01F2\u01F3\xA7T\u01F3\u01F4\xADW\u01F4\u01F5\xE1q\u01F5\u01F6\xC7d\u01F6\u01F7\x9BN\u01F7\u01F8\xDDo\u01F8\u01F9\xADW\u01F9\u01FA\xB3Z\u01FA\u01FB\xC9e\u01FB\u01FD\xC5c\u01FC\u01FE\xFB~\u01FD\u01FC\u01FE\u01FF\u01FF\u01FD\u01FF\u0200\u0200\u0202\u0201\u01E3\u0201\u01F2\u0202*\u0203\u0204\xD5k\u0204\u0205\xAFX\u0205\u0206\xA3R\u0206\u0207\xDDo\u0207\u0208\xAFX\u0208\u0209\xE3r\u0209\u020A\xD5k\u020A\u020C\xC5c\u020B\u020D\xF9}\u020C\u020B\u020D\u020E\u020E\u020C\u020E\u020F\u020F\u021E\u0210\u0211\xD7l\u0211\u0212\xADW\u0212\u0213\xA1Q\u0213\u0214\xDFp\u0214\u0215\xADW\u0215\u0216\xE1q\u0216\u0217\xD7l\u0217\u0219\xC7d\u0218\u021A\xFB~\u0219\u0218\u021A\u021B\u021B\u0219\u021B\u021C\u021C\u021E\u021D\u0203\u021D\u0210\u021E,\u021F\u0220\x9DO\u0220\u0221\xAFX\u0221\u0223\xCBf\u0222\u0224\xF9}\u0223\u0222\u0224\u0225\u0225\u0223\u0225\u0226\u0226\u0230\u0227\u0228\x9FP\u0228\u0229\xADW\u0229\u022B\xC9e\u022A\u022C\xFB~\u022B\u022A\u022C\u022D\u022D\u022B\u022D\u022E\u022E\u0230\u022F\u021F\u022F\u0227\u0230.\u0231\u0232\xA5S\u0232\u0233\xAFX\u0233\u0234\xCBf\u0234\u0236\xD5k\u0235\u0237\xF9}\u0236\u0235\u0237\u0238\u0238\u0236\u0238\u0239\u0239\u0244\u023A\u023B\xA7T\u023B\u023C\xADW\u023C\u023D\xC9e\u023D\u023F\xD7l\u023E\u0240\xFB~\u023F\u023E\u0240\u0241\u0241\u023F\u0241\u0242\u0242\u0244\u0243\u0231\u0243\u023A\u02440\u0245\u0246\xA5S\u0246\u0247\xAFX\u0247\u0248\xCBf\u0248\u0249\xD5k\u0249\u024A\xA3R\u024A\u024B\x93J\u024B\u024C\x99M\u024C\u024E\xAFX\u024D\u024F\xF9}\u024E\u024D\u024F\u0250\u0250\u024E\u0250\u0251\u0251\u0260\u0252\u0253\xA7T\u0253\u0254\xADW\u0254\u0255\xC9e\u0255\u0256\xD7l\u0256\u0257\xA1Q\u0257\u0258\x91I\u0258\u0259\x9BN\u0259\u025B\xADW\u025A\u025C\xFB~\u025B\u025A\u025C\u025D\u025D\u025B\u025D\u025E\u025E\u0260\u025F\u0245\u025F\u0252\u02602\u0261\u0262\xB1Y\u0262\u0263\xAFX\u0263\u0265\xC7d\u0264\u0266\xF9}\u0265\u0264\u0266\u0267\u0267\u0265\u0267\u0268\u0268\u0272\u0269\u026A\xB3Z\u026A\u026B\xADW\u026B\u026D\xC5c\u026C\u026E\xFB~\u026D\u026C\u026E\u026F\u026F\u026D\u026F\u0270\u0270\u0272\u0271\u0261\u0271\u0269\u02724\u0273\u0274\x95K\u0274\u0275\xAFX\u0275\u0276\xD7l\u0276\u0277\xA3R\u0277\u0278\x91I\u0278\u0279\xAFX\u0279\u027B\xBB^\u027A\u027C\xF9}\u027B\u027A\u027C\u027D\u027D\u027B\u027D\u027E\u027E\u028C\u027F\u0280\x97L\u0280\u0281\xADW\u0281\u0282\xD5k\u0282\u0283\xA1Q\u0283\u0284\x93J\u0284\u0285\xADW\u0285\u0287\xB9]\u0286\u0288\xFB~\u0287\u0286\u0288\u0289\u0289\u0287\u0289\u028A\u028A\u028C\u028B\u0273\u028B\u027F\u028C6\u028D\u028E\x99M\u028E\u028F\xCBf\u028F\u0290\xAFX\u0290\u0291\xC5c\u0291\u0292\xDDo\u0292\u0293\xAFX\u0293\u0294\xB3Z\u0294\u0295\xC5c\u0295\u0296\xAFX\u0296\u0297\xE3r\u0297\u0299\xA3R\u0298\u029A\xF9}\u0299\u0298\u029A\u029B\u029B\u0299\u029B\u029C\u029C\u02AE\u029D\u029E\x9BN\u029E\u029F\xC9e\u029F\u02A0\xADW\u02A0\u02A1\xC7d\u02A1\u02A2\xDFp\u02A2\u02A3\xADW\u02A3\u02A4\xB1Y\u02A4\u02A5\xC7d\u02A5\u02A6\xADW\u02A6\u02A7\xE1q\u02A7\u02A9\xA1Q\u02A8\u02AA\xFB~\u02A9\u02A8\u02AA\u02AB\u02AB\u02A9\u02AB\u02AC\u02AC\u02AE\u02AD\u028D\u02AD\u029D\u02AE8\u02AF\u02B0\xB1Y\u02B0\u02B1\xAFX\u02B1\u02B2\xC7d\u02B2\u02B4\xDDo\u02B3\u02B5\xFB~\u02B4\u02B3\u02B5\u02B6\u02B6\u02B4\u02B6\u02B7\u02B7\u02C2\u02B8\u02B9\xB3Z\u02B9\u02BA\xADW\u02BA\u02BB\xC5c\u02BB\u02BD\xDFp\u02BC\u02BE\xF9}\u02BD\u02BC\u02BE\u02BF\u02BF\u02BD\u02BF\u02C0\u02C0\u02C2\u02C1\u02AF\u02C1\u02B8\u02C2:\u02C3\u02C4\xA5S\u02C4\u02C5\xAFX\u02C5\u02C6\xBF`\u02C6\u02C7\xC9e\u02C7\u02C8\x91I\u02C8\u02C9\xDFp\u02C9\u02CB\xAFX\u02CA\u02CC\xF9}\u02CB\u02CA\u02CC\u02CD\u02CD\u02CB\u02CD\u02CE\u02CE\u02DC\u02CF\u02D0\xA7T\u02D0\u02D1\xADW\u02D1\u02D2\xBD_\u02D2\u02D3\xCBf\u02D3\u02D4\x93J\u02D4\u02D5\xDDo\u02D5\u02D7\xADW\u02D6\u02D8\xFB~\u02D7\u02D6\u02D8\u02D9\u02D9\u02D7\u02D9\u02DA\u02DA\u02DC\u02DB\u02C3\u02DB\u02CF\u02DC<\u02DD\u02DE\xD9m\u02DE\u02DF\xDFp\u02DF\u02E0\xD7l\u02E0\u02E1\xADW\u02E1\u02E2\xB3Z\u02E2\u02E3\xC7d\u02E3\u02E5\xA9U\u02E4\u02E6\xF9}\u02E5\u02E4\u02E6\u02E7\u02E7\u02E5\u02E7\u02E8\u02E8\u02F6\u02E9\u02EA\xDBn\u02EA\u02EB\xDDo\u02EB\u02EC\xD5k\u02EC\u02ED\xAFX\u02ED\u02EE\xB1Y\u02EE\u02EF\xC5c\u02EF\u02F1\xABV\u02F0\u02F2\xFB~\u02F1\u02F0\u02F2\u02F3\u02F3\u02F1\u02F3\u02F4\u02F4\u02F6\u02F5\u02DD\u02F5\u02E9\u02F6>\u02F7\u02F8\x99M\u02F8\u02F9\xAFX\u02F9\u02FA\x93J\u02FA\u02FB\xD5k\u02FB\u02FD\xAFX\u02FC\u02FE\xF9}\u02FD\u02FC\u02FE\u02FF\u02FF\u02FD\u02FF\u0300\u0300\u030C\u0301\u0302\x9BN\u0302\u0303\xADW\u0303\u0304\x91I\u0304\u0305\xD7l\u0305\u0307\xADW\u0306\u0308\xFB~\u0307\u0306\u0308\u0309\u0309\u0307\u0309\u030A\u030A\u030C\u030B\u02F7\u030B\u0301\u030C@\u030D\u030E\x95K\u030E\u030F\xAFX\u030F\u0310\xCBf\u0310\u0311\xC9e\u0311\u0312\xAFX\u0312\u0313\xBF`\u0313\u0314\xA1Q\u0314\u0315\x91I\u0315\u0317\xC7d\u0316\u0318\xF9}\u0317\u0316\u0318\u0319\u0319\u0317\u0319\u031A\u031A\u032A\u031B\u031C\x97L\u031C\u031D\xADW\u031D\u031E\xC9e\u031E\u031F\xCBf\u031F\u0320\xADW\u0320\u0321\xBD_\u0321\u0322\xA3R\u0322\u0323\x93J\u0323\u0325\xC5c\u0324\u0326\xFB~\u0325\u0324\u0326\u0327\u0327\u0325\u0327\u0328\u0328\u032A\u0329\u030D\u0329\u031B\u032AB\u032B\u032C\xDDo\u032C\u032D\xD7l\u032D\u032E\xE1q\u032E\u032F\xA1Q\u032F\u0331\xAFX\u0330\u0332\xF9}\u0331\u0330\u0332\u0333\u0333\u0331\u0333\u0334\u0334\u0340\u0335\u0336\xDFp\u0336\u0337\xD5k\u0337\u0338\xE3r\u0338\u0339\xA3R\u0339\u033B\xADW\u033A\u033C\xFB~\u033B\u033A\u033C\u033D\u033D\u033B\u033D\u033E\u033E\u0340\u033F\u032B\u033F\u0335\u0340D\u0341\u0342\xA5S\u0342\u0343\xAFX\u0343\u0344\x93J\u0344\u0345\xBD_\u0345\u0346\xD9m\u0346\u0348\xA3R\u0347\u0349\xF9}\u0348\u0347\u0349\u034A\u034A\u0348\u034A\u034B\u034B\u0358\u034C\u034D\xA7T\u034D\u034E\xADW\u034E\u034F\x91I\u034F\u0350\xBF`\u0350\u0351\xDBn\u0351\u0353\xA1Q\u0352\u0354\xFB~\u0353\u0352\u0354\u0355\u0355\u0353\u0355\u0356\u0356\u0358\u0357\u0341\u0357\u034C\u0358F\u0359\u035A\xE5s\u035A\u035B\xAFX\u035B\u035C\xCBf\u035C\u035D\xB1Y\u035D\u035F\x9FP\u035E\u0360\xF9}\u035F\u035E\u0360\u0361\u0361\u035F\u0361\u0362\u0362\u036E\u0363\u0364\xE7t\u0364\u0365\xADW\u0365\u0366\xC9e\u0366\u0367\xB3Z\u0367\u0369\x9DO\u0368\u036A\xFB~\u0369\u0368\u036A\u036B\u036B\u0369\u036B\u036C\u036C\u036E\u036D\u0359\u036D\u0363\u036EH\u036F\u0370\xC1a\u0370\u0371\xAFX\u0371\u0372\x93J\u0372\u0373\xB3Z\u0373\u0375\xC7d\u0374\u0376\xF9}\u0375\u0374\u0376\u0377\u0377\u0375\u0377\u0378\u0378\u0384\u0379\u037A\xC3b\u037A\u037B\xADW\u037B\u037C\x91I\u037C\u037D\xB1Y\u037D\u037F\xC5c\u037E\u0380\xFB~\u037F\u037E\u0380\u0381\u0381\u037F\u0381\u0382\u0382\u0384\u0383\u036F\u0383\u0379\u0384J\u0385\u0386\xD5k\u0386\u0387\xAFX\u0387\u0388\xA3R\u0388\u0389\x99M\u0389\u038A\xAFX\u038A\u038B\xCBf\u038B\u038C\xD5k\u038C\u038D\xAFX\u038D\u038F\x9FP\u038E\u0390\xF9}\u038F\u038E\u0390\u0391\u0391\u038F\u0391\u0392\u0392\u03A2\u0393\u0394\xD7l\u0394\u0395\xADW\u0395\u0396\xA1Q\u0396\u0397\x9BN\u0397\u0398\xADW\u0398\u0399\xC9e\u0399\u039A\xD7l\u039A\u039B\xADW\u039B\u039D\x9DO\u039C\u039E\xFB~\u039D\u039C\u039E\u039F\u039F\u039D\u039F\u03A0\u03A0\u03A2\u03A1\u0385\u03A1\u0393\u03A2L\u03A3\u03A4\xC5c\u03A4\u03A5\xAFX\u03A5\u03A6\xA3R\u03A6\u03A8\xEBv\u03A7\u03A9\xF9}\u03A8\u03A7\u03A9\u03AA\u03AA\u03A8\u03AA\u03AB\u03AB\u03B6\u03AC\u03AD\xC7d\u03AD\u03AE\xADW\u03AE\u03AF\xA1Q\u03AF\u03B1\xE9u\u03B0\u03B2\xFB~\u03B1\u03B0\u03B2\u03B3\u03B3\u03B1\u03B3\u03B4\u03B4\u03B6\u03B5\u03A3\u03B5\u03AC\u03B6N\u03B7\u03B8\xA1Q\u03B8\u03B9\xAFX\u03B9\u03BA\xEFx\u03BA\u03BB\xCDg\u03BB\u03BC\xAFX\u03BC\u03BD\xCBf\u03BD\u03BE\xD7l\u03BE\u03C0\xDFp\u03BF\u03C1\xF9}\u03C0\u03BF\u03C1\u03C2\u03C2\u03C0\u03C2\u03C3\u03C3\u03D2\u03C4\u03C5\xA3R\u03C5\u03C6\xADW\u03C6\u03C7\xEDw\u03C7\u03C8\xCFh\u03C8\u03C9\xADW\u03C9\u03CA\xC9e\u03CA\u03CB\xD5k\u03CB\u03CD\xDDo\u03CC\u03CE\xFB~\u03CD\u03CC\u03CE\u03CF\u03CF\u03CD\u03CF\u03D0\u03D0\u03D2\u03D1\u03B7\u03D1\u03C4\u03D2P\u03D3\u03D4\xC5c\u03D4\u03D5\xAFX\u03D5\u03D6\xCBf\u03D6\u03D8\xDDo\u03D7\u03D9\xF9}\u03D8\u03D7\u03D9\u03DA\u03DA\u03D8\u03DA\u03DB\u03DB\u03E6\u03DC\u03DD\xC7d\u03DD\u03DE\xADW\u03DE\u03DF\xC9e\u03DF\u03E1\xDFp\u03E0\u03E2\xFB~\u03E1\u03E0\u03E2\u03E3\u03E3\u03E1\u03E3\u03E4\u03E4\u03E6\u03E5\u03D3\u03E5\u03DC\u03E6R\u03E7\u03E8\x91I\u03E8\u03E9\xAFX\u03E9\u03EA\xC7d\u03EA\u03EC\x9DO\u03EB\u03ED\xF9}\u03EC\u03EB\u03ED\u03EE\u03EE\u03EC\u03EE\u03EF\u03EF\u03FA\u03F0\u03F1\x93J\u03F1\u03F2\xADW\u03F2\u03F3\xC5c\u03F3\u03F5\x9FP\u03F4\u03F6\xFB~\u03F5\u03F4\u03F6\u03F7\u03F7\u03F5\u03F7\u03F8\u03F8\u03FA\u03F9\u03E7\u03F9\u03F0\u03FAT\u03FB\u03FC\xC9e\u03FC\u03FD\xAFX\u03FD\u03FF\xD7l\u03FE\u0400\xF9}\u03FF\u03FE\u0400\u0401\u0401\u03FF\u0401\u0402\u0402\u040C\u0403\u0404\xCBf\u0404\u0405\xADW\u0405\u0407\xD5k\u0406\u0408\xFB~\u0407\u0406\u0408\u0409\u0409\u0407\u0409\u040A\u040A\u040C\u040B\u03FB\u040B\u0403\u040CV\u040D\u040E\x85C\u040EX\u040F\u0411\x8DG\u0410\u040F\u0411\u0412\u0412\u0410\u0412\u0413\u0413\u0414';
-    AstigLangLexer._serializedATNSegment2 = "\u0414\u0415\x070\u0415\u0416[.\u0416Z\u0417\u0418\x07u\u0418\u0419\x07v\u0419\u041A\x07i\u041A\\\u041B\u041C\x071\u041C\u041D\x071\u041D\u0421\u041E\u0420\n\u041F\u041E\u0420\u0423\u0421\u041F\u0421\u0422\u0422\u0424\u0423\u0421\u0424\u0425\b/\u0425^\u0426\u0427\x071\u0427\u0428\x07,\u0428\u042C\u0429\u042B\v\u042A\u0429\u042B\u042E\u042C\u042D\u042C\u042A\u042D\u042F\u042E\u042C\u042F\u0430\x07,\u0430\u0431\x071\u0431\u0432\u0432\u0433\b0\u0433`\u0434\u0435\x07-\u0435\u0436\x07?\u0436b\u0437\u0438\x07/\u0438\u0439\x07?\u0439d\u043A\u043B\x07-\u043Bf\u043C\u043D\x07/\u043Dh\u043E\u043F\x07,\u043Fj\u0440\u0441\x071\u0441l\u0442\u0443\x07'\u0443n\u0444\u0445\x07?\u0445\u0446\x07?\u0446p\u0447\u0448\x07#\u0448\u0449\x07?\u0449r\u044A\u044B\x07>\u044Bt\u044C\u044D\x07@\u044Dv\u044E\u044F\x07>\u044F\u0450\x07?\u0450x\u0451\u0452\x07@\u0452\u0453\x07?\u0453z\u0454\u0455\x07=\u0455|\u0456\u0458\x7F@\u0457\u0456\u0458\u0459\u0459\u0457\u0459\u045A\u045A\u045B\u045B\u045C\x070\u045C\u046C\u045D\u045F\x070\u045E\u0460\x7F@\u045F\u045E\u0460\u0461\u0461\u045F\u0461\u0462\u0462\u046C\u0463\u0465\x7F@\u0464\u0463\u0465\u0466\u0466\u0464\u0466\u0467\u0467\u0468\u0468\u0469\x070\u0469\u046A\x7F@\u046A\u046C\u046B\u0457\u046B\u045D\u046B\u0464\u046C~\u046D\u046F	\u046E\u046D\u046F\u0470\u0470\u046E\u0470\u0471\u0471\x80\u0472\u0476\x07$\u0473\u0475\v\u0474\u0473\u0475\u0478\u0476\u0477\u0476\u0474\u0477\u0479\u0478\u0476\u0479\u047A\x07$\u047A\x82\u047B\u047D	\u047C\u047B\u047D\u047E\u047E\u047C\u047E\u047F\u047F\u0480\u0480\u0481\bB\u0481\x84\u0482\u0484\x87D\u0483\u0482\u0484\u0485\u0485\u0483\u0485\u0486\u0486\x86\u0487\u0489\x89E\u0488\u0487\u0489\u048A\u048A\u0488\u048A\u048B\u048B\u048D\u048C\u048E\xF9}\u048D\u048C\u048E\u048F\u048F\u048D\u048F\u0490\u0490\u0494\u0491\u0493\x8FH\u0492\u0491\u0493\u0496\u0494\u0492\u0494\u0495\u0495\u04A8\u0496\u0494\u0497\u0499\x8BF\u0498\u0497\u0499\u049A\u049A\u0498\u049A\u049B\u049B\u049D\u049C\u049E\xFB~\u049D\u049C\u049E\u049F\u049F\u049D\u049F\u04A0\u04A0\u04A4\u04A1\u04A3\x8FH\u04A2\u04A1\u04A3\u04A6\u04A4\u04A2\u04A4\u04A5\u04A5\u04A8\u04A6\u04A4\u04A7\u0488\u04A7\u0498\u04A8\x88\u04A9\u04AA\xFD\x7F\u04AA\u04AE\xAFX\u04AB\u04AD\xFF\x80\u04AC\u04AB\u04AD\u04B0\u04AE\u04AC\u04AE\u04AF\u04AF\x8A\u04B0\u04AE\u04B1\u04B2\xFF\x80\u04B2\u04B6\xADW\u04B3\u04B5\xFD\x7F\u04B4\u04B3\u04B5\u04B8\u04B6\u04B4\u04B6\u04B7\u04B7\x8C\u04B8\u04B6\u04B9\u04BC\xFD\x7F\u04BA\u04BC\xFF\x80\u04BB\u04B9\u04BB\u04BA\u04BC\x8E\u04BD\u04BE\x07a\u04BE\x90\u04BF\u04C0	\u04C0\x92\u04C1\u04C2	\u04C2\x94\u04C3\u04C4	\x07\u04C4\x96\u04C5\u04C6	\b\u04C6\x98\u04C7\u04C8		\u04C8\x9A\u04C9\u04CA	\n\u04CA\x9C\u04CB\u04CC	\v\u04CC\x9E\u04CD\u04CE	\f\u04CE\xA0\u04CF\u04D0	\r\u04D0\xA2\u04D1\u04D2	\u04D2\xA4\u04D3\u04D4	\u04D4\xA6\u04D5\u04D6	\u04D6\xA8\u04D7\u04D8	\u04D8\xAA\u04D9\u04DA	\u04DA\xAC\u04DB\u04DC	\u04DC\xAE\u04DD\u04DE	\u04DE\xB0\u04DF\u04E0	\u04E0\xB2\u04E1\u04E2	\u04E2\xB4\u04E3\u04E4	\u04E4\xB6\u04E5\u04E6	\u04E6\xB8\u04E7\u04E8	\u04E8\xBA\u04E9\u04EA	\u04EA\xBC\u04EB\u04EC	\x1B\u04EC\xBE\u04ED\u04EE	\u04EE\xC0\u04EF\u04F0	\u04F0\xC2\u04F1\u04F2	\u04F2\xC4\u04F3\u04F4	\u04F4\xC6\u04F5\u04F6	 \u04F6\xC8\u04F7\u04F8	!\u04F8\xCA\u04F9\u04FA	\"\u04FA\xCC\u04FB\u04FC	#\u04FC\xCE\u04FD\u04FE	$\u04FE\xD0\u04FF\u0500	%\u0500\xD2\u0501\u0502	&\u0502\xD4\u0503\u0504	'\u0504\xD6\u0505\u0506	(\u0506\xD8\u0507\u0508	)\u0508\xDA\u0509\u050A	*\u050A\xDC\u050B\u050C	+\u050C\xDE\u050D\u050E	,\u050E\xE0\u050F\u0510	-\u0510\xE2\u0511\u0512	.\u0512\xE4\u0513\u0514	/\u0514\xE6\u0515\u0516	0\u0516\xE8\u0517\u0518	1\u0518\xEA\u0519\u051A	2\u051A\xEC\u051B\u051C	3\u051C\xEE\u051D\u051E	4\u051E\xF0\u051F\u0520	5\u0520\xF2\u0521\u0522	6\u0522\xF4\u0523\u0524	7\u0524\xF6\u0525\u0526	8\u0526\xF8\u0527\u052A\xD9m\u0528\u052A\xF5{\u0529\u0527\u0529\u0528\u052A\xFA\u052B\u052E\xDBn\u052C\u052E\xF7|\u052D\u052B\u052D\u052C\u052E\xFC\u052F\u0534	9\u0530\u0534\x91I\u0531\u0534\xA9U\u0532\u0534\xB1Y\u0533\u052F\u0533\u0530\u0533\u0531\u0533\u0532\u0534\xFE\u0535\u053E	:\u0536\u053E\x93J\u0537\u053E\x97L\u0538\u053E\xA3R\u0539\u053E\xB3Z\u053A\u053E\xCBf\u053B\u053E\xDBn\u053C\u053E\xF7|\u053D\u0535\u053D\u0536\u053D\u0537\u053D\u0538\u053D\u0539\u053D\u053A\u053D\u053B\u053D\u053C\u053E\u0100|\u0122\u0131\u0133\u013E\u0149\u014B\u0154\u015D\u015F\u0168\u0171\u0173\u017F\u018B\u018D\u0197\u01A1\u01A3\u01AB\u01B3\u01B5\u01BF\u01C9\u01CB\u01D5\u01DF\u01E1\u01F0\u01FF\u0201\u020E\u021B\u021D\u0225\u022D\u022F\u0238\u0241\u0243\u0250\u025D\u025F\u0267\u026F\u0271\u027D\u0289\u028B\u029B\u02AB\u02AD\u02B6\u02BF\u02C1\u02CD\u02D9\u02DB\u02E7\u02F3\u02F5\u02FF\u0309\u030B\u0319\u0327\u0329\u0333\u033D\u033F\u034A\u0355\u0357\u0361\u036B\u036D\u0377\u0381\u0383\u0391\u039F\u03A1\u03AA\u03B3\u03B5\u03C2\u03CF\u03D1\u03DA\u03E3\u03E5\u03EE\u03F7\u03F9\u0401\u0409\u040B\u0412\u0421\u042C\u0459\u0461\u0466\u046B\u0470\u0476\u047E\u0485\u048A\u048F\u0494\u049A\u049F\u04A4\u04A7\u04AE\u04B6\u04BB\u0529\u052D\u0533\u053D\b";
+\v\v\f\f\f\f\f\f\f\f\f\f\f\f\u0131
+\f\r\f\f\u0132\f\f\f\f\f\f\f\f\f\f\f\f\u0140
+\f\r\f\f\u0141\f\u0144
+\f\r\r\r\r\r\r\r\r\u014D
+\r\r\r\r\u014E\r\r\r\r\r\r\r\r\u0158
+\r\r\r\r\u0159\r\u015C
+\r\u0163
+\r\u0164\u016C
+\r\u016D\u0170
+\u0177
+\r\u0178\u0180
+\r\u0181\u0184
+\u018E
+\r\u018F\u019A
+\r\u019B\u019E
+\u01A6
+\r\u01A7\u01B0
+\r\u01B1\u01B4
+\u01BA
+\r\u01BB\u01C2
+\r\u01C3\u01C6
+\u01CE
+\r\u01CF\u01D8
+\r\u01D9\u01DC
+\u01E4
+\r\u01E5\u01EE
+\r\u01EF\u01F2
+\u01FF
+\r\u0200\u020E
+\r\u020F\u0212
+\u021D
+\r\u021E\u022A
+\r\u022B\u022E
+\u0234
+\r\u0235\u023C
+\r\u023D\u0240
+\u0247
+\r\u0248\u0250
+\r\u0251\u0254
+\u025F
+\r\u0260\u026C
+\r\u026D\u0270
+\u0276
+\r\u0277\u027E
+\r\u027F\u0282
+\x1B\x1B\x1B\x1B\x1B\x1B\x1B\x1B\x1B\u028C
+\x1B\r\x1B\x1B\u028D\x1B\x1B\x1B\x1B\x1B\x1B\x1B\x1B\x1B\u0298
+\x1B\r\x1B\x1B\u0299\x1B\u029C
+\x1B\u02AA
+\r\u02AB\u02BA
+\r\u02BB\u02BE
+\u02C5
+\r\u02C6\u02CE
+\r\u02CF\u02D2
+\u02DC
+\r\u02DD\u02E8
+\r\u02E9\u02EC
+\u02F6
+\r\u02F7\u0302
+\r\u0303\u0306
+       \u030E
+ \r  \u030F       \u0318
+ \r  \u0319 \u031C
+ !!!!!!!!!!!\u0328
+!\r!!\u0329!!!!!!!!!!!\u0336
+!\r!!\u0337!\u033A
+!"""""""\u0342
+"\r""\u0343"""""""\u034C
+"\r""\u034D"\u0350
+"########\u0359
+#\r##\u035A########\u0364
+#\r##\u0365#\u0368
+#$$$$$$$\u0370
+$\r$$\u0371$$$$$$$\u037A
+$\r$$\u037B$\u037E
+$%%%%%%%\u0386
+%\r%%\u0387%%%%%%%\u0390
+%\r%%\u0391%\u0394
+%&&&&&&&&&&&\u03A0
+&\r&&\u03A1&&&&&&&&&&&\u03AE
+&\r&&\u03AF&\u03B2
+&''''''\u03B9
+'\r''\u03BA''''''\u03C2
+'\r''\u03C3'\u03C6
+'((((((((((\u03D1
+(\r((\u03D2((((((((((\u03DE
+(\r((\u03DF(\u03E2
+())))))\u03E9
+)\r))\u03EA))))))\u03F2
+)\r))\u03F3)\u03F6
+)******\u03FD
+*\r**\u03FE******\u0406
+*\r**\u0407*\u040A
+*+++++\u0410
++\r++\u0411+++++\u0418
++\r++\u0419+\u041C
++,,,,,,,,,,\u0427
+,\r,,\u0428,,,,,,,,,,\u0434
+,\r,,\u0435,\u0438
+,------------\u0445
+-\r--\u0446------------\u0454
+-\r--\u0455-\u0458
+-.......\u0460
+.\r..\u0461.......\u046A
+.\r..\u046B.\u046E
+.//////////\u0479
+/\r//\u047A//////////\u0486
+/\r//\u0487/\u048A
+/0011\u048F
+1\r11\u049011122223333\x073\u049E
+3\f33\u04A1\v3334444\x074\u04A9
+4\f44\u04AC\v444444555666778899::;;<<<===>>??@@@AAABBBCCCDDEEFFGG\u04E0
+G\rGG\u04E1GGGGG\u04E8
+G\rGG\u04E9GG\u04ED
+G\rGG\u04EEGGGG\u04F4
+GHH\u04F7
+H\rHH\u04F8II\x07I\u04FD
+I\fII\u0500\vIIIJJ\u0505
+J\rJJ\u0506JJKK\u050C
+K\rKK\u050DLL\u0511
+L\rLL\u0512LL\u0516
+L\rLL\u0517L\x07L\u051B
+L\fLL\u051E\vLLL\u0521
+L\rLL\u0522LL\u0526
+L\rLL\u0527L\x07L\u052B
+L\fLL\u052E\vLL\u0530
+LMMM\x07M\u0535
+M\fMM\u0538\vMNNN\x07N\u053D
+N\fNN\u0540\vNOOO\u0544
+OPPQQRRSSTTUUVVWWXXYYZZ[[\\\\]]^^__\`\`aabbccddeeffgghhiijjkkllmmnnooppqqrrssttuuvvwwxxyyzz{{||}}~~\x7F\x7F\x80\x80\x81\x81\x82\x82\x83\x83\x84\x84\x85\x85\x85\u05B2
+\x85\x86\x86\x86\u05B6
+\x86\x87\x87\x87\x87\x87\u05BC
+\x87\x88\x88\x88\x88\x88\x88\x88\x88\x88\u05C6
+\x88\u04AA\u04FE\x89\x07	\v\x07\r\b	
+\v\f\r\x1B!#%')+-/13\x1B579;= ?!A"C#E$G%I&K'M(O)Q*S+U,W-Y.[/]0_1a2c3e4g5i6k7m8o9q:s;u<w=y>{?}@\x7FA\x81B\x83C\x85D\x87E\x89F\x8BG\x8DH\x8FI\x91J\x93K\x95\x97\x99\x9B\x9D\x9F\xA1\xA3\xA5\xA7\xA9\xAB\xAD\xAF\xB1\xB3\xB5\xB7\xB9\xBB\xBD\xBF\xC1\xC3\xC5\xC7\xC9\xCB\xCD\xCF\xD1\xD3\xD5\xD7\xD9\xDB\xDD\xDF\xE1\xE3\xE5\xE7\xE9\xEB\xED\xEF\xF1\xF3\xF5\xF7\xF9\xFB\xFD\xFF\u0101\u0103\u0105\u0107\u0109\u010B\u010D\u010F;\f\f2;\v\f""BBcc66CCdd::DDeeEEffFFgg55GGhhHH;;iiIIjjJJ##kk33KKllLLmmMMnnNNooOOppPPqq22QQrrRRssSSttTTuu&&77UUvvVVwwWWxxXXyyYYzzZZ{{[[||44\\\\c|C\\\u0616\x07	\v\r\x1B!#%')+-/13579;=?ACEGIKMOQSUWY[]_acegikmoqsuwy{}\x7F\x81\x83\x85\x87\x89\x8B\x8D\x8F\x91\x93\u0111\u0113\x07\u0115	\u0117\v\u0119\r\u011B\u011D\u011F\u0121\u0123\u0143\u015B\x1B\u016F\u0183\u019D!\u01B3#\u01C5%\u01DB'\u01F1)\u0211+\u022D-\u023F/\u02531\u026F3\u02815\u029B7\u02BD9\u02D1;\u02EB=\u0305?\u031BA\u0339C\u034FE\u0367G\u037DI\u0393K\u03B1M\u03C5O\u03E1Q\u03F5S\u0409U\u041BW\u0437Y\u0457[\u046D]\u0489_\u048Ba\u048Ec\u0495e\u0499g\u04A4i\u04B2k\u04B5m\u04B8o\u04BAq\u04BCs\u04BEu\u04C0w\u04C2y\u04C5{\u04C8}\u04CA\x7F\u04CC\x81\u04CF\x83\u04D2\x85\u04D5\x87\u04D8\x89\u04DA\x8B\u04DC\x8D\u04F3\x8F\u04F6\x91\u04FA\x93\u0504\x95\u050B\x97\u052F\x99\u0531\x9B\u0539\x9D\u0543\x9F\u0545\xA1\u0547\xA3\u0549\xA5\u054B\xA7\u054D\xA9\u054F\xAB\u0551\xAD\u0553\xAF\u0555\xB1\u0557\xB3\u0559\xB5\u055B\xB7\u055D\xB9\u055F\xBB\u0561\xBD\u0563\xBF\u0565\xC1\u0567\xC3\u0569\xC5\u056B\xC7\u056D\xC9\u056F\xCB\u0571\xCD\u0573\xCF\u0575\xD1\u0577\xD3\u0579\xD5\u057B\xD7\u057D\xD9\u057F\xDB\u0581\xDD\u0583\xDF\u0585\xE1\u0587\xE3\u0589\xE5\u058B\xE7\u058D\xE9\u058F\xEB\u0591`;
+    AstigLangLexer._serializedATNSegment1 = '\xED\u0593\xEF\u0595\xF1\u0597\xF3\u0599\xF5\u059B\xF7\u059D\xF9\u059F\xFB\u05A1\xFD\u05A3\xFF\u05A5\u0101\u05A7\u0103\u05A9\u0105\u05AB\u0107\u05AD\u0109\u05B1\u010B\u05B5\u010D\u05BB\u010F\u05C5\u0111\u0112\x07?\u0112\u0113\u0114\x07}\u0114\u0115\u0116\x07\x7F\u0116\b\u0117\u0118\x07.\u0118\n\u0119\u011A\x07]\u011A\f\u011B\u011C\x07_\u011C\u011D\u011E\x07*\u011E\u011F\u0120\x07+\u0120\u0121\u0122\x070\u0122\u0123\u0124\x07<\u0124\u0125\u0126\xC1a\u0126\u0127\xBF`\u0127\u0128\xD7l\u0128\u0129\xA9U\u0129\u012A\xBF`\u012A\u012B\xCFh\u012B\u012C\xF1y\u012C\u012D\xBF`\u012D\u012E\xAFX\u012E\u0130\xB3Z\u012F\u0131\u0109\x85\u0130\u012F\u0131\u0132\u0132\u0130\u0132\u0133\u0133\u0144\u0134\u0135\xC3b\u0135\u0136\xBD_\u0136\u0137\xD5k\u0137\u0138\xABV\u0138\u0139\xBD_\u0139\u013A\xCDg\u013A\u013B\xF3z\u013B\u013C\xBD_\u013C\u013D\xADW\u013D\u013F\xB1Y\u013E\u0140\u010B\x86\u013F\u013E\u0140\u0141\u0141\u013F\u0141\u0142\u0142\u0144\u0143\u0125\u0143\u0134\u0144\u0145\u0146\xA9U\u0146\u0147\xDBn\u0147\u0148\xBD_\u0148\u0149\xD7l\u0149\u014A\xE9u\u014A\u014C\xEFx\u014B\u014D\u0109\x85\u014C\u014B\u014D\u014E\u014E\u014C\u014E\u014F\u014F\u015C\u0150\u0151\xABV\u0151\u0152\xD9m\u0152\u0153\xBF`\u0153\u0154\xD5k\u0154\u0155\xEBv\u0155\u0157\xEDw\u0156\u0158\u010B\x86\u0157\u0156\u0158\u0159\u0159\u0157\u0159\u015A\u015A\u015C\u015B\u0145\u015B\u0150\u015C\u015D\u015E\xF5{\u015E\u015F\xBF`\u015F\u0160\xA3R\u0160\u0162\xE5s\u0161\u0163\u0109\x85\u0162\u0161\u0163\u0164\u0164\u0162\u0164\u0165\u0165\u0170\u0166\u0167\xF7|\u0167\u0168\xBD_\u0168\u0169\xA1Q\u0169\u016B\xE7t\u016A\u016C\u010B\x86\u016B\u016A\u016C\u016D\u016D\u016B\u016D\u016E\u016E\u0170\u016F\u015D\u016F\u0166\u0170\u0171\u0172\xCDg\u0172\u0173\xBF`\u0173\u0174\xB3Z\u0174\u0176\xEDw\u0175\u0177\u0109\x85\u0176\u0175\u0177\u0178\u0178\u0176\u0178\u0179\u0179\u0184\u017A\u017B\xCFh\u017B\u017C\xBD_\u017C\u017D\xB1Y\u017D\u017F\xEFx\u017E\u0180\u010B\x86\u017F\u017E\u0180\u0181\u0181\u017F\u0181\u0182\u0182\u0184\u0183\u0171\u0183\u017A\u0184\u0185\u0186\xDDo\u0186\u0187\xBF`\u0187\u0188\xE7t\u0188\u0189\xC1a\u0189\u018A\xBF`\u018A\u018B\xD7l\u018B\u018D\xEFx\u018C\u018E\u0109\x85\u018D\u018C\u018E\u018F\u018F\u018D\u018F\u0190\u0190\u019E\u0191\u0192\xDFp\u0192\u0193\xBD_\u0193\u0194\xE5s\u0194\u0195\xC3b\u0195\u0196\xBD_\u0196\u0197\xD5k\u0197\u0199\xEDw\u0198\u019A\u010B\x86\u0199\u0198\u019A\u019B\u019B\u0199\u019B\u019C\u019C\u019E\u019D\u0185\u019D\u0191\u019E \u019F\u01A0\xE9u\u01A0\u01A1\xA9U\u01A1\u01A2\xBF`\u01A2\u01A3\xA3R\u01A3\u01A5\xD5k\u01A4\u01A6\u0109\x85\u01A5\u01A4\u01A6\u01A7\u01A7\u01A5\u01A7\u01A8\u01A8\u01B4\u01A9\u01AA\xEBv\u01AA\u01AB\xABV\u01AB\u01AC\xBD_\u01AC\u01AD\xA1Q\u01AD\u01AF\xD7l\u01AE\u01B0\u010B\x86\u01AF\u01AE\u01B0\u01B1\u01B1\u01AF\u01B1\u01B2\u01B2\u01B4\u01B3\u019F\u01B3\u01A9\u01B4"\u01B5\u01B6\xC1a\u01B6\u01B7\xBF`\u01B7\u01B9\xB7\\\u01B8\u01BA\u0109\x85\u01B9\u01B8\u01BA\u01BB\u01BB\u01B9\u01BB\u01BC\u01BC\u01C6\u01BD\u01BE\xC3b\u01BE\u01BF\xBD_\u01BF\u01C1\xB5[\u01C0\u01C2\u010B\x86\u01C1\u01C0\u01C2\u01C3\u01C3\u01C1\u01C3\u01C4\u01C4\u01C6\u01C5\u01B5\u01C5\u01BD\u01C6$\u01C7\u01C8\xB1Y\u01C8\u01C9\xBF`\u01C9\u01CA\xCFh\u01CA\u01CB\xEBv\u01CB\u01CD\xB3Z\u01CC\u01CE\u0109\x85\u01CD\u01CC\u01CE\u01CF\u01CF\u01CD\u01CF\u01D0\u01D0\u01DC\u01D1\u01D2\xB3Z\u01D2\u01D3\xBD_\u01D3\u01D4\xCDg\u01D4\u01D5\xE9u\u01D5\u01D7\xB1Y\u01D6\u01D8\u010B\x86\u01D7\u01D6\u01D8\u01D9\u01D9\u01D7\u01D9\u01DA\u01DA\u01DC\u01DB\u01C7\u01DB\u01D1\u01DC&\u01DD\u01DE\xF9}\u01DE\u01DF\xBF`\u01DF\u01E0\xC3b\u01E0\u01E1\xCDg\u01E1\u01E3\xB3Z\u01E2\u01E4\u0109\x85\u01E3\u01E2\u01E4\u01E5\u01E5\u01E3\u01E5\u01E6\u01E6\u01F2\u01E7\u01E8\xFB~\u01E8\u01E9\xBD_\u01E9\u01EA\xC1a\u01EA\u01EB\xCFh\u01EB\u01ED\xB1Y\u01EC\u01EE\u010B\x86\u01ED\u01EC\u01EE\u01EF\u01EF\u01ED\u01EF\u01F0\u01F0\u01F2\u01F1\u01DD\u01F1\u01E7\u01F2(\u01F3\u01F4\xB5[\u01F4\u01F5\xBF`\u01F5\u01F6\xF3z\u01F6\u01F7\xD5k\u01F7\u01F8\xA9U\u01F8\u01F9\xEFx\u01F9\u01FA\xBF`\u01FA\u01FB\xC1a\u01FB\u01FC\xDBn\u01FC\u01FE\xD7l\u01FD\u01FF\u0109\x85\u01FE\u01FD\u01FF\u0200\u0200\u01FE\u0200\u0201\u0201\u0212\u0202\u0203\xB7\\\u0203\u0204\xBD_\u0204\u0205\xF1y\u0205\u0206\xD7l\u0206\u0207\xABV\u0207\u0208\xEDw\u0208\u0209\xBD_\u0209\u020A\xC3b\u020A\u020B\xD9m\u020B\u020D\xD5k\u020C\u020E\u010B\x86\u020D\u020C\u020E\u020F\u020F\u020D\u020F\u0210\u0210\u0212\u0211\u01F3\u0211\u0202\u0212*\u0213\u0214\xE5s\u0214\u0215\xBF`\u0215\u0216\xB3Z\u0216\u0217\xEDw\u0217\u0218\xBF`\u0218\u0219\xF3z\u0219\u021A\xE5s\u021A\u021C\xD5k\u021B\u021D\u0109\x85\u021C\u021B\u021D\u021E\u021E\u021C\u021E\u021F\u021F\u022E\u0220\u0221\xE7t\u0221\u0222\xBD_\u0222\u0223\xB1Y\u0223\u0224\xEFx\u0224\u0225\xBD_\u0225\u0226\xF1y\u0226\u0227\xE7t\u0227\u0229\xD7l\u0228\u022A\u010B\x86\u0229\u0228\u022A\u022B\u022B\u0229\u022B\u022C\u022C\u022E\u022D\u0213\u022D\u0220\u022E,\u022F\u0230\xADW\u0230\u0231\xBF`\u0231\u0233\xDBn\u0232\u0234\u0109\x85\u0233\u0232\u0234\u0235\u0235\u0233\u0235\u0236\u0236\u0240\u0237\u0238\xAFX\u0238\u0239\xBD_\u0239\u023B\xD9m\u023A\u023C\u010B\x86\u023B\u023A\u023C\u023D\u023D\u023B\u023D\u023E\u023E\u0240\u023F\u022F\u023F\u0237\u0240.\u0241\u0242\xB5[\u0242\u0243\xBF`\u0243\u0244\xDBn\u0244\u0246\xE5s\u0245\u0247\u0109\x85\u0246\u0245\u0247\u0248\u0248\u0246\u0248\u0249\u0249\u0254\u024A\u024B\xB7\\\u024B\u024C\xBD_\u024C\u024D\xD9m\u024D\u024F\xE7t\u024E\u0250\u010B\x86\u024F\u024E\u0250\u0251\u0251\u024F\u0251\u0252\u0252\u0254\u0253\u0241\u0253\u024A\u02540\u0255\u0256\xB5[\u0256\u0257\xBF`\u0257\u0258\xDBn\u0258\u0259\xE5s\u0259\u025A\xB3Z\u025A\u025B\xA3R\u025B\u025C\xA9U\u025C\u025E\xBF`\u025D\u025F\u0109\x85\u025E\u025D\u025F\u0260\u0260\u025E\u0260\u0261\u0261\u0270\u0262\u0263\xB7\\\u0263\u0264\xBD_\u0264\u0265\xD9m\u0265\u0266\xE7t\u0266\u0267\xB1Y\u0267\u0268\xA1Q\u0268\u0269\xABV\u0269\u026B\xBD_\u026A\u026C\u010B\x86\u026B\u026A\u026C\u026D\u026D\u026B\u026D\u026E\u026E\u0270\u026F\u0255\u026F\u0262\u02702\u0271\u0272\xC1a\u0272\u0273\xBF`\u0273\u0275\xD7l\u0274\u0276\u0109\x85\u0275\u0274\u0276\u0277\u0277\u0275\u0277\u0278\u0278\u0282\u0279\u027A\xC3b\u027A\u027B\xBD_\u027B\u027D\xD5k\u027C\u027E\u010B\x86\u027D\u027C\u027E\u027F\u027F\u027D\u027F\u0280\u0280\u0282\u0281\u0271\u0281\u0279\u02824\u0283\u0284\xA5S\u0284\u0285\xBF`\u0285\u0286\xE7t\u0286\u0287\xB3Z\u0287\u0288\xA1Q\u0288\u0289\xBF`\u0289\u028B\xCBf\u028A\u028C\u0109\x85\u028B\u028A\u028C\u028D\u028D\u028B\u028D\u028E\u028E\u029C\u028F\u0290\xA7T\u0290\u0291\xBD_\u0291\u0292\xE5s\u0292\u0293\xB1Y\u0293\u0294\xA3R\u0294\u0295\xBD_\u0295\u0297\xC9e\u0296\u0298\u010B\x86\u0297\u0296\u0298\u0299\u0299\u0297\u0299\u029A\u029A\u029C\u029B\u0283\u029B\u028F\u029C6\u029D\u029E\xA9U\u029E\u029F\xDBn\u029F\u02A0\xBF`\u02A0\u02A1\xD5k\u02A1\u02A2\xEDw\u02A2\u02A3\xBF`\u02A3\u02A4\xC3b\u02A4\u02A5\xD5k\u02A5\u02A6\xBF`\u02A6\u02A7\xF3z\u02A7\u02A9\xB3Z\u02A8\u02AA\u0109\x85\u02A9\u02A8\u02AA\u02AB\u02AB\u02A9\u02AB\u02AC\u02AC\u02BE\u02AD\u02AE\xABV\u02AE\u02AF\xD9m\u02AF\u02B0\xBD_\u02B0\u02B1\xD7l\u02B1\u02B2\xEFx\u02B2\u02B3\xBD_\u02B3\u02B4\xC1a\u02B4\u02B5\xD7l\u02B5\u02B6\xBD_\u02B6\u02B7\xF1y\u02B7\u02B9\xB1Y\u02B8\u02BA\u010B\x86\u02B9\u02B8\u02BA\u02BB\u02BB\u02B9\u02BB\u02BC\u02BC\u02BE\u02BD\u029D\u02BD\u02AD\u02BE8\u02BF\u02C0\xC1a\u02C0\u02C1\xBF`\u02C1\u02C2\xD7l\u02C2\u02C4\xEDw\u02C3\u02C5\u010B\x86\u02C4\u02C3\u02C5\u02C6\u02C6\u02C4\u02C6\u02C7\u02C7\u02D2\u02C8\u02C9\xC3b\u02C9\u02CA\xBD_\u02CA\u02CB\xD5k\u02CB\u02CD\xEFx\u02CC\u02CE\u0109\x85\u02CD\u02CC\u02CE\u02CF\u02CF\u02CD\u02CF\u02D0\u02D0\u02D2\u02D1\u02BF\u02D1\u02C8\u02D2:\u02D3\u02D4\xB5[\u02D4\u02D5\xBF`\u02D5\u02D6\xCFh\u02D6\u02D7\xD9m\u02D7\u02D8\xA1Q\u02D8\u02D9\xEFx\u02D9\u02DB\xBF`\u02DA\u02DC\u0109\x85\u02DB\u02DA\u02DC\u02DD\u02DD\u02DB\u02DD\u02DE\u02DE\u02EC\u02DF\u02E0\xB7\\\u02E0\u02E1\xBD_\u02E1\u02E2\xCDg\u02E2\u02E3\xDBn\u02E3\u02E4\xA3R\u02E4\u02E5\xEDw\u02E5\u02E7\xBD_\u02E6\u02E8\u010B\x86\u02E7\u02E6\u02E8\u02E9\u02E9\u02E7\u02E9\u02EA\u02EA\u02EC\u02EB\u02D3\u02EB\u02DF\u02EC<\u02ED\u02EE\xE9u\u02EE\u02EF\xEFx\u02EF\u02F0\xE7t\u02F0\u02F1\xBD_\u02F1\u02F2\xC3b\u02F2\u02F3\xD7l\u02F3\u02F5\xB9]\u02F4\u02F6\u0109\x85\u02F5\u02F4\u02F6\u02F7\u02F7\u02F5\u02F7\u02F8\u02F8\u0306\u02F9\u02FA\xEBv\u02FA\u02FB\xEDw\u02FB\u02FC\xE5s\u02FC\u02FD\xBF`\u02FD\u02FE\xC1a\u02FE\u02FF\xD5k\u02FF\u0301\xBB^\u0300\u0302\u010B\x86\u0301\u0300\u0302\u0303\u0303\u0301\u0303\u0304\u0304\u0306\u0305\u02ED\u0305\u02F9\u0306>\u0307\u0308\xA9U\u0308\u0309\xBF`\u0309\u030A\xA3R\u030A\u030B\xE5s\u030B\u030D\xBF`\u030C\u030E\u0109\x85\u030D\u030C\u030E\u030F\u030F\u030D\u030F\u0310\u0310\u031C\u0311\u0312\xABV\u0312\u0313\xBD_\u0313\u0314\xA1Q\u0314\u0315\xE7t\u0315\u0317\xBD_\u0316\u0318\u010B\x86\u0317\u0316\u0318\u0319\u0319\u0317\u0319\u031A\u031A\u031C\u031B\u0307\u031B\u0311\u031C@\u031D\u031E\xA5S\u031E\u031F\xBF`\u031F\u0320\xDBn\u0320\u0321\xD9m\u0321\u0322\xBF`\u0322\u0323\xCFh\u0323\u0324\xB1Y\u0324\u0325\xA1Q\u0325\u0327\xD7l\u0326\u0328\u0109\x85\u0327\u0326\u0328\u0329\u0329\u0327\u0329\u032A\u032A\u033A\u032B\u032C\xA7T\u032C\u032D\xBD_\u032D\u032E\xD9m\u032E\u032F\xDBn\u032F\u0330\xBD_\u0330\u0331\xCDg\u0331\u0332\xB3Z\u0332\u0333\xA3R\u0333\u0335\xD5k\u0334\u0336\u010B\x86\u0335\u0334\u0336\u0337\u0337\u0335\u0337\u0338\u0338\u033A\u0339\u031D\u0339\u032B\u033AB\u033B\u033C\xEDw\u033C\u033D\xE7t\u033D\u033E\xF1y\u033E\u033F\xB1Y\u033F\u0341\xBF`\u0340\u0342\u0109\x85\u0341\u0340\u0342\u0343\u0343\u0341\u0343\u0344\u0344\u0350\u0345\u0346\xEFx\u0346\u0347\xE5s\u0347\u0348\xF3z\u0348\u0349\xB3Z\u0349\u034B\xBD_\u034A\u034C\u010B\x86\u034B\u034A\u034C\u034D\u034D\u034B\u034D\u034E\u034E\u0350\u034F\u033B\u034F\u0345\u0350D\u0351\u0352\xB5[\u0352\u0353\xBF`\u0353\u0354\xA3R\u0354\u0355\xCDg\u0355\u0356\xE9u\u0356\u0358\xB3Z\u0357\u0359\u0109\x85\u0358\u0357\u0359\u035A\u035A\u0358\u035A\u035B\u035B\u0368\u035C\u035D\xB7\\\u035D\u035E\xBD_\u035E\u035F\xA1Q\u035F\u0360\xCFh\u0360\u0361\xEBv\u0361\u0363\xB1Y\u0362\u0364\u010B\x86\u0363\u0362\u0364\u0365\u0365\u0363\u0365\u0366\u0366\u0368\u0367\u0351\u0367\u035C\u0368F\u0369\u036A\xF5{\u036A\u036B\xBF`\u036B\u036C\xDBn\u036C\u036D\xC1a\u036D\u036F\xAFX\u036E\u0370\u0109\x85\u036F\u036E\u0370\u0371\u0371\u036F\u0371\u0372\u0372\u037E\u0373\u0374\xF7|\u0374\u0375\xBD_\u0375\u0376\xD9m\u0376\u0377\xC3b\u0377\u0379\xADW\u0378\u037A\u010B\x86\u0379\u0378\u037A\u037B\u037B\u0379\u037B\u037C\u037C\u037E\u037D\u0369\u037D\u0373\u037EH\u037F\u0380\xD1i\u0380\u0381\xBF`\u0381\u0382\xA3R\u0382\u0383\xC3b\u0383\u0385\xD7l\u0384\u0386\u0109\x85\u0385\u0384\u0386\u0387\u0387\u0385\u0387\u0388\u0388\u0394\u0389\u038A\xD3j\u038A\u038B\xBD_\u038B\u038C\xA1Q\u038C\u038D\xC1a\u038D\u038F\xD5k\u038E\u0390\u010B\x86\u038F\u038E\u0390\u0391\u0391\u038F\u0391\u0392\u0392\u0394\u0393\u037F\u0393\u0389\u0394J\u0395\u0396\xE5s\u0396\u0397\xBF`\u0397\u0398\xB3Z\u0398\u0399\xA9U\u0399\u039A\xBF`\u039A\u039B\xDBn\u039B\u039C\xE5s\u039C\u039D\xBF`\u039D\u039F\xAFX\u039E\u03A0\u0109\x85\u039F\u039E\u03A0\u03A1\u03A1\u039F\u03A1\u03A2\u03A2\u03B2\u03A3\u03A4\xE7t\u03A4\u03A5\xBD_\u03A5\u03A6\xB1Y\u03A6\u03A7\xABV\u03A7\u03A8\xBD_\u03A8\u03A9\xD9m\u03A9\u03AA\xE7t\u03AA\u03AB\xBD_\u03AB\u03AD\xADW\u03AC\u03AE\u010B\x86\u03AD\u03AC\u03AE\u03AF\u03AF\u03AD\u03AF\u03B0\u03B0\u03B2\u03B1\u0395\u03B1\u03A3\u03B2L\u03B3\u03B4\xD5k\u03B4\u03B5\xBF`\u03B5\u03B6\xB3Z\u03B6\u03B8\xFB~\u03B7\u03B9\u0109\x85\u03B8\u03B7\u03B9\u03BA\u03BA\u03B8\u03BA\u03BB\u03BB\u03C6\u03BC\u03BD\xD7l\u03BD\u03BE\xBD_\u03BE\u03BF\xB1Y\u03BF\u03C1\xF9}\u03C0\u03C2\u010B\x86\u03C1\u03C0\u03C2\u03C3\u03C3\u03C1\u03C3\u03C4\u03C4\u03C6\u03C5\u03B3\u03C5\u03BC\u03C6N\u03C7\u03C8\xB1Y\u03C8\u03C9\xBF`\u03C9\u03CA\xFF\x80\u03CA\u03CB\xDDo\u03CB\u03CC\xBF`\u03CC\u03CD\xDBn\u03CD\u03CE\xE7t\u03CE\u03D0\xEFx\u03CF\u03D1\u0109\x85\u03D0\u03CF\u03D1\u03D2\u03D2\u03D0\u03D2\u03D3\u03D3\u03E2\u03D4\u03D5\xB3Z\u03D5\u03D6\xBD_\u03D6\u03D7\xFD\x7F\u03D7\u03D8\xDFp\u03D8\u03D9\xBD_\u03D9\u03DA\xD9m\u03DA\u03DB\xE5s\u03DB\u03DD\xEDw\u03DC\u03DE\u010B\x86\u03DD\u03DC\u03DE\u03DF\u03DF\u03DD\u03DF\u03E0\u03E0\u03E2\u03E1\u03C7\u03E1\u03D4\u03E2P\u03E3\u03E4\xD5k\u03E4\u03E5\xBF`\u03E5\u03E6\xDBn\u03E6\u03E8\xEDw\u03E7\u03E9\u0109\x85\u03E8\u03E7\u03E9';
+    AstigLangLexer._serializedATNSegment2 = "\u03EA\u03EA\u03E8\u03EA\u03EB\u03EB\u03F6\u03EC\u03ED\xD7l\u03ED\u03EE\xBD_\u03EE\u03EF\xD9m\u03EF\u03F1\xEFx\u03F0\u03F2\u010B\x86\u03F1\u03F0\u03F2\u03F3\u03F3\u03F1\u03F3\u03F4\u03F4\u03F6\u03F5\u03E3\u03F5\u03EC\u03F6R\u03F7\u03F8\xA1Q\u03F8\u03F9\xBF`\u03F9\u03FA\xD7l\u03FA\u03FC\xADW\u03FB\u03FD\u0109\x85\u03FC\u03FB\u03FD\u03FE\u03FE\u03FC\u03FE\u03FF\u03FF\u040A\u0400\u0401\xA3R\u0401\u0402\xBD_\u0402\u0403\xD5k\u0403\u0405\xAFX\u0404\u0406\u010B\x86\u0405\u0404\u0406\u0407\u0407\u0405\u0407\u0408\u0408\u040A\u0409\u03F7\u0409\u0400\u040AT\u040B\u040C\xD9m\u040C\u040D\xBF`\u040D\u040F\xE7t\u040E\u0410\u0109\x85\u040F\u040E\u0410\u0411\u0411\u040F\u0411\u0412\u0412\u041C\u0413\u0414\xDBn\u0414\u0415\xBD_\u0415\u0417\xE5s\u0416\u0418\u010B\x86\u0417\u0416\u0418\u0419\u0419\u0417\u0419\u041A\u041A\u041C\u041B\u040B\u041B\u0413\u041CV\u041D\u041E\xD1i\u041E\u041F\xBF`\u041F\u0420\xA3R\u0420\u0421\xCDg\u0421\u0422\xCFh\u0422\u0423\xBD_\u0423\u0424\xD9m\u0424\u0426\xABV\u0425\u0427\u0109\x85\u0426\u0425\u0427\u0428\u0428\u0426\u0428\u0429\u0429\u0438\u042A\u042B\xD3j\u042B\u042C\xBD_\u042C\u042D\xA1Q\u042D\u042E\xCFh\u042E\u042F\xCDg\u042F\u0430\xBF`\u0430\u0431\xDBn\u0431\u0433\xA9U\u0432\u0434\u010B\x86\u0433\u0432\u0434\u0435\u0435\u0433\u0435\u0436\u0436\u0438\u0437\u041D\u0437\u042A\u0438X\u0439\u043A\xE5s\u043A\u043B\xBF`\u043B\u043C\xB3Z\u043C\u043D\xA1Q\u043D\u043E\xBF`\u043E\u043F\xCFh\u043F\u0440\xCDg\u0440\u0441\xBF`\u0441\u0442\xDBn\u0442\u0444\xA9U\u0443\u0445\u0109\x85\u0444\u0443\u0445\u0446\u0446\u0444\u0446\u0447\u0447\u0458\u0448\u0449\xE7t\u0449\u044A\xBD_\u044A\u044B\xB1Y\u044B\u044C\xA3R\u044C\u044D\xBD_\u044D\u044E\xCDg\u044E\u044F\xCFh\u044F\u0450\xBD_\u0450\u0451\xD9m\u0451\u0453\xABV\u0452\u0454\u010B\x86\u0453\u0452\u0454\u0455\u0455\u0453\u0455\u0456\u0456\u0458\u0457\u0439\u0457\u0448\u0458Z\u0459\u045A\xB5[\u045A\u045B\xE7t\u045B\u045C\xBF`\u045C\u045D\xB1Y\u045D\u045F\xB3Z\u045E\u0460\u0109\x85\u045F\u045E\u0460\u0461\u0461\u045F\u0461\u0462\u0462\u046E\u0463\u0464\xB7\\\u0464\u0465\xE5s\u0465\u0466\xBD_\u0466\u0467\xB3Z\u0467\u0469\xB1Y\u0468\u046A\u010B\x86\u0469\u0468\u046A\u046B\u046B\u0469\u046B\u046C\u046C\u046E\u046D\u0459\u046D\u0463\u046E\\\u046F\u0470\xD1i\u0470\u0471\xBF`\u0471\u0472\xB3Z\u0472\u0473\xD1i\u0473\u0474\xE9u\u0474\u0475\xB3Z\u0475\u0476\xBF`\u0476\u0478\xEDw\u0477\u0479\u0109\x85\u0478\u0477\u0479\u047A\u047A\u0478\u047A\u047B\u047B\u048A\u047C\u047D\xD3j\u047D\u047E\xBD_\u047E\u047F\xB1Y\u047F\u0480\xD3j\u0480\u0481\xEBv\u0481\u0482\xB1Y\u0482\u0483\xBD_\u0483\u0485\xEFx\u0484\u0486\u010B\x86\u0485\u0484\u0486\u0487\u0487\u0485\u0487\u0488\u0488\u048A\u0489\u046F\u0489\u047C\u048A^\u048B\u048C\x95K\u048C`\u048D\u048F\x9DO\u048E\u048D\u048F\u0490\u0490\u048E\u0490\u0491\u0491\u0492\u0492\u0493\x070\u0493\u0494c2\u0494b\u0495\u0496\x07u\u0496\u0497\x07v\u0497\u0498\x07i\u0498d\u0499\u049A\x071\u049A\u049B\x071\u049B\u049F\u049C\u049E\n\u049D\u049C\u049E\u04A1\u049F\u049D\u049F\u04A0\u04A0\u04A2\u04A1\u049F\u04A2\u04A3\b3\u04A3f\u04A4\u04A5\x071\u04A5\u04A6\x07,\u04A6\u04AA\u04A7\u04A9\v\u04A8\u04A7\u04A9\u04AC\u04AA\u04AB\u04AA\u04A8\u04AB\u04AD\u04AC\u04AA\u04AD\u04AE\x07,\u04AE\u04AF\x071\u04AF\u04B0\u04B0\u04B1\b4\u04B1h\u04B2\u04B3\x07-\u04B3\u04B4\x07?\u04B4j\u04B5\u04B6\x07/\u04B6\u04B7\x07?\u04B7l\u04B8\u04B9\x07-\u04B9n\u04BA\u04BB\x07/\u04BBp\u04BC\u04BD\x07,\u04BDr\u04BE\u04BF\x071\u04BFt\u04C0\u04C1\x07'\u04C1v\u04C2\u04C3\x07?\u04C3\u04C4\x07?\u04C4x\u04C5\u04C6\x07#\u04C6\u04C7\x07?\u04C7z\u04C8\u04C9\x07>\u04C9|\u04CA\u04CB\x07@\u04CB~\u04CC\u04CD\x07>\u04CD\u04CE\x07?\u04CE\x80\u04CF\u04D0\x07@\u04D0\u04D1\x07?\u04D1\x82\u04D2\u04D3\x07>\u04D3\u04D4\x07>\u04D4\x84\u04D5\u04D6\x07@\u04D6\u04D7\x07@\u04D7\x86\u04D8\u04D9\x07(\u04D9\x88\u04DA\u04DB\x07~\u04DB\x8A\u04DC\u04DD\x07=\u04DD\x8C\u04DE\u04E0\x8FH\u04DF\u04DE\u04E0\u04E1\u04E1\u04DF\u04E1\u04E2\u04E2\u04E3\u04E3\u04E4\x070\u04E4\u04F4\u04E5\u04E7\x070\u04E6\u04E8\x8FH\u04E7\u04E6\u04E8\u04E9\u04E9\u04E7\u04E9\u04EA\u04EA\u04F4\u04EB\u04ED\x8FH\u04EC\u04EB\u04ED\u04EE\u04EE\u04EC\u04EE\u04EF\u04EF\u04F0\u04F0\u04F1\x070\u04F1\u04F2\x8FH\u04F2\u04F4\u04F3\u04DF\u04F3\u04E5\u04F3\u04EC\u04F4\x8E\u04F5\u04F7	\u04F6\u04F5\u04F7\u04F8\u04F8\u04F6\u04F8\u04F9\u04F9\x90\u04FA\u04FE\x07$\u04FB\u04FD\v\u04FC\u04FB\u04FD\u0500\u04FE\u04FF\u04FE\u04FC\u04FF\u0501\u0500\u04FE\u0501\u0502\x07$\u0502\x92\u0503\u0505	\u0504\u0503\u0505\u0506\u0506\u0504\u0506\u0507\u0507\u0508\u0508\u0509\bJ\u0509\x94\u050A\u050C\x97L\u050B\u050A\u050C\u050D\u050D\u050B\u050D\u050E\u050E\x96\u050F\u0511\x99M\u0510\u050F\u0511\u0512\u0512\u0510\u0512\u0513\u0513\u0515\u0514\u0516\u0109\x85\u0515\u0514\u0516\u0517\u0517\u0515\u0517\u0518\u0518\u051C\u0519\u051B\x9FP\u051A\u0519\u051B\u051E\u051C\u051A\u051C\u051D\u051D\u0530\u051E\u051C\u051F\u0521\x9BN\u0520\u051F\u0521\u0522\u0522\u0520\u0522\u0523\u0523\u0525\u0524\u0526\u010B\x86\u0525\u0524\u0526\u0527\u0527\u0525\u0527\u0528\u0528\u052C\u0529\u052B\x9FP\u052A\u0529\u052B\u052E\u052C\u052A\u052C\u052D\u052D\u0530\u052E\u052C\u052F\u0510\u052F\u0520\u0530\x98\u0531\u0532\u010D\x87\u0532\u0536\xBF`\u0533\u0535\u010F\x88\u0534\u0533\u0535\u0538\u0536\u0534\u0536\u0537\u0537\x9A\u0538\u0536\u0539\u053A\u010F\x88\u053A\u053E\xBD_\u053B\u053D\u010D\x87\u053C\u053B\u053D\u0540\u053E\u053C\u053E\u053F\u053F\x9C\u0540\u053E\u0541\u0544\u010D\x87\u0542\u0544\u010F\x88\u0543\u0541\u0543\u0542\u0544\x9E\u0545\u0546\x07a\u0546\xA0\u0547\u0548	\u0548\xA2\u0549\u054A	\u054A\xA4\u054B\u054C	\x07\u054C\xA6\u054D\u054E	\b\u054E\xA8\u054F\u0550		\u0550\xAA\u0551\u0552	\n\u0552\xAC\u0553\u0554	\v\u0554\xAE\u0555\u0556	\f\u0556\xB0\u0557\u0558	\r\u0558\xB2\u0559\u055A	\u055A\xB4\u055B\u055C	\u055C\xB6\u055D\u055E	\u055E\xB8\u055F\u0560	\u0560\xBA\u0561\u0562	\u0562\xBC\u0563\u0564	\u0564\xBE\u0565\u0566	\u0566\xC0\u0567\u0568	\u0568\xC2\u0569\u056A	\u056A\xC4\u056B\u056C	\u056C\xC6\u056D\u056E	\u056E\xC8\u056F\u0570	\u0570\xCA\u0571\u0572	\u0572\xCC\u0573\u0574	\x1B\u0574\xCE\u0575\u0576	\u0576\xD0\u0577\u0578	\u0578\xD2\u0579\u057A	\u057A\xD4\u057B\u057C	\u057C\xD6\u057D\u057E	 \u057E\xD8\u057F\u0580	!\u0580\xDA\u0581\u0582	\"\u0582\xDC\u0583\u0584	#\u0584\xDE\u0585\u0586	$\u0586\xE0\u0587\u0588	%\u0588\xE2\u0589\u058A	&\u058A\xE4\u058B\u058C	'\u058C\xE6\u058D\u058E	(\u058E\xE8\u058F\u0590	)\u0590\xEA\u0591\u0592	*\u0592\xEC\u0593\u0594	+\u0594\xEE\u0595\u0596	,\u0596\xF0\u0597\u0598	-\u0598\xF2\u0599\u059A	.\u059A\xF4\u059B\u059C	/\u059C\xF6\u059D\u059E	0\u059E\xF8\u059F\u05A0	1\u05A0\xFA\u05A1\u05A2	2\u05A2\xFC\u05A3\u05A4	3\u05A4\xFE\u05A5\u05A6	4\u05A6\u0100\u05A7\u05A8	5\u05A8\u0102\u05A9\u05AA	6\u05AA\u0104\u05AB\u05AC	7\u05AC\u0106\u05AD\u05AE	8\u05AE\u0108\u05AF\u05B2\xE9u\u05B0\u05B2\u0105\x83\u05B1\u05AF\u05B1\u05B0\u05B2\u010A\u05B3\u05B6\xEBv\u05B4\u05B6\u0107\x84\u05B5\u05B3\u05B5\u05B4\u05B6\u010C\u05B7\u05BC	9\u05B8\u05BC\xA1Q\u05B9\u05BC\xB9]\u05BA\u05BC\xC1a\u05BB\u05B7\u05BB\u05B8\u05BB\u05B9\u05BB\u05BA\u05BC\u010E\u05BD\u05C6	:\u05BE\u05C6\xA3R\u05BF\u05C6\xA7T\u05C0\u05C6\xB3Z\u05C1\u05C6\xC3b\u05C2\u05C6\xDBn\u05C3\u05C6\xEBv\u05C4\u05C6\u0107\x84\u05C5\u05BD\u05C5\u05BE\u05C5\u05BF\u05C5\u05C0\u05C5\u05C1\u05C5\u05C2\u05C5\u05C3\u05C5\u05C4\u05C6\u0110\x88\u0132\u0141\u0143\u014E\u0159\u015B\u0164\u016D\u016F\u0178\u0181\u0183\u018F\u019B\u019D\u01A7\u01B1\u01B3\u01BB\u01C3\u01C5\u01CF\u01D9\u01DB\u01E5\u01EF\u01F1\u0200\u020F\u0211\u021E\u022B\u022D\u0235\u023D\u023F\u0248\u0251\u0253\u0260\u026D\u026F\u0277\u027F\u0281\u028D\u0299\u029B\u02AB\u02BB\u02BD\u02C6\u02CF\u02D1\u02DD\u02E9\u02EB\u02F7\u0303\u0305\u030F\u0319\u031B\u0329\u0337\u0339\u0343\u034D\u034F\u035A\u0365\u0367\u0371\u037B\u037D\u0387\u0391\u0393\u03A1\u03AF\u03B1\u03BA\u03C3\u03C5\u03D2\u03DF\u03E1\u03EA\u03F3\u03F5\u03FE\u0407\u0409\u0411\u0419\u041B\u0428\u0435\u0437\u0446\u0455\u0457\u0461\u046B\u046D\u047A\u0487\u0489\u0490\u049F\u04AA\u04E1\u04E9\u04EE\u04F3\u04F8\u04FE\u0506\u050D\u0512\u0517\u051C\u0522\u0527\u052C\u052F\u0536\u053E\u0543\u05B1\u05B5\u05BB\u05C5\b";
     AstigLangLexer._serializedATN = Utils.join([
       AstigLangLexer._serializedATNSegment0,
       AstigLangLexer._serializedATNSegment1,
@@ -27449,9 +29136,9 @@ var require_parseWithDiagnostics = __commonJS({
     var antlr4ts_1 = require_antlr4ts();
     var AstigLangLexer_1 = require_AstigLangLexer();
     var AstigLangParser_1 = require_AstigLangParser();
-    var diagnostics_12 = require_diagnostics();
+    var diagnostics_1 = require_diagnostics();
     function pushAntlrDiagnostic(diagnostics, phase, filename, line, column, rawMessage) {
-      const { message, hint } = (0, diagnostics_12.humanizeAntlrMessage)(rawMessage);
+      const { message, hint } = (0, diagnostics_1.humanizeAntlrMessage)(rawMessage);
       diagnostics.push({
         phase,
         filename,
@@ -27504,8 +29191,8 @@ var require_programLoader = __commonJS({
     exports2.loadProgram = loadProgram;
     var fs_1 = require("fs");
     var path_1 = require("path");
-    var ast_12 = require_ast();
-    var ParseError_12 = require_ParseError();
+    var ast_1 = require_ast();
+    var ParseError_1 = require_ParseError();
     var moduleScope_1 = require_moduleScope();
     var parseWithDiagnostics_1 = require_parseWithDiagnostics();
     function parseProgramSource(source, filename = "<input>") {
@@ -27514,9 +29201,9 @@ var require_programLoader = __commonJS({
     function parseAndBuildAst(source, filename) {
       const result = parseProgramSource(source, filename);
       if (result.syntaxErrors > 0) {
-        throw new ParseError_12.ParseError(`Failed to parse ${filename}`, result.diagnostics, source);
+        throw new ParseError_1.ParseError(`Failed to parse ${filename}`, result.diagnostics, source);
       }
-      return (0, ast_12.buildAst)(result.tree);
+      return (0, ast_1.buildAst)(result.tree);
     }
     function finalizeStandaloneProgram(program) {
       const mainModule = "main";
@@ -27601,7 +29288,7 @@ var require_TypeEnvironment = __commonJS({
       createBlockScope() {
         return new _TypeEnvironment(this);
       }
-      createFunctionScope() {
+      createFunctionScope(_functionName) {
         return new _TypeEnvironment(this, true);
       }
       declareVariable(kind, name, resolvedType) {
@@ -27675,14 +29362,14 @@ var require_typeCheckRecovery = __commonJS({
     exports2.isRecoverableTypeError = isRecoverableTypeError;
     exports2.recordRecoverableTypeError = recordRecoverableTypeError;
     exports2.runWithTypeRecovery = runWithTypeRecovery;
-    var TypeCheckError_12 = require_TypeCheckError();
-    var diagnostics_12 = require_diagnostics();
+    var TypeCheckError_1 = require_TypeCheckError();
+    var diagnostics_1 = require_diagnostics();
     var RUNTIME_SEMANTIC_PATTERN = /undefined variable|cannot redeclare variable|cannot scan into const|cannot assign to const variable|expected \d+ arguments but got/i;
     function isRuntimeSemanticMessage(message) {
       return RUNTIME_SEMANTIC_PATTERN.test(message);
     }
     function isRecoverableTypeError(error) {
-      if (error instanceof TypeCheckError_12.TypeCheckError) {
+      if (error instanceof TypeCheckError_1.TypeCheckError) {
         if (isRuntimeSemanticMessage(error.message)) {
           return false;
         }
@@ -27707,8 +29394,8 @@ var require_typeCheckRecovery = __commonJS({
       if (isRuntimeSemanticMessage(err.message)) {
         return;
       }
-      const resolvedLocation = location ?? (0, diagnostics_12.getErrorSourceLocation)(err);
-      session.diagnostics.push((0, diagnostics_12.diagnosticFromError)(err, "type", session.filename, resolvedLocation));
+      const resolvedLocation = location ?? (0, diagnostics_1.getErrorSourceLocation)(err);
+      session.diagnostics.push((0, diagnostics_1.diagnosticFromError)(err, "type", session.filename, resolvedLocation));
     }
     function runWithTypeRecovery(session, action, location) {
       if (!session) {
@@ -27737,8 +29424,8 @@ var require_typeChecker = __commonJS({
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.typeCheckProgram = typeCheckProgram;
     var RecordRegistry_1 = require_RecordRegistry();
-    var TypeCheckError_12 = require_TypeCheckError();
-    var TypeCheckErrors_12 = require_TypeCheckErrors();
+    var TypeCheckError_1 = require_TypeCheckError();
+    var TypeCheckErrors_1 = require_TypeCheckErrors();
     var TypeEnvironment_1 = require_TypeEnvironment();
     var ExpressionNode_1 = require_ExpressionNode();
     var AstigType_1 = require_AstigType();
@@ -27764,7 +29451,7 @@ var require_typeChecker = __commonJS({
       const mainEnvironment = (0, moduleScope_1.withModuleFunctions)(globalEnvironment, program.entryModule, program.moduleFunctions);
       checkBlock(program.mainFunction.body, mainEnvironment, recordRegistry, void 0, program, recovery);
       if (recovery && recovery.diagnostics.length > 0) {
-        throw new TypeCheckErrors_12.TypeCheckErrors(recovery.diagnostics);
+        throw new TypeCheckErrors_1.TypeCheckErrors(recovery.diagnostics);
       }
     }
     function checkStatement(statement, environment, recordRegistry, functionReturnType, program, recovery) {
@@ -27848,10 +29535,10 @@ var require_typeChecker = __commonJS({
     function checkVariableDeclaration(declaration, environment, recordRegistry, program) {
       if (!declaration.value) {
         if (declaration.declarationKind === "const") {
-          throw new TypeCheckError_12.TypeCheckError(`const variable "${declaration.name}" must be initialized`);
+          throw new TypeCheckError_1.TypeCheckError(`const variable "${declaration.name}" must be initialized`);
         }
         if (!declaration.declaredType) {
-          throw new TypeCheckError_12.TypeCheckError(`Variable "${declaration.name}" must have a type annotation when declared without an initializer`);
+          throw new TypeCheckError_1.TypeCheckError(`Variable "${declaration.name}" must have a type annotation when declared without an initializer`);
         }
         const variableType2 = (0, astigTypeUtils_1.resolveVariableDeclarationType)(declaration, recordRegistry);
         environment.declareVariable(declaration.declarationKind, declaration.name, variableType2);
@@ -27906,7 +29593,16 @@ var require_typeChecker = __commonJS({
     }
     function checkAssignment(assignment, environment, recordRegistry, program) {
       const rightType = checkExpression(assignment.value, environment, recordRegistry, program);
-      const targetType = getAssignmentTargetType(assignment.target, environment, recordRegistry);
+      let targetType;
+      if (assignment.target.kind === "dereference") {
+        const pointerType = checkExpression(assignment.target.pointerExpression, environment, recordRegistry, program);
+        if (pointerType.kind !== "pointer") {
+          throw new TypeCheckError_1.TypeCheckError(`Cannot dereference type "${pointerType.kind}": target is not a pointer.`, assignment.location);
+        }
+        targetType = pointerType.underlying;
+      } else {
+        targetType = getAssignmentTargetType(assignment.target, environment, recordRegistry);
+      }
       const resultType = getAssignmentResultType(assignment, targetType, rightType);
       assertAssignable(targetType, resultType, `Type mismatch: cannot assign ${(0, astigTypeUtils_1.formatResolvedType)(resultType)} to target of type ${(0, astigTypeUtils_1.formatResolvedType)(targetType)}`);
       if (assignment.target.kind === "variable") {
@@ -27921,6 +29617,9 @@ var require_typeChecker = __commonJS({
           return { kind: "primitive", type: AstigType_1.AstigType.Any };
         }
         return environment.getVariableType(target.name);
+      }
+      if (target.kind === "dereference") {
+        throw new TypeCheckError_1.TypeCheckError("Dereference assignment targets must be pre-evaluated.");
       }
       if (!environment.hasVariable(target.rootVariable)) {
         return { kind: "primitive", type: AstigType_1.AstigType.Any };
@@ -27956,6 +29655,9 @@ var require_typeChecker = __commonJS({
     function getAssignmentResultType(assignment, leftType, rightType) {
       if (assignment.operator === "=") {
         return rightType;
+      }
+      if (leftType.kind === "pointer") {
+        throw new TypeCheckError_1.TypeCheckError(`Cannot apply compound assignment operator "${assignment.operator}" directly to a pointer type.`);
       }
       if (assignment.operator === "+=") {
         const leftIsString = leftType.kind === "primitive" && leftType.type === AstigType_1.AstigType.String;
@@ -27994,7 +29696,7 @@ var require_typeChecker = __commonJS({
       if (isVoidReturn) {
         if (statement.value) {
           const valueType2 = checkExpression(statement.value, environment, recordRegistry, program);
-          throw new TypeCheckError_12.TypeCheckError(`Type mismatch: void function cannot return ${(0, astigTypeUtils_1.formatResolvedType)(valueType2)}`);
+          throw new TypeCheckError_1.TypeCheckError(`Type mismatch: void function cannot return ${(0, astigTypeUtils_1.formatResolvedType)(valueType2)}`);
         }
         return;
       }
@@ -28002,7 +29704,7 @@ var require_typeChecker = __commonJS({
         if (returnType.kind === "primitive" && returnType.type === AstigType_1.AstigType.Any) {
           return;
         }
-        throw new TypeCheckError_12.TypeCheckError(`Type mismatch: function must return ${(0, astigTypeUtils_1.formatResolvedType)(returnType)}`);
+        throw new TypeCheckError_1.TypeCheckError(`Type mismatch: function must return ${(0, astigTypeUtils_1.formatResolvedType)(returnType)}`);
       }
       const valueType = checkExpression(statement.value, environment, recordRegistry, program);
       assertAssignable(returnType, valueType, `Type mismatch: cannot return ${(0, astigTypeUtils_1.formatResolvedType)(valueType)} from function with return type ${(0, astigTypeUtils_1.formatResolvedType)(returnType)}`);
@@ -28046,13 +29748,34 @@ var require_typeChecker = __commonJS({
           }
           const indexResolved = checkExpression(expression.index, environment, recordRegistry, program);
           if (indexResolved.kind !== "primitive" || indexResolved.type !== AstigType_1.AstigType.Int) {
-            throw new TypeCheckError_12.TypeCheckError(`Type Error: Array subscript index must evaluate to an Integer primitive.`);
+            throw new TypeCheckError_1.TypeCheckError(`Type Error: Array subscript index must evaluate to an Integer primitive.`);
           }
           return {
             kind: "primitive",
             type: arrayContainerResolved.elementType
             // 🎉 Safely isolated because we guarded for kind: 'array'!
           };
+        }
+        case ExpressionNode_1.ExpressionNodeType.Malloc: {
+          const sizeType = checkExpression(expression.sizeExpr, environment, recordRegistry, program);
+          if (sizeType.kind !== "primitive" || sizeType.type !== AstigType_1.AstigType.Int) {
+            throw new TypeCheckError_1.TypeCheckError(`Type error: mH4lL0cH size argument must be an integer primitive, got ${(0, astigTypeUtils_1.formatResolvedType)(sizeType)}`, expression.location);
+          }
+          return {
+            kind: "pointer",
+            underlying: { kind: "primitive", type: AstigType_1.AstigType.Any }
+          };
+        }
+        case ExpressionNode_1.ExpressionNodeType.Realloc: {
+          const ptrType = checkExpression(expression.ptrExpr, environment, recordRegistry, program);
+          if (ptrType.kind !== "pointer") {
+            throw new TypeCheckError_1.TypeCheckError(`Type error: rH34lL0cH first argument must be a pointer type, got ${(0, astigTypeUtils_1.formatResolvedType)(ptrType)}`, expression.location);
+          }
+          const sizeType = checkExpression(expression.sizeExpr, environment, recordRegistry, program);
+          if (sizeType.kind !== "primitive" || sizeType.type !== AstigType_1.AstigType.Int) {
+            throw new TypeCheckError_1.TypeCheckError(`Type error: rH34lL0cH size argument must be an integer primitive, got ${(0, astigTypeUtils_1.formatResolvedType)(sizeType)}`, expression.location);
+          }
+          return ptrType;
         }
         case ExpressionNode_1.ExpressionNodeType.ArrayLiteral: {
           let detectedType = AstigType_1.AstigType.Any;
@@ -28063,7 +29786,7 @@ var require_typeChecker = __commonJS({
             } else if (firstElementResolved.kind === "array") {
               detectedType = firstElementResolved.elementType;
             } else if (firstElementResolved.kind === "record") {
-              throw new TypeCheckError_12.TypeCheckError("Type Error: Arrays of records are currently unsupported.");
+              throw new TypeCheckError_1.TypeCheckError("Type Error: Arrays of records are currently unsupported.");
             }
           }
           return {
@@ -28109,8 +29832,18 @@ var require_typeChecker = __commonJS({
                 throw new Error(`Type error: Logical NOT operator requires a Boolean, got ${argumentType.kind}`);
               }
               return { kind: "primitive", type: AstigType_1.AstigType.Boolean };
+            case "&":
+              return {
+                kind: "pointer",
+                underlying: argumentType
+              };
+            case "*":
+              if (argumentType.kind !== "pointer") {
+                throw new TypeCheckError_1.TypeCheckError(`Type error: Cannot dereference non-pointer type "${(0, astigTypeUtils_1.formatResolvedType)(argumentType)}"`);
+              }
+              return argumentType.underlying;
             default:
-              throw new TypeCheckError_12.TypeCheckError(`Unsupported binary operator "${operator}"`);
+              throw new TypeCheckError_1.TypeCheckError(`Unsupported binary operator "${operator}"`);
           }
         }
         case ExpressionNode_1.ExpressionNodeType.BinaryExpression: {
@@ -28131,6 +29864,10 @@ var require_typeChecker = __commonJS({
             case "*":
             case "/":
             case "%":
+            case "<<":
+            case ">>":
+            case "&":
+            case "|":
               assertNumericOperation(leftType, rightType, operator);
               return combineNumericTypes(leftType, rightType);
             case "==":
@@ -28146,12 +29883,12 @@ var require_typeChecker = __commonJS({
             case "AND":
             case "OR": {
               if (leftType.kind !== "primitive" || leftType.type !== AstigType_1.AstigType.Boolean || rightType.kind !== "primitive" || rightType.type !== AstigType_1.AstigType.Boolean) {
-                throw new TypeCheckError_12.TypeCheckError(`Type error: Logical operator "${operator}" requires both operands to be Booleans.`);
+                throw new TypeCheckError_1.TypeCheckError(`Type error: Logical operator "${operator}" requires both operands to be Booleans.`);
               }
               return { kind: "primitive", type: AstigType_1.AstigType.Boolean };
             }
             default:
-              throw new TypeCheckError_12.TypeCheckError(`Unsupported binary operator "${operator}"`);
+              throw new TypeCheckError_1.TypeCheckError(`Unsupported binary operator "${operator}"`);
           }
         }
         case ExpressionNode_1.ExpressionNodeType.FunctionCall:
@@ -28177,18 +29914,23 @@ var require_typeChecker = __commonJS({
     }
     function assertNumericOperation(leftType, rightType, operator) {
       if (leftType.kind !== "primitive" || rightType.kind !== "primitive" || !(0, astigTypeUtils_1.isNumericType)(leftType.type) || !(0, astigTypeUtils_1.isNumericType)(rightType.type)) {
-        throw new TypeCheckError_12.TypeCheckError(`Type mismatch: operator "${operator}" requires numeric operands, got ${(0, astigTypeUtils_1.formatResolvedType)(leftType)} and ${(0, astigTypeUtils_1.formatResolvedType)(rightType)}`);
+        throw new TypeCheckError_1.TypeCheckError(`Type mismatch: operator "${operator}" requires numeric operands, got ${(0, astigTypeUtils_1.formatResolvedType)(leftType)} and ${(0, astigTypeUtils_1.formatResolvedType)(rightType)}`);
       }
     }
     function assertComparableTypes(leftType, rightType, operator) {
+      if (leftType.kind === "pointer" && rightType.kind === "pointer") {
+        if ((0, astigTypeUtils_1.isAssignableType)(leftType, rightType) || (0, astigTypeUtils_1.isAssignableType)(rightType, leftType)) {
+          return;
+        }
+      }
       if ((0, astigTypeUtils_1.isAssignableType)(leftType, rightType) || (0, astigTypeUtils_1.isAssignableType)(rightType, leftType)) {
         return;
       }
-      throw new TypeCheckError_12.TypeCheckError(`Type mismatch: operator "${operator}" cannot compare ${(0, astigTypeUtils_1.formatResolvedType)(leftType)} and ${(0, astigTypeUtils_1.formatResolvedType)(rightType)}`);
+      throw new TypeCheckError_1.TypeCheckError(`Type mismatch: operator "${operator}" cannot compare ${(0, astigTypeUtils_1.formatResolvedType)(leftType)} and ${(0, astigTypeUtils_1.formatResolvedType)(rightType)}`);
     }
     function combineNumericTypes(leftType, rightType) {
       if (leftType.kind !== "primitive" || rightType.kind !== "primitive") {
-        throw new TypeCheckError_12.TypeCheckError("Numeric operations require primitive numeric types");
+        throw new TypeCheckError_1.TypeCheckError("Numeric operations require primitive numeric types");
       }
       if (leftType.type === AstigType_1.AstigType.Float || rightType.type === AstigType_1.AstigType.Float) {
         return { kind: "primitive", type: AstigType_1.AstigType.Float };
@@ -28197,12 +29939,12 @@ var require_typeChecker = __commonJS({
     }
     function assertAssignable(expected, actual, message) {
       if (!(0, astigTypeUtils_1.isAssignableType)(expected, actual)) {
-        throw new TypeCheckError_12.TypeCheckError(message);
+        throw new TypeCheckError_1.TypeCheckError(message);
       }
     }
     function assertResolvedType(actual, expected, message) {
       if (!(0, astigTypeUtils_1.isAssignableType)(expected, actual)) {
-        throw new TypeCheckError_12.TypeCheckError(message);
+        throw new TypeCheckError_1.TypeCheckError(message);
       }
     }
   }
@@ -29426,8 +31168,8 @@ var require_readProgramSource = __commonJS({
     function readPipedStdin() {
       return (0, fs_1.readFileSync)(0, "utf8");
     }
-    function resolveLaunchMode(argv) {
-      const inputArg = argv.join(" ").trim();
+    function resolveLaunchMode(argv2) {
+      const inputArg = argv2.join(" ").trim();
       if (inputArg === "-" || inputArg === "--stdin") {
         return "stdin";
       }
@@ -29457,9 +31199,9 @@ var require_readProgramSource = __commonJS({
       }
       return lines.join("\n");
     }
-    function resolveProgramInput(argv) {
-      const inputArg = argv.join(" ").trim();
-      const mode = resolveLaunchMode(argv);
+    function resolveProgramInput(argv2) {
+      const inputArg = argv2.join(" ").trim();
+      const mode = resolveLaunchMode(argv2);
       if (mode === "repl") {
         throw new Error("resolveProgramInput does not apply to REPL mode");
       }
@@ -29484,145 +31226,169 @@ var require_readProgramSource = __commonJS({
   }
 });
 
+// ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/runAstigProgram.js
+var require_runAstigProgram = __commonJS({
+  "../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/runAstigProgram.js"(exports2) {
+    "use strict";
+    Object.defineProperty(exports2, "__esModule", { value: true });
+    exports2.runInteractiveRepl = runInteractiveRepl;
+    exports2.executeProgram = executeProgram;
+    exports2.reportExecutionError = reportExecutionError;
+    var ast_1 = require_ast();
+    var ParseError_1 = require_ParseError();
+    var RuntimeError_1 = require_RuntimeError();
+    var RuntimeErrors_1 = require_RuntimeErrors();
+    var TypeCheckError_1 = require_TypeCheckError();
+    var TypeCheckErrors_1 = require_TypeCheckErrors();
+    var interpreter_1 = require_interpreter();
+    var optimizer_1 = require_optimizer();
+    var RuntimeDebugger_1 = require_RuntimeDebugger();
+    var programLoader_1 = require_programLoader();
+    var typeChecker_1 = require_typeChecker();
+    var diagnostics_1 = require_diagnostics();
+    var readProgramSource_12 = require_readProgramSource();
+    var path_1 = require("path");
+    var replFilename = "<interactive>";
+    function runInteractiveRepl() {
+      let isFirstPrompt = true;
+      let hasRunCode = false;
+      while (true) {
+        const sourceCode = (0, readProgramSource_12.readInteractiveSourceBlock)(isFirstPrompt);
+        isFirstPrompt = false;
+        if (sourceCode === null) {
+          console.log(hasRunCode ? "Bye." : "No code entered.");
+          return;
+        }
+        hasRunCode = true;
+        executeProgram({
+          sourceCode,
+          programFilename: replFilename,
+          baseDirectory: process.cwd()
+        });
+        console.log("");
+      }
+    }
+    function executeProgram(programInput) {
+      const { sourceCode, programFilename } = programInput;
+      const parseResult = (0, programLoader_1.parseProgramSource)(sourceCode, programFilename);
+      if (parseResult.syntaxErrors > 0) {
+        (0, diagnostics_1.reportDiagnostics)(parseResult.diagnostics, sourceCode, {
+          showRecoveryNote: parseResult.diagnostics.length > 0
+        });
+        return 1;
+      }
+      try {
+        const ast = buildProgramAst(programInput, parseResult.tree);
+        const typeDiagnostics = collectTypeDiagnostics(ast, programFilename);
+        const optimizedAst = (0, optimizer_1.optimizeProgram)(ast);
+        return runWithDiagnostics(optimizedAst, sourceCode, programFilename, typeDiagnostics, programInput);
+      } catch (error) {
+        reportExecutionError(error, sourceCode, programFilename);
+        return 1;
+      }
+    }
+    function buildProgramAst(programInput, parseTree) {
+      if (programInput.sourcePath) {
+        return (0, programLoader_1.loadProgram)(programInput.sourceCode, programInput.baseDirectory, programInput.programFilename);
+      }
+      return (0, programLoader_1.finalizeStandaloneProgram)((0, ast_1.buildAst)(parseTree));
+    }
+    function collectTypeDiagnostics(ast, filename) {
+      try {
+        (0, typeChecker_1.typeCheckProgram)(ast, filename);
+        return [];
+      } catch (error) {
+        if (error instanceof TypeCheckErrors_1.TypeCheckErrors) {
+          return error.diagnostics;
+        }
+        throw error;
+      }
+    }
+    function runWithDiagnostics(ast, sourceCode, programFilename, typeDiagnostics, programInput) {
+      const debugSession = programInput.sourcePath ? new RuntimeDebugger_1.RuntimeDebugSession() : void 0;
+      const debugSourceLabel = programInput.sourcePath ? (0, path_1.relative)(process.cwd(), programInput.sourcePath) : programFilename;
+      try {
+        const output = (0, interpreter_1.runProgram)(ast, programFilename, true, debugSession);
+        if (debugSession) {
+          const debugPath = (0, RuntimeDebugger_1.writeRuntimeDebugFile)(debugSession.formatReport(debugSourceLabel, output));
+          console.log(`Runtime debug written to ${debugPath}`);
+        }
+        if (typeDiagnostics.length > 0) {
+          (0, diagnostics_1.reportDiagnostics)(typeDiagnostics, sourceCode, { showRecoveryNote: true });
+          return 1;
+        }
+        console.log("Output:");
+        console.log(output.join("\n"));
+        return 0;
+      } catch (error) {
+        if (debugSession) {
+          debugSession.setError(error instanceof Error ? error.message : String(error));
+          const debugPath = (0, RuntimeDebugger_1.writeRuntimeDebugFile)(debugSession.formatReport(debugSourceLabel, []));
+          console.log(`Runtime debug written to ${debugPath}`);
+        }
+        if (error instanceof RuntimeErrors_1.RuntimeErrors) {
+          (0, diagnostics_1.reportDiagnostics)([...typeDiagnostics, ...error.diagnostics], sourceCode, { showRecoveryNote: true });
+          return 1;
+        }
+        const runtimeDiagnostic = toRuntimeDiagnostic(error, programFilename);
+        if (typeDiagnostics.length > 0 || runtimeDiagnostic) {
+          (0, diagnostics_1.reportDiagnostics)(runtimeDiagnostic ? [...typeDiagnostics, runtimeDiagnostic] : typeDiagnostics, sourceCode, { showRecoveryNote: true });
+          return 1;
+        }
+        reportExecutionError(error, sourceCode, programFilename);
+        return 1;
+      }
+    }
+    function toRuntimeDiagnostic(error, filename) {
+      if (error instanceof RuntimeError_1.RuntimeError) {
+        return (0, diagnostics_1.diagnosticFromError)(error, "runtime", filename, error.location);
+      }
+      if (error instanceof Error) {
+        const phase = error.message.includes("Include file") ? "include" : "runtime";
+        return (0, diagnostics_1.diagnosticFromError)(error, phase, filename, (0, diagnostics_1.getErrorSourceLocation)(error));
+      }
+      return void 0;
+    }
+    function reportExecutionError(error, sourceCode, programFilename) {
+      if (error instanceof ParseError_1.ParseError) {
+        (0, diagnostics_1.reportDiagnostics)(error.diagnostics, error.source);
+        return;
+      }
+      if (error instanceof TypeCheckErrors_1.TypeCheckErrors || error instanceof RuntimeErrors_1.RuntimeErrors) {
+        (0, diagnostics_1.reportDiagnostics)(error.diagnostics, sourceCode, { showRecoveryNote: true });
+        return;
+      }
+      if (error instanceof TypeCheckError_1.TypeCheckError) {
+        console.error((0, diagnostics_1.formatDiagnostic)((0, diagnostics_1.diagnosticFromError)(error, "type", programFilename, error.location), sourceCode));
+        return;
+      }
+      if (error instanceof RuntimeError_1.RuntimeError) {
+        console.error((0, diagnostics_1.formatDiagnostic)((0, diagnostics_1.diagnosticFromError)(error, "runtime", programFilename, error.location), sourceCode));
+        return;
+      }
+      if (error instanceof Error) {
+        console.error(error.message);
+        return;
+      }
+      throw error;
+    }
+  }
+});
+
 // ../../../../Documents/MSCS/Theory of PL/dummy-astig/dist/src/main.js
 Object.defineProperty(exports, "__esModule", { value: true });
-var ast_1 = require_ast();
-var ParseError_1 = require_ParseError();
-var RuntimeError_1 = require_RuntimeError();
-var RuntimeErrors_1 = require_RuntimeErrors();
-var TypeCheckError_1 = require_TypeCheckError();
-var TypeCheckErrors_1 = require_TypeCheckErrors();
-var interpreter_1 = require_interpreter();
-var programLoader_1 = require_programLoader();
-var typeChecker_1 = require_typeChecker();
-var diagnostics_1 = require_diagnostics();
+var runAstigProgram_1 = require_runAstigProgram();
 var readProgramSource_1 = require_readProgramSource();
-var replFilename = "<interactive>";
+var argv = process.argv.slice(2);
 try {
-  const argv = process.argv.slice(2);
-  const launchMode = (0, readProgramSource_1.resolveLaunchMode)(argv);
-  if (launchMode === "repl") {
-    runInteractiveRepl();
+  if ((0, readProgramSource_1.resolveLaunchMode)(argv) === "repl") {
+    (0, runAstigProgram_1.runInteractiveRepl)();
     process.exit(0);
   }
-  const programInput = (0, readProgramSource_1.resolveProgramInput)(argv);
-  const exitCode = executeProgram(programInput);
-  process.exit(exitCode);
+  process.exit((0, runAstigProgram_1.executeProgram)((0, readProgramSource_1.resolveProgramInput)(argv)));
 } catch (error) {
-  reportErrors(error, "", replFilename);
+  (0, runAstigProgram_1.reportExecutionError)(error, "", "<interactive>");
   process.exit(1);
-}
-function runInteractiveRepl() {
-  let isFirstPrompt = true;
-  let hasRunCode = false;
-  while (true) {
-    const sourceCode = (0, readProgramSource_1.readInteractiveSourceBlock)(isFirstPrompt);
-    isFirstPrompt = false;
-    if (sourceCode === null) {
-      console.log(hasRunCode ? "Bye." : "No code entered.");
-      return;
-    }
-    hasRunCode = true;
-    executeProgram({
-      sourceCode,
-      programFilename: replFilename,
-      baseDirectory: process.cwd()
-    });
-    console.log("");
-  }
-}
-function executeProgram(programInput) {
-  const { sourceCode, programFilename } = programInput;
-  const parseResult = (0, programLoader_1.parseProgramSource)(sourceCode, programFilename);
-  if (parseResult.syntaxErrors > 0) {
-    (0, diagnostics_1.reportDiagnostics)(parseResult.diagnostics, sourceCode, {
-      showRecoveryNote: parseResult.diagnostics.length > 0
-    });
-    return 1;
-  }
-  try {
-    const ast = programInput.sourcePath ? (0, programLoader_1.loadProgram)(sourceCode, programInput.baseDirectory, programInput.programFilename) : (0, programLoader_1.finalizeStandaloneProgram)((0, ast_1.buildAst)(parseResult.tree));
-    const typeDiagnostics = runTypeCheck(ast, programFilename);
-    try {
-      const output = (0, interpreter_1.runProgram)(ast, programFilename);
-      if (typeDiagnostics.length > 0) {
-        (0, diagnostics_1.reportDiagnostics)(typeDiagnostics, sourceCode, { showRecoveryNote: true });
-        return 1;
-      }
-      console.log("Output:");
-      console.log(output.join("\n"));
-      return 0;
-    } catch (runtimeError) {
-      if (runtimeError instanceof RuntimeErrors_1.RuntimeErrors) {
-        (0, diagnostics_1.reportDiagnostics)([...typeDiagnostics, ...runtimeError.diagnostics], sourceCode, { showRecoveryNote: true });
-        return 1;
-      }
-      if (typeDiagnostics.length > 0) {
-        const runtimeDiagnostic = toRuntimeDiagnostic(runtimeError, programFilename);
-        (0, diagnostics_1.reportDiagnostics)(runtimeDiagnostic ? [...typeDiagnostics, runtimeDiagnostic] : typeDiagnostics, sourceCode, { showRecoveryNote: true });
-        return 1;
-      }
-      reportErrors(runtimeError, sourceCode, programFilename);
-      return 1;
-    }
-  } catch (error) {
-    reportErrors(error, sourceCode, programFilename);
-    return 1;
-  }
-}
-function runTypeCheck(ast, filename) {
-  try {
-    (0, typeChecker_1.typeCheckProgram)(ast, filename);
-    return [];
-  } catch (error) {
-    if (error instanceof TypeCheckErrors_1.TypeCheckErrors) {
-      return error.diagnostics;
-    }
-    throw error;
-  }
-}
-function toRuntimeDiagnostic(error, filename) {
-  if (error instanceof RuntimeError_1.RuntimeError) {
-    return (0, diagnostics_1.diagnosticFromError)(error, "runtime", filename, error.location);
-  }
-  if (error instanceof Error) {
-    const phase = classifyErrorPhase(error.message);
-    return (0, diagnostics_1.diagnosticFromError)(error, phase, filename, (0, diagnostics_1.getErrorSourceLocation)(error));
-  }
-  return void 0;
-}
-function reportErrors(error, sourceCode, programFilename) {
-  if (error instanceof ParseError_1.ParseError) {
-    (0, diagnostics_1.reportDiagnostics)(error.diagnostics, error.source);
-    return;
-  }
-  if (error instanceof TypeCheckErrors_1.TypeCheckErrors) {
-    (0, diagnostics_1.reportDiagnostics)(error.diagnostics, sourceCode, { showRecoveryNote: true });
-    return;
-  }
-  if (error instanceof RuntimeErrors_1.RuntimeErrors) {
-    (0, diagnostics_1.reportDiagnostics)(error.diagnostics, sourceCode, { showRecoveryNote: true });
-    return;
-  }
-  if (error instanceof TypeCheckError_1.TypeCheckError) {
-    console.error((0, diagnostics_1.formatDiagnostic)((0, diagnostics_1.diagnosticFromError)(error, "type", programFilename, error.location), sourceCode));
-    return;
-  }
-  if (error instanceof RuntimeError_1.RuntimeError) {
-    console.error((0, diagnostics_1.formatDiagnostic)((0, diagnostics_1.diagnosticFromError)(error, "runtime", programFilename, error.location), sourceCode));
-    return;
-  }
-  if (error instanceof Error) {
-    console.error(error.message);
-    return;
-  }
-  throw error;
-}
-function classifyErrorPhase(message) {
-  if (message.includes("Include file") || message.includes("Circular include") || message.includes("Include file not found")) {
-    return "include";
-  }
-  return "runtime";
 }
 /*! Bundled license information:
 

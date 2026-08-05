@@ -1,0 +1,21 @@
+// Criteria: Boolean Expr — Simple (relational: <, >, <=, >=, ==, !=)
+// Criteria §5c: simple_math rel_op simple_math
+// Criteria §5c i: complex_math rel_op complex_math
+// Run: npm start -- test-case/13-boolean-simple.stg
+
+fHUncTH!0Ns mHA1Ns() {
+  vH4rs lH0wHvH4lHs:iHNtSZ = 5;
+  vH4rs tH0pHvH4lHs:iHNtSZ = 10;
+
+  // simple_math rel_op simple_math
+  pHR!HNTs(lH0wHvH4lHs < tH0pHvH4lHs);
+  pHR!HNTs(lH0wHvH4lHs > 2);
+  pHR!HNTs(lH0wHvH4lHs <= 5);
+  pHR!HNTs(tH0pHvH4lHs >= 10);
+  pHR!HNTs(lH0wHvH4lHs == 5);
+  pHR!HNTs(lH0wHvH4lHs != tH0pHvH4lHs);
+
+  // complex_math rel_op complex_math
+  pHR!HNTs((lH0wHvH4lHs + 1) * 2 > (tH0pHvH4lHs - 3));
+  pHR!HNTs((lH0wHvH4lHs + tH0pHvH4lHs) / 3 == 5);
+}

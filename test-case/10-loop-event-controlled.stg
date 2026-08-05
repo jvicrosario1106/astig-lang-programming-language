@@ -1,0 +1,10 @@
+// Criteria: Iterative Statements — Event-controlled loop (while)
+// Run: npm start -- test-case/10-loop-event-controlled.stg
+
+fHUncTH!0Ns mHA1Ns() {
+  vH4rs cH0uHNtHs:iHNtSZ = 0;
+  wH1lEs(cH0uHNtHs < 3) {
+    pHR!HNTs(cH0uHNtHs);
+    cH0uHNtHs = cH0uHNtHs + 1;
+  }
+}

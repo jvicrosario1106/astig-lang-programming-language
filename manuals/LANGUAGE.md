@@ -2,13 +2,15 @@
 
 AstigLang is a jejemon-styled programming language. Source files use the `.stg` extension.
 
+**New to AstigLang?** Start with `USER-MANUAL.md` — a beginner-friendly guide with PDF export instructions.
+
 **Run a program**
 
 ```bash
 npm start -- path/to/program.stg
 ```
 
-**Pipeline:** Lexer → Parser → AST → include merge → type check → interpreter
+**Pipeline:** Lexer → Parser → AST → include merge → type check → **optimizer** → interpreter
 
 ---
 
@@ -133,6 +135,7 @@ Keywords and identifiers use **jejemon spellings**, not plain English.
 | void (return only) | `vH0iDs` |
 | record (user-defined) | record name, e.g. `gH4mH3s` |
 | int array | `iHNtSZ[]` (primitive arrays only) |
+| pointer | `iHNtSZ*`, `sTRh1Ngz*`, etc. (`*` after type) |
 
 Type annotation is **required** on variable declarations:
 
@@ -280,6 +283,17 @@ pHR!HNTs(aHs[0] + aHs[2]);
 ```
 
 Array-of-record types and non-`int` element types are not supported yet.
+
+**Pointers (address-of and dereference):**
+
+```astig
+lH3tsz vHAlHs: iHNtSZ = 256;
+lH3tsz xHs: iHNtSZ* = &vHAlHs;
+lH3tsz yHs: iHNtSZ = *xHs;
+pHR!HNTs(yHs);
+```
+
+Variables with initializers are heap-allocated; `&` captures the heap address, `*` reads through a pointer. See `test-case/3-pointers.stg` and `demo-examples/heap-test*.stg`.
 
 ---
 
@@ -462,21 +476,57 @@ fHUncTH!0Ns mHA1Ns() {
 
 ## 11. Errors you may see
 
-Diagnostics are formatted with **filename, line, column, source line, and caret** for lex, parse, type, and runtime phases (`utils/diagnostics.ts`).
+Diagnostics are formatted with **filename, line, column, source line, caret, and optional hint** for lex, parse, type, and runtime phases (`src/utils/diagnostics.ts`).
 
-### Semantic errors (type checker)
+### Error recovery (by phase)
 
-The type checker reports these static violations (see `Criteria.md` §8):
+| Phase | Who recovers | Behavior |
+|-------|--------------|----------|
+| **Lexical** | ANTLR lexer | Skips bad input, keeps scanning |
+| **Parse** | ANTLR parser | Resyncs, collects syntax errors before exit |
+| **Type check** | `typeCheckRecovery.ts` | Records each recoverable error, checks remaining statements |
+| **Runtime** | `runtimeRecovery.ts` | Records each recoverable error, runs remaining statements |
+
+Recovery footers appear at the end of multi-error reports (e.g. *“Type checker continued after errors…”*).
+
+### Runtime exceptions (Java-style hierarchy)
+
+All runtime failures extend `RuntimeError` (`src/classes/RuntimeExceptions.ts`):
+
+`UndefinedVariableError`, `RedeclarationError`, `ConstAssignmentError`, `UninitializedVariableError`, `UndefinedFunctionError`, `ArrayBoundsError`, `ArrayTypeError`, `InvalidOperationError`, `PrintError`, `ScanError`.
+
+`print` and `scan` wrap I/O in try-catch and rethrow as `PrintError` / `ScanError`.
+
+### Semantic errors (type checker + runtime)
+
+The checker and interpreter report these violations (see `Criteria.md` §8):
 
 | # | Situation | Example message |
 |---|-----------|-----------------|
-| 1 | Undeclared variable | `Undeclared variable "uH4nHs"` |
-| 2 | Type mismatch | `Type error: Cannot assign value of type string to variable of type int` |
-| 3 | Multiply-defined variable | `Variable "zH3s" is already declared in this scope` |
-| 4 | Constant reassignment | `Cannot assign to const variable "xH1s"` / `Cannot scan into const variable "xH1s"` |
+| 1 | Undeclared variable | `Undefined variable "uH4nHs"` |
+| 2 | Type mismatch | `Type mismatch: cannot assign string to target of type int` |
+| 3 | Multiply-defined variable | `Cannot redeclare variable "zH3s"` |
+| 4 | Constant reassignment | `Cannot assign to const variable "xH1s"` / scan into const |
 | 5 | Cardinality / ordinality | Wrong argument count or types at parameter positions |
 
-**Type-check recovery:** `typeCheckProgram()` continues after recoverable errors and reports **all** issues in one run, with a footer note. Demo: `npm start -- test-case/semantic-errors.stg` (7 errors).
+**Demo files (`test-case/`):**
+
+| File | Covers |
+|------|--------|
+| `26-semantic-errors.stg` | All 5 semantic categories (2 type + 5 runtime in one run) |
+| `27-runtime-error.stg` | 14 runtime errors, all exception types |
+| `28-lexical-error-recovery.stg` | Lexical recovery (ANTLR) |
+| `29-parse-error-recovery.stg` | Parse recovery (ANTLR) |
+| `30-error-messaging.stg` | Accurate, informative messages (location + caret + hints) |
+| `31-robustness.stg` | Edge cases (nested loops, boundaries) — passes cleanly |
+
+```bash
+npm start -- test-case/26-semantic-errors.stg
+npm start -- test-case/27-runtime-error.stg
+npm start -- test-case/28-lexical-error-recovery.stg
+npm start -- test-case/29-parse-error-recovery.stg
+npm start -- test-case/30-error-messaging.stg
+```
 
 ### Other errors
 
@@ -490,7 +540,7 @@ The type checker reports these static violations (see `Criteria.md` §8):
 | Call non-exported function from another file | `Function "..." is not exported from "..."` |
 | Runtime failure | `Runtime error: ...` with statement location when available |
 
-Lex/parse errors collect all diagnostics before exit. The interpreter does **not** recover — first runtime error stops execution.
+Lex/parse errors block execution (no AST run). Type and runtime errors are collected in recovery mode and reported together at the end.
 
 ---
 
@@ -625,41 +675,74 @@ aHDs(1, 2);                        // parse error
 
 ### Working sample programs
 
-**`test-case/`** — one `.stg` per rubric construct (`Criteria.md` rows 7–28): variables, arrays, records, loops, booleans, functions, recursion, I/O, etc.
+**`test-case/`** — numbered rubric demos (`1-` … `31-`), aligned with `Criteria.md`:
 
-**`demo-examples/`** — consolidated tours and error demos:
+| # | File | Construct / topic |
+|---|------|-------------------|
+| 1 | `1-headers-comments.stg` | Headers / comments |
+| 2 | `2-variable-declaration.stg` | Variable declaration |
+| 3 | `3-pointers.stg` | Pointers (`&`, `*`) |
+| 4 | `4-structure.stg` | Records / structures |
+| 5–8 | `5`–`8` | Constants, assignment, math simple/complex |
+| 9–12 | `9`–`12` | Conditionals, while, for, do-while |
+| 13–15 | `13`–`15` | Boolean expressions (simple → nested logical) |
+| 16–17 | `16`–`17` | Input / output |
+| 18–22 | `18`–`22` | Functions (declare, scope, call, recursion) |
+| 23 | `23-nested-statements.stg` | Nested statements |
+| 24–25 | `24`–`25` | Arrays, break / continue |
+| 26–31 | `26`–`31` | Semantic errors, runtime errors, lex/parse recovery, messaging, robustness |
+
+**`demo-examples/`** — consolidated tours (includes, heap, optimizer, language showcase):
 
 | File | Covers |
 |------|--------|
-| `language-showcase.stg` | full syntax tour (include, records, loops, arrays, logical ops, scan/print) |
-| `semantic-errors.stg` (in `test-case/`) | all five semantic error categories in one run |
-| `human-readable-errors.stg`, `type-errors-multi.stg` | friendly type diagnostics + recovery |
-| `syntax-error.stg`, `lexical-error.stg` | deliberate parse/lex error demos |
-| `scan-test.stg`, `array-test.stg`, `logical-op-test.stg` | focused runtime demos |
-| `libHs.stg` + `include-main.stg` | includes, `export`, private vs public functions |
+| `language-showcase.stg` | Full syntax tour |
+| `include-main.stg` + `libHs.stg` | Includes, `export`, private vs public functions |
+| `heap-test*.stg` | Heap emulator, GC, address-of |
+| `optimizer-dce-test.stg` | Optimizer dead-code elimination |
 
 ```bash
-npm start -- test-case/semantic-errors.stg
-npm start -- demo-examples/language-showcase.stg
+npm start -- test-case/1-headers-comments.stg
+npm start -- test-case/26-semantic-errors.stg
 npm start -- demo-examples/include-main.stg
-npm run pipeline    # pipeline demo (lexer, parse, AST, interpreter output files)
+npm run pipeline    # lexer, parse, AST, optimized AST, interpreter → text-files/
 ```
 
 ---
 
-## 13. Not yet supported
+## 13. Optimizer
+
+After type checking, `optimizeProgram()` (`src/optimizer.ts`) transforms the AST before interpretation:
+
+- Dead code elimination (unused variables, uncalled functions, unreachable code)
+- Dead branch elimination (static `if` conditions)
+- Constant folding, copy propagation, algebraic simplification
+- Strength reduction (e.g. multiply → shift)
+
+Type checking uses the **original** AST; the interpreter runs the **optimized** AST. Demo: `demo-examples/optimizer-dce-test.stg`.
+
+---
+
+## 14. Not yet supported
 
 Features still open in the project task list (`README.md`) that are **not available** in the current implementation:
 
 | Feature | Status |
 |---------|--------|
-| Pointers | Not implemented (`test-case/pointers.stg` is a placeholder) |
-| Heap simulation | Not implemented |
 | `repeat-until` loops | Not implemented (use `do`/`while` instead) |
 | User-defined type aliases | Not implemented |
 | `export` on record types | Not implemented (all records in an include are visible) |
 | Arrays of records / non-int element types | Not implemented (primitive `iHNtSZ[]` only) |
 | ASCII logical operators (`&&`, `\|\|`, `!`) | Rejected at lex/parse — use `aHNdz`, `0hrS`, `nH0ts` |
+
+### Implemented (previously planned)
+
+| Feature | Status |
+|---------|--------|
+| Pointers (`&`, `*`, `iHNtSZ*`) | Implemented — `test-case/3-pointers.stg` |
+| Heap simulation | Implemented — `VirtualHeap`, mark-and-sweep GC at 75% usage; `demo-examples/heap-test*.stg` |
+| Optimizer | Implemented — wired into default run path via `runAstigProgram.ts` |
+| Runtime error recovery | Implemented — `test-case/27-runtime-error.stg` |
 
 ### Current behavioral limits
 

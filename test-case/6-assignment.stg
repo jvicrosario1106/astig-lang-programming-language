@@ -1,0 +1,15 @@
+// Criteria: Assignment (=, +=, -=)
+// Run: npm start -- test-case/6-assignment.stg
+
+fHUncTH!0Ns mHA1Ns() {
+  vH4rs nH0nHs:iHNtSZ = 5;
+  vH4rs nH4mH3s:sTRh1Ngz = "hi";
+
+  nH0nHs = 10;
+  nH0nHs += 3;
+  nH0nHs -= 2;
+  nH4mH3s += " there";
+
+  pHR!HNTs(nH0nHs);
+  pHR!HNTs(nH4mH3s);
+}

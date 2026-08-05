@@ -25,7 +25,7 @@ export class TypeEnvironment {
     return new TypeEnvironment(this);
   }
 
-  createFunctionScope(): TypeEnvironment {
+  createFunctionScope(_functionName?: string): TypeEnvironment {
     return new TypeEnvironment(this, true);
   }
 

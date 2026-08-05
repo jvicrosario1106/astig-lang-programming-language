@@ -1,8 +1,0 @@
-// Criteria: Pointers
-// NOTE: Pointer types and dereferencing are NOT implemented in AstigLang yet.
-// This file is a rubric placeholder only — it runs but does not exercise pointers.
-// Run: npm start -- test-case/pointers.stg
-
-fHUncTH!0Ns mHA1Ns() {
-  pHR!HNTs("Pointers: not implemented in this language version.");
-}

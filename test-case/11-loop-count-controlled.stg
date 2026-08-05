@@ -1,0 +1,8 @@
+// Criteria: Iterative Statements — Count-controlled loop (for)
+// Run: npm start -- test-case/11-loop-count-controlled.stg
+
+fHUncTH!0Ns mHA1Ns() {
+  fH0rs(vH4rs cH0uHNtHs:iHNtSZ = 0; cH0uHNtHs < 4; cH0uHNtHs = cH0uHNtHs + 1) {
+    pHR!HNTs(cH0uHNtHs);
+  }
+}

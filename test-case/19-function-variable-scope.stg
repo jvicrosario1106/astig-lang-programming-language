@@ -1,0 +1,18 @@
+// Criteria: Functions — Variable Scope (parameters, locals, block scope)
+// Run: npm start -- test-case/19-function-variable-scope.stg
+
+fHUncTH!0Ns aHDs(nH0nHs:iHNtSZ, tH0wHs:iHNtSZ):iHNtSZ {
+  vH4rs sH0mHrH3s:iHNtSZ = nH0nHs + tH0wHs;
+  {
+    lH3tsz iH1nHrH3gHnHs:iHNtSZ = 99;
+    pHR!HNTs(iH1nHrH3gHnHs);
+  }
+  pHR!HNTs(sH0mHrH3s);
+  rH3tHUrns sH0mHrH3s;
+}
+
+fHUncTH!0Ns mHA1Ns() {
+  vH4rs cH0uHNtHs:iHNtSZ = 1;
+  pHR!HNTs(aHDs(3, 4));
+  pHR!HNTs(cH0uHNtHs);
+}

@@ -1,0 +1,27 @@
+// Criteria: Error Recovery — Lexical (ANTLR lexer skips bad input, continues scanning)
+// Criteria: Error Messaging — accuracy + informativeness (line, column, caret, hint)
+// Run: npm start -- test-case/28-lexical-error-recovery.stg
+//
+// Expected: exit 1, 6 lexical/syntax errors, lex + parse recovery footers.
+//
+// This file deliberately mixes INVALID tokens with VALID jejemon code below.
+// The lexer skips each bad token and keeps scanning — valid lines are still tokenized.
+//
+// Error types demonstrated:
+//   • Plain English keyword "print"  → use pHR!HNTs instead
+//   • Plain English keyword "var"    → use vH4rs / lH3tsz / c0hNsTz instead
+//   • Plain English identifier "count" → use jejemon names like cH0uHNtHs, nH0nHs
+//   • Invalid symbol "@"               → not a valid AstigLang token
+//
+// Valid code after the errors (proves lexer recovery continued):
+//   pHR!HNTs(cH0uHNtHs) would run if parse succeeded — parse fails first due to bad tokens.
+
+fHUncTH!0Ns mHA1Ns() {
+  vH4rs cH0uHNtHs:iHNtSZ = 1;
+
+  print("hello");
+  var count:iHNtSZ = 10;
+  @bad symbol
+
+  pHR!HNTs(cH0uHNtHs);
+}

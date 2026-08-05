@@ -1,0 +1,15 @@
+// Criteria: Functions — Declaration and Calling
+// Run: npm start -- test-case/18-function-declaration-and-calling.stg
+
+fHUncTH!0Ns aHDs(nH0nHs:iHNtSZ, tH0wHs:iHNtSZ):iHNtSZ {
+  rH3tHUrns nH0nHs + tH0wHs;
+}
+
+fHUncTH!0Ns gH33Ts(nH4mH3s:sTRh1Ngz):sTRh1Ngz {
+  rH3tHUrns "Hello, " + nH4mH3s;
+}
+
+fHUncTH!0Ns mHA1Ns() {
+  pHR!HNTs(aHDs(3, 4));
+  pHR!HNTs(gH33Ts("World"));
+}

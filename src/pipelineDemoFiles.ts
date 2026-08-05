@@ -25,7 +25,7 @@ export const pipelineDemoFiles: PipelineDemoFile[] = [
       'Optimizer test',
   },
   {
-    path: 'test-case/arrays.stg',
+    path: 'test-case/24-arrays.stg',
     description:
       'Array test',
   },

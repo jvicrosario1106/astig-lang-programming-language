@@ -1,0 +1,14 @@
+// Criteria: Error Recovery — Parse (ANTLR parser resyncs, collects syntax errors)
+// Criteria: Error Messaging — jejemon hints, source line, caret
+// Run: npm start -- test-case/29-parse-error-recovery.stg
+//
+// Expected: exit 1, syntax error, parser recovery footer.
+// Scenario: malformed if — missing '(' after !HFs.
+// Program does not run — parse gate stops before AST/interpreter.
+
+fHUncTH!0Ns mHA1Ns() {
+  vH4rs cH0uHNtHs:iHNtSZ = 1;
+  !HFs cH0uHNtHs > 0) {
+    pHR!HNTs(cH0uHNtHs);
+  }
+}

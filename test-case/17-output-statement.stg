@@ -1,0 +1,8 @@
+// Criteria: Output Statement (print)
+// Run: npm start -- test-case/17-output-statement.stg
+
+fHUncTH!0Ns mHA1Ns() {
+  pHR!HNTs("Hello, AstigLang!");
+  pHR!HNTs(100 + 23);
+  pHR!HNTs(TrU3hS);
+}
