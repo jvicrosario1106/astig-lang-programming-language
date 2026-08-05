@@ -1,0 +1,88 @@
+// =============================================================================
+// Runtime exception coverage — all 10 RuntimeExceptions classes
+// =============================================================================
+//
+// Run:
+//   npm start -- test-case/27-runtime-error.stg
+//
+// With runtime error recovery enabled, one run reports every runtime error below.
+// Expected: 14 runtime errors covering all exception types (no type errors).
+//
+//   1.  UndefinedVariableError      — undeclared variable
+//   2.  RedeclarationError          — duplicate variable
+//   3.  ConstAssignmentError        — assign to const
+//   4.  ConstAssignmentError        — scan into const
+//   5.  UninitializedVariableError  — read before assign
+//   6.  UndefinedFunctionError      — call missing function
+//   7.  ArrayBoundsError            — out-of-bounds read
+//   8.  ArrayBoundsError            — out-of-bounds write
+//   9.  ArrayTypeError              — index non-array
+//  10.  InvalidOperationError       — wrong argument count
+//  11.  RedeclarationError          — duplicate nested function
+//  12.  PrintError                  — print record directly
+//  13.  ScanError                   — scan into array
+//  14.  InvalidOperationError       — missing record field
+// =============================================================================
+
+rH3cH0rHDz pH0iHNtHs {
+  pH0iHNtHxHs:iHNtSZ,
+  pH0iHNtHyHs:iHNtSZ
+}
+
+fHUncTH!0Ns pH4rHs(nH0nHs:iHNtSZ, lH4bHlHs:sTRh1Ngz):iHNtSZ {
+  rH3tHUrns nH0nHs;
+}
+
+fHUncTH!0Ns mHA1Ns() {
+  // 1 — UndefinedVariableError
+  pHR!HNTs(uH4nHs);
+
+  // 2 — RedeclarationError (variable)
+  vH4rs kH3yHs:iHNtSZ = 1;
+  vH4rs kH3yHs:iHNtSZ = 2;
+
+  // 3 — ConstAssignmentError (assign)
+  c0hNsTz lH1mH1tHs:iHNtSZ = 10;
+  lH1mH1tHs = 99;
+
+  // 4 — ConstAssignmentError (scan)
+  c0hNsTz sH0rH3s:iHNtSZ = 5;
+  scH4nz("", sH0rH3s);
+
+  // 5 — UninitializedVariableError
+  lH3tsz uHnHs:iHNtSZ;
+  pHR!HNTs(uHnHs);
+
+  // 6 — UndefinedFunctionError
+  pHR!HNTs(mH1ssHs(1));
+
+  // 7 — ArrayBoundsError (read)
+  lH3tsz aHs:iHNtSZ[] = [1, 2, 3];
+  pHR!HNTs(aHs[99]);
+
+  // 8 — ArrayBoundsError (write)
+  aHs[99] = 0;
+
+  // 9 — ArrayTypeError
+  vH4rs nH0nHs:iHNtSZ = 5;
+  pHR!HNTs(nH0nHs[0]);
+
+  // 10 — InvalidOperationError (cardinality)
+  pHR!HNTs(pH4rHs(1, "a", 3));
+
+  // 11 — RedeclarationError (function)
+  fHUncTH!0Ns pH4rHs() {}
+  fHUncTH!0Ns pH4rHs() {}
+
+  // 12 — PrintError
+  vH4rs pH0iHNtHrH2s:pH0iHNtHs = nHEWs pH0iHNtHs { pH0iHNtHxHs = 1, pH0iHNtHyHs = 2 };
+  pHR!HNTs(pH0iHNtHrH2s);
+
+  // 13 — ScanError
+  lH3tsz aH2s:iHNtSZ[] = [1, 2, 3];
+  scH4nz("", aH2s);
+
+  // 14 — InvalidOperationError (record member)
+  vH4rs pH0iHNtHrHs:pH0iHNtHs = nHEWs pH0iHNtHs { pH0iHNtHxHs = 1, pH0iHNtHyHs = 2 };
+  pHR!HNTs(pH0iHNtHrHs.zHs);
+}

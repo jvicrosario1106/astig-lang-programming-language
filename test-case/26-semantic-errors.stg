@@ -1,0 +1,41 @@
+// =============================================================================
+// Criteria.md — Semantic Errors (lines 76–86)
+// =============================================================================
+//
+// Run:
+//   npm start -- test-case/26-semantic-errors.stg
+//
+// Reports in one run:
+//   • Type errors (static): assignment mismatch, argument ordinality
+//   • Runtime errors (execution): undeclared, redeclare, const, cardinality
+//
+// Expected for this file: 2 type errors + 5 runtime errors (recovery mode).
+// =============================================================================
+
+fHUncTH!0Ns pH4rHs(nH0nHs:iHNtSZ, lH4bHlHs:sTRh1Ngz):iHNtSZ {
+  rH3tHUrns nH0nHs;
+}
+
+fHUncTH!0Ns mHA1Ns() {
+  // 1 — Undeclared variable (runtime)
+  pHR!HNTs(uH4nHs);
+
+  // 2 — Type mismatch (type error)
+  vH4rs sH0rH3s:iHNtSZ = 0;
+  sH0rH3s = "not an int";
+
+  // 3 — Multiply-defined variables (runtime)
+  vH4rs kH3yHs:iHNtSZ = 1;
+  vH4rs kH3yHs:iHNtSZ = 2;
+
+  // 4 — Constant reassignment (runtime)
+  c0hNsTz lH1mH1tHs:iHNtSZ = 10;
+  scH4nz("Enter: ", lH1mH1tHs);
+  lH1mH1tHs = 99;
+
+  // 5a — Cardinality (runtime)
+  pHR!HNTs(pH4rHs(1, "a", 3));
+
+  // 5b — Ordinality (type error)
+  pHR!HNTs(pH4rHs("a", 1));
+}

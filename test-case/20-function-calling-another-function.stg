@@ -1,0 +1,14 @@
+// Criteria: Functions — Function Calling Another Function
+// Run: npm start -- test-case/20-function-calling-another-function.stg
+
+fHUncTH!0Ns dH1bHs(nH0nHs:iHNtSZ):iHNtSZ {
+  rH3tHUrns nH0nHs * 2;
+}
+
+fHUncTH!0Ns sHQuH4rHs(nH0nHs:iHNtSZ):iHNtSZ {
+  rH3tHUrns dH1bHs(nH0nHs);
+}
+
+fHUncTH!0Ns mHA1Ns() {
+  pHR!HNTs(sHQuH4rHs(5));
+}

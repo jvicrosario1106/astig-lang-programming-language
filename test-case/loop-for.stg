@@ -1,8 +1,0 @@
-// Criteria: Loops — For
-// Run: npm start -- test-case/loop-for.stg
-
-fHUncTH!0Ns mHA1Ns() {
-  fH0rs(vH4rs iH1s:iHNtSZ = 0; iH1s < 4; iH1s = iH1s + 1) {
-    pHR!HNTs(iH1s);
-  }
-}

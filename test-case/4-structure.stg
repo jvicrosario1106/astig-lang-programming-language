@@ -1,0 +1,14 @@
+// Criteria: Structure (declare, literal, field access, assignment)
+// Run: npm start -- test-case/4-structure.stg
+
+rH3cH0rHDz pH0iHNtHs {
+  pH0iHNtHxHs:iHNtSZ,
+  pH0iHNtHyHs:iHNtSZ
+}
+
+fHUncTH!0Ns mHA1Ns() {
+  vH4rs pH0iHNtHrHs:pH0iHNtHs = nHEWs pH0iHNtHs { pH0iHNtHxHs = 3, pH0iHNtHyHs = 4 };
+  pH0iHNtHrHs.pH0iHNtHxHs = 10;
+  pHR!HNTs(pH0iHNtHrHs.pH0iHNtHxHs);
+  pHR!HNTs(pH0iHNtHrHs.pH0iHNtHyHs);
+}

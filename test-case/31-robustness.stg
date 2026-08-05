@@ -1,0 +1,57 @@
+// Criteria: Robustness — edge cases, nested control flow, function results in variables
+// Run: npm start -- test-case/31-robustness.stg
+//
+// Expected: exit 0
+//   0
+//   2
+//   7
+//   8
+//   Hello, Astig
+//   15
+//   edge-ok
+
+fHUncTH!0Ns aHDs(nH0nHs:iHNtSZ, tH0wHs:iHNtSZ):iHNtSZ {
+  rH3tHUrns nH0nHs + tH0wHs;
+}
+
+fHUncTH!0Ns gH33Ts(nH4mH3s:sTRh1Ngz):sTRh1Ngz {
+  rH3tHUrns "Hello, " + nH4mH3s;
+}
+
+fHUncTH!0Ns mHA1Ns() {
+  lH3tsz aHs:iHNtSZ[] = [0, 1, 2];
+  vH4rs cH0uHNtHs:iHNtSZ = 0;
+
+  // Zero boundary and first-index access
+  pHR!HNTs(aHs[0]);
+
+  // Nested loops: count to 2 then stop
+  fH0rs(vH4rs oHUtHrHs:iHNtSZ = 0; oHUtHrHs < 3; oHUtHrHs = oHUtHrHs + 1) {
+    wH1lEs(cH0uHNtHs < 2) {
+      cH0uHNtHs = cH0uHNtHs + 1;
+    }
+  }
+
+  pHR!HNTs(cH0uHNtHs);
+
+  // Direct assignment from function return value
+  vH4rs sH0mHrH3s:iHNtSZ = aHDs(3, 4);
+  pHR!HNTs(sH0mHrH3s);
+
+  // Function call inside expression assigned to variable
+  vH4rs tH0tHlHrH3s:iHNtSZ = aHDs(2, 4) + aHs[1] * 2;
+  pHR!HNTs(tH0tHlHrH3s);
+
+  // String function result assigned to variable
+  vH4rs nH4mH3s:sTRh1Ngz = gH33Ts("Astig");
+  pHR!HNTs(nH4mH3s);
+
+  // Reassign variable using another function call result
+  sH0mHrH3s = aHDs(sH0mHrH3s, 8);
+  pHR!HNTs(sH0mHrH3s);
+
+  // Boolean edge: condition always true
+  !HFs(1 < 99) {
+    pHR!HNTs("edge-ok");
+  }
+}

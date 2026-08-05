@@ -1,0 +1,29 @@
+// Criteria: Loops — break / continue
+// Run: npm start -- test-case/25-loop-break-continue.stg
+//
+// Expected output:
+//   0
+//   1
+//   2
+//   1
+//   3
+
+fHUncTH!0Ns mHA1Ns() {
+  // break: leave the while early when cH0uHNtHs reaches 3
+  vH4rs cH0uHNtHs:iHNtSZ = 0;
+  wH1lEs(cH0uHNtHs < 10) {
+    !HFs(cH0uHNtHs == 3) {
+      bHREaHKs;
+    }
+    pHR!HNTs(cH0uHNtHs);
+    cH0uHNtHs = cH0uHNtHs + 1;
+  }
+
+  // continue: skip even values in a for-loop
+  fH0rs(vH4rs cH0uHNtHs:iHNtSZ = 0; cH0uHNtHs < 5; cH0uHNtHs = cH0uHNtHs + 1) {
+    !HFs(cH0uHNtHs % 2 == 0) {
+      c0HntH1nHU3s;
+    }
+    pHR!HNTs(cH0uHNtHs);
+  }
+}

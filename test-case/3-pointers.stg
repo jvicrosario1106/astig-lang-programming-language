@@ -1,0 +1,9 @@
+// Criteria: Pointers (address-of, dereference)
+// Run: npm start -- test-case/3-pointers.stg
+
+fHUncTH!0Ns mHA1Ns() {
+  lH3tsz sH0rH3dHvH4lHs: iHNtSZ = 256;
+  lH3tsz pH0iHNtHrHs: iHNtSZ* = &sH0rH3dHvH4lHs;
+  lH3tsz dH3rH3fHvH4lHs: iHNtSZ = *pH0iHNtHrHs;
+  pHR!HNTs(dH3rH3fHvH4lHs);
+}

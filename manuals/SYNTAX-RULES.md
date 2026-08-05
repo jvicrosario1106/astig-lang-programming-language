@@ -1,7 +1,7 @@
 # AstigLang — Allowed & Not Allowed Syntax
 
 Quick reference with **Do / Don't** examples, aligned with the **current implementation**.  
-See `LANGUAGE.md` for the full manual, `Pipeline.md` for the compiler pipeline, and `README.md` for the task list.
+See `LANGUAGE.md` for the full manual, `USER-MANUAL.md` for the beginner guide, `PIPELINE.md` for the compiler pipeline, and `README.md` for the task list.
 
 **Run:** `npm start -- path/to/program.stg`
 
@@ -143,7 +143,7 @@ c0hNsTz xH1s:iHNtSZ = 1;
 xH1s = 2;
 ```
 
-**Don't — scan into `const` (type error):**
+**Don't — scan into `const` (runtime error):**
 ```astig
 c0hNsTz xH1s:iHNtSZ = 1;
 scH4nz("Enter: ", xH1s);
@@ -274,6 +274,16 @@ pHR!HNTs(aHs[0] + aHs[2]);
   pHR!HNTs("or-not");
 }
 ```
+
+**Expression hierarchy demos (`test-case/`):**
+
+| File | Criteria level |
+|------|----------------|
+| `7-math-simple.stg` | simple_math |
+| `8-math-complex.stg` | complex_math (+ arrays, calls, records) |
+| `13-boolean-simple.stg` | simple boolean + complex_math rel_op complex_math |
+| `14-boolean-complex-logical.stg` | complex_boolean (AND / OR / NOT) |
+| `15-boolean-multiple-complex.stg` | nested complex logical |
 
 **Do — use comparisons + if chains when preferred:**
 ```astig
@@ -440,23 +450,52 @@ fHUncTH!0Ns mHA1Ns() {
 
 **Run:**
 ```bash
-npm start -- demo-examples/scan-test.stg
-npm start -- test-case/input-statement.stg
+echo "42" | npm start -- test-case/16-input-statement.stg
+npm start -- test-case/17-output-statement.stg
 ```
 
 ---
 
-## 10. Not implemented yet
+## 10. Pointers & heap
+
+| Allowed | Not allowed |
+|---------|-------------|
+| Pointer types (`iHNtSZ*`) | Dereference non-pointer |
+| Address-of `&variable` | Dereference freed pointer |
+| Dereference `*pointer` | Scan into pointer target types |
+
+**Do:**
+```astig
+fHUncTH!0Ns mHA1Ns() {
+  lH3tsz vHAlHs: iHNtSZ = 256;
+  lH3tsz xHs: iHNtSZ* = &vHAlHs;
+  lH3tsz yHs: iHNtSZ = *xHs;
+  pHR!HNTs(yHs);
+}
+```
+
+**Demo:** `test-case/3-pointers.stg`, `demo-examples/heap-test*.stg`
+
+---
+
+## 11. Not implemented yet
 
 **Don't — these will fail (not in current implementation):**
 ```astig
-vH4rs pH1s:iHNtSZ* = 0;           // pointers
 vH4rs rH3cH4rrH3s:gH4mH3s[];     // arrays of records
 repeat-until loop syntax;
 read(xH1s);                        // use scH4nz instead
 ```
 
-Also not supported: heap simulation, `repeat-until`, user-defined type aliases, `export` on records, ASCII `&&` / `||` / `!`.
+Also not supported: user-defined type aliases, `export` on records, ASCII `&&` / `||` / `!`.
+
+**Implemented (use instead of legacy placeholders):**
+
+| Feature | Demo |
+|---------|------|
+| Pointers (`&`, `*`) | `test-case/3-pointers.stg` |
+| Heap / GC | `demo-examples/heap-test*.stg` |
+| Optimizer | `demo-examples/optimizer-dce-test.stg` |
 
 **Supported but easy to confuse:**
 
@@ -468,7 +507,7 @@ Also not supported: heap simulation, `repeat-until`, user-defined type aliases, 
 
 ---
 
-## 11. Common errors
+## 12. Common errors & recovery
 
 | Situation | Result |
 |-----------|--------|
@@ -476,24 +515,31 @@ Also not supported: heap simulation, `repeat-until`, user-defined type aliases, 
 | `main` in include | `Include file "..." must not define main; ...` |
 | Missing include | `Include file not found: "..."` |
 | Circular include | `Circular include detected for "..."` |
-| Undeclared variable | `Undeclared variable "..."` |
-| Type mismatch | `Type error: Cannot assign value of type ...` |
-| Redeclared variable | `Variable "..." is already declared in this scope` |
+| Undeclared variable | `Undefined variable "..."` |
+| Type mismatch | `Type mismatch: cannot assign ...` |
+| Redeclared variable | `Cannot redeclare variable "..."` |
 | Non-exported call | `Function "..." is not exported from "..."` |
 | Assign to `const` | `Cannot assign to const variable "..."` |
-| Scan into `const` | `Cannot scan into const variable "..."` |
-| Wrong arg count / types | Cardinality / ordinality type errors |
+| Scan into `const` | `Cannot assign to const variable "..."` (runtime) |
+| Wrong arg count / types | Cardinality / ordinality errors |
+| Lexical error | `Unrecognized input: "..."` + recovery footer |
 | Syntax error | Humanized ANTLR message + line/column caret |
 | Plain English token | Hint: use jejemon spellings |
 
-**Semantic error demo (all five categories):**
+**Error recovery demos (`test-case/`):**
+
 ```bash
-npm start -- test-case/semantic-errors.stg
+npm start -- test-case/26-semantic-errors.stg    # semantic errors (7 total)
+npm start -- test-case/27-runtime-error.stg      # 14 runtime errors
+npm start -- test-case/28-lexical-error-recovery.stg
+npm start -- test-case/29-parse-error-recovery.stg
+npm start -- test-case/30-error-messaging.stg
+npm start -- test-case/31-robustness.stg         # passes (edge cases)
 ```
 
 ---
 
-## 12. Minimal runnable programs
+## 13. Minimal runnable programs
 
 **Single file:**
 ```astig
@@ -514,5 +560,14 @@ fHUncTH!0Ns mHA1Ns() {
 
 ```bash
 npm start -- demo-examples/include-main.stg
-npm start -- test-case/function-call.stg
+npm start -- test-case/18-function-declaration-and-calling.stg
+npm start -- test-case/20-function-calling-another-function.stg
 ```
+
+### Rubric index (`test-case/`)
+
+| Range | Topic |
+|-------|-------|
+| `1`–`23` | Completeness constructs (headers → nested statements) |
+| `24`–`25` | Arrays, break / continue |
+| `26`–`31` | Errors, recovery, messaging, robustness |

@@ -4,7 +4,7 @@
  * Wraps per-statement type checks so recoverable semantic errors are recorded
  * and checking continues. At the end of `typeCheckProgram()`, all collected
  * diagnostics are thrown as {@link TypeCheckErrors} so `main.ts` can print
- * every issue in one run (e.g. `test-case/semantic-errors.stg`).
+ * every issue in one run (e.g. `test-case/26-semantic-errors.stg`).
  */
 import { TypeCheckError } from '../classes/TypeCheckError';
 import { SourceLocation } from '../models/StatementNode';
