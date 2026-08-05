@@ -10,5 +10,5 @@ fHUncTH!0Ns mHA1Ns() {
   vH4rs pH1s:pH0iHNtHs = nHEWs pH0iHNtHs { xH1s = 3, yH2s = 4 };
   pH1s.xH1s = 10;
   pHR!HNTs(pH1s.xH1s);
-  pHR!HNTs(pH1s.yH3s);
+  pHR!HNTs(pH1s.yH2s);
 }

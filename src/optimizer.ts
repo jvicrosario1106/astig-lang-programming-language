@@ -1,94 +1,232 @@
 import { ProgramNode } from './models/ProgramNode';
 import { ExpressionNode, ExpressionNodeType } from './models/ExpressionNode';
-import { StatementNode, StatementNodeType } from './models/StatementNode';
+import {
+  AssignmentTarget,
+  FunctionDeclarationNode,
+  StatementNode,
+  StatementNodeType,
+} from './models/StatementNode';
 import { MainFunctionNode } from './models/MainFunctionNode';
-import { FunctionDeclarationNode } from './models/StatementNode';
-import { constants } from 'buffer';
+
+/** Tracks variable/function names that must be kept during dead-code elimination. */
+function markAssignmentTargetUsed(
+  target: AssignmentTarget,
+  usedSymbols: Set<string>,
+  visitExpression: (node: ExpressionNode) => void,
+): void {
+  switch (target.kind) {
+    case 'variable':
+      usedSymbols.add(target.name);
+      break;
+    case 'recordField':
+      usedSymbols.add(target.rootVariable);
+      break;
+    case 'dereference':
+      visitExpression(target.pointerExpression);
+      break;
+  }
+}
+
+/** Variables declared more than once in the same block must all be preserved (redeclaration errors). */
+function markDuplicateVariableNamesInBlock(
+  statements: StatementNode[],
+  usedSymbols: Set<string>,
+): void {
+  const declarationCounts = new Map<string, number>();
+
+  for (const statement of statements) {
+    if (statement.type === StatementNodeType.VariableDeclaration) {
+      declarationCounts.set(
+        statement.name,
+        (declarationCounts.get(statement.name) ?? 0) + 1,
+      );
+    }
+  }
+
+  for (const [name, count] of declarationCounts) {
+    if (count > 1) {
+      usedSymbols.add(name);
+    }
+  }
+}
+
+function createUseAnalysisVisitor(usedSymbols: Set<string>) {
+  function visitExpression(node: ExpressionNode): void {
+    if (!node) return;
+
+    switch (node.type) {
+      case ExpressionNodeType.Identifier:
+        usedSymbols.add(node.name);
+        break;
+
+      case ExpressionNodeType.UnaryExpression:
+        visitExpression(node.argument);
+        break;
+
+      case ExpressionNodeType.BinaryExpression:
+        visitExpression(node.left);
+        visitExpression(node.right);
+        break;
+
+      case ExpressionNodeType.FunctionCall:
+        usedSymbols.add(node.name);
+        node.arguments.forEach(visitExpression);
+        break;
+
+      case ExpressionNodeType.ArrayIndexAccess:
+        usedSymbols.add(node.arrayName);
+        visitExpression(node.index);
+        break;
+
+      case ExpressionNodeType.ArrayLiteral:
+        node.elements.forEach(visitExpression);
+        break;
+
+      case ExpressionNodeType.RecordLiteral:
+        node.fields.forEach((field) => visitExpression(field.value));
+        break;
+
+      case ExpressionNodeType.MemberAccess:
+        visitExpression(node.object);
+        break;
+
+      case ExpressionNodeType.Malloc:
+        visitExpression(node.sizeExpr);
+        break;
+
+      case ExpressionNodeType.Realloc:
+        visitExpression(node.ptrExpr);
+        visitExpression(node.sizeExpr);
+        break;
+
+      default:
+        break;
+    }
+  }
+
+  function visitBlock(statements: StatementNode[]): void {
+    markDuplicateVariableNamesInBlock(statements, usedSymbols);
+    statements.forEach(visitStatement);
+  }
+
+  function visitStatement(node: StatementNode): void {
+    if (!node) return;
+
+    switch (node.type) {
+      case StatementNodeType.VariableDeclaration:
+        if (node.value) {
+          visitExpression(node.value);
+        }
+        break;
+
+      case StatementNodeType.Assignment:
+        markAssignmentTargetUsed(node.target, usedSymbols, visitExpression);
+        visitExpression(node.value);
+        break;
+
+      case StatementNodeType.ArrayIndexAssignment:
+        usedSymbols.add(node.arrayName);
+        visitExpression(node.index);
+        visitExpression(node.value);
+        break;
+
+      case StatementNodeType.ScanStatement:
+        usedSymbols.add(node.variableName);
+        break;
+
+      case StatementNodeType.PrintStatement:
+        visitExpression(node.value);
+        break;
+
+      case StatementNodeType.IfStatement:
+        visitExpression(node.condition);
+        visitBlock(node.thenBranch);
+        node.elseIfChains.forEach((chain) => {
+          visitExpression(chain.condition);
+          visitBlock(chain.body);
+        });
+        if (node.elseBranch) {
+          visitBlock(node.elseBranch);
+        }
+        break;
+
+      case StatementNodeType.WhileStatement:
+        visitExpression(node.condition);
+        visitBlock(node.body);
+        break;
+
+      case StatementNodeType.DoWhileStatement:
+        visitBlock(node.body);
+        visitExpression(node.condition);
+        break;
+
+      case StatementNodeType.ForStatement:
+        if (node.init) {
+          visitStatement(node.init);
+        }
+        if (node.condition) {
+          visitExpression(node.condition);
+        }
+        if (node.update) {
+          visitStatement(node.update);
+        }
+        visitBlock(node.body);
+        break;
+
+      case StatementNodeType.ForeachStatement:
+        usedSymbols.add(node.variable);
+        visitExpression(node.iterable);
+        visitBlock(node.body);
+        break;
+
+      case StatementNodeType.ReturnStatement:
+        if (node.value) {
+          visitExpression(node.value);
+        }
+        break;
+
+      case StatementNodeType.BlockStatement:
+        visitBlock(node.body);
+        break;
+
+      case StatementNodeType.FunctionDeclaration:
+        visitBlock(node.body);
+        break;
+
+      case StatementNodeType.FreeStatement:
+        visitExpression(node.ptrExpr);
+        break;
+
+      case StatementNodeType.MemsetStatement:
+        visitExpression(node.ptrExpr);
+        visitExpression(node.valueExpr);
+        visitExpression(node.sizeExpr);
+        break;
+
+      case StatementNodeType.BreakStatement:
+      case StatementNodeType.ContinueStatement:
+        break;
+    }
+  }
+
+  return { visitExpression, visitStatement, visitBlock };
+}
 
 export function collectUsedSymbols(program: ProgramNode): Set<string> {
-    const usedSymbols = new Set<string>();
+  const usedSymbols = new Set<string>();
+  const { visitBlock } = createUseAnalysisVisitor(usedSymbols);
 
-    function visitExpression(node: ExpressionNode): void {
-        if (!node) return;
+  if (program.mainFunction) {
+    visitBlock(program.mainFunction.body);
+  }
 
-        switch (node.type) {
-            case ExpressionNodeType.Identifier:
-                // Found a variable reference! Mark it as used.
-                usedSymbols.add(node.name);
-                break;
+  program.functions.forEach((func) => visitBlock(func.body));
 
-            case ExpressionNodeType.UnaryExpression:
-                visitExpression(node.argument);
-                break;
+  for (const moduleFunctions of Object.values(program.moduleFunctions)) {
+    moduleFunctions.forEach((func) => visitBlock(func.body));
+  }
 
-            case ExpressionNodeType.BinaryExpression:
-                visitExpression(node.left);
-                visitExpression(node.right);
-                break;
-
-            // Handle other expressions your language supports (e.g., function calls)
-            case ExpressionNodeType.FunctionCall:
-                node.arguments.forEach(visitExpression);
-                break;
-                
-            default:
-                // Literal nodes (Numeric, Boolean, String) don't reference variables, so do nothing
-                break;
-        }
-    }
-
-    function visitStatement(node: StatementNode): void {
-        if (!node) return;
-
-        switch (node.type) {
-            case StatementNodeType.VariableDeclaration:
-                // We only care if the right-hand side initializer references *other* variables
-                if (node.value) {
-                    visitExpression(node.value);
-                }
-                break;
-
-            case StatementNodeType.Assignment:
-                // The right-hand side is being read
-                visitExpression(node.value);
-                // Note: The left-hand side variable is being written to, not read.
-                // In advanced DCE, you track writes separately, but for a basic pass, 
-                // just visiting the value expression is perfectly safe.
-                // FIX: If a variable is mutated, it MUST be preserved in the symbol table 
-                // so that the interpreter can successfully allocate its environment heap cell reference binding!
-                if (node.target.kind === 'variable') {
-                    usedSymbols.add(node.target.name);
-                }
-
-                break;
-
-            case StatementNodeType.IfStatement:
-                visitExpression(node.condition);
-                node.thenBranch.forEach(visitStatement);
-                if (node.elseBranch) {
-                    node.elseBranch.forEach(visitStatement);
-                }
-                break;
-
-            case StatementNodeType.PrintStatement: // or ScanStatement/ReturnStatement
-                if (node.value) {
-                    visitExpression(node.value);
-                }
-                break;
-                
-            // Add cases for any other block statements/loops you have
-        }
-    }
-
-    if (program.mainFunction){
-        program.mainFunction.body.forEach(visitStatement);
-    }
-    
-    program.functions.forEach(func => {
-        func.body.forEach(visitStatement);
-    });
-
-    return usedSymbols;
+  return usedSymbols;
 }
 
 function optimizeBlock(statements : StatementNode[], usedSymbols: Set<string>, constants: Map<string, ExpressionNode>) : StatementNode[] {
