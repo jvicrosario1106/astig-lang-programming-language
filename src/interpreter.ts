@@ -543,13 +543,18 @@ function executeAssignment(
 
   if (assignment.target.kind === 'variable') {
     try {
-      const binding = context.environment.get(assignment.target.name);
-      
+      const variableName = assignment.target.name;
+      if (context.environment.getVariableKind(variableName) === 'const') {
+        throw new ConstAssignmentError(variableName, location);
+      }
+
+      const binding = context.environment.get(variableName);
+
       // Mutate the value inside the heap slot instead of replacing the environment binding object
       if (binding && typeof binding === 'object' && 'isHeapReference' in binding) {
         context.heap.set(binding.address, resultValue);
       } else {
-        context.environment.assign(assignment.target.name, resultValue);
+        context.environment.assign(variableName, resultValue);
       }
     } catch (error) {
       throw toRuntimeError(error, location);

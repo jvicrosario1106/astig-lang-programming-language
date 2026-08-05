@@ -75,7 +75,7 @@ export function executeProgram(programInput: ProgramInput): number {
 
     // Run the program
     return runWithDiagnostics(
-      ast, // Pass here the Optimized AST and try to test if it works
+      optimizedAst,
       sourceCode,
       programFilename,
       typeDiagnostics,
