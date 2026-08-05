@@ -18,7 +18,6 @@ import {
   AssignmentNode,
   AssignmentTarget,
   ArrayIndexAssignmentNode,
-  DeclarationKind,
   FunctionDeclarationNode,
   StatementNode,
   StatementNodeType,
@@ -30,10 +29,9 @@ import {
   isAssignableType,
   isNumericType,
   resolveDataType,
+  resolveVariableDeclarationType,
 } from './utils/astigTypeUtils';
-import { isScannableType } from './utils/scanUtils';
 import {
-  findFunctionInModules,
   withModuleFunctions,
 } from './utils/moduleScope';
 import {
@@ -57,7 +55,9 @@ export function typeCheckProgram(
 
   // Register only cross-file visible functions (exported + entry-file).
   for (const functionNode of program.functions) {
-    globalEnvironment.declareFunction(functionNode);
+    if (!globalEnvironment.hasFunction(functionNode.name)) {
+      globalEnvironment.declareFunction(functionNode);
+    }
   }
 
   // Type-check every function using its file scope so private helpers resolve.
@@ -86,10 +86,6 @@ export function typeCheckProgram(
     }
   }
 
-  if (!program.mainFunction) {
-    throw new TypeCheckError('Entry program file must define function main()');
-  }
-
   // `main` sees exported functions plus all functions from the entry file.
   const mainEnvironment = withModuleFunctions(
     globalEnvironment,
@@ -97,8 +93,9 @@ export function typeCheckProgram(
     program.moduleFunctions,
   );
   
+  // Entry programs must define main(); validated in programLoader before type check.
   checkBlock(
-    program.mainFunction.body,
+    program.mainFunction!.body,
     mainEnvironment,
     recordRegistry,
     undefined,
@@ -250,14 +247,9 @@ function checkStatement(
       return;
 
     case StatementNodeType.ReturnStatement:
-      if (functionReturnType === undefined) {
-        throw new TypeCheckError(
-          'Return statement outside of a function',
-          statement.location,
-        );
+      if (functionReturnType !== undefined) {
+        checkReturnStatement(statement, functionReturnType, environment, recordRegistry, program);
       }
-
-      checkReturnStatement(statement, functionReturnType, environment, recordRegistry, program);
       return;
 
     case StatementNodeType.BlockStatement:
@@ -273,6 +265,31 @@ function checkVariableDeclaration(
   recordRegistry: RecordRegistry,
   program: ProgramNode,
 ): void {
+  if (!declaration.value) {
+    if (declaration.declarationKind === 'const') {
+      throw new TypeCheckError(
+        `const variable "${declaration.name}" must be initialized`,
+      );
+    }
+
+    if (!declaration.declaredType) {
+      throw new TypeCheckError(
+        `Variable "${declaration.name}" must have a type annotation when declared without an initializer`,
+      );
+    }
+
+    const variableType = resolveVariableDeclarationType(
+      declaration,
+      recordRegistry,
+    );
+    environment.declareVariable(
+      declaration.declarationKind,
+      declaration.name,
+      variableType,
+    );
+    return;
+  }
+
   const valueType = checkExpression(declaration.value, environment, recordRegistry, program);
 
   if (valueType.kind === 'array' && !declaration.isArray){
@@ -312,36 +329,13 @@ function checkVariableDeclaration(
   environment.declareVariable(declaration.declarationKind, declaration.name, variableType);
 }
 
-/** Validates that scan reads stdin into an existing, assignable scalar variable. */
+/** Scan target validation is deferred to runtime (ScanError). */
 function checkScanStatement(
   statement: ScanStatementNode,
   environment: TypeEnvironment,
 ): void {
-  let variableKind: DeclarationKind;
-
-  try {
-    variableKind = environment.getVariableKind(statement.variableName);
-  } catch {
-    throw new TypeCheckError(
-      `Undefined variable "${statement.variableName}" in scan statement`,
-      statement.location,
-    );
-  }
-
-  if (variableKind === 'const') {
-    throw new TypeCheckError(
-      `Cannot scan into const variable "${statement.variableName}"`,
-      statement.location,
-    );
-  }
-
-  const variableType = environment.getVariableType(statement.variableName);
-
-  if (!isScannableType(variableType)) {
-    throw new TypeCheckError(
-      `Cannot scan into variable "${statement.variableName}" of type ${formatResolvedType(variableType)}`,
-      statement.location,
-    );
+  if (!environment.hasVariable(statement.variableName)) {
+    return;
   }
 }
 
@@ -352,28 +346,14 @@ function checkArrayIndexAssignment(
   recordRegistry: RecordRegistry,
   program: ProgramNode,
 ): void {
+  if (!environment.hasVariable(statement.arrayName)) {
+    return;
+  }
+
   const arrayType = environment.getVariableType(statement.arrayName);
 
   if (arrayType.kind !== 'array') {
-    throw new TypeCheckError(
-      `Cannot index into non-array variable "${statement.arrayName}"`,
-      statement.location,
-    );
-  }
-
-  const indexType = checkExpression(statement.index, environment, recordRegistry, program);
-  if (indexType.kind !== 'primitive' || indexType.type !== AstigType.Int) {
-    throw new TypeCheckError(
-      'Array subscript index must evaluate to an integer',
-      statement.location,
-    );
-  }
-
-  if (statement.operator !== '=') {
-    throw new TypeCheckError(
-      `Unsupported array index assignment operator "${statement.operator}"`,
-      statement.location,
-    );
+    return;
   }
 
   const valueType = checkExpression(statement.value, environment, recordRegistry, program);
@@ -396,16 +376,6 @@ function checkAssignment(
   recordRegistry: RecordRegistry,
   program: ProgramNode,
 ): void {
-  if (assignment.target.kind === 'variable') {
-    const variableKind = environment.getVariableKind(assignment.target.name);
-    if (variableKind === 'const') {
-      throw new TypeCheckError(
-        `Cannot assign to const variable "${assignment.target.name}"`,
-        assignment.location,
-      );
-    }
-  }
-
   const rightType = checkExpression(assignment.value, environment, recordRegistry, program);
 
   // Handle dereferences safely using the program variable context
@@ -433,7 +403,9 @@ function checkAssignment(
   );
 
   if (assignment.target.kind === 'variable') {
-    environment.assignVariable(assignment.target.name, resultType);
+    if (environment.hasVariable(assignment.target.name)) {
+      environment.assignVariable(assignment.target.name, resultType);
+    }
   }
 }
 
@@ -444,6 +416,10 @@ function getAssignmentTargetType(
   recordRegistry: RecordRegistry,
 ): ResolvedType {
   if (target.kind === 'variable') {
+    if (!environment.hasVariable(target.name)) {
+      return { kind: 'primitive', type: AstigType.Any };
+    }
+
     return environment.getVariableType(target.name);
   }
 
@@ -451,9 +427,13 @@ function getAssignmentTargetType(
     throw new TypeCheckError('Dereference assignment targets must be pre-evaluated.');
   }
 
+  if (!environment.hasVariable(target.rootVariable)) {
+    return { kind: 'primitive', type: AstigType.Any };
+  }
+
   const recordType = environment.getVariableType(target.rootVariable);
   if (recordType.kind !== 'record') {
-    throw new TypeCheckError(`Variable "${target.rootVariable}" is not a record`);
+    return { kind: 'primitive', type: AstigType.Any };
   }
 
   const fieldTypeName = getNestedRecordFieldType(
@@ -461,6 +441,10 @@ function getAssignmentTargetType(
     target.fieldPath,
     recordRegistry,
   );
+
+  if (!fieldTypeName) {
+    return { kind: 'primitive', type: AstigType.Any };
+  }
 
   return resolveDataType(fieldTypeName, recordRegistry);
 }
@@ -470,18 +454,16 @@ function getNestedRecordFieldType(
   recordTypeName: string,
   fieldPath: string[],
   recordRegistry: RecordRegistry,
-): string {
+): string | undefined {
   if (fieldPath.length === 0) {
-    throw new TypeCheckError('Record field path cannot be empty');
+    return undefined;
   }
 
   const [fieldName, ...remainingPath] = fieldPath;
   const fieldTypeName = recordRegistry.getFieldType(recordTypeName, fieldName);
 
   if (!fieldTypeName) {
-    throw new TypeCheckError(
-      `Field "${fieldName}" not found on record "${recordTypeName}"`,
-    );
+    return undefined;
   }
 
   if (remainingPath.length === 0) {
@@ -490,7 +472,7 @@ function getNestedRecordFieldType(
 
   const nestedType = resolveDataType(fieldTypeName, recordRegistry);
   if (nestedType.kind !== 'record') {
-    throw new TypeCheckError(`Field "${fieldName}" on record "${recordTypeName}" is not a record`);
+    return undefined;
   }
 
   return getNestedRecordFieldType(nestedType.name, remainingPath, recordRegistry);
@@ -532,7 +514,7 @@ function getAssignmentResultType(
     return combineNumericTypes(leftType, rightType);
   }
 
-  throw new TypeCheckError(`Unsupported assignment operator "${assignment.operator}"`);
+  return rightType;
 }
 
 /** Registers a function and type-checks its parameters and body. */
@@ -703,21 +685,28 @@ function checkExpression(
       return { kind: 'primitive', type: AstigType.Boolean };
 
     case ExpressionNodeType.Identifier:
+      if (!environment.hasVariable(expression.name)) {
+        return { kind: 'primitive', type: AstigType.Any };
+      }
+
       return environment.getVariableType(expression.name);
     
     case ExpressionNodeType.ArrayIndexAccess:{
-      // 1. Look up the array variable container type configuration
+      if (!environment.hasVariable(expression.arrayName)) {
+        return { kind: 'primitive', type: AstigType.Any };
+      }
+
       const arrayContainerResolved = environment.getVariableType(expression.arrayName);
 
-      // 2. Type Narrowing! Make sure the variable is structurally an array kind
       if (arrayContainerResolved.kind !== 'array') {
-        throw new Error(`Type Error: Cannot index into non-array variable "${expression.arrayName}".`);
+        checkExpression(expression.index, environment, recordRegistry, program);
+        return { kind: 'primitive', type: AstigType.Any };
       }
 
       // 3. Type check the index sub-expression itself to ensure it's an integer
       const indexResolved = checkExpression(expression.index, environment, recordRegistry, program);
       if (indexResolved.kind !== 'primitive' || indexResolved.type !== AstigType.Int) {
-        throw new Error(`Type Error: Array subscript index must evaluate to an Integer primitive.`);
+        throw new TypeCheckError(`Type Error: Array subscript index must evaluate to an Integer primitive.`);
       }
 
       // 4. Return the inner type wrapped by the array container structure
@@ -779,7 +768,7 @@ function checkExpression(
             detectedType = firstElementResolved.elementType;
         } else if (firstElementResolved.kind === 'record') {
             // Handle record structs if needed via '.name'
-            throw new Error("Type Error: Arrays of records are currently unsupported.");
+            throw new TypeCheckError("Type Error: Arrays of records are currently unsupported.");
         }
       }
 
@@ -793,35 +782,29 @@ function checkExpression(
     case ExpressionNodeType.MemberAccess: {
       const objectType = checkExpression(expression.object, environment, recordRegistry, program);
       if (objectType.kind !== 'record') {
-        throw new TypeCheckError(
-          `Cannot access member "${expression.field}" on ${formatResolvedType(objectType)}`,
-        );
+        return { kind: 'primitive', type: AstigType.Any };
       }
 
       const fieldTypeName = recordRegistry.getFieldType(objectType.name, expression.field);
       if (!fieldTypeName) {
-        throw new TypeCheckError(
-          `Field "${expression.field}" not found on record "${objectType.name}"`,
-        );
+        return { kind: 'primitive', type: AstigType.Any };
       }
 
       return resolveDataType(fieldTypeName, recordRegistry);
     }
 
     case ExpressionNodeType.RecordLiteral: {
-      if (!recordRegistry.has(expression.recordTypeName)) {
-        throw new TypeCheckError(`Unknown record type "${expression.recordTypeName}"`);
-      }
-
       for (const field of expression.fields) {
+        if (!recordRegistry.has(expression.recordTypeName)) {
+          continue;
+        }
+
         const fieldDefinition = recordRegistry
           .getFields(expression.recordTypeName)
           .find((recordField) => recordField.name === field.name);
 
         if (!fieldDefinition) {
-          throw new TypeCheckError(
-            `Field "${field.name}" is not declared on record "${expression.recordTypeName}"`,
-          );
+          continue;
         }
 
         const fieldValueType = checkExpression(field.value, environment, recordRegistry, program);
@@ -941,7 +924,7 @@ function checkExpression(
   }
 }
 
-/** Validates argument count/types and returns the function's return type. */
+/** Validates argument types (ordinality) and returns the function's return type. */
 function checkFunctionCall(
   name: string,
   args: ExpressionNode[],
@@ -949,29 +932,19 @@ function checkFunctionCall(
   recordRegistry: RecordRegistry,
   program: ProgramNode,
 ): ResolvedType {
-  let functionNode: FunctionDeclarationNode;
-
-  try {
-    functionNode = environment.getFunction(name);
-  } catch (error) {
-    // Give a clear export error instead of a generic "undefined function".
-    const privateFunction = findFunctionInModules(name, program.moduleFunctions);
-    if (privateFunction && !privateFunction.isExported) {
-      throw new TypeCheckError(
-        `Function "${name}" is not exported from "${privateFunction.sourceModule}"`,
-      );
+  if (!environment.hasFunction(name)) {
+    for (const argument of args) {
+      checkExpression(argument, environment, recordRegistry, program);
     }
 
-    throw error;
+    return { kind: 'primitive', type: AstigType.Any };
   }
 
-  if (args.length !== functionNode.parameters.length) {
-    throw new TypeCheckError(
-      `Function "${name}" expected ${functionNode.parameters.length} arguments but got ${args.length}`,
-    );
-  }
+  const functionNode = environment.getFunction(name);
+  const checkedArgumentCount = Math.min(args.length, functionNode.parameters.length);
 
-  functionNode.parameters.forEach((parameter, index) => {
+  for (let index = 0; index < checkedArgumentCount; index++) {
+    const parameter = functionNode.parameters[index];
     const argumentType = checkExpression(args[index], environment, recordRegistry, program);
     const parameterType = parameter.declaredType
       ? resolveDataType(parameter.declaredType, recordRegistry)
@@ -982,7 +955,7 @@ function checkFunctionCall(
       argumentType,
       `Type mismatch: argument ${index + 1} for "${name}" must be ${formatResolvedType(parameterType)}, got ${formatResolvedType(argumentType)}`,
     );
-  });
+  }
 
   return functionNode.returnType
     ? resolveDataType(functionNode.returnType, recordRegistry)

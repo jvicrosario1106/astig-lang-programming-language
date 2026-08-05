@@ -287,8 +287,10 @@ function optimizeStatement(
     switch(stmt.type) {
         
         case StatementNodeType.VariableDeclaration:{
-            // RULE: FOld in values aby 
-            // 1. Optimize the right-hand side using .value instead of .initializer
+            if (!stmt.value) {
+                return stmt;
+            }
+
             const foldedValue = optimizeExpression(stmt.value, constants, usedSymbols);
 
             // 2. Populate the constants map if it folds down to a literal or identifier for copy propagation

@@ -1,3 +1,10 @@
+import {
+  ConstAssignmentError,
+  RedeclarationError,
+  UndefinedFunctionError,
+  UndefinedVariableError,
+  UninitializedVariableError,
+} from './RuntimeExceptions';
 import { RuntimeValue } from '../models/RuntimeValue';
 import { ResolvedType } from '../models/ResolvedType';
 import {
@@ -46,29 +53,46 @@ export class RuntimeEnvironment {
   declare(
     kind: DeclarationKind,
     name: string,
-    value: RuntimeValue,
+    value: RuntimeValue | HeapReference,
     resolvedType: ResolvedType = { kind: 'primitive', type: AstigType.Any },
   ): void {
     if (this.bindings.has(name)) {
-      throw new Error(`Cannot redeclare variable "${name}"`);
+      throw new RedeclarationError(name);
     }
 
     this.bindings.set(name, { kind, value, isInitialized: true, resolvedType });
   }
 
+  declareUninitialized(
+    kind: DeclarationKind,
+    name: string,
+    resolvedType: ResolvedType,
+  ): void {
+    if (this.bindings.has(name)) {
+      throw new RedeclarationError(name);
+    }
+
+    this.bindings.set(name, {
+      kind,
+      value: defaultPlaceholderValue(resolvedType),
+      isInitialized: false,
+      resolvedType,
+    });
+  }
+
   assign(name: string, value: RuntimeValue | HeapReference): void {
     const environment = this.findEnvironmentWithBinding(name);
     if (!environment) {
-      throw new Error(`Undefined variable "${name}"`);
+      throw new UndefinedVariableError(name);
     }
 
     const binding = environment.bindings.get(name);
     if (!binding) {
-      throw new Error(`Undefined variable "${name}"`);
+      throw new UndefinedVariableError(name);
     }
 
     if (binding.kind === 'const') {
-      throw new Error(`Cannot assign to const variable "${name}"`);
+      throw new ConstAssignmentError(name);
     }
 
     binding.value = value;
@@ -80,22 +104,22 @@ export class RuntimeEnvironment {
   }
 
   getVariableKind(name: string): DeclarationKind {
-    return this.getBinding(name).kind;
+    return this.getBinding(name, false).kind;
   }
 
   getResolvedType(name: string): ResolvedType {
-    return this.getBinding(name).resolvedType;
+    return this.getBinding(name, false).resolvedType;
   }
 
-  private getBinding(name: string): RuntimeBinding {
+  private getBinding(name: string, requireInitialized = true): RuntimeBinding {
     const environment = this.findEnvironmentWithBinding(name);
     const binding = environment?.bindings.get(name);
     if (!binding) {
-      throw new Error(`Undefined variable "${name}"`);
+      throw new UndefinedVariableError(name);
     }
 
-    if (!binding.isInitialized) {
-      throw new Error(`Variable '${name}' is used before being assigned.`);
+    if (requireInitialized && !binding.isInitialized) {
+      throw new UninitializedVariableError(name);
     }
 
     return binding;
@@ -103,7 +127,7 @@ export class RuntimeEnvironment {
 
   declareFunction(functionNode: FunctionDeclarationNode): void {
     if (this.functions.has(functionNode.name)) {
-      throw new Error(`Cannot redeclare function "${functionNode.name}"`);
+      throw new RedeclarationError(functionNode.name, 'function');
     }
 
     this.functions.set(functionNode.name, functionNode);
@@ -113,35 +137,14 @@ export class RuntimeEnvironment {
     const environment = this.findEnvironmentWithFunction(name);
     const functionNode = environment?.functions.get(name);
     if (!functionNode) {
-      throw new Error(`Undefined function "${name}"`);
+      throw new UndefinedFunctionError(name);
     }
 
     return functionNode;
   }
 
   lookup(name: string): RuntimeValue | HeapReference {
-    // Check if variable is extisting in the current scope block
-    if(this.bindings.has(name)){
-      return this.bindings.get(name)!.value;
-    }
-
-    if (this.parent){
-      return this.parent.lookup(name);
-    }
-    
-    // const environment = this.findEnvironmentWithBinding(name);
-    // if (!environment) {
-    //   throw new Error(`Undefined variable "${name}"`);
-    // }
-    
-    // const binding = environment.bindings.get(name)!;
-    // if (!binding.isInitialized) {
-    //   throw new Error(`Variable '${name}' is used before being assigned.`);
-    // }
-    
-    // return binding.value;
-
-    throw new Error(`Undefined variable "${name}"`);
+    return this.get(name);
   }
 
   private findEnvironmentWithBinding(
@@ -184,4 +187,31 @@ export class RuntimeEnvironment {
 
     return addresses;
 }
+}
+
+function defaultPlaceholderValue(resolvedType: ResolvedType): RuntimeValue {
+  if (resolvedType.kind === 'array') {
+    return [];
+  }
+
+  if (resolvedType.kind === 'record') {
+    return { recordTypeName: resolvedType.name, fields: new Map() };
+  }
+
+  if (resolvedType.kind === 'pointer') {
+    return 0;
+  }
+
+  switch (resolvedType.type) {
+    case AstigType.String:
+    case AstigType.Char:
+      return '';
+    case AstigType.Boolean:
+      return false;
+    case AstigType.Float:
+    case AstigType.Int:
+      return 0;
+    default:
+      return 0;
+  }
 }

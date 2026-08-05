@@ -1,7 +1,8 @@
-import fs from 'fs';
 import { AstigType } from '../models/AstigType';
 import { ResolvedType } from '../models/ResolvedType';
 import { RuntimeValue } from '../models/RuntimeValue';
+import fs from 'fs';
+import { ScanError } from '../classes/RuntimeExceptions';
 import { formatResolvedType } from './astigTypeUtils';
 
 let stdinBuffer = '';
@@ -60,15 +61,11 @@ export function coerceScanInput(
   const input = rawInput.trim();
 
   if (!isScannableType(targetType)) {
-    throw new Error(
-      `Runtime Error: Cannot scan into ${formatResolvedType(targetType)}`,
-    );
+    throw new ScanError(`Cannot scan into ${formatResolvedType(targetType)}`);
   }
 
   if (targetType.kind !== 'primitive') {
-    throw new Error(
-      `Runtime Error: Cannot scan into ${formatResolvedType(targetType)}`,
-    );
+    throw new ScanError(`Cannot scan into ${formatResolvedType(targetType)}`);
   }
 
   switch (targetType.type) {
@@ -88,8 +85,8 @@ export function coerceScanInput(
     case AstigType.Any:
       return input;
     default:
-      throw new Error(
-        `Runtime Error: Cannot scan into ${formatResolvedType(targetType)}`,
+      throw new ScanError(
+        `Cannot scan into ${formatResolvedType(targetType)}`,
       );
   }
 }

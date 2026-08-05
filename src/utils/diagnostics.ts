@@ -235,14 +235,19 @@ export function formatDiagnostic(
 /**
  * Returns a footer note explaining that the compiler continued after errors.
  *
- * @param phase - The phase that used recovery (`lex`, `parse`, or `type`).
+ * @param phase - The phase that used recovery (`lex`, `parse`, `type`, or `runtime`).
  */
-export function formatRecoveryFooter(phase: 'lex' | 'parse' | 'type'): string {
+export function formatRecoveryFooter(
+  phase: 'lex' | 'parse' | 'type' | 'runtime',
+): string {
   if (phase === 'lex') {
     return 'Note: Lexer skipped invalid input and continued scanning (error recovery).';
   }
   if (phase === 'parse') {
     return 'Note: Parser used ANTLR error recovery and continued after syntax errors.';
+  }
+  if (phase === 'runtime') {
+    return 'Note: Interpreter continued after errors and reported all issues found (error recovery).';
   }
   return 'Note: Type checker continued after errors and reported all issues found (error recovery).';
 }
@@ -275,9 +280,19 @@ export function formatDiagnosticReport(
   ];
 
   if (options?.showRecoveryNote && diagnostics.length > 0) {
-    const phase = diagnostics[0].phase;
-    if (phase === 'lex' || phase === 'parse' || phase === 'type') {
-      lines.push('', formatRecoveryFooter(phase));
+    const phases = new Set(diagnostics.map((diagnostic) => diagnostic.phase));
+
+    if (phases.has('lex')) {
+      lines.push('', formatRecoveryFooter('lex'));
+    }
+    if (phases.has('parse')) {
+      lines.push('', formatRecoveryFooter('parse'));
+    }
+    if (phases.has('type')) {
+      lines.push('', formatRecoveryFooter('type'));
+    }
+    if (phases.has('runtime')) {
+      lines.push('', formatRecoveryFooter('runtime'));
     }
   }
 
@@ -324,6 +339,10 @@ export function diagnosticFromError(
     line: resolvedLocation?.line ?? 1,
     column: resolvedLocation?.column ?? 1,
     message: error.message,
+    hint:
+      phase === 'runtime' && error.name !== 'Error'
+        ? `Exception: ${error.name}`
+        : undefined,
   };
 }
 

@@ -254,13 +254,14 @@ function buildVariableDeclaration(
 ): VariableDeclarationNode {
   const typeAnnotation = ctx.typeAnnotation();
   const isArrayType = typeAnnotation ? (typeAnnotation.text.includes("[") && typeAnnotation.text.includes("]")) : false;
+  const expressionContext = ctx.expression();
   return {
     type: StatementNodeType.VariableDeclaration,
     location: sourceLocationFrom(ctx),
     declarationKind: buildDeclarationKind(ctx),
     name: ctx.IDENTIFIER().text,
     declaredType: ctx.typeAnnotation()?.dataType().text,
-    value: buildExpression(ctx.expression()),
+    value: expressionContext ? buildExpression(expressionContext) : undefined,
     isArray: isArrayType
   };
 }

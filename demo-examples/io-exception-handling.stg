@@ -1,0 +1,20 @@
+fHUncTH!0Ns mHA1Ns() {
+  vH4rs tH4skH3s:iHNtSZ = 3;
+
+  !HFs(tH4skH3s == 1) {
+    vH4rs vH4lH3s:iHNtSZ = 0;
+    scH4nz("Enter a number: ", vH4lH3s);
+    pHR!HNTs("You entered:");
+    pHR!HNTs(vH4lH3s);
+  } eHLSEs !HFs(tH4skH3s == 2) {
+    lH3tsz aHs:iHNtSZ[] = [10, 20, 30];
+    pHR!HNTs(aHs[99]);
+  } eHLSEs !HFs(tH4skH3s == 3) {
+    lH3tsz aHs:iHNtSZ[] = [10, 20, 30];
+    vH4rs bHs:iHNtSZ = 0;
+    scH4nz("Enter array index: ", bHs);
+    pHR!HNTs(aHs[bHs]);
+  } eHLSEs {
+    pHR!HNTs("Set tH4skH3s to 1 (success), 2 (output fail), or 3 (scan ok, print fail).");
+  }
+}

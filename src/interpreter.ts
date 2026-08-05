@@ -12,6 +12,17 @@ import { ContinueException } from './classes/ContinueException';
 import { buildRecordRegistry, RecordRegistry } from './classes/RecordRegistry';
 import { ReturnException } from './classes/ReturnException';
 import { RuntimeEnvironment } from './classes/RuntimeEnvironment';
+import { RuntimeErrors } from './classes/RuntimeErrors';
+import {
+  ArrayBoundsError,
+  ArrayTypeError,
+  ConstAssignmentError,
+  InvalidOperationError,
+  PrintError,
+  ScanError,
+  toRuntimeError,
+  UndefinedFunctionError,
+} from './classes/RuntimeExceptions';
 import { RuntimeError } from './classes/RuntimeError';
 import { AstigType } from './models/AstigType';
 import { ExpressionNode, ExpressionNodeType } from './models/ExpressionNode';
@@ -29,14 +40,18 @@ import {
   StatementNode,
   StatementNodeType,
 } from './models/StatementNode';
-import { resolveParameterType, resolveVariableDeclarationType } from './utils/astigTypeUtils';
+import { resolveParameterType, resolveVariableDeclarationType, formatResolvedType } from './utils/astigTypeUtils';
 import { isTruthy } from './utils/isTruthy';
-import { withModuleFunctions } from './utils/moduleScope';
+import { withModuleFunctions, findFunctionInModules } from './utils/moduleScope';
 import {
   getRecordFieldValue,
   setRecordFieldValue,
 } from './utils/recordRuntimeUtils';
-import { coerceScanInput, readScanLine } from './utils/scanUtils';
+import { coerceScanInput, isScannableType, readScanLine } from './utils/scanUtils';
+import {
+  runWithRuntimeRecovery,
+  RuntimeRecoverySession,
+} from './utils/runtimeRecovery';
 import { HeapEmulator, VirtualHeap } from './classes/HeapEmulator';
 import { MarkSweepGC } from './models/GarbageCollector';
 import { HeapVisualizer } from './classes/HeapVisualizer';
@@ -46,15 +61,128 @@ export type ExecutionContext = {
   recordRegistry: RecordRegistry;
   output: string[];
   moduleFunctions: Record<string, FunctionDeclarationNode[]>;
+  insideFunction: boolean;
+  recovery?: RuntimeRecoverySession;
   heap: HeapEmulator;
 };
 
-function raiseRuntimeError(message: string, location?: SourceLocation): never {
-  throw new RuntimeError(message, location);
+function raiseArrayBoundsError(message: string, location?: SourceLocation): never {
+  throw new ArrayBoundsError(message, location);
+}
+
+function raiseArrayTypeError(message: string, location?: SourceLocation): never {
+  throw new ArrayTypeError(message, location);
+}
+
+function raiseInvalidOperation(message: string, location?: SourceLocation): never {
+  throw new InvalidOperationError(message, location);
+}
+
+function runRecordOperation(
+  operation: () => RuntimeValue | void,
+  location?: SourceLocation,
+): RuntimeValue | void {
+  try {
+    return operation();
+  } catch (error) {
+    if (error instanceof Error) {
+      raiseInvalidOperation(error.message, location);
+    }
+    throw error;
+  }
+}
+
+/** Formats a runtime value for output; plain Errors become PrintError upstream. */
+function formatValueForPrint(value: RuntimeValue): string {
+  if (isRecordRuntimeValue(value)) {
+    throw new Error(
+      `Cannot print record value of type "${value.recordTypeName}" directly`,
+    );
+  }
+
+  if (Array.isArray(value)) {
+    return `[${value.map((element) => formatValueForPrint(element)).join(', ')}]`;
+  }
+
+  return String(value);
+}
+
+/** Runs print with try-catch so I/O failures become PrintError. */
+function executePrintStatement(
+  statement: Extract<StatementNode, { type: StatementNodeType.PrintStatement }>,
+  context: ExecutionContext,
+): void {
+  const location = statement.location;
+
+  try {
+    const value = evaluateExpression(statement.value, context);
+    context.output.push(formatValueForPrint(value));
+  } catch (error) {
+    if (error instanceof RuntimeError) {
+      throw error;
+    }
+
+    const message =
+      error instanceof Error ? error.message : 'Print statement failed';
+    throw new PrintError(message, location);
+  }
+}
+
+/** Runs scan with try-catch so I/O failures become ScanError. */
+function executeScanStatement(
+  statement: Extract<StatementNode, { type: StatementNodeType.ScanStatement }>,
+  context: ExecutionContext,
+): void {
+  const location = statement.location;
+  const { environment } = context;
+
+  try {
+    const variableKind = environment.getVariableKind(statement.variableName);
+    if (variableKind === 'const') {
+      throw new ConstAssignmentError(statement.variableName, location);
+    }
+
+    const targetType = environment.getResolvedType(statement.variableName);
+    if (!isScannableType(targetType)) {
+      throw new ScanError(
+        `Cannot scan into ${formatResolvedType(targetType)}`,
+        location,
+      );
+    }
+
+    if (statement.promptMessage) {
+      process.stdout.write(statement.promptMessage);
+    }
+
+    const userInput = readScanLine();
+    const finalValue = coerceScanInput(userInput, targetType);
+    const binding = environment.get(statement.variableName);
+
+    if (binding && typeof binding === 'object' && 'isHeapReference' in binding) {
+      context.heap.set(binding.address, finalValue);
+    } else {
+      environment.assign(statement.variableName, finalValue);
+    }
+  } catch (error) {
+    if (error instanceof RuntimeError) {
+      throw error;
+    }
+
+    const message =
+      error instanceof Error ? error.message : 'Scan statement failed';
+    throw new ScanError(message, location);
+  }
 }
 
 /** Runs the full program and returns all printed lines in order. */
-export function runProgram(program: ProgramNode): string[] {
+export function runProgram(
+  program: ProgramNode,
+  filename = '<input>',
+  recover = true,
+): string[] {
+  const recovery: RuntimeRecoverySession | undefined = recover
+    ? { filename, diagnostics: [] }
+    : undefined;
   const recordRegistry = buildRecordRegistry(program.recordDeclarations);
   const environment = new RuntimeEnvironment(undefined, true);
   const output: string[] = [];
@@ -64,7 +192,9 @@ export function runProgram(program: ProgramNode): string[] {
     recordRegistry,
     output,
     moduleFunctions: program.moduleFunctions,
-    heap: heapInstance
+    insideFunction: false,
+    recovery,
+    heap: heapInstance,
   };
 
   heapInstance.registerGCCallback(() => {
@@ -78,7 +208,11 @@ export function runProgram(program: ProgramNode): string[] {
   });
 
   for (const functionNode of program.functions) {
-    environment.declareFunction(functionNode);
+    runWithRuntimeRecovery(
+      recovery,
+      () => environment.declareFunction(functionNode),
+      functionNode.location,
+    );
   }
 
   if (!program.mainFunction) {
@@ -97,6 +231,10 @@ export function runProgram(program: ProgramNode): string[] {
     environment: mainEnvironment,
   });
 
+  if (recovery && recovery.diagnostics.length > 0) {
+    throw new RuntimeErrors(recovery.diagnostics);
+  }
+
   return output;
 }
 
@@ -110,32 +248,47 @@ function executeStatement(statement: StatementNode, context: ExecutionContext): 
     try {
       action();
     } catch (error) {
-      if (error instanceof RuntimeError || error instanceof BreakException || error instanceof ContinueException || error instanceof ReturnException) {
+      if (
+        error instanceof RuntimeError ||
+        error instanceof BreakException ||
+        error instanceof ContinueException ||
+        error instanceof ReturnException
+      ) {
         throw error;
       }
-      if (error instanceof Error) {
-        throw new RuntimeError(error.message, location);
-      }
-      throw error;
+
+      throw toRuntimeError(error, location);
     }
   };
 
   switch (statement.type) {
     case StatementNodeType.VariableDeclaration:
-      const initialValue = evaluateExpression(statement.value, context);
-      // 1. Allocate a single slot on the heap for this variable
-      const addr = context.heap.malloc(1);
-      // 2. Write the initial value into that heap slot
-      context.heap.set(addr, initialValue);
+      runSafely(() => {
+        const resolvedType = resolveVariableDeclarationType(
+          statement,
+          context.recordRegistry,
+        );
 
-      runSafely(() =>
-        environment.declare(
+        if (statement.value) {
+          const initialValue = evaluateExpression(statement.value, context);
+          const addr = context.heap.malloc(1);
+          context.heap.set(addr, initialValue);
+
+          environment.declare(
+            statement.declarationKind,
+            statement.name,
+            { isHeapReference: true, address: addr },
+            resolvedType,
+          );
+          return;
+        }
+
+        environment.declareUninitialized(
           statement.declarationKind,
           statement.name,
-          { isHeapReference: true, address: addr },
-          resolveVariableDeclarationType(statement, context.recordRegistry),
-        ),
-      );
+          resolvedType,
+        );
+      });
       return;
 
     case StatementNodeType.Assignment:
@@ -143,16 +296,22 @@ function executeStatement(statement: StatementNode, context: ExecutionContext): 
       return;
     
     case StatementNodeType.ArrayIndexAssignment: {
+      if (statement.operator !== '=') {
+        raiseInvalidOperation(
+          `Unsupported array index assignment operator "${statement.operator}"`,
+          location,
+        );
+      }
+
       let targetArray = environment.lookup(statement.arrayName);
 
-      // Unwrap if it was passed as a function argument or variable pointer reference
       if (targetArray && typeof targetArray === 'object' && 'isHeapReference' in targetArray) {
         targetArray = context.heap.get(targetArray.address);
       }
 
       if (!Array.isArray(targetArray)) {
-        raiseRuntimeError(
-          `Runtime Error: Variable "${statement.arrayName}" is not an array.`,
+        raiseArrayTypeError(
+          `Variable "${statement.arrayName}" is not an array.`,
           location,
         );
       }
@@ -160,8 +319,8 @@ function executeStatement(statement: StatementNode, context: ExecutionContext): 
       const evaluatedIndex: RuntimeValue = evaluateExpression(statement.index, context);
       
       if (typeof evaluatedIndex !== 'number') {
-        raiseRuntimeError(
-          `Runtime Error: Array index must evaluate to a number. Got value "${evaluatedIndex}" of type: ${typeof evaluatedIndex}`,
+        raiseInvalidOperation(
+          `Array index must evaluate to a number. Got value "${evaluatedIndex}" of type: ${typeof evaluatedIndex}`,
           location,
         );
       }
@@ -169,8 +328,8 @@ function executeStatement(statement: StatementNode, context: ExecutionContext): 
       const index = Math.floor(evaluatedIndex);
 
       if (index < 0 || index >= targetArray.length) {
-        raiseRuntimeError(
-          `Runtime Error: Index ${index} is out of bounds for array "${statement.arrayName}" of length ${targetArray.length}.`,
+        raiseArrayBoundsError(
+          `Index ${index} is out of bounds for array "${statement.arrayName}" of length ${targetArray.length}.`,
           location,
         );
       }
@@ -180,28 +339,12 @@ function executeStatement(statement: StatementNode, context: ExecutionContext): 
     }
 
     case StatementNodeType.PrintStatement:
-      output.push(String(evaluateExpression(statement.value, context)));
+      executePrintStatement(statement, context);
       return;
-    
-    case StatementNodeType.ScanStatement: {
-      if (statement.promptMessage) {
-        process.stdout.write(statement.promptMessage);
-      }
 
-      const userInput = readScanLine();
-      runSafely(() => {
-        const targetType = environment.getResolvedType(statement.variableName);
-        const finalValue = coerceScanInput(userInput, targetType);
-
-        const binding = environment.get(statement.variableName);
-        if (binding && typeof binding === 'object' && 'isHeapReference' in binding) {
-          context.heap.set(binding.address, finalValue);
-        } else {
-          environment.assign(statement.variableName, finalValue);
-        }
-      });
+    case StatementNodeType.ScanStatement:
+      executeScanStatement(statement, context);
       return;
-    }
 
     case StatementNodeType.IfStatement: {
       const condition = evaluateExpression(statement.condition, context);
@@ -326,7 +469,7 @@ function executeStatement(statement: StatementNode, context: ExecutionContext): 
           }
         }
       } else {
-        raiseRuntimeError(
+        raiseInvalidOperation(
           `Foreach only supports string iteration, got ${typeof iterable}`,
           location,
         );
@@ -345,6 +488,13 @@ function executeStatement(statement: StatementNode, context: ExecutionContext): 
       return;
 
     case StatementNodeType.ReturnStatement:
+      if (!context.insideFunction) {
+        throw new InvalidOperationError(
+          'Return statement outside of a function',
+          location,
+        );
+      }
+
       throw new ReturnException(
         statement.value ? evaluateExpression(statement.value, context) : null,
       );
@@ -389,7 +539,7 @@ function executeAssignment(
   location?: SourceLocation,
 ): void {
   const rightValue = evaluateExpression(assignment.value, context);
-  const resultValue = evaluateAssignmentValue(assignment, rightValue, context);
+  const resultValue = evaluateAssignmentValue(assignment, rightValue, context, location);
 
   if (assignment.target.kind === 'variable') {
     try {
@@ -402,10 +552,7 @@ function executeAssignment(
         context.environment.assign(assignment.target.name, resultValue);
       }
     } catch (error) {
-      if (error instanceof Error) {
-        throw new RuntimeError(error.message, location);
-      }
-      throw error;
+      throw toRuntimeError(error, location);
     }
     return;
   }
@@ -437,10 +584,16 @@ function assignRecordField(
   }
 
   if (!isRecordRuntimeValue(recordValue)) {
-    throw new RuntimeError(`Variable "${target.rootVariable}" is not a record`, location);
+    throw new InvalidOperationError(
+      `Variable "${target.rootVariable}" is not a record`,
+      location,
+    );
   }
 
-  setRecordFieldValue(recordValue, target.fieldPath, value);
+  runRecordOperation(
+    () => setRecordFieldValue(recordValue, target.fieldPath, value),
+    location,
+  );
 }
 
 /** Computes the stored value for `=`, `+=`, or `-=` assignments. */
@@ -448,12 +601,13 @@ function evaluateAssignmentValue(
   assignment: AssignmentNode,
   rightValue: RuntimeValue,
   context: ExecutionContext,
+  location?: SourceLocation,
 ): RuntimeValue {
   if (assignment.operator === '=') {
     return rightValue;
   }
 
-  const leftValue = readAssignmentTargetValue(assignment.target, context);
+  const leftValue = readAssignmentTargetValue(assignment.target, context, location);
 
   if (assignment.operator === '+=') {
     if (typeof leftValue === 'string' || typeof rightValue === 'string') {
@@ -466,13 +620,17 @@ function evaluateAssignmentValue(
     return (leftValue as number) - (rightValue as number);
   }
 
-  throw new Error(`Unsupported assignment operator ${assignment.operator}`);
+  raiseInvalidOperation(
+    `Unsupported assignment operator "${assignment.operator}"`,
+    location,
+  );
 }
 
 /** Reads the current value of an assignment target (variable or record field). */
 function readAssignmentTargetValue(
   target: AssignmentTarget,
   context: ExecutionContext,
+  location?: SourceLocation,
 ): RuntimeValue {
   if (target.kind === 'variable') {
     const binding = context.environment.get(target.name);
@@ -502,10 +660,16 @@ function readAssignmentTargetValue(
     recordValue = context.heap.get(recordValue.address);
   }
   if (!isRecordRuntimeValue(recordValue)) {
-    throw new Error(`Variable "${target.rootVariable}" is not a record`);
+    raiseInvalidOperation(
+      `Variable "${target.rootVariable}" is not a record`,
+      location,
+    );
   }
 
-  return getRecordFieldValue(recordValue, target.fieldPath);
+  return runRecordOperation(
+    () => getRecordFieldValue(recordValue, target.fieldPath),
+    location,
+  ) as RuntimeValue;
 }
 
 /** Runs statements in a new block scope. */
@@ -517,7 +681,11 @@ function executeBlock(statements: StatementNode[], context: ExecutionContext): v
   };
 
   for (const statement of statements) {
-    executeStatement(statement, blockContext);
+    runWithRuntimeRecovery(
+      context.recovery,
+      () => executeStatement(statement, blockContext),
+      statement.location,
+    );
   }
 }
 
@@ -548,10 +716,14 @@ function evaluateExpression(
       const objectValue = evaluateExpression(expression.object, context);
 
       if (!isRecordRuntimeValue(objectValue)) {
-        throw new Error(`Cannot access member "${expression.field}" on non-record value`);
+        throw new InvalidOperationError(
+          `Cannot access member "${expression.field}" on non-record value`,
+        );
       }
 
-      return getRecordFieldValue(objectValue, [expression.field]);
+      return runRecordOperation(
+        () => getRecordFieldValue(objectValue, [expression.field]),
+      ) as RuntimeValue;
     }
 
     case ExpressionNodeType.Malloc: {
@@ -585,7 +757,7 @@ function evaluateExpression(
       }
 
       if (!Array.isArray(targetArray)){
-        throw new Error(`Runtime Error: "${expression.arrayName}" is not an array.`);
+        throw new ArrayTypeError(`"${expression.arrayName}" is not an array.`);
       }
 
       let evaluatedIndex: RuntimeValue = evaluateExpression(expression.index, context);
@@ -595,14 +767,16 @@ function evaluateExpression(
       }
       
       if (typeof evaluatedIndex !== "number"){
-        throw new Error(`Runtime Error: Array index must evaluate to a number. Got value "${evaluatedIndex}" of type: ${typeof evaluatedIndex}`);
+        throw new InvalidOperationError(
+          `Array index must evaluate to a number. Got value "${evaluatedIndex}" of type: ${typeof evaluatedIndex}`,
+        );
       }
 
       const index = Math.floor(evaluatedIndex);
 
       if (index < 0 || index >= targetArray.length){
-        throw new Error(
-          `Runtime Error: Index ${index} is out of bounds for array "${expression.arrayName}" of length ${targetArray.length}.`
+        throw new ArrayBoundsError(
+          `Index ${index} is out of bounds for array "${expression.arrayName}" of length ${targetArray.length}.`,
         );
       }
       return targetArray[index];
@@ -613,8 +787,9 @@ function evaluateExpression(
     case ExpressionNodeType.BinaryExpression: {
       const left = evaluateExpression(expression.left, context);
       const right = evaluateExpression(expression.right, context);
+      const operator = expression.operator;
 
-      switch (expression.operator) {
+      switch (operator) {
         case '+':
           if (typeof left === 'string' || typeof right === 'string') {
             return String(left) + String(right);
@@ -653,7 +828,7 @@ function evaluateExpression(
         case 'OR':
           return (left as boolean) || (right as boolean);
         default:
-          throw new Error('Unsupported binary operator');
+          raiseInvalidOperation(`Unsupported binary operator "${operator}"`);
       }
     }
 
@@ -692,7 +867,7 @@ function evaluateExpression(
         return !value;
       }
       
-      throw new Error('Invalid unary expression.');
+      raiseInvalidOperation('Invalid unary expression.');
     }
 
     case ExpressionNodeType.FunctionCall:
@@ -709,8 +884,24 @@ function evaluateRecordLiteral(
   expression: Extract<ExpressionNode, { type: ExpressionNodeType.RecordLiteral }>,
   context: ExecutionContext,
 ): RecordRuntimeValue {
+  if (!context.recordRegistry.has(expression.recordTypeName)) {
+    raiseInvalidOperation(`Unknown record type "${expression.recordTypeName}"`);
+  }
+
   const recordFields = context.recordRegistry.getFields(expression.recordTypeName);
   const fieldValues = new Map<string, RuntimeValue>();
+
+  for (const literalField of expression.fields) {
+    const fieldDefinition = recordFields.find(
+      (field) => field.name === literalField.name,
+    );
+
+    if (!fieldDefinition) {
+      raiseInvalidOperation(
+        `Field "${literalField.name}" is not declared on record "${expression.recordTypeName}"`,
+      );
+    }
+  }
 
   for (const fieldDefinition of recordFields) {
     const literalField = expression.fields.find(
@@ -718,7 +909,7 @@ function evaluateRecordLiteral(
     );
 
     if (!literalField) {
-      throw new Error(
+      raiseInvalidOperation(
         `Missing field "${fieldDefinition.name}" in record literal for "${expression.recordTypeName}"`,
       );
     }
@@ -740,11 +931,29 @@ function executeFunctionCall(
   name: string,
   args: ExpressionNode[],
   context: ExecutionContext,
+  location?: SourceLocation,
 ): RuntimeValue {
-  const functionNode = context.environment.getFunction(name);
+  let functionNode: FunctionDeclarationNode;
+
+  try {
+    functionNode = context.environment.getFunction(name);
+  } catch (error) {
+    if (error instanceof UndefinedFunctionError) {
+      const privateFunction = findFunctionInModules(name, context.moduleFunctions);
+      if (privateFunction && !privateFunction.isExported) {
+        raiseInvalidOperation(
+          `Function "${name}" is not exported from "${privateFunction.sourceModule}"`,
+          location,
+        );
+      }
+    }
+
+    throw error;
+  }
+
   const argValues = args.map((arg) => evaluateExpression(arg, context));
 
-  return executeUserFunction(functionNode, argValues, context);
+  return executeUserFunction(functionNode, argValues, context, location);
 }
 
 /** Runs a function body in a fresh function scope; catches `return` via ReturnException. */
@@ -752,10 +961,12 @@ function executeUserFunction(
   functionNode: FunctionDeclarationNode,
   argValues: RuntimeValue[],
   context: ExecutionContext,
+  location?: SourceLocation,
 ): RuntimeValue {
   if (argValues.length !== functionNode.parameters.length) {
-    throw new Error(
+    raiseInvalidOperation(
       `Function "${functionNode.name}" expected ${functionNode.parameters.length} arguments but got ${argValues.length}`,
+      location,
     );
   }
 
@@ -769,6 +980,7 @@ function executeUserFunction(
   const functionContext: ExecutionContext = {
     ...context,
     environment: functionEnvironment,
+    insideFunction: true,
   };
 
   functionNode.parameters.forEach((parameter, index) => {

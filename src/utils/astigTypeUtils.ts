@@ -2,6 +2,7 @@ import { TypeCheckError } from '../classes/TypeCheckError';
 import { RecordRegistry } from '../classes/RecordRegistry';
 import { AstigType } from '../models/AstigType';
 import { ResolvedType } from '../models/ResolvedType';
+import { isRecordRuntimeValue, RuntimeValue } from '../models/RuntimeValue';
 import { VariableDeclarationNode } from '../models/StatementNode';
 import { ParameterNode } from '../models/ParameterNode';
 
@@ -118,6 +119,34 @@ export function isAssignableType(
   }
 
   return false;
+}
+
+/** Infers a static type from a runtime value for argument/assignment checks. */
+export function inferRuntimeValueType(value: RuntimeValue): ResolvedType {
+  if (typeof value === 'number') {
+    return {
+      kind: 'primitive',
+      type: Number.isInteger(value) ? AstigType.Int : AstigType.Float,
+    };
+  }
+
+  if (typeof value === 'string') {
+    return { kind: 'primitive', type: AstigType.String };
+  }
+
+  if (typeof value === 'boolean') {
+    return { kind: 'primitive', type: AstigType.Boolean };
+  }
+
+  if (Array.isArray(value)) {
+    return { kind: 'array', elementType: AstigType.Any };
+  }
+
+  if (isRecordRuntimeValue(value)) {
+    return { kind: 'record', name: value.recordTypeName };
+  }
+
+  return { kind: 'primitive', type: AstigType.Any };
 }
 
 /** Formats a primitive type for error messages. */

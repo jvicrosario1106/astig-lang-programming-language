@@ -8,6 +8,8 @@ Single-target build (current machine):
 
 ```bash
 ./binaries/astiglang path/to/program.stg
+./binaries/astiglang                    # type code interactively at the > prompt
+cat program.stg | ./binaries/astiglang  # read source from stdin pipe
 ```
 
 Windows:
@@ -26,9 +28,6 @@ Examples:
 ## Build targets
 
   - node22-macos-arm64
-  - node22-macos-x64
-  - node22-linux-x64
-  - node22-win-x64
 
 ## Rebuild
 
