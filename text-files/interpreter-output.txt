@@ -1,69 +1,72 @@
 AstigLang Interpreter Demo
 =======================
 
-Source → Lexer → Parser → AST → Type check → Interpreter
+Source → Lexer → Parser → AST → Type check → Optimizer → Interpreter
 
 Sample files:
-  1. demo-examples/math-simple-expression.stg — Simple math: id + num, id * id, num / num, modulus, string concat
-  2. demo-examples/math-complex-expression.stg — Complex math: nested ops, function calls, arrays, records, comparisons
-  3. demo-examples/logical-op-test.stg — Boolean expressions: jejemon AND, OR, NOT
-  4. demo-examples/array-test.stg — Array literals, index read/write, scan
+  1. demo-examples/heap-test.stg — Tests for heap emulator.
+  2. demo-examples/heap-test-address-of.stg — Tests for heap emulator (address of).
+  3. demo-examples/optimizer-dce-test.stg — Optimizer test
+  4. test-case/arrays.stg — Array test
 
 ========================================================================
-Example 1: demo-examples/math-simple-expression.stg
-Simple math: id + num, id * id, num / num, modulus, string concat
+Example 1: demo-examples/heap-test.stg
+Tests for heap emulator.
 ========================================================================
 
-PHASE 4 — TYPE CHECK + INTERPRETER
+PHASE 5 — TYPE CHECK + INTERPRETER
 ----------------------------------
 Type check: passed
 
 Print output:
-  [1] 14
-  [2] 12
-  [3] 5
-  [4] 2
-  [5] score: 14
+  [1] 42
+  [2] 1036
+  [3] 0
+  [4] 1041
+  [5] 1046
 
 ========================================================================
-Example 2: demo-examples/math-complex-expression.stg
-Complex math: nested ops, function calls, arrays, records, comparisons
+Example 2: demo-examples/heap-test-address-of.stg
+Tests for heap emulator (address of).
 ========================================================================
 
-PHASE 4 — TYPE CHECK + INTERPRETER
+PHASE 5 — TYPE CHECK + INTERPRETER
 ----------------------------------
 Type check: passed
 
 Print output:
-  [1] 94
-  [2] 8
+  [1] 256
+  [2] 1000
+  [3] 1000
+  [4] 1005
+  [5] 256
+  [6] 1010
 
 ========================================================================
-Example 3: demo-examples/logical-op-test.stg
-Boolean expressions: jejemon AND, OR, NOT
+Example 3: demo-examples/optimizer-dce-test.stg
+Optimizer test
 ========================================================================
 
-PHASE 4 — TYPE CHECK + INTERPRETER
+PHASE 5 — TYPE CHECK + INTERPRETER
 ----------------------------------
 Type check: passed
 
 Print output:
-  [1] y leads
-  [2] false
-  [3] true
-  [4] true
-  [5] 0
+  [1] 224
+  [2] 224
 
 ========================================================================
-Example 4: demo-examples/array-test.stg
-Array literals, index read/write, scan
+Example 4: test-case/arrays.stg
+Array test
 ========================================================================
 
-PHASE 4 — TYPE CHECK + INTERPRETER
+PHASE 5 — TYPE CHECK + INTERPRETER
 ----------------------------------
-Skipped: this demo uses scH4nz (stdin). Run manually:
-  npm start -- demo-examples/array-test.stg
+Type check: passed
 
-Example input: 42
+Print output:
+  [1] 10
+  [2] 25
+  [3] 40
 
 Written to text-files/interpreter-output.txt

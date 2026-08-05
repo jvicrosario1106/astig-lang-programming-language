@@ -10,22 +10,24 @@ export type PipelineDemoFile = {
 
 export const pipelineDemoFiles: PipelineDemoFile[] = [
   {
-    path: 'demo-examples/math-simple-expression.stg',
+    path: 'demo-examples/heap-test.stg',
     description:
-      'Simple math: id + num, id * id, num / num, modulus, string concat',
+      'Tests for heap emulator.',
   },
   {
-    path: 'demo-examples/math-complex-expression.stg',
+    path: 'demo-examples/heap-test-address-of.stg',
     description:
-      'Complex math: nested ops, function calls, arrays, records, comparisons',
+      'Tests for heap emulator (address of).',
   },
   {
-    path: 'demo-examples/logical-op-test.stg',
-    description: 'Boolean expressions: jejemon AND, OR, NOT',
+    path: 'demo-examples/optimizer-dce-test.stg',
+    description:
+      'Optimizer test',
   },
   {
-    path: 'demo-examples/array-test.stg',
-    description: 'Array literals, index read/write, scan',
+    path: 'test-case/arrays.stg',
+    description:
+      'Array test',
   },
 ];
 

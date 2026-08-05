@@ -15,10 +15,15 @@ import { AstigType } from '../models/AstigType';
 
 type RuntimeBinding = {
   kind: DeclarationKind;
-  value: RuntimeValue;
+  value: RuntimeValue | HeapReference;
   isInitialized: boolean;
   resolvedType: ResolvedType;
 };
+
+export interface HeapReference {
+  isHeapReference: true;
+  address: number;
+}
 
 /**
  * RuntimeEnvironment models the interpreter's lexical scope at runtime.
@@ -48,7 +53,7 @@ export class RuntimeEnvironment {
   declare(
     kind: DeclarationKind,
     name: string,
-    value: RuntimeValue,
+    value: RuntimeValue | HeapReference,
     resolvedType: ResolvedType = { kind: 'primitive', type: AstigType.Any },
   ): void {
     if (this.bindings.has(name)) {
@@ -75,7 +80,7 @@ export class RuntimeEnvironment {
     });
   }
 
-  assign(name: string, value: RuntimeValue): void {
+  assign(name: string, value: RuntimeValue | HeapReference): void {
     const environment = this.findEnvironmentWithBinding(name);
     if (!environment) {
       throw new UndefinedVariableError(name);
@@ -94,7 +99,7 @@ export class RuntimeEnvironment {
     binding.isInitialized = true;
   }
 
-  get(name: string): RuntimeValue {
+  get(name: string): RuntimeValue | HeapReference {
     return this.getBinding(name).value;
   }
 
@@ -138,7 +143,7 @@ export class RuntimeEnvironment {
     return functionNode;
   }
 
-  lookup(name: string): RuntimeValue {
+  lookup(name: string): RuntimeValue | HeapReference {
     return this.get(name);
   }
 
@@ -161,6 +166,27 @@ export class RuntimeEnvironment {
 
     return this.parent?.findEnvironmentWithFunction(name);
   }
+
+  public collectActiveHeapAddresses(addresses: Set<number> = new Set()): Set<number> {
+    // Scan all variable bindings in the current scope level
+    for (const [key, binding] of this.bindings.entries()) {
+      // Ensure the binding exists and has an initialized value
+      if (binding && binding.isInitialized && binding.value) {
+          const val = binding.value;
+          // Check if the INNER value object is the HeapReference
+          if (typeof val === 'object' && 'isHeapReference' in val) {
+              addresses.add(Number(val.address));
+          }
+      }
+    }
+
+    // 2. Recursively crawl up the parent scope chain until reaching the global scope
+    if (this.parent) {
+      this.parent.collectActiveHeapAddresses(addresses);
+    }
+
+    return addresses;
+}
 }
 
 function defaultPlaceholderValue(resolvedType: ResolvedType): RuntimeValue {
@@ -170,6 +196,10 @@ function defaultPlaceholderValue(resolvedType: ResolvedType): RuntimeValue {
 
   if (resolvedType.kind === 'record') {
     return { recordTypeName: resolvedType.name, fields: new Map() };
+  }
+
+  if (resolvedType.kind === 'pointer') {
+    return 0;
   }
 
   switch (resolvedType.type) {

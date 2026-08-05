@@ -54,6 +54,15 @@ export function resolveDataType(
   typeName: string,
   recordRegistry: RecordRegistry,
 ): ResolvedType {
+  // Handle trailing pointer symbols recursively (e.g., "int**")
+  if (typeName.endsWith('*')) {
+    const innerTypeName = typeName.slice(0, -1).trim();
+    return {
+      kind: 'pointer',
+      underlying: resolveDataType(innerTypeName, recordRegistry)
+    };
+  }
+
   try {
     return { kind: 'primitive', type: parseDeclaredType(typeName) };
   } catch (error) {
@@ -81,6 +90,10 @@ export function isAssignableType(
 
   if (actual.kind === 'primitive' && actual.type === AstigType.Any) {
     return true;
+  }
+
+  if (expected.kind === 'pointer' && actual.kind === 'pointer'){
+    return isAssignableType(expected.underlying, actual.underlying);
   }
 
   if (expected.kind === 'record' && actual.kind === 'record') {
@@ -148,6 +161,9 @@ export function formatResolvedType(resolvedType: ResolvedType): string {
   }
   if (resolvedType.kind === 'array'){
     return `${formatAstigType(resolvedType.elementType)}[]`;
+  }
+  if (resolvedType.kind === 'pointer'){
+    return `${formatResolvedType(resolvedType.underlying)}*`;
   }
 
   return formatAstigType(resolvedType.type);

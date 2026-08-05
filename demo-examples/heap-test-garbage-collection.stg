@@ -1,0 +1,30 @@
+fHUncTH!0Ns mHA1Ns() {
+  lH3tsz cH0uHNtH3rHs: iHNtSZ = 0;
+  pHR!HNTs("Starting automatic scoping GC integration test...");
+
+  // Running 6,000 iterations.
+  // Each iteration allocates 10 slots + 4 bytes padding = 14 slots.
+  // 6,000 * 14 = 84,000 slots total.
+  // Since HEAP_MAX_ADDRESS is 50,000, this MUST crash if GC fails.
+  WhiLeZ (cH0uHNtH3rHs < 6000) {
+    
+    // --- NESTED BLOCK SCOPE START ---
+    {
+      // Allocate an array or memory slice. 
+      // The variable 'tempPtr' only exists inside this block environment!
+      lH3tsz tH3mHPs: iHNtSZ* = MhaLlH0cZ(10);
+
+      pHR!HNTs(tH3mHPs);
+      
+      // Do minor operations so it isn't optimized out
+      //mH3msEHts(tH3mHPs, 0, 10);
+    }
+    // --- NESTED BLOCK SCOPE END ---
+    // At this point, the environment pops. 'tempPtr' is dead.
+    // The heap reference is no longer reachable by the root scanner!
+
+    cH0uHNtH3rHs += 1;
+  }
+
+  pHR!HNTs("Test Passed! Memory successfully reclaimed out of scope.");
+}

@@ -5,6 +5,7 @@ import { RuntimeErrors } from './classes/RuntimeErrors';
 import { TypeCheckError } from './classes/TypeCheckError';
 import { TypeCheckErrors } from './classes/TypeCheckErrors';
 import { runProgram } from './interpreter';
+import { optimizeProgram } from './optimizer';
 import { ProgramNode } from './models/ProgramNode';
 import {
   finalizeStandaloneProgram,
@@ -63,9 +64,22 @@ export function executeProgram(programInput: ProgramInput): number {
   }
 
   try {
+    // Build the AST
     const ast = buildProgramAst(programInput, parseResult.tree);
+
+    // Collect type diagnostics
     const typeDiagnostics = collectTypeDiagnostics(ast, programFilename);
-    return runWithDiagnostics(ast, sourceCode, programFilename, typeDiagnostics);
+
+    // Optimize the AST
+    const optimizedAst = optimizeProgram(ast);
+
+    // Run the program
+    return runWithDiagnostics(
+      ast, // Pass here the Optimized AST and try to test if it works
+      sourceCode,
+      programFilename,
+      typeDiagnostics,
+    );
   } catch (error) {
     reportExecutionError(error, sourceCode, programFilename);
     return 1;

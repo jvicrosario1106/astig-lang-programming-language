@@ -28,6 +28,8 @@ export enum StatementNodeType {
   ReturnStatement = 'ReturnStatement',
   BlockStatement = 'BlockStatement',
   ArrayIndexAssignment = 'ArrayIndexAssignment',
+  FreeStatement = 'FreeStatement',
+  MemsetStatement = 'MemsetStatement',
 }
 
 /** Union of all statement node types produced by `buildStatement` in `ast.ts`. */
@@ -46,7 +48,9 @@ export type StatementNode =
   | FunctionDeclarationNode
   | ReturnStatementNode
   | BlockStatementNode
-  | ArrayIndexAssignmentNode;
+  | ArrayIndexAssignmentNode
+  | FreeStatementNode
+  | MemsetStatementNode;
 
 export type VariableDeclarationNode = AstNodeLocation & {
   type: StatementNodeType.VariableDeclaration;
@@ -113,7 +117,8 @@ export type ContinueStatementNode = AstNodeLocation & {
 /** Left-hand side of an assignment: either a variable or a dotted record field path. */
 export type AssignmentTarget =
   | { kind: 'variable'; name: string }
-  | { kind: 'recordField'; rootVariable: string; fieldPath: string[] };
+  | { kind: 'recordField'; rootVariable: string; fieldPath: string[] }
+  | { kind: 'dereference'; pointerExpression: ExpressionNode }
 
 export type AssignmentNode = AstNodeLocation & {
   type: StatementNodeType.Assignment;
@@ -156,4 +161,16 @@ export interface ScanStatementNode extends AstNodeLocation {
   type: StatementNodeType.ScanStatement;
   promptMessage?: string;
   variableName: string;
+};
+
+export type FreeStatementNode = AstNodeLocation & {
+  type: StatementNodeType.FreeStatement;
+  ptrExpr: ExpressionNode;
+};
+
+export type MemsetStatementNode = AstNodeLocation & {
+  type: StatementNodeType.MemsetStatement;
+  ptrExpr: ExpressionNode;
+  valueExpr: ExpressionNode;
+  sizeExpr: ExpressionNode;
 };

@@ -39,6 +39,10 @@ const EXPECTING_KEYWORD_MAP: Record<string, string> = {
   IF_KW: 'if (!HFs)',
   WHILE_KW: 'while (wH1lEs)',
   RETURN_KW: 'return (rH3tHUrns)',
+  ALLOC_KW: 'allocate (mH4lLhoCs)', 
+  REALLOC_KW: 'reallocate (rH3aHLlH0cs)',
+  FREE_KW: 'free (fRHe3s)',
+  MEMSET_KW: 'memset (mH3msEHts)',
   EOF: 'end of file',
 };
 

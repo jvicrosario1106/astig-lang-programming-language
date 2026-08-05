@@ -1,0 +1,18 @@
+fHUncTH!0Ns mHA1Ns() {
+    // TrU3hS, FhaLSeS, nH0ts
+    vH4rs xH1s:iHNtSZ = 16;
+    vH4rs yH2s:iHNtSZ = 3;
+
+    vHArs zHs:iHNtSZ = xH1s << yH2s;
+    vHArs xHs:iHNtSZ = xH1s >> yH2s;
+
+    vHArs aHs:iHNtSZ = xH1s & yH2s;
+    vHArs bHs:iHNtSZ = xH1s | xHs;
+
+    pHR!HNTs(zHs);
+    pHR!HNTs(xHs);
+    pHR!HNTs(zHs + xHs);
+    pHR!HNTs(aHs);
+    pHR!HNTs(bHs);
+    pHR!HNTs(aHs + bHs);
+}

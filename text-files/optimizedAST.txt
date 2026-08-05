@@ -1,4 +1,4 @@
-AstigLang AST Demo
+AstigLang Optimizer Demo
 =======================
 
 Source → Lexer → Parser → AST → Type check → Optimizer → Interpreter
@@ -14,7 +14,7 @@ Example 1: demo-examples/heap-test.stg
 Tests for heap emulator.
 ========================================================================
 
-PHASE 3 — AST (buildAst)
+PHASE 4 — Optimized AST (buildOptimizedAst)
 ------------------------
 Syntax errors: 0
 
@@ -61,7 +61,6 @@ Program
 ProgramNode (JSON):
 {
   "type": "Program",
-  "entryModule": "main",
   "includes": [],
   "recordDeclarations": [],
   "functions": [],
@@ -252,7 +251,7 @@ Example 2: demo-examples/heap-test-address-of.stg
 Tests for heap emulator (address of).
 ========================================================================
 
-PHASE 3 — AST (buildAst)
+PHASE 4 — Optimized AST (buildOptimizedAst)
 ------------------------
 Syntax errors: 0
 
@@ -286,7 +285,6 @@ Program
 ProgramNode (JSON):
 {
   "type": "Program",
-  "entryModule": "main",
   "includes": [],
   "recordDeclarations": [],
   "functions": [],
@@ -433,192 +431,36 @@ Example 3: demo-examples/optimizer-dce-test.stg
 Optimizer test
 ========================================================================
 
-PHASE 3 — AST (buildAst)
+PHASE 4 — Optimized AST (buildOptimizedAst)
 ------------------------
 Syntax errors: 0
 
 ProgramNode (ASCII tree):
 Program
-  FunctionDeclaration(dH1bHs: iHNtSZ) @ 2:1
-    param xH1s: iHNtSZ
-    ReturnStatement @ 3:3
-      BinaryExpression(*)
-        Identifier(xH1s)
-        NumberLiteral(2)
-    VariableDeclaration(var dHs: iHNtSZ) @ 5:3
-      NumberLiteral(4)
-    PrintStatement @ 6:3
-      Identifier(dHs)
   MainFunction(mHA1Ns)
-    VariableDeclaration(var xH1s: iHNtSZ) @ 11:3
-      NumberLiteral(4)
-    VariableDeclaration(var yH2s: iHNtSZ) @ 12:3
-      NumberLiteral(8)
-    VariableDeclaration(var wHs: iHNtSZ) @ 14:3
-      Identifier(yH2s)
     VariableDeclaration(var aH1s: iHNtSZ) @ 17:3
       BinaryExpression(+)
         FunctionCall(dH1bHs)
-          BinaryExpression(+)
-            Identifier(wHs)
-            NumberLiteral(1)
+          NumberLiteral(9)
         NumberLiteral(10)
     VariableDeclaration(var bH2s: iHNtSZ) @ 21:3
-      BinaryExpression(*)
+      BinaryExpression(<<)
         Identifier(aH1s)
-        Identifier(yH2s)
-    VariableDeclaration(var yHs: iHNtSZ) @ 24:3
-      BinaryExpression(+)
-        NumberLiteral(26)
-        NumberLiteral(0)
-    VariableDeclaration(var zHs: bH0oHLeaNs) @ 26:3
-      BinaryExpression(>)
-        BinaryExpression(%)
-          Identifier(yHs)
-          NumberLiteral(4)
-        NumberLiteral(1)
-    VariableDeclaration(var cH3s: iHNtSZ) @ 30:3
-      BinaryExpression(/)
-        NumberLiteral(20)
-        NumberLiteral(4)
-    IfStatement @ 34:3
-      condition
-        Identifier(zHs)
-      then
-        PrintStatement @ 35:5
-          Identifier(bH2s)
-      else
-        VariableDeclaration(var dHs: iHNtSZ) @ 37:5
-          BinaryExpression(/)
-            NumberLiteral(20)
-            NumberLiteral(4)
-        PrintStatement @ 38:5
-          BinaryExpression(+)
-            Identifier(dHs)
-            NumberLiteral(1)
+        NumberLiteral(3)
+    PrintStatement @ 35:5
+      Identifier(bH2s)
     PrintStatement @ 41:3
       Identifier(bH2s)
 
 ProgramNode (JSON):
 {
   "type": "Program",
-  "entryModule": "main",
   "includes": [],
   "recordDeclarations": [],
-  "functions": [
-    {
-      "type": "FunctionDeclaration",
-      "location": {
-        "line": 2,
-        "column": 1
-      },
-      "name": "dH1bHs",
-      "isExported": false,
-      "sourceModule": "main",
-      "parameters": [
-        {
-          "name": "xH1s",
-          "declaredType": "iHNtSZ"
-        }
-      ],
-      "returnType": "iHNtSZ",
-      "body": [
-        {
-          "type": "ReturnStatement",
-          "location": {
-            "line": 3,
-            "column": 3
-          },
-          "value": {
-            "type": "BinaryExpression",
-            "operator": "*",
-            "left": {
-              "type": "Identifier",
-              "name": "xH1s"
-            },
-            "right": {
-              "type": "NumberLiteral",
-              "value": 2
-            }
-          }
-        },
-        {
-          "type": "VariableDeclaration",
-          "location": {
-            "line": 5,
-            "column": 3
-          },
-          "declarationKind": "var",
-          "name": "dHs",
-          "declaredType": "iHNtSZ",
-          "isArray": false,
-          "value": {
-            "type": "NumberLiteral",
-            "value": 4
-          }
-        },
-        {
-          "type": "PrintStatement",
-          "location": {
-            "line": 6,
-            "column": 3
-          },
-          "value": {
-            "type": "Identifier",
-            "name": "dHs"
-          }
-        }
-      ]
-    }
-  ],
+  "functions": [],
   "mainFunction": {
     "type": "MainFunction",
     "body": [
-      {
-        "type": "VariableDeclaration",
-        "location": {
-          "line": 11,
-          "column": 3
-        },
-        "declarationKind": "var",
-        "name": "xH1s",
-        "declaredType": "iHNtSZ",
-        "isArray": false,
-        "value": {
-          "type": "NumberLiteral",
-          "value": 4
-        }
-      },
-      {
-        "type": "VariableDeclaration",
-        "location": {
-          "line": 12,
-          "column": 3
-        },
-        "declarationKind": "var",
-        "name": "yH2s",
-        "declaredType": "iHNtSZ",
-        "isArray": false,
-        "value": {
-          "type": "NumberLiteral",
-          "value": 8
-        }
-      },
-      {
-        "type": "VariableDeclaration",
-        "location": {
-          "line": 14,
-          "column": 3
-        },
-        "declarationKind": "var",
-        "name": "wHs",
-        "declaredType": "iHNtSZ",
-        "isArray": false,
-        "value": {
-          "type": "Identifier",
-          "name": "yH2s"
-        }
-      },
       {
         "type": "VariableDeclaration",
         "location": {
@@ -637,16 +479,8 @@ ProgramNode (JSON):
             "name": "dH1bHs",
             "arguments": [
               {
-                "type": "BinaryExpression",
-                "operator": "+",
-                "left": {
-                  "type": "Identifier",
-                  "name": "wHs"
-                },
-                "right": {
-                  "type": "NumberLiteral",
-                  "value": 1
-                }
+                "type": "NumberLiteral",
+                "value": 9
               }
             ]
           },
@@ -668,162 +502,27 @@ ProgramNode (JSON):
         "isArray": false,
         "value": {
           "type": "BinaryExpression",
-          "operator": "*",
+          "operator": "<<",
           "left": {
             "type": "Identifier",
             "name": "aH1s"
           },
           "right": {
-            "type": "Identifier",
-            "name": "yH2s"
+            "type": "NumberLiteral",
+            "value": 3
           }
         }
       },
       {
-        "type": "VariableDeclaration",
+        "type": "PrintStatement",
         "location": {
-          "line": 24,
-          "column": 3
+          "line": 35,
+          "column": 5
         },
-        "declarationKind": "var",
-        "name": "yHs",
-        "declaredType": "iHNtSZ",
-        "isArray": false,
         "value": {
-          "type": "BinaryExpression",
-          "operator": "+",
-          "left": {
-            "type": "NumberLiteral",
-            "value": 26
-          },
-          "right": {
-            "type": "NumberLiteral",
-            "value": 0
-          }
-        }
-      },
-      {
-        "type": "VariableDeclaration",
-        "location": {
-          "line": 26,
-          "column": 3
-        },
-        "declarationKind": "var",
-        "name": "zHs",
-        "declaredType": "bH0oHLeaNs",
-        "isArray": false,
-        "value": {
-          "type": "BinaryExpression",
-          "operator": ">",
-          "left": {
-            "type": "BinaryExpression",
-            "operator": "%",
-            "left": {
-              "type": "Identifier",
-              "name": "yHs"
-            },
-            "right": {
-              "type": "NumberLiteral",
-              "value": 4
-            }
-          },
-          "right": {
-            "type": "NumberLiteral",
-            "value": 1
-          }
-        }
-      },
-      {
-        "type": "VariableDeclaration",
-        "location": {
-          "line": 30,
-          "column": 3
-        },
-        "declarationKind": "var",
-        "name": "cH3s",
-        "declaredType": "iHNtSZ",
-        "isArray": false,
-        "value": {
-          "type": "BinaryExpression",
-          "operator": "/",
-          "left": {
-            "type": "NumberLiteral",
-            "value": 20
-          },
-          "right": {
-            "type": "NumberLiteral",
-            "value": 4
-          }
-        }
-      },
-      {
-        "type": "IfStatement",
-        "location": {
-          "line": 34,
-          "column": 3
-        },
-        "condition": {
           "type": "Identifier",
-          "name": "zHs"
-        },
-        "thenBranch": [
-          {
-            "type": "PrintStatement",
-            "location": {
-              "line": 35,
-              "column": 5
-            },
-            "value": {
-              "type": "Identifier",
-              "name": "bH2s"
-            }
-          }
-        ],
-        "elseIfChains": [],
-        "elseBranch": [
-          {
-            "type": "VariableDeclaration",
-            "location": {
-              "line": 37,
-              "column": 5
-            },
-            "declarationKind": "var",
-            "name": "dHs",
-            "declaredType": "iHNtSZ",
-            "isArray": false,
-            "value": {
-              "type": "BinaryExpression",
-              "operator": "/",
-              "left": {
-                "type": "NumberLiteral",
-                "value": 20
-              },
-              "right": {
-                "type": "NumberLiteral",
-                "value": 4
-              }
-            }
-          },
-          {
-            "type": "PrintStatement",
-            "location": {
-              "line": 38,
-              "column": 5
-            },
-            "value": {
-              "type": "BinaryExpression",
-              "operator": "+",
-              "left": {
-                "type": "Identifier",
-                "name": "dHs"
-              },
-              "right": {
-                "type": "NumberLiteral",
-                "value": 1
-              }
-            }
-          }
-        ]
+          "name": "bH2s"
+        }
       },
       {
         "type": "PrintStatement",
@@ -845,18 +544,13 @@ Example 4: test-case/arrays.stg
 Array test
 ========================================================================
 
-PHASE 3 — AST (buildAst)
+PHASE 4 — Optimized AST (buildOptimizedAst)
 ------------------------
 Syntax errors: 0
 
 ProgramNode (ASCII tree):
 Program
   MainFunction(mHA1Ns)
-    VariableDeclaration(let aHs: iHNtSZ[]) @ 5:3
-      ArrayLiteral
-        NumberLiteral(10)
-        NumberLiteral(20)
-        NumberLiteral(30)
     ArrayIndexAssignment(aHs =) @ 6:3
       NumberLiteral(1)
       NumberLiteral(25)
@@ -876,41 +570,12 @@ Program
 ProgramNode (JSON):
 {
   "type": "Program",
-  "entryModule": "main",
   "includes": [],
   "recordDeclarations": [],
   "functions": [],
   "mainFunction": {
     "type": "MainFunction",
     "body": [
-      {
-        "type": "VariableDeclaration",
-        "location": {
-          "line": 5,
-          "column": 3
-        },
-        "declarationKind": "let",
-        "name": "aHs",
-        "declaredType": "iHNtSZ",
-        "isArray": true,
-        "value": {
-          "type": "ArrayLiteral",
-          "elements": [
-            {
-              "type": "NumberLiteral",
-              "value": 10
-            },
-            {
-              "type": "NumberLiteral",
-              "value": 20
-            },
-            {
-              "type": "NumberLiteral",
-              "value": 30
-            }
-          ]
-        }
-      },
       {
         "type": "ArrayIndexAssignment",
         "location": {
@@ -989,4 +654,4 @@ ProgramNode (JSON):
   }
 }
 
-Written to text-files/ast.txt
+Written to text-files/optimizedAST.txt

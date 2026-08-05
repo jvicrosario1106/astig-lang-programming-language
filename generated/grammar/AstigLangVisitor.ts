@@ -17,6 +17,8 @@ import { RecordLiteralFieldContext } from "./AstigLangParser";
 import { ArrayLiteralContext } from "./AstigLangParser";
 import { ArrayElementListContext } from "./AstigLangParser";
 import { DeclarationKeywordContext } from "./AstigLangParser";
+import { FreeStatementContext } from "./AstigLangParser";
+import { MemsetStatementContext } from "./AstigLangParser";
 import { PrintStatementContext } from "./AstigLangParser";
 import { ScanStatementContext } from "./AstigLangParser";
 import { IfStatementContext } from "./AstigLangParser";
@@ -155,6 +157,20 @@ export interface AstigLangVisitor<Result> extends ParseTreeVisitor<Result> {
 	 * @return the visitor result
 	 */
 	visitDeclarationKeyword?: (ctx: DeclarationKeywordContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `AstigLangParser.freeStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitFreeStatement?: (ctx: FreeStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `AstigLangParser.memsetStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitMemsetStatement?: (ctx: MemsetStatementContext) => Result;
 
 	/**
 	 * Visit a parse tree produced by `AstigLangParser.printStatement`.

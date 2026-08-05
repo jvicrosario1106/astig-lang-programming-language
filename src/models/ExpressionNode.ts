@@ -12,6 +12,8 @@ export enum ExpressionNodeType {
   UnaryExpression = 'UnaryExpression',
   RecordLiteral = 'RecordLiteral',
   MemberAccess = 'MemberAccess',
+  Malloc = 'Malloc',
+  Realloc = 'Realloc',
 }
 
 /** Union of all expression node types produced by `buildExpression` in `ast.ts`. */
@@ -27,7 +29,9 @@ export type ExpressionNode =
   | BinaryExpressionNode
   | UnaryExpressionNode
   | RecordLiteralNode
-  | MemberAccessNode;
+  | MemberAccessNode
+  | MallocNode
+  | ReallocNode;
 
 export type NumberLiteralNode = {
   type: ExpressionNodeType.NumberLiteral;
@@ -73,14 +77,14 @@ export type FunctionCallNode = {
 
 export type BinaryExpressionNode = {
   type: ExpressionNodeType.BinaryExpression;
-  operator: '+' | '-' | '*' | '/' | '%' | '==' | '!=' | '<' | '>' | '<=' | '>=' | 'AND' | 'OR';
+  operator: '+' | '-' | '*' | '/' | '%' | '==' | '!=' | '<' | '>' | '<=' | '>=' | '<<' | '>>' | '&' | '|' | 'AND' | 'OR';
   left: ExpressionNode;
   right: ExpressionNode;
 };
 
 export type UnaryExpressionNode = {
   type: ExpressionNodeType.UnaryExpression;
-  operator: '-' | 'NOT';
+  operator: '-' | 'NOT' | '&' | '*';
   argument: ExpressionNode;
 };
 
@@ -103,3 +107,14 @@ export type MemberAccessNode = {
   object: ExpressionNode;
   field: string;
 };
+
+export type MallocNode = {
+  type: ExpressionNodeType.Malloc;
+  sizeExpr: ExpressionNode;
+}
+
+export type ReallocNode = {
+  type: ExpressionNodeType.Realloc;
+  ptrExpr: ExpressionNode;
+  sizeExpr: ExpressionNode;
+}

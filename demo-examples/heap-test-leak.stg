@@ -1,0 +1,17 @@
+fHUncTH!0Ns mHA1Ns() {
+  lH3tsz cH0uHNtH3rHs: iHNtSZ = 0;
+  pHR!HNTs("Starting leak loop...");
+
+  // A loop running 5000 times allocating chunks of 10 bytes
+  // Each iteration shifts the frontier by: 10 + 4 (buffer padding) = 14 slots.
+  // 5000 iterations * 14 slots = 70,000 slots, easily blowing past 50,000.
+  WhiLeZ (cH0uHNtH3rHs < 5000) {
+    lH3tsz lH3aHKs: iHNtSZ* = MhaLlH0cZ(10);
+    pHR!HNTs(lH3aHKs);
+    
+    // We intentionally DO NOT free leakPtr here.
+    cH0uHNtH3rHs += 1;
+  }
+
+  pHR!HNTs("Loop completed safely.");
+}

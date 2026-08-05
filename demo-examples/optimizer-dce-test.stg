@@ -1,0 +1,42 @@
+// RULE: Constant folded 
+fHUncTH!0Ns dH1bHs(xH1s:iHNtSZ):iHNtSZ {
+  rH3tHUrns xH1s * 2;
+  // RULE: After return statement so it should be ignored
+  vH4rs dHs:iHNtSZ = 4; 
+  pHR!HNTs(dHs);
+}
+
+fHUncTH!0Ns mHA1Ns() {
+  // RULE: Unused so it should be ignored
+  vH4rs xH1s:iHNtSZ = 4; 
+  vH4rs yH2s:iHNtSZ = 8;
+  // RULE: wHs should copy propagated
+  vH4rs wHs:iHNtSZ = yH2s;
+
+  // id + num
+  vH4rs aH1s:iHNtSZ = dH1bHs(wHs + 1) + 10;
+
+  // id * id
+  // RULE: Strength reduced to aH1s << 3
+  vH4rs bH2s:iHNtSZ = aH1s * yH2s;
+  
+  // RULE: Should be folded into 26
+  vH4rs yHs:iHNtSZ = 26 + 0;
+  // RULE: Should be folded into true
+  vH4rs zHs:bH0oHLeaNs = (yHs % 4) > 1;
+
+  // num / num
+  // RULE: should be ignored since it is unused
+  vH4rs cH3s:iHNtSZ = 20 / 4;
+
+  // tRueHz or fHAls3z
+  // RULE: Should be folded into just the first statement
+  !HFs(zHs) {
+    pHR!HNTs(bH2s);
+  } eHLSEs {
+    vH4rs dHs:iHNtSZ = 20 / 4;
+    pHR!HNTs(dHs + 1);
+  }
+
+  pHR!HNTs(bH2s);
+}

@@ -377,7 +377,23 @@ function checkAssignment(
   program: ProgramNode,
 ): void {
   const rightType = checkExpression(assignment.value, environment, recordRegistry, program);
-  const targetType = getAssignmentTargetType(assignment.target, environment, recordRegistry);
+
+  // Handle dereferences safely using the program variable context
+  let targetType: ResolvedType;
+  if (assignment.target.kind === 'dereference'){
+    const pointerType = checkExpression(assignment.target.pointerExpression, environment, recordRegistry, program);
+    
+    if (pointerType.kind !== 'pointer'){
+      throw new TypeCheckError(
+        `Cannot dereference type "${pointerType.kind}": target is not a pointer.`, assignment.location, );
+    }
+
+    targetType = pointerType.underlying;
+  }
+  else{
+    targetType = getAssignmentTargetType(assignment.target, environment, recordRegistry);
+  }
+  
   const resultType = getAssignmentResultType(assignment, targetType, rightType);
 
   assertAssignable(
@@ -405,6 +421,10 @@ function getAssignmentTargetType(
     }
 
     return environment.getVariableType(target.name);
+  }
+
+  if (target.kind === 'dereference') {
+    throw new TypeCheckError('Dereference assignment targets must be pre-evaluated.');
   }
 
   if (!environment.hasVariable(target.rootVariable)) {
@@ -466,6 +486,13 @@ function getAssignmentResultType(
 ): ResolvedType {
   if (assignment.operator === '=') {
     return rightType;
+  }
+  
+  // Explicitly reject compound operations on raw pointer types
+  if (leftType.kind === 'pointer') {
+    throw new TypeCheckError(
+      `Cannot apply compound assignment operator "${assignment.operator}" directly to a pointer type.`
+    );
   }
 
   if (assignment.operator === '+=') {
@@ -689,7 +716,41 @@ function checkExpression(
       };
     }
     
-    
+    case ExpressionNodeType.Malloc: {
+      const sizeType = checkExpression(expression.sizeExpr, environment, recordRegistry, program);
+      if (sizeType.kind !== 'primitive' || sizeType.type !== AstigType.Int) {
+        throw new TypeCheckError(
+          `Type error: mH4lL0cH size argument must be an integer primitive, got ${formatResolvedType(sizeType)}`,
+          (expression as any).location
+        );
+      }
+      // Returns a generic byte pointer (any*)
+      return {
+        kind: 'pointer',
+        underlying: { kind: 'primitive', type: AstigType.Any }
+      };
+    }
+
+    case ExpressionNodeType.Realloc: {
+      const ptrType = checkExpression(expression.ptrExpr, environment, recordRegistry, program);
+      if (ptrType.kind !== 'pointer') {
+        throw new TypeCheckError(
+          `Type error: rH34lL0cH first argument must be a pointer type, got ${formatResolvedType(ptrType)}`,
+          (expression as any).location
+        );
+      }
+      
+      const sizeType = checkExpression(expression.sizeExpr, environment, recordRegistry, program);
+      if (sizeType.kind !== 'primitive' || sizeType.type !== AstigType.Int) {
+        throw new TypeCheckError(
+          `Type error: rH34lL0cH size argument must be an integer primitive, got ${formatResolvedType(sizeType)}`,
+          (expression as any).location
+        );
+      }
+      
+      // Returns the matching reallocated pointer kind
+      return ptrType;
+    }
     
     case ExpressionNodeType.ArrayLiteral:{
       let detectedType = AstigType.Any; 
@@ -774,6 +835,18 @@ function checkExpression(
         
           // Return a proper boolean type object
           return { kind: 'primitive', type: AstigType.Boolean };
+
+        case '&':
+          return {
+            kind: 'pointer',
+            underlying: argumentType
+          };
+        
+        case '*':
+          if (argumentType.kind !== 'pointer'){
+            throw new TypeCheckError(`Type error: Cannot dereference non-pointer type "${formatResolvedType(argumentType)}"`);
+          }
+          return argumentType.underlying;
         
         default:
           throw new TypeCheckError(`Unsupported binary operator "${operator}"`);
@@ -806,6 +879,10 @@ function checkExpression(
         case '*':
         case '/':
         case '%':
+        case '<<':
+        case '>>':
+        case '&':
+        case '|':
           assertNumericOperation(leftType, rightType, operator);
           return combineNumericTypes(leftType, rightType);
 
@@ -907,6 +984,14 @@ function assertComparableTypes(
   rightType: ResolvedType,
   operator: string,
 ): void {
+  // Allow pointer-to-pointer comparisons of the exact same underlying type
+  if (leftType.kind === 'pointer' && rightType.kind === 'pointer') {
+    // Structural equality fallback check or pass to deep assignability helper
+    if (isAssignableType(leftType, rightType) || isAssignableType(rightType, leftType)) {
+      return;
+    }
+  }
+
   if (isAssignableType(leftType, rightType) || isAssignableType(rightType, leftType)) {
     return;
   }

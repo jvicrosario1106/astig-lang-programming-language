@@ -20,6 +20,8 @@ statement
     : variableDeclaration ';'?
     | assignment ';'?
     | arrayIndexAssignment ';'?
+    | freeStatement ';'?
+    | memsetStatement ';'?
     | printStatement ';'?
     | scanStatement ';'?
     | ifStatement
@@ -80,6 +82,16 @@ declarationKeyword
     : CONST_KW
     | VAR_KW
     | LET_KW
+    ;
+
+// Free statement
+freeStatement
+    : FREE_KW '(' expression ')'
+    ;
+
+// Memset statement -> memset(void* dest, int ch, size_t count);
+memsetStatement
+    : MEMSET_KW '(' expression ',' expression ',' expression ')'
     ;
 
 // Print statement.
@@ -147,6 +159,7 @@ forUpdate
 assignment
     : IDENTIFIER assignmentOperator expression
     | recordFieldAccess assignmentOperator expression
+    | '*' expression assignmentOperator expression
     ;
 
 arrayIndexAccess
@@ -230,13 +243,13 @@ functionCall
 // TypeScript-inspired type annotation.
 // Used by variables and parameters.
 typeAnnotation
-    : ':' dataType ('[' ']')?
+    : ':' dataType '*'* ('[' ']')?
     ;
 
 // Function return type annotation.
 // Void is allowed here because functions can return no value.
 returnTypeAnnotation
-    : ':' returnDataType
+    : ':' returnDataType '*'*
     ;
 
 // Data types valid for values.
@@ -258,15 +271,23 @@ returnDataType
 
 // Expressions are values or computations with proper operator precedence.
 // Precedence (highest to lowest): unary minus, MUL/DIV, ADD/SUB, comparison
-// CHANGE: Added float, recordLiteral and expression.identifier (to chain record member calling)
+// CHANGE: SHL, SHR, BWA, BWO
+// CHANGE: Added MUL expression [*x] and BWA expression [&x]
+// CHANGE: Added malloc and realloc expressions
 expression
     : NOT_KW expression
     | SUB expression
+    | MUL expression
+    | BWA expression
     | expression op=(MUL|DIV|MOD) expression
     | expression op=(ADD|SUB) expression
+    | expression op=(SHL|SHR) expression
     | expression op=(EQ|NEQ|LT|GT|LTE|GTE) expression
+    | expression op=(BWA|BWO) expression
     | expression op=(AND_KW|OR_KW) expression
     | '(' expression ')'
+    | MALLOC_KW '(' expression ')'
+    | REALLOC_KW '(' expression ',' expression ')'
     | functionCall
     | recordLiteral
     | arrayLiteral
@@ -344,7 +365,7 @@ ELSE_KW
     ;
 
 // Jejemonized "while".
-// Examples: wh1le, whil3, whileZ
+// Examples: wHIl3s, WhiLeZ
 WHILE_KW
     : LOWER_W UPPER_H UPPER_I LOWER_L UPPER_E LOWER_PLURAL+
     | UPPER_W LOWER_H LOWER_I UPPER_L LOWER_E UPPER_PLURAL+
@@ -517,6 +538,31 @@ OR_KW
     | UPPER_O LOWER_H LOWER_R UPPER_PLURAL+
     ;
 
+// CHANGE: Added malloc and realloc keywords
+// Examples: mH4lLhoCs, MhaLlH0cZ
+MALLOC_KW
+    : LOWER_M UPPER_H UPPER_A LOWER_L UPPER_L LOWER_H LOWER_O UPPER_C LOWER_PLURAL+
+    | UPPER_M LOWER_H LOWER_A UPPER_L LOWER_L UPPER_H UPPER_O LOWER_C UPPER_PLURAL+
+    ;
+
+// Examples: rH3aHLlH0cs, RheAhlLhoCZ
+REALLOC_KW
+    : LOWER_R UPPER_H UPPER_E LOWER_A UPPER_H UPPER_L LOWER_L UPPER_H UPPER_O LOWER_C LOWER_PLURAL+
+    | UPPER_R LOWER_H LOWER_E UPPER_A LOWER_H LOWER_L UPPER_L LOWER_H LOWER_O UPPER_C UPPER_PLURAL+
+    ;
+
+// Examples: fRHe3s, Frh3eZ
+FREE_KW
+    : LOWER_F UPPER_R UPPER_H LOWER_E UPPER_E LOWER_PLURAL+
+    | UPPER_F LOWER_R LOWER_H UPPER_E LOWER_E UPPER_PLURAL+
+    ;
+
+// Examples: mH3msEHts, MheMSehTZ
+MEMSET_KW
+    : LOWER_M UPPER_H UPPER_E LOWER_M LOWER_S UPPER_E UPPER_H LOWER_T LOWER_PLURAL+
+    | UPPER_M LOWER_H LOWER_E UPPER_M UPPER_S LOWER_E LOWER_H UPPER_T UPPER_PLURAL+
+    ;
+
 // Identifiers must contain at least one jejemon marker.
 // This prevents plain variable names like "count" and accepts names like "c0unt".
 IDENTIFIER
@@ -556,6 +602,10 @@ LT: '<';
 GT: '>';
 LTE: '<=';
 GTE: '>=';
+SHL: '<<';
+SHR: '>>';
+BWA: '&';
+BWO: '|';
 
 SEMICOLON: ';';
 

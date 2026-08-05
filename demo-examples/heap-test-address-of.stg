@@ -1,0 +1,19 @@
+fHUncTH!0Ns mHA1Ns() {
+  // 1. Declare a standard integer variable
+  lH3tsz vHAlHs: iHNtSZ = 256;
+  pHR!HNTs(vHAlHs);
+  pHR!HNTs(&vHAlHs);
+  
+  // 2. Use the address-of operator (&) to capture its reference location
+  // This verifies that your ast.ts correctly handles UnaryExpression mapping for '&'
+  lH3tsz xHs: iHNtSZ* = &vHAlHs;
+  
+  // 3. Print out the raw pointer integer value to see where the compiler stores local variables
+  pHR!HNTs(xHs);
+  pHR!HNTs(&xHs);
+
+  // 4. Double check that dereferencing the pointer brings back the original value
+  lH3tsz yHs: iHNtSZ = *xHs;
+  pHR!HNTs(yHs); // Expected: 256
+  pHR!HNTs(&yHs);
+}

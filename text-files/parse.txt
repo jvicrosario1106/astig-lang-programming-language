@@ -1,17 +1,17 @@
 AstigLang Parser Demo
 =======================
 
-Source → Lexer → Parser → AST → Type check → Interpreter
+Source → Lexer → Parser → AST → Type check → Optimizer → Interpreter
 
 Sample files:
-  1. demo-examples/math-simple-expression.stg — Simple math: id + num, id * id, num / num, modulus, string concat
-  2. demo-examples/math-complex-expression.stg — Complex math: nested ops, function calls, arrays, records, comparisons
-  3. demo-examples/logical-op-test.stg — Boolean expressions: jejemon AND, OR, NOT
-  4. demo-examples/array-test.stg — Array literals, index read/write, scan
+  1. demo-examples/heap-test.stg — Tests for heap emulator.
+  2. demo-examples/heap-test-address-of.stg — Tests for heap emulator (address of).
+  3. demo-examples/optimizer-dce-test.stg — Optimizer test
+  4. test-case/arrays.stg — Array test
 
 ========================================================================
-Example 1: demo-examples/math-simple-expression.stg
-Simple math: id + num, id * id, num / num, modulus, string concat
+Example 1: demo-examples/heap-test.stg
+Tests for heap emulator.
 ========================================================================
 
 PHASE 2 — PARSER
@@ -36,9 +36,9 @@ Parse tree:
           variableDeclaration
           (
             declarationKeyword
-            vH4rs
+            lH3tsz
           )
-          xH1s
+          xHs
           (
             typeAnnotation
             :
@@ -46,11 +46,98 @@ Parse tree:
               dataType
               iHNtSZ
             )
+            *
           )
           =
           (
             expression
-            4
+            MhaLlH0cZ
+            (
+              (
+                expression
+                32
+              )
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          assignment
+          *
+          (
+            expression
+            xHs
+          )
+          (
+            assignmentOperator
+            =
+          )
+          (
+            expression
+            42
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          printStatement
+          pHR!HNTs
+          (
+            (
+              expression
+              *
+              (
+                expression
+                xHs
+              )
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          printStatement
+          pHR!HNTs
+          (
+            (
+              expression
+              &
+              (
+                expression
+                xHs
+              )
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          memsetStatement
+          mH3msEHts
+          (
+            (
+              expression
+              xHs
+            )
+            ,
+            (
+              expression
+              0
+            )
+            ,
+            (
+              expression
+              8
+            )
           )
         )
         ;
@@ -61,9 +148,9 @@ Parse tree:
           variableDeclaration
           (
             declarationKeyword
-            vH4rs
+            lH3tsz
           )
-          yH2s
+          vHAlHs
           (
             typeAnnotation
             :
@@ -75,72 +162,42 @@ Parse tree:
           =
           (
             expression
-            3
-          )
-        )
-        ;
-      )
-      (
-        statement
-        (
-          variableDeclaration
-          (
-            declarationKeyword
-            vH4rs
-          )
-          aH1s
-          (
-            typeAnnotation
-            :
-            (
-              dataType
-              iHNtSZ
-            )
-          )
-          =
-          (
-            expression
-            (
-              expression
-              xH1s
-            )
-            +
-            (
-              expression
-              10
-            )
-          )
-        )
-        ;
-      )
-      (
-        statement
-        (
-          variableDeclaration
-          (
-            declarationKeyword
-            vH4rs
-          )
-          bH2s
-          (
-            typeAnnotation
-            :
-            (
-              dataType
-              iHNtSZ
-            )
-          )
-          =
-          (
-            expression
-            (
-              expression
-              xH1s
-            )
             *
             (
               expression
-              yH2s
+              xHs
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          printStatement
+          pHR!HNTs
+          (
+            (
+              expression
+              vHAlHs
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          printStatement
+          pHR!HNTs
+          (
+            (
+              expression
+              &
+              (
+                expression
+                vHAlHs
+              )
             )
           )
         )
@@ -152,9 +209,9 @@ Parse tree:
           variableDeclaration
           (
             declarationKeyword
-            vH4rs
+            lH3tsz
           )
-          cH3s
+          yHs
           (
             typeAnnotation
             :
@@ -162,51 +219,22 @@ Parse tree:
               dataType
               iHNtSZ
             )
+            *
           )
           =
           (
             expression
+            rH3aHLlH0cs
             (
-              expression
-              20
-            )
-            /
-            (
-              expression
-              4
-            )
-          )
-        )
-        ;
-      )
-      (
-        statement
-        (
-          variableDeclaration
-          (
-            declarationKeyword
-            vH4rs
-          )
-          dH4s
-          (
-            typeAnnotation
-            :
-            (
-              dataType
-              iHNtSZ
-            )
-          )
-          =
-          (
-            expression
-            (
-              expression
-              17
-            )
-            %
-            (
-              expression
-              5
+              (
+                expression
+                xHs
+              )
+              ,
+              (
+                expression
+                8
+              )
             )
           )
         )
@@ -215,32 +243,12 @@ Parse tree:
       (
         statement
         (
-          variableDeclaration
+          freeStatement
+          Frh3eZ
           (
-            declarationKeyword
-            vH4rs
-          )
-          mH3s
-          (
-            typeAnnotation
-            :
-            (
-              dataType
-              sTRh1Ngz
-            )
-          )
-          =
-          (
-            expression
             (
               expression
-              "score:
-              "
-            )
-            +
-            (
-              expression
-              aH1s
+              yHs
             )
           )
         )
@@ -254,63 +262,7 @@ Parse tree:
           (
             (
               expression
-              aH1s
-            )
-          )
-        )
-        ;
-      )
-      (
-        statement
-        (
-          printStatement
-          pHR!HNTs
-          (
-            (
-              expression
-              bH2s
-            )
-          )
-        )
-        ;
-      )
-      (
-        statement
-        (
-          printStatement
-          pHR!HNTs
-          (
-            (
-              expression
-              cH3s
-            )
-          )
-        )
-        ;
-      )
-      (
-        statement
-        (
-          printStatement
-          pHR!HNTs
-          (
-            (
-              expression
-              dH4s
-            )
-          )
-        )
-        ;
-      )
-      (
-        statement
-        (
-          printStatement
-          pHR!HNTs
-          (
-            (
-              expression
-              mH3s
+              yHs
             )
           )
         )
@@ -323,8 +275,8 @@ Parse tree:
 )
 
 ========================================================================
-Example 2: demo-examples/math-complex-expression.stg
-Complex math: nested ops, function calls, arrays, records, comparisons
+Example 2: demo-examples/heap-test-address-of.stg
+Tests for heap emulator (address of).
 ========================================================================
 
 PHASE 2 — PARSER
@@ -335,27 +287,212 @@ Parse tree:
 (
   program
   (
-    recordDeclaration
-    rH3cH0rHDz
-    vH3cHs
-    {
+    functionMainDeclaration
+    fHUncTH!0Ns
+    mHA1Ns
     (
-      recordFieldList
+    )
+    (
+      block
+      {
       (
-        recordField
-        yH2s
+        statement
         (
-          typeAnnotation
-          :
+          variableDeclaration
           (
-            dataType
-            iHNtSZ
+            declarationKeyword
+            lH3tsz
+          )
+          vHAlHs
+          (
+            typeAnnotation
+            :
+            (
+              dataType
+              iHNtSZ
+            )
+          )
+          =
+          (
+            expression
+            256
           )
         )
+        ;
       )
+      (
+        statement
+        (
+          printStatement
+          pHR!HNTs
+          (
+            (
+              expression
+              vHAlHs
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          printStatement
+          pHR!HNTs
+          (
+            (
+              expression
+              &
+              (
+                expression
+                vHAlHs
+              )
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          variableDeclaration
+          (
+            declarationKeyword
+            lH3tsz
+          )
+          xHs
+          (
+            typeAnnotation
+            :
+            (
+              dataType
+              iHNtSZ
+            )
+            *
+          )
+          =
+          (
+            expression
+            &
+            (
+              expression
+              vHAlHs
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          printStatement
+          pHR!HNTs
+          (
+            (
+              expression
+              xHs
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          printStatement
+          pHR!HNTs
+          (
+            (
+              expression
+              &
+              (
+                expression
+                xHs
+              )
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          variableDeclaration
+          (
+            declarationKeyword
+            lH3tsz
+          )
+          yHs
+          (
+            typeAnnotation
+            :
+            (
+              dataType
+              iHNtSZ
+            )
+          )
+          =
+          (
+            expression
+            *
+            (
+              expression
+              xHs
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          printStatement
+          pHR!HNTs
+          (
+            (
+              expression
+              yHs
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          printStatement
+          pHR!HNTs
+          (
+            (
+              expression
+              &
+              (
+                expression
+                yHs
+              )
+            )
+          )
+        )
+        ;
+      )
+      }
     )
-    }
   )
+  <EOF>
+)
+
+========================================================================
+Example 3: demo-examples/optimizer-dce-test.stg
+Optimizer test
+========================================================================
+
+PHASE 2 — PARSER
+----------------
+Syntax errors: 0
+
+Parse tree:
+(
+  program
   (
     functionDeclaration
     fHUncTH!0Ns
@@ -411,18 +548,65 @@ Parse tree:
         )
         ;
       )
+      (
+        statement
+        (
+          variableDeclaration
+          (
+            declarationKeyword
+            vH4rs
+          )
+          dHs
+          (
+            typeAnnotation
+            :
+            (
+              dataType
+              iHNtSZ
+            )
+          )
+          =
+          (
+            expression
+            4
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          printStatement
+          pHR!HNTs
+          (
+            (
+              expression
+              dHs
+            )
+          )
+        )
+        ;
+      )
       }
     )
   )
   (
-    functionDeclaration
+    functionMainDeclaration
     fHUncTH!0Ns
-    aHDs
+    mHA1Ns
     (
+    )
+    (
+      block
+      {
       (
-        parameterList
+        statement
         (
-          parameter
+          variableDeclaration
+          (
+            declarationKeyword
+            vH4rs
+          )
           xH1s
           (
             typeAnnotation
@@ -432,10 +616,22 @@ Parse tree:
               iHNtSZ
             )
           )
+          =
+          (
+            expression
+            4
+          )
         )
-        ,
+        ;
+      )
+      (
+        statement
         (
-          parameter
+          variableDeclaration
+          (
+            declarationKeyword
+            vH4rs
+          )
           yH2s
           (
             typeAnnotation
@@ -445,35 +641,117 @@ Parse tree:
               iHNtSZ
             )
           )
+          =
+          (
+            expression
+            8
+          )
         )
+        ;
       )
-    )
-    (
-      returnTypeAnnotation
-      :
-      (
-        returnDataType
-        (
-          dataType
-          iHNtSZ
-        )
-      )
-    )
-    (
-      block
-      {
       (
         statement
         (
-          returnStatement
-          rH3tHUrns
+          variableDeclaration
+          (
+            declarationKeyword
+            vH4rs
+          )
+          wHs
+          (
+            typeAnnotation
+            :
+            (
+              dataType
+              iHNtSZ
+            )
+          )
+          =
+          (
+            expression
+            yH2s
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          variableDeclaration
+          (
+            declarationKeyword
+            vH4rs
+          )
+          aH1s
+          (
+            typeAnnotation
+            :
+            (
+              dataType
+              iHNtSZ
+            )
+          )
+          =
           (
             expression
             (
               expression
-              xH1s
+              (
+                functionCall
+                dH1bHs
+                (
+                  (
+                    argumentList
+                    (
+                      expression
+                      (
+                        expression
+                        wHs
+                      )
+                      +
+                      (
+                        expression
+                        1
+                      )
+                    )
+                  )
+                )
+              )
             )
             +
+            (
+              expression
+              10
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          variableDeclaration
+          (
+            declarationKeyword
+            vH4rs
+          )
+          bH2s
+          (
+            typeAnnotation
+            :
+            (
+              dataType
+              iHNtSZ
+            )
+          )
+          =
+          (
+            expression
+            (
+              expression
+              aH1s
+            )
+            *
             (
               expression
               yH2s
@@ -482,9 +760,246 @@ Parse tree:
         )
         ;
       )
+      (
+        statement
+        (
+          variableDeclaration
+          (
+            declarationKeyword
+            vH4rs
+          )
+          yHs
+          (
+            typeAnnotation
+            :
+            (
+              dataType
+              iHNtSZ
+            )
+          )
+          =
+          (
+            expression
+            (
+              expression
+              26
+            )
+            +
+            (
+              expression
+              0
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          variableDeclaration
+          (
+            declarationKeyword
+            vH4rs
+          )
+          zHs
+          (
+            typeAnnotation
+            :
+            (
+              dataType
+              bH0oHLeaNs
+            )
+          )
+          =
+          (
+            expression
+            (
+              expression
+              (
+                (
+                  expression
+                  (
+                    expression
+                    yHs
+                  )
+                  %
+                  (
+                    expression
+                    4
+                  )
+                )
+              )
+            )
+            >
+            (
+              expression
+              1
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          variableDeclaration
+          (
+            declarationKeyword
+            vH4rs
+          )
+          cH3s
+          (
+            typeAnnotation
+            :
+            (
+              dataType
+              iHNtSZ
+            )
+          )
+          =
+          (
+            expression
+            (
+              expression
+              20
+            )
+            /
+            (
+              expression
+              4
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          ifStatement
+          !HFs
+          (
+            (
+              expression
+              zHs
+            )
+          )
+          (
+            block
+            {
+            (
+              statement
+              (
+                printStatement
+                pHR!HNTs
+                (
+                  (
+                    expression
+                    bH2s
+                  )
+                )
+              )
+              ;
+            )
+            }
+          )
+          (
+            elsePart
+            eHLSEs
+            (
+              block
+              {
+              (
+                statement
+                (
+                  variableDeclaration
+                  (
+                    declarationKeyword
+                    vH4rs
+                  )
+                  dHs
+                  (
+                    typeAnnotation
+                    :
+                    (
+                      dataType
+                      iHNtSZ
+                    )
+                  )
+                  =
+                  (
+                    expression
+                    (
+                      expression
+                      20
+                    )
+                    /
+                    (
+                      expression
+                      4
+                    )
+                  )
+                )
+                ;
+              )
+              (
+                statement
+                (
+                  printStatement
+                  pHR!HNTs
+                  (
+                    (
+                      expression
+                      (
+                        expression
+                        dHs
+                      )
+                      +
+                      (
+                        expression
+                        1
+                      )
+                    )
+                  )
+                )
+                ;
+              )
+              }
+            )
+          )
+        )
+      )
+      (
+        statement
+        (
+          printStatement
+          pHR!HNTs
+          (
+            (
+              expression
+              bH2s
+            )
+          )
+        )
+        ;
+      )
       }
     )
   )
+  <EOF>
+)
+
+========================================================================
+Example 4: test-case/arrays.stg
+Array test
+========================================================================
+
+PHASE 2 — PARSER
+----------------
+Syntax errors: 0
+
+Parse tree:
+(
+  program
   (
     functionMainDeclaration
     fHUncTH!0Ns
@@ -523,786 +1038,17 @@ Parse tree:
                 arrayElementList
                 (
                   expression
-                  2
+                  10
                 )
                 ,
                 (
                   expression
-                  4
+                  20
                 )
                 ,
                 (
                   expression
-                  6
-                )
-              )
-              ]
-            )
-          )
-        )
-        ;
-      )
-      (
-        statement
-        (
-          variableDeclaration
-          (
-            declarationKeyword
-            vH4rs
-          )
-          rH1s
-          (
-            typeAnnotation
-            :
-            (
-              dataType
-              vH3cHs
-            )
-          )
-          =
-          (
-            expression
-            (
-              recordLiteral
-              nHEWs
-              vH3cHs
-              {
-              (
-                recordLiteralFieldList
-                (
-                  recordLiteralField
-                  (
-                    assignment
-                    yH2s
-                    (
-                      assignmentOperator
-                      =
-                    )
-                    (
-                      expression
-                      3
-                    )
-                  )
-                )
-              )
-              }
-              ;
-            )
-          )
-        )
-      )
-      (
-        statement
-        (
-          variableDeclaration
-          (
-            declarationKeyword
-            vH4rs
-          )
-          fH1s
-          (
-            typeAnnotation
-            :
-            (
-              dataType
-              iHNtSZ
-            )
-          )
-          =
-          (
-            expression
-            (
-              expression
-              rH1s
-            )
-            .
-            yH2s
-          )
-        )
-        ;
-      )
-      (
-        statement
-        (
-          variableDeclaration
-          (
-            declarationKeyword
-            vH4rs
-          )
-          xH1s
-          (
-            typeAnnotation
-            :
-            (
-              dataType
-              iHNtSZ
-            )
-          )
-          =
-          (
-            expression
-            4
-          )
-        )
-        ;
-      )
-      (
-        statement
-        (
-          variableDeclaration
-          (
-            declarationKeyword
-            vH4rs
-          )
-          pH1s
-          (
-            typeAnnotation
-            :
-            (
-              dataType
-              iHNtSZ
-            )
-          )
-          =
-          (
-            expression
-            (
-              expression
-              (
-                (
-                  expression
-                  (
-                    expression
-                    xH1s
-                  )
-                  +
-                  (
-                    expression
-                    1
-                  )
-                )
-              )
-            )
-            *
-            (
-              expression
-              2
-            )
-          )
-        )
-        ;
-      )
-      (
-        statement
-        (
-          variableDeclaration
-          (
-            declarationKeyword
-            vH4rs
-          )
-          rH3s
-          (
-            typeAnnotation
-            :
-            (
-              dataType
-              iHNtSZ
-            )
-          )
-          =
-          (
-            expression
-            (
-              expression
-              (
-                expression
-                (
-                  expression
-                  (
-                    functionCall
-                    dH1bHs
-                    (
-                      (
-                        argumentList
-                        (
-                          expression
-                          5
-                        )
-                      )
-                    )
-                  )
-                )
-                +
-                (
-                  expression
-                  (
-                    expression
-                    (
-                      expression
-                      34
-                    )
-                    /
-                    (
-                      expression
-                      2
-                    )
-                  )
-                  *
-                  (
-                    expression
-                    (
-                      arrayIndexAccess
-                      aHs
-                      [
-                      (
-                        expression
-                        1
-                      )
-                      ]
-                    )
-                  )
-                )
-              )
-              +
-              (
-                expression
-                fH1s
-              )
-            )
-            +
-            (
-              expression
-              (
-                functionCall
-                aHDs
-                (
-                  (
-                    argumentList
-                    (
-                      expression
-                      pH1s
-                    )
-                    ,
-                    (
-                      expression
-                      3
-                    )
-                  )
-                )
-              )
-            )
-          )
-        )
-        ;
-      )
-      (
-        statement
-        (
-          ifStatement
-          !HFs
-          (
-            (
-              expression
-              (
-                expression
-                rH3s
-              )
-              >
-              (
-                expression
-                20
-              )
-            )
-          )
-          (
-            block
-            {
-            (
-              statement
-              (
-                printStatement
-                pHR!HNTs
-                (
-                  (
-                    expression
-                    rH3s
-                  )
-                )
-              )
-              ;
-            )
-            }
-... [79 more lines truncated]
-
-========================================================================
-Example 3: demo-examples/logical-op-test.stg
-Boolean expressions: jejemon AND, OR, NOT
-========================================================================
-
-PHASE 2 — PARSER
-----------------
-Syntax errors: 0
-
-Parse tree:
-(
-  program
-  (
-    functionMainDeclaration
-    fHUncTH!0Ns
-    mHA1Ns
-    (
-    )
-    (
-      block
-      {
-      (
-        statement
-        (
-          variableDeclaration
-          (
-            declarationKeyword
-            LheTZ
-          )
-          aHs
-          (
-            typeAnnotation
-            :
-            (
-              dataType
-              bH0oHLeaNs
-            )
-          )
-          =
-          (
-            expression
-            FhaLSeS
-          )
-        )
-        ;
-      )
-      (
-        statement
-        (
-          variableDeclaration
-          (
-            declarationKeyword
-            LheTZ
-          )
-          bHs
-          (
-            typeAnnotation
-            :
-            (
-              dataType
-              bH0oHLeaNs
-            )
-          )
-          =
-          (
-            expression
-            nH0ts
-            (
-              expression
-              (
-                (
-                  expression
-                  (
-                    expression
-                    (
-                      expression
-                      1
-                    )
-                    %
-                    (
-                      expression
-                      2
-                    )
-                  )
-                  ==
-                  (
-                    expression
-                    0
-                  )
-                )
-              )
-            )
-          )
-        )
-        ;
-      )
-      (
-        statement
-        (
-          variableDeclaration
-          (
-            declarationKeyword
-            LheTZ
-          )
-          cHs
-          (
-            typeAnnotation
-            :
-            (
-              dataType
-              bH0oHLeaNs
-            )
-          )
-          =
-          (
-            expression
-            TrU3hS
-          )
-        )
-        ;
-      )
-      (
-        statement
-        (
-          ifStatement
-          !HFs
-          (
-            (
-              expression
-              (
-                expression
-                (
-                  (
-                    expression
-                    (
-                      expression
-                      aHs
-                    )
-                    0hrS
-                    (
-                      expression
-                      bHs
-                    )
-                  )
-                )
-              )
-              aHNdz
-              (
-                expression
-                nH0ts
-                (
-                  expression
-                  cHs
-                )
-              )
-            )
-          )
-          (
-            block
-            {
-            (
-              statement
-              (
-                printStatement
-                pHR!HNTs
-                (
-                  (
-                    expression
-                    "x
-                    leads"
-                  )
-                )
-              )
-              ;
-            )
-            }
-          )
-          (
-            elsePart
-            eHLSEs
-            (
-              block
-              {
-              (
-                statement
-                (
-                  printStatement
-                  pHR!HNTs
-                  (
-                    (
-                      expression
-                      "y
-                      leads"
-                    )
-                  )
-                )
-                ;
-              )
-              }
-            )
-          )
-        )
-      )
-      (
-        statement
-        (
-          printStatement
-          pHR!HNTs
-          (
-            (
-              expression
-              aHs
-            )
-          )
-        )
-        ;
-      )
-      (
-        statement
-        (
-          printStatement
-          pHR!HNTs
-          (
-            (
-              expression
-              bHs
-            )
-          )
-        )
-        ;
-      )
-      (
-        statement
-        (
-          printStatement
-          pHR!HNTs
-          (
-            (
-              expression
-              cHs
-            )
-          )
-        )
-        ;
-      )
-      (
-        statement
-        (
-          printStatement
-          pHR!HNTs
-          (
-            (
-              expression
-              (
-                expression
-                6
-              )
-              %
-              (
-                expression
-                2
-              )
-            )
-          )
-        )
-        ;
-      )
-      }
-    )
-  )
-  <EOF>
-)
-
-========================================================================
-Example 4: demo-examples/array-test.stg
-Array literals, index read/write, scan
-========================================================================
-
-PHASE 2 — PARSER
-----------------
-Syntax errors: 0
-
-Parse tree:
-(
-  program
-  (
-    recordDeclaration
-    rH3cH0rHDz
-    vHArH1aHBlH3s
-    {
-    (
-      recordFieldList
-      (
-        recordField
-        vHArH1aHBlH3s_aHs
-        (
-          typeAnnotation
-          :
-          (
-            dataType
-            IhnTs
-          )
-        )
-      )
-      ,
-      (
-        recordField
-        vHArH1aHBlH3s_bHs
-        (
-          typeAnnotation
-          :
-          (
-            dataType
-            sTRh1Ngz
-          )
-        )
-      )
-    )
-    }
-  )
-  (
-    functionMainDeclaration
-    fHUncTH!0Ns
-    mHA1Ns
-    (
-    )
-    (
-      block
-      {
-      (
-        statement
-        (
-          variableDeclaration
-          (
-            declarationKeyword
-            LheTZ
-          )
-          mHYs_vHArH1aHBlH3s
-          (
-            typeAnnotation
-            :
-            (
-              dataType
-              vHArH1aHBlH3s
-            )
-          )
-          =
-          (
-            expression
-            (
-              recordLiteral
-              nHEWs
-              vHArH1aHBlH3s
-              {
-              (
-                recordLiteralFieldList
-                (
-                  recordLiteralField
-                  (
-                    assignment
-                    vHArH1aHBlH3s_aHs
-                    (
-                      assignmentOperator
-                      =
-                    )
-                    (
-                      expression
-                      1
-                    )
-                  )
-                )
-                ,
-                (
-                  recordLiteralField
-                  (
-                    assignment
-                    vHArH1aHBlH3s_bHs
-                    (
-                      assignmentOperator
-                      =
-                    )
-                    (
-                      expression
-                      "Sample"
-                    )
-                  )
-                )
-              )
-              }
-            )
-          )
-        )
-      )
-      (
-        statement
-        (
-          assignment
-          (
-            recordFieldAccess
-            mHYs_vHArH1aHBlH3s
-            .
-            vHArH1aHBlH3s_aHs
-          )
-          (
-            assignmentOperator
-            =
-          )
-          (
-            expression
-            2
-          )
-        )
-        ;
-      )
-      (
-        statement
-        (
-          variableDeclaration
-          (
-            declarationKeyword
-            LheTZ
-          )
-          aHs
-          (
-            typeAnnotation
-            :
-            (
-              dataType
-              IhnTs
-            )
-            [
-            ]
-          )
-          =
-          (
-            expression
-            (
-              arrayLiteral
-              [
-              (
-                arrayElementList
-                (
-                  expression
-                  1
-                )
-                ,
-                (
-                  expression
-                  2
-                )
-                ,
-                (
-                  expression
-                  3
-                )
-                ,
-                (
-                  expression
-                  4
-                )
-                ,
-                (
-                  expression
-                  5
-                )
-                ,
-                (
-                  expression
-                  6
+                  30
                 )
               )
               ]
@@ -1319,7 +1065,7 @@ Parse tree:
           [
           (
             expression
-            2
+            1
           )
           ]
           (
@@ -1328,80 +1074,10 @@ Parse tree:
           )
           (
             expression
-            6
+            25
           )
           ;
         )
-      )
-      (
-        statement
-        (
-          variableDeclaration
-          (
-            declarationKeyword
-            LheTZ
-          )
-          bHs
-          (
-            typeAnnotation
-            :
-            (
-              dataType
-              IhnTs
-            )
-          )
-          =
-          (
-            expression
-            3
-          )
-        )
-        ;
-      )
-      (
-        statement
-        (
-          assignment
-          bHs
-          (
-            assignmentOperator
-            =
-          )
-          (
-            expression
-            2
-          )
-        )
-        ;
-      )
-      (
-        statement
-        (
-          scanStatement
-          scH4nz
-          (
-            "Text
-            here:
-            "
-            ,
-            bHs
-          )
-          ;
-        )
-      )
-      (
-        statement
-        (
-          printStatement
-          pHR!HNTs
-          (
-            (
-              expression
-              bHs
-            )
-          )
-        )
-        ;
       )
       (
         statement
@@ -1435,86 +1111,54 @@ Parse tree:
             (
               expression
               (
+                arrayIndexAccess
+                aHs
+                [
+                (
+                  expression
+                  1
+                )
+                ]
+              )
+            )
+          )
+        )
+        ;
+      )
+      (
+        statement
+        (
+          printStatement
+          pHR!HNTs
+          (
+            (
+              expression
+              (
                 expression
-                mHYs_vHArH1aHBlH3s
-              )
-              .
-              vHArH1aHBlH3s_aHs
-            )
-          )
-        )
-        ;
-      )
-      (
-        statement
-        (
-          printStatement
-          pHR!HNTs
-          (
-            (
-              expression
-              (
-                arrayIndexAccess
-                aHs
-                [
                 (
-                  expression
+                  arrayIndexAccess
+                  aHs
+                  [
                   (
                     expression
-                    mHYs_vHArH1aHBlH3s
+                    0
                   )
-                  .
-                  vHArH1aHBlH3s_aHs
+                  ]
                 )
-                ]
               )
-            )
-          )
-        )
-        ;
-      )
-      (
-        statement
-        (
-          printStatement
-          pHR!HNTs
-          (
-            (
-              expression
+              +
               (
-                arrayIndexAccess
-                aHs
-                [
+                expression
                 (
-                  expression
+                  arrayIndexAccess
+                  aHs
+                  [
                   (
                     expression
-                    (
-                      expression
-                      0
-                    )
-                    +
-                    (
-                      expression
-                      (
-                        arrayIndexAccess
-                        aHs
-                        [
-                        (
-                          expression
-                          0
-                        )
-                        ]
-                      )
-                    )
+                    2
                   )
-                  +
-                  (
-                    expression
-                    bHs
-                  )
+                  ]
                 )
-                ]
               )
             )
           )

@@ -1,18 +1,18 @@
 Scanner Error Dump
 ==================
 
-File: demo-examples/math-simple-expression.stg
+File: demo-examples/heap-test.stg
 Lexical errors: 0
 No lexical errors.
 
-File: demo-examples/math-complex-expression.stg
+File: demo-examples/heap-test-address-of.stg
 Lexical errors: 0
 No lexical errors.
 
-File: demo-examples/logical-op-test.stg
+File: demo-examples/optimizer-dce-test.stg
 Lexical errors: 0
 No lexical errors.
 
-File: demo-examples/array-test.stg
+File: test-case/arrays.stg
 Lexical errors: 0
 No lexical errors.
