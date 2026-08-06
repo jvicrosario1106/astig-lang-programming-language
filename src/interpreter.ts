@@ -180,6 +180,8 @@ function executeScanStatement(
   }
 }
 
+let currentContext: ExecutionContext | null = null;
+
 /** Runs the full program and returns all printed lines in order. */
 export function runProgram(
   program: ProgramNode,
@@ -205,17 +207,21 @@ export function runProgram(
     debug,
   };
 
+  currentContext = context;
+
   heapInstance.registerGCCallback(() => {
     let header: string = "\n CRITICAL THRESHOLD HIT (>=75%)! Initiating Mark-and-Sweep...";
     let gcReport = HeapVisualizer.renderSnapshot(heapInstance, header);
-    console.log(gcReport); // Before GC Snapshot
+    //console.log(gcReport); // Before GC Snapshot
     HeapVisualizer.appendFullReport(gcReport);
 
-    MarkSweepGC.run(context);
+    if (currentContext){
+      MarkSweepGC.run(currentContext);
+    }
 
     header = " GC SWEEP COMPLETE!";
     gcReport = HeapVisualizer.renderSnapshot(heapInstance, header);
-    console.log(gcReport); // After GC Snapshot
+    //console.log(gcReport); // After GC Snapshot
     HeapVisualizer.appendFullReport(gcReport);
   });
 
@@ -296,6 +302,7 @@ export function runProgram(
 
 /** Dispatches a single statement to the appropriate runtime handler. */
 function executeStatement(statement: StatementNode, context: ExecutionContext): void {
+  currentContext = context;
   const { environment, output } = context;
   const location = statement.location;
 
@@ -762,6 +769,8 @@ function evaluateExpression(
   expression: ExpressionNode,
   context: ExecutionContext,
 ): RuntimeValue {
+  currentContext = context;
+
   switch (expression.type) {
     case ExpressionNodeType.NumberLiteral:
     case ExpressionNodeType.FloatLiteral:
