@@ -53,6 +53,11 @@ export class MarkSweepGC {
 
             const value = context.heap.get(address);
 
+            // Only traverse numbers if they are valid heap addresses (>= heapBase)
+            if (typeof value === 'number' &&  value >= context.heap.getHeapBase() &&  !context.heap.isFreed(value)) {
+                this.traverse(value, context, visited);
+            }
+
             if (typeof value === 'number' && !context.heap.isFreed(value)) {
                 this.traverse(value, context, visited);
             } 

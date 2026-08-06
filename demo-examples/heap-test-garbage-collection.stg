@@ -26,5 +26,7 @@ fHUncTH!0Ns mHA1Ns() {
     cH0uHNtH3rHs += 1;
   }
 
+  //pHR!HNTs("\n");
+  pHR!HNTs("Counter: " + cH0uHNtH3rHs);
   pHR!HNTs("Test Passed! Memory successfully reclaimed out of scope.");
 }

@@ -29,15 +29,13 @@ export interface FreeBlock {
 export class VirtualHeap implements HeapEmulator {
     // Emulated raw address space indexing
     private memory: (RuntimeValue | undefined)[] = [];
-    private readonly heapBase = 1000;
-    private nextAddress = this.heapBase; // Start at a high index to avoid zero/falsy address collisions
-
-    // Hard architectural ceiling (e.g., max array slots allowed)
-    private readonly HEAP_MAX_ADDRESS = 50000;
+    private readonly heapBase = 1000;  // Start at a high index to avoid zero/falsy address collisions
+    private nextAddress = this.heapBase;
+    private readonly HEAP_MAX_ADDRESS = 50000; // Hard architectural ceiling (e.g., max array slots allowed)
     
-    // Tracks sizes of allocated chunks for realloc/free accounting if needed
+    // Tracks active allocation block sizes: Map<startAddress, payloadSize>
     private allocations = new Map<number, number>(); 
-    private freedAllocations = new Map<number, number>();
+    //private freedAllocations = new Map<number, number>();
 
     // Active track of reusable memory gaps
     private freeList: FreeBlock[] = [];
@@ -45,7 +43,6 @@ export class VirtualHeap implements HeapEmulator {
     private isCollecting = false; 
     private gcCallback: (() => void) | null = null;
 
-    private onGarbageCollect?: () => void;
     public registerGCCallback(callback: () => void): void {
         this.gcCallback = callback;
     }
@@ -59,15 +56,19 @@ export class VirtualHeap implements HeapEmulator {
     }
 
     private getMemoryUsage(): number {
-        const HEAP_MAX_ADDRESS = 50000;
         let occupiedSlots = 0;
-
-        // Sum up the size of every active allocation block
         for (const size of this.allocations.values()) {
-            occupiedSlots += (size + 4); // Account for data size + your 4-slot safety padding
+            occupiedSlots += (size + 4);
         }
+        const totalCapacity = this.HEAP_MAX_ADDRESS - this.heapBase;
+        return occupiedSlots / totalCapacity;
+    }
 
-        return occupiedSlots / HEAP_MAX_ADDRESS;
+    getRaw(address: number): RuntimeValue | undefined {
+        if (address < this.heapBase || address >= this.HEAP_MAX_ADDRESS || this.isFreed(address)) {
+            return undefined;
+        }
+        return this.memory[address];
     }
 
     set(address: RuntimeValue, value: RuntimeValue): void {
@@ -76,7 +77,7 @@ export class VirtualHeap implements HeapEmulator {
         if (this.isFreed(idx)) {
             throw new Error(`Segmentation fault: Attempted write to dangling pointer at address ${idx}`);
         }
-        if (idx >= this.HEAP_MAX_ADDRESS) {
+        if (idx >= this.HEAP_MAX_ADDRESS || idx < this.heapBase) {
             throw new Error(`Segmentation fault: Out of bounds memory write at address ${idx}`);
         }
 
@@ -88,7 +89,7 @@ export class VirtualHeap implements HeapEmulator {
         if (this.isFreed(idx)) {
             throw new Error(`Segmentation fault: Attempted read from dangling pointer at address ${idx}`);
         }
-        if (idx >= this.HEAP_MAX_ADDRESS) {
+        if (idx >= this.HEAP_MAX_ADDRESS || idx < this.heapBase) {
             throw new Error(`Segmentation fault: Out of bounds memory read at address ${idx}`);
         }
 
@@ -131,7 +132,6 @@ export class VirtualHeap implements HeapEmulator {
                 }
 
                 this.allocations.set(allocatedAddr, size);
-                this.freedAllocations.delete(allocatedAddr);
 
                 for (let j = 0; j < size; j++) {
                     this.memory[allocatedAddr + j] = undefined; 
@@ -152,10 +152,9 @@ export class VirtualHeap implements HeapEmulator {
 
         allocatedAddr = this.nextAddress;
         this.allocations.set(allocatedAddr, size);
-        // Safety step: ensure it's not marked as freed if addresses shift
-        //this.freedAllocations.delete(addr);
         
         this.nextAddress += requiredTotal; // Padding to catch simple buffer overruns
+        
         // -- Visualize the heap --
         let heapLog = HeapVisualizer.renderSnapshot(this, '', allocatedAddr, size);
         //console.log(heapLog);
@@ -175,19 +174,34 @@ export class VirtualHeap implements HeapEmulator {
 
         const totalSizeWithPadding = size + 4;
 
-        // Register the dead address space into the reuse list
-        this.freeList.push({ address, size: totalSizeWithPadding });
-        // Coalesce continuous free blocks to avoid fragmentation (Optional but recommended)
-        this.freeList.sort((a, b) => a.address - b.address);
-        
-        for (let i = 0; i < size; i++) {
+        // Clear memory slots across payload and padding
+        for (let i = 0; i < totalSizeWithPadding; i++) {
             this.memory[address + i] = undefined;
         }
-        this.freedAllocations.set(address, size);
-        this.allocations.delete(address);
 
-        for (let i = 0; i < size; i++) {
-            this.memory[address + i] = undefined;
+        this.allocations.delete(address);
+        // Register the dead address space into the reuse list
+        this.freeList.push({ address, size: totalSizeWithPadding });
+
+        // Coalesce continuous free blocks to avoid fragmentation (Optional but recommended)
+        this.coalesceFreeList();
+    }
+
+    private coalesceFreeList(): void {
+        if (this.freeList.length <= 1) return;
+
+        this.freeList.sort((a, b) => a.address - b.address);
+
+        for (let i = 0; i < this.freeList.length - 1; i++) {
+            const current = this.freeList[i];
+            const next = this.freeList[i + 1];
+
+            // Merge if end of current touches start of next
+            if (current.address + current.size === next.address) {
+                current.size += next.size;
+                this.freeList.splice(i + 1, 1);
+                i--; // Check merged block against subsequent block
+            }
         }
     }
 
@@ -212,15 +226,15 @@ export class VirtualHeap implements HeapEmulator {
     }
 
     isFreed(address: number): boolean {
-        // Checks if the given address falls within any block that was freed
-        for (const [freedAddr, size] of this.freedAllocations.entries()) {
-            // We can't query allocations map directly because the size was deleted[cite: 3]
-            // But we know standard padding boundaries or can infer the fault if it hits the base address
-            if (address >= freedAddr && address < freedAddr + size) {
-                return true;
+        // Active allocations are never freed
+        for (const [allocAddr, size] of this.allocations.entries()) {
+            if (address >= allocAddr && address < allocAddr + size + 4) {
+                return false;
             }
         }
-        return false;
+        
+        // Any address previously reached by bump allocation that is no longer active is freed
+        return address >= this.heapBase && address < this.nextAddress;
     }
 
     getMaxAddress(): number { return this.HEAP_MAX_ADDRESS; }
