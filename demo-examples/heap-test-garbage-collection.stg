@@ -2,11 +2,13 @@ fHUncTH!0Ns mHA1Ns() {
   lH3tsz cH0uHNtH3rHs: iHNtSZ = 0;
   pHR!HNTs("Starting automatic scoping GC integration test...");
 
+  pHR!HNTs("Address of counter: " + &cH0uHNtH3rHs);
+
   // Running 6,000 iterations.
   // Each iteration allocates 10 slots + 4 bytes padding = 14 slots.
   // 6,000 * 14 = 84,000 slots total.
   // Since HEAP_MAX_ADDRESS is 50,000, this MUST crash if GC fails.
-  WhiLeZ (cH0uHNtH3rHs < 6000) {
+  WhiLeZ (cH0uHNtH3rHs < 1000) {
     
     // --- NESTED BLOCK SCOPE START ---
     {
@@ -14,7 +16,8 @@ fHUncTH!0Ns mHA1Ns() {
       // The variable 'tempPtr' only exists inside this block environment!
       lH3tsz tH3mHPs: iHNtSZ* = MhaLlH0cZ(100);
 
-      pHR!HNTs(tH3mHPs);
+      pHR!HNTs("Address of temp: " + &tH3mHPs);
+      pHR!HNTs("Allocated address of temp: " + tH3mHPs);
       
       // Do minor operations so it isn't optimized out
       //mH3msEHts(tH3mHPs, 0, 10);

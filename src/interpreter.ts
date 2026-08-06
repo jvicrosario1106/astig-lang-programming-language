@@ -40,7 +40,7 @@ import {
   StatementNode,
   StatementNodeType,
 } from './models/StatementNode';
-import { resolveParameterType, resolveVariableDeclarationType, formatResolvedType } from './utils/astigTypeUtils';
+import { resolveParameterType, resolveVariableDeclarationType, formatResolvedType, parseDeclaredType, resolveDataType, expressionTypeToResolved } from './utils/astigTypeUtils';
 import { isTruthy } from './utils/isTruthy';
 import { withModuleFunctions, findFunctionInModules } from './utils/moduleScope';
 import {
@@ -60,6 +60,9 @@ import {
   MAIN_FUNCTION_NAME,
   RuntimeDebugSession,
 } from './classes/RuntimeDebugger';
+import { collapseTextChangeRangesAcrossMultipleVersions } from 'typescript';
+
+//import { getTypeSize } from './models/ResolvedType';
 
 export type ExecutionContext = {
   environment: RuntimeEnvironment;
@@ -300,6 +303,47 @@ export function runProgram(
   return output;
 }
 
+// Infers the type automatically from your resolution utility
+type ResolvedType = ReturnType<typeof resolveVariableDeclarationType>;
+
+function getTypeSize(type: ResolvedType, recordRegistry?: RecordRegistry, arrayLength: number = 0): number {
+  if (!type) return 1;
+
+  switch (type.kind) {
+    case 'primitive':
+      switch (type.type) {
+        case AstigType.Float:
+          return 2; // 64-bit floating point (2 x 32-bit slots)
+        case AstigType.Void:
+          return 0; // Void declarations take 0 stack/heap space
+        case AstigType.Int:
+        case AstigType.Char:
+        case AstigType.Boolean:
+        case AstigType.String: // Pointer reference to string buffer
+        case AstigType.Any:
+        default:
+          return 1; // Standard 32-bit slot
+      }
+
+    case 'record':
+      // Dynamically size based on registered field count instead of hardcoding
+      if (recordRegistry) {
+        const fields = recordRegistry.getFields(type.name);
+        return fields.reduce((total, field) => total + getTypeSize(expressionTypeToResolved(parseDeclaredType(field.declaredType)), recordRegistry), 0);
+      }
+      return 1; // Default pointer slot
+
+    case 'array':
+      const elementSlotSize = getTypeSize(expressionTypeToResolved(parseDeclaredType(type.elementType)), recordRegistry);
+      const headerSlots = 1; // Slot reserved for storing array length metadata
+
+      return arrayLength * elementSlotSize + headerSlots;
+
+    default:
+      return 1;
+  }
+}
+
 /** Dispatches a single statement to the appropriate runtime handler. */
 function executeStatement(statement: StatementNode, context: ExecutionContext): void {
   currentContext = context;
@@ -334,7 +378,12 @@ function executeStatement(statement: StatementNode, context: ExecutionContext): 
 
         if (statement.value) {
           const initialValue = evaluateExpression(statement.value, context);
-          const addr = context.heap.malloc(1);
+          const itemCount = Array.isArray(initialValue) ? initialValue.length : 0;
+
+          // Dynamically size the heap allocation by variable type
+          const allocationSize = getTypeSize(resolvedType, context.recordRegistry, itemCount);
+
+          const addr = context.heap.malloc(allocationSize);
           context.heap.set(addr, initialValue);
 
           environment.declare(
